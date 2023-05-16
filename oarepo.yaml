@@ -13,7 +13,7 @@ sites:
     create_pipenv_in_site: 'yes'
     init_database: 'yes'
     repository_name: Molecular-Biophysics-Database
-    site_dir: sites/mbdb
+    site_dir: sites/mbdb-site
     site_package: mbdb_site
     site_pipenv_dir: sites/mbdb/.venv
     transifex_project: mbdb
