@@ -5,6 +5,25 @@ config:
   primary_site_name: mbdb
   project_package: app
   python: python3.9
+models:
+  mbdb-mst:
+    author_email: miroslav.simek@cesnet.cz
+    author_name: Miroslav Simek
+    installation_site: mbdb-site
+    model_dir: models/mbdb-mst
+    model_kind: empty
+    model_package: mbdb_mst
+    permissions_presets: read_only
+    pid_type: mst
+    run_tests: skip
+    update_opensearch: run
+    use_custom_fields: 'yes'
+    use_drafts: 'no'
+    use_expandable_fields: 'no'
+    use_files: 'yes'
+    use_relations: 'yes'
+    use_requests: 'no'
+    use_vocabularies: 'yes'
 sites:
   mbdb-site:
     author_email: miroslav.simek@cesnet.cz
