@@ -15,7 +15,7 @@ sites:
     repository_name: Molecular-Biophysics-Database
     site_dir: sites/mbdb-site
     site_package: mbdb_site
-    site_pipenv_dir: sites/mbdb/.venv
+    site_pipenv_dir: sites/mbdb-site/.venv
     transifex_project: mbdb
     use_oarepo_vocabularies: 'yes'
     www: https://mbdb.eu/
