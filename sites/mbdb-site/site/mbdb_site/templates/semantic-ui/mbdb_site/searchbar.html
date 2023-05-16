@@ -6,21 +6,11 @@
             "title": _("In this community"),
             "value": url_for("invenio_communities.communities_detail", pid_value=community.slug),
         },
-        {
-            "key": "docs",
-            "text": _("in") ~ " " ~ _("All document records"),
-            "title": _("All document records"),
-            "value": url_for("docs-app.search"),
-        }]
+	]
      %}
     {% else %}
     {% set options = [
-              {
-                "key": "docs",
-                "title": _("All document records"),
-                "text": _("in") ~ " " ~ _("All document records"),
-                "value": url_for("docs-app.search")
-              }]
+	]
       %}
     {% endif %}
     <div class="item p-0 search-bar rel-mr-1">
@@ -35,3 +25,13 @@
     </div>
 
     </div>
+
+
+{#
+        {
+            "key": "docs",
+            "text": _("in") ~ " " ~ _("All document records"),
+            "title": _("All document records"),
+            "value": url_for("docs-app.search"),
+        }
+#}

@@ -14,7 +14,7 @@ mbdb-site = {editable="True", path="./site"}
 uwsgi = ">=2.0"
 uwsgitop = ">=0.11"
 uwsgi-tools = ">=1.1.1"
-oarepo-vocabularies = ">=1.0.0"
+# oarepo-vocabularies = ">=1.0.0"
 
 
 
