@@ -2051,11 +2051,12 @@ $defs:
   - ./definitions.yaml
 record:
   module:
-    qualified: mbdb.mst
+    qualified: mbdb_mst
   permissions:
     presets:
     - read_only
-  pid-type: mst
+  pid:
+    type: mst
   plugins:
     builder:
       disable:
@@ -2118,9 +2119,9 @@ record:
               help.en: Which type of signal was measured
               type: keyword
         use: ./metadata.yaml
-  use: invenio
+  use: 
+  - invenio
+  - ./files.yaml
 settings:
   i18n-languages:
   - en
-use:
-- ./files.yaml
