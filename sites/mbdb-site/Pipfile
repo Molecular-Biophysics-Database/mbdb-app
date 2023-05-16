@@ -18,6 +18,9 @@ oarepo-vocabularies = ">=1.0.0"
 
 
 
+
+mbdb-mst = {editable = true, path = "../../models/mbdb-mst"} # Added by nrp-cli
+
 [requires]
 # python_version = "3.9"    -- version check removed as we would like to be able to try tests for python3.10+
 
