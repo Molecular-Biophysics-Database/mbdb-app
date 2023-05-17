@@ -1,6 +1,6 @@
 # development version of docker
 version: '2.2'
-name: nr-docs-devel
+name: mbdb-site-devel
 services:
   cache:
     extends:
