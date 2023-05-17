@@ -40,3 +40,7 @@ sites:
     www: https://mbdb.eu/
     year: '2023'
 type: monorepo
+ui:
+  mst-ui:
+    model_name: mbdb-mst
+    url_prefix: /mst/
