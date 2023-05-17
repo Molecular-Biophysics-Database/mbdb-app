@@ -5,7 +5,6 @@ from invenio_records_resources.services import (
 from invenio_records_resources.services import pagination_links
 from invenio_records_resources.services.records.components import (
     DataComponent,
-    FilesOptionsComponent,
 )
 from oarepo_runtime.config.service import PermissionsPresetsConfigMixin
 
@@ -20,7 +19,7 @@ from mbdb_mst.services.records.schema import MbdbMstSchema
 class MbdbMstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordServiceConfig):
     """MbdbMstRecord service config."""
 
-    PERMISSIONS_PRESETS = ["read_only"]
+    PERMISSIONS_PRESETS = ["everyone"]
 
     url_prefix = "/mbdb-mst/"
 
@@ -38,7 +37,6 @@ class MbdbMstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordServiceCo
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordServiceConfig.components,
-        FilesOptionsComponent,
         DataComponent,
     ]
 
