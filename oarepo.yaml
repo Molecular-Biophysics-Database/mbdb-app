@@ -20,10 +20,10 @@ models:
     use_custom_fields: 'yes'
     use_drafts: 'no'
     use_expandable_fields: 'no'
-    use_files: 'yes'
+    use_files: 'no'
     use_relations: 'yes'
     use_requests: 'no'
-    use_vocabularies: 'yes'
+    use_vocabularies: 'no'
 sites:
   mbdb-site:
     author_email: miroslav.simek@cesnet.cz
