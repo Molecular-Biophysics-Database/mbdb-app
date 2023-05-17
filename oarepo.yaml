@@ -42,5 +42,18 @@ sites:
 type: monorepo
 ui:
   mst-ui:
+    cookiecutter_api_service: mbdb_mst
+    cookiecutter_app_name: mst-ui
+    cookiecutter_app_package: mst_ui
+    cookiecutter_author: Miroslav Simek
+    cookiecutter_author_email: miroslav.simek@cesnet.cz
+    cookiecutter_ext_name: MstUiExtension
+    cookiecutter_local_model_path: ../../models/mbdb-mst
+    cookiecutter_model_package: mbdb_mst
+    cookiecutter_repository_url: ''
+    cookiecutter_resource: MstUiResource
+    cookiecutter_resource_config: MstUiResourceConfig
+    cookiecutter_ui_record_serializer_class: mbdb_mst.resources.records.ui.MbdbMstUIJSONSerializer
     model_name: mbdb-mst
+    ui_dir: ui/mst-ui
     url_prefix: /mst/
