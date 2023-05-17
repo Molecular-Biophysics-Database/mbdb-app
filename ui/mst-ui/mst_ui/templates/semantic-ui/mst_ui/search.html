@@ -1,0 +1,15 @@
+{%- extends config.BASE_TEMPLATE %}
+{%- set title = _("Search results") ~ " | " ~ _("NR Document repository") %}
+
+{%- block javascript %}
+    {{ super() }}
+    {{ webpack['mst_ui_components.js']}}
+    {{ webpack['mst_ui_components.css']}}
+    {{ webpack['mst_ui_search.js'] }}
+{%- endblock %}
+
+{%- block page_body %}
+<div class="ui main container">
+  <div data-invenio-search-config='{{ search_app_config(app_id="MstUi.Search") | tojson }}'></div>
+</div>
+{%- endblock page_body %}

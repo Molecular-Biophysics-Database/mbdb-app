@@ -21,6 +21,9 @@ uwsgi-tools = ">=1.1.1"
 
 mbdb-mst = {editable = true, path = "../../models/mbdb-mst"} # Added by nrp-cli
 
+
+mst-ui = {editable = true, path = "../../ui/mst-ui"} # Added by nrp-cli
+
 [requires]
 # python_version = "3.9"    -- version check removed as we would like to be able to try tests for python3.10+
 

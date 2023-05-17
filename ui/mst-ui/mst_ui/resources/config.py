@@ -16,5 +16,5 @@ class MstUiResourceConfig(RecordsUIResourceConfig):
                 "record_sidebar": "mst_ui/sidebar.html"                
             },
         },
-        "search": {"layout": "oarepo_ui/search.html.jinja2"},
+        "search": {"layout": "mst_ui/search.html"},
     }
