@@ -66,6 +66,18 @@ just reload the page.
 
 If you get manifest error during reload, wait a few seconds and try again.
 
+## Initial data
+
+The repository is currently set to be without authentication.
+To import a record via API, call:
+
+```bash
+curl -k -X POST \
+     -H "content-type: application/json" \
+     https://localhost:5000/api/mbdb-mst/ \
+     -d @data/mst_test_001.json
+```
+
 ## Directory structure
 
 | Directory       | Comment                               |
