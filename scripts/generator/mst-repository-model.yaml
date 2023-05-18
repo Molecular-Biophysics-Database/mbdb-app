@@ -1,0 +1,17 @@
+author_email: miroslav.simek@cesnet.cz
+author_name: Miroslav Simek
+installation_site: mbdb-site
+model_dir: models/mbdb-mst
+model_kind: empty
+model_package: mbdb_mst
+permissions_presets: read_only
+run_tests: skip
+update_opensearch: run
+use_custom_fields: 'yes'
+use_expandable_fields: 'no'
+use_drafts: 'no'
+use_files: 'no'
+use_relations: 'yes'
+use_requests: 'no'
+use_vocabularies: 'no'
+pid_type: mst
