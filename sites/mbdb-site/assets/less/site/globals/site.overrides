@@ -1,5 +1,5 @@
 header.oarepo {
-    background-color: rgba(13, 95, 137, 0.8);
+    background-color: @topMenuColor;
 
     .ui.menu {
         border: none;

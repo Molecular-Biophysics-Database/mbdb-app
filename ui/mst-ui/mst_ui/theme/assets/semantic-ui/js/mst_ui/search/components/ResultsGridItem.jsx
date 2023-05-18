@@ -3,17 +3,11 @@ import { withState } from "react-searchkit";
 
 // TODO: Update this according to the full List item template?
 export const ResultsGridItem = ({ result }) => {
-  const descriptionStripped = _get(
-    result,
-    "ui.description_stripped",
-    "No description"
-  );
   return (
     <Card fluid href={`/docs/${result.links.self}`}>
       <Card.Content>
-        <Card.Header>{result.metadata.title}</Card.Header>
+        <Card.Header>{result.metadata.record.title}</Card.Header>
         <Card.Description>
-          {_truncate(descriptionStripped, { length: 200 })}
         </Card.Description>
       </Card.Content>
     </Card>
