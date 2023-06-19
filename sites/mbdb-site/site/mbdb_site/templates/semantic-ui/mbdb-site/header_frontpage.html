@@ -6,4 +6,8 @@
 {%- block navbar %}
 {{ super() }}
 
+<a href="{{url_for('invenio_oauthclient.login', remote_app='orcid')}}">
+    Sign in with ORCID
+</a>
+
 {% endblock %}
