@@ -2,7 +2,7 @@
 
 def create_api_blueprint(app):
     """Create MbdbMstRecord blueprint."""
-    blueprint = app.extensions["mbdb_mst"].resource.as_blueprint()
+    blueprint = app.extensions["mbdb_mst"].resource_records.as_blueprint()
     blueprint.record_once(init_create_api_blueprint)
 
     # calls record_once for all other functions starting with "init_addons_"
@@ -26,9 +26,14 @@ def init_create_api_blueprint(state):
 
     # register service
     sregistry = app.extensions["invenio-records-resources"].registry
-    sregistry.register(ext.service, service_id="mbdb_mst")
+    sregistry.register(
+        ext.service_records, service_id=ext.service_records.config.service_id
+    )
 
     # Register indexer
-    if hasattr(ext.service, "indexer"):
+    if hasattr(ext.service_records, "indexer"):
         iregistry = app.extensions["invenio-indexer"].registry
-        iregistry.register(ext.service.indexer, indexer_id="mbdb_mst")
+        iregistry.register(
+            ext.service_records.indexer,
+            indexer_id=ext.service_records.config.service_id,
+        )

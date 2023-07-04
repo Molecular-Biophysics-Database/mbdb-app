@@ -5,15 +5,14 @@ from invenio_records_resources.services import (
 from invenio_records_resources.services import pagination_links
 from invenio_records_resources.services.records.components import (
     DataComponent,
+    FilesOptionsComponent,
 )
 from oarepo_runtime.config.service import PermissionsPresetsConfigMixin
 
 from mbdb_mst.records.api import MbdbMstRecord
 from mbdb_mst.services.records.permissions import MbdbMstPermissionPolicy
 from mbdb_mst.services.records.schema import MbdbMstSchema
-
-# TODO: waiting for search
-# from mbdb_mst.services.records.search import MbdbMstSearchOptions
+from mbdb_mst.services.records.search import MbdbMstSearchOptions
 
 
 class MbdbMstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordServiceConfig):
@@ -27,8 +26,7 @@ class MbdbMstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordServiceCo
 
     schema = MbdbMstSchema
 
-    # TODO: waiting for search
-    # search = MbdbMstSearchOptions
+    search = MbdbMstSearchOptions
 
     record_cls = MbdbMstRecord
 
@@ -37,6 +35,7 @@ class MbdbMstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordServiceCo
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordServiceConfig.components,
+        FilesOptionsComponent,
         DataComponent,
     ]
 

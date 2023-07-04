@@ -1,9 +1,4 @@
 default_context:
-  invenio_cli: .venv/invenio-cli/bin/invenio-cli
-  oarepo_cli: .venv/nrp-cli/bin/nrp-cli
-  packaging: single
-  primary_site_name: mbdb
-  project_package: app
   python: python3.9
-  repo_human_name: app
-  repo_name: app
+  repo_human_name: mbdb-app
+  repo_name: mbdb-app

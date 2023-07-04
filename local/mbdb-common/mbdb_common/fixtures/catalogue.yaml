@@ -1,0 +1,7 @@
+vocabulary-affiliations:
+  - writer: vocabulary
+    vocabulary: affiliations
+    pid_type: v-aff
+    title:
+      en: Affiliations
+  - source: affiliations.yaml
