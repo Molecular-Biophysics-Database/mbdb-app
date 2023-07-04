@@ -1,4 +1,80 @@
-id: biocev
-title:
-  en: BIOCEV
 ---
+id: 019wvm592
+title:
+  en: Australian National University
+props:
+  city: Canberra
+  state: Australian Capital Territory
+  country: Australia
+---
+id: 02bfwt286
+title:
+  en: Monash University
+props:
+  city: Melbourne
+  state: Victoria
+  country: Australia
+---
+id: 00rqy9422
+title:
+  en: University of Queensland
+props:
+  city: Brisbane
+  state: Queensland
+  country: Australia
+---
+id: 01sf06y89
+title:
+  en: Macquarie University
+props:
+  city: Sydney
+  state: New South Wales
+  country: Australia
+---
+id: 00jtmb277
+title:
+  en: University of Wollongong
+props:
+  city: Wollongong
+  state: New South Wales
+  country: Australia
+---
+id: 01ej9dk98
+title:
+  en: University of Melbourne
+props:
+  city: Melbourne
+  state: Victoria
+  country: Australia
+---
+id: 01nfmeh72
+title:
+  en: University of Tasmania
+props:
+  city: Hobart
+  state: Tasmania
+  country: Australia
+---
+id: 00892tw58
+title:
+  en: University of Adelaide
+props:
+  city: Adelaide
+  state: South Australia
+  country: Australia
+---
+id: 01kpzv902
+title:
+  en: Flinders University
+props:
+  city: Adelaide
+  state: South Australia
+  country: Australia
+---
+id: 04ttjf776
+title:
+  en: RMIT University
+props:
+  city: Melbourne
+  state: Victoria
+  country: Australia

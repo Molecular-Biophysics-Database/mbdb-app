@@ -1,0 +1,60 @@
+---
+id: '1'
+title:
+  en: root
+props:
+  rank: no rank
+---
+id: '10239'
+title:
+  en: Viruses
+props:
+  rank: superkingdom
+---
+id: '131567'
+title:
+  en: cellular organisms
+props:
+  rank: no rank
+---
+id: '2787823'
+title:
+  en: unclassified entries
+props:
+  rank: no rank
+---
+id: '2787854'
+title:
+  en: other entries
+props:
+  rank: no rank
+---
+id: '10472'
+title:
+  en: Plasmaviridae
+props:
+  rank: family
+---
+id: '10474'
+title:
+  en: Fuselloviridae
+props:
+  rank: family
+---
+id: '10556'
+title:
+  en: Rhizidiovirus
+props:
+  rank: genus
+---
+id: '12333'
+title:
+  en: unclassified bacterial viruses
+props:
+  rank: no rank
+---
+id: '12429'
+title:
+  en: unclassified viruses
+props:
+  rank: no rank
