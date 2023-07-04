@@ -1,0 +1,3 @@
+/* see https://semantic-ui.com/usage/theming.html */
+
+@topMenuColor: rgba(13, 95, 137, 0.8);
