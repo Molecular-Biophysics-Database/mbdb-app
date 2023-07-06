@@ -75,3 +75,9 @@ pdm.lock
 
 .cookiecutters/*
 
+# editor support
+/package.json
+/tsconfig.json
+/jsconfig.json
+/.assets
+/node_modules
