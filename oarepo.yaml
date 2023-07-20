@@ -1,6 +1,6 @@
 config:
   oarepo_cli: .venv/nrp/bin/nrp
-  python: python3.9
+  python: python3.10
   sites:
   - mbdb-site
 local:
@@ -20,8 +20,7 @@ models:
     permissions_preset: everyone
     pid_type: mst
     run_tests: skip
-    sites:
-    - mbdb-site
+    sites: []
     update_opensearch: run
     use_custom_fields: 'yes'
     use_docs: 'no'
