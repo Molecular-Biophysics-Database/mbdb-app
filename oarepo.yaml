@@ -10,8 +10,6 @@ local:
     local_dir: local/mbdb-common
     sites:
     - mbdb-site
-    - mbdb-site
-    - mbdb-site
 models:
   mbdb-mst:
     author_email: Emildandanell.agerschou@ibt.cas.cz
