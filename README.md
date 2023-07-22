@@ -37,4 +37,5 @@ nrp oarepo fixtures load --no-system-fixtures ../../sample_data
 5. if you added your custom configuration to invenio.cfg, comment it out temporarily.
 6. run `nrp build` - should not fail as it will skip the not-found directories
 7. clone mbdb model inside the same directory where the app is
-8. call `nrp model add mbdb-mst --use ../`
+8. call `nrp model add mbdb-mst --use ../mbdb-model/models/oarepo/MST.yaml`
+9. 
