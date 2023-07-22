@@ -30,6 +30,9 @@ nrp oarepo fixtures load --no-system-fixtures ../../sample_data
 
 ## Installation from scratch (models etc.)
 
+**Note:** different database migrations might be generated. If you already have some data that need to be kept,
+backup the contents of alembic directory and restore it after model compile.
+
 1. remove the containers as they might be incompatible
 2. remove .venv, sites/mbdb-site/.venv (just to be sure there are no obsolete packages)
 3. remove all the models inside the models directory (and back up and remove all the uis)
