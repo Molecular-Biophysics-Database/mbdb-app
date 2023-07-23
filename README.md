@@ -47,4 +47,7 @@ backup the contents of alembic directory and restore it after model compile.
 9. call `nrp model add mbdb-mst --use ../mbdb-model/models/oarepo/MST.yaml`
 10. call `nrp model compile mbdb-mst`. If you've saved alembic, put it back now into the generated sources
 11. call `nrp model install mbdb-mst`
-12. 
+12. call `nrp oarepo fixtures load` to load the fixtures contained in `local/mbdb-common/mbdb_common/fixtures`
+12. call `nrp oarepo fixtures load --no-system-fixtures $PWD/sample_data/mst` to import sample data for mst
+    (note: nrp runs the command internally inside the site directory, so need to use $PWD or ../.. here)
+13. call `nrp develop` and have a look at `https://localhost:5000/api/mbdb-mst`
