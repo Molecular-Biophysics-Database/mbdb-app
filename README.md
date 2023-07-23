@@ -30,6 +30,8 @@ nrp oarepo fixtures load --no-system-fixtures ../../sample_data
 
 ## Installation from scratch (models etc.)
 
+Recommendation: run outside of docker for this
+
 **Note:** different database migrations might be generated. If you already have some data that need to be kept,
 backup the contents of alembic directory and restore it after model compile.
 
@@ -38,7 +40,11 @@ backup the contents of alembic directory and restore it after model compile.
 3. remove all the models inside the models directory (and back up and remove all the uis)
 4. remove requirements.txt to get rid of cached requirements
 5. if you added your custom configuration to invenio.cfg, comment it out temporarily.
-6. run `nrp build` - should not fail as it will skip the not-found directories
-7. clone mbdb model inside the same directory where the app is
-8. call `nrp model add mbdb-mst --use ../mbdb-model/models/oarepo/MST.yaml`
-9. 
+6. run `nrp build` - should not fail as it will skip the not-found directories 
+7. call `nrp develop`, wait for the server to start up (you might want to check that homepage can be opened) 
+   and shut it down. This will create the database and initialize all the containers
+8. clone mbdb model inside the same directory where the app is
+9. call `nrp model add mbdb-mst --use ../mbdb-model/models/oarepo/MST.yaml`
+10. call `nrp model compile mbdb-mst`. If you've saved alembic, put it back now into the generated sources
+11. call `nrp model install mbdb-mst`
+12. 
