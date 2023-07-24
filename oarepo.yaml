@@ -22,7 +22,7 @@ models:
     permissions_preset: everyone
     permissions_presets: read_only
     pid_type: mst
-    run_tests: skip
+    run_tests: run
     sites:
     - mbdb-site
     update_opensearch: run
