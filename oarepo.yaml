@@ -53,6 +53,24 @@ sites:
     year: '2023'
 type: monorepo
 ui:
+  mbdb-mst:
+    cookiecutter_api_service: mbdb_mst
+    cookiecutter_app_name: mbdb-mst
+    cookiecutter_app_package: mbdb_mst
+    cookiecutter_author: Emil Dandanell Agerschou
+    cookiecutter_author_email: Emildandanell.agerschou@ibt.cas.cz
+    cookiecutter_ext_name: MbdbMstExtension
+    cookiecutter_local_model_path: ../../models/mbdb-mst
+    cookiecutter_model_package: mbdb_mst
+    cookiecutter_repository_url: ''
+    cookiecutter_resource: MbdbMstResource
+    cookiecutter_resource_config: MbdbMstResourceConfig
+    cookiecutter_ui_record_serializer_class: mbdb_mst.resources.records.ui.MbdbMstUIJSONSerializer
+    model_name: mbdb-mst
+    sites:
+    - mbdb-site
+    ui_dir: ui/mbdb-mst
+    url_prefix: /mbdb-mst/
   mbdb_mst_ui:
     cookiecutter_api_service: mbdb_mst
     cookiecutter_app_name: mbdb_mst_ui
