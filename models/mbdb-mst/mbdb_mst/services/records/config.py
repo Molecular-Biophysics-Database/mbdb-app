@@ -36,7 +36,7 @@ class MbdbMstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordServiceCo
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordServiceConfig.components,
         DataComponent,
-        FilesOptionsComponent,
+        #FilesOptionsComponent,
     ]
 
     model = "mbdb_mst"
@@ -44,7 +44,7 @@ class MbdbMstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordServiceCo
     @property
     def links_item(self):
         return {
-            "files": RecordLink("{self.url_prefix}{id}/files"),
+            #"files": RecordLink("{self.url_prefix}{id}/files"),
             "self": RecordLink("{self.url_prefix}{id}"),
         }
 
