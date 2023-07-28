@@ -53,38 +53,20 @@ sites:
     year: '2023'
 type: monorepo
 ui:
-  mbdb-mst:
-    cookiecutter_api_service: mbdb_mst
-    cookiecutter_app_name: mbdb-mst
-    cookiecutter_app_package: mbdb_mst
+  mbdb-mst-ui:
+    cookiecutter_api_service: mbdb_mst_ui
+    cookiecutter_app_name: mbdb-mst-ui
+    cookiecutter_app_package: mbdb_mst_ui
     cookiecutter_author: Emil Dandanell Agerschou
     cookiecutter_author_email: Emildandanell.agerschou@ibt.cas.cz
     cookiecutter_ext_name: MbdbMstExtension
     cookiecutter_local_model_path: ../../models/mbdb-mst
-    cookiecutter_model_package: mbdb_mst
+    cookiecutter_model_package: mbdb_mst_ui
     cookiecutter_repository_url: ''
-    cookiecutter_resource: MbdbMstResource
-    cookiecutter_resource_config: MbdbMstResourceConfig
+    cookiecutter_resource: MbdbMstUIResource
+    cookiecutter_resource_config: MbdbMstUIResourceConfig
     cookiecutter_ui_record_serializer_class: mbdb_mst.resources.records.ui.MbdbMstUIJSONSerializer
     model_name: mbdb-mst
     sites: []
-    ui_dir: ui/mbdb-mst
-    url_prefix: /mbdb-mst/
-  mbdb_mst_ui:
-    cookiecutter_api_service: mbdb_mst
-    cookiecutter_app_name: mbdb_mst_ui
-    cookiecutter_app_package: mbdb_mst_ui
-    cookiecutter_author: ''
-    cookiecutter_author_email: ''
-    cookiecutter_ext_name: MbdbMstUiExtension
-    cookiecutter_local_model_path: ../../models/mbdb-mst
-    cookiecutter_model_package: mbdb_mst
-    cookiecutter_repository_url: ''
-    cookiecutter_resource: MbdbMstUiResource
-    cookiecutter_resource_config: MbdbMstUiResourceConfig
-    cookiecutter_ui_record_serializer_class: mbdb_mst.resources.records.ui.MbdbMstUIJSONSerializer
-    model_name: mbdb-mst
-    sites:
-    - mbdb-site
-    ui_dir: ui/mbdb_mst_ui
+    ui_dir: ui/mbdb-mst-ui
     url_prefix: /mst/
