@@ -75,12 +75,6 @@ pdm.lock
 
 .cookiecutters/*
 
-
-mesemus
-10:26 AM
-
-If you can these:
-
 # editor support
 /package.json
 /tsconfig.json
