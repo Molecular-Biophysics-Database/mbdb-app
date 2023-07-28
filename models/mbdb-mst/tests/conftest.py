@@ -123,8 +123,3 @@ def client_with_credentials(db, client, user, role, sample_metadata_list):
     login_user_via_session(client, email=user.email)
 
     return client
-
-
-@pytest.fixture(scope="module", autouse=True)
-def location(location):
-    return location

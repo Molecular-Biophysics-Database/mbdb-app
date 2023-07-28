@@ -1,8 +1,4 @@
 {
-    "settings": {
-        "index.mapping.total_fields.limit": 3000,
-        "index.mapping.nested_fields.limit": 200
-    },
     "mappings": {
         "properties": {
             "$schema": {
@@ -10,7 +6,7 @@
             },
             "created": {
                 "type": "date",
-                "format": "strict_date_time||strict_date_time_no_millis||basic_date_time||basic_date_time_no_millis||basic_date||strict_date"
+                "format": "strict_date_time||strict_date_time_no_millis||basic_date_time||basic_date_time_no_millis||basic_date||strict_date||strict_date_hour_minute_second||strict_date_hour_minute_second_fraction"
             },
             "id": {
                 "type": "keyword"
@@ -50,6 +46,15 @@
                                                                     }
                                                                 },
                                                                 "type": "object"
+                                                            },
+                                                            "city": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "state": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "country": {
+                                                                "type": "keyword"
                                                             },
                                                             "@v": {
                                                                 "type": "keyword"
@@ -107,6 +112,15 @@
                                                                     }
                                                                 },
                                                                 "type": "object"
+                                                            },
+                                                            "city": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "state": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "country": {
+                                                                "type": "keyword"
                                                             },
                                                             "@v": {
                                                                 "type": "keyword"
@@ -200,39 +214,28 @@
                                                     "expression_organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "nested",
-                                                                "properties": {
-                                                                    "class": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "domain": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "genus": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "kingdom": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "order": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "phylum": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "realm": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "species": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "strain": {
-                                                                        "type": "keyword"
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
                                                                     }
-                                                                }
+                                                                },
+                                                                "type": "keyword"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "dynamic": true,
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "type": "search_as_you_type",
+                                                                        "copy_to": "title_sort"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "@v": {
                                                                 "type": "keyword"
                                                             }
                                                         }
@@ -320,39 +323,28 @@
                                                     "organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "nested",
-                                                                "properties": {
-                                                                    "class": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "domain": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "genus": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "kingdom": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "order": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "phylum": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "realm": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "species": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "strain": {
-                                                                        "type": "keyword"
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
                                                                     }
-                                                                }
+                                                                },
+                                                                "type": "keyword"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "dynamic": true,
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "type": "search_as_you_type",
+                                                                        "copy_to": "title_sort"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "@v": {
                                                                 "type": "keyword"
                                                             }
                                                         }
@@ -572,39 +564,28 @@
                                                             "expression_organism": {
                                                                 "type": "object",
                                                                 "properties": {
-                                                                    "additional_taxonomic_information": {
-                                                                        "type": "nested",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "keyword"
+                                                                    "id": {
+                                                                        "fields": {
+                                                                            "text": {
+                                                                                "type": "search_as_you_type"
                                                                             }
-                                                                        }
+                                                                        },
+                                                                        "type": "keyword"
                                                                     },
-                                                                    "ncbi_taxid": {
+                                                                    "title": {
+                                                                        "dynamic": true,
+                                                                        "properties": {
+                                                                            "en": {
+                                                                                "type": "search_as_you_type",
+                                                                                "copy_to": "title_sort"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "keyword"
+                                                                    },
+                                                                    "@v": {
                                                                         "type": "keyword"
                                                                     }
                                                                 }
@@ -692,39 +673,28 @@
                                                             "organism": {
                                                                 "type": "object",
                                                                 "properties": {
-                                                                    "additional_taxonomic_information": {
-                                                                        "type": "nested",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "keyword"
+                                                                    "id": {
+                                                                        "fields": {
+                                                                            "text": {
+                                                                                "type": "search_as_you_type"
                                                                             }
-                                                                        }
+                                                                        },
+                                                                        "type": "keyword"
                                                                     },
-                                                                    "ncbi_taxid": {
+                                                                    "title": {
+                                                                        "dynamic": true,
+                                                                        "properties": {
+                                                                            "en": {
+                                                                                "type": "search_as_you_type",
+                                                                                "copy_to": "title_sort"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "keyword"
+                                                                    },
+                                                                    "@v": {
                                                                         "type": "keyword"
                                                                     }
                                                                 }
@@ -935,9 +905,6 @@
                                                     "health_status": {
                                                         "type": "keyword"
                                                     },
-                                                    "id": {
-                                                        "type": "keyword"
-                                                    },
                                                     "storage": {
                                                         "type": "object",
                                                         "properties": {
@@ -1046,39 +1013,28 @@
                                                     "host_organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "nested",
-                                                                "properties": {
-                                                                    "class": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "domain": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "genus": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "kingdom": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "order": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "phylum": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "realm": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "species": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "strain": {
-                                                                        "type": "keyword"
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
                                                                     }
-                                                                }
+                                                                },
+                                                                "type": "keyword"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "dynamic": true,
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "type": "search_as_you_type",
+                                                                        "copy_to": "title_sort"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "@v": {
                                                                 "type": "keyword"
                                                             }
                                                         }
@@ -1126,39 +1082,28 @@
                                                                     "expression_organism": {
                                                                         "type": "object",
                                                                         "properties": {
-                                                                            "additional_taxonomic_information": {
-                                                                                "type": "nested",
-                                                                                "properties": {
-                                                                                    "class": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "domain": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "genus": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "kingdom": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "order": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "phylum": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "realm": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "species": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "strain": {
-                                                                                        "type": "keyword"
+                                                                            "id": {
+                                                                                "fields": {
+                                                                                    "text": {
+                                                                                        "type": "search_as_you_type"
                                                                                     }
-                                                                                }
+                                                                                },
+                                                                                "type": "keyword"
                                                                             },
-                                                                            "ncbi_taxid": {
+                                                                            "title": {
+                                                                                "dynamic": true,
+                                                                                "properties": {
+                                                                                    "en": {
+                                                                                        "type": "search_as_you_type",
+                                                                                        "copy_to": "title_sort"
+                                                                                    }
+                                                                                },
+                                                                                "type": "object"
+                                                                            },
+                                                                            "rank": {
+                                                                                "type": "keyword"
+                                                                            },
+                                                                            "@v": {
                                                                                 "type": "keyword"
                                                                             }
                                                                         }
@@ -1246,39 +1191,28 @@
                                                                     "organism": {
                                                                         "type": "object",
                                                                         "properties": {
-                                                                            "additional_taxonomic_information": {
-                                                                                "type": "nested",
-                                                                                "properties": {
-                                                                                    "class": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "domain": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "genus": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "kingdom": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "order": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "phylum": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "realm": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "species": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "strain": {
-                                                                                        "type": "keyword"
+                                                                            "id": {
+                                                                                "fields": {
+                                                                                    "text": {
+                                                                                        "type": "search_as_you_type"
                                                                                     }
-                                                                                }
+                                                                                },
+                                                                                "type": "keyword"
                                                                             },
-                                                                            "ncbi_taxid": {
+                                                                            "title": {
+                                                                                "dynamic": true,
+                                                                                "properties": {
+                                                                                    "en": {
+                                                                                        "type": "search_as_you_type",
+                                                                                        "copy_to": "title_sort"
+                                                                                    }
+                                                                                },
+                                                                                "type": "object"
+                                                                            },
+                                                                            "rank": {
+                                                                                "type": "keyword"
+                                                                            },
+                                                                            "@v": {
                                                                                 "type": "keyword"
                                                                             }
                                                                         }
@@ -1635,39 +1569,28 @@
                                                     "expression_organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "nested",
-                                                                "properties": {
-                                                                    "class": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "domain": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "genus": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "kingdom": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "order": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "phylum": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "realm": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "species": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "strain": {
-                                                                        "type": "keyword"
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
                                                                     }
-                                                                }
+                                                                },
+                                                                "type": "keyword"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "dynamic": true,
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "type": "search_as_you_type",
+                                                                        "copy_to": "title_sort"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "@v": {
                                                                 "type": "keyword"
                                                             }
                                                         }
@@ -1755,39 +1678,28 @@
                                                     "organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "nested",
-                                                                "properties": {
-                                                                    "class": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "domain": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "genus": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "kingdom": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "order": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "phylum": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "realm": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "species": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "strain": {
-                                                                        "type": "keyword"
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
                                                                     }
-                                                                }
+                                                                },
+                                                                "type": "keyword"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "dynamic": true,
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "type": "search_as_you_type",
+                                                                        "copy_to": "title_sort"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "@v": {
                                                                 "type": "keyword"
                                                             }
                                                         }
@@ -2007,39 +1919,28 @@
                                                             "expression_organism": {
                                                                 "type": "object",
                                                                 "properties": {
-                                                                    "additional_taxonomic_information": {
-                                                                        "type": "nested",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "keyword"
+                                                                    "id": {
+                                                                        "fields": {
+                                                                            "text": {
+                                                                                "type": "search_as_you_type"
                                                                             }
-                                                                        }
+                                                                        },
+                                                                        "type": "keyword"
                                                                     },
-                                                                    "ncbi_taxid": {
+                                                                    "title": {
+                                                                        "dynamic": true,
+                                                                        "properties": {
+                                                                            "en": {
+                                                                                "type": "search_as_you_type",
+                                                                                "copy_to": "title_sort"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "keyword"
+                                                                    },
+                                                                    "@v": {
                                                                         "type": "keyword"
                                                                     }
                                                                 }
@@ -2127,39 +2028,28 @@
                                                             "organism": {
                                                                 "type": "object",
                                                                 "properties": {
-                                                                    "additional_taxonomic_information": {
-                                                                        "type": "nested",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "keyword"
+                                                                    "id": {
+                                                                        "fields": {
+                                                                            "text": {
+                                                                                "type": "search_as_you_type"
                                                                             }
-                                                                        }
+                                                                        },
+                                                                        "type": "keyword"
                                                                     },
-                                                                    "ncbi_taxid": {
+                                                                    "title": {
+                                                                        "dynamic": true,
+                                                                        "properties": {
+                                                                            "en": {
+                                                                                "type": "search_as_you_type",
+                                                                                "copy_to": "title_sort"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "keyword"
+                                                                    },
+                                                                    "@v": {
                                                                         "type": "keyword"
                                                                     }
                                                                 }
@@ -2382,39 +2272,28 @@
                                             "expression_organism": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "additional_taxonomic_information": {
-                                                        "type": "nested",
-                                                        "properties": {
-                                                            "class": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "domain": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "genus": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "kingdom": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "order": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "phylum": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "realm": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "species": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "strain": {
-                                                                "type": "keyword"
+                                                    "id": {
+                                                        "fields": {
+                                                            "text": {
+                                                                "type": "search_as_you_type"
                                                             }
-                                                        }
+                                                        },
+                                                        "type": "keyword"
                                                     },
-                                                    "ncbi_taxid": {
+                                                    "title": {
+                                                        "dynamic": true,
+                                                        "properties": {
+                                                            "en": {
+                                                                "type": "search_as_you_type",
+                                                                "copy_to": "title_sort"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "rank": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "@v": {
                                                         "type": "keyword"
                                                     }
                                                 }
@@ -2505,39 +2384,28 @@
                                             "organism": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "additional_taxonomic_information": {
-                                                        "type": "nested",
-                                                        "properties": {
-                                                            "class": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "domain": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "genus": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "kingdom": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "order": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "phylum": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "realm": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "species": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "strain": {
-                                                                "type": "keyword"
+                                                    "id": {
+                                                        "fields": {
+                                                            "text": {
+                                                                "type": "search_as_you_type"
                                                             }
-                                                        }
+                                                        },
+                                                        "type": "keyword"
                                                     },
-                                                    "ncbi_taxid": {
+                                                    "title": {
+                                                        "dynamic": true,
+                                                        "properties": {
+                                                            "en": {
+                                                                "type": "search_as_you_type",
+                                                                "copy_to": "title_sort"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "rank": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "@v": {
                                                         "type": "keyword"
                                                     }
                                                 }
@@ -2757,39 +2625,28 @@
                                                     "expression_organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "nested",
-                                                                "properties": {
-                                                                    "class": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "domain": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "genus": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "kingdom": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "order": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "phylum": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "realm": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "species": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "strain": {
-                                                                        "type": "keyword"
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
                                                                     }
-                                                                }
+                                                                },
+                                                                "type": "keyword"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "dynamic": true,
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "type": "search_as_you_type",
+                                                                        "copy_to": "title_sort"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "@v": {
                                                                 "type": "keyword"
                                                             }
                                                         }
@@ -2877,39 +2734,28 @@
                                                     "organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "nested",
-                                                                "properties": {
-                                                                    "class": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "domain": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "genus": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "kingdom": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "order": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "phylum": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "realm": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "species": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "strain": {
-                                                                        "type": "keyword"
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
                                                                     }
-                                                                }
+                                                                },
+                                                                "type": "keyword"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "dynamic": true,
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "type": "search_as_you_type",
+                                                                        "copy_to": "title_sort"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "@v": {
                                                                 "type": "keyword"
                                                             }
                                                         }
@@ -3108,48 +2954,6 @@
                                                     }
                                                 }
                                             },
-                                            "concentration": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "obtained_by": {
-                                                        "type": "keyword"
-                                                    },
-                                                    "obtained_protocol": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "description": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "name": {
-                                                                "type": "keyword"
-                                                            }
-                                                        }
-                                                    },
-                                                    "unit": {
-                                                        "type": "keyword"
-                                                    },
-                                                    "value": {
-                                                        "type": "double"
-                                                    },
-                                                    "value_error": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "error_level": {
-                                                                "type": "double"
-                                                            },
-                                                            "errors_are_relative": {
-                                                                "type": "boolean"
-                                                            },
-                                                            "lower_error": {
-                                                                "type": "double"
-                                                            },
-                                                            "upper_error": {
-                                                                "type": "double"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            },
                                             "derived_from": {
                                                 "type": "keyword"
                                             },
@@ -3270,39 +3074,28 @@
                                             "host_organism": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "additional_taxonomic_information": {
-                                                        "type": "nested",
-                                                        "properties": {
-                                                            "class": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "domain": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "genus": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "kingdom": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "order": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "phylum": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "realm": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "species": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "strain": {
-                                                                "type": "keyword"
+                                                    "id": {
+                                                        "fields": {
+                                                            "text": {
+                                                                "type": "search_as_you_type"
                                                             }
-                                                        }
+                                                        },
+                                                        "type": "keyword"
                                                     },
-                                                    "ncbi_taxid": {
+                                                    "title": {
+                                                        "dynamic": true,
+                                                        "properties": {
+                                                            "en": {
+                                                                "type": "search_as_you_type",
+                                                                "copy_to": "title_sort"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "rank": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "@v": {
                                                         "type": "keyword"
                                                     }
                                                 }
@@ -3350,39 +3143,28 @@
                                                             "expression_organism": {
                                                                 "type": "object",
                                                                 "properties": {
-                                                                    "additional_taxonomic_information": {
-                                                                        "type": "nested",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "keyword"
+                                                                    "id": {
+                                                                        "fields": {
+                                                                            "text": {
+                                                                                "type": "search_as_you_type"
                                                                             }
-                                                                        }
+                                                                        },
+                                                                        "type": "keyword"
                                                                     },
-                                                                    "ncbi_taxid": {
+                                                                    "title": {
+                                                                        "dynamic": true,
+                                                                        "properties": {
+                                                                            "en": {
+                                                                                "type": "search_as_you_type",
+                                                                                "copy_to": "title_sort"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "keyword"
+                                                                    },
+                                                                    "@v": {
                                                                         "type": "keyword"
                                                                     }
                                                                 }
@@ -3470,39 +3252,28 @@
                                                             "organism": {
                                                                 "type": "object",
                                                                 "properties": {
-                                                                    "additional_taxonomic_information": {
-                                                                        "type": "nested",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "keyword"
+                                                                    "id": {
+                                                                        "fields": {
+                                                                            "text": {
+                                                                                "type": "search_as_you_type"
                                                                             }
-                                                                        }
+                                                                        },
+                                                                        "type": "keyword"
                                                                     },
-                                                                    "ncbi_taxid": {
+                                                                    "title": {
+                                                                        "dynamic": true,
+                                                                        "properties": {
+                                                                            "en": {
+                                                                                "type": "search_as_you_type",
+                                                                                "copy_to": "title_sort"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "keyword"
+                                                                    },
+                                                                    "@v": {
                                                                         "type": "keyword"
                                                                     }
                                                                 }
@@ -3758,6 +3529,15 @@
                                                         },
                                                         "type": "object"
                                                     },
+                                                    "city": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "state": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "country": {
+                                                        "type": "keyword"
+                                                    },
                                                     "@v": {
                                                         "type": "keyword"
                                                     }
@@ -3795,6 +3575,15 @@
                                                         },
                                                         "type": "object"
                                                     },
+                                                    "city": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "state": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "country": {
+                                                        "type": "keyword"
+                                                    },
                                                     "@v": {
                                                         "type": "keyword"
                                                     }
@@ -3831,6 +3620,15 @@
                                                             }
                                                         },
                                                         "type": "object"
+                                                    },
+                                                    "city": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "state": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "country": {
+                                                        "type": "keyword"
                                                     },
                                                     "@v": {
                                                         "type": "keyword"
@@ -3909,13 +3707,28 @@
                             "funding_reference": {
                                 "type": "object",
                                 "properties": {
-                                    "award_number": {
+                                    "id": {
+                                        "fields": {
+                                            "text": {
+                                                "type": "search_as_you_type"
+                                            }
+                                        },
                                         "type": "keyword"
+                                    },
+                                    "title": {
+                                        "dynamic": true,
+                                        "properties": {
+                                            "en": {
+                                                "type": "search_as_you_type",
+                                                "copy_to": "title_sort"
+                                            }
+                                        },
+                                        "type": "object"
                                     },
                                     "funder_name": {
                                         "type": "keyword"
                                     },
-                                    "funding_program": {
+                                    "@v": {
                                         "type": "keyword"
                                     }
                                 }
@@ -3964,6 +3777,15 @@
                                                                             }
                                                                         },
                                                                         "type": "object"
+                                                                    },
+                                                                    "city": {
+                                                                        "type": "keyword"
+                                                                    },
+                                                                    "state": {
+                                                                        "type": "keyword"
+                                                                    },
+                                                                    "country": {
+                                                                        "type": "keyword"
                                                                     },
                                                                     "@v": {
                                                                         "type": "keyword"
@@ -4100,39 +3922,28 @@
                                                     "expression_organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "nested",
-                                                                "properties": {
-                                                                    "class": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "domain": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "genus": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "kingdom": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "order": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "phylum": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "realm": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "species": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "strain": {
-                                                                        "type": "keyword"
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
                                                                     }
-                                                                }
+                                                                },
+                                                                "type": "keyword"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "dynamic": true,
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "type": "search_as_you_type",
+                                                                        "copy_to": "title_sort"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "@v": {
                                                                 "type": "keyword"
                                                             }
                                                         }
@@ -4220,39 +4031,28 @@
                                                     "organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "nested",
-                                                                "properties": {
-                                                                    "class": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "domain": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "genus": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "kingdom": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "order": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "phylum": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "realm": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "species": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "strain": {
-                                                                        "type": "keyword"
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
                                                                     }
-                                                                }
+                                                                },
+                                                                "type": "keyword"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "dynamic": true,
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "type": "search_as_you_type",
+                                                                        "copy_to": "title_sort"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "@v": {
                                                                 "type": "keyword"
                                                             }
                                                         }
@@ -4472,39 +4272,28 @@
                                                             "expression_organism": {
                                                                 "type": "object",
                                                                 "properties": {
-                                                                    "additional_taxonomic_information": {
-                                                                        "type": "nested",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "keyword"
+                                                                    "id": {
+                                                                        "fields": {
+                                                                            "text": {
+                                                                                "type": "search_as_you_type"
                                                                             }
-                                                                        }
+                                                                        },
+                                                                        "type": "keyword"
                                                                     },
-                                                                    "ncbi_taxid": {
+                                                                    "title": {
+                                                                        "dynamic": true,
+                                                                        "properties": {
+                                                                            "en": {
+                                                                                "type": "search_as_you_type",
+                                                                                "copy_to": "title_sort"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "keyword"
+                                                                    },
+                                                                    "@v": {
                                                                         "type": "keyword"
                                                                     }
                                                                 }
@@ -4592,39 +4381,28 @@
                                                             "organism": {
                                                                 "type": "object",
                                                                 "properties": {
-                                                                    "additional_taxonomic_information": {
-                                                                        "type": "nested",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "keyword"
+                                                                    "id": {
+                                                                        "fields": {
+                                                                            "text": {
+                                                                                "type": "search_as_you_type"
                                                                             }
-                                                                        }
+                                                                        },
+                                                                        "type": "keyword"
                                                                     },
-                                                                    "ncbi_taxid": {
+                                                                    "title": {
+                                                                        "dynamic": true,
+                                                                        "properties": {
+                                                                            "en": {
+                                                                                "type": "search_as_you_type",
+                                                                                "copy_to": "title_sort"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "keyword"
+                                                                    },
+                                                                    "@v": {
                                                                         "type": "keyword"
                                                                     }
                                                                 }
@@ -4835,9 +4613,6 @@
                                                     "health_status": {
                                                         "type": "keyword"
                                                     },
-                                                    "id": {
-                                                        "type": "keyword"
-                                                    },
                                                     "storage": {
                                                         "type": "object",
                                                         "properties": {
@@ -4946,39 +4721,28 @@
                                                     "host_organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "nested",
-                                                                "properties": {
-                                                                    "class": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "domain": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "genus": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "kingdom": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "order": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "phylum": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "realm": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "species": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "strain": {
-                                                                        "type": "keyword"
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
                                                                     }
-                                                                }
+                                                                },
+                                                                "type": "keyword"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "dynamic": true,
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "type": "search_as_you_type",
+                                                                        "copy_to": "title_sort"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "@v": {
                                                                 "type": "keyword"
                                                             }
                                                         }
@@ -5026,39 +4790,28 @@
                                                                     "expression_organism": {
                                                                         "type": "object",
                                                                         "properties": {
-                                                                            "additional_taxonomic_information": {
-                                                                                "type": "nested",
-                                                                                "properties": {
-                                                                                    "class": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "domain": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "genus": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "kingdom": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "order": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "phylum": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "realm": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "species": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "strain": {
-                                                                                        "type": "keyword"
+                                                                            "id": {
+                                                                                "fields": {
+                                                                                    "text": {
+                                                                                        "type": "search_as_you_type"
                                                                                     }
-                                                                                }
+                                                                                },
+                                                                                "type": "keyword"
                                                                             },
-                                                                            "ncbi_taxid": {
+                                                                            "title": {
+                                                                                "dynamic": true,
+                                                                                "properties": {
+                                                                                    "en": {
+                                                                                        "type": "search_as_you_type",
+                                                                                        "copy_to": "title_sort"
+                                                                                    }
+                                                                                },
+                                                                                "type": "object"
+                                                                            },
+                                                                            "rank": {
+                                                                                "type": "keyword"
+                                                                            },
+                                                                            "@v": {
                                                                                 "type": "keyword"
                                                                             }
                                                                         }
@@ -5146,39 +4899,28 @@
                                                                     "organism": {
                                                                         "type": "object",
                                                                         "properties": {
-                                                                            "additional_taxonomic_information": {
-                                                                                "type": "nested",
-                                                                                "properties": {
-                                                                                    "class": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "domain": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "genus": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "kingdom": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "order": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "phylum": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "realm": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "species": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "strain": {
-                                                                                        "type": "keyword"
+                                                                            "id": {
+                                                                                "fields": {
+                                                                                    "text": {
+                                                                                        "type": "search_as_you_type"
                                                                                     }
-                                                                                }
+                                                                                },
+                                                                                "type": "keyword"
                                                                             },
-                                                                            "ncbi_taxid": {
+                                                                            "title": {
+                                                                                "dynamic": true,
+                                                                                "properties": {
+                                                                                    "en": {
+                                                                                        "type": "search_as_you_type",
+                                                                                        "copy_to": "title_sort"
+                                                                                    }
+                                                                                },
+                                                                                "type": "object"
+                                                                            },
+                                                                            "rank": {
+                                                                                "type": "keyword"
+                                                                            },
+                                                                            "@v": {
                                                                                 "type": "keyword"
                                                                             }
                                                                         }
@@ -5466,39 +5208,28 @@
                                                     "expression_organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "nested",
-                                                                "properties": {
-                                                                    "class": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "domain": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "genus": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "kingdom": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "order": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "phylum": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "realm": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "species": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "strain": {
-                                                                        "type": "keyword"
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
                                                                     }
-                                                                }
+                                                                },
+                                                                "type": "keyword"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "dynamic": true,
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "type": "search_as_you_type",
+                                                                        "copy_to": "title_sort"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "@v": {
                                                                 "type": "keyword"
                                                             }
                                                         }
@@ -5586,39 +5317,28 @@
                                                     "organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "nested",
-                                                                "properties": {
-                                                                    "class": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "domain": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "genus": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "kingdom": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "order": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "phylum": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "realm": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "species": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "strain": {
-                                                                        "type": "keyword"
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
                                                                     }
-                                                                }
+                                                                },
+                                                                "type": "keyword"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "dynamic": true,
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "type": "search_as_you_type",
+                                                                        "copy_to": "title_sort"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "@v": {
                                                                 "type": "keyword"
                                                             }
                                                         }
@@ -5838,39 +5558,28 @@
                                                             "expression_organism": {
                                                                 "type": "object",
                                                                 "properties": {
-                                                                    "additional_taxonomic_information": {
-                                                                        "type": "nested",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "keyword"
+                                                                    "id": {
+                                                                        "fields": {
+                                                                            "text": {
+                                                                                "type": "search_as_you_type"
                                                                             }
-                                                                        }
+                                                                        },
+                                                                        "type": "keyword"
                                                                     },
-                                                                    "ncbi_taxid": {
+                                                                    "title": {
+                                                                        "dynamic": true,
+                                                                        "properties": {
+                                                                            "en": {
+                                                                                "type": "search_as_you_type",
+                                                                                "copy_to": "title_sort"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "keyword"
+                                                                    },
+                                                                    "@v": {
                                                                         "type": "keyword"
                                                                     }
                                                                 }
@@ -5958,39 +5667,28 @@
                                                             "organism": {
                                                                 "type": "object",
                                                                 "properties": {
-                                                                    "additional_taxonomic_information": {
-                                                                        "type": "nested",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "keyword"
+                                                                    "id": {
+                                                                        "fields": {
+                                                                            "text": {
+                                                                                "type": "search_as_you_type"
                                                                             }
-                                                                        }
+                                                                        },
+                                                                        "type": "keyword"
                                                                     },
-                                                                    "ncbi_taxid": {
+                                                                    "title": {
+                                                                        "dynamic": true,
+                                                                        "properties": {
+                                                                            "en": {
+                                                                                "type": "search_as_you_type",
+                                                                                "copy_to": "title_sort"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "keyword"
+                                                                    },
+                                                                    "@v": {
                                                                         "type": "keyword"
                                                                     }
                                                                 }
@@ -6425,6 +6123,15 @@
                                                                 },
                                                                 "type": "object"
                                                             },
+                                                            "city": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "state": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "country": {
+                                                                "type": "keyword"
+                                                            },
                                                             "@v": {
                                                                 "type": "keyword"
                                                             }
@@ -6785,8 +6492,12 @@
             },
             "updated": {
                 "type": "date",
-                "format": "strict_date_time||strict_date_time_no_millis||basic_date_time||basic_date_time_no_millis||basic_date||strict_date"
+                "format": "strict_date_time||strict_date_time_no_millis||basic_date_time||basic_date_time_no_millis||basic_date||strict_date||strict_date_hour_minute_second||strict_date_hour_minute_second_fraction"
             }
         }
+    },
+    "settings": {
+        "index.mapping.total_fields.limit": 3000,
+        "index.mapping.nested_fields.limit": 200
     }
 }

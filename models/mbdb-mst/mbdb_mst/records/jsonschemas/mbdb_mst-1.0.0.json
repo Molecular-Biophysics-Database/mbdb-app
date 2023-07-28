@@ -41,6 +41,15 @@
                                                                     "title": {
                                                                         "type": "object"
                                                                     },
+                                                                    "city": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "state": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "country": {
+                                                                        "type": "string"
+                                                                    },
                                                                     "@v": {
                                                                         "type": "string"
                                                                     }
@@ -95,6 +104,15 @@
                                                                 },
                                                                 "title": {
                                                                     "type": "object"
+                                                                },
+                                                                "city": {
+                                                                    "type": "string"
+                                                                },
+                                                                "state": {
+                                                                    "type": "string"
+                                                                },
+                                                                "country": {
+                                                                    "type": "string"
                                                                 },
                                                                 "@v": {
                                                                     "type": "string"
@@ -206,42 +224,16 @@
                                                         "expression_organism": {
                                                             "type": "object",
                                                             "properties": {
-                                                                "additional_taxonomic_information": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "string"
-                                                                            }
-                                                                        }
-                                                                    }
+                                                                "id": {
+                                                                    "type": "string"
                                                                 },
-                                                                "ncbi_taxid": {
+                                                                "title": {
+                                                                    "type": "object"
+                                                                },
+                                                                "rank": {
+                                                                    "type": "string"
+                                                                },
+                                                                "@v": {
                                                                     "type": "string"
                                                                 }
                                                             }
@@ -350,42 +342,16 @@
                                                         "organism": {
                                                             "type": "object",
                                                             "properties": {
-                                                                "additional_taxonomic_information": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "string"
-                                                                            }
-                                                                        }
-                                                                    }
+                                                                "id": {
+                                                                    "type": "string"
                                                                 },
-                                                                "ncbi_taxid": {
+                                                                "title": {
+                                                                    "type": "object"
+                                                                },
+                                                                "rank": {
+                                                                    "type": "string"
+                                                                },
+                                                                "@v": {
                                                                     "type": "string"
                                                                 }
                                                             }
@@ -631,42 +597,16 @@
                                                                     "expression_organism": {
                                                                         "type": "object",
                                                                         "properties": {
-                                                                            "additional_taxonomic_information": {
-                                                                                "type": "array",
-                                                                                "items": {
-                                                                                    "type": "object",
-                                                                                    "properties": {
-                                                                                        "class": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "domain": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "genus": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "kingdom": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "order": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "phylum": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "realm": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "species": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "strain": {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    }
-                                                                                }
+                                                                            "id": {
+                                                                                "type": "string"
                                                                             },
-                                                                            "ncbi_taxid": {
+                                                                            "title": {
+                                                                                "type": "object"
+                                                                            },
+                                                                            "rank": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "@v": {
                                                                                 "type": "string"
                                                                             }
                                                                         }
@@ -775,42 +715,16 @@
                                                                     "organism": {
                                                                         "type": "object",
                                                                         "properties": {
-                                                                            "additional_taxonomic_information": {
-                                                                                "type": "array",
-                                                                                "items": {
-                                                                                    "type": "object",
-                                                                                    "properties": {
-                                                                                        "class": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "domain": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "genus": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "kingdom": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "order": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "phylum": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "realm": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "species": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "strain": {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    }
-                                                                                }
+                                                                            "id": {
+                                                                                "type": "string"
                                                                             },
-                                                                            "ncbi_taxid": {
+                                                                            "title": {
+                                                                                "type": "object"
+                                                                            },
+                                                                            "rank": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "@v": {
                                                                                 "type": "string"
                                                                             }
                                                                         }
@@ -1040,9 +954,6 @@
                                                         "health_status": {
                                                             "type": "string"
                                                         },
-                                                        "id": {
-                                                            "type": "string"
-                                                        },
                                                         "storage": {
                                                             "type": "object",
                                                             "properties": {
@@ -1154,42 +1065,16 @@
                                                         "host_organism": {
                                                             "type": "object",
                                                             "properties": {
-                                                                "additional_taxonomic_information": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "string"
-                                                                            }
-                                                                        }
-                                                                    }
+                                                                "id": {
+                                                                    "type": "string"
                                                                 },
-                                                                "ncbi_taxid": {
+                                                                "title": {
+                                                                    "type": "object"
+                                                                },
+                                                                "rank": {
+                                                                    "type": "string"
+                                                                },
+                                                                "@v": {
                                                                     "type": "string"
                                                                 }
                                                             }
@@ -1245,42 +1130,16 @@
                                                                             "expression_organism": {
                                                                                 "type": "object",
                                                                                 "properties": {
-                                                                                    "additional_taxonomic_information": {
-                                                                                        "type": "array",
-                                                                                        "items": {
-                                                                                            "type": "object",
-                                                                                            "properties": {
-                                                                                                "class": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "domain": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "genus": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "kingdom": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "order": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "phylum": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "realm": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "species": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "strain": {
-                                                                                                    "type": "string"
-                                                                                                }
-                                                                                            }
-                                                                                        }
+                                                                                    "id": {
+                                                                                        "type": "string"
                                                                                     },
-                                                                                    "ncbi_taxid": {
+                                                                                    "title": {
+                                                                                        "type": "object"
+                                                                                    },
+                                                                                    "rank": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "@v": {
                                                                                         "type": "string"
                                                                                     }
                                                                                 }
@@ -1389,42 +1248,16 @@
                                                                             "organism": {
                                                                                 "type": "object",
                                                                                 "properties": {
-                                                                                    "additional_taxonomic_information": {
-                                                                                        "type": "array",
-                                                                                        "items": {
-                                                                                            "type": "object",
-                                                                                            "properties": {
-                                                                                                "class": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "domain": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "genus": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "kingdom": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "order": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "phylum": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "realm": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "species": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "strain": {
-                                                                                                    "type": "string"
-                                                                                                }
-                                                                                            }
-                                                                                        }
+                                                                                    "id": {
+                                                                                        "type": "string"
                                                                                     },
-                                                                                    "ncbi_taxid": {
+                                                                                    "title": {
+                                                                                        "type": "object"
+                                                                                    },
+                                                                                    "rank": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "@v": {
                                                                                         "type": "string"
                                                                                     }
                                                                                 }
@@ -1806,42 +1639,16 @@
                                                         "expression_organism": {
                                                             "type": "object",
                                                             "properties": {
-                                                                "additional_taxonomic_information": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "string"
-                                                                            }
-                                                                        }
-                                                                    }
+                                                                "id": {
+                                                                    "type": "string"
                                                                 },
-                                                                "ncbi_taxid": {
+                                                                "title": {
+                                                                    "type": "object"
+                                                                },
+                                                                "rank": {
+                                                                    "type": "string"
+                                                                },
+                                                                "@v": {
                                                                     "type": "string"
                                                                 }
                                                             }
@@ -1950,42 +1757,16 @@
                                                         "organism": {
                                                             "type": "object",
                                                             "properties": {
-                                                                "additional_taxonomic_information": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "string"
-                                                                            }
-                                                                        }
-                                                                    }
+                                                                "id": {
+                                                                    "type": "string"
                                                                 },
-                                                                "ncbi_taxid": {
+                                                                "title": {
+                                                                    "type": "object"
+                                                                },
+                                                                "rank": {
+                                                                    "type": "string"
+                                                                },
+                                                                "@v": {
                                                                     "type": "string"
                                                                 }
                                                             }
@@ -2231,42 +2012,16 @@
                                                                     "expression_organism": {
                                                                         "type": "object",
                                                                         "properties": {
-                                                                            "additional_taxonomic_information": {
-                                                                                "type": "array",
-                                                                                "items": {
-                                                                                    "type": "object",
-                                                                                    "properties": {
-                                                                                        "class": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "domain": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "genus": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "kingdom": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "order": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "phylum": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "realm": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "species": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "strain": {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    }
-                                                                                }
+                                                                            "id": {
+                                                                                "type": "string"
                                                                             },
-                                                                            "ncbi_taxid": {
+                                                                            "title": {
+                                                                                "type": "object"
+                                                                            },
+                                                                            "rank": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "@v": {
                                                                                 "type": "string"
                                                                             }
                                                                         }
@@ -2375,42 +2130,16 @@
                                                                     "organism": {
                                                                         "type": "object",
                                                                         "properties": {
-                                                                            "additional_taxonomic_information": {
-                                                                                "type": "array",
-                                                                                "items": {
-                                                                                    "type": "object",
-                                                                                    "properties": {
-                                                                                        "class": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "domain": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "genus": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "kingdom": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "order": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "phylum": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "realm": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "species": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "strain": {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    }
-                                                                                }
+                                                                            "id": {
+                                                                                "type": "string"
                                                                             },
-                                                                            "ncbi_taxid": {
+                                                                            "title": {
+                                                                                "type": "object"
+                                                                            },
+                                                                            "rank": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "@v": {
                                                                                 "type": "string"
                                                                             }
                                                                         }
@@ -2659,42 +2388,16 @@
                                             "expression_organism": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "additional_taxonomic_information": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "class": {
-                                                                    "type": "string"
-                                                                },
-                                                                "domain": {
-                                                                    "type": "string"
-                                                                },
-                                                                "genus": {
-                                                                    "type": "string"
-                                                                },
-                                                                "kingdom": {
-                                                                    "type": "string"
-                                                                },
-                                                                "order": {
-                                                                    "type": "string"
-                                                                },
-                                                                "phylum": {
-                                                                    "type": "string"
-                                                                },
-                                                                "realm": {
-                                                                    "type": "string"
-                                                                },
-                                                                "species": {
-                                                                    "type": "string"
-                                                                },
-                                                                "strain": {
-                                                                    "type": "string"
-                                                                }
-                                                            }
-                                                        }
+                                                    "id": {
+                                                        "type": "string"
                                                     },
-                                                    "ncbi_taxid": {
+                                                    "title": {
+                                                        "type": "object"
+                                                    },
+                                                    "rank": {
+                                                        "type": "string"
+                                                    },
+                                                    "@v": {
                                                         "type": "string"
                                                     }
                                                 }
@@ -2806,42 +2509,16 @@
                                             "organism": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "additional_taxonomic_information": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "class": {
-                                                                    "type": "string"
-                                                                },
-                                                                "domain": {
-                                                                    "type": "string"
-                                                                },
-                                                                "genus": {
-                                                                    "type": "string"
-                                                                },
-                                                                "kingdom": {
-                                                                    "type": "string"
-                                                                },
-                                                                "order": {
-                                                                    "type": "string"
-                                                                },
-                                                                "phylum": {
-                                                                    "type": "string"
-                                                                },
-                                                                "realm": {
-                                                                    "type": "string"
-                                                                },
-                                                                "species": {
-                                                                    "type": "string"
-                                                                },
-                                                                "strain": {
-                                                                    "type": "string"
-                                                                }
-                                                            }
-                                                        }
+                                                    "id": {
+                                                        "type": "string"
                                                     },
-                                                    "ncbi_taxid": {
+                                                    "title": {
+                                                        "type": "object"
+                                                    },
+                                                    "rank": {
+                                                        "type": "string"
+                                                    },
+                                                    "@v": {
                                                         "type": "string"
                                                     }
                                                 }
@@ -3087,42 +2764,16 @@
                                                         "expression_organism": {
                                                             "type": "object",
                                                             "properties": {
-                                                                "additional_taxonomic_information": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "string"
-                                                                            }
-                                                                        }
-                                                                    }
+                                                                "id": {
+                                                                    "type": "string"
                                                                 },
-                                                                "ncbi_taxid": {
+                                                                "title": {
+                                                                    "type": "object"
+                                                                },
+                                                                "rank": {
+                                                                    "type": "string"
+                                                                },
+                                                                "@v": {
                                                                     "type": "string"
                                                                 }
                                                             }
@@ -3231,42 +2882,16 @@
                                                         "organism": {
                                                             "type": "object",
                                                             "properties": {
-                                                                "additional_taxonomic_information": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "class": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "domain": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "genus": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "kingdom": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "order": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "phylum": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "realm": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "species": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "strain": {
-                                                                                "type": "string"
-                                                                            }
-                                                                        }
-                                                                    }
+                                                                "id": {
+                                                                    "type": "string"
                                                                 },
-                                                                "ncbi_taxid": {
+                                                                "title": {
+                                                                    "type": "object"
+                                                                },
+                                                                "rank": {
+                                                                    "type": "string"
+                                                                },
+                                                                "@v": {
                                                                     "type": "string"
                                                                 }
                                                             }
@@ -3484,51 +3109,6 @@
                                                     }
                                                 }
                                             },
-                                            "concentration": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "obtained_by": {
-                                                        "type": "string"
-                                                    },
-                                                    "obtained_protocol": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "description": {
-                                                                    "type": "string"
-                                                                },
-                                                                "name": {
-                                                                    "type": "string"
-                                                                }
-                                                            }
-                                                        }
-                                                    },
-                                                    "unit": {
-                                                        "type": "string"
-                                                    },
-                                                    "value": {
-                                                        "type": "number"
-                                                    },
-                                                    "value_error": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "error_level": {
-                                                                "type": "number"
-                                                            },
-                                                            "errors_are_relative": {
-                                                                "type": "boolean"
-                                                            },
-                                                            "lower_error": {
-                                                                "type": "number"
-                                                            },
-                                                            "upper_error": {
-                                                                "type": "number"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            },
                                             "derived_from": {
                                                 "type": "string"
                                             },
@@ -3652,42 +3232,16 @@
                                             "host_organism": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "additional_taxonomic_information": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "class": {
-                                                                    "type": "string"
-                                                                },
-                                                                "domain": {
-                                                                    "type": "string"
-                                                                },
-                                                                "genus": {
-                                                                    "type": "string"
-                                                                },
-                                                                "kingdom": {
-                                                                    "type": "string"
-                                                                },
-                                                                "order": {
-                                                                    "type": "string"
-                                                                },
-                                                                "phylum": {
-                                                                    "type": "string"
-                                                                },
-                                                                "realm": {
-                                                                    "type": "string"
-                                                                },
-                                                                "species": {
-                                                                    "type": "string"
-                                                                },
-                                                                "strain": {
-                                                                    "type": "string"
-                                                                }
-                                                            }
-                                                        }
+                                                    "id": {
+                                                        "type": "string"
                                                     },
-                                                    "ncbi_taxid": {
+                                                    "title": {
+                                                        "type": "object"
+                                                    },
+                                                    "rank": {
+                                                        "type": "string"
+                                                    },
+                                                    "@v": {
                                                         "type": "string"
                                                     }
                                                 }
@@ -3743,42 +3297,16 @@
                                                                 "expression_organism": {
                                                                     "type": "object",
                                                                     "properties": {
-                                                                        "additional_taxonomic_information": {
-                                                                            "type": "array",
-                                                                            "items": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "class": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "domain": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "genus": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "kingdom": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "order": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "phylum": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "realm": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "species": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "strain": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                }
-                                                                            }
+                                                                        "id": {
+                                                                            "type": "string"
                                                                         },
-                                                                        "ncbi_taxid": {
+                                                                        "title": {
+                                                                            "type": "object"
+                                                                        },
+                                                                        "rank": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "@v": {
                                                                             "type": "string"
                                                                         }
                                                                     }
@@ -3887,42 +3415,16 @@
                                                                 "organism": {
                                                                     "type": "object",
                                                                     "properties": {
-                                                                        "additional_taxonomic_information": {
-                                                                            "type": "array",
-                                                                            "items": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "class": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "domain": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "genus": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "kingdom": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "order": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "phylum": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "realm": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "species": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "strain": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                }
-                                                                            }
+                                                                        "id": {
+                                                                            "type": "string"
                                                                         },
-                                                                        "ncbi_taxid": {
+                                                                        "title": {
+                                                                            "type": "object"
+                                                                        },
+                                                                        "rank": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "@v": {
                                                                             "type": "string"
                                                                         }
                                                                     }
@@ -4187,6 +3689,15 @@
                                                         "title": {
                                                             "type": "object"
                                                         },
+                                                        "city": {
+                                                            "type": "string"
+                                                        },
+                                                        "state": {
+                                                            "type": "string"
+                                                        },
+                                                        "country": {
+                                                            "type": "string"
+                                                        },
                                                         "@v": {
                                                             "type": "string"
                                                         }
@@ -4219,6 +3730,15 @@
                                                     "title": {
                                                         "type": "object"
                                                     },
+                                                    "city": {
+                                                        "type": "string"
+                                                    },
+                                                    "state": {
+                                                        "type": "string"
+                                                    },
+                                                    "country": {
+                                                        "type": "string"
+                                                    },
                                                     "@v": {
                                                         "type": "string"
                                                     }
@@ -4249,6 +3769,15 @@
                                                     },
                                                     "title": {
                                                         "type": "object"
+                                                    },
+                                                    "city": {
+                                                        "type": "string"
+                                                    },
+                                                    "state": {
+                                                        "type": "string"
+                                                    },
+                                                    "country": {
+                                                        "type": "string"
                                                     },
                                                     "@v": {
                                                         "type": "string"
@@ -4339,13 +3868,16 @@
                             "items": {
                                 "type": "object",
                                 "properties": {
-                                    "award_number": {
+                                    "id": {
                                         "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "object"
                                     },
                                     "funder_name": {
                                         "type": "string"
                                     },
-                                    "funding_program": {
+                                    "@v": {
                                         "type": "string"
                                     }
                                 }
@@ -4387,6 +3919,15 @@
                                                                         },
                                                                         "title": {
                                                                             "type": "object"
+                                                                        },
+                                                                        "city": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "state": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "country": {
+                                                                            "type": "string"
                                                                         },
                                                                         "@v": {
                                                                             "type": "string"
@@ -4539,42 +4080,16 @@
                                                     "expression_organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "class": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "domain": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "genus": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "kingdom": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "order": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "phylum": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "realm": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "species": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "strain": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    }
-                                                                }
+                                                            "id": {
+                                                                "type": "string"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "string"
+                                                            },
+                                                            "@v": {
                                                                 "type": "string"
                                                             }
                                                         }
@@ -4683,42 +4198,16 @@
                                                     "organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "class": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "domain": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "genus": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "kingdom": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "order": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "phylum": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "realm": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "species": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "strain": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    }
-                                                                }
+                                                            "id": {
+                                                                "type": "string"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "string"
+                                                            },
+                                                            "@v": {
                                                                 "type": "string"
                                                             }
                                                         }
@@ -4964,42 +4453,16 @@
                                                                 "expression_organism": {
                                                                     "type": "object",
                                                                     "properties": {
-                                                                        "additional_taxonomic_information": {
-                                                                            "type": "array",
-                                                                            "items": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "class": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "domain": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "genus": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "kingdom": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "order": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "phylum": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "realm": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "species": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "strain": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                }
-                                                                            }
+                                                                        "id": {
+                                                                            "type": "string"
                                                                         },
-                                                                        "ncbi_taxid": {
+                                                                        "title": {
+                                                                            "type": "object"
+                                                                        },
+                                                                        "rank": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "@v": {
                                                                             "type": "string"
                                                                         }
                                                                     }
@@ -5108,42 +4571,16 @@
                                                                 "organism": {
                                                                     "type": "object",
                                                                     "properties": {
-                                                                        "additional_taxonomic_information": {
-                                                                            "type": "array",
-                                                                            "items": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "class": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "domain": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "genus": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "kingdom": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "order": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "phylum": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "realm": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "species": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "strain": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                }
-                                                                            }
+                                                                        "id": {
+                                                                            "type": "string"
                                                                         },
-                                                                        "ncbi_taxid": {
+                                                                        "title": {
+                                                                            "type": "object"
+                                                                        },
+                                                                        "rank": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "@v": {
                                                                             "type": "string"
                                                                         }
                                                                     }
@@ -5373,9 +4810,6 @@
                                                     "health_status": {
                                                         "type": "string"
                                                     },
-                                                    "id": {
-                                                        "type": "string"
-                                                    },
                                                     "storage": {
                                                         "type": "object",
                                                         "properties": {
@@ -5487,42 +4921,16 @@
                                                     "host_organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "class": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "domain": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "genus": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "kingdom": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "order": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "phylum": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "realm": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "species": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "strain": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    }
-                                                                }
+                                                            "id": {
+                                                                "type": "string"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "string"
+                                                            },
+                                                            "@v": {
                                                                 "type": "string"
                                                             }
                                                         }
@@ -5578,42 +4986,16 @@
                                                                         "expression_organism": {
                                                                             "type": "object",
                                                                             "properties": {
-                                                                                "additional_taxonomic_information": {
-                                                                                    "type": "array",
-                                                                                    "items": {
-                                                                                        "type": "object",
-                                                                                        "properties": {
-                                                                                            "class": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "domain": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "genus": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "kingdom": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "order": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "phylum": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "realm": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "species": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "strain": {
-                                                                                                "type": "string"
-                                                                                            }
-                                                                                        }
-                                                                                    }
+                                                                                "id": {
+                                                                                    "type": "string"
                                                                                 },
-                                                                                "ncbi_taxid": {
+                                                                                "title": {
+                                                                                    "type": "object"
+                                                                                },
+                                                                                "rank": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "@v": {
                                                                                     "type": "string"
                                                                                 }
                                                                             }
@@ -5722,42 +5104,16 @@
                                                                         "organism": {
                                                                             "type": "object",
                                                                             "properties": {
-                                                                                "additional_taxonomic_information": {
-                                                                                    "type": "array",
-                                                                                    "items": {
-                                                                                        "type": "object",
-                                                                                        "properties": {
-                                                                                            "class": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "domain": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "genus": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "kingdom": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "order": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "phylum": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "realm": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "species": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "strain": {
-                                                                                                "type": "string"
-                                                                                            }
-                                                                                        }
-                                                                                    }
+                                                                                "id": {
+                                                                                    "type": "string"
                                                                                 },
-                                                                                "ncbi_taxid": {
+                                                                                "title": {
+                                                                                    "type": "object"
+                                                                                },
+                                                                                "rank": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "@v": {
                                                                                     "type": "string"
                                                                                 }
                                                                             }
@@ -6070,42 +5426,16 @@
                                                     "expression_organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "class": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "domain": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "genus": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "kingdom": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "order": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "phylum": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "realm": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "species": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "strain": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    }
-                                                                }
+                                                            "id": {
+                                                                "type": "string"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "string"
+                                                            },
+                                                            "@v": {
                                                                 "type": "string"
                                                             }
                                                         }
@@ -6214,42 +5544,16 @@
                                                     "organism": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "additional_taxonomic_information": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "class": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "domain": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "genus": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "kingdom": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "order": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "phylum": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "realm": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "species": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "strain": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    }
-                                                                }
+                                                            "id": {
+                                                                "type": "string"
                                                             },
-                                                            "ncbi_taxid": {
+                                                            "title": {
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "string"
+                                                            },
+                                                            "@v": {
                                                                 "type": "string"
                                                             }
                                                         }
@@ -6495,42 +5799,16 @@
                                                                 "expression_organism": {
                                                                     "type": "object",
                                                                     "properties": {
-                                                                        "additional_taxonomic_information": {
-                                                                            "type": "array",
-                                                                            "items": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "class": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "domain": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "genus": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "kingdom": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "order": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "phylum": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "realm": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "species": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "strain": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                }
-                                                                            }
+                                                                        "id": {
+                                                                            "type": "string"
                                                                         },
-                                                                        "ncbi_taxid": {
+                                                                        "title": {
+                                                                            "type": "object"
+                                                                        },
+                                                                        "rank": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "@v": {
                                                                             "type": "string"
                                                                         }
                                                                     }
@@ -6639,42 +5917,16 @@
                                                                 "organism": {
                                                                     "type": "object",
                                                                     "properties": {
-                                                                        "additional_taxonomic_information": {
-                                                                            "type": "array",
-                                                                            "items": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "class": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "domain": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "genus": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "kingdom": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "order": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "phylum": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "realm": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "species": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "strain": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                }
-                                                                            }
+                                                                        "id": {
+                                                                            "type": "string"
                                                                         },
-                                                                        "ncbi_taxid": {
+                                                                        "title": {
+                                                                            "type": "object"
+                                                                        },
+                                                                        "rank": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "@v": {
                                                                             "type": "string"
                                                                         }
                                                                     }
@@ -7127,6 +6379,15 @@
                                                             },
                                                             "title": {
                                                                 "type": "object"
+                                                            },
+                                                            "city": {
+                                                                "type": "string"
+                                                            },
+                                                            "state": {
+                                                                "type": "string"
+                                                            },
+                                                            "country": {
+                                                                "type": "string"
                                                             },
                                                             "@v": {
                                                                 "type": "string"

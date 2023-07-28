@@ -1,6 +1,6 @@
 config:
   oarepo_cli: .venv/nrp/bin/nrp
-  python: python3.9
+  python: python3.10
   sites:
   - mbdb-site
 local:
@@ -10,14 +10,17 @@ local:
     local_dir: local/mbdb-common
     sites:
     - mbdb-site
-    - mbdb-site
-    - mbdb-site
 models:
   mbdb-mst:
+    author_email: Emildandanell.agerschou@ibt.cas.cz
+    author_name: Emil Dandanell Agerschou
+    installation_site: mbdb-site
     merge_changes: overwrite
     model_dir: models/mbdb-mst
+    model_kind: empty
     model_package: mbdb_mst
     permissions_preset: everyone
+    permissions_presets: read_only
     pid_type: mst
     run_tests: skip
     sites:
@@ -25,10 +28,13 @@ models:
     update_opensearch: run
     use_custom_fields: 'yes'
     use_docs: 'no'
-    use_files: 'yes'
+    use_drafts: 'no'
+    use_expandable_fields: 'no'
+    use_files: 'no'
     use_metadata: 'no'
     use_nr_vocabularies: 'no'
     use_relations: 'yes'
+    use_requests: 'no'
     use_tests: 'no'
     use_vocabularies: 'yes'
 sites:
@@ -47,21 +53,20 @@ sites:
     year: '2023'
 type: monorepo
 ui:
-  mbdb_mst_ui:
-    cookiecutter_api_service: mbdb_mst
-    cookiecutter_app_name: mbdb_mst_ui
+  mbdb-mst-ui:
+    cookiecutter_api_service: mbdb_mst_ui
+    cookiecutter_app_name: mbdb-mst-ui
     cookiecutter_app_package: mbdb_mst_ui
-    cookiecutter_author: ''
-    cookiecutter_author_email: ''
-    cookiecutter_ext_name: MbdbMstUiExtension
+    cookiecutter_author: Emil Dandanell Agerschou
+    cookiecutter_author_email: Emildandanell.agerschou@ibt.cas.cz
+    cookiecutter_ext_name: MbdbMstExtension
     cookiecutter_local_model_path: ../../models/mbdb-mst
-    cookiecutter_model_package: mbdb_mst
+    cookiecutter_model_package: mbdb_mst_ui
     cookiecutter_repository_url: ''
-    cookiecutter_resource: MbdbMstUiResource
-    cookiecutter_resource_config: MbdbMstUiResourceConfig
+    cookiecutter_resource: MbdbMstUIResource
+    cookiecutter_resource_config: MbdbMstUIResourceConfig
     cookiecutter_ui_record_serializer_class: mbdb_mst.resources.records.ui.MbdbMstUIJSONSerializer
     model_name: mbdb-mst
-    sites:
-    - mbdb-site
-    ui_dir: ui/mbdb_mst_ui
+    sites: []
+    ui_dir: ui/mbdb-mst-ui
     url_prefix: /mst/

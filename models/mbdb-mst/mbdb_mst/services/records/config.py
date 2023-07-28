@@ -3,10 +3,7 @@ from invenio_records_resources.services import (
     RecordServiceConfig as InvenioRecordServiceConfig,
 )
 from invenio_records_resources.services import pagination_links
-from invenio_records_resources.services.records.components import (
-    DataComponent,
-    FilesOptionsComponent,
-)
+from invenio_records_resources.services.records.components import DataComponent
 from oarepo_runtime.config.service import PermissionsPresetsConfigMixin
 
 from mbdb_mst.records.api import MbdbMstRecord
@@ -35,7 +32,6 @@ class MbdbMstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordServiceCo
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordServiceConfig.components,
-        FilesOptionsComponent,
         DataComponent,
     ]
 
@@ -44,7 +40,6 @@ class MbdbMstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordServiceCo
     @property
     def links_item(self):
         return {
-            "files": RecordLink("{self.url_prefix}{id}/files"),
             "self": RecordLink("{self.url_prefix}{id}"),
         }
 

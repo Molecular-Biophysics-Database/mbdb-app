@@ -1,4 +1,0 @@
-mst_data:
-  - writer: service
-    service: mbdb_mst
-  - source: mst.yaml
