@@ -34,6 +34,8 @@ class GeneralParametersSchema(ma.Schema):
 
     chemical_information = ma.fields.Nested(lambda: ChemicalInformationSchema())
 
+    collection_start_time = ma.fields.String(validate=[validate_date("%Y-%m-%d")])
+
     depositors = ma.fields.Nested(lambda: DepositorsSchema())
 
     derived_parameters = ma.fields.List(
@@ -49,8 +51,6 @@ class GeneralParametersSchema(ma.Schema):
     physical_environment_at_sample_handling = ma.fields.Nested(
         lambda: PhysicalEnvironmentAtSampleHandlingSchema()
     )
-
-    raw_data_information = ma.fields.Nested(lambda: RawDataInformationSchema())
 
     record = ma.fields.Nested(lambda: RecordSchema())
 
@@ -155,7 +155,7 @@ class PerformanceTestSchema(ma.Schema):
 
     published_test_protocol = ma.fields.Nested(lambda: AdditionalItemSchema())
 
-    report = ma.fields.Nested(lambda: ReportSchema(), required=True)
+    report = ma.fields.String()
 
     sample_composition = ma.fields.List(
         ma.fields.Nested(lambda: ConstituentsItemSchema())
@@ -394,7 +394,7 @@ class DetailsSchema(ma.Schema):
 
     number_of_mono_layers = ma.fields.Integer()
 
-    size = ma.fields.Nested(lambda: DetailsSizeSchema(), required=True)
+    size = ma.fields.Nested(lambda: SizeSchema(), required=True)
 
     type = ma.fields.String(
         validate=[
@@ -1559,7 +1559,7 @@ class QualityControlsItemSchema(ma.Schema):
         ]
     )
 
-    report = ma.fields.Nested(lambda: ReportSchema(), required=True)
+    report = ma.fields.String()
 
     storage_from_QC_to_measurement = ma.fields.Nested(
         lambda: StorageFromQCToMeasurementSchema(), required=True
@@ -1819,15 +1819,6 @@ class ProjectSchema(ma.Schema):
     title = ma.fields.String()
 
 
-class RawDataInformationSchema(ma.Schema):
-    class Meta:
-        unknown = ma.RAISE
-
-    collection_start_time = ma.fields.String(validate=[validate_date("%Y-%m-%d")])
-
-    file_information = ma.fields.List(ma.fields.Nested(lambda: ReportSchema()))
-
-
 class StorageFromQCToMeasurementSchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
@@ -1918,7 +1909,7 @@ class DataAnalysisItemSchema(ma.Schema):
     data_fitting = ma.fields.Nested(lambda: DataFittingSchema(), required=True)
 
     data_processing_steps = ma.fields.List(
-        ma.fields.Nested(lambda: ProcessingStepsItemSchema())
+        ma.fields.Nested(lambda: DataProcessingStepsItemSchema())
     )
 
     derived_parameter = ma.fields.Nested(lambda: EntitySchema())
@@ -2064,31 +2055,6 @@ class PressureSchema(ma.Schema):
     value_error = ma.fields.Nested(lambda: ValueErrorSchema())
 
 
-class ReportSchema(ma.Schema):
-    class Meta:
-        unknown = ma.RAISE
-
-    description = ma.fields.String()
-
-    name = ma.fields.String()
-
-    processing_steps = ma.fields.List(
-        ma.fields.Nested(lambda: ProcessingStepsItemSchema())
-    )
-
-    recommended_software = ma.fields.String()
-
-    size = ma.fields.Nested(lambda: SizeSchema(), required=True)
-
-    source = ma.fields.String(
-        validate=[ma_validate.OneOf(["Instrument software", "User annotated", "MBDB"])]
-    )
-
-    type = ma.fields.String(
-        validate=[ma_validate.OneOf(["text", "binary", "text and binary"])]
-    )
-
-
 class TemperatureSchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
@@ -2162,27 +2128,21 @@ class DataFittingSchema(ma.Schema):
     software_version = ma.fields.String()
 
 
-class DetailsSizeSchema(ma.Schema):
+class DataProcessingStepsItemSchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
 
-    distribution_type = ma.fields.String()
+    description = ma.fields.String()
 
-    lower = ma.fields.Float()
+    link_to_source_code = ma.fields.String()
 
-    mean = ma.fields.Float()
+    name = ma.fields.String()
 
-    median = ma.fields.Float()
+    software_name = ma.fields.String()
 
-    type = ma.fields.String(
-        validate=[ma_validate.OneOf(["radius", "diameter", "path length", "Other"])]
-    )
+    software_tool = ma.fields.String()
 
-    unit = ma.fields.String(
-        required=True, validate=[ma_validate.OneOf(["Å", "nm", "μm", "mm", "cm", "m"])]
-    )
-
-    upper = ma.fields.Float()
+    software_version = ma.fields.String()
 
 
 class EntitySchema(ma.Schema):
@@ -2308,47 +2268,27 @@ class ObtainedProtocolItemSchema(ma.Schema):
     name = ma.fields.String()
 
 
-class ProcessingStepsItemSchema(ma.Schema):
-    class Meta:
-        unknown = ma.RAISE
-
-    description = ma.fields.String()
-
-    link_to_source_code = ma.fields.String()
-
-    name = ma.fields.String()
-
-    software_name = ma.fields.String()
-
-    software_tool = ma.fields.String()
-
-    software_version = ma.fields.String()
-
-
 class SizeSchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
 
-    unit = ma.fields.String(
-        required=True,
-        validate=[
-            ma_validate.OneOf(
-                [
-                    "bytes (B)",
-                    "kilobytes (kB)",
-                    "megabytes (MB)",
-                    "gigabytes (GB)",
-                    "terabytes (TB)",
-                    "kibibytes (KiB)",
-                    "mebibytes (MiB)",
-                    "gibibytes (GiB)",
-                    "tebibytes (TiB)",
-                ]
-            )
-        ],
+    distribution_type = ma.fields.String()
+
+    lower = ma.fields.Float()
+
+    mean = ma.fields.Float()
+
+    median = ma.fields.Float()
+
+    type = ma.fields.String(
+        validate=[ma_validate.OneOf(["radius", "diameter", "path length", "Other"])]
     )
 
-    value = ma.fields.Float()
+    unit = ma.fields.String(
+        required=True, validate=[ma_validate.OneOf(["Å", "nm", "μm", "mm", "cm", "m"])]
+    )
+
+    upper = ma.fields.Float()
 
 
 class SupplierSchema(ma.Schema):

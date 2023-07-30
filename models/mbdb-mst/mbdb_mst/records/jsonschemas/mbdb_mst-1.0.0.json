@@ -368,61 +368,7 @@
                                                                         "type": "string"
                                                                     },
                                                                     "report": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "description": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "name": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "processing_steps": {
-                                                                                "type": "array",
-                                                                                "items": {
-                                                                                    "type": "object",
-                                                                                    "properties": {
-                                                                                        "description": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "link_to_source_code": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "name": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "software_name": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "software_tool": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "software_version": {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "recommended_software": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "size": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "unit": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "value": {
-                                                                                        "type": "number"
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "source": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "type": {
-                                                                                "type": "string"
-                                                                            }
-                                                                        }
+                                                                        "type": "string"
                                                                     },
                                                                     "storage_from_QC_to_measurement": {
                                                                         "type": "object",
@@ -741,61 +687,7 @@
                                                                                     "type": "string"
                                                                                 },
                                                                                 "report": {
-                                                                                    "type": "object",
-                                                                                    "properties": {
-                                                                                        "description": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "name": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "processing_steps": {
-                                                                                            "type": "array",
-                                                                                            "items": {
-                                                                                                "type": "object",
-                                                                                                "properties": {
-                                                                                                    "description": {
-                                                                                                        "type": "string"
-                                                                                                    },
-                                                                                                    "link_to_source_code": {
-                                                                                                        "type": "string"
-                                                                                                    },
-                                                                                                    "name": {
-                                                                                                        "type": "string"
-                                                                                                    },
-                                                                                                    "software_name": {
-                                                                                                        "type": "string"
-                                                                                                    },
-                                                                                                    "software_tool": {
-                                                                                                        "type": "string"
-                                                                                                    },
-                                                                                                    "software_version": {
-                                                                                                        "type": "string"
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                                                                                        },
-                                                                                        "recommended_software": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "size": {
-                                                                                            "type": "object",
-                                                                                            "properties": {
-                                                                                                "unit": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "value": {
-                                                                                                    "type": "number"
-                                                                                                }
-                                                                                            }
-                                                                                        },
-                                                                                        "source": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "type": {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    }
+                                                                                    "type": "string"
                                                                                 },
                                                                                 "storage_from_QC_to_measurement": {
                                                                                     "type": "object",
@@ -1274,61 +1166,7 @@
                                                                                             "type": "string"
                                                                                         },
                                                                                         "report": {
-                                                                                            "type": "object",
-                                                                                            "properties": {
-                                                                                                "description": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "name": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "processing_steps": {
-                                                                                                    "type": "array",
-                                                                                                    "items": {
-                                                                                                        "type": "object",
-                                                                                                        "properties": {
-                                                                                                            "description": {
-                                                                                                                "type": "string"
-                                                                                                            },
-                                                                                                            "link_to_source_code": {
-                                                                                                                "type": "string"
-                                                                                                            },
-                                                                                                            "name": {
-                                                                                                                "type": "string"
-                                                                                                            },
-                                                                                                            "software_name": {
-                                                                                                                "type": "string"
-                                                                                                            },
-                                                                                                            "software_tool": {
-                                                                                                                "type": "string"
-                                                                                                            },
-                                                                                                            "software_version": {
-                                                                                                                "type": "string"
-                                                                                                            }
-                                                                                                        }
-                                                                                                    }
-                                                                                                },
-                                                                                                "recommended_software": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "size": {
-                                                                                                    "type": "object",
-                                                                                                    "properties": {
-                                                                                                        "unit": {
-                                                                                                            "type": "string"
-                                                                                                        },
-                                                                                                        "value": {
-                                                                                                            "type": "number"
-                                                                                                        }
-                                                                                                    }
-                                                                                                },
-                                                                                                "source": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "type": {
-                                                                                                    "type": "string"
-                                                                                                }
-                                                                                            }
+                                                                                            "type": "string"
                                                                                         },
                                                                                         "storage_from_QC_to_measurement": {
                                                                                             "type": "object",
@@ -1783,61 +1621,7 @@
                                                                         "type": "string"
                                                                     },
                                                                     "report": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "description": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "name": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "processing_steps": {
-                                                                                "type": "array",
-                                                                                "items": {
-                                                                                    "type": "object",
-                                                                                    "properties": {
-                                                                                        "description": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "link_to_source_code": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "name": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "software_name": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "software_tool": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "software_version": {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "recommended_software": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "size": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "unit": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "value": {
-                                                                                        "type": "number"
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "source": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "type": {
-                                                                                "type": "string"
-                                                                            }
-                                                                        }
+                                                                        "type": "string"
                                                                     },
                                                                     "storage_from_QC_to_measurement": {
                                                                         "type": "object",
@@ -2156,61 +1940,7 @@
                                                                                     "type": "string"
                                                                                 },
                                                                                 "report": {
-                                                                                    "type": "object",
-                                                                                    "properties": {
-                                                                                        "description": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "name": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "processing_steps": {
-                                                                                            "type": "array",
-                                                                                            "items": {
-                                                                                                "type": "object",
-                                                                                                "properties": {
-                                                                                                    "description": {
-                                                                                                        "type": "string"
-                                                                                                    },
-                                                                                                    "link_to_source_code": {
-                                                                                                        "type": "string"
-                                                                                                    },
-                                                                                                    "name": {
-                                                                                                        "type": "string"
-                                                                                                    },
-                                                                                                    "software_name": {
-                                                                                                        "type": "string"
-                                                                                                    },
-                                                                                                    "software_tool": {
-                                                                                                        "type": "string"
-                                                                                                    },
-                                                                                                    "software_version": {
-                                                                                                        "type": "string"
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                                                                                        },
-                                                                                        "recommended_software": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "size": {
-                                                                                            "type": "object",
-                                                                                            "properties": {
-                                                                                                "unit": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "value": {
-                                                                                                    "type": "number"
-                                                                                                }
-                                                                                            }
-                                                                                        },
-                                                                                        "source": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "type": {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    }
+                                                                                    "type": "string"
                                                                                 },
                                                                                 "storage_from_QC_to_measurement": {
                                                                                     "type": "object",
@@ -2535,61 +2265,7 @@
                                                             "type": "string"
                                                         },
                                                         "report": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "description": {
-                                                                    "type": "string"
-                                                                },
-                                                                "name": {
-                                                                    "type": "string"
-                                                                },
-                                                                "processing_steps": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "description": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "link_to_source_code": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "name": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "software_name": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "software_tool": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "software_version": {
-                                                                                "type": "string"
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                },
-                                                                "recommended_software": {
-                                                                    "type": "string"
-                                                                },
-                                                                "size": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "unit": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "value": {
-                                                                            "type": "number"
-                                                                        }
-                                                                    }
-                                                                },
-                                                                "source": {
-                                                                    "type": "string"
-                                                                },
-                                                                "type": {
-                                                                    "type": "string"
-                                                                }
-                                                            }
+                                                            "type": "string"
                                                         },
                                                         "storage_from_QC_to_measurement": {
                                                             "type": "object",
@@ -2908,61 +2584,7 @@
                                                                         "type": "string"
                                                                     },
                                                                     "report": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "description": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "name": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "processing_steps": {
-                                                                                "type": "array",
-                                                                                "items": {
-                                                                                    "type": "object",
-                                                                                    "properties": {
-                                                                                        "description": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "link_to_source_code": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "name": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "software_name": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "software_tool": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "software_version": {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "recommended_software": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "size": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "unit": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "value": {
-                                                                                        "type": "number"
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "source": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "type": {
-                                                                                "type": "string"
-                                                                            }
-                                                                        }
+                                                                        "type": "string"
                                                                     },
                                                                     "storage_from_QC_to_measurement": {
                                                                         "type": "object",
@@ -3441,61 +3063,7 @@
                                                                                 "type": "string"
                                                                             },
                                                                             "report": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "description": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "name": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "processing_steps": {
-                                                                                        "type": "array",
-                                                                                        "items": {
-                                                                                            "type": "object",
-                                                                                            "properties": {
-                                                                                                "description": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "link_to_source_code": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "name": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "software_name": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "software_tool": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "software_version": {
-                                                                                                    "type": "string"
-                                                                                                }
-                                                                                            }
-                                                                                        }
-                                                                                    },
-                                                                                    "recommended_software": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "size": {
-                                                                                        "type": "object",
-                                                                                        "properties": {
-                                                                                            "unit": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "value": {
-                                                                                                "type": "number"
-                                                                                            }
-                                                                                        }
-                                                                                    },
-                                                                                    "source": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "type": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                }
+                                                                                "type": "string"
                                                                             },
                                                                             "storage_from_QC_to_measurement": {
                                                                                 "type": "object",
@@ -3669,6 +3237,10 @@
                                     }
                                 }
                             }
+                        },
+                        "collection_start_time": {
+                            "type": "string",
+                            "format": "date"
                         },
                         "depositors": {
                             "type": "object",
@@ -3965,61 +3537,7 @@
                                             }
                                         },
                                         "report": {
-                                            "type": "object",
-                                            "properties": {
-                                                "description": {
-                                                    "type": "string"
-                                                },
-                                                "name": {
-                                                    "type": "string"
-                                                },
-                                                "processing_steps": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "description": {
-                                                                "type": "string"
-                                                            },
-                                                            "link_to_source_code": {
-                                                                "type": "string"
-                                                            },
-                                                            "name": {
-                                                                "type": "string"
-                                                            },
-                                                            "software_name": {
-                                                                "type": "string"
-                                                            },
-                                                            "software_tool": {
-                                                                "type": "string"
-                                                            },
-                                                            "software_version": {
-                                                                "type": "string"
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                "recommended_software": {
-                                                    "type": "string"
-                                                },
-                                                "size": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "unit": {
-                                                            "type": "string"
-                                                        },
-                                                        "value": {
-                                                            "type": "number"
-                                                        }
-                                                    }
-                                                },
-                                                "source": {
-                                                    "type": "string"
-                                                },
-                                                "type": {
-                                                    "type": "string"
-                                                }
-                                            }
+                                            "type": "string"
                                         },
                                         "sample_composition": {
                                             "type": "array",
@@ -4224,61 +3742,7 @@
                                                                     "type": "string"
                                                                 },
                                                                 "report": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "description": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "name": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "processing_steps": {
-                                                                            "type": "array",
-                                                                            "items": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "description": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "link_to_source_code": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "name": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "software_name": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "software_tool": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "software_version": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        },
-                                                                        "recommended_software": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "size": {
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "unit": {
-                                                                                    "type": "string"
-                                                                                },
-                                                                                "value": {
-                                                                                    "type": "number"
-                                                                                }
-                                                                            }
-                                                                        },
-                                                                        "source": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "type": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    }
+                                                                    "type": "string"
                                                                 },
                                                                 "storage_from_QC_to_measurement": {
                                                                     "type": "object",
@@ -4597,61 +4061,7 @@
                                                                                 "type": "string"
                                                                             },
                                                                             "report": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "description": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "name": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "processing_steps": {
-                                                                                        "type": "array",
-                                                                                        "items": {
-                                                                                            "type": "object",
-                                                                                            "properties": {
-                                                                                                "description": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "link_to_source_code": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "name": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "software_name": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "software_tool": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "software_version": {
-                                                                                                    "type": "string"
-                                                                                                }
-                                                                                            }
-                                                                                        }
-                                                                                    },
-                                                                                    "recommended_software": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "size": {
-                                                                                        "type": "object",
-                                                                                        "properties": {
-                                                                                            "unit": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "value": {
-                                                                                                "type": "number"
-                                                                                            }
-                                                                                        }
-                                                                                    },
-                                                                                    "source": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "type": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                }
+                                                                                "type": "string"
                                                                             },
                                                                             "storage_from_QC_to_measurement": {
                                                                                 "type": "object",
@@ -5130,61 +4540,7 @@
                                                                                         "type": "string"
                                                                                     },
                                                                                     "report": {
-                                                                                        "type": "object",
-                                                                                        "properties": {
-                                                                                            "description": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "name": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "processing_steps": {
-                                                                                                "type": "array",
-                                                                                                "items": {
-                                                                                                    "type": "object",
-                                                                                                    "properties": {
-                                                                                                        "description": {
-                                                                                                            "type": "string"
-                                                                                                        },
-                                                                                                        "link_to_source_code": {
-                                                                                                            "type": "string"
-                                                                                                        },
-                                                                                                        "name": {
-                                                                                                            "type": "string"
-                                                                                                        },
-                                                                                                        "software_name": {
-                                                                                                            "type": "string"
-                                                                                                        },
-                                                                                                        "software_tool": {
-                                                                                                            "type": "string"
-                                                                                                        },
-                                                                                                        "software_version": {
-                                                                                                            "type": "string"
-                                                                                                        }
-                                                                                                    }
-                                                                                                }
-                                                                                            },
-                                                                                            "recommended_software": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "size": {
-                                                                                                "type": "object",
-                                                                                                "properties": {
-                                                                                                    "unit": {
-                                                                                                        "type": "string"
-                                                                                                    },
-                                                                                                    "value": {
-                                                                                                        "type": "number"
-                                                                                                    }
-                                                                                                }
-                                                                                            },
-                                                                                            "source": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "type": {
-                                                                                                "type": "string"
-                                                                                            }
-                                                                                        }
+                                                                                        "type": "string"
                                                                                     },
                                                                                     "storage_from_QC_to_measurement": {
                                                                                         "type": "object",
@@ -5570,61 +4926,7 @@
                                                                     "type": "string"
                                                                 },
                                                                 "report": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "description": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "name": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "processing_steps": {
-                                                                            "type": "array",
-                                                                            "items": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "description": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "link_to_source_code": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "name": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "software_name": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "software_tool": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "software_version": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        },
-                                                                        "recommended_software": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "size": {
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "unit": {
-                                                                                    "type": "string"
-                                                                                },
-                                                                                "value": {
-                                                                                    "type": "number"
-                                                                                }
-                                                                            }
-                                                                        },
-                                                                        "source": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "type": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    }
+                                                                    "type": "string"
                                                                 },
                                                                 "storage_from_QC_to_measurement": {
                                                                     "type": "object",
@@ -5943,61 +5245,7 @@
                                                                                 "type": "string"
                                                                             },
                                                                             "report": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "description": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "name": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "processing_steps": {
-                                                                                        "type": "array",
-                                                                                        "items": {
-                                                                                            "type": "object",
-                                                                                            "properties": {
-                                                                                                "description": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "link_to_source_code": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "name": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "software_name": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "software_tool": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "software_version": {
-                                                                                                    "type": "string"
-                                                                                                }
-                                                                                            }
-                                                                                        }
-                                                                                    },
-                                                                                    "recommended_software": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "size": {
-                                                                                        "type": "object",
-                                                                                        "properties": {
-                                                                                            "unit": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "value": {
-                                                                                                "type": "number"
-                                                                                            }
-                                                                                        }
-                                                                                    },
-                                                                                    "source": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "type": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                }
+                                                                                "type": "string"
                                                                             },
                                                                             "storage_from_QC_to_measurement": {
                                                                                 "type": "object",
@@ -6250,75 +5498,6 @@
                                                 "upper_error": {
                                                     "type": "number"
                                                 }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "raw_data_information": {
-                            "type": "object",
-                            "properties": {
-                                "collection_start_time": {
-                                    "type": "string",
-                                    "format": "date"
-                                },
-                                "file_information": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "description": {
-                                                "type": "string"
-                                            },
-                                            "name": {
-                                                "type": "string"
-                                            },
-                                            "processing_steps": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "description": {
-                                                            "type": "string"
-                                                        },
-                                                        "link_to_source_code": {
-                                                            "type": "string"
-                                                        },
-                                                        "name": {
-                                                            "type": "string"
-                                                        },
-                                                        "software_name": {
-                                                            "type": "string"
-                                                        },
-                                                        "software_tool": {
-                                                            "type": "string"
-                                                        },
-                                                        "software_version": {
-                                                            "type": "string"
-                                                        }
-                                                    }
-                                                }
-                                            },
-                                            "recommended_software": {
-                                                "type": "string"
-                                            },
-                                            "size": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "unit": {
-                                                        "type": "string"
-                                                    },
-                                                    "value": {
-                                                        "type": "number"
-                                                    }
-                                                }
-                                            },
-                                            "source": {
-                                                "type": "string"
-                                            },
-                                            "type": {
-                                                "type": "string"
                                             }
                                         }
                                     }

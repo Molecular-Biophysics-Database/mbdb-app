@@ -148,44 +148,8 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_parameter": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_parameter
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_description": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_description
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_processing_steps_description": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_processing_steps_description
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_processing_steps_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_processing_steps_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_processing_steps_software_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_processing_steps_software_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_processing_steps_software_tool": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_processing_steps_software_version": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_processing_steps_software_version
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_recommended_software": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_recommended_software
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_size_unit": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_size_unit
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_size_value": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_size_value
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_source": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_source
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_type": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report_type
+        "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_report
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_duration_unit": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_duration_unit
@@ -343,44 +307,8 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_parameter": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_parameter
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_description": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_description
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_processing_steps_description": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_processing_steps_description
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_processing_steps_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_processing_steps_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_processing_steps_software_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_processing_steps_software_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_processing_steps_software_tool": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_processing_steps_software_version": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_processing_steps_software_version
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_recommended_software": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_recommended_software
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_size_unit": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_size_unit
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_size_value": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_size_value
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_source": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_source
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_type": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report_type
+        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_duration_unit": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_duration_unit
@@ -640,44 +568,8 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_parameter": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_parameter
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_description": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_description
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_processing_steps_description": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_processing_steps_description
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_processing_steps_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_processing_steps_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_processing_steps_software_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_processing_steps_software_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_processing_steps_software_tool": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_processing_steps_software_version": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_processing_steps_software_version
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_recommended_software": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_recommended_software
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_size_unit": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_size_unit
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_size_value": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_size_value
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_source": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_source
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_type": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report_type
+        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_report
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_duration_unit": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_duration_unit
@@ -931,44 +823,8 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_parameter": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_parameter
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_description": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_description
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_processing_steps_description": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_processing_steps_description
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_processing_steps_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_processing_steps_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_processing_steps_software_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_processing_steps_software_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_processing_steps_software_tool": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_processing_steps_software_version": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_processing_steps_software_version
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_recommended_software": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_recommended_software
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_size_unit": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_size_unit
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_size_value": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_size_value
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_source": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_source
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_type": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report_type
+        "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_report
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_duration_unit": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_duration_unit
@@ -1126,44 +982,8 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_parameter": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_parameter
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_description": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_description
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_processing_steps_description": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_processing_steps_description
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_processing_steps_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_processing_steps_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_processing_steps_software_name": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_processing_steps_software_name
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_processing_steps_software_tool": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_processing_steps_software_version": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_processing_steps_software_version
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_recommended_software": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_recommended_software
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_size_unit": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_size_unit
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_size_value": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_size_value
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_source": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_source
-        ),
-        "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_type": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report_type
+        "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_duration_unit": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_duration_unit
@@ -1321,44 +1141,8 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_parameter": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_parameter
         ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_description": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_description
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_name": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_name
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_processing_steps_description": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_processing_steps_description
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_processing_steps_name": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_processing_steps_name
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_processing_steps_software_name": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_processing_steps_software_name
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_processing_steps_software_tool": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_processing_steps_software_version": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_processing_steps_software_version
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_recommended_software": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_recommended_software
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_size_unit": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_size_unit
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_size_value": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_size_value
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_source": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_source
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_type": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report_type
+        "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report": (
+            facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_report
         ),
         "metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_duration_unit": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_duration_unit
@@ -1516,44 +1300,8 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_parameter": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_parameter
         ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_description": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_description
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_name": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_name
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_processing_steps_description": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_processing_steps_description
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_processing_steps_name": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_processing_steps_name
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_processing_steps_software_name": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_processing_steps_software_name
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_processing_steps_software_tool": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_processing_steps_software_version": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_processing_steps_software_version
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_recommended_software": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_recommended_software
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_size_unit": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_size_unit
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_size_value": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_size_value
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_source": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_source
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_type": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report_type
+        "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report": (
+            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report
         ),
         "metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_duration_unit": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_duration_unit
@@ -1813,44 +1561,8 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_parameter": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_parameter
         ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_description": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_description
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_name": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_name
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_processing_steps_description": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_processing_steps_description
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_processing_steps_name": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_processing_steps_name
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_processing_steps_software_name": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_processing_steps_software_name
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_processing_steps_software_tool": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_processing_steps_software_version": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_processing_steps_software_version
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_recommended_software": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_recommended_software
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_size_unit": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_size_unit
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_size_value": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_size_value
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_source": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_source
-        ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_type": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report_type
+        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report": (
+            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_report
         ),
         "metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_duration_unit": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_duration_unit
@@ -1963,6 +1675,9 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_entities_of_interest_product": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_product
         ),
+        "metadata_general_parameters_collection_start_time": (
+            facets.metadata_general_parameters_collection_start_time
+        ),
         "metadata_general_parameters_depositors_contributors_affiliations": (
             facets.metadata_general_parameters_depositors_contributors_affiliations
         ),
@@ -2062,44 +1777,8 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_instrument_performance_test_published_test_protocol_title": (
             facets.metadata_general_parameters_instrument_performance_test_published_test_protocol_title
         ),
-        "metadata_general_parameters_instrument_performance_test_report_description": (
-            facets.metadata_general_parameters_instrument_performance_test_report_description
-        ),
-        "metadata_general_parameters_instrument_performance_test_report_name": (
-            facets.metadata_general_parameters_instrument_performance_test_report_name
-        ),
-        "metadata_general_parameters_instrument_performance_test_report_processing_steps_description": (
-            facets.metadata_general_parameters_instrument_performance_test_report_processing_steps_description
-        ),
-        "metadata_general_parameters_instrument_performance_test_report_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_instrument_performance_test_report_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_instrument_performance_test_report_processing_steps_name": (
-            facets.metadata_general_parameters_instrument_performance_test_report_processing_steps_name
-        ),
-        "metadata_general_parameters_instrument_performance_test_report_processing_steps_software_name": (
-            facets.metadata_general_parameters_instrument_performance_test_report_processing_steps_software_name
-        ),
-        "metadata_general_parameters_instrument_performance_test_report_processing_steps_software_tool": (
-            facets.metadata_general_parameters_instrument_performance_test_report_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_instrument_performance_test_report_processing_steps_software_version": (
-            facets.metadata_general_parameters_instrument_performance_test_report_processing_steps_software_version
-        ),
-        "metadata_general_parameters_instrument_performance_test_report_recommended_software": (
-            facets.metadata_general_parameters_instrument_performance_test_report_recommended_software
-        ),
-        "metadata_general_parameters_instrument_performance_test_report_size_unit": (
-            facets.metadata_general_parameters_instrument_performance_test_report_size_unit
-        ),
-        "metadata_general_parameters_instrument_performance_test_report_size_value": (
-            facets.metadata_general_parameters_instrument_performance_test_report_size_value
-        ),
-        "metadata_general_parameters_instrument_performance_test_report_source": (
-            facets.metadata_general_parameters_instrument_performance_test_report_source
-        ),
-        "metadata_general_parameters_instrument_performance_test_report_type": (
-            facets.metadata_general_parameters_instrument_performance_test_report_type
+        "metadata_general_parameters_instrument_performance_test_report": (
+            facets.metadata_general_parameters_instrument_performance_test_report
         ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_additional_specifications": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_additional_specifications
@@ -2188,44 +1867,8 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_parameter": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_parameter
         ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_description": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_description
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_name": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_name
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_processing_steps_description": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_processing_steps_description
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_processing_steps_name": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_processing_steps_name
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_processing_steps_software_name": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_processing_steps_software_name
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_processing_steps_software_tool": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_processing_steps_software_version": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_processing_steps_software_version
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_recommended_software": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_recommended_software
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_size_unit": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_size_unit
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_size_value": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_size_value
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_source": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_source
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_type": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report_type
+        "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report": (
+            facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_report
         ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_duration_unit": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_duration_unit
@@ -2383,44 +2026,8 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_parameter": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_parameter
         ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_description": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_description
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_name": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_name
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_processing_steps_description": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_processing_steps_description
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_processing_steps_name": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_processing_steps_name
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_processing_steps_software_name": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_processing_steps_software_name
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_processing_steps_software_tool": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_processing_steps_software_version": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_processing_steps_software_version
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_recommended_software": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_recommended_software
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_size_unit": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_size_unit
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_size_value": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_size_value
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_source": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_source
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_type": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report_type
+        "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report": (
+            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report
         ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_duration_unit": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_duration_unit
@@ -2680,44 +2287,8 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_parameter": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_parameter
         ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_description": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_description
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_name": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_name
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_processing_steps_description": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_processing_steps_description
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_processing_steps_name": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_processing_steps_name
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_processing_steps_software_name": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_processing_steps_software_name
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_processing_steps_software_tool": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_processing_steps_software_version": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_processing_steps_software_version
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_recommended_software": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_recommended_software
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_size_unit": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_size_unit
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_size_value": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_size_value
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_source": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_source
-        ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_type": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report_type
+        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report": (
+            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_report
         ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_duration_unit": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_duration_unit
@@ -2917,44 +2488,8 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_parameter": (
             facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_parameter
         ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_description": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_description
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_name": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_name
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_processing_steps_description": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_processing_steps_description
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_processing_steps_name": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_processing_steps_name
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_processing_steps_software_name": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_processing_steps_software_name
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_processing_steps_software_tool": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_processing_steps_software_version": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_processing_steps_software_version
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_recommended_software": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_recommended_software
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_size_unit": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_size_unit
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_size_value": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_size_value
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_source": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_source
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_type": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report_type
+        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report": (
+            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report
         ),
         "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_duration_unit": (
             facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_duration_unit
@@ -3112,44 +2647,8 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_parameter": (
             facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_parameter
         ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_description": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_description
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_name": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_name
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_processing_steps_description": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_processing_steps_description
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_processing_steps_name": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_processing_steps_name
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_processing_steps_software_name": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_processing_steps_software_name
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_processing_steps_software_tool": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_processing_steps_software_version": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_processing_steps_software_version
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_recommended_software": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_recommended_software
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_size_unit": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_size_unit
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_size_value": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_size_value
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_source": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_source
-        ),
-        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_type": (
-            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report_type
+        "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report": (
+            facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report
         ),
         "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_duration_unit": (
             facets.metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_duration_unit
@@ -3312,48 +2811,6 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         ),
         "metadata_general_parameters_physical_environment_at_sample_handling_temperature_value_error_upper_error": (
             facets.metadata_general_parameters_physical_environment_at_sample_handling_temperature_value_error_upper_error
-        ),
-        "metadata_general_parameters_raw_data_information_collection_start_time": (
-            facets.metadata_general_parameters_raw_data_information_collection_start_time
-        ),
-        "metadata_general_parameters_raw_data_information_file_information_description": (
-            facets.metadata_general_parameters_raw_data_information_file_information_description
-        ),
-        "metadata_general_parameters_raw_data_information_file_information_name": (
-            facets.metadata_general_parameters_raw_data_information_file_information_name
-        ),
-        "metadata_general_parameters_raw_data_information_file_information_processing_steps_description": (
-            facets.metadata_general_parameters_raw_data_information_file_information_processing_steps_description
-        ),
-        "metadata_general_parameters_raw_data_information_file_information_processing_steps_link_to_source_code": (
-            facets.metadata_general_parameters_raw_data_information_file_information_processing_steps_link_to_source_code
-        ),
-        "metadata_general_parameters_raw_data_information_file_information_processing_steps_name": (
-            facets.metadata_general_parameters_raw_data_information_file_information_processing_steps_name
-        ),
-        "metadata_general_parameters_raw_data_information_file_information_processing_steps_software_name": (
-            facets.metadata_general_parameters_raw_data_information_file_information_processing_steps_software_name
-        ),
-        "metadata_general_parameters_raw_data_information_file_information_processing_steps_software_tool": (
-            facets.metadata_general_parameters_raw_data_information_file_information_processing_steps_software_tool
-        ),
-        "metadata_general_parameters_raw_data_information_file_information_processing_steps_software_version": (
-            facets.metadata_general_parameters_raw_data_information_file_information_processing_steps_software_version
-        ),
-        "metadata_general_parameters_raw_data_information_file_information_recommended_software": (
-            facets.metadata_general_parameters_raw_data_information_file_information_recommended_software
-        ),
-        "metadata_general_parameters_raw_data_information_file_information_size_unit": (
-            facets.metadata_general_parameters_raw_data_information_file_information_size_unit
-        ),
-        "metadata_general_parameters_raw_data_information_file_information_size_value": (
-            facets.metadata_general_parameters_raw_data_information_file_information_size_value
-        ),
-        "metadata_general_parameters_raw_data_information_file_information_source": (
-            facets.metadata_general_parameters_raw_data_information_file_information_source
-        ),
-        "metadata_general_parameters_raw_data_information_file_information_type": (
-            facets.metadata_general_parameters_raw_data_information_file_information_type
         ),
         "metadata_general_parameters_record_access_rights": (
             facets.metadata_general_parameters_record_access_rights

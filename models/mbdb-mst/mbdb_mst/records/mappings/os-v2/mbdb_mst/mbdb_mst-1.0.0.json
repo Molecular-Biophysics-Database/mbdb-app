@@ -359,58 +359,7 @@
                                                                 "type": "keyword"
                                                             },
                                                             "report": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "description": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "name": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "processing_steps": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "description": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "link_to_source_code": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_tool": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_version": {
-                                                                                "type": "keyword"
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "recommended_software": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "size": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "unit": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "value": {
-                                                                                "type": "double"
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "source": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "type": {
-                                                                        "type": "keyword"
-                                                                    }
-                                                                }
+                                                                "type": "keyword"
                                                             },
                                                             "storage_from_QC_to_measurement": {
                                                                 "type": "object",
@@ -709,58 +658,7 @@
                                                                         "type": "keyword"
                                                                     },
                                                                     "report": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "description": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "processing_steps": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "description": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "link_to_source_code": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "name": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_name": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_tool": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_version": {
-                                                                                        "type": "keyword"
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "recommended_software": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "size": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "unit": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "value": {
-                                                                                        "type": "double"
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "source": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "type": {
-                                                                                "type": "keyword"
-                                                                            }
-                                                                        }
+                                                                        "type": "keyword"
                                                                     },
                                                                     "storage_from_QC_to_measurement": {
                                                                         "type": "object",
@@ -1227,58 +1125,7 @@
                                                                                 "type": "keyword"
                                                                             },
                                                                             "report": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "description": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "name": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "processing_steps": {
-                                                                                        "type": "object",
-                                                                                        "properties": {
-                                                                                            "description": {
-                                                                                                "type": "keyword"
-                                                                                            },
-                                                                                            "link_to_source_code": {
-                                                                                                "type": "keyword"
-                                                                                            },
-                                                                                            "name": {
-                                                                                                "type": "keyword"
-                                                                                            },
-                                                                                            "software_name": {
-                                                                                                "type": "keyword"
-                                                                                            },
-                                                                                            "software_tool": {
-                                                                                                "type": "keyword"
-                                                                                            },
-                                                                                            "software_version": {
-                                                                                                "type": "keyword"
-                                                                                            }
-                                                                                        }
-                                                                                    },
-                                                                                    "recommended_software": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "size": {
-                                                                                        "type": "object",
-                                                                                        "properties": {
-                                                                                            "unit": {
-                                                                                                "type": "keyword"
-                                                                                            },
-                                                                                            "value": {
-                                                                                                "type": "double"
-                                                                                            }
-                                                                                        }
-                                                                                    },
-                                                                                    "source": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "type": {
-                                                                                        "type": "keyword"
-                                                                                    }
-                                                                                }
+                                                                                "type": "keyword"
                                                                             },
                                                                             "storage_from_QC_to_measurement": {
                                                                                 "type": "object",
@@ -1714,58 +1561,7 @@
                                                                 "type": "keyword"
                                                             },
                                                             "report": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "description": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "name": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "processing_steps": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "description": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "link_to_source_code": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_tool": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_version": {
-                                                                                "type": "keyword"
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "recommended_software": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "size": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "unit": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "value": {
-                                                                                "type": "double"
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "source": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "type": {
-                                                                        "type": "keyword"
-                                                                    }
-                                                                }
+                                                                "type": "keyword"
                                                             },
                                                             "storage_from_QC_to_measurement": {
                                                                 "type": "object",
@@ -2064,58 +1860,7 @@
                                                                         "type": "keyword"
                                                                     },
                                                                     "report": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "description": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "processing_steps": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "description": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "link_to_source_code": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "name": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_name": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_tool": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_version": {
-                                                                                        "type": "keyword"
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "recommended_software": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "size": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "unit": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "value": {
-                                                                                        "type": "double"
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "source": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "type": {
-                                                                                "type": "keyword"
-                                                                            }
-                                                                        }
+                                                                        "type": "keyword"
                                                                     },
                                                                     "storage_from_QC_to_measurement": {
                                                                         "type": "object",
@@ -2420,58 +2165,7 @@
                                                         "type": "keyword"
                                                     },
                                                     "report": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "description": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "name": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "processing_steps": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "description": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "link_to_source_code": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "name": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "software_name": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "software_tool": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "software_version": {
-                                                                        "type": "keyword"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "recommended_software": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "size": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "unit": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "value": {
-                                                                        "type": "double"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "source": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "type": {
-                                                                "type": "keyword"
-                                                            }
-                                                        }
+                                                        "type": "keyword"
                                                     },
                                                     "storage_from_QC_to_measurement": {
                                                         "type": "object",
@@ -2770,58 +2464,7 @@
                                                                 "type": "keyword"
                                                             },
                                                             "report": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "description": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "name": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "processing_steps": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "description": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "link_to_source_code": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_tool": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_version": {
-                                                                                "type": "keyword"
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "recommended_software": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "size": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "unit": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "value": {
-                                                                                "type": "double"
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "source": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "type": {
-                                                                        "type": "keyword"
-                                                                    }
-                                                                }
+                                                                "type": "keyword"
                                                             },
                                                             "storage_from_QC_to_measurement": {
                                                                 "type": "object",
@@ -3288,58 +2931,7 @@
                                                                         "type": "keyword"
                                                                     },
                                                                     "report": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "description": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "processing_steps": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "description": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "link_to_source_code": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "name": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_name": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_tool": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_version": {
-                                                                                        "type": "keyword"
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "recommended_software": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "size": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "unit": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "value": {
-                                                                                        "type": "double"
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "source": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "type": {
-                                                                                "type": "keyword"
-                                                                            }
-                                                                        }
+                                                                        "type": "keyword"
                                                                     },
                                                                     "storage_from_QC_to_measurement": {
                                                                         "type": "object",
@@ -3501,6 +3093,10 @@
                                         }
                                     }
                                 }
+                            },
+                            "collection_start_time": {
+                                "type": "date",
+                                "format": "basic_date||strict_date"
                             },
                             "depositors": {
                                 "type": "object",
@@ -3818,58 +3414,7 @@
                                                 }
                                             },
                                             "report": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "description": {
-                                                        "type": "keyword"
-                                                    },
-                                                    "name": {
-                                                        "type": "keyword"
-                                                    },
-                                                    "processing_steps": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "description": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "link_to_source_code": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "name": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "software_name": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "software_tool": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "software_version": {
-                                                                "type": "keyword"
-                                                            }
-                                                        }
-                                                    },
-                                                    "recommended_software": {
-                                                        "type": "keyword"
-                                                    },
-                                                    "size": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "unit": {
-                                                                "type": "keyword"
-                                                            },
-                                                            "value": {
-                                                                "type": "double"
-                                                            }
-                                                        }
-                                                    },
-                                                    "source": {
-                                                        "type": "keyword"
-                                                    },
-                                                    "type": {
-                                                        "type": "keyword"
-                                                    }
-                                                }
+                                                "type": "keyword"
                                             },
                                             "sample_composition": {
                                                 "type": "nested",
@@ -4067,58 +3612,7 @@
                                                                 "type": "keyword"
                                                             },
                                                             "report": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "description": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "name": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "processing_steps": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "description": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "link_to_source_code": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_tool": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_version": {
-                                                                                "type": "keyword"
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "recommended_software": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "size": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "unit": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "value": {
-                                                                                "type": "double"
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "source": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "type": {
-                                                                        "type": "keyword"
-                                                                    }
-                                                                }
+                                                                "type": "keyword"
                                                             },
                                                             "storage_from_QC_to_measurement": {
                                                                 "type": "object",
@@ -4417,58 +3911,7 @@
                                                                         "type": "keyword"
                                                                     },
                                                                     "report": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "description": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "processing_steps": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "description": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "link_to_source_code": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "name": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_name": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_tool": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_version": {
-                                                                                        "type": "keyword"
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "recommended_software": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "size": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "unit": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "value": {
-                                                                                        "type": "double"
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "source": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "type": {
-                                                                                "type": "keyword"
-                                                                            }
-                                                                        }
+                                                                        "type": "keyword"
                                                                     },
                                                                     "storage_from_QC_to_measurement": {
                                                                         "type": "object",
@@ -4935,58 +4378,7 @@
                                                                                 "type": "keyword"
                                                                             },
                                                                             "report": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "description": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "name": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "processing_steps": {
-                                                                                        "type": "object",
-                                                                                        "properties": {
-                                                                                            "description": {
-                                                                                                "type": "keyword"
-                                                                                            },
-                                                                                            "link_to_source_code": {
-                                                                                                "type": "keyword"
-                                                                                            },
-                                                                                            "name": {
-                                                                                                "type": "keyword"
-                                                                                            },
-                                                                                            "software_name": {
-                                                                                                "type": "keyword"
-                                                                                            },
-                                                                                            "software_tool": {
-                                                                                                "type": "keyword"
-                                                                                            },
-                                                                                            "software_version": {
-                                                                                                "type": "keyword"
-                                                                                            }
-                                                                                        }
-                                                                                    },
-                                                                                    "recommended_software": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "size": {
-                                                                                        "type": "object",
-                                                                                        "properties": {
-                                                                                            "unit": {
-                                                                                                "type": "keyword"
-                                                                                            },
-                                                                                            "value": {
-                                                                                                "type": "double"
-                                                                                            }
-                                                                                        }
-                                                                                    },
-                                                                                    "source": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "type": {
-                                                                                        "type": "keyword"
-                                                                                    }
-                                                                                }
+                                                                                "type": "keyword"
                                                                             },
                                                                             "storage_from_QC_to_measurement": {
                                                                                 "type": "object",
@@ -5353,58 +4745,7 @@
                                                                 "type": "keyword"
                                                             },
                                                             "report": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "description": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "name": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "processing_steps": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "description": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "link_to_source_code": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_tool": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "software_version": {
-                                                                                "type": "keyword"
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "recommended_software": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "size": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "unit": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "value": {
-                                                                                "type": "double"
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "source": {
-                                                                        "type": "keyword"
-                                                                    },
-                                                                    "type": {
-                                                                        "type": "keyword"
-                                                                    }
-                                                                }
+                                                                "type": "keyword"
                                                             },
                                                             "storage_from_QC_to_measurement": {
                                                                 "type": "object",
@@ -5703,58 +5044,7 @@
                                                                         "type": "keyword"
                                                                     },
                                                                     "report": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "description": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "name": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "processing_steps": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "description": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "link_to_source_code": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "name": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_name": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_tool": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "software_version": {
-                                                                                        "type": "keyword"
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "recommended_software": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "size": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "unit": {
-                                                                                        "type": "keyword"
-                                                                                    },
-                                                                                    "value": {
-                                                                                        "type": "double"
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            "source": {
-                                                                                "type": "keyword"
-                                                                            },
-                                                                            "type": {
-                                                                                "type": "keyword"
-                                                                            }
-                                                                        }
+                                                                        "type": "keyword"
                                                                     },
                                                                     "storage_from_QC_to_measurement": {
                                                                         "type": "object",
@@ -5993,69 +5283,6 @@
                                                         "type": "double"
                                                     }
                                                 }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "raw_data_information": {
-                                "type": "object",
-                                "properties": {
-                                    "collection_start_time": {
-                                        "type": "date",
-                                        "format": "basic_date||strict_date"
-                                    },
-                                    "file_information": {
-                                        "type": "object",
-                                        "properties": {
-                                            "description": {
-                                                "type": "keyword"
-                                            },
-                                            "name": {
-                                                "type": "keyword"
-                                            },
-                                            "processing_steps": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "description": {
-                                                        "type": "keyword"
-                                                    },
-                                                    "link_to_source_code": {
-                                                        "type": "keyword"
-                                                    },
-                                                    "name": {
-                                                        "type": "keyword"
-                                                    },
-                                                    "software_name": {
-                                                        "type": "keyword"
-                                                    },
-                                                    "software_tool": {
-                                                        "type": "keyword"
-                                                    },
-                                                    "software_version": {
-                                                        "type": "keyword"
-                                                    }
-                                                }
-                                            },
-                                            "recommended_software": {
-                                                "type": "keyword"
-                                            },
-                                            "size": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "unit": {
-                                                        "type": "keyword"
-                                                    },
-                                                    "value": {
-                                                        "type": "double"
-                                                    }
-                                                }
-                                            },
-                                            "source": {
-                                                "type": "keyword"
-                                            },
-                                            "type": {
-                                                "type": "keyword"
                                             }
                                         }
                                     }
