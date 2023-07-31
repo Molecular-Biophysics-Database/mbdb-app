@@ -6,8 +6,8 @@ class MbdbMstUIResourceConfig(RecordsUIResourceConfig):
     url_prefix = "/mst/"
     blueprint_name = "mbdb-mst-ui"
     ui_serializer_class = "mbdb_mst.resources.records.ui.MbdbMstUIJSONSerializer"
-    api_service = "mbdb_mst_ui"
-    layout = "mbdb_mst_ui"
+    api_service = "mbdb_mst"
+    layout = "mbdb_mst"
 
     templates = {
         "detail": {

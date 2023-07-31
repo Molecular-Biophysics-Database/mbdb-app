@@ -61,12 +61,13 @@ ui:
     cookiecutter_author_email: Emildandanell.agerschou@ibt.cas.cz
     cookiecutter_ext_name: MbdbMstExtension
     cookiecutter_local_model_path: ../../models/mbdb-mst
-    cookiecutter_model_package: mbdb_mst_ui
+    cookiecutter_model_package: mbdb_mst
     cookiecutter_repository_url: ''
     cookiecutter_resource: MbdbMstUIResource
     cookiecutter_resource_config: MbdbMstUIResourceConfig
     cookiecutter_ui_record_serializer_class: mbdb_mst.resources.records.ui.MbdbMstUIJSONSerializer
     model_name: mbdb-mst
-    sites: []
+    sites:
+    - mbdb-site
     ui_dir: ui/mbdb-mst-ui
     url_prefix: /mst/
