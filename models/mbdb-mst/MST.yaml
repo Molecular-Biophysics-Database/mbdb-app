@@ -1,3 +1,5 @@
+profile:
+  - files
 record:
   use: [invenio]
   module:
