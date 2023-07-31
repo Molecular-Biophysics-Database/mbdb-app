@@ -30,7 +30,7 @@ models:
     use_docs: 'no'
     use_drafts: 'no'
     use_expandable_fields: 'no'
-    use_files: 'no'
+    use_files: 'yes'
     use_metadata: 'no'
     use_nr_vocabularies: 'no'
     use_relations: 'yes'
@@ -61,7 +61,7 @@ ui:
     cookiecutter_author_email: Emildandanell.agerschou@ibt.cas.cz
     cookiecutter_ext_name: MbdbMstExtension
     cookiecutter_local_model_path: ../../models/mbdb-mst
-    cookiecutter_model_package: mbdb_mst
+    cookiecutter_model_package: mbdb_mst_ui
     cookiecutter_repository_url: ''
     cookiecutter_resource: MbdbMstUIResource
     cookiecutter_resource_config: MbdbMstUIResourceConfig
