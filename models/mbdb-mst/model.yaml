@@ -5,6 +5,7 @@ plugins:
   - oarepo-model-builder-relations==4.*
 profiles:
 - record
+- files
 record:
   module:
     qualified: mbdb_mst
