@@ -1,4 +1,4 @@
-profile:
+profiles:
   - files
 record:
   use: [invenio]
