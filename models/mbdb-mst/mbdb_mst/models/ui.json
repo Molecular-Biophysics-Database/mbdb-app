@@ -1,13 +1,136 @@
 {
     "module": "mbdb_mst.models",
     "file": "mbdb_mst/models/ui.json",
-    "alias": "mbdb_mst",
-    "detail": "model",
-    "input": "model",
+    "alias": "mbdb_mst_file",
+    "detail": "file",
+    "input": "file",
     "help": ".help",
     "label": ".label",
     "hint": ".hint",
     "children": {
+        "content_type": {
+            "detail": "keyword",
+            "input": "keyword",
+            "help": "content_type.help",
+            "label": "content_type.label",
+            "hint": "content_type.hint",
+            "enum": "content_type.enum",
+            "facet": "content_type"
+        },
+        "context": {
+            "detail": "keyword",
+            "input": "keyword",
+            "help": "context.help",
+            "label": "context.label",
+            "hint": "context.hint",
+            "enum": "context.enum",
+            "facet": "context"
+        },
+        "description": {
+            "detail": "keyword",
+            "input": "keyword",
+            "help": "description.help",
+            "label": "description.label",
+            "hint": "description.hint",
+            "facet": "description"
+        },
+        "name": {
+            "detail": "keyword",
+            "input": "keyword",
+            "help": "name.help",
+            "label": "name.label",
+            "hint": "name.hint",
+            "facet": "name"
+        },
+        "originates_from": {
+            "detail": "keyword",
+            "input": "keyword",
+            "help": "originates_from.help",
+            "label": "originates_from.label",
+            "hint": "originates_from.hint",
+            "enum": "originates_from.enum",
+            "facet": "originates_from"
+        },
+        "processing_steps": {
+            "detail": "array",
+            "input": "array",
+            "help": "processing_steps.help",
+            "label": "processing_steps.label",
+            "hint": "processing_steps.hint",
+            "child": {
+                "detail": "processing_step",
+                "input": "processing_step",
+                "help": "processing_steps.help",
+                "label": "processing_steps.label",
+                "hint": "processing_steps.hint",
+                "children": {
+                    "description": {
+                        "detail": "keyword",
+                        "input": "keyword",
+                        "help": "processing_steps/description.help",
+                        "label": "processing_steps/description.label",
+                        "hint": "processing_steps/description.hint",
+                        "facet": "processing_steps_description"
+                    },
+                    "link_to_source_code": {
+                        "detail": "keyword",
+                        "input": "keyword",
+                        "help": "processing_steps/link_to_source_code.help",
+                        "label": "processing_steps/link_to_source_code.label",
+                        "hint": "processing_steps/link_to_source_code.hint",
+                        "facet": "processing_steps_link_to_source_code"
+                    },
+                    "name": {
+                        "detail": "keyword",
+                        "input": "keyword",
+                        "help": "processing_steps/name.help",
+                        "label": "processing_steps/name.label",
+                        "hint": "processing_steps/name.hint",
+                        "facet": "processing_steps_name"
+                    },
+                    "software_name": {
+                        "detail": "keyword",
+                        "input": "keyword",
+                        "help": "processing_steps/software_name.help",
+                        "label": "processing_steps/software_name.label",
+                        "hint": "processing_steps/software_name.hint",
+                        "facet": "processing_steps_software_name"
+                    },
+                    "software_tool": {
+                        "detail": "keyword",
+                        "input": "keyword",
+                        "help": "processing_steps/software_tool.help",
+                        "label": "processing_steps/software_tool.label",
+                        "hint": "processing_steps/software_tool.hint",
+                        "facet": "processing_steps_software_tool"
+                    },
+                    "software_version": {
+                        "detail": "keyword",
+                        "input": "keyword",
+                        "help": "processing_steps/software_version.help",
+                        "label": "processing_steps/software_version.label",
+                        "hint": "processing_steps/software_version.hint",
+                        "facet": "processing_steps_software_version"
+                    }
+                }
+            }
+        },
+        "recommended_software": {
+            "detail": "keyword",
+            "input": "keyword",
+            "help": "recommended_software.help",
+            "label": "recommended_software.label",
+            "hint": "recommended_software.hint",
+            "facet": "recommended_software"
+        },
+        "size": {
+            "detail": "integer",
+            "input": "integer",
+            "help": "size.help",
+            "label": "size.label",
+            "hint": "size.hint",
+            "facet": "size"
+        },
         "$schema": {
             "detail": "keyword",
             "input": "keyword",

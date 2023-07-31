@@ -1,11 +1,12 @@
 from invenio_pidstore.providers.recordid_v2 import RecordIdProviderV2
-from invenio_records.systemfields import ConstantField, RelationsField
+from invenio_records.systemfields import ConstantField, ModelField, RelationsField
 from invenio_records_resources.records.api import Record as InvenioRecord
-from invenio_records_resources.records.systemfields import IndexField
+from invenio_records_resources.records.systemfields import FilesField, IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
 from invenio_vocabularies.records.api import Vocabulary
 from oarepo_runtime.relations import InternalRelation, PIDRelation, RelationsField
 
+from mbdb_mst.files.api import MbdbMstFile
 from mbdb_mst.records.dumper import MbdbMstDumper
 from mbdb_mst.records.models import MbdbMstMetadata
 
@@ -333,3 +334,11 @@ class MbdbMstRecord(InvenioRecord):
             ),
         ),
     )
+
+    files = FilesField(file_cls=MbdbMstFile, store=False)
+
+    bucket_id = ModelField(dump=False)
+    bucket = ModelField(dump=False)
+
+
+MbdbMstFile.record_cls = MbdbMstRecord
