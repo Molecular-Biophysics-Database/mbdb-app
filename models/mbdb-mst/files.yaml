@@ -1,6 +1,0 @@
-files:
-  use:
-  - invenio_files
-  module:
-    qualified: mbdb_mst
-  properties: {}
