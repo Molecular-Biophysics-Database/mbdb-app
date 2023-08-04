@@ -67,7 +67,6 @@ ui:
     cookiecutter_resource_config: MbdbMstUIResourceConfig
     cookiecutter_ui_record_serializer_class: mbdb_mst.resources.records.ui.MbdbMstUIJSONSerializer
     model_name: mbdb-mst
-    sites:
-    - mbdb-site
+    sites: []
     ui_dir: ui/mbdb-mst-ui
     url_prefix: /mst/
