@@ -1,7 +1,37 @@
 {
     "model": {
         "type": "file",
+        "marshmallow": {
+            "imports": [
+                {
+                    "import": "invenio_records_resources.services.files.schema.FileSchema",
+                    "alias": "InvenioFileSchema"
+                }
+            ],
+            "base-classes": [
+                "InvenioFileSchema"
+            ],
+            "generate": true,
+            "module": "mbdb_mst.services.files.schema",
+            "class": "mbdb_mst.services.files.schema.MbdbMstFileSchema",
+            "extra-code": ""
+        },
         "searchable": true,
+        "module": {
+            "qualified": "mbdb_mst",
+            "prefix": "MbdbMstFile",
+            "alias": "mbdb_mst_file",
+            "path": "mbdb_mst",
+            "base": "mbdb_mst",
+            "base-upper": "MBDB_MST",
+            "base-title": "Mbdb_mst",
+            "kebab-module": "mbdb-mst",
+            "prefix-upper": "MBDBMSTFILE",
+            "prefix-snake": "mbdb_mst_file",
+            "suffix": "mbdb_mst_file",
+            "suffix-upper": "MBDB_MST_FILE",
+            "suffix-snake": "mbdb_mst_file"
+        },
         "tests": {
             "extra-fixtures": [],
             "extra-code": "",
@@ -59,21 +89,6 @@
                     "import": "invenio_records.dumpers.SearchDumper"
                 }
             ]
-        },
-        "module": {
-            "qualified": "mbdb_mst",
-            "prefix": "MbdbMstFile",
-            "alias": "mbdb_mst_file",
-            "path": "mbdb_mst",
-            "base": "mbdb_mst",
-            "base-upper": "MBDB_MST",
-            "base-title": "Mbdb_mst",
-            "kebab-module": "mbdb-mst",
-            "prefix-upper": "MBDBMSTFILE",
-            "prefix-snake": "mbdb_mst_file",
-            "suffix": "mbdb_mst_file",
-            "suffix-upper": "MBDB_MST_FILE",
-            "suffix-snake": "mbdb_mst_file"
         },
         "model-name": "Mbdb_Mst",
         "config": {
@@ -324,15 +339,6 @@
             "index": "mbdb_mst_file-mbdb_mst_file-1.0.0",
             "file": "mbdb_mst/files/mappings/os-v2/mbdb_mst_file/mbdb_mst_file-1.0.0.json"
         },
-        "marshmallow": {
-            "generate": true,
-            "module": "mbdb_mst.services.files.schema",
-            "class": "mbdb_mst.services.files.schema.MbdbMstFileSchema",
-            "extra-code": "",
-            "base-classes": [
-                "ma.Schema"
-            ]
-        },
         "permissions": {
             "class": "mbdb_mst.services.records.permissions.MbdbMstPermissionPolicy",
             "generate": false,
@@ -352,6 +358,22 @@
         },
         "sortable": [],
         "properties": {
+            "$schema": {
+                "type": "keyword",
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
             "content_type": {
                 "type": "keyword",
                 "enum": [
@@ -366,13 +388,46 @@
                 "enum": [
                     "raw measurement data",
                     "derived measurement data",
-                    "QC report"
+                    "quality control report",
+                    "performance test report"
                 ],
-                "help.en": "The context file should be understood within (e.g. raw measurement data)"
+                "help.en": "The context the file should be understood within (e.g. raw measurement data)"
+            },
+            "created": {
+                "type": "date",
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "read": true,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                }
             },
             "description": {
                 "type": "keyword",
                 "help.en": "Short description of what the file contains"
+            },
+            "id": {
+                "type": "keyword",
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                }
             },
             "name": {
                 "type": "keyword",
@@ -385,7 +440,7 @@
                     "User",
                     "MBDB"
                 ],
-                "help.en": "Whatwho generated the file"
+                "help.en": "What is the source of the file"
             },
             "processing_steps": {
                 "type": "array",
@@ -438,6 +493,22 @@
                 "type": "integer",
                 "minimum": 0,
                 "help.en": "Size of the file"
+            },
+            "updated": {
+                "type": "date",
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "read": true,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                }
             }
         }
     }

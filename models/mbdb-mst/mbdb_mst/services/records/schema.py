@@ -74,7 +74,7 @@ class GeneralParametersSchema(ma.Schema):
 
     record = ma.fields.Nested(lambda: RecordSchema())
 
-    schema_version = ma.fields.String(validate=[ma_validate.OneOf(["0.9.0"])])
+    schema_version = ma.fields.String(validate=[ma_validate.OneOf(["0.9.2"])])
 
     technique = ma.fields.String(
         required=True,
@@ -1622,7 +1622,7 @@ class RecordSchema(ma.Schema):
 
     resource_type = ma.fields.String()
 
-    resource_type_general = ma.fields.String(validate=[ma_validate.OneOf(["dataset"])])
+    resource_type_general = ma.fields.String(validate=[ma_validate.OneOf(["Dataset"])])
 
     subject_category = ma.fields.String()
 
@@ -1858,7 +1858,9 @@ class AuthorsItemSchema(ma.Schema):
 
     affiliations = ma.fields.List(ma.fields.Nested(lambda: AffiliationsItemSchema()))
 
-    full_name = ma.fields.String()
+    family_name = ma.fields.String()
+
+    given_name = ma.fields.String()
 
     identifiers = ma.fields.List(ma.fields.String())
 

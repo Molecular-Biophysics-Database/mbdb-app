@@ -61,7 +61,10 @@
                                                             }
                                                         }
                                                     },
-                                                    "full_name": {
+                                                    "family_name": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "given_name": {
                                                         "type": "keyword"
                                                     },
                                                     "identifiers": {
@@ -127,7 +130,10 @@
                                                             }
                                                         }
                                                     },
-                                                    "full_name": {
+                                                    "family_name": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "given_name": {
                                                         "type": "keyword"
                                                     },
                                                     "identifiers": {
@@ -3139,7 +3145,10 @@
                                                     }
                                                 }
                                             },
-                                            "full_name": {
+                                            "family_name": {
+                                                "type": "keyword"
+                                            },
+                                            "given_name": {
                                                 "type": "keyword"
                                             },
                                             "identifiers": {
@@ -3185,7 +3194,10 @@
                                                     }
                                                 }
                                             },
-                                            "full_name": {
+                                            "family_name": {
+                                                "type": "keyword"
+                                            },
+                                            "given_name": {
                                                 "type": "keyword"
                                             },
                                             "identifiers": {
@@ -3231,7 +3243,10 @@
                                                     }
                                                 }
                                             },
-                                            "full_name": {
+                                            "family_name": {
+                                                "type": "keyword"
+                                            },
+                                            "given_name": {
                                                 "type": "keyword"
                                             },
                                             "identifiers": {
@@ -3388,7 +3403,10 @@
                                                                     }
                                                                 }
                                                             },
-                                                            "full_name": {
+                                                            "family_name": {
+                                                                "type": "keyword"
+                                                            },
+                                                            "given_name": {
                                                                 "type": "keyword"
                                                             },
                                                             "identifiers": {
@@ -5364,7 +5382,10 @@
                                                             }
                                                         }
                                                     },
-                                                    "full_name": {
+                                                    "family_name": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "given_name": {
                                                         "type": "keyword"
                                                     },
                                                     "identifiers": {

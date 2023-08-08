@@ -26,14 +26,27 @@ metadata_general_parameters_associated_publications_additional_authors_affiliati
     ),
 )
 
-metadata_general_parameters_associated_publications_additional_authors_full_name = NestedLabeledFacet(
+metadata_general_parameters_associated_publications_additional_authors_family_name = NestedLabeledFacet(
     path="metadata.general_parameters.associated_publications.additional",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.associated_publications.additional.authors",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.associated_publications.additional.authors.full_name",
+            field="metadata.general_parameters.associated_publications.additional.authors.family_name",
             label=_(
-                "metadata/general_parameters/associated_publications/additional/authors/full_name.label"
+                "metadata/general_parameters/associated_publications/additional/authors/family_name.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_associated_publications_additional_authors_given_name = NestedLabeledFacet(
+    path="metadata.general_parameters.associated_publications.additional",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.associated_publications.additional.authors",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.associated_publications.additional.authors.given_name",
+            label=_(
+                "metadata/general_parameters/associated_publications/additional/authors/given_name.label"
             ),
         ),
     ),
@@ -115,14 +128,22 @@ metadata_general_parameters_associated_publications_main_authors_affiliations = 
     ),
 )
 
-metadata_general_parameters_associated_publications_main_authors_full_name = NestedLabeledFacet(
+metadata_general_parameters_associated_publications_main_authors_family_name = NestedLabeledFacet(
     path="metadata.general_parameters.associated_publications.main.authors",
     nested_facet=TermsFacet(
-        field=(
-            "metadata.general_parameters.associated_publications.main.authors.full_name"
-        ),
+        field="metadata.general_parameters.associated_publications.main.authors.family_name",
         label=_(
-            "metadata/general_parameters/associated_publications/main/authors/full_name.label"
+            "metadata/general_parameters/associated_publications/main/authors/family_name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_associated_publications_main_authors_given_name = NestedLabeledFacet(
+    path="metadata.general_parameters.associated_publications.main.authors",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.associated_publications.main.authors.given_name",
+        label=_(
+            "metadata/general_parameters/associated_publications/main/authors/given_name.label"
         ),
     ),
 )
@@ -5817,11 +5838,21 @@ metadata_general_parameters_depositors_contributors_affiliations = NestedLabeled
     ),
 )
 
-metadata_general_parameters_depositors_contributors_full_name = NestedLabeledFacet(
+metadata_general_parameters_depositors_contributors_family_name = NestedLabeledFacet(
     path="metadata.general_parameters.depositors.contributors",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.depositors.contributors.full_name",
-        label=_("metadata/general_parameters/depositors/contributors/full_name.label"),
+        field="metadata.general_parameters.depositors.contributors.family_name",
+        label=_(
+            "metadata/general_parameters/depositors/contributors/family_name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_depositors_contributors_given_name = NestedLabeledFacet(
+    path="metadata.general_parameters.depositors.contributors",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.depositors.contributors.given_name",
+        label=_("metadata/general_parameters/depositors/contributors/given_name.label"),
     ),
 )
 
@@ -5841,9 +5872,14 @@ metadata_general_parameters_depositors_depositor_affiliations = VocabularyFacet(
     vocabulary="affiliations",
 )
 
-metadata_general_parameters_depositors_depositor_full_name = TermsFacet(
-    field="metadata.general_parameters.depositors.depositor.full_name",
-    label=_("metadata/general_parameters/depositors/depositor/full_name.label"),
+metadata_general_parameters_depositors_depositor_family_name = TermsFacet(
+    field="metadata.general_parameters.depositors.depositor.family_name",
+    label=_("metadata/general_parameters/depositors/depositor/family_name.label"),
+)
+
+metadata_general_parameters_depositors_depositor_given_name = TermsFacet(
+    field="metadata.general_parameters.depositors.depositor.given_name",
+    label=_("metadata/general_parameters/depositors/depositor/given_name.label"),
 )
 
 metadata_general_parameters_depositors_depositor_identifiers = TermsFacet(
@@ -5859,9 +5895,18 @@ metadata_general_parameters_depositors_principal_contact_affiliations = Vocabula
     vocabulary="affiliations",
 )
 
-metadata_general_parameters_depositors_principal_contact_full_name = TermsFacet(
-    field="metadata.general_parameters.depositors.principal_contact.full_name",
-    label=_("metadata/general_parameters/depositors/principal_contact/full_name.label"),
+metadata_general_parameters_depositors_principal_contact_family_name = TermsFacet(
+    field="metadata.general_parameters.depositors.principal_contact.family_name",
+    label=_(
+        "metadata/general_parameters/depositors/principal_contact/family_name.label"
+    ),
+)
+
+metadata_general_parameters_depositors_principal_contact_given_name = TermsFacet(
+    field="metadata.general_parameters.depositors.principal_contact.given_name",
+    label=_(
+        "metadata/general_parameters/depositors/principal_contact/given_name.label"
+    ),
 )
 
 metadata_general_parameters_depositors_principal_contact_identifiers = TermsFacet(
@@ -6018,12 +6063,22 @@ metadata_general_parameters_instrument_performance_test_published_test_protocol_
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_full_name = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_family_name = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.published_test_protocol.authors",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.published_test_protocol.authors.full_name",
+        field="metadata.general_parameters.instrument.performance_test.published_test_protocol.authors.family_name",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/published_test_protocol/authors/full_name.label"
+            "metadata/general_parameters/instrument/performance_test/published_test_protocol/authors/family_name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_given_name = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.published_test_protocol.authors",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.published_test_protocol.authors.given_name",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/published_test_protocol/authors/given_name.label"
         ),
     ),
 )
@@ -9057,9 +9112,14 @@ metadata_general_parameters_record_project_owner_affiliations = VocabularyFacet(
     vocabulary="affiliations",
 )
 
-metadata_general_parameters_record_project_owner_full_name = TermsFacet(
-    field="metadata.general_parameters.record.project.owner.full_name",
-    label=_("metadata/general_parameters/record/project/owner/full_name.label"),
+metadata_general_parameters_record_project_owner_family_name = TermsFacet(
+    field="metadata.general_parameters.record.project.owner.family_name",
+    label=_("metadata/general_parameters/record/project/owner/family_name.label"),
+)
+
+metadata_general_parameters_record_project_owner_given_name = TermsFacet(
+    field="metadata.general_parameters.record.project.owner.given_name",
+    label=_("metadata/general_parameters/record/project/owner/given_name.label"),
 )
 
 metadata_general_parameters_record_project_owner_identifiers = TermsFacet(

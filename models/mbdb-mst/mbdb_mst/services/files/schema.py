@@ -1,8 +1,12 @@
 import marshmallow as ma
+from invenio_records_resources.services.files.schema import (
+    FileSchema as InvenioFileSchema,
+)
 from marshmallow import validate as ma_validate
+from oarepo_runtime.validation import validate_date
 
 
-class MbdbMstFileSchema(ma.Schema):
+class MbdbMstFileSchema(InvenioFileSchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -13,10 +17,17 @@ class MbdbMstFileSchema(ma.Schema):
     context = ma.fields.String(
         validate=[
             ma_validate.OneOf(
-                ["raw measurement data", "derived measurement data", "QC report"]
+                [
+                    "raw measurement data",
+                    "derived measurement data",
+                    "quality control report",
+                    "performance test report",
+                ]
             )
         ]
     )
+
+    created = ma.fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
 
     description = ma.fields.String()
 
@@ -33,6 +44,8 @@ class MbdbMstFileSchema(ma.Schema):
     recommended_software = ma.fields.String()
 
     size = ma.fields.Integer()
+
+    updated = ma.fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
 
 
 class ProcessingStepsItemSchema(ma.Schema):

@@ -8,6 +8,14 @@
     "label": ".label",
     "hint": ".hint",
     "children": {
+        "$schema": {
+            "detail": "keyword",
+            "input": "keyword",
+            "help": "$schema.help",
+            "label": "$schema.label",
+            "hint": "$schema.hint",
+            "facet": "_schema"
+        },
         "content_type": {
             "detail": "keyword",
             "input": "keyword",
@@ -26,6 +34,14 @@
             "enum": "context.enum",
             "facet": "context"
         },
+        "created": {
+            "detail": "date",
+            "input": "date",
+            "help": "created.help",
+            "label": "created.label",
+            "hint": "created.hint",
+            "facet": "created"
+        },
         "description": {
             "detail": "keyword",
             "input": "keyword",
@@ -33,6 +49,14 @@
             "label": "description.label",
             "hint": "description.hint",
             "facet": "description"
+        },
+        "id": {
+            "detail": "keyword",
+            "input": "keyword",
+            "help": "id.help",
+            "label": "id.label",
+            "hint": "id.hint",
+            "facet": "_id"
         },
         "name": {
             "detail": "keyword",
@@ -131,29 +155,13 @@
             "hint": "size.hint",
             "facet": "size"
         },
-        "$schema": {
-            "detail": "keyword",
-            "input": "keyword",
-            "help": "$schema.help",
-            "label": "$schema.label",
-            "hint": "$schema.hint",
-            "facet": "_schema"
-        },
-        "created": {
-            "detail": "datetime",
-            "input": "datetime",
-            "help": "created.help",
-            "label": "created.label",
-            "hint": "created.hint",
-            "facet": "created"
-        },
-        "id": {
-            "detail": "keyword",
-            "input": "keyword",
-            "help": "id.help",
-            "label": "id.label",
-            "hint": "id.hint",
-            "facet": "_id"
+        "updated": {
+            "detail": "date",
+            "input": "date",
+            "help": "updated.help",
+            "label": "updated.label",
+            "hint": "updated.hint",
+            "facet": "updated"
         },
         "metadata": {
             "detail": "metadatum",
@@ -262,13 +270,21 @@
                                                                 }
                                                             }
                                                         },
-                                                        "full_name": {
+                                                        "family_name": {
                                                             "detail": "keyword",
                                                             "input": "keyword",
-                                                            "help": "metadata/general_parameters/associated_publications/additional/authors/full_name.help",
-                                                            "label": "metadata/general_parameters/associated_publications/additional/authors/full_name.label",
-                                                            "hint": "metadata/general_parameters/associated_publications/additional/authors/full_name.hint",
-                                                            "facet": "metadata_general_parameters_associated_publications_additional_authors_full_name"
+                                                            "help": "metadata/general_parameters/associated_publications/additional/authors/family_name.help",
+                                                            "label": "metadata/general_parameters/associated_publications/additional/authors/family_name.label",
+                                                            "hint": "metadata/general_parameters/associated_publications/additional/authors/family_name.hint",
+                                                            "facet": "metadata_general_parameters_associated_publications_additional_authors_family_name"
+                                                        },
+                                                        "given_name": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/associated_publications/additional/authors/given_name.help",
+                                                            "label": "metadata/general_parameters/associated_publications/additional/authors/given_name.label",
+                                                            "hint": "metadata/general_parameters/associated_publications/additional/authors/given_name.hint",
+                                                            "facet": "metadata_general_parameters_associated_publications_additional_authors_given_name"
                                                         },
                                                         "identifiers": {
                                                             "detail": "array",
@@ -412,13 +428,21 @@
                                                             }
                                                         }
                                                     },
-                                                    "full_name": {
+                                                    "family_name": {
                                                         "detail": "keyword",
                                                         "input": "keyword",
-                                                        "help": "metadata/general_parameters/associated_publications/main/authors/full_name.help",
-                                                        "label": "metadata/general_parameters/associated_publications/main/authors/full_name.label",
-                                                        "hint": "metadata/general_parameters/associated_publications/main/authors/full_name.hint",
-                                                        "facet": "metadata_general_parameters_associated_publications_main_authors_full_name"
+                                                        "help": "metadata/general_parameters/associated_publications/main/authors/family_name.help",
+                                                        "label": "metadata/general_parameters/associated_publications/main/authors/family_name.label",
+                                                        "hint": "metadata/general_parameters/associated_publications/main/authors/family_name.hint",
+                                                        "facet": "metadata_general_parameters_associated_publications_main_authors_family_name"
+                                                    },
+                                                    "given_name": {
+                                                        "detail": "keyword",
+                                                        "input": "keyword",
+                                                        "help": "metadata/general_parameters/associated_publications/main/authors/given_name.help",
+                                                        "label": "metadata/general_parameters/associated_publications/main/authors/given_name.label",
+                                                        "hint": "metadata/general_parameters/associated_publications/main/authors/given_name.hint",
+                                                        "facet": "metadata_general_parameters_associated_publications_main_authors_given_name"
                                                     },
                                                     "identifiers": {
                                                         "detail": "array",
@@ -7934,13 +7958,21 @@
                                                     }
                                                 }
                                             },
-                                            "full_name": {
+                                            "family_name": {
                                                 "detail": "keyword",
                                                 "input": "keyword",
-                                                "help": "metadata/general_parameters/depositors/contributors/full_name.help",
-                                                "label": "metadata/general_parameters/depositors/contributors/full_name.label",
-                                                "hint": "metadata/general_parameters/depositors/contributors/full_name.hint",
-                                                "facet": "metadata_general_parameters_depositors_contributors_full_name"
+                                                "help": "metadata/general_parameters/depositors/contributors/family_name.help",
+                                                "label": "metadata/general_parameters/depositors/contributors/family_name.label",
+                                                "hint": "metadata/general_parameters/depositors/contributors/family_name.hint",
+                                                "facet": "metadata_general_parameters_depositors_contributors_family_name"
+                                            },
+                                            "given_name": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/general_parameters/depositors/contributors/given_name.help",
+                                                "label": "metadata/general_parameters/depositors/contributors/given_name.label",
+                                                "hint": "metadata/general_parameters/depositors/contributors/given_name.hint",
+                                                "facet": "metadata_general_parameters_depositors_contributors_given_name"
                                             },
                                             "identifiers": {
                                                 "detail": "array",
@@ -8027,13 +8059,21 @@
                                                 }
                                             }
                                         },
-                                        "full_name": {
+                                        "family_name": {
                                             "detail": "keyword",
                                             "input": "keyword",
-                                            "help": "metadata/general_parameters/depositors/depositor/full_name.help",
-                                            "label": "metadata/general_parameters/depositors/depositor/full_name.label",
-                                            "hint": "metadata/general_parameters/depositors/depositor/full_name.hint",
-                                            "facet": "metadata_general_parameters_depositors_depositor_full_name"
+                                            "help": "metadata/general_parameters/depositors/depositor/family_name.help",
+                                            "label": "metadata/general_parameters/depositors/depositor/family_name.label",
+                                            "hint": "metadata/general_parameters/depositors/depositor/family_name.hint",
+                                            "facet": "metadata_general_parameters_depositors_depositor_family_name"
+                                        },
+                                        "given_name": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/general_parameters/depositors/depositor/given_name.help",
+                                            "label": "metadata/general_parameters/depositors/depositor/given_name.label",
+                                            "hint": "metadata/general_parameters/depositors/depositor/given_name.hint",
+                                            "facet": "metadata_general_parameters_depositors_depositor_given_name"
                                         },
                                         "identifiers": {
                                             "detail": "array",
@@ -8119,13 +8159,21 @@
                                                 }
                                             }
                                         },
-                                        "full_name": {
+                                        "family_name": {
                                             "detail": "keyword",
                                             "input": "keyword",
-                                            "help": "metadata/general_parameters/depositors/principal_contact/full_name.help",
-                                            "label": "metadata/general_parameters/depositors/principal_contact/full_name.label",
-                                            "hint": "metadata/general_parameters/depositors/principal_contact/full_name.hint",
-                                            "facet": "metadata_general_parameters_depositors_principal_contact_full_name"
+                                            "help": "metadata/general_parameters/depositors/principal_contact/family_name.help",
+                                            "label": "metadata/general_parameters/depositors/principal_contact/family_name.label",
+                                            "hint": "metadata/general_parameters/depositors/principal_contact/family_name.hint",
+                                            "facet": "metadata_general_parameters_depositors_principal_contact_family_name"
+                                        },
+                                        "given_name": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/general_parameters/depositors/principal_contact/given_name.help",
+                                            "label": "metadata/general_parameters/depositors/principal_contact/given_name.label",
+                                            "hint": "metadata/general_parameters/depositors/principal_contact/given_name.hint",
+                                            "facet": "metadata_general_parameters_depositors_principal_contact_given_name"
                                         },
                                         "identifiers": {
                                             "detail": "array",
@@ -8474,13 +8522,21 @@
                                                                     }
                                                                 }
                                                             },
-                                                            "full_name": {
+                                                            "family_name": {
                                                                 "detail": "keyword",
                                                                 "input": "keyword",
-                                                                "help": "metadata/general_parameters/instrument/performance_test/published_test_protocol/authors/full_name.help",
-                                                                "label": "metadata/general_parameters/instrument/performance_test/published_test_protocol/authors/full_name.label",
-                                                                "hint": "metadata/general_parameters/instrument/performance_test/published_test_protocol/authors/full_name.hint",
-                                                                "facet": "metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_full_name"
+                                                                "help": "metadata/general_parameters/instrument/performance_test/published_test_protocol/authors/family_name.help",
+                                                                "label": "metadata/general_parameters/instrument/performance_test/published_test_protocol/authors/family_name.label",
+                                                                "hint": "metadata/general_parameters/instrument/performance_test/published_test_protocol/authors/family_name.hint",
+                                                                "facet": "metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_family_name"
+                                                            },
+                                                            "given_name": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/general_parameters/instrument/performance_test/published_test_protocol/authors/given_name.help",
+                                                                "label": "metadata/general_parameters/instrument/performance_test/published_test_protocol/authors/given_name.label",
+                                                                "hint": "metadata/general_parameters/instrument/performance_test/published_test_protocol/authors/given_name.hint",
+                                                                "facet": "metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_given_name"
                                                             },
                                                             "identifiers": {
                                                                 "detail": "array",
@@ -13400,13 +13456,21 @@
                                                         }
                                                     }
                                                 },
-                                                "full_name": {
+                                                "family_name": {
                                                     "detail": "keyword",
                                                     "input": "keyword",
-                                                    "help": "metadata/general_parameters/record/project/owner/full_name.help",
-                                                    "label": "metadata/general_parameters/record/project/owner/full_name.label",
-                                                    "hint": "metadata/general_parameters/record/project/owner/full_name.hint",
-                                                    "facet": "metadata_general_parameters_record_project_owner_full_name"
+                                                    "help": "metadata/general_parameters/record/project/owner/family_name.help",
+                                                    "label": "metadata/general_parameters/record/project/owner/family_name.label",
+                                                    "hint": "metadata/general_parameters/record/project/owner/family_name.hint",
+                                                    "facet": "metadata_general_parameters_record_project_owner_family_name"
+                                                },
+                                                "given_name": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/general_parameters/record/project/owner/given_name.help",
+                                                    "label": "metadata/general_parameters/record/project/owner/given_name.label",
+                                                    "hint": "metadata/general_parameters/record/project/owner/given_name.hint",
+                                                    "facet": "metadata_general_parameters_record_project_owner_given_name"
                                                 },
                                                 "identifiers": {
                                                     "detail": "array",
@@ -14314,14 +14378,6 @@
                     }
                 }
             }
-        },
-        "updated": {
-            "detail": "datetime",
-            "input": "datetime",
-            "help": "updated.help",
-            "label": "updated.label",
-            "hint": "updated.hint",
-            "facet": "updated"
         }
     }
 }

@@ -13,8 +13,11 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_associated_publications_additional_authors_affiliations": (
             facets.metadata_general_parameters_associated_publications_additional_authors_affiliations
         ),
-        "metadata_general_parameters_associated_publications_additional_authors_full_name": (
-            facets.metadata_general_parameters_associated_publications_additional_authors_full_name
+        "metadata_general_parameters_associated_publications_additional_authors_family_name": (
+            facets.metadata_general_parameters_associated_publications_additional_authors_family_name
+        ),
+        "metadata_general_parameters_associated_publications_additional_authors_given_name": (
+            facets.metadata_general_parameters_associated_publications_additional_authors_given_name
         ),
         "metadata_general_parameters_associated_publications_additional_authors_identifiers": (
             facets.metadata_general_parameters_associated_publications_additional_authors_identifiers
@@ -37,8 +40,11 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_associated_publications_main_authors_affiliations": (
             facets.metadata_general_parameters_associated_publications_main_authors_affiliations
         ),
-        "metadata_general_parameters_associated_publications_main_authors_full_name": (
-            facets.metadata_general_parameters_associated_publications_main_authors_full_name
+        "metadata_general_parameters_associated_publications_main_authors_family_name": (
+            facets.metadata_general_parameters_associated_publications_main_authors_family_name
+        ),
+        "metadata_general_parameters_associated_publications_main_authors_given_name": (
+            facets.metadata_general_parameters_associated_publications_main_authors_given_name
         ),
         "metadata_general_parameters_associated_publications_main_authors_identifiers": (
             facets.metadata_general_parameters_associated_publications_main_authors_identifiers
@@ -1681,8 +1687,11 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_depositors_contributors_affiliations": (
             facets.metadata_general_parameters_depositors_contributors_affiliations
         ),
-        "metadata_general_parameters_depositors_contributors_full_name": (
-            facets.metadata_general_parameters_depositors_contributors_full_name
+        "metadata_general_parameters_depositors_contributors_family_name": (
+            facets.metadata_general_parameters_depositors_contributors_family_name
+        ),
+        "metadata_general_parameters_depositors_contributors_given_name": (
+            facets.metadata_general_parameters_depositors_contributors_given_name
         ),
         "metadata_general_parameters_depositors_contributors_identifiers": (
             facets.metadata_general_parameters_depositors_contributors_identifiers
@@ -1690,8 +1699,11 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_depositors_depositor_affiliations": (
             facets.metadata_general_parameters_depositors_depositor_affiliations
         ),
-        "metadata_general_parameters_depositors_depositor_full_name": (
-            facets.metadata_general_parameters_depositors_depositor_full_name
+        "metadata_general_parameters_depositors_depositor_family_name": (
+            facets.metadata_general_parameters_depositors_depositor_family_name
+        ),
+        "metadata_general_parameters_depositors_depositor_given_name": (
+            facets.metadata_general_parameters_depositors_depositor_given_name
         ),
         "metadata_general_parameters_depositors_depositor_identifiers": (
             facets.metadata_general_parameters_depositors_depositor_identifiers
@@ -1699,8 +1711,11 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_depositors_principal_contact_affiliations": (
             facets.metadata_general_parameters_depositors_principal_contact_affiliations
         ),
-        "metadata_general_parameters_depositors_principal_contact_full_name": (
-            facets.metadata_general_parameters_depositors_principal_contact_full_name
+        "metadata_general_parameters_depositors_principal_contact_family_name": (
+            facets.metadata_general_parameters_depositors_principal_contact_family_name
+        ),
+        "metadata_general_parameters_depositors_principal_contact_given_name": (
+            facets.metadata_general_parameters_depositors_principal_contact_given_name
         ),
         "metadata_general_parameters_depositors_principal_contact_identifiers": (
             facets.metadata_general_parameters_depositors_principal_contact_identifiers
@@ -1756,8 +1771,11 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_affiliations": (
             facets.metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_affiliations
         ),
-        "metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_full_name": (
-            facets.metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_full_name
+        "metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_family_name": (
+            facets.metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_family_name
+        ),
+        "metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_given_name": (
+            facets.metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_given_name
         ),
         "metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_identifiers": (
             facets.metadata_general_parameters_instrument_performance_test_published_test_protocol_authors_identifiers
@@ -2845,8 +2863,11 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_record_project_owner_affiliations": (
             facets.metadata_general_parameters_record_project_owner_affiliations
         ),
-        "metadata_general_parameters_record_project_owner_full_name": (
-            facets.metadata_general_parameters_record_project_owner_full_name
+        "metadata_general_parameters_record_project_owner_family_name": (
+            facets.metadata_general_parameters_record_project_owner_family_name
+        ),
+        "metadata_general_parameters_record_project_owner_given_name": (
+            facets.metadata_general_parameters_record_project_owner_given_name
         ),
         "metadata_general_parameters_record_project_owner_identifiers": (
             facets.metadata_general_parameters_record_project_owner_identifiers

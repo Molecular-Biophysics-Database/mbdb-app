@@ -1,5 +1,6 @@
 plugins:
   packages:
+  - oarepo-model-builder-files==4.*
   - oarepo-model-builder-cf==4.*
   - oarepo-model-builder-vocabularies==4.*
   - oarepo-model-builder-relations==4.*
@@ -17,6 +18,7 @@ record:
   properties: {}
   use:
   - invenio
+  - ./files.yaml
   - ./custom_fields.yaml
 settings:
   i18n-languages:
