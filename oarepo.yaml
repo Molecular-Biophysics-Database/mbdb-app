@@ -18,12 +18,13 @@ models:
     merge_changes: overwrite
     model_dir: models/mbdb-bli
     model_kind: empty
-    model_package: mbdb_spr
+    model_package: mbdb_bli
     permissions_preset: everyone
     permissions_presets: read_only
-    pid_type: spr
+    pid_type: bli
     run_tests: skip
     sites:
+    - mbdb-site
     - mbdb-site
     - mbdb-site
     - mbdb-site
