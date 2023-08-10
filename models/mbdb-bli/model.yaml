@@ -9,12 +9,12 @@ profiles:
 - files
 record:
   module:
-    qualified: mbdb_bli
+    qualified: mbdb_spr
   permissions:
     presets:
     - everyone
   pid:
-    type: bli
+    type: spr
   properties: {}
   use:
   - invenio
@@ -25,3 +25,4 @@ settings:
   - en
 use:
 - ./BLI.yaml
+- ./SPR.yaml

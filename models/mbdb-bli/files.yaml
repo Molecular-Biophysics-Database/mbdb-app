@@ -2,5 +2,5 @@ files:
   use:
   - invenio_files
   module:
-    qualified: mbdb_bli
+    qualified: mbdb_spr
   properties: {}
