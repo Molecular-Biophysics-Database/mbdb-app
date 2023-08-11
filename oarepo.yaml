@@ -54,14 +54,14 @@ sites:
 type: monorepo
 ui:
   mbdb-mst-ui:
-    cookiecutter_api_service: mbdb_mst_ui
+    cookiecutter_api_service: mbdb_mst
     cookiecutter_app_name: mbdb-mst-ui
     cookiecutter_app_package: mbdb_mst_ui
     cookiecutter_author: Emil Dandanell Agerschou
     cookiecutter_author_email: Emildandanell.agerschou@ibt.cas.cz
     cookiecutter_ext_name: MbdbMstExtension
     cookiecutter_local_model_path: ../../models/mbdb-mst
-    cookiecutter_model_package: mbdb_mst_ui
+    cookiecutter_model_package: mbdb_mst
     cookiecutter_repository_url: ''
     cookiecutter_resource: MbdbMstUIResource
     cookiecutter_resource_config: MbdbMstUIResourceConfig
