@@ -1,6 +1,5 @@
 import React from "react";
 import _isEmpty from "lodash/isEmpty";
-import PropTypes from "prop-types";
 import { BaseForm, TextField, FieldLabel } from "react-invenio-forms";
 import { Container, Header, Message } from "semantic-ui-react";
 import { DepositValidationSchema } from "./DepositValidationSchema";
