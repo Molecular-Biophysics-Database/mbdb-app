@@ -341,14 +341,14 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_modifications_biological_postprocessing_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_modifications_biological_postprocessing_position = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.modifications.biological_postprocessing",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.modifications.biological_postprocessing.monomer_position",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.modifications.biological_postprocessing.position",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/modifications/biological_postprocessing/monomer_position.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/modifications/biological_postprocessing/position.label"
             ),
         ),
     ),
@@ -393,14 +393,14 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_modifications_chemical_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_modifications_chemical_position = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.modifications.chemical",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.modifications.chemical.monomer_position",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.modifications.chemical.position",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/modifications/chemical/monomer_position.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/modifications/chemical/position.label"
             ),
         ),
     ),
@@ -445,14 +445,14 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_modifications_synthesis_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_modifications_synthesis_position = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.modifications.synthesis",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.modifications.synthesis.monomer_position",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.modifications.synthesis.position",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/modifications/synthesis/monomer_position.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/modifications/synthesis/position.label"
             ),
         ),
     ),
@@ -480,6 +480,66 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
             label=_(
                 "metadata/general_parameters/chemical_information/chemical_environments/constituents/modifications/synthesis/protocol/name.label"
             ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_molecular_weight_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.molecular_weight.unit",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/molecular_weight/unit.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_molecular_weight_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.molecular_weight.value",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/molecular_weight/value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_molecular_weight_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.molecular_weight.value_error.error_level",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/molecular_weight/value_error/error_level.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_molecular_weight_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.molecular_weight.value_error.errors_are_relative",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/molecular_weight/value_error/errors_are_relative.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_molecular_weight_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.molecular_weight.value_error.lower_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/molecular_weight/value_error/lower_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_molecular_weight_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.molecular_weight.value_error.upper_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/molecular_weight/value_error/upper_error.label"
         ),
     ),
 )
@@ -541,222 +601,222 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_duration_unit = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_duration_unit = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.duration.unit",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.duration.unit",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/duration/unit.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/duration/unit.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_duration_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_duration_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.duration.value",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.duration.value",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/duration/value.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/duration/value.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_duration_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_duration_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.duration.value_error.error_level",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.duration.value_error.error_level",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/duration/value_error/error_level.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/duration/value_error/error_level.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.duration.value_error.errors_are_relative",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.duration.value_error.errors_are_relative",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/duration/value_error/errors_are_relative.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_duration_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_duration_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.duration.value_error.lower_error",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.duration.value_error.lower_error",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/duration/value_error/lower_error.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/duration/value_error/lower_error.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_duration_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_duration_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.duration.value_error.upper_error",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.duration.value_error.upper_error",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/duration/value_error/upper_error.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/duration/value_error/upper_error.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_storage_preparation_description = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_storage_preparation_description = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.storage_preparation.description",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.storage_preparation.description",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/storage_preparation/description.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/storage_preparation/description.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_storage_preparation_name = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_storage_preparation_name = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.storage_preparation.name",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.storage_preparation.name",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/storage_preparation/name.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/storage_preparation/name.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_temperature_controlled = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_temperature_controlled = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.temperature.controlled",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.temperature.controlled",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/temperature/controlled.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/temperature/controlled.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_temperature_obtained_by = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_temperature_obtained_by = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.temperature.obtained_by",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.temperature.obtained_by",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/temperature/obtained_by.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/temperature/obtained_by.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_temperature_operational_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_temperature_operational_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.temperature.operational_value",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.temperature.operational_value",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/temperature/operational_value.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/temperature/operational_value.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_temperature_unit = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_temperature_unit = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.temperature.unit",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.temperature.unit",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/temperature/unit.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/temperature/unit.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_temperature_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_temperature_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.temperature.value",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.temperature.value",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/temperature/value.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/temperature/value.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_temperature_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_temperature_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.temperature.value_error.error_level",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.temperature.value_error.error_level",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/temperature/value_error/error_level.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/temperature/value_error/error_level.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.temperature.value_error.errors_are_relative",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.temperature.value_error.errors_are_relative",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/temperature/value_error/errors_are_relative.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.temperature.value_error.lower_error",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.temperature.value_error.lower_error",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/temperature/value_error/lower_error.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_from_QC_to_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_quality_controls_storage_until_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_from_QC_to_measurement.temperature.value_error.upper_error",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.quality_controls.storage_until_measurement.temperature.value_error.upper_error",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_from_QC_to_measurement/temperature/value_error/upper_error.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label"
             ),
         ),
     ),
@@ -781,786 +841,6 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
         field="metadata.general_parameters.chemical_information.chemical_environments.constituents.sequence",
         label=_(
             "metadata/general_parameters/chemical_information/chemical_environments/constituents/sequence.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_supplier_catalog_number = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.supplier.catalog_number",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/supplier/catalog_number.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_supplier_further_information = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.supplier.further_information",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/supplier/further_information.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_supplier_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.supplier.name",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/supplier/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_type = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.type",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/type.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_variant = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.variant",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/variant.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_additional_identifiers = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.additional_identifiers",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/additional_identifiers.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_inchikey = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.inchikey",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/inchikey.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_isotopic_labeling = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.isotopic_labeling",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/isotopic_labeling.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_chemical_modifications_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications.modification",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/chemical_modifications/modification.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_chemical_modifications_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications.monomer_position",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/chemical_modifications/monomer_position.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_chemical_modifications_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications.protocol.description",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/chemical_modifications/protocol/description.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_chemical_modifications_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications.protocol.name",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/chemical_modifications/protocol/name.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_additional_specifications = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.additional_specifications",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/additional_specifications.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_copy_number = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.copy_number",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/copy_number.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_expression_organism = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=VocabularyFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.expression_organism",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/expression_organism.label"
-        ),
-        vocabulary="organisms",
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_expression_source_type = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.expression_source_type",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/expression_source_type.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_external_databases = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.external_databases",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/external_databases.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_biological_postprocessing_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing.modification",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/biological_postprocessing/modification.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_biological_postprocessing_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing.monomer_position",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/biological_postprocessing/monomer_position.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_biological_postprocessing_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing.protocol.description",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/biological_postprocessing/protocol/description.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_biological_postprocessing_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing.protocol.name",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/biological_postprocessing/protocol/name.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_chemical_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical.modification",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/chemical/modification.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_chemical_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical.monomer_position",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/chemical/monomer_position.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_chemical_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical.protocol.description",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/chemical/protocol/description.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_chemical_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical.protocol.name",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/chemical/protocol/name.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_synthesis_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis.modification",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/synthesis/modification.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_synthesis_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis.monomer_position",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/synthesis/monomer_position.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_synthesis_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis.protocol.description",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/synthesis/protocol/description.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_synthesis_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis.protocol.name",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/synthesis/protocol/name.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.name",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_organism = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=VocabularyFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.organism",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism.label"
-        ),
-        vocabulary="organisms",
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_polymer_type = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.polymer_type",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/polymer_type.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_parameter = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.parameter",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/parameter.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.report",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/report.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_duration_unit = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.duration.unit",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/duration/unit.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_duration_value = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.duration.value",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/duration/value.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_error_level = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.error_level",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/error_level.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.errors_are_relative",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/errors_are_relative.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_lower_error = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.lower_error",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/lower_error.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_upper_error = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.upper_error",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/upper_error.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.description",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/description.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.name",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/name.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_temperature_controlled = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.temperature.controlled",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/temperature/controlled.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_temperature_obtained_by = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.temperature.obtained_by",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/temperature/obtained_by.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_temperature_operational_value = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.temperature.operational_value",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/temperature/operational_value.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_temperature_unit = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.temperature.unit",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/temperature/unit.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_temperature_value = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.temperature.value",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/temperature/value.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_error_level = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.error_level",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/error_level.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.errors_are_relative",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/errors_are_relative.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.lower_error",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/lower_error.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.upper_error",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/upper_error.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_technique = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.technique",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/technique.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_sequence = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.sequence",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/sequence.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_supplier_catalog_number = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.supplier.catalog_number",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/supplier/catalog_number.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_supplier_further_information = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.supplier.further_information",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/supplier/further_information.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_supplier_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.supplier.name",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/supplier/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_type = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.type",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/type.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_variant = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.variant",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/variant.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_additional_identifiers = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.additional_identifiers",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/additional_identifiers.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_inchikey = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.inchikey",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/inchikey.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_isotopic_labeling = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.isotopic_labeling",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/isotopic_labeling.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_preparation_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.preparation_protocol.description",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/preparation_protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_preparation_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.preparation_protocol.name",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/preparation_protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_derived_from = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.derived_from",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/derived_from.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.description",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_fluid = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.fluid",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/fluid.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_constituents_health_status = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.health_status",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/health_status.label"
         ),
     ),
 )
@@ -1735,12 +1015,1012 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_celltype = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_supplier_catalog_number = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.celltype",
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.supplier.catalog_number",
         label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/celltype.label"
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/supplier/catalog_number.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_supplier_further_information = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.supplier.further_information",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/supplier/further_information.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_supplier_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.supplier.name",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/supplier/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_type = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.type",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/type.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_variant = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.variant",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/variant.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_additional_identifiers = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.additional_identifiers",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/additional_identifiers.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_inchikey = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.inchikey",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/inchikey.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_isotopic_labeling = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.isotopic_labeling",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/isotopic_labeling.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_chemical_modifications_modification = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications.modification",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/chemical_modifications/modification.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_chemical_modifications_position = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications.position",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/chemical_modifications/position.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_chemical_modifications_protocol_description = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications.protocol.description",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/chemical_modifications/protocol/description.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_chemical_modifications_protocol_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.chemical_modifications.protocol.name",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/chemical_modifications/protocol/name.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_additional_specifications = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.additional_specifications",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/additional_specifications.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_copy_number = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.copy_number",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/copy_number.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_expression_organism = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=VocabularyFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.expression_organism",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/expression_organism.label"
+        ),
+        vocabulary="organisms",
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_expression_source_type = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.expression_source_type",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/expression_source_type.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_external_databases = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.external_databases",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/external_databases.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_biological_postprocessing_modification = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing.modification",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/biological_postprocessing/modification.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_biological_postprocessing_position = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing.position",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/biological_postprocessing/position.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_biological_postprocessing_protocol_description = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing.protocol.description",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/biological_postprocessing/protocol/description.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_biological_postprocessing_protocol_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.biological_postprocessing.protocol.name",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/biological_postprocessing/protocol/name.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_chemical_modification = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical.modification",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/chemical/modification.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_chemical_position = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical.position",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/chemical/position.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_chemical_protocol_description = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical.protocol.description",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/chemical/protocol/description.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_chemical_protocol_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.chemical.protocol.name",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/chemical/protocol/name.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_synthesis_modification = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis.modification",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/synthesis/modification.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_synthesis_position = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis.position",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/synthesis/position.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_synthesis_protocol_description = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis.protocol.description",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/synthesis/protocol/description.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_modifications_synthesis_protocol_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.modifications.synthesis.protocol.name",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/modifications/synthesis/protocol/name.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_molecular_weight_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.molecular_weight.unit",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/molecular_weight/unit.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_molecular_weight_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.molecular_weight.value",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/molecular_weight/value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_molecular_weight_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.molecular_weight.value_error.error_level",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/molecular_weight/value_error/error_level.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_molecular_weight_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.molecular_weight.value_error.errors_are_relative",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/molecular_weight/value_error/errors_are_relative.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_molecular_weight_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.molecular_weight.value_error.lower_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/molecular_weight/value_error/lower_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_molecular_weight_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.molecular_weight.value_error.upper_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/molecular_weight/value_error/upper_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.name",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_organism = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=VocabularyFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.organism",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism.label"
+        ),
+        vocabulary="organisms",
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_polymer_type = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.polymer_type",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/polymer_type.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_parameter = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.parameter",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/parameter.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_report = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.report",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/report.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_duration_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.duration.unit",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/duration/unit.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_duration_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.duration.value",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/duration/value.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_duration_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.duration.value_error.error_level",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/duration/value_error/error_level.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.duration.value_error.errors_are_relative",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_duration_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.duration.value_error.lower_error",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/duration/value_error/lower_error.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_duration_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.duration.value_error.upper_error",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/duration/value_error/upper_error.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_storage_preparation_description = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.storage_preparation.description",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/storage_preparation/description.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_storage_preparation_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.storage_preparation.name",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/storage_preparation/name.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_temperature_controlled = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.temperature.controlled",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/temperature/controlled.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_temperature_obtained_by = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.temperature.obtained_by",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/temperature/obtained_by.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_temperature_operational_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.temperature.operational_value",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/temperature/operational_value.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_temperature_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.temperature.unit",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/temperature/unit.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_temperature_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.temperature.value",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/temperature/value.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_temperature_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.temperature.value_error.error_level",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/temperature/value_error/error_level.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.temperature.value_error.errors_are_relative",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.temperature.value_error.lower_error",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_storage_until_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.storage_until_measurement.temperature.value_error.upper_error",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_quality_controls_technique = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.quality_controls.technique",
+            label=_(
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/technique.label"
+            ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_sequence = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.sequence",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/sequence.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_duration_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.duration.unit",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/duration/unit.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_duration_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.duration.value",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/duration/value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_duration_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.duration.value_error.error_level",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/duration/value_error/error_level.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_duration_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.duration.value_error.errors_are_relative",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/duration/value_error/errors_are_relative.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_duration_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.duration.value_error.lower_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/duration/value_error/lower_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_duration_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.duration.value_error.upper_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/duration/value_error/upper_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_storage_preparation_description = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.storage_preparation.description",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/storage_preparation/description.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_storage_preparation_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.storage_preparation.name",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/storage_preparation/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_temperature_controlled = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.temperature.controlled",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/temperature/controlled.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_temperature_obtained_by = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.temperature.obtained_by",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/temperature/obtained_by.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_temperature_operational_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.temperature.operational_value",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/temperature/operational_value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_temperature_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.temperature.unit",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/temperature/unit.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_temperature_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.temperature.value",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/temperature/value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_temperature_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.temperature.value_error.error_level",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/temperature/value_error/error_level.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_temperature_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.temperature.value_error.errors_are_relative",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/temperature/value_error/errors_are_relative.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_temperature_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.temperature.value_error.lower_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/temperature/value_error/lower_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_temperature_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.storage.temperature.value_error.upper_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/temperature/value_error/upper_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_supplier_catalog_number = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.supplier.catalog_number",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/supplier/catalog_number.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_supplier_further_information = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.supplier.further_information",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/supplier/further_information.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_supplier_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.supplier.name",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/supplier/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_type = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.type",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/type.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_variant = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.variant",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/variant.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_additional_identifiers = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.additional_identifiers",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/additional_identifiers.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_inchikey = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.inchikey",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/inchikey.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_isotopic_labeling = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.isotopic_labeling",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/isotopic_labeling.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_preparation_protocol_description = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.preparation_protocol.description",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/preparation_protocol/description.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_preparation_protocol_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.preparation_protocol.name",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/preparation_protocol/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_derived_from = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.derived_from",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/derived_from.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_fluid = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.fluid",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/fluid.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_health_status = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.health_status",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/health_status.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_cell_type = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.cell_type",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/cell_type.label"
         ),
     ),
 )
@@ -1950,14 +2230,14 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_modifications_biological_postprocessing_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_modifications_biological_postprocessing_position = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.modifications.biological_postprocessing",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.modifications.biological_postprocessing.monomer_position",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.modifications.biological_postprocessing.position",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/modifications/biological_postprocessing/monomer_position.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/modifications/biological_postprocessing/position.label"
             ),
         ),
     ),
@@ -2002,14 +2282,14 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_modifications_chemical_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_modifications_chemical_position = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.modifications.chemical",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.modifications.chemical.monomer_position",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.modifications.chemical.position",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/modifications/chemical/monomer_position.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/modifications/chemical/position.label"
             ),
         ),
     ),
@@ -2054,14 +2334,14 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_modifications_synthesis_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_modifications_synthesis_position = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.modifications.synthesis",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.modifications.synthesis.monomer_position",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.modifications.synthesis.position",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/modifications/synthesis/monomer_position.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/modifications/synthesis/position.label"
             ),
         ),
     ),
@@ -2089,6 +2369,66 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
             label=_(
                 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/modifications/synthesis/protocol/name.label"
             ),
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_molecular_weight_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.molecular_weight.unit",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/molecular_weight/unit.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_molecular_weight_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.molecular_weight.value",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/molecular_weight/value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_molecular_weight_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.molecular_weight.value_error.error_level",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/molecular_weight/value_error/error_level.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_molecular_weight_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.molecular_weight.value_error.errors_are_relative",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/molecular_weight/value_error/errors_are_relative.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_molecular_weight_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.molecular_weight.value_error.lower_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/molecular_weight/value_error/lower_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_molecular_weight_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.molecular_weight.value_error.upper_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/molecular_weight/value_error/upper_error.label"
         ),
     ),
 )
@@ -2150,222 +2490,222 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_duration_unit = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_duration_unit = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.duration.unit",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.duration.unit",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/duration/unit.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/duration/unit.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_duration_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_duration_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.duration.value",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.duration.value",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/duration/value.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/duration/value.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_duration_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.error_level",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.duration.value_error.error_level",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/error_level.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/duration/value_error/error_level.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.errors_are_relative",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.duration.value_error.errors_are_relative",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/errors_are_relative.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_duration_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.lower_error",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.duration.value_error.lower_error",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/lower_error.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/duration/value_error/lower_error.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_duration_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.upper_error",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.duration.value_error.upper_error",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/upper_error.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/duration/value_error/upper_error.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_description = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_storage_preparation_description = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.description",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.storage_preparation.description",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/description.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/storage_preparation/description.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_name = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_storage_preparation_name = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.name",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.storage_preparation.name",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/name.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/storage_preparation/name.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_temperature_controlled = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_temperature_controlled = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.temperature.controlled",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.temperature.controlled",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/temperature/controlled.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/temperature/controlled.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_temperature_obtained_by = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_temperature_obtained_by = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.temperature.obtained_by",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.temperature.obtained_by",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/temperature/obtained_by.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/temperature/obtained_by.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_temperature_operational_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_temperature_operational_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.temperature.operational_value",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.temperature.operational_value",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/temperature/operational_value.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/temperature/operational_value.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_temperature_unit = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_temperature_unit = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.temperature.unit",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.temperature.unit",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/temperature/unit.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/temperature/unit.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_temperature_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.temperature.value",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/temperature/value.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_temperature_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.error_level",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.temperature.value_error.error_level",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/error_level.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/temperature/value_error/error_level.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.errors_are_relative",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.temperature.value_error.errors_are_relative",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/errors_are_relative.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.lower_error",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.temperature.value_error.lower_error",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/lower_error.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_quality_controls_storage_until_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.upper_error",
+            field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.quality_controls.storage_until_measurement.temperature.value_error.upper_error",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/upper_error.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label"
             ),
         ),
     ),
@@ -2390,6 +2730,176 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
         field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.sequence",
         label=_(
             "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/sequence.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_duration_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.duration.unit",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/duration/unit.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_duration_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.duration.value",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/duration/value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_duration_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.duration.value_error.error_level",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/duration/value_error/error_level.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_duration_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.duration.value_error.errors_are_relative",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/duration/value_error/errors_are_relative.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_duration_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.duration.value_error.lower_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/duration/value_error/lower_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_duration_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.duration.value_error.upper_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/duration/value_error/upper_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_storage_preparation_description = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.storage_preparation.description",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/storage_preparation/description.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_storage_preparation_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.storage_preparation.name",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/storage_preparation/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_temperature_controlled = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.temperature.controlled",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/temperature/controlled.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_temperature_obtained_by = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.temperature.obtained_by",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/temperature/obtained_by.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_temperature_operational_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.temperature.operational_value",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/temperature/operational_value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_temperature_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.temperature.unit",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/temperature/unit.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_temperature_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.temperature.value",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/temperature/value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_temperature_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.temperature.value_error.error_level",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/temperature/value_error/error_level.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_temperature_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.temperature.value_error.errors_are_relative",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/temperature/value_error/errors_are_relative.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_temperature_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.temperature.value_error.lower_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/temperature/value_error/lower_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_temperature_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.storage.temperature.value_error.upper_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/temperature/value_error/upper_error.label"
         ),
     ),
 )
@@ -2756,6 +3266,16 @@ metadata_general_parameters_chemical_information_chemical_environments_pH_value_
     ),
 )
 
+metadata_general_parameters_chemical_information_chemical_environments_solvent_additional_identifiers = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.additional_identifiers",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/solvent/additional_identifiers.label"
+        ),
+    ),
+)
+
 metadata_general_parameters_chemical_information_chemical_environments_solvent_additional_specifications = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
@@ -2856,189 +3376,82 @@ metadata_general_parameters_chemical_information_chemical_environments_solvent_c
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_expression_organism = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=VocabularyFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.expression_organism",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/expression_organism.label"
-        ),
-        vocabulary="organisms",
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_expression_source_type = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_inchikey = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.expression_source_type",
+        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.inchikey",
         label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/expression_source_type.label"
+            "metadata/general_parameters/chemical_information/chemical_environments/solvent/inchikey.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_external_databases = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_isotopic_labeling = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.external_databases",
+        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.isotopic_labeling",
         label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/external_databases.label"
+            "metadata/general_parameters/chemical_information/chemical_environments/solvent/isotopic_labeling.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_modifications_biological_postprocessing_modification = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_molecular_weight_unit = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.biological_postprocessing",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.biological_postprocessing.modification",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/modifications/biological_postprocessing/modification.label"
-            ),
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.molecular_weight.unit",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/solvent/molecular_weight/unit.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_modifications_biological_postprocessing_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_molecular_weight_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.biological_postprocessing",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.biological_postprocessing.monomer_position",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/modifications/biological_postprocessing/monomer_position.label"
-            ),
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.molecular_weight.value",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/solvent/molecular_weight/value.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_modifications_biological_postprocessing_protocol_description = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_molecular_weight_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.biological_postprocessing",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.biological_postprocessing.protocol.description",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/modifications/biological_postprocessing/protocol/description.label"
-            ),
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.molecular_weight.value_error.error_level",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/solvent/molecular_weight/value_error/error_level.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_modifications_biological_postprocessing_protocol_name = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_molecular_weight_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.biological_postprocessing",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.biological_postprocessing.protocol.name",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/modifications/biological_postprocessing/protocol/name.label"
-            ),
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.molecular_weight.value_error.errors_are_relative",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/solvent/molecular_weight/value_error/errors_are_relative.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_modifications_chemical_modification = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_molecular_weight_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.chemical",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.chemical.modification",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/modifications/chemical/modification.label"
-            ),
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.molecular_weight.value_error.lower_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/solvent/molecular_weight/value_error/lower_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_modifications_chemical_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_molecular_weight_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.chemical",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.chemical.monomer_position",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/modifications/chemical/monomer_position.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_modifications_chemical_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.chemical",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.chemical.protocol.description",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/modifications/chemical/protocol/description.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_modifications_chemical_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.chemical",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.chemical.protocol.name",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/modifications/chemical/protocol/name.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_modifications_synthesis_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.synthesis.modification",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/modifications/synthesis/modification.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_modifications_synthesis_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.synthesis.monomer_position",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/modifications/synthesis/monomer_position.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_modifications_synthesis_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.synthesis.protocol.description",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/modifications/synthesis/protocol/description.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_modifications_synthesis_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.modifications.synthesis.protocol.name",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/modifications/synthesis/protocol/name.label"
-            ),
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.molecular_weight.value_error.upper_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/solvent/molecular_weight/value_error/upper_error.label"
         ),
     ),
 )
@@ -3049,27 +3462,6 @@ metadata_general_parameters_chemical_information_chemical_environments_solvent_n
         field="metadata.general_parameters.chemical_information.chemical_environments.solvent.name",
         label=_(
             "metadata/general_parameters/chemical_information/chemical_environments/solvent/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_organism = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=VocabularyFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.organism",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/organism.label"
-        ),
-        vocabulary="organisms",
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_polymer_type = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.polymer_type",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/polymer_type.label"
         ),
     ),
 )
@@ -3100,222 +3492,222 @@ metadata_general_parameters_chemical_information_chemical_environments_solvent_q
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_duration_unit = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_duration_unit = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.duration.unit",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.duration.unit",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/duration/unit.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/duration/unit.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_duration_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_duration_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.duration.value",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.duration.value",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/duration/value.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/duration/value.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_duration_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_duration_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.duration.value_error.error_level",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.duration.value_error.error_level",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/duration/value_error/error_level.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/duration/value_error/error_level.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.duration.value_error.errors_are_relative",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.duration.value_error.errors_are_relative",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/duration/value_error/errors_are_relative.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_duration_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_duration_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.duration.value_error.lower_error",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.duration.value_error.lower_error",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/duration/value_error/lower_error.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/duration/value_error/lower_error.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_duration_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_duration_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.duration.value_error.upper_error",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.duration.value_error.upper_error",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/duration/value_error/upper_error.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/duration/value_error/upper_error.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_storage_preparation_description = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_storage_preparation_description = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.storage_preparation.description",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.storage_preparation.description",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/storage_preparation/description.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/storage_preparation/description.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_storage_preparation_name = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_storage_preparation_name = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.storage_preparation.name",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.storage_preparation.name",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/storage_preparation/name.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/storage_preparation/name.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_temperature_controlled = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_temperature_controlled = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.temperature.controlled",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.temperature.controlled",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/temperature/controlled.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/temperature/controlled.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_temperature_obtained_by = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_temperature_obtained_by = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.temperature.obtained_by",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.temperature.obtained_by",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/temperature/obtained_by.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/temperature/obtained_by.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_temperature_operational_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_temperature_operational_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.temperature.operational_value",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.temperature.operational_value",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/temperature/operational_value.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/temperature/operational_value.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_temperature_unit = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_temperature_unit = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.temperature.unit",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.temperature.unit",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/temperature/unit.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/temperature/unit.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_temperature_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_temperature_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.temperature.value",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.temperature.value",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/temperature/value.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/temperature/value.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_temperature_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_temperature_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.temperature.value_error.error_level",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.temperature.value_error.error_level",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/temperature/value_error/error_level.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/temperature/value_error/error_level.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.temperature.value_error.errors_are_relative",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.temperature.value_error.errors_are_relative",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/temperature/value_error/errors_are_relative.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.temperature.value_error.lower_error",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.temperature.value_error.lower_error",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/temperature/value_error/lower_error.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label"
             ),
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_from_QC_to_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_solvent_quality_controls_storage_until_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=NestedLabeledFacet(
         path="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls",
         nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_from_QC_to_measurement.temperature.value_error.upper_error",
+            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.quality_controls.storage_until_measurement.temperature.value_error.upper_error",
             label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_from_QC_to_measurement/temperature/value_error/upper_error.label"
+                "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label"
             ),
         ),
     ),
@@ -3330,16 +3722,6 @@ metadata_general_parameters_chemical_information_chemical_environments_solvent_q
             label=_(
                 "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/technique.label"
             ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_sequence = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.sequence",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/sequence.label"
         ),
     ),
 )
@@ -3380,706 +3762,6 @@ metadata_general_parameters_chemical_information_chemical_environments_solvent_t
         field="metadata.general_parameters.chemical_information.chemical_environments.solvent.type",
         label=_(
             "metadata/general_parameters/chemical_information/chemical_environments/solvent/type.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_variant = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.variant",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/variant.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_additional_identifiers = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.additional_identifiers",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/additional_identifiers.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_inchikey = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.inchikey",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/inchikey.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_isotopic_labeling = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.isotopic_labeling",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/isotopic_labeling.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_chemical_modifications_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.chemical_modifications",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.chemical_modifications.modification",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/chemical_modifications/modification.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_chemical_modifications_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.chemical_modifications",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.chemical_modifications.monomer_position",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/chemical_modifications/monomer_position.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_chemical_modifications_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.chemical_modifications",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.chemical_modifications.protocol.description",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/chemical_modifications/protocol/description.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_chemical_modifications_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.chemical_modifications",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.chemical_modifications.protocol.name",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/chemical_modifications/protocol/name.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_additional_specifications = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.additional_specifications",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/additional_specifications.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_copy_number = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.copy_number",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/copy_number.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_expression_organism = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=VocabularyFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.expression_organism",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/expression_organism.label"
-        ),
-        vocabulary="organisms",
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_expression_source_type = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.expression_source_type",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/expression_source_type.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_external_databases = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.external_databases",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/external_databases.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_modifications_biological_postprocessing_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.biological_postprocessing",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.biological_postprocessing.modification",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/modifications/biological_postprocessing/modification.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_modifications_biological_postprocessing_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.biological_postprocessing",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.biological_postprocessing.monomer_position",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/modifications/biological_postprocessing/monomer_position.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_modifications_biological_postprocessing_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.biological_postprocessing",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.biological_postprocessing.protocol.description",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/modifications/biological_postprocessing/protocol/description.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_modifications_biological_postprocessing_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.biological_postprocessing",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.biological_postprocessing.protocol.name",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/modifications/biological_postprocessing/protocol/name.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_modifications_chemical_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.chemical",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.chemical.modification",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/modifications/chemical/modification.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_modifications_chemical_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.chemical",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.chemical.monomer_position",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/modifications/chemical/monomer_position.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_modifications_chemical_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.chemical",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.chemical.protocol.description",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/modifications/chemical/protocol/description.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_modifications_chemical_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.chemical",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.chemical.protocol.name",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/modifications/chemical/protocol/name.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_modifications_synthesis_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.synthesis.modification",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/modifications/synthesis/modification.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_modifications_synthesis_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.synthesis.monomer_position",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/modifications/synthesis/monomer_position.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_modifications_synthesis_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.synthesis.protocol.description",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/modifications/synthesis/protocol/description.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_modifications_synthesis_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.modifications.synthesis.protocol.name",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/modifications/synthesis/protocol/name.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.name",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_organism = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=VocabularyFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.organism",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/organism.label"
-        ),
-        vocabulary="organisms",
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_polymer_type = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.polymer_type",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/polymer_type.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_parameter = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.parameter",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/parameter.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_report = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.report",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/report.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_duration_unit = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.duration.unit",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/duration/unit.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_duration_value = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.duration.value",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/duration/value.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_error_level = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.error_level",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/error_level.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.errors_are_relative",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/errors_are_relative.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_lower_error = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.lower_error",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/lower_error.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_upper_error = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.upper_error",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/upper_error.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.description",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/description.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.name",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/name.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_temperature_controlled = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.temperature.controlled",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/temperature/controlled.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_temperature_obtained_by = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.temperature.obtained_by",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/temperature/obtained_by.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_temperature_operational_value = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.temperature.operational_value",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/temperature/operational_value.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_temperature_unit = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.temperature.unit",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/temperature/unit.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_temperature_value = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.temperature.value",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/temperature/value.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_error_level = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.error_level",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/error_level.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.errors_are_relative",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/errors_are_relative.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.lower_error",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/lower_error.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.upper_error",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/upper_error.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_quality_controls_technique = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.quality_controls.technique",
-            label=_(
-                "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/quality_controls/technique.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_sequence = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.sequence",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/sequence.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_supplier_catalog_number = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.supplier.catalog_number",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/supplier/catalog_number.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_supplier_further_information = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.supplier.further_information",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/supplier/further_information.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_supplier_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.supplier.name",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/supplier/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_type = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.type",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/type.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_variant = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.variant",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/variant.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_additional_identifiers = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.additional_identifiers",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/additional_identifiers.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_inchikey = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.inchikey",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/inchikey.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_components_isotopic_labeling = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.components.isotopic_labeling",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/components/isotopic_labeling.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_preparation_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.preparation_protocol.description",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/preparation_protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_chemical_environments_solvent_preparation_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.solvent.preparation_protocol.name",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/solvent/preparation_protocol/name.label"
         ),
     ),
 )
@@ -4150,12 +3832,12 @@ metadata_general_parameters_chemical_information_entities_of_interest_modificati
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_modifications_biological_postprocessing_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_modifications_biological_postprocessing_position = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.modifications.biological_postprocessing",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.modifications.biological_postprocessing.monomer_position",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.modifications.biological_postprocessing.position",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/modifications/biological_postprocessing/monomer_position.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/modifications/biological_postprocessing/position.label"
         ),
     ),
 )
@@ -4190,12 +3872,12 @@ metadata_general_parameters_chemical_information_entities_of_interest_modificati
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_modifications_chemical_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_modifications_chemical_position = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.modifications.chemical",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.modifications.chemical.monomer_position",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.modifications.chemical.position",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/modifications/chemical/monomer_position.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/modifications/chemical/position.label"
         ),
     ),
 )
@@ -4230,12 +3912,12 @@ metadata_general_parameters_chemical_information_entities_of_interest_modificati
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_modifications_synthesis_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_modifications_synthesis_position = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.modifications.synthesis",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.modifications.synthesis.monomer_position",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.modifications.synthesis.position",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/modifications/synthesis/monomer_position.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/modifications/synthesis/position.label"
         ),
     ),
 )
@@ -4257,6 +3939,48 @@ metadata_general_parameters_chemical_information_entities_of_interest_modificati
         label=_(
             "metadata/general_parameters/chemical_information/entities_of_interest/modifications/synthesis/protocol/name.label"
         ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_molecular_weight_unit = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.molecular_weight.unit",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/molecular_weight/unit.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_molecular_weight_value = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.molecular_weight.value",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/molecular_weight/value.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_molecular_weight_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.molecular_weight.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/molecular_weight/value_error/error_level.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_molecular_weight_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.molecular_weight.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/molecular_weight/value_error/errors_are_relative.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_molecular_weight_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.molecular_weight.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/molecular_weight/value_error/lower_error.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_molecular_weight_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.molecular_weight.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/molecular_weight/value_error/upper_error.label"
     ),
 )
 
@@ -4304,172 +4028,172 @@ metadata_general_parameters_chemical_information_entities_of_interest_quality_co
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_duration_unit = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_duration_unit = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.duration.unit",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.duration.unit",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/duration/unit.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/duration/unit.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_duration_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_duration_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.duration.value",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.duration.value",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/duration/value.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/duration/value.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_duration_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_duration_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.duration.value_error.error_level",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.duration.value_error.error_level",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/duration/value_error/error_level.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/duration/value_error/error_level.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.duration.value_error.errors_are_relative",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.duration.value_error.errors_are_relative",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/duration/value_error/errors_are_relative.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_duration_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_duration_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.duration.value_error.lower_error",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.duration.value_error.lower_error",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/duration/value_error/lower_error.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/duration/value_error/lower_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_duration_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_duration_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.duration.value_error.upper_error",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.duration.value_error.upper_error",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/duration/value_error/upper_error.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/duration/value_error/upper_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_storage_preparation_description = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_storage_preparation_description = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.storage_preparation.description",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.storage_preparation.description",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/storage_preparation/description.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/storage_preparation/description.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_storage_preparation_name = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_storage_preparation_name = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.storage_preparation.name",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.storage_preparation.name",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/storage_preparation/name.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/storage_preparation/name.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_temperature_controlled = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_temperature_controlled = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.temperature.controlled",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.temperature.controlled",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/temperature/controlled.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/temperature/controlled.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_temperature_obtained_by = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_temperature_obtained_by = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.temperature.obtained_by",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.temperature.obtained_by",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/temperature/obtained_by.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/temperature/obtained_by.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_temperature_operational_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_temperature_operational_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.temperature.operational_value",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.temperature.operational_value",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/temperature/operational_value.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/temperature/operational_value.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_temperature_unit = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_temperature_unit = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.temperature.unit",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.temperature.unit",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/temperature/unit.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/temperature/unit.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_temperature_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_temperature_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.temperature.value",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.temperature.value",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/temperature/value.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/temperature/value.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_temperature_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_temperature_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.temperature.value_error.error_level",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.temperature.value_error.error_level",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/temperature/value_error/error_level.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/temperature/value_error/error_level.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.temperature.value_error.errors_are_relative",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.temperature.value_error.errors_are_relative",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/temperature/value_error/errors_are_relative.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.temperature.value_error.lower_error",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.temperature.value_error.lower_error",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/temperature/value_error/lower_error.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_from_QC_to_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_quality_controls_storage_until_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_from_QC_to_measurement.temperature.value_error.upper_error",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.quality_controls.storage_until_measurement.temperature.value_error.upper_error",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_from_QC_to_measurement/temperature/value_error/upper_error.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label"
         ),
     ),
 )
@@ -4490,589 +4214,6 @@ metadata_general_parameters_chemical_information_entities_of_interest_sequence =
     ),
     label=_(
         "metadata/general_parameters/chemical_information/entities_of_interest/sequence.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_supplier_catalog_number = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.supplier.catalog_number",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/supplier/catalog_number.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_supplier_further_information = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.supplier.further_information",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/supplier/further_information.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_supplier_name = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.supplier.name",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/supplier/name.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_type = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.type",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/type.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_variant = TermsFacet(
-    field=(
-        "metadata.general_parameters.chemical_information.entities_of_interest.variant"
-    ),
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/variant.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_additional_identifiers = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.additional_identifiers",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/additional_identifiers.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_inchikey = TermsFacet(
-    field=(
-        "metadata.general_parameters.chemical_information.entities_of_interest.inchikey"
-    ),
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/inchikey.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_isotopic_labeling = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.isotopic_labeling",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/isotopic_labeling.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_chemical_modifications_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications.modification",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/chemical_modifications/modification.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_chemical_modifications_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications.monomer_position",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/chemical_modifications/monomer_position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_chemical_modifications_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications.protocol.description",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/chemical_modifications/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_chemical_modifications_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications.protocol.name",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/chemical_modifications/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_additional_specifications = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.additional_specifications",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/additional_specifications.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_copy_number = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.copy_number",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/copy_number.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_expression_organism = VocabularyFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.expression_organism",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/expression_organism.label"
-    ),
-    vocabulary="organisms",
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_expression_source_type = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.expression_source_type",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/expression_source_type.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_external_databases = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.external_databases",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/external_databases.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_biological_postprocessing_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing.modification",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/biological_postprocessing/modification.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_biological_postprocessing_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing.monomer_position",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/biological_postprocessing/monomer_position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_biological_postprocessing_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing.protocol.description",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/biological_postprocessing/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_biological_postprocessing_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing.protocol.name",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/biological_postprocessing/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_chemical_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical.modification",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/chemical/modification.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_chemical_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical.monomer_position",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/chemical/monomer_position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_chemical_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical.protocol.description",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/chemical/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_chemical_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical.protocol.name",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/chemical/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_synthesis_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis.modification",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/synthesis/modification.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_synthesis_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis.monomer_position",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/synthesis/monomer_position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_synthesis_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis.protocol.description",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/synthesis/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_synthesis_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis.protocol.name",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/synthesis/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_name = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.name",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/name.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_organism = VocabularyFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.organism",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/organism.label"
-    ),
-    vocabulary="organisms",
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_polymer_type = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.polymer_type",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/polymer_type.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_parameter = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.parameter",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/parameter.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.report",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/report.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_duration_unit = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.duration.unit",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/duration/unit.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_duration_value = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.duration.value",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/duration/value.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_error_level = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.error_level",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/error_level.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.errors_are_relative",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/errors_are_relative.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_lower_error = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.lower_error",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/lower_error.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_upper_error = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.upper_error",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/upper_error.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.description",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.name",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_temperature_controlled = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.temperature.controlled",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/temperature/controlled.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_temperature_obtained_by = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.temperature.obtained_by",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/temperature/obtained_by.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_temperature_operational_value = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.temperature.operational_value",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/temperature/operational_value.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_temperature_unit = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.temperature.unit",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/temperature/unit.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_temperature_value = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.temperature.value",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/temperature/value.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_error_level = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.error_level",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/error_level.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.errors_are_relative",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/errors_are_relative.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.lower_error",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/lower_error.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.upper_error",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/upper_error.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_technique = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.technique",
-        label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/technique.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_sequence = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.sequence",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/sequence.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_supplier_catalog_number = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.supplier.catalog_number",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/supplier/catalog_number.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_supplier_further_information = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.supplier.further_information",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/supplier/further_information.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_supplier_name = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.supplier.name",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/supplier/name.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_type = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.type",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/type.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_variant = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.variant",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/variant.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_additional_identifiers = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.additional_identifiers",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/additional_identifiers.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_inchikey = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.inchikey",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/inchikey.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_components_isotopic_labeling = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.isotopic_labeling",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/isotopic_labeling.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_preparation_protocol_description = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.preparation_protocol.description",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/preparation_protocol/description.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_preparation_protocol_name = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.preparation_protocol.name",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/preparation_protocol/name.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_derived_from = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.derived_from",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/derived_from.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_description = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.description",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/description.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_fluid = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.fluid",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/fluid.label"
-    ),
-)
-
-metadata_general_parameters_chemical_information_entities_of_interest_health_status = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.health_status",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/health_status.label"
     ),
 )
 
@@ -5195,12 +4336,747 @@ metadata_general_parameters_chemical_information_entities_of_interest_storage_te
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_celltype = TermsFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_supplier_catalog_number = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.supplier.catalog_number",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/supplier/catalog_number.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_supplier_further_information = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.supplier.further_information",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/supplier/further_information.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_supplier_name = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.supplier.name",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/supplier/name.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_type = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.type",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/type.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_variant = TermsFacet(
     field=(
-        "metadata.general_parameters.chemical_information.entities_of_interest.celltype"
+        "metadata.general_parameters.chemical_information.entities_of_interest.variant"
     ),
     label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/celltype.label"
+        "metadata/general_parameters/chemical_information/entities_of_interest/variant.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_additional_identifiers = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.additional_identifiers",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/additional_identifiers.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_inchikey = TermsFacet(
+    field=(
+        "metadata.general_parameters.chemical_information.entities_of_interest.inchikey"
+    ),
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/inchikey.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_isotopic_labeling = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.isotopic_labeling",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/isotopic_labeling.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_chemical_modifications_modification = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications.modification",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/chemical_modifications/modification.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_chemical_modifications_position = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications.position",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/chemical_modifications/position.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_chemical_modifications_protocol_description = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications.protocol.description",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/chemical_modifications/protocol/description.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_chemical_modifications_protocol_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.chemical_modifications.protocol.name",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/chemical_modifications/protocol/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_additional_specifications = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.additional_specifications",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/additional_specifications.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_copy_number = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.copy_number",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/copy_number.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_expression_organism = VocabularyFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.expression_organism",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/expression_organism.label"
+    ),
+    vocabulary="organisms",
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_expression_source_type = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.expression_source_type",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/expression_source_type.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_external_databases = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.external_databases",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/external_databases.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_biological_postprocessing_modification = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing.modification",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/biological_postprocessing/modification.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_biological_postprocessing_position = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing.position",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/biological_postprocessing/position.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_biological_postprocessing_protocol_description = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing.protocol.description",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/biological_postprocessing/protocol/description.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_biological_postprocessing_protocol_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.biological_postprocessing.protocol.name",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/biological_postprocessing/protocol/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_chemical_modification = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical.modification",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/chemical/modification.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_chemical_position = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical.position",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/chemical/position.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_chemical_protocol_description = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical.protocol.description",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/chemical/protocol/description.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_chemical_protocol_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.chemical.protocol.name",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/chemical/protocol/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_synthesis_modification = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis.modification",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/synthesis/modification.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_synthesis_position = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis.position",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/synthesis/position.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_synthesis_protocol_description = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis.protocol.description",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/synthesis/protocol/description.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_modifications_synthesis_protocol_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.modifications.synthesis.protocol.name",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/modifications/synthesis/protocol/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_molecular_weight_unit = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.molecular_weight.unit",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/molecular_weight/unit.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_molecular_weight_value = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.molecular_weight.value",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/molecular_weight/value.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_molecular_weight_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.molecular_weight.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/molecular_weight/value_error/error_level.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_molecular_weight_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.molecular_weight.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/molecular_weight/value_error/errors_are_relative.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_molecular_weight_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.molecular_weight.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/molecular_weight/value_error/lower_error.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_molecular_weight_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.molecular_weight.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/molecular_weight/value_error/upper_error.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_name = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.name",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/name.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_organism = VocabularyFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.organism",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/organism.label"
+    ),
+    vocabulary="organisms",
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_polymer_type = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.polymer_type",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/polymer_type.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_parameter = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.parameter",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/parameter.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_report = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.report",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/report.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_duration_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.duration.unit",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/duration/unit.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_duration_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.duration.value",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/duration/value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_duration_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.duration.value_error.error_level",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/duration/value_error/error_level.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.duration.value_error.errors_are_relative",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_duration_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.duration.value_error.lower_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/duration/value_error/lower_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_duration_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.duration.value_error.upper_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/duration/value_error/upper_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_storage_preparation_description = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.storage_preparation.description",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/storage_preparation/description.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_storage_preparation_name = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.storage_preparation.name",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/storage_preparation/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_temperature_controlled = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.temperature.controlled",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/temperature/controlled.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_temperature_obtained_by = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.temperature.obtained_by",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/temperature/obtained_by.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_temperature_operational_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.temperature.operational_value",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/temperature/operational_value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_temperature_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.temperature.unit",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/temperature/unit.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_temperature_value = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.temperature.value",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/temperature/value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_temperature_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.temperature.value_error.error_level",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/temperature/value_error/error_level.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.temperature.value_error.errors_are_relative",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.temperature.value_error.lower_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_storage_until_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.storage_until_measurement.temperature.value_error.upper_error",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_quality_controls_technique = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.entities_of_interest.components.quality_controls.technique",
+        label=_(
+            "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/technique.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_sequence = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.sequence",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/sequence.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_duration_unit = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.duration.unit",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/duration/unit.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_duration_value = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.duration.value",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/duration/value.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_duration_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.duration.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/duration/value_error/error_level.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_duration_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.duration.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/duration/value_error/errors_are_relative.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_duration_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.duration.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/duration/value_error/lower_error.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_duration_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.duration.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/duration/value_error/upper_error.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_storage_preparation_description = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.storage_preparation.description",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/storage_preparation/description.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_storage_preparation_name = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.storage_preparation.name",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/storage_preparation/name.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_temperature_controlled = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.temperature.controlled",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/temperature/controlled.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_temperature_obtained_by = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.temperature.obtained_by",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/temperature/obtained_by.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_temperature_operational_value = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.temperature.operational_value",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/temperature/operational_value.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_temperature_unit = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.temperature.unit",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/temperature/unit.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_temperature_value = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.temperature.value",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/temperature/value.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_temperature_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.temperature.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/temperature/value_error/error_level.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_temperature_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.temperature.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/temperature/value_error/errors_are_relative.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_temperature_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.temperature.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/temperature/value_error/lower_error.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_storage_temperature_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.storage.temperature.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/temperature/value_error/upper_error.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_supplier_catalog_number = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.supplier.catalog_number",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/supplier/catalog_number.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_supplier_further_information = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.supplier.further_information",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/supplier/further_information.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_supplier_name = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.supplier.name",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/supplier/name.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_type = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.type",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/type.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_variant = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.variant",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/variant.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_additional_identifiers = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.additional_identifiers",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/additional_identifiers.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_inchikey = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.inchikey",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/inchikey.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_isotopic_labeling = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.isotopic_labeling",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/isotopic_labeling.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_preparation_protocol_description = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.preparation_protocol.description",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/preparation_protocol/description.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_preparation_protocol_name = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.preparation_protocol.name",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/preparation_protocol/name.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_derived_from = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.derived_from",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/derived_from.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_fluid = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.fluid",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/fluid.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_health_status = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.health_status",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/health_status.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_cell_type = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.cell_type",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/cell_type.label"
     ),
 )
 
@@ -5355,12 +5231,12 @@ metadata_general_parameters_chemical_information_entities_of_interest_details_co
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_modifications_biological_postprocessing_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_modifications_biological_postprocessing_position = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.modifications.biological_postprocessing",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.modifications.biological_postprocessing.monomer_position",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.modifications.biological_postprocessing.position",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/modifications/biological_postprocessing/monomer_position.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/modifications/biological_postprocessing/position.label"
         ),
     ),
 )
@@ -5395,12 +5271,12 @@ metadata_general_parameters_chemical_information_entities_of_interest_details_co
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_modifications_chemical_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_modifications_chemical_position = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.modifications.chemical",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.modifications.chemical.monomer_position",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.modifications.chemical.position",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/modifications/chemical/monomer_position.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/modifications/chemical/position.label"
         ),
     ),
 )
@@ -5435,12 +5311,12 @@ metadata_general_parameters_chemical_information_entities_of_interest_details_co
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_modifications_synthesis_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_modifications_synthesis_position = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.modifications.synthesis",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.modifications.synthesis.monomer_position",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.modifications.synthesis.position",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/modifications/synthesis/monomer_position.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/modifications/synthesis/position.label"
         ),
     ),
 )
@@ -5462,6 +5338,48 @@ metadata_general_parameters_chemical_information_entities_of_interest_details_co
         label=_(
             "metadata/general_parameters/chemical_information/entities_of_interest/details/components/modifications/synthesis/protocol/name.label"
         ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_molecular_weight_unit = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.molecular_weight.unit",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/molecular_weight/unit.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_molecular_weight_value = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.molecular_weight.value",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/molecular_weight/value.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_molecular_weight_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.molecular_weight.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/molecular_weight/value_error/error_level.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_molecular_weight_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.molecular_weight.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/molecular_weight/value_error/errors_are_relative.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_molecular_weight_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.molecular_weight.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/molecular_weight/value_error/lower_error.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_molecular_weight_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.molecular_weight.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/molecular_weight/value_error/upper_error.label"
     ),
 )
 
@@ -5507,172 +5425,172 @@ metadata_general_parameters_chemical_information_entities_of_interest_details_co
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_duration_unit = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_duration_unit = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.duration.unit",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.duration.unit",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/duration/unit.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/duration/unit.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_duration_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_duration_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.duration.value",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.duration.value",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/duration/value.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/duration/value.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_duration_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.error_level",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.duration.value_error.error_level",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/error_level.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/duration/value_error/error_level.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.errors_are_relative",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.duration.value_error.errors_are_relative",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/errors_are_relative.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_duration_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.lower_error",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.duration.value_error.lower_error",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/lower_error.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/duration/value_error/lower_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_duration_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.upper_error",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.duration.value_error.upper_error",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/upper_error.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/duration/value_error/upper_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_description = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_storage_preparation_description = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.description",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.storage_preparation.description",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/description.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/storage_preparation/description.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_name = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_storage_preparation_name = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.name",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.storage_preparation.name",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/name.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/storage_preparation/name.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_temperature_controlled = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_temperature_controlled = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.temperature.controlled",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.temperature.controlled",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/temperature/controlled.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/temperature/controlled.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_temperature_obtained_by = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_temperature_obtained_by = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.temperature.obtained_by",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.temperature.obtained_by",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/temperature/obtained_by.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/temperature/obtained_by.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_temperature_operational_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_temperature_operational_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.temperature.operational_value",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.temperature.operational_value",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/temperature/operational_value.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/temperature/operational_value.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_temperature_unit = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_temperature_unit = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.temperature.unit",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.temperature.unit",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/temperature/unit.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/temperature/unit.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_temperature_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.temperature.value",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/temperature/value.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_temperature_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.error_level",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.temperature.value_error.error_level",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/error_level.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/temperature/value_error/error_level.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.errors_are_relative",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.temperature.value_error.errors_are_relative",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/errors_are_relative.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.lower_error",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.temperature.value_error.lower_error",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/lower_error.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_quality_controls_storage_until_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.upper_error",
+        field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.quality_controls.storage_until_measurement.temperature.value_error.upper_error",
         label=_(
-            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/upper_error.label"
+            "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label"
         ),
     ),
 )
@@ -5691,6 +5609,125 @@ metadata_general_parameters_chemical_information_entities_of_interest_details_co
     field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.sequence",
     label=_(
         "metadata/general_parameters/chemical_information/entities_of_interest/details/components/sequence.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_duration_unit = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.duration.unit",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/duration/unit.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_duration_value = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.duration.value",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/duration/value.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_duration_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.duration.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/duration/value_error/error_level.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_duration_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.duration.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/duration/value_error/errors_are_relative.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_duration_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.duration.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/duration/value_error/lower_error.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_duration_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.duration.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/duration/value_error/upper_error.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_storage_preparation_description = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.storage_preparation.description",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/storage_preparation/description.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_storage_preparation_name = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.storage_preparation.name",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/storage_preparation/name.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_temperature_controlled = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.temperature.controlled",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/temperature/controlled.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_temperature_obtained_by = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.temperature.obtained_by",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/temperature/obtained_by.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_temperature_operational_value = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.temperature.operational_value",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/temperature/operational_value.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_temperature_unit = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.temperature.unit",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/temperature/unit.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_temperature_value = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.temperature.value",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/temperature/value.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_temperature_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.temperature.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/temperature/value_error/error_level.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_temperature_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.temperature.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/temperature/value_error/errors_are_relative.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_temperature_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.temperature.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/temperature/value_error/lower_error.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_temperature_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.storage.temperature.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/temperature/value_error/upper_error.label"
     ),
 )
 
@@ -5916,6 +5953,19 @@ metadata_general_parameters_depositors_principal_contact_identifiers = TermsFace
     ),
 )
 
+metadata_general_parameters_derived_parameters_entities_involved_copy_number = NestedLabeledFacet(
+    path="metadata.general_parameters.derived_parameters",
+    nested_facet=NestedLabeledFacet(
+        path="metadata.general_parameters.derived_parameters.entities_involved",
+        nested_facet=TermsFacet(
+            field="metadata.general_parameters.derived_parameters.entities_involved.copy_number",
+            label=_(
+                "metadata/general_parameters/derived_parameters/entities_involved/copy_number.label"
+            ),
+        ),
+    ),
+)
+
 metadata_general_parameters_derived_parameters_entities_involved_entity__version = NestedLabeledFacet(
     path="metadata.general_parameters.derived_parameters",
     nested_facet=NestedLabeledFacet(
@@ -5924,19 +5974,6 @@ metadata_general_parameters_derived_parameters_entities_involved_entity__version
             field="metadata.general_parameters.derived_parameters.entities_involved.entity.@v",
             label=_(
                 "metadata/general_parameters/derived_parameters/entities_involved/entity/@v.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_derived_parameters_entities_involved_stoichiometry = NestedLabeledFacet(
-    path="metadata.general_parameters.derived_parameters",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.derived_parameters.entities_involved",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.derived_parameters.entities_involved.stoichiometry",
-            label=_(
-                "metadata/general_parameters/derived_parameters/entities_involved/stoichiometry.label"
             ),
         ),
     ),
@@ -6235,12 +6272,12 @@ metadata_general_parameters_instrument_performance_test_sample_composition_modif
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_modifications_biological_postprocessing_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_modifications_biological_postprocessing_position = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.modifications.biological_postprocessing",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.modifications.biological_postprocessing.monomer_position",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.modifications.biological_postprocessing.position",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/modifications/biological_postprocessing/monomer_position.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/modifications/biological_postprocessing/position.label"
         ),
     ),
 )
@@ -6275,12 +6312,12 @@ metadata_general_parameters_instrument_performance_test_sample_composition_modif
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_modifications_chemical_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_modifications_chemical_position = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.modifications.chemical",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.modifications.chemical.monomer_position",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.modifications.chemical.position",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/modifications/chemical/monomer_position.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/modifications/chemical/position.label"
         ),
     ),
 )
@@ -6315,12 +6352,12 @@ metadata_general_parameters_instrument_performance_test_sample_composition_modif
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_modifications_synthesis_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_modifications_synthesis_position = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.modifications.synthesis",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.modifications.synthesis.monomer_position",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.modifications.synthesis.position",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/modifications/synthesis/monomer_position.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/modifications/synthesis/position.label"
         ),
     ),
 )
@@ -6342,6 +6379,48 @@ metadata_general_parameters_instrument_performance_test_sample_composition_modif
         label=_(
             "metadata/general_parameters/instrument/performance_test/sample_composition/modifications/synthesis/protocol/name.label"
         ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_molecular_weight_unit = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.molecular_weight.unit",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/molecular_weight/unit.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_molecular_weight_value = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.molecular_weight.value",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/molecular_weight/value.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_molecular_weight_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.molecular_weight.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/molecular_weight/value_error/error_level.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_molecular_weight_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.molecular_weight.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/molecular_weight/value_error/errors_are_relative.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_molecular_weight_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.molecular_weight.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/molecular_weight/value_error/lower_error.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_molecular_weight_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.molecular_weight.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/molecular_weight/value_error/upper_error.label"
     ),
 )
 
@@ -6387,172 +6466,172 @@ metadata_general_parameters_instrument_performance_test_sample_composition_quali
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_duration_unit = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_duration_unit = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.duration.unit",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.duration.unit",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/duration/unit.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/duration/unit.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_duration_value = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_duration_value = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.duration.value",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.duration.value",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/duration/value.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/duration/value.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_duration_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_duration_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.duration.value_error.error_level",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.duration.value_error.error_level",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/duration/value_error/error_level.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/duration/value_error/error_level.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.duration.value_error.errors_are_relative",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.duration.value_error.errors_are_relative",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/duration/value_error/errors_are_relative.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_duration_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_duration_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.duration.value_error.lower_error",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.duration.value_error.lower_error",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/duration/value_error/lower_error.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/duration/value_error/lower_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_duration_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_duration_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.duration.value_error.upper_error",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.duration.value_error.upper_error",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/duration/value_error/upper_error.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/duration/value_error/upper_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_storage_preparation_description = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_storage_preparation_description = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.storage_preparation.description",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.storage_preparation.description",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/storage_preparation/description.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/storage_preparation/description.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_storage_preparation_name = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_storage_preparation_name = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.storage_preparation.name",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.storage_preparation.name",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/storage_preparation/name.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/storage_preparation/name.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_temperature_controlled = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_temperature_controlled = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.temperature.controlled",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.temperature.controlled",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/temperature/controlled.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/temperature/controlled.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_temperature_obtained_by = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_temperature_obtained_by = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.temperature.obtained_by",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.temperature.obtained_by",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/temperature/obtained_by.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/temperature/obtained_by.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_temperature_operational_value = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_temperature_operational_value = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.temperature.operational_value",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.temperature.operational_value",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/temperature/operational_value.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/temperature/operational_value.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_temperature_unit = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_temperature_unit = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.temperature.unit",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.temperature.unit",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/temperature/unit.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/temperature/unit.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_temperature_value = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_temperature_value = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.temperature.value",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.temperature.value",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/temperature/value.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/temperature/value.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_temperature_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_temperature_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.temperature.value_error.error_level",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.temperature.value_error.error_level",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/temperature/value_error/error_level.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/temperature/value_error/error_level.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.temperature.value_error.errors_are_relative",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.temperature.value_error.errors_are_relative",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/temperature/value_error/errors_are_relative.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.temperature.value_error.lower_error",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.temperature.value_error.lower_error",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/temperature/value_error/lower_error.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_from_QC_to_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_quality_controls_storage_until_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_from_QC_to_measurement.temperature.value_error.upper_error",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.quality_controls.storage_until_measurement.temperature.value_error.upper_error",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_from_QC_to_measurement/temperature/value_error/upper_error.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label"
         ),
     ),
 )
@@ -6571,585 +6650,6 @@ metadata_general_parameters_instrument_performance_test_sample_composition_seque
     field="metadata.general_parameters.instrument.performance_test.sample_composition.sequence",
     label=_(
         "metadata/general_parameters/instrument/performance_test/sample_composition/sequence.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_supplier_catalog_number = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.supplier.catalog_number",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/supplier/catalog_number.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_supplier_further_information = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.supplier.further_information",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/supplier/further_information.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_supplier_name = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.supplier.name",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/supplier/name.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_type = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.type",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/type.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_variant = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.variant",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/variant.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_additional_identifiers = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.additional_identifiers",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/additional_identifiers.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_inchikey = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.inchikey",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/inchikey.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_isotopic_labeling = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.isotopic_labeling",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/isotopic_labeling.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_chemical_modifications_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications.modification",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/chemical_modifications/modification.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_chemical_modifications_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications.monomer_position",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/chemical_modifications/monomer_position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_chemical_modifications_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications.protocol.description",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/chemical_modifications/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_chemical_modifications_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications.protocol.name",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/chemical_modifications/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_additional_specifications = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.additional_specifications",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/additional_specifications.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_copy_number = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.copy_number",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/copy_number.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_expression_organism = VocabularyFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.expression_organism",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/expression_organism.label"
-    ),
-    vocabulary="organisms",
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_expression_source_type = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.expression_source_type",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/expression_source_type.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_external_databases = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.external_databases",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/external_databases.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_biological_postprocessing_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing.modification",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/biological_postprocessing/modification.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_biological_postprocessing_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing.monomer_position",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/biological_postprocessing/monomer_position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_biological_postprocessing_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing.protocol.description",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/biological_postprocessing/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_biological_postprocessing_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing.protocol.name",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/biological_postprocessing/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_chemical_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical.modification",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/chemical/modification.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_chemical_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical.monomer_position",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/chemical/monomer_position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_chemical_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical.protocol.description",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/chemical/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_chemical_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical.protocol.name",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/chemical/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_synthesis_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis.modification",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/synthesis/modification.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_synthesis_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis.monomer_position",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/synthesis/monomer_position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_synthesis_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis.protocol.description",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/synthesis/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_synthesis_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis.protocol.name",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/synthesis/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_name = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.name",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/name.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_organism = VocabularyFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.organism",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism.label"
-    ),
-    vocabulary="organisms",
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_polymer_type = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.polymer_type",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/polymer_type.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_parameter = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.parameter",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/parameter.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.report",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/report.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_duration_unit = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.duration.unit",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/duration/unit.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_duration_value = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.duration.value",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/duration/value.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_error_level = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.error_level",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/error_level.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.errors_are_relative",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/errors_are_relative.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_lower_error = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.lower_error",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/lower_error.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_upper_error = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.upper_error",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/upper_error.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_description = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.description",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_name = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.name",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_controlled = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.temperature.controlled",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/temperature/controlled.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_obtained_by = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.temperature.obtained_by",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/temperature/obtained_by.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_operational_value = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.temperature.operational_value",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/temperature/operational_value.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_unit = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.temperature.unit",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/temperature/unit.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_value = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.temperature.value",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/temperature/value.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_error_level = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.error_level",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/error_level.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.errors_are_relative",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/errors_are_relative.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.lower_error",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/lower_error.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.upper_error",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/upper_error.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_technique = NestedLabeledFacet(
-    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.technique",
-        label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/technique.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_sequence = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.sequence",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/sequence.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_supplier_catalog_number = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.supplier.catalog_number",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/supplier/catalog_number.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_supplier_further_information = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.supplier.further_information",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/supplier/further_information.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_supplier_name = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.supplier.name",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/supplier/name.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_type = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.type",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/type.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_variant = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.variant",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/variant.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_additional_identifiers = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.additional_identifiers",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/additional_identifiers.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_inchikey = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.inchikey",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/inchikey.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_components_isotopic_labeling = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.isotopic_labeling",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/isotopic_labeling.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_preparation_protocol_description = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.preparation_protocol.description",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/preparation_protocol/description.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_preparation_protocol_name = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.preparation_protocol.name",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/preparation_protocol/name.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_derived_from = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.derived_from",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/derived_from.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_description = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.description",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/description.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_fluid = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.fluid",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/fluid.label"
-    ),
-)
-
-metadata_general_parameters_instrument_performance_test_sample_composition_health_status = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.health_status",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/health_status.label"
     ),
 )
 
@@ -7272,10 +6772,743 @@ metadata_general_parameters_instrument_performance_test_sample_composition_stora
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_celltype = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.celltype",
+metadata_general_parameters_instrument_performance_test_sample_composition_supplier_catalog_number = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.supplier.catalog_number",
     label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/celltype.label"
+        "metadata/general_parameters/instrument/performance_test/sample_composition/supplier/catalog_number.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_supplier_further_information = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.supplier.further_information",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/supplier/further_information.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_supplier_name = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.supplier.name",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/supplier/name.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_type = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.type",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/type.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_variant = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.variant",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/variant.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_additional_identifiers = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.additional_identifiers",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/additional_identifiers.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_inchikey = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.inchikey",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/inchikey.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_isotopic_labeling = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.isotopic_labeling",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/isotopic_labeling.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_chemical_modifications_modification = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications.modification",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/chemical_modifications/modification.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_chemical_modifications_position = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications.position",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/chemical_modifications/position.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_chemical_modifications_protocol_description = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications.protocol.description",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/chemical_modifications/protocol/description.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_chemical_modifications_protocol_name = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.chemical_modifications.protocol.name",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/chemical_modifications/protocol/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_additional_specifications = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.additional_specifications",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/additional_specifications.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_copy_number = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.copy_number",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/copy_number.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_expression_organism = VocabularyFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.expression_organism",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/expression_organism.label"
+    ),
+    vocabulary="organisms",
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_expression_source_type = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.expression_source_type",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/expression_source_type.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_external_databases = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.external_databases",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/external_databases.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_biological_postprocessing_modification = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing.modification",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/biological_postprocessing/modification.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_biological_postprocessing_position = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing.position",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/biological_postprocessing/position.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_biological_postprocessing_protocol_description = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing.protocol.description",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/biological_postprocessing/protocol/description.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_biological_postprocessing_protocol_name = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.biological_postprocessing.protocol.name",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/biological_postprocessing/protocol/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_chemical_modification = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical.modification",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/chemical/modification.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_chemical_position = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical.position",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/chemical/position.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_chemical_protocol_description = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical.protocol.description",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/chemical/protocol/description.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_chemical_protocol_name = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.chemical.protocol.name",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/chemical/protocol/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_synthesis_modification = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis.modification",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/synthesis/modification.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_synthesis_position = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis.position",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/synthesis/position.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_synthesis_protocol_description = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis.protocol.description",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/synthesis/protocol/description.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_modifications_synthesis_protocol_name = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.modifications.synthesis.protocol.name",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/modifications/synthesis/protocol/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_molecular_weight_unit = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.molecular_weight.unit",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/molecular_weight/unit.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_molecular_weight_value = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.molecular_weight.value",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/molecular_weight/value.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_molecular_weight_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.molecular_weight.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/molecular_weight/value_error/error_level.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_molecular_weight_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.molecular_weight.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/molecular_weight/value_error/errors_are_relative.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_molecular_weight_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.molecular_weight.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/molecular_weight/value_error/lower_error.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_molecular_weight_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.molecular_weight.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/molecular_weight/value_error/upper_error.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_name = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.name",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/name.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_organism = VocabularyFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.organism",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism.label"
+    ),
+    vocabulary="organisms",
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_polymer_type = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.polymer_type",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/polymer_type.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_parameter = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.parameter",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/parameter.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_report = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.report",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/report.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_duration_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.duration.unit",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/duration/unit.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_duration_value = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.duration.value",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/duration/value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_duration_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.duration.value_error.error_level",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/duration/value_error/error_level.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.duration.value_error.errors_are_relative",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_duration_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.duration.value_error.lower_error",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/duration/value_error/lower_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_duration_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.duration.value_error.upper_error",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/duration/value_error/upper_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_storage_preparation_description = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.storage_preparation.description",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/storage_preparation/description.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_storage_preparation_name = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.storage_preparation.name",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/storage_preparation/name.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_temperature_controlled = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.temperature.controlled",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/temperature/controlled.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_temperature_obtained_by = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.temperature.obtained_by",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/temperature/obtained_by.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_temperature_operational_value = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.temperature.operational_value",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/temperature/operational_value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_temperature_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.temperature.unit",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/temperature/unit.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_temperature_value = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.temperature.value",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/temperature/value.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_temperature_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.temperature.value_error.error_level",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/temperature/value_error/error_level.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.temperature.value_error.errors_are_relative",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.temperature.value_error.lower_error",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_storage_until_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.storage_until_measurement.temperature.value_error.upper_error",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_quality_controls_technique = NestedLabeledFacet(
+    path="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.components.quality_controls.technique",
+        label=_(
+            "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/technique.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_sequence = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.sequence",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/sequence.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_duration_unit = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.duration.unit",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/duration/unit.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_duration_value = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.duration.value",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/duration/value.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_duration_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.duration.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/duration/value_error/error_level.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_duration_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.duration.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/duration/value_error/errors_are_relative.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_duration_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.duration.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/duration/value_error/lower_error.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_duration_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.duration.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/duration/value_error/upper_error.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_storage_preparation_description = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.storage_preparation.description",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/storage_preparation/description.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_storage_preparation_name = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.storage_preparation.name",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/storage_preparation/name.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_temperature_controlled = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.temperature.controlled",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/temperature/controlled.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_temperature_obtained_by = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.temperature.obtained_by",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/temperature/obtained_by.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_temperature_operational_value = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.temperature.operational_value",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/temperature/operational_value.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_temperature_unit = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.temperature.unit",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/temperature/unit.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_temperature_value = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.temperature.value",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/temperature/value.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_temperature_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.temperature.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/temperature/value_error/error_level.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_temperature_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.temperature.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/temperature/value_error/errors_are_relative.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_temperature_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.temperature.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/temperature/value_error/lower_error.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_temperature_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.storage.temperature.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/temperature/value_error/upper_error.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_supplier_catalog_number = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.supplier.catalog_number",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/supplier/catalog_number.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_supplier_further_information = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.supplier.further_information",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/supplier/further_information.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_supplier_name = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.supplier.name",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/supplier/name.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_type = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.type",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/type.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_variant = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.variant",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/variant.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_additional_identifiers = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.additional_identifiers",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/additional_identifiers.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_inchikey = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.inchikey",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/inchikey.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_isotopic_labeling = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.isotopic_labeling",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/isotopic_labeling.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_preparation_protocol_description = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.preparation_protocol.description",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/preparation_protocol/description.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_preparation_protocol_name = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.preparation_protocol.name",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/preparation_protocol/name.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_derived_from = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.derived_from",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/derived_from.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_fluid = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.fluid",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/fluid.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_health_status = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.health_status",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/health_status.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_cell_type = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.cell_type",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/cell_type.label"
     ),
 )
 
@@ -7424,12 +7657,12 @@ metadata_general_parameters_instrument_performance_test_sample_composition_detai
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_modifications_biological_postprocessing_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_modifications_biological_postprocessing_position = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.modifications.biological_postprocessing",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.modifications.biological_postprocessing.monomer_position",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.modifications.biological_postprocessing.position",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/modifications/biological_postprocessing/monomer_position.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/modifications/biological_postprocessing/position.label"
         ),
     ),
 )
@@ -7464,12 +7697,12 @@ metadata_general_parameters_instrument_performance_test_sample_composition_detai
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_modifications_chemical_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_modifications_chemical_position = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.modifications.chemical",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.modifications.chemical.monomer_position",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.modifications.chemical.position",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/modifications/chemical/monomer_position.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/modifications/chemical/position.label"
         ),
     ),
 )
@@ -7504,12 +7737,12 @@ metadata_general_parameters_instrument_performance_test_sample_composition_detai
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_modifications_synthesis_monomer_position = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_modifications_synthesis_position = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.modifications.synthesis",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.modifications.synthesis.monomer_position",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.modifications.synthesis.position",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/modifications/synthesis/monomer_position.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/modifications/synthesis/position.label"
         ),
     ),
 )
@@ -7531,6 +7764,48 @@ metadata_general_parameters_instrument_performance_test_sample_composition_detai
         label=_(
             "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/modifications/synthesis/protocol/name.label"
         ),
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_molecular_weight_unit = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.molecular_weight.unit",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/molecular_weight/unit.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_molecular_weight_value = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.molecular_weight.value",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/molecular_weight/value.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_molecular_weight_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.molecular_weight.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/molecular_weight/value_error/error_level.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_molecular_weight_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.molecular_weight.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/molecular_weight/value_error/errors_are_relative.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_molecular_weight_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.molecular_weight.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/molecular_weight/value_error/lower_error.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_molecular_weight_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.molecular_weight.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/molecular_weight/value_error/upper_error.label"
     ),
 )
 
@@ -7576,172 +7851,172 @@ metadata_general_parameters_instrument_performance_test_sample_composition_detai
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_duration_unit = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_duration_unit = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.duration.unit",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.duration.unit",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/duration/unit.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/duration/unit.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_duration_value = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_duration_value = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.duration.value",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.duration.value",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/duration/value.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/duration/value.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_duration_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.error_level",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.duration.value_error.error_level",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/error_level.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/duration/value_error/error_level.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.errors_are_relative",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.duration.value_error.errors_are_relative",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/errors_are_relative.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_duration_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.lower_error",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.duration.value_error.lower_error",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/lower_error.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/duration/value_error/lower_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_duration_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.upper_error",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.duration.value_error.upper_error",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/upper_error.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/duration/value_error/upper_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_description = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_storage_preparation_description = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.description",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.storage_preparation.description",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/description.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/storage_preparation/description.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_name = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_storage_preparation_name = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.name",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.storage_preparation.name",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/name.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/storage_preparation/name.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_temperature_controlled = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_temperature_controlled = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.temperature.controlled",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.temperature.controlled",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/temperature/controlled.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/temperature/controlled.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_temperature_obtained_by = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_temperature_obtained_by = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.temperature.obtained_by",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.temperature.obtained_by",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/temperature/obtained_by.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/temperature/obtained_by.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_temperature_operational_value = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_temperature_operational_value = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.temperature.operational_value",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.temperature.operational_value",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/temperature/operational_value.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/temperature/operational_value.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_temperature_unit = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_temperature_unit = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.temperature.unit",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.temperature.unit",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/temperature/unit.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/temperature/unit.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_temperature_value = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.temperature.value",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/temperature/value.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_temperature_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.error_level",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.temperature.value_error.error_level",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/error_level.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/temperature/value_error/error_level.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.errors_are_relative",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.temperature.value_error.errors_are_relative",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/errors_are_relative.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.lower_error",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.temperature.value_error.lower_error",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/lower_error.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_quality_controls_storage_until_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.upper_error",
+        field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.quality_controls.storage_until_measurement.temperature.value_error.upper_error",
         label=_(
-            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/upper_error.label"
+            "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label"
         ),
     ),
 )
@@ -7760,6 +8035,125 @@ metadata_general_parameters_instrument_performance_test_sample_composition_detai
     field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.sequence",
     label=_(
         "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/sequence.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_duration_unit = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.duration.unit",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/duration/unit.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_duration_value = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.duration.value",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/duration/value.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_duration_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.duration.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/duration/value_error/error_level.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_duration_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.duration.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/duration/value_error/errors_are_relative.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_duration_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.duration.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/duration/value_error/lower_error.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_duration_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.duration.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/duration/value_error/upper_error.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_storage_preparation_description = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.storage_preparation.description",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/storage_preparation/description.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_storage_preparation_name = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.storage_preparation.name",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/storage_preparation/name.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_temperature_controlled = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.temperature.controlled",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/temperature/controlled.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_temperature_obtained_by = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.temperature.obtained_by",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/temperature/obtained_by.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_temperature_operational_value = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.temperature.operational_value",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/temperature/operational_value.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_temperature_unit = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.temperature.unit",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/temperature/unit.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_temperature_value = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.temperature.value",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/temperature/value.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_temperature_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.temperature.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/temperature/value_error/error_level.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_temperature_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.temperature.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/temperature/value_error/errors_are_relative.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_temperature_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.temperature.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/temperature/value_error/lower_error.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_temperature_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.storage.temperature.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/temperature/value_error/upper_error.label"
     ),
 )
 
@@ -7889,6 +8283,13 @@ metadata_general_parameters_instrument_performance_test_sample_composition_produ
     ),
 )
 
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_additional_identifiers = TermsFacet(
+    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.additional_identifiers",
+    label=_(
+        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_identifiers.label"
+    ),
+)
+
 metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_additional_specifications = TermsFacet(
     field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.additional_specifications",
     label=_(
@@ -7959,145 +8360,59 @@ metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_c
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_expression_organism = VocabularyFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.expression_organism",
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_inchikey = TermsFacet(
+    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.inchikey",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/expression_organism.label"
+        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/inchikey.label"
     ),
-    vocabulary="organisms",
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_expression_source_type = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.expression_source_type",
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_isotopic_labeling = TermsFacet(
+    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.isotopic_labeling",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/expression_source_type.label"
+        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/isotopic_labeling.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_external_databases = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.external_databases",
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_unit = TermsFacet(
+    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.molecular_weight.unit",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/external_databases.label"
+        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/unit.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_modifications_biological_postprocessing_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.biological_postprocessing.modification",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/modifications/biological_postprocessing/modification.label"
-        ),
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value = TermsFacet(
+    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.molecular_weight.value",
+    label=_(
+        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_modifications_biological_postprocessing_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.biological_postprocessing.monomer_position",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/modifications/biological_postprocessing/monomer_position.label"
-        ),
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.molecular_weight.value_error.error_level",
+    label=_(
+        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/error_level.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_modifications_biological_postprocessing_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.biological_postprocessing.protocol.description",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/modifications/biological_postprocessing/protocol/description.label"
-        ),
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.molecular_weight.value_error.errors_are_relative",
+    label=_(
+        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/errors_are_relative.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_modifications_biological_postprocessing_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.biological_postprocessing.protocol.name",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/modifications/biological_postprocessing/protocol/name.label"
-        ),
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.molecular_weight.value_error.lower_error",
+    label=_(
+        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/lower_error.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_modifications_chemical_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.chemical.modification",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/modifications/chemical/modification.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_modifications_chemical_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.chemical.monomer_position",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/modifications/chemical/monomer_position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_modifications_chemical_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.chemical.protocol.description",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/modifications/chemical/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_modifications_chemical_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.chemical.protocol.name",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/modifications/chemical/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_modifications_synthesis_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.synthesis.modification",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/modifications/synthesis/modification.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_modifications_synthesis_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.synthesis.monomer_position",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/modifications/synthesis/monomer_position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_modifications_synthesis_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.synthesis.protocol.description",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/modifications/synthesis/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_modifications_synthesis_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.modifications.synthesis.protocol.name",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/modifications/synthesis/protocol/name.label"
-        ),
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.molecular_weight.value_error.upper_error",
+    label=_(
+        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/upper_error.label"
     ),
 )
 
@@ -8105,21 +8420,6 @@ metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_c
     field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.name",
     label=_(
         "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/name.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_organism = VocabularyFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.organism",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/organism.label"
-    ),
-    vocabulary="organisms",
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_polymer_type = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.polymer_type",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/polymer_type.label"
     ),
 )
 
@@ -8143,172 +8443,172 @@ metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_c
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_duration_unit = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_unit = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.duration.unit",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.unit",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/duration/unit.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/unit.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_duration_value = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.duration.value",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/duration/value.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_duration_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.duration.value_error.error_level",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value_error.error_level",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/duration/value_error/error_level.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/error_level.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.duration.value_error.errors_are_relative",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value_error.errors_are_relative",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/duration/value_error/errors_are_relative.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_duration_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.duration.value_error.lower_error",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value_error.lower_error",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/duration/value_error/lower_error.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/lower_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_duration_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.duration.value_error.upper_error",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value_error.upper_error",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/duration/value_error/upper_error.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/upper_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_storage_preparation_description = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_description = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.storage_preparation.description",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.storage_preparation.description",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/storage_preparation/description.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/description.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_storage_preparation_name = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_name = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.storage_preparation.name",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.storage_preparation.name",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/storage_preparation/name.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/name.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_temperature_controlled = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_controlled = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.temperature.controlled",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.controlled",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/temperature/controlled.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/controlled.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_temperature_obtained_by = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_obtained_by = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.temperature.obtained_by",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.obtained_by",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/temperature/obtained_by.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/obtained_by.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_temperature_operational_value = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_operational_value = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.temperature.operational_value",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.operational_value",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/temperature/operational_value.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/operational_value.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_temperature_unit = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_unit = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.temperature.unit",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.unit",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/temperature/unit.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/unit.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_temperature_value = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.temperature.value",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/temperature/value.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_temperature_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.temperature.value_error.error_level",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value_error.error_level",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/temperature/value_error/error_level.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/error_level.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.temperature.value_error.errors_are_relative",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value_error.errors_are_relative",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/temperature/value_error/errors_are_relative.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.temperature.value_error.lower_error",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value_error.lower_error",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/temperature/value_error/lower_error.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_from_QC_to_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_from_QC_to_measurement.temperature.value_error.upper_error",
+        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value_error.upper_error",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_from_QC_to_measurement/temperature/value_error/upper_error.label"
+            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label"
         ),
     ),
 )
@@ -8320,13 +8620,6 @@ metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_c
         label=_(
             "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/technique.label"
         ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_sequence = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.sequence",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/sequence.label"
     ),
 )
 
@@ -8355,529 +8648,6 @@ metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_c
     field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.type",
     label=_(
         "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/type.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_variant = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.variant",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/variant.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_additional_identifiers = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.additional_identifiers",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_identifiers.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_inchikey = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.inchikey",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/inchikey.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_isotopic_labeling = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.isotopic_labeling",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/isotopic_labeling.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_chemical_modifications_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.chemical_modifications",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.chemical_modifications.modification",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/chemical_modifications/modification.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_chemical_modifications_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.chemical_modifications",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.chemical_modifications.monomer_position",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/chemical_modifications/monomer_position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_chemical_modifications_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.chemical_modifications",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.chemical_modifications.protocol.description",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/chemical_modifications/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_chemical_modifications_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.chemical_modifications",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.chemical_modifications.protocol.name",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/chemical_modifications/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_additional_specifications = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.additional_specifications",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/additional_specifications.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_copy_number = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.copy_number",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/copy_number.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_expression_organism = VocabularyFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.expression_organism",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/expression_organism.label"
-    ),
-    vocabulary="organisms",
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_expression_source_type = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.expression_source_type",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/expression_source_type.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_external_databases = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.external_databases",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/external_databases.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_modifications_biological_postprocessing_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.biological_postprocessing.modification",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/modifications/biological_postprocessing/modification.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_modifications_biological_postprocessing_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.biological_postprocessing.monomer_position",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/modifications/biological_postprocessing/monomer_position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_modifications_biological_postprocessing_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.biological_postprocessing.protocol.description",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/modifications/biological_postprocessing/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_modifications_biological_postprocessing_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.biological_postprocessing",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.biological_postprocessing.protocol.name",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/modifications/biological_postprocessing/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_modifications_chemical_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.chemical.modification",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/modifications/chemical/modification.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_modifications_chemical_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.chemical.monomer_position",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/modifications/chemical/monomer_position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_modifications_chemical_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.chemical.protocol.description",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/modifications/chemical/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_modifications_chemical_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.chemical",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.chemical.protocol.name",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/modifications/chemical/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_modifications_synthesis_modification = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.synthesis.modification",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/modifications/synthesis/modification.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_modifications_synthesis_monomer_position = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.synthesis.monomer_position",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/modifications/synthesis/monomer_position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_modifications_synthesis_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.synthesis.protocol.description",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/modifications/synthesis/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_modifications_synthesis_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.modifications.synthesis.protocol.name",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/modifications/synthesis/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_name = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.name",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/name.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_organism = VocabularyFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.organism",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/organism.label"
-    ),
-    vocabulary="organisms",
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_polymer_type = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.polymer_type",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/polymer_type.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_parameter = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.parameter",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/parameter.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_report = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.report",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/report.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_duration_unit = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.duration.unit",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/duration/unit.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_duration_value = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.duration.value",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/duration/value.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_error_level = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.error_level",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/error_level.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.errors_are_relative",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/errors_are_relative.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_lower_error = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.lower_error",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/lower_error.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_duration_value_error_upper_error = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.duration.value_error.upper_error",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/duration/value_error/upper_error.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_description = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.description",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_storage_preparation_name = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.storage_preparation.name",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/storage_preparation/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_controlled = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.temperature.controlled",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/temperature/controlled.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_obtained_by = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.temperature.obtained_by",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/temperature/obtained_by.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_operational_value = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.temperature.operational_value",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/temperature/operational_value.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_unit = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.temperature.unit",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/temperature/unit.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_value = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.temperature.value",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/temperature/value.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_error_level = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.error_level",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/error_level.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.errors_are_relative",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/errors_are_relative.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.lower_error",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/lower_error.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_storage_from_QC_to_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.storage_from_QC_to_measurement.temperature.value_error.upper_error",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/storage_from_QC_to_measurement/temperature/value_error/upper_error.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_quality_controls_technique = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.quality_controls.technique",
-        label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/quality_controls/technique.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_sequence = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.sequence",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/sequence.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_supplier_catalog_number = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.supplier.catalog_number",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/supplier/catalog_number.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_supplier_further_information = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.supplier.further_information",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/supplier/further_information.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_supplier_name = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.supplier.name",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/supplier/name.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_type = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.type",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/type.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_variant = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.variant",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/variant.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_additional_identifiers = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.additional_identifiers",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/additional_identifiers.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_inchikey = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.inchikey",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/inchikey.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_components_isotopic_labeling = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.isotopic_labeling",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/components/isotopic_labeling.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_preparation_protocol_description = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.preparation_protocol.description",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/preparation_protocol/description.label"
-    ),
-)
-
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_preparation_protocol_name = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.preparation_protocol.name",
-    label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/preparation_protocol/name.label"
     ),
 )
 
@@ -9056,110 +8826,119 @@ metadata_general_parameters_physical_environment_at_sample_handling_temperature_
     ),
 )
 
-metadata_general_parameters_record_access_rights = TermsFacet(
-    field="metadata.general_parameters.record.access_rights",
-    label=_("metadata/general_parameters/record/access_rights.label"),
+metadata_general_parameters_record_information_access_rights = TermsFacet(
+    field="metadata.general_parameters.record_information.access_rights",
+    label=_("metadata/general_parameters/record_information/access_rights.label"),
 )
 
-metadata_general_parameters_record_date_available = DateTimeFacet(
-    field="metadata.general_parameters.record.date_available",
-    label=_("metadata/general_parameters/record/date_available.label"),
+metadata_general_parameters_record_information_date_available = DateTimeFacet(
+    field="metadata.general_parameters.record_information.date_available",
+    label=_("metadata/general_parameters/record_information/date_available.label"),
 )
 
-metadata_general_parameters_record_deposition_date = DateTimeFacet(
-    field="metadata.general_parameters.record.deposition_date",
-    label=_("metadata/general_parameters/record/deposition_date.label"),
+metadata_general_parameters_record_information_deposition_date = DateTimeFacet(
+    field="metadata.general_parameters.record_information.deposition_date",
+    label=_("metadata/general_parameters/record_information/deposition_date.label"),
 )
 
-metadata_general_parameters_record_id = TermsFacet(
-    field="metadata.general_parameters.record.id",
-    label=_("metadata/general_parameters/record/id.label"),
+metadata_general_parameters_record_information_identifier = TermsFacet(
+    field="metadata.general_parameters.record_information.identifier",
+    label=_("metadata/general_parameters/record_information/identifier.label"),
 )
 
-metadata_general_parameters_record_identifier = TermsFacet(
-    field="metadata.general_parameters.record.identifier",
-    label=_("metadata/general_parameters/record/identifier.label"),
+metadata_general_parameters_record_information_internal_id = TermsFacet(
+    field="metadata.general_parameters.record_information.internal_id",
+    label=_("metadata/general_parameters/record_information/internal_id.label"),
 )
 
-metadata_general_parameters_record_keywords = TermsFacet(
-    field="metadata.general_parameters.record.keywords",
-    label=_("metadata/general_parameters/record/keywords.label"),
+metadata_general_parameters_record_information_keywords = TermsFacet(
+    field="metadata.general_parameters.record_information.keywords",
+    label=_("metadata/general_parameters/record_information/keywords.label"),
 )
 
-metadata_general_parameters_record_measurement_group_id = TermsFacet(
-    field="metadata.general_parameters.record.measurement_group_id",
-    label=_("metadata/general_parameters/record/measurement_group_id.label"),
+metadata_general_parameters_record_information_measurement_group_id = TermsFacet(
+    field="metadata.general_parameters.record_information.measurement_group_id",
+    label=_(
+        "metadata/general_parameters/record_information/measurement_group_id.label"
+    ),
 )
 
-metadata_general_parameters_record_metadata_access_rights = TermsFacet(
-    field="metadata.general_parameters.record.metadata_access_rights",
-    label=_("metadata/general_parameters/record/metadata_access_rights.label"),
+metadata_general_parameters_record_information_metadata_access_rights = TermsFacet(
+    field="metadata.general_parameters.record_information.metadata_access_rights",
+    label=_(
+        "metadata/general_parameters/record_information/metadata_access_rights.label"
+    ),
 )
 
-metadata_general_parameters_record_project_description = TermsFacet(
-    field="metadata.general_parameters.record.project.description",
-    label=_("metadata/general_parameters/record/project/description.label"),
+metadata_general_parameters_record_information_project_description = TermsFacet(
+    field="metadata.general_parameters.record_information.project.description",
+    label=_("metadata/general_parameters/record_information/project/description.label"),
 )
 
-metadata_general_parameters_record_project_id = TermsFacet(
-    field="metadata.general_parameters.record.project.id",
-    label=_("metadata/general_parameters/record/project/id.label"),
+metadata_general_parameters_record_information_project_id = TermsFacet(
+    field="metadata.general_parameters.record_information.project.id",
+    label=_("metadata/general_parameters/record_information/project/id.label"),
 )
 
-metadata_general_parameters_record_project_owner_affiliations = VocabularyFacet(
-    field="metadata.general_parameters.record.project.owner.affiliations",
-    label=_("metadata/general_parameters/record/project/owner/affiliations.label"),
+metadata_general_parameters_record_information_project_owner_affiliations = VocabularyFacet(
+    field="metadata.general_parameters.record_information.project.owner.affiliations",
+    label=_(
+        "metadata/general_parameters/record_information/project/owner/affiliations.label"
+    ),
     vocabulary="affiliations",
 )
 
-metadata_general_parameters_record_project_owner_family_name = TermsFacet(
-    field="metadata.general_parameters.record.project.owner.family_name",
-    label=_("metadata/general_parameters/record/project/owner/family_name.label"),
+metadata_general_parameters_record_information_project_owner_family_name = TermsFacet(
+    field="metadata.general_parameters.record_information.project.owner.family_name",
+    label=_(
+        "metadata/general_parameters/record_information/project/owner/family_name.label"
+    ),
 )
 
-metadata_general_parameters_record_project_owner_given_name = TermsFacet(
-    field="metadata.general_parameters.record.project.owner.given_name",
-    label=_("metadata/general_parameters/record/project/owner/given_name.label"),
+metadata_general_parameters_record_information_project_owner_given_name = TermsFacet(
+    field="metadata.general_parameters.record_information.project.owner.given_name",
+    label=_(
+        "metadata/general_parameters/record_information/project/owner/given_name.label"
+    ),
 )
 
-metadata_general_parameters_record_project_owner_identifiers = TermsFacet(
-    field="metadata.general_parameters.record.project.owner.identifiers",
-    label=_("metadata/general_parameters/record/project/owner/identifiers.label"),
+metadata_general_parameters_record_information_project_owner_identifiers = TermsFacet(
+    field="metadata.general_parameters.record_information.project.owner.identifiers",
+    label=_(
+        "metadata/general_parameters/record_information/project/owner/identifiers.label"
+    ),
 )
 
-metadata_general_parameters_record_project_title = TermsFacet(
-    field="metadata.general_parameters.record.project.title",
-    label=_("metadata/general_parameters/record/project/title.label"),
+metadata_general_parameters_record_information_project_title = TermsFacet(
+    field="metadata.general_parameters.record_information.project.title",
+    label=_("metadata/general_parameters/record_information/project/title.label"),
 )
 
-metadata_general_parameters_record_publisher = TermsFacet(
-    field="metadata.general_parameters.record.publisher",
-    label=_("metadata/general_parameters/record/publisher.label"),
+metadata_general_parameters_record_information_publisher = TermsFacet(
+    field="metadata.general_parameters.record_information.publisher",
+    label=_("metadata/general_parameters/record_information/publisher.label"),
 )
 
-metadata_general_parameters_record_resource_type = TermsFacet(
-    field="metadata.general_parameters.record.resource_type",
-    label=_("metadata/general_parameters/record/resource_type.label"),
+metadata_general_parameters_record_information_resource_type = TermsFacet(
+    field="metadata.general_parameters.record_information.resource_type",
+    label=_("metadata/general_parameters/record_information/resource_type.label"),
 )
 
-metadata_general_parameters_record_resource_type_general = TermsFacet(
-    field="metadata.general_parameters.record.resource_type_general",
-    label=_("metadata/general_parameters/record/resource_type_general.label"),
+metadata_general_parameters_record_information_resource_type_general = TermsFacet(
+    field="metadata.general_parameters.record_information.resource_type_general",
+    label=_(
+        "metadata/general_parameters/record_information/resource_type_general.label"
+    ),
 )
 
-metadata_general_parameters_record_subject_category = TermsFacet(
-    field="metadata.general_parameters.record.subject_category",
-    label=_("metadata/general_parameters/record/subject_category.label"),
+metadata_general_parameters_record_information_subject_category = TermsFacet(
+    field="metadata.general_parameters.record_information.subject_category",
+    label=_("metadata/general_parameters/record_information/subject_category.label"),
 )
 
-metadata_general_parameters_record_title = TermsFacet(
-    field="metadata.general_parameters.record.title",
-    label=_("metadata/general_parameters/record/title.label"),
-)
-
-metadata_general_parameters_record_version = TermsFacet(
-    field="metadata.general_parameters.record.version",
-    label=_("metadata/general_parameters/record/version.label"),
+metadata_general_parameters_record_information_title = TermsFacet(
+    field="metadata.general_parameters.record_information.title",
+    label=_("metadata/general_parameters/record_information/title.label"),
 )
 
 metadata_general_parameters_schema_version = TermsFacet(
