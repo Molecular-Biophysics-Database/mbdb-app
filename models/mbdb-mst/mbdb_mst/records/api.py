@@ -100,26 +100,6 @@ class MbdbMstRecord(InvenioRecord):
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
-        solvent_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.solvent.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        solvent_Polymer_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.solvent.organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Molecular_assembly_components_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.solvent.components.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Molecular_assembly_components_Polymer_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.solvent.components.organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
         entities_of_interest_Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.chemical_information.entities_of_interest.expression_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
@@ -130,12 +110,12 @@ class MbdbMstRecord(InvenioRecord):
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
-        entities_of_interest_Molecular_assembly_components_Polymer_expression_organism=PIDRelation(
+        Molecular_assembly_components_Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.chemical_information.entities_of_interest.components.expression_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
-        entities_of_interest_Molecular_assembly_components_Polymer_organism=PIDRelation(
+        Molecular_assembly_components_Polymer_organism=PIDRelation(
             "metadata.general_parameters.chemical_information.entities_of_interest.components.organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
@@ -276,28 +256,8 @@ class MbdbMstRecord(InvenioRecord):
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
-        composition_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        composition_Polymer_organism=PIDRelation(
-            "metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        composition_Molecular_assembly_components_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        composition_Molecular_assembly_components_Polymer_organism=PIDRelation(
-            "metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.components.organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
         owner_affiliations=PIDRelation(
-            "metadata.general_parameters.record.project.owner.affiliations",
+            "metadata.general_parameters.record_information.project.owner.affiliations",
             keys=[
                 "id",
                 "title",

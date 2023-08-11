@@ -72,9 +72,9 @@ class GeneralParametersSchema(ma.Schema):
         lambda: PhysicalEnvironmentAtSampleHandlingSchema()
     )
 
-    record = ma.fields.Nested(lambda: RecordSchema())
+    record_information = ma.fields.Nested(lambda: RecordInformationSchema())
 
-    schema_version = ma.fields.String(validate=[ma_validate.OneOf(["0.9.2"])])
+    schema_version = ma.fields.String(validate=[ma_validate.OneOf(["0.9.3"])])
 
     technique = ma.fields.String(
         required=True,
@@ -82,13 +82,11 @@ class GeneralParametersSchema(ma.Schema):
             ma_validate.OneOf(
                 [
                     "Bio-layer interferometry (BLI)",
-                    "Surface plasmon resonance (SPR)",
-                    "Mass Photometry (MP)",
-                    "Isothermal titration calorimetry (ITC)",
                     (
                         "Microscale thermophoresis/Temperature related intensity change"
                         " (MST/TRIC)"
                     ),
+                    "Surface plasmon resonance (SPR)",
                 ]
             )
         ],
@@ -180,26 +178,6 @@ class PerformanceTestSchema(ma.Schema):
     sample_composition = ma.fields.List(
         ma.fields.Nested(lambda: ConstituentsItemSchema())
     )
-
-
-class PhysicalEnvironmentAtSampleHandlingSchema(ma.Schema):
-    class Meta:
-        unknown = ma.RAISE
-
-    atmosphere = ma.fields.Nested(lambda: AtmosphereSchema())
-
-    humidity = ma.fields.Nested(lambda: HumiditySchema())
-
-    pressure = ma.fields.Nested(lambda: PressureSchema())
-
-    temperature = ma.fields.Nested(lambda: TemperatureSchema())
-
-
-class AtmosphereSchema(ma.Schema):
-    class Meta:
-        unknown = ma.RAISE
-
-    composition = ma.fields.List(ma.fields.Nested(lambda: SolventItemSchema()))
 
 
 class ConstituentsItemSchema(PolymorphicSchema):
@@ -312,8 +290,6 @@ class Complex_substance_of_chemical_originSchema(ma.Schema):
 
     concentration = ma.fields.Nested(lambda: ConcentrationSchema(), required=True)
 
-    description = ma.fields.String()
-
     details = ma.fields.Nested(lambda: DetailsSchema(), required=True)
 
     name = ma.fields.String()
@@ -322,7 +298,7 @@ class Complex_substance_of_chemical_originSchema(ma.Schema):
         ma.fields.Nested(lambda: ObtainedProtocolItemSchema())
     )
 
-    storage = ma.fields.Nested(lambda: StorageFromQCToMeasurementSchema())
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     type = ma.fields.String(
         validate=[
@@ -355,8 +331,6 @@ class EntitiesOfInterestItemComplex_substance_of_chemical_originSchema(ma.Schema
         validate=[ma_validate.OneOf(["Lipid_assembly"])],
     )
 
-    description = ma.fields.String()
-
     details = ma.fields.Nested(lambda: DetailsSchema(), required=True)
 
     name = ma.fields.String()
@@ -365,7 +339,7 @@ class EntitiesOfInterestItemComplex_substance_of_chemical_originSchema(ma.Schema
         ma.fields.Nested(lambda: ObtainedProtocolItemSchema())
     )
 
-    storage = ma.fields.Nested(lambda: StorageFromQCToMeasurementSchema())
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     type = ma.fields.String(
         validate=[
@@ -384,22 +358,24 @@ class EntitiesOfInterestItemComplex_substance_of_chemical_originSchema(ma.Schema
     )
 
 
-class SolventItemSchema(PolymorphicSchema):
+class PhysicalEnvironmentAtSampleHandlingSchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
 
-    Chemical = ma.fields.Nested(lambda: SolventItemChemicalSchema(), required=True)
+    atmosphere = ma.fields.Nested(lambda: AtmosphereSchema())
 
-    Molecular_assembly = ma.fields.Nested(
-        lambda: SolventItemMolecular_assemblySchema(),
-        required=True,
-        data_key="Molecular assembly",
-        attribute="Molecular assembly",
-    )
+    humidity = ma.fields.Nested(lambda: HumiditySchema())
 
-    Polymer = ma.fields.Nested(lambda: SolventItemPolymerSchema(), required=True)
+    pressure = ma.fields.Nested(lambda: PressureSchema())
 
-    type_field = "type"
+    temperature = ma.fields.Nested(lambda: TemperatureSchema())
+
+
+class AtmosphereSchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    composition = ma.fields.List(ma.fields.Nested(lambda: SolventItemSchema()))
 
 
 class DetailsSchema(ma.Schema):
@@ -439,6 +415,8 @@ class EntitiesOfInterestItemMolecular_assemblySchema(ma.Schema):
 
     external_databases = ma.fields.List(ma.fields.String())
 
+    molecular_weight = ma.fields.Nested(lambda: MolecularWeightSchema(), required=True)
+
     name = ma.fields.String()
 
     preparation_protocol = ma.fields.List(
@@ -448,6 +426,8 @@ class EntitiesOfInterestItemMolecular_assemblySchema(ma.Schema):
     quality_controls = ma.fields.List(
         ma.fields.Nested(lambda: QualityControlsItemSchema())
     )
+
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     supplier = ma.fields.Nested(lambda: SupplierSchema())
 
@@ -484,6 +464,8 @@ class Molecular_assemblySchema(ma.Schema):
 
     external_databases = ma.fields.List(ma.fields.String())
 
+    molecular_weight = ma.fields.Nested(lambda: MolecularWeightSchema(), required=True)
+
     name = ma.fields.String()
 
     preparation_protocol = ma.fields.List(
@@ -493,6 +475,8 @@ class Molecular_assemblySchema(ma.Schema):
     quality_controls = ma.fields.List(
         ma.fields.Nested(lambda: QualityControlsItemSchema())
     )
+
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     supplier = ma.fields.Nested(lambda: SupplierSchema())
 
@@ -510,39 +494,6 @@ class Molecular_assemblySchema(ma.Schema):
                 ]
             )
         ]
-    )
-
-
-class SolventItemMolecular_assemblySchema(ma.Schema):
-    class Meta:
-        unknown = ma.RAISE
-
-    additional_specifications = ma.fields.List(ma.fields.String())
-
-    chemical_modifications = ma.fields.List(
-        ma.fields.Nested(lambda: BiologicalPostprocessingItemSchema())
-    )
-
-    components = ma.fields.List(ma.fields.Nested(lambda: ComponentsItemSchema()))
-
-    concentration = ma.fields.Nested(lambda: ConcentrationSchema(), required=True)
-
-    external_databases = ma.fields.List(ma.fields.String())
-
-    name = ma.fields.String()
-
-    preparation_protocol = ma.fields.List(
-        ma.fields.Nested(lambda: ObtainedProtocolItemSchema())
-    )
-
-    quality_controls = ma.fields.List(
-        ma.fields.Nested(lambda: QualityControlsItemSchema())
-    )
-
-    supplier = ma.fields.Nested(lambda: SupplierSchema())
-
-    type = ma.fields.String(
-        validate=[ma_validate.OneOf(["Polymer", "Chemical", "Molecular assembly"])]
     )
 
 
@@ -599,6 +550,15 @@ class MethodSpecificParametersSchema(ma.Schema):
     )
 
 
+class SolventItemSchema(PolymorphicSchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    Chemical = ma.fields.Nested(lambda: SolventItemChemicalSchema(), required=True)
+
+    type_field = "type"
+
+
 class ChemicalSchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
@@ -612,6 +572,8 @@ class ChemicalSchema(ma.Schema):
     inchikey = ma.fields.String()
 
     isotopic_labeling = ma.fields.String()
+
+    molecular_weight = ma.fields.Nested(lambda: MolecularWeightSchema(), required=True)
 
     name = ma.fields.String()
 
@@ -675,6 +637,8 @@ class ComponentsItemChemicalSchema(ma.Schema):
 
     isotopic_labeling = ma.fields.String()
 
+    molecular_weight = ma.fields.Nested(lambda: MolecularWeightSchema(), required=True)
+
     name = ma.fields.String()
 
     quality_controls = ma.fields.List(
@@ -697,12 +661,14 @@ class ComponentsItemPolymerSchema(ma.Schema):
     expression_organism = ma.fields.Nested(lambda: ExpressionOrganismSchema())
 
     expression_source_type = ma.fields.String(
-        validate=[ma_validate.OneOf(["Isolated", "Recombinantly", "Synthetically"])]
+        validate=[ma_validate.OneOf(["Natively", "Recombinantly", "Synthetically"])]
     )
 
     external_databases = ma.fields.List(ma.fields.String())
 
     modifications = ma.fields.Nested(lambda: ModificationsSchema())
+
+    molecular_weight = ma.fields.Nested(lambda: MolecularWeightSchema(), required=True)
 
     name = ma.fields.String()
 
@@ -731,6 +697,8 @@ class ComponentsItemPolymerSchema(ma.Schema):
 
     sequence = ma.fields.String()
 
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
+
     supplier = ma.fields.Nested(lambda: SupplierSchema())
 
     type = ma.fields.String(validate=[ma_validate.OneOf(["Polymer", "Chemical"])])
@@ -751,6 +719,8 @@ class EntitiesOfInterestItemChemicalSchema(ma.Schema):
     inchikey = ma.fields.String()
 
     isotopic_labeling = ma.fields.String()
+
+    molecular_weight = ma.fields.Nested(lambda: MolecularWeightSchema(), required=True)
 
     name = ma.fields.String()
 
@@ -815,12 +785,14 @@ class EntitiesOfInterestItemPolymerSchema(ma.Schema):
     expression_organism = ma.fields.Nested(lambda: ExpressionOrganismSchema())
 
     expression_source_type = ma.fields.String(
-        validate=[ma_validate.OneOf(["Isolated", "Recombinantly", "Synthetically"])]
+        validate=[ma_validate.OneOf(["Natively", "Recombinantly", "Synthetically"])]
     )
 
     external_databases = ma.fields.List(ma.fields.String())
 
     modifications = ma.fields.Nested(lambda: ModificationsSchema())
+
+    molecular_weight = ma.fields.Nested(lambda: MolecularWeightSchema(), required=True)
 
     name = ma.fields.String()
 
@@ -848,6 +820,8 @@ class EntitiesOfInterestItemPolymerSchema(ma.Schema):
     )
 
     sequence = ma.fields.String()
+
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     supplier = ma.fields.Nested(lambda: SupplierSchema())
 
@@ -894,12 +868,14 @@ class PolymerSchema(ma.Schema):
     expression_organism = ma.fields.Nested(lambda: ExpressionOrganismSchema())
 
     expression_source_type = ma.fields.String(
-        validate=[ma_validate.OneOf(["Isolated", "Recombinantly", "Synthetically"])]
+        validate=[ma_validate.OneOf(["Natively", "Recombinantly", "Synthetically"])]
     )
 
     external_databases = ma.fields.List(ma.fields.String())
 
     modifications = ma.fields.Nested(lambda: ModificationsSchema())
+
+    molecular_weight = ma.fields.Nested(lambda: MolecularWeightSchema(), required=True)
 
     name = ma.fields.String()
 
@@ -927,6 +903,8 @@ class PolymerSchema(ma.Schema):
     )
 
     sequence = ma.fields.String()
+
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     supplier = ma.fields.Nested(lambda: SupplierSchema())
 
@@ -963,6 +941,8 @@ class SolventItemChemicalSchema(ma.Schema):
 
     isotopic_labeling = ma.fields.String()
 
+    molecular_weight = ma.fields.Nested(lambda: MolecularWeightSchema(), required=True)
+
     name = ma.fields.String()
 
     quality_controls = ma.fields.List(
@@ -971,63 +951,7 @@ class SolventItemChemicalSchema(ma.Schema):
 
     supplier = ma.fields.Nested(lambda: SupplierSchema())
 
-    type = ma.fields.String(
-        validate=[ma_validate.OneOf(["Polymer", "Chemical", "Molecular assembly"])]
-    )
-
-
-class SolventItemPolymerSchema(ma.Schema):
-    class Meta:
-        unknown = ma.RAISE
-
-    additional_specifications = ma.fields.List(ma.fields.String())
-
-    concentration = ma.fields.Nested(lambda: ConcentrationSchema(), required=True)
-
-    expression_organism = ma.fields.Nested(lambda: ExpressionOrganismSchema())
-
-    expression_source_type = ma.fields.String(
-        validate=[ma_validate.OneOf(["Isolated", "Recombinantly", "Synthetically"])]
-    )
-
-    external_databases = ma.fields.List(ma.fields.String())
-
-    modifications = ma.fields.Nested(lambda: ModificationsSchema())
-
-    name = ma.fields.String()
-
-    organism = ma.fields.Nested(lambda: ExpressionOrganismSchema())
-
-    polymer_type = ma.fields.String(
-        validate=[
-            ma_validate.OneOf(
-                [
-                    "cyclic-pseudo-peptide",
-                    "peptide nucleic acid",
-                    "polydeoxyribonucleotide",
-                    "polydeoxyribonucleotide/polyribonucleotide hybrid",
-                    "polypeptide(D)",
-                    "polypeptide(L)",
-                    "polyribonucleotide",
-                    "Other",
-                ]
-            )
-        ]
-    )
-
-    quality_controls = ma.fields.List(
-        ma.fields.Nested(lambda: QualityControlsItemSchema())
-    )
-
-    sequence = ma.fields.String()
-
-    supplier = ma.fields.Nested(lambda: SupplierSchema())
-
-    type = ma.fields.String(
-        validate=[ma_validate.OneOf(["Polymer", "Chemical", "Molecular assembly"])]
-    )
-
-    variant = ma.fields.String()
+    type = ma.fields.String(validate=[ma_validate.OneOf(["Chemical"])])
 
 
 class AssociatedPublicationsSchema(ma.Schema):
@@ -1050,8 +974,6 @@ class Body_fluidSchema(ma.Schema):
     derived_from = ma.fields.String(
         validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
     )
-
-    description = ma.fields.String()
 
     fluid = ma.fields.String(
         validate=[
@@ -1081,7 +1003,7 @@ class Body_fluidSchema(ma.Schema):
         ma.fields.Nested(lambda: ObtainedProtocolItemSchema())
     )
 
-    storage = ma.fields.Nested(lambda: StorageFromQCToMeasurementSchema())
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     type = ma.fields.String(
         validate=[
@@ -1106,15 +1028,13 @@ class Cell_fractionSchema(ma.Schema):
 
     additional_specifications = ma.fields.List(ma.fields.String())
 
-    celltype = ma.fields.String()
+    cell_type = ma.fields.String()
 
     concentration = ma.fields.Nested(lambda: ConcentrationSchema(), required=True)
 
     derived_from = ma.fields.String(
         validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
     )
-
-    description = ma.fields.String()
 
     fraction = ma.fields.String(
         validate=[
@@ -1151,7 +1071,7 @@ class Cell_fractionSchema(ma.Schema):
         ma.fields.Nested(lambda: ObtainedProtocolItemSchema())
     )
 
-    storage = ma.fields.Nested(lambda: StorageFromQCToMeasurementSchema())
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     tissue = ma.fields.String()
 
@@ -1184,8 +1104,6 @@ class Complex_substance_of_biological_originBody_fluidSchema(ma.Schema):
         validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
     )
 
-    description = ma.fields.String()
-
     fluid = ma.fields.String(
         validate=[
             ma_validate.OneOf(
@@ -1214,7 +1132,7 @@ class Complex_substance_of_biological_originBody_fluidSchema(ma.Schema):
         ma.fields.Nested(lambda: ObtainedProtocolItemSchema())
     )
 
-    storage = ma.fields.Nested(lambda: StorageFromQCToMeasurementSchema())
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     type = ma.fields.String(
         validate=[
@@ -1241,13 +1159,11 @@ class Complex_substance_of_biological_originCell_fractionSchema(ma.Schema):
 
     additional_specifications = ma.fields.List(ma.fields.String())
 
-    celltype = ma.fields.String()
+    cell_type = ma.fields.String()
 
     derived_from = ma.fields.String(
         validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
     )
-
-    description = ma.fields.String()
 
     fraction = ma.fields.String(
         validate=[
@@ -1284,7 +1200,7 @@ class Complex_substance_of_biological_originCell_fractionSchema(ma.Schema):
         ma.fields.Nested(lambda: ObtainedProtocolItemSchema())
     )
 
-    storage = ma.fields.Nested(lambda: StorageFromQCToMeasurementSchema())
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     tissue = ma.fields.String()
 
@@ -1333,8 +1249,6 @@ class Complex_substance_of_biological_originVirionSchema(ma.Schema):
         validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
     )
 
-    description = ma.fields.String()
-
     envelope_type = ma.fields.String(
         validate=[
             ma_validate.OneOf(
@@ -1355,7 +1269,7 @@ class Complex_substance_of_biological_originVirionSchema(ma.Schema):
         ma.fields.Nested(lambda: ObtainedProtocolItemSchema())
     )
 
-    storage = ma.fields.Nested(lambda: StorageFromQCToMeasurementSchema())
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     type = ma.fields.String(
         validate=[
@@ -1382,8 +1296,6 @@ class Complex_substance_of_environmental_originSchema(ma.Schema):
 
     concentration = ma.fields.Nested(lambda: ConcentrationSchema(), required=True)
 
-    description = ma.fields.String()
-
     location = ma.fields.Nested(lambda: LocationSchema(), required=True)
 
     name = ma.fields.String()
@@ -1408,7 +1320,7 @@ class Complex_substance_of_environmental_originSchema(ma.Schema):
         ]
     )
 
-    storage = ma.fields.Nested(lambda: StorageFromQCToMeasurementSchema())
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     type = ma.fields.String(
         validate=[
@@ -1435,8 +1347,6 @@ class Complex_substance_of_industrial_production_originSchema(ma.Schema):
 
     concentration = ma.fields.Nested(lambda: ConcentrationSchema(), required=True)
 
-    description = ma.fields.String()
-
     name = ma.fields.String()
 
     preparation_protocol = ma.fields.List(
@@ -1447,7 +1357,7 @@ class Complex_substance_of_industrial_production_originSchema(ma.Schema):
         validate=[ma_validate.OneOf(["Beer", "Cell medium", "Whey", "Other"])]
     )
 
-    storage = ma.fields.Nested(lambda: StorageFromQCToMeasurementSchema())
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     type = ma.fields.String(
         validate=[
@@ -1474,8 +1384,6 @@ class EntitiesOfInterestItemComplex_substance_of_environmental_originSchema(ma.S
 
     additional_specifications = ma.fields.List(ma.fields.String())
 
-    description = ma.fields.String()
-
     location = ma.fields.Nested(lambda: LocationSchema(), required=True)
 
     name = ma.fields.String()
@@ -1500,7 +1408,7 @@ class EntitiesOfInterestItemComplex_substance_of_environmental_originSchema(ma.S
         ]
     )
 
-    storage = ma.fields.Nested(lambda: StorageFromQCToMeasurementSchema())
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     type = ma.fields.String(
         validate=[
@@ -1529,8 +1437,6 @@ class EntitiesOfInterestItemComplex_substance_of_industrial_production_originSch
 
     additional_specifications = ma.fields.List(ma.fields.String())
 
-    description = ma.fields.String()
-
     name = ma.fields.String()
 
     preparation_protocol = ma.fields.List(
@@ -1541,7 +1447,7 @@ class EntitiesOfInterestItemComplex_substance_of_industrial_production_originSch
         validate=[ma_validate.OneOf(["Beer", "Cell medium", "Whey", "Other"])]
     )
 
-    storage = ma.fields.Nested(lambda: StorageFromQCToMeasurementSchema())
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     type = ma.fields.String(
         validate=[
@@ -1581,18 +1487,16 @@ class QualityControlsItemSchema(ma.Schema):
 
     report = ma.fields.String()
 
-    storage_from_QC_to_measurement = ma.fields.Nested(
-        lambda: StorageFromQCToMeasurementSchema(), required=True
+    storage_until_measurement = ma.fields.Nested(
+        lambda: StorageUntilMeasurementSchema(), required=True
     )
 
     technique = ma.fields.String()
 
 
-class RecordSchema(ma.Schema):
+class RecordInformationSchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
-
-    _id = ma.fields.String(data_key="id", attribute="id")
 
     access_rights = ma.fields.String(
         validate=[
@@ -1605,6 +1509,8 @@ class RecordSchema(ma.Schema):
     deposition_date = ma.fields.String(validate=[validate_date("%Y-%m-%d")])
 
     identifier = ma.fields.String()
+
+    internal_id = ma.fields.String()
 
     keywords = ma.fields.List(ma.fields.String())
 
@@ -1624,11 +1530,9 @@ class RecordSchema(ma.Schema):
 
     resource_type_general = ma.fields.String(validate=[ma_validate.OneOf(["Dataset"])])
 
-    subject_category = ma.fields.String()
+    subject_category = ma.fields.String(validate=[ma_validate.OneOf(["Biophysics"])])
 
     title = ma.fields.String()
-
-    version = ma.fields.String()
 
 
 class SampleSchema(ma.Schema):
@@ -1691,8 +1595,6 @@ class VirionSchema(ma.Schema):
         validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
     )
 
-    description = ma.fields.String()
-
     envelope_type = ma.fields.String(
         validate=[
             ma_validate.OneOf(
@@ -1713,7 +1615,7 @@ class VirionSchema(ma.Schema):
         ma.fields.Nested(lambda: ObtainedProtocolItemSchema())
     )
 
-    storage = ma.fields.Nested(lambda: StorageFromQCToMeasurementSchema())
+    storage = ma.fields.Nested(lambda: StorageUntilMeasurementSchema())
 
     type = ma.fields.String(
         validate=[
@@ -1839,7 +1741,7 @@ class ProjectSchema(ma.Schema):
     title = ma.fields.String()
 
 
-class StorageFromQCToMeasurementSchema(ma.Schema):
+class StorageUntilMeasurementSchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1871,7 +1773,7 @@ class BiologicalPostprocessingItemSchema(ma.Schema):
 
     modification = ma.fields.String()
 
-    monomer_position = ma.fields.Integer()
+    position = ma.fields.String()
 
     protocol = ma.fields.List(ma.fields.Nested(lambda: ObtainedProtocolItemSchema()))
 
@@ -1987,9 +1889,9 @@ class EntitiesInvolvedItemSchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
 
-    entity = ma.fields.Nested(lambda: EntitySchema())
+    copy_number = ma.fields.Float()
 
-    stoichiometry = ma.fields.Float()
+    entity = ma.fields.Nested(lambda: EntitySchema())
 
 
 class HumiditySchema(ma.Schema):
@@ -2021,6 +1923,19 @@ class MeasuredDataSchema(ma.Schema):
     x_data = ma.fields.Nested(lambda: XDataSchema(), required=True)
 
     y_data = ma.fields.Nested(lambda: XDataSchema(), required=True)
+
+
+class MolecularWeightSchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    unit = ma.fields.String(
+        required=True, validate=[ma_validate.OneOf(["g/mol", "Da", "kDa", "MDa"])]
+    )
+
+    value = ma.fields.Float()
+
+    value_error = ma.fields.Nested(lambda: ValueErrorSchema())
 
 
 class PHSchema(ma.Schema):
