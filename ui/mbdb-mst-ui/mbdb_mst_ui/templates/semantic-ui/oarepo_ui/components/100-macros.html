@@ -1,0 +1,290 @@
+
+
+{%- macro render_general_parameter(arg) -%}
+<dl class='detail-subfields'>
+{%- field "associated_publications" -%}
+{%- field "chemical_information" -%}
+{%- field "collection_start_time" -%}
+{%- field "depositors" -%}
+{%- field "derived_parameters" -%}
+{%- field "funding_reference" -%}
+{%- field "instrument" -%}
+{%- field "physical_environment_at_sample_handling" -%}
+{%- field "record" -%}
+{%- field "schema_version" -%}
+{%- field "technique" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_associated_publication(arg) -%}
+<dl class='detail-subfields'>
+{%- field "additional" -%}
+{%- field "main" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_chemical_information(arg) -%}
+<dl class='detail-subfields'>
+{%- field "chemical_environments" -%}
+{%- field "entities_of_interest" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_chemical_environment(arg) -%}
+<dl class='detail-subfields'>
+{%- field "additional_specifications" -%}
+{%- field "constituents" -%}
+{%- field "degassing_method" -%}
+{%- field "dynamic_viscosity" -%}
+{%- field "id" -%}
+{%- field "ionic_strength" -%}
+{%- field "name" -%}
+{%- field "pH" -%}
+{%- field "solvent" -%}
+{%- field "ultrafiltration_method" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_polymorphic(arg) -%}
+<dl class='detail-subfields'>
+{%- field "additional_specifications" -%}
+{%- field "concentration" -%}
+{%- field "expression_organism" -%}
+{%- field "expression_source_type" -%}
+{%- field "external_databases" -%}
+{%- field "modifications" -%}
+{%- field "name" -%}
+{%- field "organism" -%}
+{%- field "polymer_type" -%}
+{%- field "quality_controls" -%}
+{%- field "sequence" -%}
+{%- field "supplier" -%}
+{%- field "type" -%}
+{%- field "variant" -%}
+{%- field "additional_identifiers" -%}
+{%- field "inchikey" -%}
+{%- field "isotopic_labeling" -%}
+{%- field "chemical_modifications" -%}
+{%- field "components" -%}
+{%- field "preparation_protocol" -%}
+{%- field "derived_from" -%}
+{%- field "description" -%}
+{%- field "fluid" -%}
+{%- field "health_status" -%}
+{%- field "storage" -%}
+{%- field "celltype" -%}
+{%- field "fraction" -%}
+{%- field "organ" -%}
+{%- field "tissue" -%}
+{%- field "Genetic_material" -%}
+{%- field "capsid_type" -%}
+{%- field "envelope_type" -%}
+{%- field "host_cell_type" -%}
+{%- field "host_organism" -%}
+{%- field "location" -%}
+{%- field "source" -%}
+{%- field "class" -%}
+{%- field "details" -%}
+{%- field "product" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_vocabulary_item(arg) -%}
+<dl class='detail-subfields'>
+{%- field "id" -%}
+{%- field "title" -%}
+{%- field "rank" -%}
+{%- field "@v" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_modification(arg) -%}
+<dl class='detail-subfields'>
+{%- field "biological_postprocessing" -%}
+{%- field "chemical" -%}
+{%- field "synthesis" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_synthesi(arg) -%}
+<dl class='detail-subfields'>
+{%- field "modification" -%}
+{%- field "monomer_position" -%}
+{%- field "protocol" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_quality_control(arg) -%}
+<dl class='detail-subfields'>
+{%- field "parameter" -%}
+{%- field "report" -%}
+{%- field "storage_from_QC_to_measurement" -%}
+{%- field "technique" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_chemical_modification(arg) -%}
+<dl class='detail-subfields'>
+{%- field "modification" -%}
+{%- field "monomer_position" -%}
+{%- field "protocol" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_detail(arg) -%}
+<dl class='detail-subfields'>
+{%- field "additional_specifications" -%}
+{%- field "components" -%}
+{%- field "number_of_mono_layers" -%}
+{%- field "size" -%}
+{%- field "type" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_additional_specification(arg) -%}
+<dl class='detail-subfields'>
+{%- field "description" -%}
+{%- field "name" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_depositor(arg) -%}
+<dl class='detail-subfields'>
+{%- field "contributors" -%}
+{%- field "depositor" -%}
+{%- field "principal_contact" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_contributor(arg) -%}
+<dl class='detail-subfields'>
+{%- field "affiliations" -%}
+{%- field "family_name" -%}
+{%- field "given_name" -%}
+{%- field "identifiers" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_derived_parameter(arg) -%}
+<dl class='detail-subfields'>
+{%- field "entities_involved" -%}
+{%- field "id" -%}
+{%- field "name" -%}
+{%- field "type" -%}
+{%- field "unit" -%}
+{%- field "value" -%}
+{%- field "value_error" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_method_specific_parameter(arg) -%}
+<dl class='detail-subfields'>
+{%- field "data_analysis" -%}
+{%- field "excitation_led_color" -%}
+{%- field "excitation_led_power" -%}
+{%- field "experiment_type" -%}
+{%- field "ir_mst_laser_power" -%}
+{%- field "measurements" -%}
+{%- field "schema_version" -%}
+{%- field "signal_type" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_data_analysi(arg) -%}
+<dl class='detail-subfields'>
+{%- field "data_fitting" -%}
+{%- field "data_processing_steps" -%}
+{%- field "derived_parameter" -%}
+{%- field "f_cold_and_hot" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_data_processing_step(arg) -%}
+<dl class='detail-subfields'>
+{%- field "description" -%}
+{%- field "link_to_source_code" -%}
+{%- field "name" -%}
+{%- field "software_name" -%}
+{%- field "software_tool" -%}
+{%- field "software_version" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_relation(arg) -%}
+<dl class='detail-subfields'>
+{%- field "id" -%}
+{%- field "name" -%}
+{%- field "@v" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_measurement(arg) -%}
+<dl class='detail-subfields'>
+{%- field "measured_data" -%}
+{%- field "name" -%}
+{%- field "position" -%}
+{%- field "sample" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_measured_datum(arg) -%}
+<dl class='detail-subfields'>
+{%- field "x_data" -%}
+{%- field "y_data" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_x_datum(arg) -%}
+<dl class='detail-subfields'>
+{%- field "id" -%}
+{%- field "name" -%}
+{%- field "unit" -%}
+{%- field "values" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_uuid(arg) -%}{{arg}}{%- endmacro -%}
+
+
+{%- macro render_y_datum(arg) -%}
+<dl class='detail-subfields'>
+{%- field "id" -%}
+{%- field "name" -%}
+{%- field "unit" -%}
+{%- field "values" -%}
+</dl>
+{%- endmacro -%}
+
+
+{%- macro render_processing_step(arg) -%}
+<dl class='detail-subfields'>
+{%- field "description" -%}
+{%- field "link_to_source_code" -%}
+{%- field "name" -%}
+{%- field "software_name" -%}
+{%- field "software_tool" -%}
+{%- field "software_version" -%}
+</dl>
+{%- endmacro -%}

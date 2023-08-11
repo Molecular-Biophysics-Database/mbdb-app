@@ -1,0 +1,7 @@
+{% extends "oarepo_ui/detail.html" %}
+
+{%- block head_links %}
+{{ super() }}
+{{ webpack['mbdb_mst_ui_components.js']}}
+{{ webpack['mbdb_mst_ui_components.css']}}
+{%- endblock %}
