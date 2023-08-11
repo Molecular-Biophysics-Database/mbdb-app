@@ -8,20 +8,11 @@
             "@translations/invenio_search_ui": [
                 "./.assets/translations/invenio_search_ui"
             ],
-            "@translations/oarepo_ui": [
-                "./.assets/translations/oarepo_ui"
+            "@translations/oarepo_vocabularies_ui": [
+                "./.assets/translations/oarepo_vocabularies_ui"
             ],
-            "../../less": [
-                "./sites/mbdb-site/site/mbdb_site/assets/semantic-ui/less"
-            ],
-            "@js/oarepo_ui": [
-                "./.assets/js/oarepo_ui"
-            ],
-            "@translations/invenio_app_rdm/i18next": [
-                "./.assets/translations/oarepo_ui/i18next.js"
-            ],
-            "@templates/custom_fields": [
-                "./.assets/js/custom_fields"
+            "@js/oarepo_vocabularies": [
+                "./.assets/js/oarepo_vocabularies_ui"
             ],
             "@js/invenio_theme": [
                 "./.assets/js/invenio_theme"
@@ -38,8 +29,20 @@
             "@translations/invenio_administration": [
                 "./.assets/translations/invenio_administration"
             ],
-            "@translations/oarepo_vocabularies_ui": [
-                "./.assets/translations/oarepo_vocabularies_ui"
+            "@translations/oarepo_ui": [
+                "./.assets/translations/oarepo_ui"
+            ],
+            "../../less": [
+                "./ui/mbdb-mst-ui/mbdb_mst_ui/theme/assets/semantic-ui/less"
+            ],
+            "@js/oarepo_ui": [
+                "./.assets/js/oarepo_ui"
+            ],
+            "@translations/invenio_app_rdm/i18next": [
+                "./.assets/translations/oarepo_ui/i18next.js"
+            ],
+            "@templates/custom_fields": [
+                "./.assets/js/custom_fields"
             ],
             "@js/invenio_communities": [
                 "./.assets/js/invenio_communities"
@@ -52,6 +55,9 @@
             ],
             "@js/invenio_requests": [
                 "./.assets/js/invenio_requests"
+            ],
+            "@translations/mbdb_mst_ui": [
+                "./ui/mbdb-mst-ui/mbdb_mst_ui/theme/assets/semantic-ui/translations/mbdb_mst_ui"
             ]
         }
     }
