@@ -1,0 +1,15 @@
+{%- extends config.BASE_TEMPLATE %}
+{%- set title = _("Search results") ~ " | " ~ _("mbdb-mst-ui") %}
+
+{%- block javascript %}
+    {{ super() }}
+    {{ webpack['mbdb_mst_ui_components.js']}}
+    {{ webpack['mbdb_mst_ui_components.css']}}
+    {{ webpack['mbdb_mst_ui_search.js'] }}
+{%- endblock %}
+
+{%- block page_body %}
+<div class="ui main container">
+  <div data-invenio-search-config='{{ search_app_config(app_id="Mbdb_mst_ui.Search") | tojson }}'></div>
+</div>
+{%- endblock page_body %}

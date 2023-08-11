@@ -2,7 +2,7 @@
 
 ## Python development
 
-1. install pdm - https://pdm.fming.dev/latest/#recommended-installation-method
+1. install pdm - <https://pdm.fming.dev/latest/#recommended-installation-method>
 2. make sure you have node 14/16, python 3.9/3.10 active
 3. run `nrp develop`, say that you do not want to run it inside docker
 
@@ -21,7 +21,7 @@ nrp oarepo reindex
 
 nrp oarepo fixtures load
 
-nrp oarepo fixtures load --no-system-fixtures ../../sample_data
+nrp oarepo fixtures load --no-system-fixtures ../../sample_data/mst
 ```
 
 ## UI development
@@ -40,8 +40,8 @@ backup the contents of alembic directory and restore it after model compile.
 3. remove all the models inside the models directory (and back up and remove all the uis)
 4. remove requirements.txt to get rid of cached requirements
 5. if you added your custom configuration to invenio.cfg, comment it out temporarily.
-6. run `nrp build` - should not fail as it will skip the not-found directories 
-7. call `nrp develop`, wait for the server to start up (you might want to check that homepage can be opened) 
+6. run `nrp build` - should not fail as it will skip the not-found directories
+7. call `nrp develop`, wait for the server to start up (you might want to check that homepage can be opened)
    and shut it down. This will create the database and initialize all the containers
 8. clone mbdb model inside the same directory where the app is
 9. call `nrp model add mbdb-mst --use ../mbdb-model/models/oarepo/MST.yaml`
