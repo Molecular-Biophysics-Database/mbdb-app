@@ -81,3 +81,6 @@ pdm.lock
 /jsconfig.json
 /.assets
 /node_modules
+
+# model repo
+/mbdb-model
