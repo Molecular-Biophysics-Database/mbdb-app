@@ -25,10 +25,6 @@ models:
     run_tests: skip
     sites:
     - mbdb-site
-    - mbdb-site
-    - mbdb-site
-    - mbdb-site
-    - mbdb-site
     update_opensearch: run
     use_custom_fields: 'yes'
     use_docs: 'no'
