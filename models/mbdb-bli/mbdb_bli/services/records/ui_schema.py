@@ -47,13 +47,13 @@ class GeneralParametersUISchema(ma.Schema):
 
     instrument = ma.fields.Nested(lambda: InstrumentUISchema())
 
-    physical_environment_at_sample_handling = ma.fields.Nested(
-        lambda: PhysicalEnvironmentAtSampleHandlingUISchema()
+    physical_conditions_at_sample_handling = ma.fields.Nested(
+        lambda: PhysicalConditionsAtSampleHandlingUISchema()
     )
 
     record_information = ma.fields.Nested(lambda: RecordInformationUISchema())
 
-    schema_version = ma.fields.String(validate=[ma_validate.OneOf(["0.9.3"])])
+    schema_version = ma.fields.String(validate=[ma_validate.OneOf(["0.9.4"])])
 
     technique = ma.fields.String(
         required=True,
@@ -639,7 +639,7 @@ class EntitiesOfInterestItemUISchema(ma.Schema):
     variant = ma.fields.String()
 
 
-class PhysicalEnvironmentAtSampleHandlingUISchema(ma.Schema):
+class PhysicalConditionsAtSampleHandlingUISchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
 

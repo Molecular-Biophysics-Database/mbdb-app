@@ -68,13 +68,13 @@ class GeneralParametersSchema(ma.Schema):
 
     instrument = ma.fields.Nested(lambda: InstrumentSchema())
 
-    physical_environment_at_sample_handling = ma.fields.Nested(
-        lambda: PhysicalEnvironmentAtSampleHandlingSchema()
+    physical_conditions_at_sample_handling = ma.fields.Nested(
+        lambda: PhysicalConditionsAtSampleHandlingSchema()
     )
 
     record_information = ma.fields.Nested(lambda: RecordInformationSchema())
 
-    schema_version = ma.fields.String(validate=[ma_validate.OneOf(["0.9.3"])])
+    schema_version = ma.fields.String(validate=[ma_validate.OneOf(["0.9.4"])])
 
     technique = ma.fields.String(
         required=True,
@@ -358,7 +358,7 @@ class EntitiesOfInterestItemComplex_substance_of_chemical_originSchema(ma.Schema
     )
 
 
-class PhysicalEnvironmentAtSampleHandlingSchema(ma.Schema):
+class PhysicalConditionsAtSampleHandlingSchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
 

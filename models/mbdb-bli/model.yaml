@@ -25,5 +25,3 @@ settings:
   - en
 use:
 - ./BLI.yaml
-- ./SPR.yaml
-- ./BLI.yaml

@@ -12148,107 +12148,107 @@
                                 }
                             }
                         },
-                        "physical_environment_at_sample_handling": {
+                        "physical_conditions_at_sample_handling": {
                             "detail": false,
                             "input": false,
-                            "help": "metadata/general_parameters/physical_environment_at_sample_handling.help",
-                            "label": "metadata/general_parameters/physical_environment_at_sample_handling.label",
-                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling.hint",
+                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling.help",
+                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling.label",
+                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling.hint",
                             "children": {
                                 "atmosphere": {
                                     "detail": false,
                                     "input": false,
-                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere.help",
-                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere.label",
-                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere.hint",
+                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere.help",
+                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere.label",
+                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere.hint",
                                     "children": {
                                         "composition": {
                                             "detail": "array",
                                             "input": "array",
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition.hint",
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition.hint",
                                             "child": {
                                                 "detail": "polymorphic",
                                                 "input": "polymorphic",
-                                                "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition.help",
-                                                "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition.label",
-                                                "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition.hint",
+                                                "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition.help",
+                                                "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition.label",
+                                                "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition.hint",
                                                 "children": {
                                                     "additional_identifiers": {
                                                         "detail": "array",
                                                         "input": "array",
-                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_identifiers.help",
-                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_identifiers.label",
-                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_identifiers.hint",
+                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/additional_identifiers.help",
+                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/additional_identifiers.label",
+                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/additional_identifiers.hint",
                                                         "child": {
                                                             "detail": "keyword",
                                                             "input": "keyword",
-                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_identifiers.help",
-                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_identifiers.label",
-                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_identifiers.hint",
-                                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_additional_identifiers"
+                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/additional_identifiers.help",
+                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/additional_identifiers.label",
+                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/additional_identifiers.hint",
+                                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_additional_identifiers"
                                                         }
                                                     },
                                                     "additional_specifications": {
                                                         "detail": "array",
                                                         "input": "array",
-                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_specifications.help",
-                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_specifications.label",
-                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_specifications.hint",
+                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/additional_specifications.help",
+                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/additional_specifications.label",
+                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/additional_specifications.hint",
                                                         "child": {
                                                             "detail": "keyword",
                                                             "input": "keyword",
-                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_specifications.help",
-                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_specifications.label",
-                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_specifications.hint",
-                                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_additional_specifications"
+                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/additional_specifications.help",
+                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/additional_specifications.label",
+                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/additional_specifications.hint",
+                                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_additional_specifications"
                                                         }
                                                     },
                                                     "concentration": {
                                                         "detail": false,
                                                         "input": false,
-                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration.help",
-                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration.label",
-                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration.hint",
+                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration.help",
+                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration.label",
+                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration.hint",
                                                         "children": {
                                                             "obtained_by": {
                                                                 "detail": "keyword",
                                                                 "input": "keyword",
-                                                                "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_by.help",
-                                                                "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_by.label",
-                                                                "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_by.hint",
-                                                                "enum": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_by.enum",
-                                                                "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_obtained_by"
+                                                                "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_by.help",
+                                                                "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_by.label",
+                                                                "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_by.hint",
+                                                                "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_by.enum",
+                                                                "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_obtained_by"
                                                             },
                                                             "obtained_protocol": {
                                                                 "detail": "array",
                                                                 "input": "array",
-                                                                "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_protocol.help",
-                                                                "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_protocol.label",
-                                                                "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_protocol.hint",
+                                                                "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_protocol.help",
+                                                                "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_protocol.label",
+                                                                "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_protocol.hint",
                                                                 "child": {
                                                                     "detail": false,
                                                                     "input": false,
-                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_protocol.help",
-                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_protocol.label",
-                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_protocol.hint",
+                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_protocol.help",
+                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_protocol.label",
+                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_protocol.hint",
                                                                     "children": {
                                                                         "description": {
                                                                             "detail": "keyword",
                                                                             "input": "keyword",
-                                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/description.help",
-                                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/description.label",
-                                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/description.hint",
-                                                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_obtained_protocol_description"
+                                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/description.help",
+                                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/description.label",
+                                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/description.hint",
+                                                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_obtained_protocol_description"
                                                                         },
                                                                         "name": {
                                                                             "detail": "keyword",
                                                                             "input": "keyword",
-                                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/name.help",
-                                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/name.label",
-                                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/name.hint",
-                                                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_obtained_protocol_name"
+                                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/name.help",
+                                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/name.label",
+                                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/name.hint",
+                                                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_obtained_protocol_name"
                                                                         }
                                                                     }
                                                                 }
@@ -12256,58 +12256,58 @@
                                                             "unit": {
                                                                 "detail": "keyword",
                                                                 "input": "keyword",
-                                                                "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/unit.help",
-                                                                "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/unit.label",
-                                                                "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/unit.hint",
-                                                                "enum": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/unit.enum",
-                                                                "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_unit"
+                                                                "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/unit.help",
+                                                                "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/unit.label",
+                                                                "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/unit.hint",
+                                                                "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/unit.enum",
+                                                                "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_unit"
                                                             },
                                                             "value": {
                                                                 "detail": "double",
                                                                 "input": "double",
-                                                                "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value.help",
-                                                                "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value.label",
-                                                                "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value.hint",
-                                                                "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_value"
+                                                                "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value.help",
+                                                                "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value.label",
+                                                                "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value.hint",
+                                                                "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value"
                                                             },
                                                             "value_error": {
                                                                 "detail": false,
                                                                 "input": false,
-                                                                "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error.help",
-                                                                "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error.label",
-                                                                "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error.hint",
+                                                                "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error.help",
+                                                                "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error.label",
+                                                                "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error.hint",
                                                                 "children": {
                                                                     "error_level": {
                                                                         "detail": "double",
                                                                         "input": "double",
-                                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/error_level.help",
-                                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/error_level.label",
-                                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/error_level.hint",
-                                                                        "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_value_error_error_level"
+                                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/error_level.help",
+                                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/error_level.label",
+                                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/error_level.hint",
+                                                                        "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_error_level"
                                                                     },
                                                                     "errors_are_relative": {
                                                                         "detail": "boolean",
                                                                         "input": "boolean",
-                                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/errors_are_relative.help",
-                                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/errors_are_relative.label",
-                                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/errors_are_relative.hint",
-                                                                        "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_value_error_errors_are_relative"
+                                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/errors_are_relative.help",
+                                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/errors_are_relative.label",
+                                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/errors_are_relative.hint",
+                                                                        "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_errors_are_relative"
                                                                     },
                                                                     "lower_error": {
                                                                         "detail": "double",
                                                                         "input": "double",
-                                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/lower_error.help",
-                                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/lower_error.label",
-                                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/lower_error.hint",
-                                                                        "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_value_error_lower_error"
+                                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/lower_error.help",
+                                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/lower_error.label",
+                                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/lower_error.hint",
+                                                                        "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_lower_error"
                                                                     },
                                                                     "upper_error": {
                                                                         "detail": "double",
                                                                         "input": "double",
-                                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/upper_error.help",
-                                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/upper_error.label",
-                                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/upper_error.hint",
-                                                                        "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_value_error_upper_error"
+                                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/upper_error.help",
+                                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/upper_error.label",
+                                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/upper_error.hint",
+                                                                        "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_upper_error"
                                                                     }
                                                                 }
                                                             }
@@ -12316,81 +12316,81 @@
                                                     "inchikey": {
                                                         "detail": "keyword",
                                                         "input": "keyword",
-                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/inchikey.help",
-                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/inchikey.label",
-                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/inchikey.hint",
-                                                        "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_inchikey"
+                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/inchikey.help",
+                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/inchikey.label",
+                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/inchikey.hint",
+                                                        "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_inchikey"
                                                     },
                                                     "isotopic_labeling": {
                                                         "detail": "keyword",
                                                         "input": "keyword",
-                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/isotopic_labeling.help",
-                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/isotopic_labeling.label",
-                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/isotopic_labeling.hint",
-                                                        "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_isotopic_labeling"
+                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/isotopic_labeling.help",
+                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/isotopic_labeling.label",
+                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/isotopic_labeling.hint",
+                                                        "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_isotopic_labeling"
                                                     },
                                                     "molecular_weight": {
                                                         "detail": false,
                                                         "input": false,
-                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight.help",
-                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight.label",
-                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight.hint",
+                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight.help",
+                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight.label",
+                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight.hint",
                                                         "children": {
                                                             "unit": {
                                                                 "detail": "keyword",
                                                                 "input": "keyword",
-                                                                "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/unit.help",
-                                                                "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/unit.label",
-                                                                "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/unit.hint",
-                                                                "enum": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/unit.enum",
-                                                                "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_unit"
+                                                                "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/unit.help",
+                                                                "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/unit.label",
+                                                                "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/unit.hint",
+                                                                "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/unit.enum",
+                                                                "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_unit"
                                                             },
                                                             "value": {
                                                                 "detail": "double",
                                                                 "input": "double",
-                                                                "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value.help",
-                                                                "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value.label",
-                                                                "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value.hint",
-                                                                "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value"
+                                                                "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value.help",
+                                                                "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value.label",
+                                                                "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value.hint",
+                                                                "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value"
                                                             },
                                                             "value_error": {
                                                                 "detail": false,
                                                                 "input": false,
-                                                                "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error.help",
-                                                                "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error.label",
-                                                                "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error.hint",
+                                                                "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error.help",
+                                                                "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error.label",
+                                                                "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error.hint",
                                                                 "children": {
                                                                     "error_level": {
                                                                         "detail": "double",
                                                                         "input": "double",
-                                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/error_level.help",
-                                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/error_level.label",
-                                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/error_level.hint",
-                                                                        "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value_error_error_level"
+                                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/error_level.help",
+                                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/error_level.label",
+                                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/error_level.hint",
+                                                                        "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_error_level"
                                                                     },
                                                                     "errors_are_relative": {
                                                                         "detail": "boolean",
                                                                         "input": "boolean",
-                                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/errors_are_relative.help",
-                                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/errors_are_relative.label",
-                                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/errors_are_relative.hint",
-                                                                        "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value_error_errors_are_relative"
+                                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/errors_are_relative.help",
+                                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/errors_are_relative.label",
+                                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/errors_are_relative.hint",
+                                                                        "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_errors_are_relative"
                                                                     },
                                                                     "lower_error": {
                                                                         "detail": "double",
                                                                         "input": "double",
-                                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/lower_error.help",
-                                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/lower_error.label",
-                                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/lower_error.hint",
-                                                                        "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value_error_lower_error"
+                                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/lower_error.help",
+                                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/lower_error.label",
+                                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/lower_error.hint",
+                                                                        "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_lower_error"
                                                                     },
                                                                     "upper_error": {
                                                                         "detail": "double",
                                                                         "input": "double",
-                                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/upper_error.help",
-                                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/upper_error.label",
-                                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/upper_error.hint",
-                                                                        "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value_error_upper_error"
+                                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/upper_error.help",
+                                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/upper_error.label",
+                                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/upper_error.hint",
+                                                                        "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_upper_error"
                                                                     }
                                                                 }
                                                             }
@@ -12399,110 +12399,110 @@
                                                     "name": {
                                                         "detail": "keyword",
                                                         "input": "keyword",
-                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/name.help",
-                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/name.label",
-                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/name.hint",
-                                                        "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_name"
+                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/name.help",
+                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/name.label",
+                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/name.hint",
+                                                        "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_name"
                                                     },
                                                     "quality_controls": {
                                                         "detail": "array",
                                                         "input": "array",
-                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls.help",
-                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls.label",
-                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls.hint",
+                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls.help",
+                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls.label",
+                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls.hint",
                                                         "child": {
                                                             "detail": "quality_control",
                                                             "input": "quality_control",
-                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls.help",
-                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls.label",
-                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls.hint",
+                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls.help",
+                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls.label",
+                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls.hint",
                                                             "children": {
                                                                 "parameter": {
                                                                     "detail": "keyword",
                                                                     "input": "keyword",
-                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/parameter.help",
-                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/parameter.label",
-                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/parameter.hint",
-                                                                    "enum": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/parameter.enum",
-                                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_parameter"
+                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/parameter.help",
+                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/parameter.label",
+                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/parameter.hint",
+                                                                    "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/parameter.enum",
+                                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_parameter"
                                                                 },
                                                                 "report": {
                                                                     "detail": "url",
                                                                     "input": "url",
-                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/report.help",
-                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/report.label",
-                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/report.hint",
-                                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report"
+                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/report.help",
+                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/report.label",
+                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/report.hint",
+                                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_report"
                                                                 },
                                                                 "storage_until_measurement": {
                                                                     "detail": false,
                                                                     "input": false,
-                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement.help",
-                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement.label",
-                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement.hint",
+                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement.help",
+                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement.label",
+                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement.hint",
                                                                     "children": {
                                                                         "duration": {
                                                                             "detail": false,
                                                                             "input": false,
-                                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration.help",
-                                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration.label",
-                                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration.hint",
+                                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration.help",
+                                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration.label",
+                                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration.hint",
                                                                             "children": {
                                                                                 "unit": {
                                                                                     "detail": "keyword",
                                                                                     "input": "keyword",
-                                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/unit.help",
-                                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/unit.label",
-                                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/unit.hint",
-                                                                                    "enum": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/unit.enum",
-                                                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_unit"
+                                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/unit.help",
+                                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/unit.label",
+                                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/unit.hint",
+                                                                                    "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/unit.enum",
+                                                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_unit"
                                                                                 },
                                                                                 "value": {
                                                                                     "detail": "double",
                                                                                     "input": "double",
-                                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value.help",
-                                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value.label",
-                                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value.hint",
-                                                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value"
+                                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value.help",
+                                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value.label",
+                                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value.hint",
+                                                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value"
                                                                                 },
                                                                                 "value_error": {
                                                                                     "detail": false,
                                                                                     "input": false,
-                                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error.help",
-                                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error.label",
-                                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error.hint",
+                                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error.help",
+                                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error.label",
+                                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error.hint",
                                                                                     "children": {
                                                                                         "error_level": {
                                                                                             "detail": "double",
                                                                                             "input": "double",
-                                                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/error_level.help",
-                                                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/error_level.label",
-                                                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/error_level.hint",
-                                                                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_error_level"
+                                                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/error_level.help",
+                                                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/error_level.label",
+                                                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/error_level.hint",
+                                                                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_error_level"
                                                                                         },
                                                                                         "errors_are_relative": {
                                                                                             "detail": "boolean",
                                                                                             "input": "boolean",
-                                                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.help",
-                                                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label",
-                                                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.hint",
-                                                                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative"
+                                                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.help",
+                                                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label",
+                                                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.hint",
+                                                                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative"
                                                                                         },
                                                                                         "lower_error": {
                                                                                             "detail": "double",
                                                                                             "input": "double",
-                                                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/lower_error.help",
-                                                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/lower_error.label",
-                                                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/lower_error.hint",
-                                                                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_lower_error"
+                                                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/lower_error.help",
+                                                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/lower_error.label",
+                                                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/lower_error.hint",
+                                                                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_lower_error"
                                                                                         },
                                                                                         "upper_error": {
                                                                                             "detail": "double",
                                                                                             "input": "double",
-                                                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/upper_error.help",
-                                                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/upper_error.label",
-                                                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/upper_error.hint",
-                                                                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_upper_error"
+                                                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/upper_error.help",
+                                                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/upper_error.label",
+                                                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/upper_error.hint",
+                                                                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_upper_error"
                                                                                         }
                                                                                     }
                                                                                 }
@@ -12511,31 +12511,31 @@
                                                                         "storage_preparation": {
                                                                             "detail": "array",
                                                                             "input": "array",
-                                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation.help",
-                                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation.label",
-                                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation.hint",
+                                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation.help",
+                                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation.label",
+                                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation.hint",
                                                                             "child": {
                                                                                 "detail": false,
                                                                                 "input": false,
-                                                                                "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation.help",
-                                                                                "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation.label",
-                                                                                "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation.hint",
+                                                                                "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation.help",
+                                                                                "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation.label",
+                                                                                "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation.hint",
                                                                                 "children": {
                                                                                     "description": {
                                                                                         "detail": "keyword",
                                                                                         "input": "keyword",
-                                                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/description.help",
-                                                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/description.label",
-                                                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/description.hint",
-                                                                                        "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_description"
+                                                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/description.help",
+                                                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/description.label",
+                                                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/description.hint",
+                                                                                        "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_description"
                                                                                     },
                                                                                     "name": {
                                                                                         "detail": "keyword",
                                                                                         "input": "keyword",
-                                                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/name.help",
-                                                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/name.label",
-                                                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/name.hint",
-                                                                                        "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_name"
+                                                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/name.help",
+                                                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/name.label",
+                                                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/name.hint",
+                                                                                        "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_name"
                                                                                     }
                                                                                 }
                                                                             }
@@ -12543,91 +12543,91 @@
                                                                         "temperature": {
                                                                             "detail": false,
                                                                             "input": false,
-                                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature.help",
-                                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature.label",
-                                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature.hint",
+                                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature.help",
+                                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature.label",
+                                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature.hint",
                                                                             "children": {
                                                                                 "controlled": {
                                                                                     "detail": "boolean",
                                                                                     "input": "boolean",
-                                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/controlled.help",
-                                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/controlled.label",
-                                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/controlled.hint",
-                                                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_controlled"
+                                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/controlled.help",
+                                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/controlled.label",
+                                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/controlled.hint",
+                                                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_controlled"
                                                                                 },
                                                                                 "obtained_by": {
                                                                                     "detail": "keyword",
                                                                                     "input": "keyword",
-                                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/obtained_by.help",
-                                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/obtained_by.label",
-                                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/obtained_by.hint",
-                                                                                    "enum": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/obtained_by.enum",
-                                                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_obtained_by"
+                                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/obtained_by.help",
+                                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/obtained_by.label",
+                                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/obtained_by.hint",
+                                                                                    "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/obtained_by.enum",
+                                                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_obtained_by"
                                                                                 },
                                                                                 "operational_value": {
                                                                                     "detail": "keyword",
                                                                                     "input": "keyword",
-                                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/operational_value.help",
-                                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/operational_value.label",
-                                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/operational_value.hint",
-                                                                                    "enum": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/operational_value.enum",
-                                                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_operational_value"
+                                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/operational_value.help",
+                                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/operational_value.label",
+                                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/operational_value.hint",
+                                                                                    "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/operational_value.enum",
+                                                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_operational_value"
                                                                                 },
                                                                                 "unit": {
                                                                                     "detail": "keyword",
                                                                                     "input": "keyword",
-                                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/unit.help",
-                                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/unit.label",
-                                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/unit.hint",
-                                                                                    "enum": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/unit.enum",
-                                                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_unit"
+                                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/unit.help",
+                                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/unit.label",
+                                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/unit.hint",
+                                                                                    "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/unit.enum",
+                                                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_unit"
                                                                                 },
                                                                                 "value": {
                                                                                     "detail": "double",
                                                                                     "input": "double",
-                                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value.help",
-                                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value.label",
-                                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value.hint",
-                                                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value"
+                                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value.help",
+                                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value.label",
+                                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value.hint",
+                                                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value"
                                                                                 },
                                                                                 "value_error": {
                                                                                     "detail": false,
                                                                                     "input": false,
-                                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error.help",
-                                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error.label",
-                                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error.hint",
+                                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error.help",
+                                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error.label",
+                                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error.hint",
                                                                                     "children": {
                                                                                         "error_level": {
                                                                                             "detail": "double",
                                                                                             "input": "double",
-                                                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/error_level.help",
-                                                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/error_level.label",
-                                                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/error_level.hint",
-                                                                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_error_level"
+                                                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/error_level.help",
+                                                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/error_level.label",
+                                                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/error_level.hint",
+                                                                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_error_level"
                                                                                         },
                                                                                         "errors_are_relative": {
                                                                                             "detail": "boolean",
                                                                                             "input": "boolean",
-                                                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.help",
-                                                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label",
-                                                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.hint",
-                                                                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative"
+                                                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.help",
+                                                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label",
+                                                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.hint",
+                                                                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative"
                                                                                         },
                                                                                         "lower_error": {
                                                                                             "detail": "double",
                                                                                             "input": "double",
-                                                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/lower_error.help",
-                                                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label",
-                                                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/lower_error.hint",
-                                                                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_lower_error"
+                                                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/lower_error.help",
+                                                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label",
+                                                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/lower_error.hint",
+                                                                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_lower_error"
                                                                                         },
                                                                                         "upper_error": {
                                                                                             "detail": "double",
                                                                                             "input": "double",
-                                                                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/upper_error.help",
-                                                                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label",
-                                                                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/upper_error.hint",
-                                                                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_upper_error"
+                                                                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/upper_error.help",
+                                                                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label",
+                                                                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/upper_error.hint",
+                                                                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_upper_error"
                                                                                         }
                                                                                     }
                                                                                 }
@@ -12638,10 +12638,10 @@
                                                                 "technique": {
                                                                     "detail": "keyword",
                                                                     "input": "keyword",
-                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/technique.help",
-                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/technique.label",
-                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/technique.hint",
-                                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_technique"
+                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/technique.help",
+                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/technique.label",
+                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/technique.hint",
+                                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_technique"
                                                                 }
                                                             }
                                                         }
@@ -12649,51 +12649,51 @@
                                                     "supplier": {
                                                         "detail": false,
                                                         "input": false,
-                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier.help",
-                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier.label",
-                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier.hint",
+                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier.help",
+                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier.label",
+                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier.hint",
                                                         "children": {
                                                             "catalog_number": {
                                                                 "detail": "keyword",
                                                                 "input": "keyword",
-                                                                "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/catalog_number.help",
-                                                                "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/catalog_number.label",
-                                                                "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/catalog_number.hint",
-                                                                "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_supplier_catalog_number"
+                                                                "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/catalog_number.help",
+                                                                "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/catalog_number.label",
+                                                                "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/catalog_number.hint",
+                                                                "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_supplier_catalog_number"
                                                             },
                                                             "further_information": {
                                                                 "detail": "array",
                                                                 "input": "array",
-                                                                "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/further_information.help",
-                                                                "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/further_information.label",
-                                                                "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/further_information.hint",
+                                                                "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/further_information.help",
+                                                                "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/further_information.label",
+                                                                "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/further_information.hint",
                                                                 "child": {
                                                                     "detail": "keyword",
                                                                     "input": "keyword",
-                                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/further_information.help",
-                                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/further_information.label",
-                                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/further_information.hint",
-                                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_supplier_further_information"
+                                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/further_information.help",
+                                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/further_information.label",
+                                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/further_information.hint",
+                                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_supplier_further_information"
                                                                 }
                                                             },
                                                             "name": {
                                                                 "detail": "keyword",
                                                                 "input": "keyword",
-                                                                "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/name.help",
-                                                                "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/name.label",
-                                                                "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/name.hint",
-                                                                "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_supplier_name"
+                                                                "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/name.help",
+                                                                "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/name.label",
+                                                                "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/name.hint",
+                                                                "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_supplier_name"
                                                             }
                                                         }
                                                     },
                                                     "type": {
                                                         "detail": "keyword",
                                                         "input": "keyword",
-                                                        "help": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/type.help",
-                                                        "label": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/type.label",
-                                                        "hint": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/type.hint",
-                                                        "enum": "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/type.enum",
-                                                        "facet": "metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_type"
+                                                        "help": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/type.help",
+                                                        "label": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/type.label",
+                                                        "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/type.hint",
+                                                        "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/type.enum",
+                                                        "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_type"
                                                     }
                                                 }
                                             }
@@ -12703,82 +12703,82 @@
                                 "humidity": {
                                     "detail": false,
                                     "input": false,
-                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/humidity.help",
-                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/humidity.label",
-                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/humidity.hint",
+                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity.help",
+                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity.label",
+                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity.hint",
                                     "children": {
                                         "controlled": {
                                             "detail": "boolean",
                                             "input": "boolean",
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/controlled.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/controlled.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/controlled.hint",
-                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_humidity_controlled"
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/controlled.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/controlled.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/controlled.hint",
+                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_controlled"
                                         },
                                         "obtained_by": {
                                             "detail": "keyword",
                                             "input": "keyword",
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/obtained_by.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/obtained_by.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/obtained_by.hint",
-                                            "enum": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/obtained_by.enum",
-                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_humidity_obtained_by"
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/obtained_by.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/obtained_by.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/obtained_by.hint",
+                                            "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/obtained_by.enum",
+                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_obtained_by"
                                         },
                                         "unit": {
                                             "detail": "keyword",
                                             "input": "keyword",
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/unit.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/unit.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/unit.hint",
-                                            "enum": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/unit.enum",
-                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_humidity_unit"
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/unit.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/unit.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/unit.hint",
+                                            "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/unit.enum",
+                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_unit"
                                         },
                                         "value": {
                                             "detail": "double",
                                             "input": "double",
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value.hint",
-                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_humidity_value"
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value.hint",
+                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value"
                                         },
                                         "value_error": {
                                             "detail": false,
                                             "input": false,
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error.hint",
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error.hint",
                                             "children": {
                                                 "error_level": {
                                                     "detail": "double",
                                                     "input": "double",
-                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/error_level.help",
-                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/error_level.label",
-                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/error_level.hint",
-                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_humidity_value_error_error_level"
+                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/error_level.help",
+                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/error_level.label",
+                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/error_level.hint",
+                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_error_level"
                                                 },
                                                 "errors_are_relative": {
                                                     "detail": "boolean",
                                                     "input": "boolean",
-                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/errors_are_relative.help",
-                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/errors_are_relative.label",
-                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/errors_are_relative.hint",
-                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_humidity_value_error_errors_are_relative"
+                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/errors_are_relative.help",
+                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/errors_are_relative.label",
+                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/errors_are_relative.hint",
+                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_errors_are_relative"
                                                 },
                                                 "lower_error": {
                                                     "detail": "double",
                                                     "input": "double",
-                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/lower_error.help",
-                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/lower_error.label",
-                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/lower_error.hint",
-                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_humidity_value_error_lower_error"
+                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/lower_error.help",
+                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/lower_error.label",
+                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/lower_error.hint",
+                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_lower_error"
                                                 },
                                                 "upper_error": {
                                                     "detail": "double",
                                                     "input": "double",
-                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/upper_error.help",
-                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/upper_error.label",
-                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/upper_error.hint",
-                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_humidity_value_error_upper_error"
+                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/upper_error.help",
+                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/upper_error.label",
+                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/upper_error.hint",
+                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_upper_error"
                                                 }
                                             }
                                         }
@@ -12787,82 +12787,82 @@
                                 "pressure": {
                                     "detail": false,
                                     "input": false,
-                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/pressure.help",
-                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/pressure.label",
-                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/pressure.hint",
+                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure.help",
+                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure.label",
+                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure.hint",
                                     "children": {
                                         "controlled": {
                                             "detail": "boolean",
                                             "input": "boolean",
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/controlled.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/controlled.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/controlled.hint",
-                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_pressure_controlled"
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/controlled.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/controlled.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/controlled.hint",
+                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_controlled"
                                         },
                                         "obtained_by": {
                                             "detail": "keyword",
                                             "input": "keyword",
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/obtained_by.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/obtained_by.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/obtained_by.hint",
-                                            "enum": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/obtained_by.enum",
-                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_pressure_obtained_by"
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/obtained_by.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/obtained_by.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/obtained_by.hint",
+                                            "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/obtained_by.enum",
+                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_obtained_by"
                                         },
                                         "unit": {
                                             "detail": "keyword",
                                             "input": "keyword",
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/unit.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/unit.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/unit.hint",
-                                            "enum": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/unit.enum",
-                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_pressure_unit"
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/unit.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/unit.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/unit.hint",
+                                            "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/unit.enum",
+                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_unit"
                                         },
                                         "value": {
                                             "detail": "double",
                                             "input": "double",
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value.hint",
-                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_pressure_value"
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value.hint",
+                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value"
                                         },
                                         "value_error": {
                                             "detail": false,
                                             "input": false,
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error.hint",
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error.hint",
                                             "children": {
                                                 "error_level": {
                                                     "detail": "double",
                                                     "input": "double",
-                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/error_level.help",
-                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/error_level.label",
-                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/error_level.hint",
-                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_pressure_value_error_error_level"
+                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/error_level.help",
+                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/error_level.label",
+                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/error_level.hint",
+                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_error_level"
                                                 },
                                                 "errors_are_relative": {
                                                     "detail": "boolean",
                                                     "input": "boolean",
-                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/errors_are_relative.help",
-                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/errors_are_relative.label",
-                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/errors_are_relative.hint",
-                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_pressure_value_error_errors_are_relative"
+                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/errors_are_relative.help",
+                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/errors_are_relative.label",
+                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/errors_are_relative.hint",
+                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_errors_are_relative"
                                                 },
                                                 "lower_error": {
                                                     "detail": "double",
                                                     "input": "double",
-                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/lower_error.help",
-                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/lower_error.label",
-                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/lower_error.hint",
-                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_pressure_value_error_lower_error"
+                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/lower_error.help",
+                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/lower_error.label",
+                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/lower_error.hint",
+                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_lower_error"
                                                 },
                                                 "upper_error": {
                                                     "detail": "double",
                                                     "input": "double",
-                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/upper_error.help",
-                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/upper_error.label",
-                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/upper_error.hint",
-                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_pressure_value_error_upper_error"
+                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/upper_error.help",
+                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/upper_error.label",
+                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/upper_error.hint",
+                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_upper_error"
                                                 }
                                             }
                                         }
@@ -12871,91 +12871,91 @@
                                 "temperature": {
                                     "detail": false,
                                     "input": false,
-                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/temperature.help",
-                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/temperature.label",
-                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/temperature.hint",
+                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature.help",
+                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature.label",
+                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature.hint",
                                     "children": {
                                         "controlled": {
                                             "detail": "boolean",
                                             "input": "boolean",
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/controlled.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/controlled.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/controlled.hint",
-                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_temperature_controlled"
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/controlled.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/controlled.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/controlled.hint",
+                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_controlled"
                                         },
                                         "obtained_by": {
                                             "detail": "keyword",
                                             "input": "keyword",
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/obtained_by.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/obtained_by.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/obtained_by.hint",
-                                            "enum": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/obtained_by.enum",
-                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_temperature_obtained_by"
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/obtained_by.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/obtained_by.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/obtained_by.hint",
+                                            "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/obtained_by.enum",
+                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_obtained_by"
                                         },
                                         "operational_value": {
                                             "detail": "keyword",
                                             "input": "keyword",
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/operational_value.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/operational_value.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/operational_value.hint",
-                                            "enum": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/operational_value.enum",
-                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_temperature_operational_value"
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/operational_value.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/operational_value.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/operational_value.hint",
+                                            "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/operational_value.enum",
+                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_operational_value"
                                         },
                                         "unit": {
                                             "detail": "keyword",
                                             "input": "keyword",
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/unit.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/unit.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/unit.hint",
-                                            "enum": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/unit.enum",
-                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_temperature_unit"
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/unit.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/unit.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/unit.hint",
+                                            "enum": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/unit.enum",
+                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_unit"
                                         },
                                         "value": {
                                             "detail": "double",
                                             "input": "double",
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value.hint",
-                                            "facet": "metadata_general_parameters_physical_environment_at_sample_handling_temperature_value"
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value.hint",
+                                            "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value"
                                         },
                                         "value_error": {
                                             "detail": false,
                                             "input": false,
-                                            "help": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error.help",
-                                            "label": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error.label",
-                                            "hint": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error.hint",
+                                            "help": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error.help",
+                                            "label": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error.label",
+                                            "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error.hint",
                                             "children": {
                                                 "error_level": {
                                                     "detail": "double",
                                                     "input": "double",
-                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/error_level.help",
-                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/error_level.label",
-                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/error_level.hint",
-                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_temperature_value_error_error_level"
+                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/error_level.help",
+                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/error_level.label",
+                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/error_level.hint",
+                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_error_level"
                                                 },
                                                 "errors_are_relative": {
                                                     "detail": "boolean",
                                                     "input": "boolean",
-                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/errors_are_relative.help",
-                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/errors_are_relative.label",
-                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/errors_are_relative.hint",
-                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_temperature_value_error_errors_are_relative"
+                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/errors_are_relative.help",
+                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/errors_are_relative.label",
+                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/errors_are_relative.hint",
+                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_errors_are_relative"
                                                 },
                                                 "lower_error": {
                                                     "detail": "double",
                                                     "input": "double",
-                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/lower_error.help",
-                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/lower_error.label",
-                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/lower_error.hint",
-                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_temperature_value_error_lower_error"
+                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/lower_error.help",
+                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/lower_error.label",
+                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/lower_error.hint",
+                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_lower_error"
                                                 },
                                                 "upper_error": {
                                                     "detail": "double",
                                                     "input": "double",
-                                                    "help": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/upper_error.help",
-                                                    "label": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/upper_error.label",
-                                                    "hint": "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/upper_error.hint",
-                                                    "facet": "metadata_general_parameters_physical_environment_at_sample_handling_temperature_value_error_upper_error"
+                                                    "help": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/upper_error.help",
+                                                    "label": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/upper_error.label",
+                                                    "hint": "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/upper_error.hint",
+                                                    "facet": "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_upper_error"
                                                 }
                                             }
                                         }

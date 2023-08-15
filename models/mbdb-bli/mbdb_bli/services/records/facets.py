@@ -8283,546 +8283,546 @@ metadata_general_parameters_instrument_performance_test_sample_composition_produ
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_additional_identifiers = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.additional_identifiers",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_additional_identifiers = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.additional_identifiers",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_identifiers.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/additional_identifiers.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_additional_specifications = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.additional_specifications",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_additional_specifications = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.additional_specifications",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/additional_specifications.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/additional_specifications.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_obtained_by = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.concentration.obtained_by",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_obtained_by = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.concentration.obtained_by",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_by.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_by.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_obtained_protocol_description = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.concentration.obtained_protocol.description",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_obtained_protocol_description = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.concentration.obtained_protocol.description",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/description.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/description.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_obtained_protocol_name = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.concentration.obtained_protocol.name",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_obtained_protocol_name = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.concentration.obtained_protocol.name",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/name.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/obtained_protocol/name.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_unit = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.concentration.unit",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_unit = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.concentration.unit",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/unit.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/unit.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_value = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.concentration.value",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.concentration.value",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_value_error_error_level = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.concentration.value_error.error_level",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.concentration.value_error.error_level",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/error_level.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/error_level.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_value_error_errors_are_relative = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.concentration.value_error.errors_are_relative",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.concentration.value_error.errors_are_relative",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/errors_are_relative.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/errors_are_relative.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_value_error_lower_error = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.concentration.value_error.lower_error",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.concentration.value_error.lower_error",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/lower_error.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/lower_error.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_concentration_value_error_upper_error = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.concentration.value_error.upper_error",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.concentration.value_error.upper_error",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/concentration/value_error/upper_error.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/upper_error.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_inchikey = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.inchikey",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_inchikey = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.inchikey",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/inchikey.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/inchikey.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_isotopic_labeling = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.isotopic_labeling",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_isotopic_labeling = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.isotopic_labeling",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/isotopic_labeling.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/isotopic_labeling.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_unit = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.molecular_weight.unit",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_unit = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.molecular_weight.unit",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/unit.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/unit.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.molecular_weight.value",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.molecular_weight.value",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value_error_error_level = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.molecular_weight.value_error.error_level",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.molecular_weight.value_error.error_level",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/error_level.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/error_level.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value_error_errors_are_relative = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.molecular_weight.value_error.errors_are_relative",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.molecular_weight.value_error.errors_are_relative",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/errors_are_relative.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/errors_are_relative.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value_error_lower_error = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.molecular_weight.value_error.lower_error",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.molecular_weight.value_error.lower_error",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/lower_error.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/lower_error.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_molecular_weight_value_error_upper_error = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.molecular_weight.value_error.upper_error",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.molecular_weight.value_error.upper_error",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/molecular_weight/value_error/upper_error.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/upper_error.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_name = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.name",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_name = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.name",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/name.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/name.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_parameter = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_parameter = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.parameter",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.parameter",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/parameter.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/parameter.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_report = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_report = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.report",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.report",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/report.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/report.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_unit = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.unit",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.unit",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/unit.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/unit.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_error_level = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value_error.error_level",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value_error.error_level",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/error_level.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/error_level.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value_error.errors_are_relative",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value_error.errors_are_relative",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/errors_are_relative.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_lower_error = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value_error.lower_error",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value_error.lower_error",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/lower_error.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/lower_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_upper_error = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value_error.upper_error",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.duration.value_error.upper_error",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/upper_error.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/upper_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_description = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_description = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.storage_preparation.description",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.storage_preparation.description",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/description.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/description.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_name = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_name = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.storage_preparation.name",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.storage_preparation.name",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/name.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation/name.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_controlled = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_controlled = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.controlled",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.controlled",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/controlled.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/controlled.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_obtained_by = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_obtained_by = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.obtained_by",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.obtained_by",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/obtained_by.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/obtained_by.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_operational_value = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_operational_value = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.operational_value",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.operational_value",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/operational_value.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/operational_value.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_unit = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_unit = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.unit",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.unit",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/unit.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/unit.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_error_level = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_error_level = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value_error.error_level",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value_error.error_level",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/error_level.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/error_level.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value_error.errors_are_relative",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value_error.errors_are_relative",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/errors_are_relative.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_lower_error = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value_error.lower_error",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value_error.lower_error",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/lower_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_upper_error = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value_error.upper_error",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.storage_until_measurement.temperature.value_error.upper_error",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/upper_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_quality_controls_technique = NestedLabeledFacet(
-    path="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_technique = NestedLabeledFacet(
+    path="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.quality_controls.technique",
+        field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.quality_controls.technique",
         label=_(
-            "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/quality_controls/technique.label"
+            "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/technique.label"
         ),
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_supplier_catalog_number = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.supplier.catalog_number",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_supplier_catalog_number = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.supplier.catalog_number",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/catalog_number.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/catalog_number.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_supplier_further_information = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.supplier.further_information",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_supplier_further_information = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.supplier.further_information",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/further_information.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/further_information.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_supplier_name = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.supplier.name",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_supplier_name = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.supplier.name",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/supplier/name.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/supplier/name.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_atmosphere_composition_type = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.atmosphere.composition.type",
+metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_type = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.atmosphere.composition.type",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/atmosphere/composition/type.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/type.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_humidity_controlled = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.humidity.controlled",
+metadata_general_parameters_physical_conditions_at_sample_handling_humidity_controlled = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.humidity.controlled",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/humidity/controlled.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/controlled.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_humidity_obtained_by = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.humidity.obtained_by",
+metadata_general_parameters_physical_conditions_at_sample_handling_humidity_obtained_by = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.humidity.obtained_by",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/humidity/obtained_by.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/obtained_by.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_humidity_unit = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.humidity.unit",
+metadata_general_parameters_physical_conditions_at_sample_handling_humidity_unit = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.humidity.unit",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/humidity/unit.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/unit.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_humidity_value = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.humidity.value",
+metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.humidity.value",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_humidity_value_error_error_level = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.humidity.value_error.error_level",
+metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.humidity.value_error.error_level",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/error_level.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/error_level.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_humidity_value_error_errors_are_relative = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.humidity.value_error.errors_are_relative",
+metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.humidity.value_error.errors_are_relative",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/errors_are_relative.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/errors_are_relative.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_humidity_value_error_lower_error = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.humidity.value_error.lower_error",
+metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.humidity.value_error.lower_error",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/lower_error.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/lower_error.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_humidity_value_error_upper_error = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.humidity.value_error.upper_error",
+metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.humidity.value_error.upper_error",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/humidity/value_error/upper_error.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/upper_error.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_pressure_controlled = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.pressure.controlled",
+metadata_general_parameters_physical_conditions_at_sample_handling_pressure_controlled = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.pressure.controlled",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/pressure/controlled.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/controlled.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_pressure_obtained_by = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.pressure.obtained_by",
+metadata_general_parameters_physical_conditions_at_sample_handling_pressure_obtained_by = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.pressure.obtained_by",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/pressure/obtained_by.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/obtained_by.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_pressure_unit = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.pressure.unit",
+metadata_general_parameters_physical_conditions_at_sample_handling_pressure_unit = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.pressure.unit",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/pressure/unit.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/unit.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_pressure_value = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.pressure.value",
+metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.pressure.value",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_pressure_value_error_error_level = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.pressure.value_error.error_level",
+metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.pressure.value_error.error_level",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/error_level.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/error_level.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_pressure_value_error_errors_are_relative = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.pressure.value_error.errors_are_relative",
+metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.pressure.value_error.errors_are_relative",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/errors_are_relative.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/errors_are_relative.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_pressure_value_error_lower_error = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.pressure.value_error.lower_error",
+metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.pressure.value_error.lower_error",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/lower_error.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/lower_error.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_pressure_value_error_upper_error = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.pressure.value_error.upper_error",
+metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.pressure.value_error.upper_error",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/pressure/value_error/upper_error.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/upper_error.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_temperature_controlled = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.temperature.controlled",
+metadata_general_parameters_physical_conditions_at_sample_handling_temperature_controlled = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.temperature.controlled",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/temperature/controlled.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/controlled.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_temperature_obtained_by = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.temperature.obtained_by",
+metadata_general_parameters_physical_conditions_at_sample_handling_temperature_obtained_by = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.temperature.obtained_by",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/temperature/obtained_by.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/obtained_by.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_temperature_operational_value = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.temperature.operational_value",
+metadata_general_parameters_physical_conditions_at_sample_handling_temperature_operational_value = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.temperature.operational_value",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/temperature/operational_value.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/operational_value.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_temperature_unit = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.temperature.unit",
+metadata_general_parameters_physical_conditions_at_sample_handling_temperature_unit = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.temperature.unit",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/temperature/unit.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/unit.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_temperature_value = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.temperature.value",
+metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.temperature.value",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_temperature_value_error_error_level = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.temperature.value_error.error_level",
+metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_error_level = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.temperature.value_error.error_level",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/error_level.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/error_level.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_temperature_value_error_errors_are_relative = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.temperature.value_error.errors_are_relative",
+metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_errors_are_relative = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.temperature.value_error.errors_are_relative",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/errors_are_relative.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/errors_are_relative.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_temperature_value_error_lower_error = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.temperature.value_error.lower_error",
+metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_lower_error = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.temperature.value_error.lower_error",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/lower_error.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/lower_error.label"
     ),
 )
 
-metadata_general_parameters_physical_environment_at_sample_handling_temperature_value_error_upper_error = TermsFacet(
-    field="metadata.general_parameters.physical_environment_at_sample_handling.temperature.value_error.upper_error",
+metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_upper_error = TermsFacet(
+    field="metadata.general_parameters.physical_conditions_at_sample_handling.temperature.value_error.upper_error",
     label=_(
-        "metadata/general_parameters/physical_environment_at_sample_handling/temperature/value_error/upper_error.label"
+        "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/upper_error.label"
     ),
 )
 
