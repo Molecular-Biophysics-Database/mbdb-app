@@ -1,0 +1,64 @@
+{
+    "mappings": {
+        "properties": {
+            "$schema": {
+                "type": "keyword"
+            },
+            "content_type": {
+                "type": "keyword"
+            },
+            "context": {
+                "type": "keyword"
+            },
+            "created": {
+                "type": "date",
+                "format": "basic_date||strict_date"
+            },
+            "description": {
+                "type": "keyword"
+            },
+            "id": {
+                "type": "keyword"
+            },
+            "name": {
+                "type": "keyword"
+            },
+            "originates_from": {
+                "type": "keyword"
+            },
+            "processing_steps": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "keyword"
+                    },
+                    "link_to_source_code": {
+                        "type": "keyword"
+                    },
+                    "name": {
+                        "type": "keyword"
+                    },
+                    "software_name": {
+                        "type": "keyword"
+                    },
+                    "software_tool": {
+                        "type": "keyword"
+                    },
+                    "software_version": {
+                        "type": "keyword"
+                    }
+                }
+            },
+            "recommended_software": {
+                "type": "keyword"
+            },
+            "size": {
+                "type": "integer"
+            },
+            "updated": {
+                "type": "date",
+                "format": "basic_date||strict_date"
+            }
+        }
+    }
+}
