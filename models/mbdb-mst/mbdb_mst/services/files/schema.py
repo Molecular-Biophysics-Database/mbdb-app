@@ -11,10 +11,12 @@ class MbdbMstFileSchema(InvenioFileSchema):
         unknown = ma.RAISE
 
     content_type = ma.fields.String(
-        validate=[ma_validate.OneOf(["text", "binary", "text and binary"])]
+        required=True,
+        validate=[ma_validate.OneOf(["text", "binary", "text and binary"])],
     )
 
     context = ma.fields.String(
+        required=True,
         validate=[
             ma_validate.OneOf(
                 [
@@ -24,26 +26,27 @@ class MbdbMstFileSchema(InvenioFileSchema):
                     "performance test report",
                 ]
             )
-        ]
+        ],
     )
 
     created = ma.fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
 
     description = ma.fields.String()
 
-    name = ma.fields.String()
+    name = ma.fields.String(required=True)
 
     originates_from = ma.fields.String(
-        validate=[ma_validate.OneOf(["Instrument software", "User", "MBDB"])]
+        required=True,
+        validate=[ma_validate.OneOf(["Instrument software", "User", "MBDB"])],
     )
 
     processing_steps = ma.fields.List(
-        ma.fields.Nested(lambda: ProcessingStepsItemSchema())
+        ma.fields.Nested(lambda: ProcessingStepsItemSchema()), required=True
     )
 
     recommended_software = ma.fields.String()
 
-    size = ma.fields.Integer()
+    size = ma.fields.Integer(required=True)
 
     updated = ma.fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
 
@@ -52,11 +55,11 @@ class ProcessingStepsItemSchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
 
-    description = ma.fields.String()
+    description = ma.fields.String(required=True)
 
     link_to_source_code = ma.fields.String()
 
-    name = ma.fields.String()
+    name = ma.fields.String(required=True)
 
     software_name = ma.fields.String()
 

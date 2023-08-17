@@ -8,10 +8,12 @@ class MbdbBliFileUISchema(InvenioUISchema):
         unknown = ma.RAISE
 
     content_type = ma.fields.String(
-        validate=[ma_validate.OneOf(["text", "binary", "text and binary"])]
+        required=True,
+        validate=[ma_validate.OneOf(["text", "binary", "text and binary"])],
     )
 
     context = ma.fields.String(
+        required=True,
         validate=[
             ma_validate.OneOf(
                 [
@@ -21,35 +23,36 @@ class MbdbBliFileUISchema(InvenioUISchema):
                     "performance test report",
                 ]
             )
-        ]
+        ],
     )
 
     description = ma.fields.String()
 
-    name = ma.fields.String()
+    name = ma.fields.String(required=True)
 
     originates_from = ma.fields.String(
-        validate=[ma_validate.OneOf(["Instrument software", "User", "MBDB"])]
+        required=True,
+        validate=[ma_validate.OneOf(["Instrument software", "User", "MBDB"])],
     )
 
     processing_steps = ma.fields.List(
-        ma.fields.Nested(lambda: ProcessingStepsItemUISchema())
+        ma.fields.Nested(lambda: ProcessingStepsItemUISchema()), required=True
     )
 
     recommended_software = ma.fields.String()
 
-    size = ma.fields.Integer()
+    size = ma.fields.Integer(required=True)
 
 
 class ProcessingStepsItemUISchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
 
-    description = ma.fields.String()
+    description = ma.fields.String(required=True)
 
     link_to_source_code = ma.fields.String()
 
-    name = ma.fields.String()
+    name = ma.fields.String(required=True)
 
     software_name = ma.fields.String()
 

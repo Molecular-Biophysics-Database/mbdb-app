@@ -376,6 +376,7 @@
             },
             "content_type": {
                 "type": "keyword",
+                "required": true,
                 "enum": [
                     "text",
                     "binary",
@@ -385,6 +386,7 @@
             },
             "context": {
                 "type": "keyword",
+                "required": true,
                 "enum": [
                     "raw measurement data",
                     "derived measurement data",
@@ -431,10 +433,12 @@
             },
             "name": {
                 "type": "keyword",
+                "required": true,
                 "help.en": "Name of the file"
             },
             "originates_from": {
                 "type": "keyword",
+                "required": true,
                 "enum": [
                     "Instrument software",
                     "User",
@@ -444,6 +448,7 @@
             },
             "processing_steps": {
                 "type": "array",
+                "required": true,
                 "help.en": "List of the processing steps performed on the file before it was deposited (e.g. exported to xlsx)",
                 "items": {
                     "type": "object",
@@ -460,6 +465,7 @@
                     "properties": {
                         "description": {
                             "type": "keyword",
+                            "required": true,
                             "help.en": "Description of what the processing step was"
                         },
                         "link_to_source_code": {
@@ -468,6 +474,7 @@
                         },
                         "name": {
                             "type": "keyword",
+                            "required": true,
                             "help.en": "Descriptive name of the processing step"
                         },
                         "software_name": {
@@ -491,6 +498,7 @@
             },
             "size": {
                 "type": "integer",
+                "required": true,
                 "minimum": 0,
                 "help.en": "Size of the file"
             },
