@@ -8,6 +8,7 @@ authors = [
 ]
 dependencies = [
     "oarepo>=11,<12",
+    "mbdb-mst @ file:///${PROJECT_ROOT}/../../models/mbdb-mst",
     "mbdb-mst-ui @ file:///${PROJECT_ROOT}/../../ui/mbdb-mst-ui",
     "mbdb-common @ file:///${PROJECT_ROOT}/../../local/mbdb-common",
     "site @ file:///${PROJECT_ROOT}/site",
