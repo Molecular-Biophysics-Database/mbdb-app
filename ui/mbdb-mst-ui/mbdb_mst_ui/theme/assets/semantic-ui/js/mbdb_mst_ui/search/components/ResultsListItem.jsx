@@ -22,16 +22,14 @@ const ItemHeader = ({ title, searchUrl, selfLink }) => {
   );
 };
 
-const ItemSubheader = ({
-}) => {
+const ItemSubheader = ({}) => {
   // just an example
   return (
     <>
       <Item.Meta>
         <Grid columns={1}>
           <Grid.Column>
-            <Grid.Row className="ui double separated creatibutors">
-            </Grid.Row>
+            <Grid.Row className="ui double separated creatibutors"></Grid.Row>
           </Grid.Column>
         </Grid>
       </Item.Meta>
@@ -47,7 +45,8 @@ export const ResultsListItemComponent = ({
 }) => {
   const searchAppConfig = useContext(SearchConfigurationContext);
 
-  const title = _get(result, "metadata.title", '<no title>')
+  const generalParams = _get(result, "metadata.general_parameters");
+  const title = _get(generalParams, "record_information.title", "<no title>");
 
   return (
     <Overridable
@@ -65,8 +64,8 @@ export const ResultsListItemComponent = ({
                   searchUrl={searchAppConfig.ui_endpoint}
                   selfLink={result.links.self}
                 />
-                <ItemSubheader/>
-                <Item.Description/>
+                <ItemSubheader />
+                <Item.Description />
               </Grid.Column>
             </Grid.Row>
           </Grid>
