@@ -1,0 +1,23 @@
+vocabulary-affiliations:
+  - writer: vocabulary
+    vocabulary: affiliations
+    pid_type: v-aff
+    title:
+      en: Affiliations
+  - source: affiliations.yaml
+
+vocabulary-grants:
+  - writer: vocabulary
+    vocabulary: grants
+    pid_type: v-gra
+    title:
+      en: Grants
+  - source: grants.yaml
+
+vocabulary-organisms:
+  - writer: vocabulary
+    vocabulary: organisms
+    pid_type: v-org
+    title:
+      en: Organisms
+  - source: organisms.yaml

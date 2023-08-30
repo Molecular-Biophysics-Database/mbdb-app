@@ -65,3 +65,22 @@ target/
 
 # Vim swapfiles
 .*.sw?
+
+
+__pypackages__
+.env
+.oarepo-user.yaml
+.pdm-python
+pdm.lock
+
+.cookiecutters/*
+
+# editor support
+/package.json
+/tsconfig.json
+/jsconfig.json
+/.assets
+/node_modules
+
+# model repo
+/mbdb-model
