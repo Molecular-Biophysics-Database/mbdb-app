@@ -1,0 +1,4 @@
+{#def entity #}
+
+<MBDB.NameValue name="Mw">{{ entity.molecular_weight }}</MBDB.NameValue>
+<MBDB.NameValue name="Is chemically modified">{{ if len(entity.chemical_modifications) > 0 "Yes" else "No" }}</MBDB.NameValue>

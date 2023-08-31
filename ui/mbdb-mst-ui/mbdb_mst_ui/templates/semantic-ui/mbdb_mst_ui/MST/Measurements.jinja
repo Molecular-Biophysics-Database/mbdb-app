@@ -1,0 +1,22 @@
+{# def msp #}
+
+<div>
+  <h3 class="ui header">Measurements</h3>
+
+  <div class="mbdbw-name-value-list">
+    <MBDB.NameValue name="Experiment type">{{ msp.experiment_type }}</MBDB.NameValue>
+    <MBDB.NameValue name="Signal type">{{ msp.signal_type }}</MBDB.NameValue>
+    <MBDB.NameValue name="Excitation LED">
+      <span class="mbdbw-name-value-list">
+        <div>
+          <span>Power</span><span>{{ msp.excitation_led_power }}</span>
+        </div>
+        <div>
+          <span>Color</span><span>{{ msp.excitation_led_color }}</span>
+        </div>
+      </span>
+    </MBDB.NameValue>
+  </div>
+
+
+</div>
