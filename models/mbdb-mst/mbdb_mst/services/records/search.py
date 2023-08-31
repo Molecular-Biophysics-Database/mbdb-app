@@ -1,9 +1,7 @@
 from invenio_records_resources.services import (
     SearchOptions as InvenioSearchOptions,
-    QueryParser,
 )
-
-# from invenio_records_resources.services.records import
+from invenio_records_resources.services.records.queryparser import QueryParser
 from . import facets
 
 
