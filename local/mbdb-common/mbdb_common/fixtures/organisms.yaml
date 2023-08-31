@@ -239,6 +239,24 @@ title:
 props:
   rank: family
 ---
+id: '3044460'
+title:
+  en: Bartogtaviriformidae
+props:
+  rank: family
+---
+id: '3044461'
+title:
+  en: Brachygtaviriformidae
+props:
+  rank: family
+---
+id: '3044475'
+title:
+  en: Rhodogtaviriformidae
+props:
+  rank: family
+---
 id: '2'
 title:
   en: Bacteria
@@ -5978,23 +5996,5 @@ props:
 id: '2558671'
 title:
   en: Streptococcus satellite phage Javan387
-props:
-  rank: species
----
-id: '2558672'
-title:
-  en: Streptococcus satellite phage Javan388
-props:
-  rank: species
----
-id: '2558673'
-title:
-  en: Streptococcus satellite phage Javan390
-props:
-  rank: species
----
-id: '2558674'
-title:
-  en: Streptococcus satellite phage Javan391
 props:
   rank: species

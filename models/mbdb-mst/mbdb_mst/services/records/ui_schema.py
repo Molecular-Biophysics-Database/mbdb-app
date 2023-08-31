@@ -54,7 +54,7 @@ class GeneralParametersUISchema(ma.Schema):
     record_information = ma.fields.Nested(lambda: RecordInformationUISchema())
 
     schema_version = ma.fields.String(
-        required=True, validate=[ma_validate.OneOf(["0.9.6"])]
+        required=True, validate=[ma_validate.OneOf(["0.9.8"])]
     )
 
     technique = ma.fields.String(
@@ -256,7 +256,8 @@ class ConstituentsItemUISchema(ma.Schema):
     concentration = ma.fields.Nested(lambda: ConcentrationUISchema(), required=True)
 
     derived_from = ma.fields.String(
-        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
+        required=True,
+        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])],
     )
 
     details = ma.fields.Nested(lambda: DetailsUISchema(), required=True)
@@ -511,7 +512,8 @@ class EntitiesOfInterestItemUISchema(ma.Schema):
     )
 
     derived_from = ma.fields.String(
-        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
+        required=True,
+        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])],
     )
 
     details = ma.fields.Nested(lambda: DetailsUISchema(), required=True)
@@ -817,7 +819,7 @@ class MethodSpecificParametersUISchema(ma.Schema):
     )
 
     schema_version = ma.fields.String(
-        required=True, validate=[ma_validate.OneOf(["0.9.2"])]
+        required=True, validate=[ma_validate.OneOf(["0.9.3"])]
     )
 
     signal_type = ma.fields.String(
@@ -1370,7 +1372,8 @@ class Body_fluidUISchema(ma.Schema):
     concentration = ma.fields.Nested(lambda: ConcentrationUISchema(), required=True)
 
     derived_from = ma.fields.String(
-        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
+        required=True,
+        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])],
     )
 
     fluid = ma.fields.String(
@@ -1433,7 +1436,8 @@ class Cell_fractionUISchema(ma.Schema):
     concentration = ma.fields.Nested(lambda: ConcentrationUISchema(), required=True)
 
     derived_from = ma.fields.String(
-        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
+        required=True,
+        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])],
     )
 
     fraction = ma.fields.String(
@@ -1503,7 +1507,8 @@ class Complex_substance_of_biological_originBody_fluidUISchema(ma.Schema):
     additional_specifications = ma.fields.List(ma.fields.String())
 
     derived_from = ma.fields.String(
-        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
+        required=True,
+        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])],
     )
 
     fluid = ma.fields.String(
@@ -1566,7 +1571,8 @@ class Complex_substance_of_biological_originCell_fractionUISchema(ma.Schema):
     cell_type = ma.fields.String()
 
     derived_from = ma.fields.String(
-        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
+        required=True,
+        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])],
     )
 
     fraction = ma.fields.String(
@@ -1656,7 +1662,8 @@ class Complex_substance_of_biological_originUISchema(ma.Schema):
     concentration = ma.fields.Nested(lambda: ConcentrationUISchema(), required=True)
 
     derived_from = ma.fields.String(
-        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
+        required=True,
+        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])],
     )
 
     envelope_type = ma.fields.String(
@@ -1776,7 +1783,8 @@ class Complex_substance_of_biological_originVirionUISchema(ma.Schema):
     )
 
     derived_from = ma.fields.String(
-        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
+        required=True,
+        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])],
     )
 
     envelope_type = ma.fields.String(
@@ -1941,7 +1949,8 @@ class EntitiesOfInterestItemComplex_substance_of_biological_originUISchema(ma.Sc
     cell_type = ma.fields.String()
 
     derived_from = ma.fields.String(
-        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
+        required=True,
+        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])],
     )
 
     envelope_type = ma.fields.String(
@@ -2272,7 +2281,8 @@ class VirionUISchema(ma.Schema):
     concentration = ma.fields.Nested(lambda: ConcentrationUISchema(), required=True)
 
     derived_from = ma.fields.String(
-        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])]
+        required=True,
+        validate=[ma_validate.OneOf(["Body fluid", "Cell fraction", "Virion"])],
     )
 
     envelope_type = ma.fields.String(

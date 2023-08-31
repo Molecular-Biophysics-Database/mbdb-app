@@ -5,8 +5,8 @@ et-xmlfile==1.1.0
 frozendict==2.3.8
 jinja2-simple-tags==0.5.0
 langcodes==3.3.0
-oarepo-runtime==1.3.24
-oarepo-ui==5.0.44
-oarepo-vocabularies==2.0.25
+oarepo-runtime==1.4.1
+oarepo-ui==5.0.52
+oarepo-vocabularies==2.0.26
 openpyxl==3.1.2
 python-dotenv==1.0.0
