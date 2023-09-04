@@ -36,7 +36,7 @@ ARG SITE_DIR=/repository/sites/${REPOSITORY_SITE_NAME}
 
 LABEL maintainer="${REPOSITORY_SITE_ORGANIZATION}" \
     org.opencontainers.image.authors="${REPOSITORY_AUTHOR}" \
-    org.opencontainers.image.title="NR Site production image for ${REPOSITORY_SITE_NAME}" \
+    org.opencontainers.image.title="MBDB production image for ${REPOSITORY_SITE_NAME}" \
     org.opencontainers.image.url="${REPOSITORY_IMAGE_URL}" \
     org.opencontainers.image.source="${REPOSITORY_GITHUB_URL}" \
     org.opencontainers.image.documentation="${REPOSITORY_DOCUMENTATION}"
