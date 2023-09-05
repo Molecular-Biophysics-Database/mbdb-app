@@ -4,8 +4,7 @@ from invenio_records_resources.records.api import FileRecord
 from invenio_records_resources.records.systemfields import IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
 
-from mbdb_bli.files.models import DraftParentMetadata, MbdbBliFileMetadata
-from mbdb_bli.models import MbdbBliParentState
+from mbdb_bli.files.models import DraftParentMetadata, MbdbBliFileMetadata, ParentState
 
 
 class DraftParentRecord(ParentRecord):
@@ -31,6 +30,6 @@ class MbdbBliFile(FileRecord):
     dumper_extensions = []
     record_cls = None  # is defined inside the parent record
 
-    versions_model_cls = MbdbBliParentState
+    versions_model_cls = ParentState
 
     parent_record_cls = DraftParentRecord

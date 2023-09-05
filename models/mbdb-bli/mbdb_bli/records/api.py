@@ -14,7 +14,7 @@ from mbdb_bli.records.models import (
     DraftParentMetadata,
     MbdbBliDraftMetadata,
     MbdbBliMetadata,
-    MbdbBliParentState,
+    ParentState,
 )
 
 
@@ -325,7 +325,7 @@ class MbdbBliRecord(InvenioRecord):
         ),
     )
 
-    versions_model_cls = MbdbBliParentState
+    versions_model_cls = ParentState
 
     parent_record_cls = DraftParentRecord
 
@@ -635,7 +635,7 @@ class MbdbBliDraft(InvenioDraft):
         ),
     )
 
-    versions_model_cls = MbdbBliParentState
+    versions_model_cls = ParentState
 
     parent_record_cls = DraftParentRecord
     has_draft = HasDraftCheckField(config_key="HAS_DRAFT_CUSTOM_FIELD")
