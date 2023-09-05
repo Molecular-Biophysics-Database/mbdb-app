@@ -14,7 +14,7 @@ from mbdb_bli.records.models import (
     DraftParentMetadata,
     MbdbBliDraftMetadata,
     MbdbBliMetadata,
-    MbdbBliParentState,
+    ParentState,
 )
 
 
@@ -325,11 +325,11 @@ class MbdbBliRecord(InvenioRecord):
         ),
     )
 
-    versions_model_cls = MbdbBliParentState
+    versions_model_cls = ParentState
 
     parent_record_cls = DraftParentRecord
 
-    files = FilesField(file_cls=MbdbBliFile, store=False)
+    files = FilesField(file_cls=MbdbBliFile, store=False, create=False, delete=False)
 
     bucket_id = ModelField(dump=False)
     bucket = ModelField(dump=False)
@@ -635,7 +635,7 @@ class MbdbBliDraft(InvenioDraft):
         ),
     )
 
-    versions_model_cls = MbdbBliParentState
+    versions_model_cls = ParentState
 
     parent_record_cls = DraftParentRecord
     has_draft = HasDraftCheckField(config_key="HAS_DRAFT_CUSTOM_FIELD")

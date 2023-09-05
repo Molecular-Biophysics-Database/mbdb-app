@@ -124,7 +124,7 @@ def test_create_publish_new_revision(
     response = client.post(f"{ MbdbBliResourceConfig.url_prefix}{recid}/draft")
 
     assert response.status_code == 201
-    assert response.json["revision_id"] == 5
+    assert response.json["revision_id"] == 8
     _assert_single_item_response(response)
 
     # Update that new draft
@@ -150,7 +150,7 @@ def test_create_publish_new_revision(
     _assert_single_item_response(response)
 
     assert response.json["id"] == recid
-    assert response.json["revision_id"] == 2
+    assert response.json["revision_id"] == 3
     assert response.json["metadata"] == edited_metadata
 
     # Check it was actually edited
@@ -170,13 +170,13 @@ def test_mutiple_edit(client, input_data, search_clear):
     response = client.post(f"{ MbdbBliResourceConfig.url_prefix}{recid}/draft")
 
     assert response.status_code == 201
-    assert response.json["revision_id"] == 5
+    assert response.json["revision_id"] == 8
 
     # Request a second edit. Get the same draft (revision_id)
     response = client.post(f"{ MbdbBliResourceConfig.url_prefix}{recid}/draft")
 
     assert response.status_code == 201
-    assert response.json["revision_id"] == 5
+    assert response.json["revision_id"] == 8
 
     # Publish it to check the increment in version_id
     response = client.post(
@@ -189,7 +189,7 @@ def test_mutiple_edit(client, input_data, search_clear):
     response = client.post(f"{ MbdbBliResourceConfig.url_prefix}{recid}/draft")
 
     assert response.status_code == 201
-    assert response.json["revision_id"] == 8
+    assert response.json["revision_id"] == 13
 
 
 def test_redirect_to_latest_version(client, input_data, search_clear):

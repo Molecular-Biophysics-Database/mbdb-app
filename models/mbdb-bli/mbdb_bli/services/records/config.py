@@ -1,6 +1,7 @@
 from invenio_drafts_resources.services import (
     RecordServiceConfig as InvenioRecordDraftsServiceConfig,
 )
+from invenio_drafts_resources.services.records.components import DraftFilesComponent
 from invenio_drafts_resources.services.records.config import is_record
 from invenio_records_resources.services import ConditionalLink, RecordLink
 from invenio_records_resources.services.records.components import (
@@ -37,6 +38,7 @@ class MbdbBliServiceConfig(
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
+        DraftFilesComponent,
         FilesOptionsComponent,
         DataComponent,
     ]
@@ -48,7 +50,11 @@ class MbdbBliServiceConfig(
     def links_item(self):
         return {
             "draft": RecordLink("{+api}/{self.url_prefix}{id}/draft"),
-            "files": RecordLink("{self.url_prefix}{id}/files"),
+            "files": ConditionalLink(
+                cond=is_record,
+                if_=RecordLink("{+api}/records/{id}/files"),
+                else_=RecordLink("{+api}/records/{id}/draft/files"),
+            ),
             "latest": RecordLink("{+api}/{self.url_prefix}{id}/versions/latest"),
             "latest_html": RecordLink("{+ui}/{self.url_prefix}{id}/latest"),
             "publish": RecordLink("{+api}/{self.url_prefix}{id}/draft/actions/publish"),

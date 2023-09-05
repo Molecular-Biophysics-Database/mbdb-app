@@ -29,6 +29,7 @@ class MbdbBliFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig)
     ]
 
     model = "mbdb_bli"
+    allow_upload = False
 
     @property
     def file_links_list(self):
