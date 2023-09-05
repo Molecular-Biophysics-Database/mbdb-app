@@ -1,6 +1,6 @@
 import importlib_metadata
 from flask_resources import ResponseHandler
-from invenio_records_resources.resources import RecordResourceConfig
+from invenio_drafts_resources.resources import RecordResourceConfig
 
 from mbdb_mst.resources.records.ui import MbdbMstUIJSONSerializer
 
