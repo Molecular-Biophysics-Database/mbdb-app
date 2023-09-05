@@ -220,21 +220,9 @@
             "extra-code": "",
             "generate": true
         },
-        "files-field": {
-            "generate": true,
-            "field-class": "FilesField",
-            "file-class": "MbdbBliFile",
-            "field-args": [
-                "store=False"
-            ],
-            "imports": [
-                {
-                    "import": "invenio_records_resources.records.systemfields.FilesField"
-                },
-                {
-                    "import": "mbdb_bli.files.api.MbdbBliFile"
-                }
-            ]
+        "translations": {
+            "module": "mbdb_bli.translations",
+            "alias": "mbdb_bli_file"
         },
         "record-metadata": {
             "use-versioning": false,
@@ -260,6 +248,22 @@
             ],
             "table": "mbdbblifile_metadata",
             "alias": "mbdb_bli_file"
+        },
+        "files-field": {
+            "generate": true,
+            "field-class": "FilesField",
+            "file-class": "MbdbBliFile",
+            "field-args": [
+                "store=False"
+            ],
+            "imports": [
+                {
+                    "import": "invenio_records_resources.records.systemfields.FilesField"
+                },
+                {
+                    "import": "mbdb_bli.files.api.MbdbBliFile"
+                }
+            ]
         },
         "service-config": {
             "base-classes": [
@@ -332,16 +336,65 @@
                 }
             ]
         },
-        "translations": {
-            "module": "mbdb_bli.translations",
-            "alias": "mbdb_bli_file"
-        },
         "mapping": {
             "generate": true,
             "alias": "mbdb_bli_file",
             "module": "mbdb_bli.files.mappings",
             "index": "mbdb_bli_file-mbdb_bli_file-1.0.0",
             "file": "mbdb_bli/files/mappings/os-v2/mbdb_bli_file/mbdb_bli_file-1.0.0.json"
+        },
+        "draft-parent-record": {
+            "class": "mbdb_bli.files.api.DraftParentRecord",
+            "base-classes": [
+                "ParentRecord"
+            ],
+            "imports": [
+                {
+                    "import": "invenio_drafts_resources.records.api.ParentRecord"
+                }
+            ],
+            "module": "mbdb_bli.files.api",
+            "generate": true
+        },
+        "draft-parent-record-state": {
+            "class": "mbdb_bli.files.models.ParentState",
+            "base-classes": [
+                "db.Model",
+                "ParentRecordStateMixin"
+            ],
+            "imports": [
+                {
+                    "import": "invenio_drafts_resources.records.ParentRecordStateMixin"
+                },
+                {
+                    "import": "invenio_db.db"
+                }
+            ],
+            "module": "mbdb_bli.files.models",
+            "generate": true,
+            "table": "parent_state_metadata"
+        },
+        "draft-parent-record-metadata": {
+            "class": "mbdb_bli.files.models.DraftParentMetadata",
+            "base-classes": [
+                "db.Model",
+                "RecordMetadataBase"
+            ],
+            "imports": [
+                {
+                    "import": "invenio_records.models.RecordMetadataBase"
+                },
+                {
+                    "import": "invenio_db.db"
+                }
+            ],
+            "module": "mbdb_bli.files.models",
+            "generate": true
+        },
+        "draft-parent-record-schema": {
+            "name": "parent-v1.0.0.json",
+            "file": "mbdb_bli/files/jsonschemas/parent-v1.0.0.json",
+            "generate": true
         },
         "permissions": {
             "class": "mbdb_bli.services.records.permissions.MbdbBliPermissionPolicy",
