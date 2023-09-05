@@ -1,0 +1,13 @@
+{#def entity #}
+
+{% from "mbdb_mst_ui/Common/renderers.jinja" import no_value, render_if %}
+{% from "mbdb_mst_ui/MBDB/renderers.jinja" import dictionary_entry %}
+
+<MBDB.NameValue.Item name="Organism">
+  {{ render_if(
+      entity.organism is defined,
+      dictionary_entry,
+      no_value(),
+      entry=entity.organism)
+  }}
+</MBDB.NameValue.Item>

@@ -1,0 +1,7 @@
+{% macro stoichiometry(entity_a, entity_b) %}
+  {% if entity_a is defined and entity_b is defined %}
+    1 : {{ entity_b.copy_number/entity_a.copy_number }}
+  {% else %}
+    N/A
+  {% endif %}
+{% endmacro %}

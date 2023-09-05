@@ -1,22 +1,42 @@
-{# def msp #}
+{# def gp, msp #}
+
+{% set kd_derived_parameters = gp.derived_parameters | selectattr("type", "equalto", "Constant of dissociation (K_D)") %}
 
 <div>
-  <h3 class="ui header">Measurements</h3>
+  <h3 class="mbdbv-header">Measurements</h3>
 
-  <div class="mbdbw-name-value-list">
-    <MBDB.NameValue name="Experiment type">{{ msp.experiment_type }}</MBDB.NameValue>
-    <MBDB.NameValue name="Signal type">{{ msp.signal_type }}</MBDB.NameValue>
-    <MBDB.NameValue name="Excitation LED">
-      <span class="mbdbw-name-value-list">
-        <div>
-          <span>Power</span><span>{{ msp.excitation_led_power }}</span>
-        </div>
-        <div>
-          <span>Color</span><span>{{ msp.excitation_led_color }}</span>
-        </div>
-      </span>
-    </MBDB.NameValue>
+  <div class="mbdbv-block mbdbv-framed">
+    <h4 class="mbdbv-header">Experimental setup</h4>
+    <MBDB.NameValue.List>
+      <MBDB.NameValue.Item name="Experiment type">{{ msp.experiment_type }}</MBDB.NameValue.Item>
+      <MBDB.NameValue.Item name="Signal type">{{ msp.signal_type }}</MBDB.NameValue.Item>
+      <MBDB.NameValue.Item name="Excitation LED">
+        <span class="mbdbw-name-value-list">
+          <div>
+            <span>Power</span><span>{{ msp.excitation_led_power }}</span>
+          </div>
+          <div>
+            <span>Color</span><span>{{ msp.excitation_led_color }}</span>
+          </div>
+        </span>
+      </MBDB.NameValue.Item>
+      <MBDB.NameValue.Item name="Laser power">{{ msp.ir_mst_laser_power }}</MBDB.NameValue.Item>
+    </MBDB.NameValue.List>
   </div>
 
+  {% for measurement in msp.measurements %}
+    <div class="mbdbv-block mbdbv-framed">
+      <h4 class="mbdbv-header">Measurement {{ loop.index }}</h4>
 
+      <MBDB.NameValue.List>
+        <MBDB.NameValue.Item name="Name">{{ measurement.name }}</MBDB.NameValue.Item>
+        <MBDB.NameValue.Item name="Position">{{ measurement.position }}</MBDB.NameValue.Item>
+
+        <MBDB.NameValue.Inset>
+          <MST.Sample.Index gp={gp} sample={measurement.sample} />
+        </MBDB.NameValue.Inset>
+        <MBDB.NameValue.Spacer />
+      </MBDB.NameValue.List>
+    </div>
+  {% endfor %}
 </div>

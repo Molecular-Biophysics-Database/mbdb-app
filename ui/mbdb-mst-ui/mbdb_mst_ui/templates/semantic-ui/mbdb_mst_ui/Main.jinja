@@ -1,0 +1,26 @@
+{# def metadata, ui, layout #}
+
+<script src="/static/jquery-3.7.1.min.js"></script>
+<script src="/static/semantic.min.js"></script>
+
+<div class="ui container" id="view-mode">
+  <div class="ui top attached tabular menu">
+    <a class="active item" data-tab="simple">Simple</a>
+    <a class="item" data-tab="complete">Complete</a>
+  </div>
+
+  <div class="ui bottom attached active tab segment" data-tab="simple">
+    <Simple metadata={metadata} ui={ui} layout={layout} />
+  </div>
+  <div class="ui bottom attached tab segment" data-tab="complete">
+    <Complete metadata={metadata} ui={ui} layout={layout} />
+  </div>
+</div>
+
+<script>
+  $('#view-mode .menu .item')
+    .tab({
+      context: $('#view-mode')
+    })
+  ;
+</script>

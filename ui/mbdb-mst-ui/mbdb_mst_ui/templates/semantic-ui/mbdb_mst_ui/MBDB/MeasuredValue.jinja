@@ -1,0 +1,12 @@
+{# def value #}
+
+<span>
+  <span>{{ value.value }}</span>&nbsp;<span>{{ value.unit }}</span>
+  <span>
+    {% if value.value_error is undefined %}
+      (Error not provided)
+    {% else %}
+      ({{ value.value_error.lower_error }} - {{ value.value_error.upper_error }}{{ " %" if value.value_error.errors_are_relative == True else "" }})
+    {% endif %}
+  </span>
+</span>

@@ -1,6 +1,93 @@
-.mbdbw-name-value-list {
+/* vim: set sw=4 ts=4 sts=4 expandtab : */
+
+:root {
+    --mbdbv-font-0: 12pt;
+    --mbdbv-font-p1: 14pt;
+    --mbdbv-font-p2: 16pt;
+
+    --mbdbv-hgap: 0.5rem;
+    --mbdbv-2hgap: calc(2 * var(--mbdbv-hgap));
+    --mbdbv-h2gap: calc(0.5 * var(--mbdbv-hgap));
+    --mbdbv-vgap: 0.5rem;
+    --mbdbv-2vgap: calc(2 * var(--mbdbv-vgap));
+    --mbdbv-v2gap: calc(0.5 * var(--mbdbv-vgap));
+
+    --mbdbv-border-radius: 5px;
+}
+
+h3[class="mbdbv-header"] {
+    font-size: var(--mbdbv-font-p2);
+    font-weight: bold;
+
+    padding: 0.25rem 0 0 0;
+    margin: 0 0 var(--mbdbv-v2gap) 0;
+}
+
+h4[class="mbdbv-header"] {
+    font-size: var(--mbdbv-font-p1);
+    font-weight: bold;
+
+    padding: 0.25rem 0 0 0;
+    margin: 0 0 var(--mbdbv-v2gap) 0;
+}
+
+h5[class="mbdbv-header"] {
+    font-size: var(--mbdbv-font-p0);
+    font-weight: bold;
+
+    padding: 0;
+    margin: 0;
+}
+
+.mbdbv-block {
+    padding: var(--mbdbv-2hgap);
+}
+
+.mbdbv-emphasize {
+    font-style: oblique;
+}
+
+.mbdbv-framed {
+    border: 1px solid black;
+
+    border-top-left-radius: var(--mbdbv-border-radius);
+    border-bottom-left-radius: var(--mbdbv-border-radius);
+}
+
+.mbdbv-name-value-item-name {
+    font-weight: bold;
+}
+
+div[class="mbdbv-name-value-item-value"] > div[class="mbdbv-name-value-waterfall"] {
+    margin-left: var(--mbdbv-hgap);
+}
+
+div[class="mbdbv-name-value-waterfall"] > div[class="mbdbv-name-value-item-value"] {
+    margin-left: var(--mbdbv-hgap);
+}
+
+.mbdbv-name-value-inset {
+    grid-column: 1 / span 2;
+}
+
+.mbdbv-name-value-list {
     column-gap: 1rem;
     display: grid;
     grid-template-columns: auto 1fr;
+}
 
+.mbdbv-hoffset {
+    margin-left: var(--mbdbv-hgap);
+}
+
+.mbdbv-spacer {
+    height: 1rem;
+}
+
+.mbdbv-voffset {
+    margin-top: var(--mbdbv-vgap);
+}
+
+.mbdbv-block + .mbdbv-block {
+    margin-top: var(--mbdbv-hgap);
 }

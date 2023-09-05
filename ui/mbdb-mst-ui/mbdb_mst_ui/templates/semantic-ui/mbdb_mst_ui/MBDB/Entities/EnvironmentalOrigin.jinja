@@ -1,0 +1,10 @@
+{# def entity #}
+
+<MBDB.NameValue.Item name="Source">{{ entity.source }}</MBDB.NameValue.Item>
+<MBDB.NameValue.Item name="Location">
+  {% if entity.location is defined %}
+    <MBDB.Location value={entity.location} />
+  {% else %}
+    <MBDB.NoValue />
+  {% endif %}
+</MBDB.NameValue.Item>

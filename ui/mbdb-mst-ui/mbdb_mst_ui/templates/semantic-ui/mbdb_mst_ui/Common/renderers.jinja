@@ -1,0 +1,11 @@
+{% macro no_value() %}
+  <Common.NoValue />
+{% endmacro %}
+
+{% macro render_if(condition, content, default=no_value()) %}
+  {% if condition == True %}
+    {{ content(**kwargs) }}
+  {% else %}
+    {{ default }}
+  {% endif %}
+{% endmacro %}

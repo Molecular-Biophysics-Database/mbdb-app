@@ -1,0 +1,38 @@
+{# def metadata, ui, layout #}
+
+{% macro render_item(item) %}
+  {% if item is mapping %}
+    {{ walk_dictionary(item) }}
+  {% elif item is sequence and item is not string %}
+    {{ walk_sequence(item) }}
+  {% else %}
+    {{ item }}
+  {% endif %}
+{% endmacro %}
+
+{% macro walk_dictionary(d) %}
+  <MBDB.NameValue.Waterfall>
+    {% for key, value in d.items() %}
+      <MBDB.NameValue.Item name={key | nice_name}>
+        {{ render_item(value) }}
+      </MBDB.NameValue.Item>
+    {% endfor %}
+  </MBDB.NameValue.Waterfall>
+{% endmacro %}
+
+{% macro walk_sequence(s) %}
+  {% for item in s %}
+    {{ render_item(item) }}
+  {% endfor %}
+{% endmacro %}
+
+<div>
+  <MBDB.NameValue.Waterfall>
+    <MBDB.NameValue.Item name='General parameters'>
+      {{ walk_dictionary(metadata.general_parameters) }}
+    </MBDB.NameValue.Item>
+    <MBDB.NameValue.Item name='Method specific parameters'>
+      {{ walk_dictionary(metadata.method_specific_parameters) }}
+    </MBDB.NameValue.Item>
+  </MBDB.NameValue.Waterfall>
+</div>

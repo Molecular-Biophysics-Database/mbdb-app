@@ -1,0 +1,24 @@
+{# def gp, msp #}
+
+{% set kd_derived_parameters = gp.derived_parameters | selectattr("type", "equalto", "Constant of dissociation (K_D)") %}
+
+<div>
+  {% for datum in msp.data_analysis %}
+    {% set dp = (gp.derived_parameters | selectattr("id", "equalto", datum.derived_parameter.id) | list)[0] %}
+
+    <div class="mbdbv-block">
+      <h5 class="mbdbv-header">{{ dp.name }}</h5>
+      <MBDB.NameValue.List>
+        <MBDB.NameValue.Item name={dp.type}>
+          <MBDB.MeasuredValue value={dp} />
+        </MBDB.NameValue.Item>
+        <MBDB.NameValue.Item name="Fitting model">
+          {{ dp | maybe_get('data_fitting.model') }}
+          {%- if dp | maybe_get('data_fitting.quality') is defined -%}
+            ({{ dp.data_fitting.quality }})
+          {%- endif -%}
+        </MBDB.NameValue.Item>
+      </MBDB.NameValue.List>
+    </div>
+  {% endfor %}
+</div>

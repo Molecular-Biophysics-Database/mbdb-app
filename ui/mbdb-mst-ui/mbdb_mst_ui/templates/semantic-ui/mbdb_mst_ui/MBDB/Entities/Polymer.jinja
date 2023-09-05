@@ -1,9 +1,9 @@
 {# def entity #}
 
-<MBDB.NameValue name="Organism">{{ entity.organism }}</MBDB.NameValue>
-<MBDB.NameValue name="Sequence">{{ entity.sequence }}</MBDB.NameValue>
-<MBDB.NameValue name="Modifications">
+<MBDB.NameValue.Item name="Organism">{{ entity.organism }}</MBDB.NameValue.Item>
+<MBDB.NameValue.Item name="Sequence">{{ entity.sequence }}</MBDB.NameValue.Item>
+<MBDB.NameValue.Item name="Modifications">
   {% if entity.modifications is defined %}
     <MBDB.Entities.Polymer.Modifications modifications={{ entity.modifications }} />
   {% endif %}
-</MBDB.NameValue>
+</MBDB.NameValue.Item>

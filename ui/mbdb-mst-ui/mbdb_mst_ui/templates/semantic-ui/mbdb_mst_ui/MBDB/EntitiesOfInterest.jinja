@@ -1,18 +1,27 @@
 {#def entities #}
 
-<div style="display: grid; grid-template-columns: auto 1fr; column-gap: 1rem;">
+<MBDB.NameValue.List>
   {% for entity in entities %}
-    <MBDB.NameValue name="Name">{{ entity.name }}</MBDB.NameValue>
-    <MBDB.NameValue name="Type">{{ entity.type }}</MBDB.NameValue>
+    <MBDB.NameValue.Item name="Name">{{ entity.name }}</MBDB.NameValue.Item>
+    <MBDB.NameValue.Item name="Type">{{ entity.type }}</MBDB.NameValue.Item>
 
-    {% if entity.type == "Polymer" %}
-      <MBDB.Entities.Polymer entity={{ entity }} />
+    {% if entity.type == "Chemical" %}
+      <MBDB.Entities.Chemical entity={{ entity }} />
     {% elif entity.type == "Complex substance of biological origin" %}
-      <MBDB.Entities.Biological entity={{ entity }} />
+      <MBDB.Entities.BiologicalOrigin entity={{ entity }} />
+    {% elif entity.type == "Complex substance of chemical origin" %}
+      <MBDB.Entities.ChemicalOrigin entity={{ entity }} />
+    {% elif entity.type == "Complex substance of environmental origin" %}
+      <MBDB.Entities.EnvironmentalOrigin entity={{ entity }} />
+    {% elif entity.type == "Complex substance of industrial production origin" %}
+      <MBDB.Entities.IndustrialOrigin entity={{ entity }} />
     {% elif entity.type == "Molecular assembly" %}
-    {% else %}
-      <div>xx</div>
+      <MBDB.Entities.MolecularAssembly entity={{ entity }} />
+    {% elif entity.type == "Polymer" %}
+      <MBDB.Entities.Polymer entity={{ entity }} />
     {% endif %}
 
+    <MBDB.NameValue.Spacer />
+
   {% endfor %}
-</div>
+</MBDB.NameValue.List>

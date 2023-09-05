@@ -1,0 +1,32 @@
+{#def metadata, ui, layout #}
+
+<div class="ui container">
+  <h1 class="ui header">{{ metadata.general_parameters.record_information.title }}</h1>
+
+  <h3 class="mdbv-header">{{ metadata.general_parameters.technique }}</h3>
+
+  <div class="mbdbv-block mbdbv-framed">
+    <h3 class="mbdbv-header">Instrument</h3>
+    <MBDB.Instrument instrument={metadata.general_parameters.instrument} />
+  </div>
+
+  <div class="mbdbv-block mbdbv-framed">
+    <h3 class="mbdbv-header">Entities of interest</h3>
+    <MBDB.EntitiesOfInterest entities={metadata.general_parameters.chemical_information.entities_of_interest } />
+  </div>
+
+  <div class="mbdbv-block mbdbv-framed">
+    <MST.Measurements
+      gp={metadata.general_parameters}
+      msp={metadata.method_specific_parameters}
+    />
+  </div>
+
+  <div class="mbdbv-block mbdbv-framed">
+    <h3 class="mbdbv-header">Results</h3>
+    <MST.Results
+      gp={metadata.general_parameters}
+      msp={metadata.method_specific_parameters}
+    />
+  </div>
+</div>
