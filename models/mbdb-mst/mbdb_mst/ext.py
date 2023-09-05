@@ -43,6 +43,8 @@ class Mbdb_mstExt:
     def service_records(self):
         return config.MBDB_MST_RECORD_SERVICE_CLASS(
             config=config.MBDB_MST_RECORD_SERVICE_CONFIG(),
+            files_service=self.service_files,
+            draft_files_service=self.service_draft_files,
         )
 
     @cached_property
