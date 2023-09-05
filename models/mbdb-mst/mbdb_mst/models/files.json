@@ -353,7 +353,7 @@
             "generate": true
         },
         "draft-parent-record-state": {
-            "class": "mbdb_mst.files.models.ParentState",
+            "class": "mbdb_mst.files.models.MbdbMstParentState",
             "base-classes": [
                 "db.Model",
                 "ParentRecordStateMixin"

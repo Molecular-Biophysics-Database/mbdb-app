@@ -34,7 +34,7 @@ class MbdbBliDraftMetadata(db.Model, DraftMetadataBase, ParentRecordMixin):
     __parent_record_model__ = DraftParentMetadata
 
 
-class ParentState(db.Model, ParentRecordStateMixin):
+class MbdbBliParentState(db.Model, ParentRecordStateMixin):
     table_name = "mbdbbli_parent_state_metadata"
 
     __parent_record_model__ = DraftParentMetadata
