@@ -29,6 +29,7 @@ class MbdbSprFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig)
     ]
 
     model = "mbdb_spr"
+    allow_upload = False
 
     @property
     def file_links_list(self):

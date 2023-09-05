@@ -224,6 +224,24 @@
             "module": "mbdb_spr.translations",
             "alias": "mbdb_spr_file"
         },
+        "files-field": {
+            "field-args": [
+                "store=False",
+                "create=False",
+                "delete=False"
+            ],
+            "generate": true,
+            "field-class": "FilesField",
+            "file-class": "MbdbSprFile",
+            "imports": [
+                {
+                    "import": "invenio_records_resources.records.systemfields.FilesField"
+                },
+                {
+                    "import": "mbdb_spr.files.api.MbdbSprFile"
+                }
+            ]
+        },
         "record-metadata": {
             "use-versioning": false,
             "generate": true,
@@ -248,22 +266,6 @@
             ],
             "table": "mbdbsprfile_metadata",
             "alias": "mbdb_spr_file"
-        },
-        "files-field": {
-            "generate": true,
-            "field-class": "FilesField",
-            "file-class": "MbdbSprFile",
-            "field-args": [
-                "store=False"
-            ],
-            "imports": [
-                {
-                    "import": "invenio_records_resources.records.systemfields.FilesField"
-                },
-                {
-                    "import": "mbdb_spr.files.api.MbdbSprFile"
-                }
-            ]
         },
         "service-config": {
             "base-classes": [
@@ -344,57 +346,13 @@
             "file": "mbdb_spr/files/mappings/os-v2/mbdb_spr_file/mbdb_spr_file-1.0.0.json"
         },
         "draft-parent-record": {
-            "class": "mbdb_spr.files.api.DraftParentRecord",
-            "base-classes": [
-                "ParentRecord"
-            ],
-            "imports": [
-                {
-                    "import": "invenio_drafts_resources.records.api.ParentRecord"
-                }
-            ],
-            "module": "mbdb_spr.files.api",
-            "generate": true
-        },
-        "draft-parent-record-state": {
-            "class": "mbdb_spr.files.models.ParentState",
-            "base-classes": [
-                "db.Model",
-                "ParentRecordStateMixin"
-            ],
-            "imports": [
-                {
-                    "import": "invenio_drafts_resources.records.ParentRecordStateMixin"
-                },
-                {
-                    "import": "invenio_db.db"
-                }
-            ],
-            "module": "mbdb_spr.files.models",
-            "generate": true,
-            "table": "parent_state_metadata"
+            "skip": true
         },
         "draft-parent-record-metadata": {
-            "class": "mbdb_spr.files.models.DraftParentMetadata",
-            "base-classes": [
-                "db.Model",
-                "RecordMetadataBase"
-            ],
-            "imports": [
-                {
-                    "import": "invenio_records.models.RecordMetadataBase"
-                },
-                {
-                    "import": "invenio_db.db"
-                }
-            ],
-            "module": "mbdb_spr.files.models",
-            "generate": true
+            "skip": true
         },
-        "draft-parent-record-schema": {
-            "name": "parent-v1.0.0.json",
-            "file": "mbdb_spr/files/jsonschemas/parent-v1.0.0.json",
-            "generate": true
+        "draft-parent-record-state": {
+            "skip": true
         },
         "permissions": {
             "class": "mbdb_spr.services.records.permissions.MbdbSprPermissionPolicy",
