@@ -278,6 +278,10 @@
                     "import": "oarepo_runtime.config.service.PermissionsPresetsConfigMixin"
                 },
                 {
+                    "import": "invenio_records_resources.services.RecordServiceConfig",
+                    "alias": "InvenioRecordServiceConfig"
+                },
+                {
                     "import": "invenio_records_resources.services.records.components.DataComponent"
                 }
             ],
@@ -353,7 +357,7 @@
             "generate": true
         },
         "draft-parent-record-state": {
-            "class": "mbdb_mst.files.models.MbdbMstParentState",
+            "class": "mbdb_mst.files.models.ParentState",
             "base-classes": [
                 "db.Model",
                 "ParentRecordStateMixin"
@@ -413,15 +417,15 @@
         "properties": {
             "$schema": {
                 "type": "keyword",
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
                 "ui": {
                     "marshmallow": {
                         "read": false,
                         "write": false
                     }
-                },
-                "marshmallow": {
-                    "read": false,
-                    "write": false
                 },
                 "sample": {
                     "skip": true
@@ -470,15 +474,15 @@
             },
             "id": {
                 "type": "keyword",
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
                 "ui": {
                     "marshmallow": {
                         "read": false,
                         "write": false
                     }
-                },
-                "marshmallow": {
-                    "read": false,
-                    "write": false
                 },
                 "sample": {
                     "skip": true
@@ -504,6 +508,11 @@
                 "required": true,
                 "minItems": 1,
                 "help.en": "List of the processing steps performed on the file before it was deposited (e.g. exported to xlsx)",
+                "marshmallow": {
+                    "validators": [
+                        "ma.validate.Length(min=1)"
+                    ]
+                },
                 "items": {
                     "type": "object",
                     "marshmallow": {
@@ -554,7 +563,12 @@
                 "type": "integer",
                 "required": true,
                 "minimum": 0,
-                "help.en": "Size of the file"
+                "help.en": "Size of the file",
+                "marshmallow": {
+                    "validators": [
+                        "ma.validate.Range(min=0)"
+                    ]
+                }
             },
             "updated": {
                 "type": "date",

@@ -7,6 +7,7 @@ from invenio_records_resources.services.records.components import (
     DataComponent,
     FilesOptionsComponent,
 )
+from oarepo_runtime.config.service import PermissionsPresetsConfigMixin
 
 from mbdb_mst.records.api import MbdbMstDraft, MbdbMstRecord
 from mbdb_mst.services.records.permissions import MbdbMstPermissionPolicy

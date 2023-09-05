@@ -14,7 +14,7 @@ from mbdb_mst.records.models import (
     DraftParentMetadata,
     MbdbMstDraftMetadata,
     MbdbMstMetadata,
-    MbdbMstParentState,
+    ParentState,
 )
 
 
@@ -310,7 +310,7 @@ class MbdbMstRecord(InvenioRecord):
         ),
     )
 
-    versions_model_cls = MbdbMstParentState
+    versions_model_cls = ParentState
 
     parent_record_cls = DraftParentRecord
 
@@ -605,7 +605,7 @@ class MbdbMstDraft(InvenioDraft):
         ),
     )
 
-    versions_model_cls = MbdbMstParentState
+    versions_model_cls = ParentState
 
     parent_record_cls = DraftParentRecord
     has_draft = HasDraftCheckField(config_key="HAS_DRAFT_CUSTOM_FIELD")
