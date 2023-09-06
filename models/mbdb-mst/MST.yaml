@@ -108,6 +108,7 @@ record:
         ^required: true
         use: '#/$defs/Processing_step'
   draft: {}
+  draft-files: {}
   mapping:
     template:
       settings:
