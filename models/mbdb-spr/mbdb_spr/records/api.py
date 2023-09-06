@@ -8,18 +8,18 @@ from invenio_vocabularies.records.api import Vocabulary
 from oarepo_runtime.drafts.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.relations import InternalRelation, PIDRelation, RelationsField
 
-from mbdb_spr.files.api import MbdbSprFile
+from mbdb_spr.files.api import MbdbSprFile, MbdbSprFileDraft
 from mbdb_spr.records.dumper import MbdbSprDraftDumper, MbdbSprDumper
 from mbdb_spr.records.models import (
-    DraftParentMetadata,
     MbdbSprDraftMetadata,
     MbdbSprMetadata,
+    MbdbSprParentMetadata,
     MbdbSprParentState,
 )
 
 
-class DraftParentRecord(ParentRecord):
-    model_cls = DraftParentMetadata
+class MbdbSprParentRecord(ParentRecord):
+    model_cls = MbdbSprParentMetadata
 
     # schema = ConstantField(
     #    "$schema", "local://parent-v1.0.0.json"
@@ -351,7 +351,7 @@ class MbdbSprRecord(InvenioRecord):
 
     versions_model_cls = MbdbSprParentState
 
-    parent_record_cls = DraftParentRecord
+    parent_record_cls = MbdbSprParentRecord
 
     files = FilesField(file_cls=MbdbSprFile, store=False, create=False, delete=False)
 
@@ -685,12 +685,19 @@ class MbdbSprDraft(InvenioDraft):
 
     versions_model_cls = MbdbSprParentState
 
-    parent_record_cls = DraftParentRecord
+    parent_record_cls = MbdbSprParentRecord
     has_draft = HasDraftCheckField(config_key="HAS_DRAFT_CUSTOM_FIELD")
 
+    files = FilesField(file_cls=MbdbSprFileDraft, store=False)
 
-MbdbSprFile.record_cls = MbdbSprRecord
+    bucket_id = ModelField(dump=False)
+    bucket = ModelField(dump=False)
+
 
 MbdbSprRecord.has_draft = HasDraftCheckField(
     draft_cls=MbdbSprDraft, config_key="HAS_DRAFT_CUSTOM_FIELD"
 )
+
+MbdbSprFile.record_cls = MbdbSprRecord
+
+MbdbSprFileDraft.record_cls = MbdbSprDraft

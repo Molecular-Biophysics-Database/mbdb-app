@@ -66,3 +66,16 @@ class Mbdb_sprExt:
             service=self.service_files,
             config=config.MBDB_SPR_FILES_RESOURCE_CONFIG(),
         )
+
+    @cached_property
+    def service_draft_files(self):
+        return config.MBDB_SPR_DRAFT_FILES_SERVICE_CLASS(
+            config=config.MBDB_SPR_DRAFT_FILES_SERVICE_CONFIG(),
+        )
+
+    @cached_property
+    def resource_draft_files(self):
+        return config.MBDB_SPR_DRAFT_FILES_RESOURCE_CLASS(
+            service=self.service_draft_files,
+            config=config.MBDB_SPR_DRAFT_FILES_RESOURCE_CONFIG(),
+        )

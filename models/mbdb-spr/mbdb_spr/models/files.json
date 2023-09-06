@@ -181,6 +181,10 @@
             "generate": true,
             "skip": false
         },
+        "translations": {
+            "module": "mbdb_spr.translations",
+            "alias": "mbdb_spr_file"
+        },
         "ui": {
             "module": "mbdb_spr.models",
             "file": "mbdb_spr/models/ui.json",
@@ -199,6 +203,24 @@
                     }
                 ]
             }
+        },
+        "files-field": {
+            "field-args": [
+                "store=False",
+                "create=False",
+                "delete=False"
+            ],
+            "generate": true,
+            "field-class": "FilesField",
+            "file-class": "MbdbSprFile",
+            "imports": [
+                {
+                    "import": "invenio_records_resources.records.systemfields.FilesField"
+                },
+                {
+                    "import": "mbdb_spr.files.api.MbdbSprFile"
+                }
+            ]
         },
         "json-serializer": {
             "module": "mbdb_spr.resources.files.ui",
@@ -219,28 +241,6 @@
             ],
             "extra-code": "",
             "generate": true
-        },
-        "translations": {
-            "module": "mbdb_spr.translations",
-            "alias": "mbdb_spr_file"
-        },
-        "files-field": {
-            "field-args": [
-                "store=False",
-                "create=False",
-                "delete=False"
-            ],
-            "generate": true,
-            "field-class": "FilesField",
-            "file-class": "MbdbSprFile",
-            "imports": [
-                {
-                    "import": "invenio_records_resources.records.systemfields.FilesField"
-                },
-                {
-                    "import": "mbdb_spr.files.api.MbdbSprFile"
-                }
-            ]
         },
         "record-metadata": {
             "use-versioning": false,
@@ -264,7 +264,7 @@
                     "import": "invenio_records_resources.records.FileRecordModelMixin"
                 }
             ],
-            "table": "mbdbsprfile_metadata",
+            "table": "mbdb_spr_file_metadata",
             "alias": "mbdb_spr_file"
         },
         "service-config": {
@@ -338,13 +338,6 @@
                 }
             ]
         },
-        "mapping": {
-            "generate": true,
-            "alias": "mbdb_spr_file",
-            "module": "mbdb_spr.files.mappings",
-            "index": "mbdb_spr_file-mbdb_spr_file-1.0.0",
-            "file": "mbdb_spr/files/mappings/os-v2/mbdb_spr_file/mbdb_spr_file-1.0.0.json"
-        },
         "draft-parent-record": {
             "skip": true
         },
@@ -353,6 +346,13 @@
         },
         "draft-parent-record-state": {
             "skip": true
+        },
+        "mapping": {
+            "generate": true,
+            "alias": "mbdb_spr_file",
+            "module": "mbdb_spr.files.mappings",
+            "index": "mbdb_spr_file-mbdb_spr_file-1.0.0",
+            "file": "mbdb_spr/files/mappings/os-v2/mbdb_spr_file/mbdb_spr_file-1.0.0.json"
         },
         "permissions": {
             "class": "mbdb_spr.services.records.permissions.MbdbSprPermissionPolicy",
