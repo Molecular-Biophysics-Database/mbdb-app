@@ -23,7 +23,8 @@ models:
     permissions_presets: read_only
     pid_type: bli
     run_tests: skip
-    sites: []
+    sites:
+    - mbdb-site
     update_opensearch: run
     use_custom_fields: 'yes'
     use_docs: 'no'
