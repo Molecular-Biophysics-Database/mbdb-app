@@ -14,7 +14,7 @@ class MbdbMstSchema(BaseRecordSchema):
 
     metadata = ma.fields.Nested(lambda: MbdbMstMetadataSchema())
     files = ma.fields.Nested(
-        lambda: FilesOptionsSchema(), load_default={"enabled": True}
+        lambda: FilesOptionsSchema(), load_default={"enabled": True, "enabled": True}
     )
 
     # todo this needs to be generated for [default preview] to work

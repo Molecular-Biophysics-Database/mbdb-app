@@ -10,7 +10,7 @@ from invenio_records_resources.services.records.components import (
 )
 from oarepo_runtime.config.service import PermissionsPresetsConfigMixin
 
-from mbdb_mst.records.api import MbdbMstDraft, MbdbMstRecord
+from mbdb_mst.records.api import MbdbMstRecord
 from mbdb_mst.services.records.permissions import MbdbMstPermissionPolicy
 from mbdb_mst.services.records.schema import MbdbMstSchema
 from mbdb_mst.services.records.search import MbdbMstSearchOptions
@@ -44,7 +44,6 @@ class MbdbMstServiceConfig(
     ]
 
     model = "mbdb_mst"
-    draft_cls = MbdbMstDraft
 
     @property
     def links_item(self):

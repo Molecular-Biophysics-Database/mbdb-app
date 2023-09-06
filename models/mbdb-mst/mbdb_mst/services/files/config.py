@@ -26,6 +26,8 @@ class MbdbMstFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig)
         *PermissionsPresetsConfigMixin.components,
         *FileServiceConfig.components,
         DataComponent,
+        *PermissionsPresetsConfigMixin.components,
+        *FileServiceConfig.components,
     ]
 
     model = "mbdb_mst"

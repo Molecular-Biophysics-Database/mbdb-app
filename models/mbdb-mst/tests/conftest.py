@@ -12,7 +12,7 @@ from invenio_app.factory import create_api
 from invenio_records_resources.services.uow import RecordCommitOp, UnitOfWork
 
 from mbdb_mst.proxies import current_service
-from mbdb_mst.records.api import MbdbMstDraft, MbdbMstRecord
+from mbdb_mst.records.api import MbdbMstRecord
 
 
 @pytest.fixture
@@ -128,19 +128,3 @@ def client_with_credentials(db, client, user, role, sample_metadata_list):
 @pytest.fixture(scope="module", autouse=True)
 def location(location):
     return location
-
-
-@pytest.fixture(scope="function")
-def sample_draft(app, db, input_data):
-    with UnitOfWork(db.session) as uow:
-        record = MbdbMstDraft.create(input_data)
-        uow.register(RecordCommitOp(record, current_service.indexer, True))
-        uow.commit()
-        return record
-
-
-@pytest.fixture()
-def vocab_cf(app, db, cache):
-    from oarepo_runtime.cf.mappings import prepare_cf_indices
-
-    prepare_cf_indices()

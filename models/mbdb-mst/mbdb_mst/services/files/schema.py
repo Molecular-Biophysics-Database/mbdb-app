@@ -12,7 +12,18 @@ class MbdbMstFileSchema(InvenioFileSchema):
 
     content_type = ma.fields.String(
         required=True,
-        validate=[ma_validate.OneOf(["text", "binary", "text and binary"])],
+        validate=[
+            ma_validate.OneOf(
+                [
+                    "text",
+                    "binary",
+                    "text and binary",
+                    "text",
+                    "binary",
+                    "text and binary",
+                ]
+            )
+        ],
     )
 
     context = ma.fields.String(
@@ -20,6 +31,10 @@ class MbdbMstFileSchema(InvenioFileSchema):
         validate=[
             ma_validate.OneOf(
                 [
+                    "raw measurement data",
+                    "derived measurement data",
+                    "quality control report",
+                    "performance test report",
                     "raw measurement data",
                     "derived measurement data",
                     "quality control report",
@@ -37,7 +52,18 @@ class MbdbMstFileSchema(InvenioFileSchema):
 
     originates_from = ma.fields.String(
         required=True,
-        validate=[ma_validate.OneOf(["Instrument software", "User", "MBDB"])],
+        validate=[
+            ma_validate.OneOf(
+                [
+                    "Instrument software",
+                    "User",
+                    "MBDB",
+                    "Instrument software",
+                    "User",
+                    "MBDB",
+                ]
+            )
+        ],
     )
 
     processing_steps = ma.fields.List(
