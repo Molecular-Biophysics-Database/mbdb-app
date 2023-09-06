@@ -23,8 +23,7 @@ models:
     permissions_presets: read_only
     pid_type: bli
     run_tests: skip
-    sites:
-    - mbdb-site
+    sites: []
     update_opensearch: run
     use_custom_fields: 'yes'
     use_docs: 'no'
@@ -49,8 +48,7 @@ models:
     permissions_presets: read_only
     pid_type: mst
     run_tests: skip
-    sites:
-    - mbdb-site
+    sites: []
     update_opensearch: run
     use_custom_fields: 'yes'
     use_docs: 'no'
@@ -75,8 +73,7 @@ models:
     permissions_presets: read_only
     pid_type: spr
     run_tests: skip
-    sites:
-    - mbdb-site
+    sites: []
     update_opensearch: run
     use_custom_fields: 'yes'
     use_docs: 'no'
@@ -119,7 +116,6 @@ ui:
     cookiecutter_resource_config: MbdbMstUIResourceConfig
     cookiecutter_ui_record_serializer_class: mbdb_mst.resources.records.ui.MbdbMstUIJSONSerializer
     model_name: mbdb-mst
-    sites:
-    - mbdb-site
+    sites: []
     ui_dir: ui/mbdb-mst-ui
     url_prefix: /mst/
