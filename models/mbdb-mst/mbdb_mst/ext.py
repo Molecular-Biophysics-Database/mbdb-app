@@ -66,3 +66,16 @@ class Mbdb_mstExt:
             service=self.service_files,
             config=config.MBDB_MST_FILES_RESOURCE_CONFIG(),
         )
+
+    @cached_property
+    def service_draft_files(self):
+        return config.MBDB_MST_DRAFT_FILES_SERVICE_CLASS(
+            config=config.MBDB_MST_DRAFT_FILES_SERVICE_CONFIG(),
+        )
+
+    @cached_property
+    def resource_draft_files(self):
+        return config.MBDB_MST_DRAFT_FILES_RESOURCE_CLASS(
+            service=self.service_draft_files,
+            config=config.MBDB_MST_DRAFT_FILES_RESOURCE_CONFIG(),
+        )

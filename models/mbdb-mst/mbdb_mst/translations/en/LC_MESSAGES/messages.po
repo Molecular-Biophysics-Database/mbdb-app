@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2023-09-06T13:43:36.912454\n"
-"PO-Revision-Date: 2023-09-06T13:43:36.912462\n"
+"POT-Creation-Date: 2023-09-06T13:47:37.796897\n"
+"PO-Revision-Date: 2023-09-06T13:47:37.796905\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4705,57 +4705,6 @@ msgstr ""
 msgid "metadata/method_specific_parameters/signal_type.help"
 msgstr "Which type of signal was measured"
 
-msgid "content_type.help"
-msgstr ""
-"Type of the file content in terms of how it can be read (text, binary, etc.)"
-
-msgid "context.help"
-msgstr ""
-"The context the file should be understood within (e.g. raw measurement data)"
-
-msgid "description.help"
-msgstr "Short description of what the file contains"
-
-msgid "name.help"
-msgstr "Name of the file"
-
-msgid "originates_from.help"
-msgstr "What is the source of the file"
-
-msgid "processing_steps.help"
-msgstr ""
-"List of the processing steps performed on the file before it was deposited "
-"(e.g. exported to xlsx)"
-
-msgid "processing_steps/description.help"
-msgstr "Description of what the processing step was"
-
-msgid "processing_steps/link_to_source_code.help"
-msgstr ""
-"If processing was performed with software where the source code is legally "
-"available a link can be specified here (e.g. self-written python script in a"
-" GitHub repository"
-
-msgid "processing_steps/name.help"
-msgstr "Descriptive name of the processing step"
-
-msgid "processing_steps/software_name.help"
-msgstr "The name of the software that was used for the step (e.g. Excel)"
-
-msgid "processing_steps/software_tool.help"
-msgstr ""
-"The name of the tool within the specified software, i.e. a particular method"
-" called or \"button pressed\" (e.g. equation solver, buffer subtraction)"
-
-msgid "processing_steps/software_version.help"
-msgstr "The version of the software that was used for the step"
-
-msgid "recommended_software.help"
-msgstr "The name of the software recommended for working with the file"
-
-msgid "size.help"
-msgstr "Size of the file"
-
 msgid "$schema.help"
 msgstr ""
 
@@ -4764,6 +4713,10 @@ msgstr ""
 
 msgid "$schema.hint"
 msgstr ""
+
+msgid "content_type.help"
+msgstr ""
+"Type of the file content in terms of how it can be read (text, binary, etc.)"
 
 msgid "content_type.label"
 msgstr ""
@@ -4779,6 +4732,10 @@ msgstr ""
 
 msgid "content_type.enum.text and binary"
 msgstr ""
+
+msgid "context.help"
+msgstr ""
+"The context the file should be understood within (e.g. raw measurement data)"
 
 msgid "context.label"
 msgstr ""
@@ -4807,6 +4764,9 @@ msgstr ""
 msgid "created.hint"
 msgstr ""
 
+msgid "description.help"
+msgstr "Short description of what the file contains"
+
 msgid "description.label"
 msgstr ""
 
@@ -4822,11 +4782,17 @@ msgstr ""
 msgid "id.hint"
 msgstr ""
 
+msgid "name.help"
+msgstr "Name of the file"
+
 msgid "name.label"
 msgstr ""
 
 msgid "name.hint"
 msgstr ""
+
+msgid "originates_from.help"
+msgstr "What is the source of the file"
 
 msgid "originates_from.label"
 msgstr ""
@@ -4843,11 +4809,19 @@ msgstr ""
 msgid "originates_from.enum.MBDB"
 msgstr ""
 
+msgid "processing_steps.help"
+msgstr ""
+"List of the processing steps performed on the file before it was deposited "
+"(e.g. exported to xlsx)"
+
 msgid "processing_steps.label"
 msgstr ""
 
 msgid "processing_steps.hint"
 msgstr ""
+
+msgid "processing_steps/description.help"
+msgstr "Description of what the processing step was"
 
 msgid "processing_steps/description.label"
 msgstr ""
@@ -4855,11 +4829,20 @@ msgstr ""
 msgid "processing_steps/description.hint"
 msgstr ""
 
+msgid "processing_steps/link_to_source_code.help"
+msgstr ""
+"If processing was performed with software where the source code is legally "
+"available a link can be specified here (e.g. self-written python script in a"
+" GitHub repository"
+
 msgid "processing_steps/link_to_source_code.label"
 msgstr ""
 
 msgid "processing_steps/link_to_source_code.hint"
 msgstr ""
+
+msgid "processing_steps/name.help"
+msgstr "Descriptive name of the processing step"
 
 msgid "processing_steps/name.label"
 msgstr ""
@@ -4867,11 +4850,19 @@ msgstr ""
 msgid "processing_steps/name.hint"
 msgstr ""
 
+msgid "processing_steps/software_name.help"
+msgstr "The name of the software that was used for the step (e.g. Excel)"
+
 msgid "processing_steps/software_name.label"
 msgstr ""
 
 msgid "processing_steps/software_name.hint"
 msgstr ""
+
+msgid "processing_steps/software_tool.help"
+msgstr ""
+"The name of the tool within the specified software, i.e. a particular method"
+" called or \"button pressed\" (e.g. equation solver, buffer subtraction)"
 
 msgid "processing_steps/software_tool.label"
 msgstr ""
@@ -4879,17 +4870,26 @@ msgstr ""
 msgid "processing_steps/software_tool.hint"
 msgstr ""
 
+msgid "processing_steps/software_version.help"
+msgstr "The version of the software that was used for the step"
+
 msgid "processing_steps/software_version.label"
 msgstr ""
 
 msgid "processing_steps/software_version.hint"
 msgstr ""
 
+msgid "recommended_software.help"
+msgstr "The name of the software recommended for working with the file"
+
 msgid "recommended_software.label"
 msgstr ""
 
 msgid "recommended_software.hint"
 msgstr ""
+
+msgid "size.help"
+msgstr "Size of the file"
 
 msgid "size.label"
 msgstr ""

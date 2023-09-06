@@ -1,9 +1,18 @@
-from mbdb_mst.resources.files.config import MbdbMstFileResourceConfig
-from mbdb_mst.resources.files.resource import MbdbMstFileResource
+from mbdb_mst.resources.files.config import (
+    MbdbMstFileDraftResourceConfig,
+    MbdbMstFileResourceConfig,
+)
+from mbdb_mst.resources.files.resource import (
+    MbdbMstFileDraftResource,
+    MbdbMstFileResource,
+)
 from mbdb_mst.resources.records.config import MbdbMstResourceConfig
 from mbdb_mst.resources.records.resource import MbdbMstResource
-from mbdb_mst.services.files.config import MbdbMstFileServiceConfig
-from mbdb_mst.services.files.service import MbdbMstFileService
+from mbdb_mst.services.files.config import (
+    MbdbMstFileDraftServiceConfig,
+    MbdbMstFileServiceConfig,
+)
+from mbdb_mst.services.files.service import MbdbMstFileDraftService, MbdbMstFileService
 from mbdb_mst.services.records.config import MbdbMstServiceConfig
 from mbdb_mst.services.records.service import MbdbMstService
 
@@ -29,3 +38,15 @@ MBDB_MST_FILES_SERVICE_CONFIG = MbdbMstFileServiceConfig
 
 
 MBDB_MST_FILES_SERVICE_CLASS = MbdbMstFileService
+
+
+MBDB_MST_DRAFT_FILES_RESOURCE_CONFIG = MbdbMstFileDraftResourceConfig
+
+
+MBDB_MST_DRAFT_FILES_RESOURCE_CLASS = MbdbMstFileDraftResource
+
+
+MBDB_MST_DRAFT_FILES_SERVICE_CONFIG = MbdbMstFileDraftServiceConfig
+
+
+MBDB_MST_DRAFT_FILES_SERVICE_CLASS = MbdbMstFileDraftService

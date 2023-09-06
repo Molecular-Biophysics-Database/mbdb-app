@@ -9,18 +9,7 @@ class MbdbMstFileUISchema(InvenioUISchema):
 
     content_type = ma.fields.String(
         required=True,
-        validate=[
-            ma_validate.OneOf(
-                [
-                    "text",
-                    "binary",
-                    "text and binary",
-                    "text",
-                    "binary",
-                    "text and binary",
-                ]
-            )
-        ],
+        validate=[ma_validate.OneOf(["text", "binary", "text and binary"])],
     )
 
     context = ma.fields.String(
@@ -28,10 +17,6 @@ class MbdbMstFileUISchema(InvenioUISchema):
         validate=[
             ma_validate.OneOf(
                 [
-                    "raw measurement data",
-                    "derived measurement data",
-                    "quality control report",
-                    "performance test report",
                     "raw measurement data",
                     "derived measurement data",
                     "quality control report",
@@ -47,18 +32,7 @@ class MbdbMstFileUISchema(InvenioUISchema):
 
     originates_from = ma.fields.String(
         required=True,
-        validate=[
-            ma_validate.OneOf(
-                [
-                    "Instrument software",
-                    "User",
-                    "MBDB",
-                    "Instrument software",
-                    "User",
-                    "MBDB",
-                ]
-            )
-        ],
+        validate=[ma_validate.OneOf(["Instrument software", "User", "MBDB"])],
     )
 
     processing_steps = ma.fields.List(
@@ -85,3 +59,8 @@ class ProcessingStepsItemUISchema(ma.Schema):
     software_tool = ma.fields.String()
 
     software_version = ma.fields.String()
+
+
+class MbdbMstFileDraftUISchema(InvenioUISchema):
+    class Meta:
+        unknown = ma.RAISE
