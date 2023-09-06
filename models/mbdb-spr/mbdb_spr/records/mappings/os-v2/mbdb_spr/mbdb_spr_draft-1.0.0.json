@@ -5885,5 +5885,9 @@
                 "type": "integer"
             }
         }
+    },
+    "settings": {
+        "index.mapping.total_fields.limit": 3000,
+        "index.mapping.nested_fields.limit": 200
     }
 }
