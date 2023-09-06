@@ -8,18 +8,18 @@ from invenio_vocabularies.records.api import Vocabulary
 from oarepo_runtime.drafts.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.relations import InternalRelation, PIDRelation, RelationsField
 
-from mbdb_bli.files.api import MbdbBliFile
+from mbdb_bli.files.api import MbdbBliFile, MbdbBliFileDraft
 from mbdb_bli.records.dumper import MbdbBliDraftDumper, MbdbBliDumper
 from mbdb_bli.records.models import (
-    DraftParentMetadata,
     MbdbBliDraftMetadata,
     MbdbBliMetadata,
+    MbdbBliParentMetadata,
     MbdbBliParentState,
 )
 
 
-class DraftParentRecord(ParentRecord):
-    model_cls = DraftParentMetadata
+class MbdbBliParentRecord(ParentRecord):
+    model_cls = MbdbBliParentMetadata
 
     # schema = ConstantField(
     #    "$schema", "local://parent-v1.0.0.json"
@@ -327,7 +327,7 @@ class MbdbBliRecord(InvenioRecord):
 
     versions_model_cls = MbdbBliParentState
 
-    parent_record_cls = DraftParentRecord
+    parent_record_cls = MbdbBliParentRecord
 
     files = FilesField(file_cls=MbdbBliFile, store=False, create=False, delete=False)
 
@@ -637,12 +637,19 @@ class MbdbBliDraft(InvenioDraft):
 
     versions_model_cls = MbdbBliParentState
 
-    parent_record_cls = DraftParentRecord
+    parent_record_cls = MbdbBliParentRecord
     has_draft = HasDraftCheckField(config_key="HAS_DRAFT_CUSTOM_FIELD")
 
+    files = FilesField(file_cls=MbdbBliFileDraft, store=False)
 
-MbdbBliFile.record_cls = MbdbBliRecord
+    bucket_id = ModelField(dump=False)
+    bucket = ModelField(dump=False)
+
 
 MbdbBliRecord.has_draft = HasDraftCheckField(
     draft_cls=MbdbBliDraft, config_key="HAS_DRAFT_CUSTOM_FIELD"
 )
+
+MbdbBliFile.record_cls = MbdbBliRecord
+
+MbdbBliFileDraft.record_cls = MbdbBliDraft

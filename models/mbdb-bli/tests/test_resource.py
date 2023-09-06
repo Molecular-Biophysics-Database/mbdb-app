@@ -255,6 +255,12 @@ def test_list_drafts(client, input_data, vocab_cf, search_clear):
     )
 
 
+@pytest.fixture()
+def input_data(input_data):
+    input_data["files"] = {"enabled": False}
+    return input_data
+
+
 BASE_URL = MbdbBliResourceConfig.url_prefix
 """
 def check_allowed(action_name):

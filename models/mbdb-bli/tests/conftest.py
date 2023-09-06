@@ -125,11 +125,6 @@ def client_with_credentials(db, client, user, role, sample_metadata_list):
     return client
 
 
-@pytest.fixture(scope="module", autouse=True)
-def location(location):
-    return location
-
-
 @pytest.fixture(scope="function")
 def sample_draft(app, db, input_data):
     with UnitOfWork(db.session) as uow:
@@ -144,3 +139,8 @@ def vocab_cf(app, db, cache):
     from oarepo_runtime.cf.mappings import prepare_cf_indices
 
     prepare_cf_indices()
+
+
+@pytest.fixture(scope="module", autouse=True)
+def location(location):
+    return location
