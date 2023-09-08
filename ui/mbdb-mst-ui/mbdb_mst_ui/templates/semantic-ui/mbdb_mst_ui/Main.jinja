@@ -7,6 +7,7 @@
   <div class="ui top attached tabular menu">
     <a class="active item" data-tab="simple">Simple</a>
     <a class="item" data-tab="complete">Complete</a>
+    <a class="item" data-tab="complete-collapsible">Complete (collapsible)</a>
   </div>
 
   <div class="ui bottom attached active tab segment" data-tab="simple">
@@ -15,10 +16,13 @@
   <div class="ui bottom attached tab segment" data-tab="complete">
     <Complete metadata={metadata} ui={ui} layout={layout} />
   </div>
+  <div class="ui bottom attached tab segment" data-tab="complete-collapsible">
+    <CompleteCollapsible metadata={metadata} ui={ui} layout={layout} />
+  </div>
 </div>
 
 <script>
-  $('#view-mode .menu .item')
+  jQuery('#view-mode .menu .item')
     .tab({
       context: $('#view-mode')
     })

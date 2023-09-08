@@ -1,0 +1,9 @@
+{# def htmlId #}
+
+{% if htmlId | length %}
+<div class="mbdbv-name-value-waterfall ui accordion" id={{ htmlId }}>
+{% else %}
+<div class="mbdbv-name-value-waterfall ui accordion">
+{% endif %}
+  {{ content }}
+</div>

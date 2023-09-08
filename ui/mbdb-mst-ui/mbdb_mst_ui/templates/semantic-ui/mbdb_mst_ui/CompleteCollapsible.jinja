@@ -1,0 +1,49 @@
+{# def metadata, ui, layout #}
+
+{% macro render_item(item, parent_id) %}
+  {% if item is mapping %}
+    {{ walk_dictionary(item, parent_id) }}
+  {% elif item is sequence and item is not string %}
+    {{ walk_sequence(item, parent_id) }}
+  {% else %}
+    {{ item }}
+  {% endif %}
+{% endmacro %}
+
+{% macro walk_dictionary(d, dict_id) %}
+  <MBDB.NameValue.WaterfallCollapsible htmlId={dict_id}>
+    {% for key, value in d.items() %}
+      {% set inner_id = dict_id+"-"+key %}
+
+      <MBDB.NameValue.ItemCollapsible name={key | nice_name}>
+        {{ render_item(value, inner_id) }}
+      </MBDB.NameValue.ItemCollapsible>
+    {% endfor %}
+  </MBDB.NameValue.WaterfallCollapsible>
+{% endmacro %}
+
+{% macro walk_sequence(s, parent_id) %}
+  {% for item in s %}
+    {{ render_item(item, parent_id) }}
+  {% endfor %}
+{% endmacro %}
+
+<div>
+  <MBDB.NameValue.WaterfallCollapsible htmlId='metadata'>
+    <MBDB.NameValue.ItemCollapsible name='General parameters'>
+      {{ walk_dictionary(metadata.general_parameters, 'general_parameters') }}
+    </MBDB.NameValue.ItemCollapsible>
+
+    {% if metadata.method_specific_parameters is defined %}
+      <MBDB.NameValue.ItemCollapsible name='Method specific parameters'>
+        {{ walk_dictionary(metadata.method_specific_parameters, 'method_specific_parameters') }}
+      </MBDB.NameValue.ItemCollapsible>
+    {% endif %}
+  </MBDB.NameValue.WaterfallCollapsible>
+</div>
+
+<script>
+  jQuery(document).ready(function() {
+    jQuery("#metadata").accordion({ exclusive: false });
+  });
+</script>

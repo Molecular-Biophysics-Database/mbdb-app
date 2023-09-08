@@ -1,0 +1,13 @@
+{# def name #}
+
+<div class="mbdbv-name-value-item-name title active">
+  <i class="dropdown icon"></i>
+  {{ name }}
+</div>
+<div class="mbdbv-name-value-item-value content active">
+  {% if content is defined and content|length %}
+    {{ content }}
+  {% else %}
+    <Common.NoValue />
+  {% endif %}
+</div>

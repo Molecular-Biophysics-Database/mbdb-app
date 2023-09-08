@@ -58,12 +58,18 @@ h5[class="mbdbv-header"] {
     font-weight: bold;
 }
 
-div[class="mbdbv-name-value-item-value"] > div[class="mbdbv-name-value-waterfall"] {
+div[class^="mbdbv-name-value-item-value"] > div[class^="mbdbv-name-value-waterfall"] {
     margin-left: var(--mbdbv-hgap);
+    padding: 0 !important;
 }
 
-div[class="mbdbv-name-value-waterfall"] > div[class="mbdbv-name-value-item-value"] {
+div[class^="mbdbv-name-value-waterfall"] > div[class^="mbdbv-name-value-item-value"] {
     margin-left: var(--mbdbv-hgap);
+    padding: 0 !important;
+}
+
+div[class^="mbdbv-name-value-waterfall"] > div[class^="mbdbv-name-value-item-name"] {
+    padding: 0 !important;
 }
 
 .mbdbv-name-value-inset {
@@ -74,6 +80,11 @@ div[class="mbdbv-name-value-waterfall"] > div[class="mbdbv-name-value-item-value
     column-gap: 1rem;
     display: grid;
     grid-template-columns: auto 1fr;
+}
+
+.mbdbv-name-value-waterfall {
+    padding: 0 !important;
+    margin-top: 0 !important;
 }
 
 .mbdbv-hoffset {
