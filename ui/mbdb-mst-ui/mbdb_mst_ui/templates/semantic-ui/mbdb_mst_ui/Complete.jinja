@@ -31,8 +31,10 @@
     <MBDB.NameValue.Item name='General parameters'>
       {{ walk_dictionary(metadata.general_parameters) }}
     </MBDB.NameValue.Item>
-    <MBDB.NameValue.Item name='Method specific parameters'>
-      {{ walk_dictionary(metadata.method_specific_parameters) }}
-    </MBDB.NameValue.Item>
+    {% if metadata.method_specific_parameters is defined %}
+      <MBDB.NameValue.Item name='Method specific parameters'>
+        {{ walk_dictionary(metadata.method_specific_parameters) }}
+      </MBDB.NameValue.Item>
+    {% endif %}
   </MBDB.NameValue.Waterfall>
 </div>

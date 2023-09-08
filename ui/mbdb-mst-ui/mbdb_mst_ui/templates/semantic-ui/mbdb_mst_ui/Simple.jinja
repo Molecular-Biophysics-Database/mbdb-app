@@ -1,32 +1,56 @@
 {#def metadata, ui, layout #}
 
 <div class="ui container">
-  <h1 class="ui header">{{ metadata.general_parameters.record_information.title }}</h1>
+  <h1 class="ui header">
+    {% if metadata.general_parameters.record_information is defined %}
+      {{ metadata.general_parameters.record_information.title }}
+    {% else %}
+      <Common.NoValue />
+    {% endif %}
+  </h1>
 
   <h3 class="mdbv-header">{{ metadata.general_parameters.technique }}</h3>
 
   <div class="mbdbv-block mbdbv-framed">
     <h3 class="mbdbv-header">Instrument</h3>
-    <MBDB.Instrument instrument={metadata.general_parameters.instrument} />
+    {% if metadata.general_parameters.instrument %}
+      <MBDB.Instrument instrument={metadata.general_parameters.instrument} />
+    {% else %}
+      <Common.NoValue />
+    {% endif %}
   </div>
 
   <div class="mbdbv-block mbdbv-framed">
     <h3 class="mbdbv-header">Entities of interest</h3>
-    <MBDB.EntitiesOfInterest entities={metadata.general_parameters.chemical_information.entities_of_interest } />
+    {% if (metadata.general_parameters.chemical_information is defined) and (metadata.general_parameters.chemical_information.entities_of_interest is defined) %}
+      <MBDB.EntitiesOfInterest entities={metadata.general_parameters.chemical_information.entities_of_interest } />
+    {% else %}
+      <Common.NoValue />
+    {% endif %}
   </div>
 
   <div class="mbdbv-block mbdbv-framed">
-    <MST.Measurements
-      gp={metadata.general_parameters}
-      msp={metadata.method_specific_parameters}
-    />
+    <h3 class="mbdbv-header">Measurements</h3>
+
+    {% if metadata.method_specific_parameters is defined %}
+      <MST.Measurements
+        gp={metadata.general_parameters}
+        msp={metadata.method_specific_parameters}
+      />
+    {% else %}
+      <Common.NoValue />
+    {% endif %}
   </div>
 
   <div class="mbdbv-block mbdbv-framed">
     <h3 class="mbdbv-header">Results</h3>
-    <MST.Results
-      gp={metadata.general_parameters}
-      msp={metadata.method_specific_parameters}
-    />
+      {% if metadata.method_specific_parameters is defined %}
+        <MST.Results
+          gp={metadata.general_parameters}
+          msp={metadata.method_specific_parameters}
+        />
+      {% else %}
+        <Common.NoValue />
+      {% endif %}
   </div>
 </div>
