@@ -13,7 +13,7 @@
 
   <div class="mbdbv-block mbdbv-framed">
     <h3 class="mbdbv-header">Instrument</h3>
-    {% if metadata.general_parameters.instrument %}
+    {% if metadata.general_parameters.instrument is defined %}
       <MBDB.Instrument instrument={metadata.general_parameters.instrument} />
     {% else %}
       <Common.NoValue />
