@@ -52,8 +52,8 @@ class MbdbMstServiceConfig(
             "draft": RecordLink("{+api}/mbdb-mst/{id}/draft"),
             "files": ConditionalLink(
                 cond=is_record,
-                if_=RecordLink("{+api}/records/{id}/files"),
-                else_=RecordLink("{+api}/records/{id}/draft/files"),
+                if_=RecordLink("{+api}/mbdb-mst/{id}/files"),
+                else_=RecordLink("{+api}/mbdb-mst/{id}/draft/files"),
             ),
             "latest": RecordLink("{+api}/mbdb-mst/{id}/versions/latest"),
             "latest_html": RecordLink("{+ui}/mbdb-mst/{id}/latest"),
