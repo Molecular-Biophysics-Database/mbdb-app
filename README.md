@@ -66,16 +66,20 @@ backup the contents of alembic directory and restore it after model compile.
 > invenio tokens create -n resttest -u miroslav.simek@cesnet.cz
 BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y
 
-> curl -k -XPOST -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" -H "Content-Type: application/json" -d "$(jq '.[0]' sample_data/mst/MST.json)" https://127.0.0.1:5000/api/mbdb-mst/
+> curl -k -XPOST -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
+  -H "Content-Type: application/json" -d "$(jq '.[0]' sample_data/mst/MST.json)" \
+  https://127.0.0.1:5000/api/mbdb-mst/
 {"links": {
   "draft": "https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft", 
   "files": "https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files"
 }...
 
-curl -k -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft
+curl -k -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
+   https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft
 > {ok json}
 
-curl -k -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files
+curl -k -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
+   https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files
 {"enabled": true, "links": {"self": "zv0gv-btp27/draft/files"}, "entries": [], "default_preview": null, "order": []}
 
 > curl -k -XPOST -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
