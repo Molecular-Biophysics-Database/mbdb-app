@@ -84,3 +84,5 @@ pdm.lock
 
 # model repo
 /mbdb-model
+
+.DS_Store

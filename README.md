@@ -9,19 +9,23 @@
 ### Useful commands
 
 ```bash
-nrp invenio db destroy
+nrp invenio db destroy --yes-i-know
 nrp invenio db init
 nrp invenio db create
 
-nrp invenio index destroy
+nrp invenio index destroy --yes-i-know
 nrp invenio index init
 
 nrp oarepo cf init
-nrp oarepo reindex
+
+nrp invenio files location create --default default s3://default
 
 nrp oarepo fixtures load
 
 nrp oarepo fixtures load --no-system-fixtures ../../sample_data/mst
+
+# for reindexing the whole repo
+nrp oarepo reindex
 ```
 
 ## UI development
@@ -51,3 +55,6 @@ backup the contents of alembic directory and restore it after model compile.
 13. call `nrp oarepo fixtures load --no-system-fixtures $PWD/sample_data/mst` to import sample data for mst
     (note: nrp runs the command internally inside the site directory, so need to use $PWD or ../.. here)
 14. call `nrp develop` and have a look at `https://localhost:5000/api/mbdb-mst`
+
+# REST API
+
