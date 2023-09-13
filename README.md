@@ -59,31 +59,34 @@ backup the contents of alembic directory and restore it after model compile.
 # REST API
 
 ```bash
-
+# create user
 > invenio users create -a -c miroslav.simek@cesnet.cz
 {'email': 'miroslav.simek@cesnet.cz', 'password': '****', 'active': True, ...}
 
-> invenio tokens create -n resttest -u miroslav.simek@cesnet.cz
+# get token
+> export REPOTOKEN=$(invenio tokens create -n resttest -u miroslav.simek@cesnet.cz); echo $REPOTOKEN
 BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y
 
-> curl -k -XPOST -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
-  -H "Content-Type: application/json" -d "$(jq '.[0]' sample_data/mst/MST.json)" \
+> curl -k -XPOST -H "Authorization: Bearer $REPOTOKEN" \
+  -H "Content-Type: application/json" \
+  -d "$(jq '.[0]' sample_data/mst/MST.json)" \
   https://127.0.0.1:5000/api/mbdb-mst/
 {"links": {
   "draft": "https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft", 
   "files": "https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files"
 }...
 
-curl -k -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
+curl -k -H "Authorization: Bearer $REPOTOKEN" \
    https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft
 > {ok json}
 
-curl -k -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
+curl -k -H "Authorization: Bearer $REPOTOKEN" \
    https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files
 {"enabled": true, "links": {"self": "zv0gv-btp27/draft/files"}, "entries": [], "default_preview": null, "order": []}
 
-> curl -k -XPOST -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
-  -H "Content-Type: application/json" -d '[{"key": "blah.txt"}]' \
+> curl -k -XPOST -H "Authorization: Bearer $REPOTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '[{"key": "blah.txt"}]' \
   https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files
 {"enabled": true, 
  "links": {"self": "zv0gv-btp27/draft/files"}, 
@@ -92,16 +95,18 @@ curl -k -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPY
               "content": "zv0gv-btp27/draft/files/blah.txt/content", 
               "self": "zv0gv-btp27/draft/files/blah.txt"}, 
               "key": "blah.txt"}]}
-> curl -k -XPUT -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
-  -H "Content-Type: application/octet-stream" -d 'txt file content' \
+> curl -k -XPUT -H "Authorization: Bearer $REPOTOKEN" \
+  -H "Content-Type: application/octet-stream" \
+  -d 'txt file content' \
   https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files/blah.txt/content
   
-> curl -k -XPUT -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
-  -H "Content-Type: application/json" -d '{"name": "blah"}' \
+> curl -k -XPUT -H "Authorization: Bearer $REPOTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"name": "blah"}' \
   https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files/blah.txt
 {"metadata": {"name": "blah"}, "status": "pending"
 
-> curl -k -XPOST -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
+> curl -k -XPOST -H "Authorization: Bearer $REPOTOKEN" \
   https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files/blah.txt/commit
 {
   "metadata": {
