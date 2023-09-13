@@ -61,33 +61,48 @@ backup the contents of alembic directory and restore it after model compile.
 ```bash
 # create user
 > invenio users create -a -c miroslav.simek@cesnet.cz
+
 {'email': 'miroslav.simek@cesnet.cz', 'password': '****', 'active': True, ...}
+
 
 # get token
 > export REPOTOKEN=$(invenio tokens create -n resttest -u miroslav.simek@cesnet.cz); echo $REPOTOKEN
+
 BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y
 
+# create a sample record
 > curl -k -XPOST -H "Authorization: Bearer $REPOTOKEN" \
   -H "Content-Type: application/json" \
   -d "$(jq '.[0]' sample_data/mst/MST.json)" \
   https://127.0.0.1:5000/api/mbdb-mst/
+
 {"links": {
   "draft": "https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft", 
   "files": "https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files"
 }...
 
-curl -k -H "Authorization: Bearer $REPOTOKEN" \
-   https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft
-> {ok json}
 
-curl -k -H "Authorization: Bearer $REPOTOKEN" \
+# try to get the draft (note draft url)
+> curl -k -H "Authorization: Bearer $REPOTOKEN" \
+   https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft
+
+{ok json}
+
+
+# get the files section, note there are none at the moment
+> curl -k -H "Authorization: Bearer $REPOTOKEN" \
    https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files
+
 {"enabled": true, "links": {"self": "zv0gv-btp27/draft/files"}, "entries": [], "default_preview": null, "order": []}
 
+
+# start creating a file - in this step, just send 
+# a list of file names that will be later uploaded
 > curl -k -XPOST -H "Authorization: Bearer $REPOTOKEN" \
   -H "Content-Type: application/json" \
   -d '[{"key": "blah.txt"}]' \
   https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files
+
 {"enabled": true, 
  "links": {"self": "zv0gv-btp27/draft/files"}, 
  "entries": [{"metadata": null, "status": "pending", 
@@ -95,17 +110,22 @@ curl -k -H "Authorization: Bearer $REPOTOKEN" \
               "content": "zv0gv-btp27/draft/files/blah.txt/content", 
               "self": "zv0gv-btp27/draft/files/blah.txt"}, 
               "key": "blah.txt"}]}
+
+# upload single file in one chunk
 > curl -k -XPUT -H "Authorization: Bearer $REPOTOKEN" \
   -H "Content-Type: application/octet-stream" \
   -d 'txt file content' \
   https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files/blah.txt/content
-  
+
+# add the file metadata  
 > curl -k -XPUT -H "Authorization: Bearer $REPOTOKEN" \
   -H "Content-Type: application/json" \
   -d '{"name": "blah"}' \
   https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files/blah.txt
-{"metadata": {"name": "blah"}, "status": "pending"
 
+{"metadata": {"name": "blah"}, "status": "pending", ...}
+
+# commit the changes - the file with all metadata will get created at this point
 > curl -k -XPOST -H "Authorization: Bearer $REPOTOKEN" \
   https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files/blah.txt/commit
 {
