@@ -58,3 +58,66 @@ backup the contents of alembic directory and restore it after model compile.
 
 # REST API
 
+```bash
+
+> invenio users create -a -c miroslav.simek@cesnet.cz
+{'email': 'miroslav.simek@cesnet.cz', 'password': '****', 'active': True, ...}
+
+> invenio tokens create -n resttest -u miroslav.simek@cesnet.cz
+BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y
+
+> curl -k -XPOST -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" -H "Content-Type: application/json" -d "$(jq '.[0]' sample_data/mst/MST.json)" https://127.0.0.1:5000/api/mbdb-mst/
+{"links": {
+  "draft": "https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft", 
+  "files": "https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files"
+}...
+
+curl -k -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft
+> {ok json}
+
+curl -k -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files
+{"enabled": true, "links": {"self": "zv0gv-btp27/draft/files"}, "entries": [], "default_preview": null, "order": []}
+
+> curl -k -XPOST -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
+  -H "Content-Type: application/json" -d '[{"key": "blah.txt"}]' \
+  https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files
+{"enabled": true, 
+ "links": {"self": "zv0gv-btp27/draft/files"}, 
+ "entries": [{"metadata": null, "status": "pending", 
+              "links": {"commit": "zv0gv-btp27/draft/files/blah.txt/commit", 
+              "content": "zv0gv-btp27/draft/files/blah.txt/content", 
+              "self": "zv0gv-btp27/draft/files/blah.txt"}, 
+              "key": "blah.txt"}]}
+> curl -k -XPUT -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
+  -H "Content-Type: application/octet-stream" -d 'txt file content' \
+  https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files/blah.txt/content
+  
+> curl -k -XPUT -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
+  -H "Content-Type: application/json" -d '{"name": "blah"}' \
+  https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files/blah.txt
+{"metadata": {"name": "blah"}, "status": "pending"
+
+> curl -k -XPOST -H "Authorization: Bearer BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y" \
+  https://127.0.0.1:5000/api/mbdb-mst/zv0gv-btp27/draft/files/blah.txt/commit
+{
+  "metadata": {
+    "name": "blah"
+  },
+  "version_id": "b0965ba0-2148-4d75-bcb4-7572bf34ee7b",
+  "file_id": "9e57f76a-7274-4e9a-9f62-102a89638def",
+  "status": "completed",
+  "size": 16,
+  "created": "2023-09-13T09:01:48.229176+00:00",
+  "links": {
+    "commit": "zv0gv-btp27/draft/files/blah.txt/commit",
+    "content": "zv0gv-btp27/draft/files/blah.txt/content",
+    "self": "zv0gv-btp27/draft/files/blah.txt"
+  },
+  "updated": "2023-09-13T09:06:57.472556+00:00",
+  "key": "blah.txt",
+  "bucket_id": "aa25811f-dc12-49f8-9fba-76d64e724331",
+  "checksum": "md5:05b731d7a66565cbafe7380174ea80c3",
+  "storage_class": "L",
+  "mimetype": "text/plain"
+}
+```

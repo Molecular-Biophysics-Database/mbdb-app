@@ -49,25 +49,25 @@ class MbdbMstServiceConfig(
     @property
     def links_item(self):
         return {
-            "draft": RecordLink("{+api}/{self.url_prefix}{id}/draft"),
+            "draft": RecordLink("{+api}/mbdb-mst/{id}/draft"),
             "files": ConditionalLink(
                 cond=is_record,
                 if_=RecordLink("{+api}/records/{id}/files"),
                 else_=RecordLink("{+api}/records/{id}/draft/files"),
             ),
-            "latest": RecordLink("{+api}/{self.url_prefix}{id}/versions/latest"),
-            "latest_html": RecordLink("{+ui}/{self.url_prefix}{id}/latest"),
-            "publish": RecordLink("{+api}/{self.url_prefix}{id}/draft/actions/publish"),
-            "record": RecordLink("{+api}/{self.url_prefix}{id}"),
+            "latest": RecordLink("{+api}/mbdb-mst/{id}/versions/latest"),
+            "latest_html": RecordLink("{+ui}/mbdb-mst/{id}/latest"),
+            "publish": RecordLink("{+api}/mbdb-mst/{id}/draft/actions/publish"),
+            "record": RecordLink("{+api}/mbdb-mst/{id}"),
             "self": ConditionalLink(
                 cond=is_record,
-                if_=RecordLink("{+api}{self.url_prefix}{id}"),
-                else_=RecordLink("{+api}{self.url_prefix}{id}/draft"),
+                if_=RecordLink("{+api}/mbdb-mst/{id}"),
+                else_=RecordLink("{+api}/mbdb-mst/{id}/draft"),
             ),
             "self_html": ConditionalLink(
                 cond=is_record,
-                if_=RecordLink("{+ui}{self.url_prefix}{id}"),
+                if_=RecordLink("{+ui}/mbdb-mst/{id}"),
                 else_=RecordLink("{+ui}/uploads/{id}"),
             ),
-            "versions": RecordLink("{+api}/{self.url_prefix}{id}/versions"),
+            "versions": RecordLink("{+api}/mbdb-mst/{id}/versions"),
         }
