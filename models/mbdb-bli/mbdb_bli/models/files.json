@@ -181,6 +181,10 @@
             "generate": true,
             "skip": false
         },
+        "translations": {
+            "module": "mbdb_bli.translations",
+            "alias": "mbdb_bli_file"
+        },
         "ui": {
             "module": "mbdb_bli.models",
             "file": "mbdb_bli/models/ui.json",
@@ -199,6 +203,24 @@
                     }
                 ]
             }
+        },
+        "files-field": {
+            "field-args": [
+                "store=False",
+                "create=False",
+                "delete=False"
+            ],
+            "generate": true,
+            "field-class": "FilesField",
+            "file-class": "MbdbBliFile",
+            "imports": [
+                {
+                    "import": "invenio_records_resources.records.systemfields.FilesField"
+                },
+                {
+                    "import": "mbdb_bli.files.api.MbdbBliFile"
+                }
+            ]
         },
         "json-serializer": {
             "module": "mbdb_bli.resources.files.ui",
@@ -219,22 +241,6 @@
             ],
             "extra-code": "",
             "generate": true
-        },
-        "files-field": {
-            "generate": true,
-            "field-class": "FilesField",
-            "file-class": "MbdbBliFile",
-            "field-args": [
-                "store=False"
-            ],
-            "imports": [
-                {
-                    "import": "invenio_records_resources.records.systemfields.FilesField"
-                },
-                {
-                    "import": "mbdb_bli.files.api.MbdbBliFile"
-                }
-            ]
         },
         "record-metadata": {
             "use-versioning": false,
@@ -258,7 +264,7 @@
                     "import": "invenio_records_resources.records.FileRecordModelMixin"
                 }
             ],
-            "table": "mbdbblifile_metadata",
+            "table": "mbdb_bli_file_metadata",
             "alias": "mbdb_bli_file"
         },
         "service-config": {
@@ -332,9 +338,14 @@
                 }
             ]
         },
-        "translations": {
-            "module": "mbdb_bli.translations",
-            "alias": "mbdb_bli_file"
+        "draft-parent-record": {
+            "skip": true
+        },
+        "draft-parent-record-metadata": {
+            "skip": true
+        },
+        "draft-parent-record-state": {
+            "skip": true
         },
         "mapping": {
             "generate": true,

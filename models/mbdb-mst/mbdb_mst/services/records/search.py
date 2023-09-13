@@ -1,16 +1,10 @@
-from invenio_records_resources.services import (
-    SearchOptions as InvenioSearchOptions,
-)
-from invenio_records_resources.services.records.queryparser import QueryParser
+from invenio_records_resources.services import SearchOptions as InvenioSearchOptions
+
 from . import facets
 
 
 class MbdbMstSearchOptions(InvenioSearchOptions):
     """MbdbMstRecord search options."""
-
-    query_parser_cls = QueryParser.factory(
-        fields=["metadata.general_parameters.record_information.title"]
-    )
 
     facets = {
         "_schema": facets._schema,

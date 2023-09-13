@@ -6,3 +6,10 @@ class MbdbMstFileResource(FileResource):
 
     # here you can for example redefine
     # create_url_rules function to add your own rules
+
+
+class MbdbMstFileDraftResource(FileResource):
+    """MbdbMstFileDraft resource."""
+
+    # here you can for example redefine
+    # create_url_rules function to add your own rules

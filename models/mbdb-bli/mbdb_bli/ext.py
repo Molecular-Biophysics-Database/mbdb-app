@@ -43,6 +43,8 @@ class Mbdb_bliExt:
     def service_records(self):
         return config.MBDB_BLI_RECORD_SERVICE_CLASS(
             config=config.MBDB_BLI_RECORD_SERVICE_CONFIG(),
+            files_service=self.service_files,
+            draft_files_service=self.service_draft_files,
         )
 
     @cached_property
@@ -63,4 +65,17 @@ class Mbdb_bliExt:
         return config.MBDB_BLI_FILES_RESOURCE_CLASS(
             service=self.service_files,
             config=config.MBDB_BLI_FILES_RESOURCE_CONFIG(),
+        )
+
+    @cached_property
+    def service_draft_files(self):
+        return config.MBDB_BLI_DRAFT_FILES_SERVICE_CLASS(
+            config=config.MBDB_BLI_DRAFT_FILES_SERVICE_CONFIG(),
+        )
+
+    @cached_property
+    def resource_draft_files(self):
+        return config.MBDB_BLI_DRAFT_FILES_RESOURCE_CLASS(
+            service=self.service_draft_files,
+            config=config.MBDB_BLI_DRAFT_FILES_RESOURCE_CONFIG(),
         )

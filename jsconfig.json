@@ -14,6 +14,9 @@
             "../../less": [
                 "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_vocabularies/ui/theme/assets/semantic-ui/less"
             ],
+            "@less/oarepo_ui": [
+                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_ui/theme/assets/semantic-ui/less/oarepo_ui"
+            ],
             "@js/oarepo_ui": [
                 "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_ui/theme/assets/semantic-ui/js/oarepo_ui"
             ],
@@ -47,17 +50,17 @@
             "@translations/invenio_administration": [
                 "./sites/mbdb-site/.venv/lib/python3.10/site-packages/invenio_administration/assets/semantic-ui/translations/invenio_administration"
             ],
-            "@translations/oarepo_vocabularies_ui": [
-                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_vocabularies/ui/theme/assets/semantic-ui/translations/oarepo_vocabularies_ui"
-            ],
-            "@js/oarepo_vocabularies": [
-                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_vocabularies/ui/theme/assets/semantic-ui/js/oarepo_vocabularies_ui"
-            ],
             "@js/invenio_communities": [
                 "./sites/mbdb-site/.venv/lib/python3.10/site-packages/invenio_communities/assets/semantic-ui/js/invenio_communities"
             ],
             "@translations/invenio_communities": [
                 "./sites/mbdb-site/.venv/lib/python3.10/site-packages/invenio_communities/assets/semantic-ui/translations/invenio_communities"
+            ],
+            "@translations/oarepo_vocabularies_ui": [
+                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_vocabularies/ui/theme/assets/semantic-ui/translations/oarepo_vocabularies_ui"
+            ],
+            "@js/oarepo_vocabularies": [
+                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_vocabularies/ui/theme/assets/semantic-ui/js/oarepo_vocabularies_ui"
             ]
         }
     }

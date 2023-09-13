@@ -181,6 +181,10 @@
             "generate": true,
             "skip": false
         },
+        "translations": {
+            "module": "mbdb_mst.translations",
+            "alias": "mbdb_mst_file"
+        },
         "ui": {
             "module": "mbdb_mst.models",
             "file": "mbdb_mst/models/ui.json",
@@ -199,6 +203,24 @@
                     }
                 ]
             }
+        },
+        "files-field": {
+            "field-args": [
+                "store=False",
+                "create=False",
+                "delete=False"
+            ],
+            "generate": true,
+            "field-class": "FilesField",
+            "file-class": "MbdbMstFile",
+            "imports": [
+                {
+                    "import": "invenio_records_resources.records.systemfields.FilesField"
+                },
+                {
+                    "import": "mbdb_mst.files.api.MbdbMstFile"
+                }
+            ]
         },
         "json-serializer": {
             "module": "mbdb_mst.resources.files.ui",
@@ -219,22 +241,6 @@
             ],
             "extra-code": "",
             "generate": true
-        },
-        "files-field": {
-            "generate": true,
-            "field-class": "FilesField",
-            "file-class": "MbdbMstFile",
-            "field-args": [
-                "store=False"
-            ],
-            "imports": [
-                {
-                    "import": "invenio_records_resources.records.systemfields.FilesField"
-                },
-                {
-                    "import": "mbdb_mst.files.api.MbdbMstFile"
-                }
-            ]
         },
         "record-metadata": {
             "use-versioning": false,
@@ -258,7 +264,7 @@
                     "import": "invenio_records_resources.records.FileRecordModelMixin"
                 }
             ],
-            "table": "mbdbmstfile_metadata",
+            "table": "mbdb_mst_file_metadata",
             "alias": "mbdb_mst_file"
         },
         "service-config": {
@@ -332,9 +338,14 @@
                 }
             ]
         },
-        "translations": {
-            "module": "mbdb_mst.translations",
-            "alias": "mbdb_mst_file"
+        "draft-parent-record": {
+            "skip": true
+        },
+        "draft-parent-record-metadata": {
+            "skip": true
+        },
+        "draft-parent-record-state": {
+            "skip": true
         },
         "mapping": {
             "generate": true,

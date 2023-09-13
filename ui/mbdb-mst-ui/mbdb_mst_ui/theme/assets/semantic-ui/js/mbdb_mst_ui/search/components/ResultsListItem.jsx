@@ -62,7 +62,7 @@ export const ResultsListItemComponent = ({
                 <ItemHeader
                   title={title}
                   searchUrl={searchAppConfig.ui_endpoint}
-                  selfLink={result.links.self}
+                  selfLink={result.id}
                 />
                 <ItemSubheader />
                 <Item.Description />

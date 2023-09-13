@@ -19,13 +19,17 @@ class MbdbMstUIResourceConfig(RecordsUIResourceConfig):
 
     templates = {
         "detail": {
-            "layout": "mbdb_mst_ui/detail.html",
+            "layout": "mbdb_mst_ui/Detail.html.jinja",
             "blocks": {
-                "record_main_content": "mbdb_mst_ui/main.html",
-                "record_sidebar": "mbdb_mst_ui/sidebar.html"                
+                "record_main_content": "Main",
+                "record_sidebar": "Sidebar",
             },
         },
         "search": {"layout": "mbdb_mst_ui/search.html"},
         "edit": {"layout": "mbdb_mst_ui/deposit.html"},
         "create": {"layout": "mbdb_mst_ui/deposit.html"},
     }
+
+    def search_app_config(self, identity, api_config, overrides={}, **kwargs):
+        return super().search_app_config(identity, api_config,
+                                         overrides=overrides, endpoint='/api/user/mbdb-mst/', **kwargs)

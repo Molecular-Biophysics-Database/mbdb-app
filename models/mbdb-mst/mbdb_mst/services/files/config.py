@@ -2,7 +2,8 @@ from invenio_records_resources.services import FileLink, FileServiceConfig, Reco
 from invenio_records_resources.services.records.components import DataComponent
 from oarepo_runtime.config.service import PermissionsPresetsConfigMixin
 
-from mbdb_mst.records.api import MbdbMstRecord
+from mbdb_mst.records.api import MbdbMstDraft, MbdbMstRecord
+from mbdb_mst.services.files.permissions import MbdbMstFileDraftPermissionPolicy
 from mbdb_mst.services.files.schema import MbdbMstFileSchema
 from mbdb_mst.services.records.permissions import MbdbMstPermissionPolicy
 
@@ -29,6 +30,7 @@ class MbdbMstFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig)
     ]
 
     model = "mbdb_mst"
+    allow_upload = False
 
     @property
     def file_links_list(self):
@@ -42,4 +44,42 @@ class MbdbMstFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig)
             "commit": FileLink("{self.url_prefix}{id}/files/{key}/commit"),
             "content": FileLink("{self.url_prefix}{id}/files/{key}/content"),
             "self": FileLink("{self.url_prefix}{id}/files/{key}"),
+        }
+
+
+class MbdbMstFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
+    """MbdbMstDraft service config."""
+
+    PERMISSIONS_PRESETS = ["everyone"]
+
+    url_prefix = "/mbdb-mst/<pid_value>/draft"
+
+    base_permission_policy_cls = MbdbMstFileDraftPermissionPolicy
+
+    schema = MbdbMstFileSchema
+
+    record_cls = MbdbMstDraft
+
+    service_id = "mbdb_mst_file_draft"
+
+    components = [
+        *PermissionsPresetsConfigMixin.components,
+        *FileServiceConfig.components,
+        DataComponent,
+    ]
+
+    model = "mbdb_mst"
+
+    @property
+    def file_links_list(self):
+        return {
+            "self": RecordLink("{self.url_prefix}{id}/draft/files"),
+        }
+
+    @property
+    def file_links_item(self):
+        return {
+            "commit": FileLink("{self.url_prefix}{id}/draft/files/{key}/commit"),
+            "content": FileLink("{self.url_prefix}{id}/draft/files/{key}/content"),
+            "self": FileLink("{self.url_prefix}{id}/draft/files/{key}"),
         }

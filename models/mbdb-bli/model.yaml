@@ -4,9 +4,6 @@ plugins:
   - oarepo-model-builder-cf==4.*
   - oarepo-model-builder-vocabularies==4.*
   - oarepo-model-builder-relations==4.*
-profiles:
-- record
-- files
 record:
   module:
     qualified: mbdb_bli
