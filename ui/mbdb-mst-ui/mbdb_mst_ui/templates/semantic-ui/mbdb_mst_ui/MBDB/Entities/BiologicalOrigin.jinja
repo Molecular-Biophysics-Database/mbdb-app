@@ -1,13 +1,15 @@
-{#def entity #}
+{% from   "mbdb_mst_ui/Common/NoValue.jinja" import no_value %}
+{% from   "mbdb_mst_ui/Common/RenderIf.jinja" import render_if2 %}
+{% import "mbdb_mst_ui/MBDB/NameValue/Index.jinja" as nv %}
+{% from   "mbdb_mst_ui/MBDB/Organism.jinja" import organism %}
 
-{% from "mbdb_mst_ui/Common/renderers.jinja" import no_value, render_if %}
-{% from "mbdb_mst_ui/MBDB/renderers.jinja" import dictionary_entry %}
-
-<MBDB.NameValue.Item name="Organism">
-  {{ render_if(
-      entity.organism is defined,
-      dictionary_entry,
-      no_value(),
-      entry=entity.organism)
-  }}
-</MBDB.NameValue.Item>
+{%- macro biological_origin(entity) %}
+  {{ nv.item(
+      "Organism",
+      render_if2(
+        entity.organism is defined,
+        organism,
+        no_value(),
+        org=entity.organism))
+    }}
+{%- endmacro %}

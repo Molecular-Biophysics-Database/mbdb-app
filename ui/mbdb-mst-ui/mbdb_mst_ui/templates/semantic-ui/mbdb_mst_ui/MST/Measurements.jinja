@@ -1,33 +1,38 @@
-{# def gp, msp #}
+{% import "mbdb_mst_ui/MBDB/NameValue/Index.jinja" as nv %}
+{% from   "mbdb_mst_ui/MST/ExcitationLed.jinja" import excitation_led %}
+{% from   "mbdb_mst_ui/MST/Sample/Index.jinja" import sample %}
 
-{% set kd_derived_parameters = gp.derived_parameters | selectattr("type", "equalto", "Constant of dissociation (K_D)") %}
+{%- macro measurements(gp, msp) %}
+  {# TODO: In the future we might want to filter what derived parameters to display
+  {% set kd_derived_parameters = gp.derived_parameters | selectattr("type", "equalto", "Constant of dissociation (K_D)") %}
+  #}
 
-<div>
-  <div class="mbdbv-block mbdbv-framed">
-    <h4 class="mbdbv-header">Experimental setup</h4>
-    <MBDB.NameValue.List>
-      <MBDB.NameValue.Item name="Experiment type">{{ msp.experiment_type }}</MBDB.NameValue.Item>
-      <MBDB.NameValue.Item name="Signal type">{{ msp.signal_type }}</MBDB.NameValue.Item>
-      <MBDB.NameValue.Item name="Excitation LED">
-        <MST.ExcitationLed power={msp.excitation_led_power} color={msp.excitation_led_color} />
-      </MBDB.NameValue.Item>
-      <MBDB.NameValue.Item name="Laser power">{{ msp.ir_mst_laser_power }}</MBDB.NameValue.Item>
-    </MBDB.NameValue.List>
-  </div>
-
-  {% for measurement in msp.measurements %}
+  <div>
     <div class="mbdbv-block mbdbv-framed">
-      <h4 class="mbdbv-header">Measurement {{ loop.index }}</h4>
-
-      <MBDB.NameValue.List>
-        <MBDB.NameValue.Item name="Name">{{ measurement.name }}</MBDB.NameValue.Item>
-        <MBDB.NameValue.Item name="Position">{{ measurement.position }}</MBDB.NameValue.Item>
-
-        <MBDB.NameValue.Inset>
-          <MST.Sample.Index gp={gp} sample={measurement.sample} />
-        </MBDB.NameValue.Inset>
-        <MBDB.NameValue.Spacer />
-      </MBDB.NameValue.List>
+      <h4 class="mbdbv-header">Experimental setup</h4>
+      {{ nv.list_open() }}
+        {{ nv.item("Experiment type", msp.experiment_type) }}
+        {{ nv.item("Signal type", msp.signal_type) }}
+        {{ nv.item("Excitation LED", excitation_led(msp.excitation_led_power, msp.excitation_led_color)) }}
+        {{ nv.item("Laser power", msp.ir_mst_laser_power) }}
+      {{ nv.list_close() }}
     </div>
-  {% endfor %}
-</div>
+
+    {% for measurement in msp.measurements %}
+      <div class="mbdbv-block mbdbv-framed">
+        <h4 class="mbdbv-header">Measurement {{ loop.index }}</h4>
+
+        {{ nv.list_open() }}
+          {{ nv.item("Name", measurement.name) }}
+          {{ nv.item("Position", measurement.position) }}
+
+          {{ nv.inset_open() }}
+            {{ sample(gp, measurement.sample) }}
+          {{ nv.inset_close() }}
+
+          {{ nv.spacer() }}
+        {{ nv.list_close() }}
+      </div>
+    {% endfor %}
+  </div>
+{%- endmacro %}

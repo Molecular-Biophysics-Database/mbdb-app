@@ -1,4 +1,8 @@
-{# def metadata, ui, layout #}
+{# def metadata, layout, ui #}
+
+{% from "mbdb_mst_ui/Simple.jinja" import simple %}
+{% from "mbdb_mst_ui/Complete.jinja" import complete %}
+{% from "mbdb_mst_ui/CompleteCollapsible.jinja" import complete_collapsible %}
 
 <script src="/static/jquery-3.7.1.min.js"></script>
 <script src="/static/semantic.min.js"></script>
@@ -11,13 +15,14 @@
   </div>
 
   <div class="ui bottom attached active tab segment" data-tab="simple">
-    <Simple metadata={metadata} ui={ui} layout={layout} />
+    {{ simple(metadata, layout, ui) }}
   </div>
   <div class="ui bottom attached tab segment" data-tab="complete">
-    <Complete metadata={metadata} ui={ui} layout={layout} />
+    {{ complete(metadata, layout, ui) }}
   </div>
   <div class="ui bottom attached tab segment" data-tab="complete-collapsible">
-    <CompleteCollapsible metadata={metadata} ui={ui} layout={layout} />
+    {{ complete_collapsible(metadata, layout, ui) }}
+  </div>
   </div>
 </div>
 

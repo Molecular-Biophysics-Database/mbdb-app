@@ -1,56 +1,73 @@
-{#def metadata, ui, layout #}
+{% from "mbdb_mst_ui/Common/NoValue.jinja" import no_value %}
+{% from "mbdb_mst_ui/Common/RenderIf.jinja" import render_if2 %}
+{% from "mbdb_mst_ui/MBDB/EntitiesOfInterest.jinja" import entities_of_interest %}
+{% from "mbdb_mst_ui/MBDB/Instrument.jinja" import instrument %}
+{% from "mbdb_mst_ui/MST/Measurements.jinja" import measurements %}
+{% from "mbdb_mst_ui/MST/Results.jinja" import results %}
 
-<div class="ui container">
-  <h1 class="ui header">
-    {% if metadata.general_parameters.record_information is defined %}
-      {{ metadata.general_parameters.record_information.title }}
-    {% else %}
-      <Common.NoValue />
-    {% endif %}
-  </h1>
+{%- macro simple(metadata, layout, ui) %}
+  <div class="ui container">
+    <div class="mbdbv-header-bar">
+      <h1 class="ui header mbdbv-full-flex">
+        {%- if metadata.general_parameters.record_information is defined %}
+          {{ metadata.general_parameters.record_information.title }}
+        {%- else %}
+          {{ no_value() }}
+        {%- endif %}
+      </h1>
+      <a
+          class="ui inverted red button"
+          href="/api/mbdb-mst/{{ ui.id }}"
+          type="application/json"
+          role="button"
+      >
+          <i class="ui icon download"></i>
+          Download entry (HACK!)
+      </a>
+    </div>
 
-  <h3 class="mdbv-header">{{ metadata.general_parameters.technique }}</h3>
+    <h3 class="mdbv-header">{{ metadata.general_parameters.technique }}</h3>
 
-  <div class="mbdbv-block mbdbv-framed">
-    <h3 class="mbdbv-header">Instrument</h3>
-    {% if metadata.general_parameters.instrument is defined %}
-      <MBDB.Instrument instrument={metadata.general_parameters.instrument} />
-    {% else %}
-      <Common.NoValue />
-    {% endif %}
+    <div class="mbdbv-block mbdbv-framed">
+      <h3 class="mbdbv-header">Instrument</h3>
+        {{ render_if2(
+            metadata.general_parameters.instrument is defined,
+            instrument,
+            no_value(),
+            imt=metadata.general_parameters.instrument)
+        }}
+    </div>
+
+    <div class="mbdbv-block mbdbv-framed">
+      <h3 class="mbdbv-header">Entities of interest</h3>
+      {{ render_if2(
+          (metadata.general_parameters.chemical_information is defined) and (metadata.general_parameters.chemical_information.entities_of_interest is defined),
+          entities_of_interest,
+          no_value(),
+          entities=metadata.general_parameters.chemical_information.entities_of_interest)
+      }}
+    </div>
+
+    <div class="mbdbv-block mbdbv-framed">
+      <h3 class="mbdbv-header">Measurements</h3>
+      {{ render_if2(
+          metadata.method_specific_parameters is defined,
+          measurements,
+          no_value(),
+          gp=metadata.general_parameters,
+          msp=metadata.method_specific_parameters)
+      }}
+    </div>
+
+    <div class="mbdbv-block mbdbv-framed">
+      <h3 class="mbdbv-header">Results</h3>
+      {{ render_if2(
+          metadata.method_specific_parameters is defined,
+          results,
+          no_value(),
+          gp=metadata.general_parameters,
+          msp=metadata.method_specific_parameters)
+      }}
+    </div>
   </div>
-
-  <div class="mbdbv-block mbdbv-framed">
-    <h3 class="mbdbv-header">Entities of interest</h3>
-    {% if (metadata.general_parameters.chemical_information is defined) and (metadata.general_parameters.chemical_information.entities_of_interest is defined) %}
-      <MBDB.EntitiesOfInterest entities={metadata.general_parameters.chemical_information.entities_of_interest } />
-    {% else %}
-      <Common.NoValue />
-    {% endif %}
-  </div>
-
-  <div class="mbdbv-block mbdbv-framed">
-    <h3 class="mbdbv-header">Measurements</h3>
-
-    {% if metadata.method_specific_parameters is defined %}
-      <MST.Measurements
-        gp={metadata.general_parameters}
-        msp={metadata.method_specific_parameters}
-      />
-    {% else %}
-      <Common.NoValue />
-    {% endif %}
-  </div>
-
-  <div class="mbdbv-block mbdbv-framed">
-    <h3 class="mbdbv-header">Results</h3>
-      {% if metadata.method_specific_parameters is defined %}
-        <MST.Results
-          gp={metadata.general_parameters}
-          msp={metadata.method_specific_parameters}
-        />
-      {% else %}
-        <Common.NoValue />
-      {% endif %}
-  </div>
-</div>
+{%- endmacro %}

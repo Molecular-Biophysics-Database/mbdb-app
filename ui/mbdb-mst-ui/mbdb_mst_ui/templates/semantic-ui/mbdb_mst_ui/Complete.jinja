@@ -1,40 +1,60 @@
-{# def metadata, ui, layout #}
+{% import "mbdb_mst_ui/MBDB/NameValue/Index.jinja" as nv %}
 
-{% macro render_item(item) %}
-  {% if item is mapping %}
-    {{ walk_dictionary(item) }}
-  {% elif item is sequence and item is not string %}
-    {{ walk_sequence(item) }}
-  {% else %}
+{%- macro _render_dict_items(d) %}
+  {%- for key, value in d.items() %}
+    {{ nv.item(key | nice_name, _render_item(value)) }}
+  {%- endfor %}
+{%- endmacro %}
+
+{%- macro _render_item(item) %}
+  {%- if item is mapping %}
+    {{ _walk_dictionary(item) }}
+  {%- elif item is sequence and item is not string %}
+    {{ _walk_sequence(item) }}
+  {%- else %}
     {{ item }}
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro _render_root(metadata) %}
+  {{ nv.item("General parameters", _walk_dictionary(metadata.general_parameters)) }}
+  {%- if metadata.method_specific_parameters is defined %}
+    {{ nv.item("General parameters", _walk_dictionary(metadata.method_specific_parameters)) }}
   {% endif %}
-{% endmacro %}
+{%- endmacro %}
 
-{% macro walk_dictionary(d) %}
-  <MBDB.NameValue.Waterfall>
-    {% for key, value in d.items() %}
-      <MBDB.NameValue.Item name={key | nice_name}>
-        {{ render_item(value) }}
-      </MBDB.NameValue.Item>
-    {% endfor %}
-  </MBDB.NameValue.Waterfall>
-{% endmacro %}
+{%- macro _walk_dictionary(d) %}
+  {{ nv.waterfall(_render_dict_items(d)) }}
+{%- endmacro %}
 
-{% macro walk_sequence(s) %}
-  {% for item in s %}
-    {{ render_item(item) }}
-  {% endfor %}
-{% endmacro %}
+{%- macro _walk_sequence(s) %}
+  {%- for item in s %}
+    {{ _render_item(item) }}
+  {%- endfor %}
+{%- endmacro %}
 
-<div>
-  <MBDB.NameValue.Waterfall>
-    <MBDB.NameValue.Item name='General parameters'>
-      {{ walk_dictionary(metadata.general_parameters) }}
-    </MBDB.NameValue.Item>
-    {% if metadata.method_specific_parameters is defined %}
-      <MBDB.NameValue.Item name='Method specific parameters'>
-        {{ walk_dictionary(metadata.method_specific_parameters) }}
-      </MBDB.NameValue.Item>
-    {% endif %}
-  </MBDB.NameValue.Waterfall>
-</div>
+{%- macro complete(metadata, layout, ui) %}
+  <div class="ui container">
+    <div class="mbdbv-header-bar">
+      <h1 class="ui header mbdbv-full-flex">
+        {%- if metadata.general_parameters.record_information is defined %}
+          {{ metadata.general_parameters.record_information.title }}
+        {%- else %}
+          {{ no_value() }}
+        {%- endif %}
+      </h1>
+      <a
+          class="ui inverted red button"
+          href="/api/mbdb-mst/{{ ui.id }}"
+          type="application/json"
+          role="button"
+      >
+          <i class="ui icon download"></i>
+          Download entry (HACK!)
+      </a>
+    </div>
+    <div>
+      {{ nv.waterfall(_render_root(metadata)) }}
+    </div>
+  </div>
+{%- endmacro %}

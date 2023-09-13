@@ -1,27 +1,36 @@
-{#def entities #}
+{% from   "mbdb_mst_ui/MBDB/Entities/BiologicalOrigin.jinja" import biological_origin %}
+{% from   "mbdb_mst_ui/MBDB/Entities/Chemical.jinja" import chemical %}
+{% from   "mbdb_mst_ui/MBDB/Entities/ChemicalOrigin.jinja" import chemical_origin %}
+{% from   "mbdb_mst_ui/MBDB/Entities/EnvironmentalOrigin.jinja" import environmental_origin %}
+{% from   "mbdb_mst_ui/MBDB/Entities/IndustrialOrigin.jinja" import industrial_origin %}
+{% from   "mbdb_mst_ui/MBDB/Entities/MolecularAssembly.jinja" import molecular_assembly %}
+{% from   "mbdb_mst_ui/MBDB/Entities/Polymer.jinja" import polymer %}
+{% import "mbdb_mst_ui/MBDB/NameValue/Index.jinja" as nv %}
 
-<MBDB.NameValue.List>
-  {% for entity in entities %}
-    <MBDB.NameValue.Item name="Name">{{ entity.name }}</MBDB.NameValue.Item>
-    <MBDB.NameValue.Item name="Type">{{ entity.type }}</MBDB.NameValue.Item>
+{%- macro entities_of_interest(entities) %}
+  {{ nv.list_open() }}
+    {%- for entity in entities %}
+      {{ nv.item("Name", entity.name) }}
+      {{ nv.item("Type", entity.type) }}
 
-    {% if entity.type == "Chemical" %}
-      <MBDB.Entities.Chemical entity={{ entity }} />
-    {% elif entity.type == "Complex substance of biological origin" %}
-      <MBDB.Entities.BiologicalOrigin entity={{ entity }} />
-    {% elif entity.type == "Complex substance of chemical origin" %}
-      <MBDB.Entities.ChemicalOrigin entity={{ entity }} />
-    {% elif entity.type == "Complex substance of environmental origin" %}
-      <MBDB.Entities.EnvironmentalOrigin entity={{ entity }} />
-    {% elif entity.type == "Complex substance of industrial production origin" %}
-      <MBDB.Entities.IndustrialOrigin entity={{ entity }} />
-    {% elif entity.type == "Molecular assembly" %}
-      <MBDB.Entities.MolecularAssembly entity={{ entity }} />
-    {% elif entity.type == "Polymer" %}
-      <MBDB.Entities.Polymer entity={{ entity }} />
-    {% endif %}
+      {%- if entity.type == "Chemical" %}
+        {{ chemical(entity) }}
+      {%- elif entity.type == "Complex substance of biological origin" %}
+        {{ biological_origin(entity) }}
+      {%- elif entity.type == "Complex substance of chemical origin" %}
+        {{ chemical_origin(entity) }}
+      {%- elif entity.type == "Complex substance of environmental origin" %}
+        {{ environmental_origin(entity) }}
+      {%- elif entity.type == "Complex substance of industrial production origin" %}
+        {{ industrial_origin(entity) }}
+      {%- elif entity.type == "Molecular assembly" %}
+        {{ molecular_assembly(entity) }}
+      {%- elif entity.type == "Polymer" %}
+        {{ polymer(entity) }}
+      {%- endif %}
 
-    <MBDB.NameValue.Spacer />
+      {{ nv.spacer() }}
 
-  {% endfor %}
-</MBDB.NameValue.List>
+    {%- endfor %}
+  {{ nv.list_close() }}
+{%- endmacro %}

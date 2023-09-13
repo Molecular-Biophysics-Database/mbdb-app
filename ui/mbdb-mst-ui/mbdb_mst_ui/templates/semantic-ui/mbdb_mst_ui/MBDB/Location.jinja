@@ -1,6 +1,6 @@
-{# def value #}
-
-<span>
-  <span>Longitude: {{ value['W-E(longitude)'] }}</span>
-  <span>Latitude: {{ value['S-N(latitude)'] }}</span>
-</span>
+{%- macro location(loc) %}
+  <span>
+    <span>Longitude: {{ loc['W-E(longitude)'] }}</span>
+    <span>Latitude: {{ loc['S-N(latitude)'] }}</span>
+  </span>
+{%- endmacro %}

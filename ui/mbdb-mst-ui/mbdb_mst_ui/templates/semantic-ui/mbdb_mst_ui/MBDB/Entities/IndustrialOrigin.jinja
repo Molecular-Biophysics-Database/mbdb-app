@@ -1,3 +1,5 @@
-{# def entity #}
+{% import "mbdb_mst_ui/MBDB/NameValue/Index.jinja" as nv %}
 
-<MBDB.NameValue.Item name="Product">{{ entity.product}}</MBDB.NameValue.Item>
+{%- macro industrial_origin(entity) %}
+  {{ nv.item("Product", entity.product) }}
+{%- endmacro %}
