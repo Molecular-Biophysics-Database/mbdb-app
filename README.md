@@ -88,6 +88,12 @@ BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y
 
 {ok json}
 
+# try to list drafts (currently these are "user" files, that's why "user" is in the path)
+> curl -k -H "Authorization: Bearer $REPOTOKEN" \
+   https://127.0.0.1:5000/api/user/mbdb-mst/
+
+{ok json}
+
 
 # get the files section, note there are none at the moment
 > curl -k -H "Authorization: Bearer $REPOTOKEN" \
