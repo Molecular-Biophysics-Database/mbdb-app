@@ -36,7 +36,7 @@
 
 {%- macro complete(metadata, layout, ui) %}
   <div class="ui container">
-    {{ record_header(metadata | maybe_get("general_parameters.record_information.title"), "mbdb-mst/"+ui.id) }}
+    {{ record_header(metadata | maybe_get("general_parameters.record_information.title"), ui) }}
 
     <div>
       {{ nv.waterfall(_render_root(metadata)) }}

@@ -36,8 +36,7 @@
 
 {%- macro complete_collapsible(metadata, layout, ui) %}
   <div class="ui container">
-    {{ ui.id }}
-    {{ record_header(metadata | maybe_get("general_parameters.record_information.title"), "mbdb-mst/"+ui.id) }}
+    {{ record_header(metadata | maybe_get("general_parameters.record_information.title"), ui) }}
 
     <div>
       {{ nv.waterfall_collapsible("metadata", _render_root(metadata)) }}
