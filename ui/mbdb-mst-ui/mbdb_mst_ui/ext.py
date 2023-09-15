@@ -31,3 +31,4 @@ class MbdbMstExtension:
             if re.match("^[A-Z_]*$", identifier) and not identifier.startswith("_"):
                 app.config.setdefault(identifier, getattr(config, identifier))
 
+        app.config["OAREPO_UI_JINJAX_FILTERS"] = config.OAREPO_UI_JINJAX_FILTERS

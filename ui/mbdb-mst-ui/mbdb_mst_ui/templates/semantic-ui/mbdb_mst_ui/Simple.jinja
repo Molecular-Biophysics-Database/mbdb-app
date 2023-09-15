@@ -2,30 +2,13 @@
 {% from "mbdb_mst_ui/Common/RenderIf.jinja" import render_if2 %}
 {% from "mbdb_mst_ui/MBDB/EntitiesOfInterest.jinja" import entities_of_interest %}
 {% from "mbdb_mst_ui/MBDB/Instrument.jinja" import instrument %}
+{% from "mbdb_mst_ui/MBDB/RecordHeader.jinja" import record_header %}
 {% from "mbdb_mst_ui/MST/Measurements.jinja" import measurements %}
 {% from "mbdb_mst_ui/MST/Results.jinja" import results %}
 
 {%- macro simple(metadata, layout, ui) %}
   <div class="ui container">
-    <div class="mbdbv-header-bar">
-      <h1 class="ui header mbdbv-full-flex">
-        {%- if metadata.general_parameters.record_information is defined %}
-          {{ metadata.general_parameters.record_information.title }}
-        {%- else %}
-          {{ no_value() }}
-        {%- endif %}
-      </h1>
-      <a
-          class="ui inverted red button"
-          href="/api/mbdb-mst/{{ ui.id }}"
-          type="application/json"
-          role="button"
-      >
-          <i class="ui icon download"></i>
-          Download entry (HACK!)
-      </a>
-    </div>
-
+    {{ record_header(metadata | maybe_get("general_parameters.record_information.title"), "mbdb-mst/"+ui.id) }}
     <h3 class="mdbv-header">{{ metadata.general_parameters.technique }}</h3>
 
     <div class="mbdbv-block mbdbv-framed">
