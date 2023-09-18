@@ -1,0 +1,17 @@
+{% from   "mbdb_mst_ui/Common/NoValue.jinja" import no_value %}
+{% from   "mbdb_mst_ui/Common/RenderIf.jinja" import render_if2 %}
+{% import "mbdb_mst_ui/MBDB/NameValue/Index.jinja" as nv %}
+{% from   "mbdb_mst_ui/MBDB/MeasuredValue.jinja" import measured_value %}
+
+{%- macro chemical(entity) %}
+  {{ nv.item("InChI key", entity.inchikey) }}
+  {{ nv.item(
+      "Mw",
+      render_if2(
+        entity.molecular_weight is defined and entity.molecular_weight.value is defined,
+        measured_value,
+        no_value(),
+        mvalue=entity.molecular_weight
+      ))
+  }}
+{%- endmacro %}

@@ -1,0 +1,55 @@
+{% from   "mbdb_mst_ui/Common/Emph.jinja" import emph %}
+{% from   "mbdb_mst_ui/Common/NoValue.jinja" import no_value %}
+{% from   "mbdb_mst_ui/Common/RenderIf.jinja" import render_if2 %}
+{% from   "mbdb_mst_ui/MBDB/MeasuredValue.jinja" import measured_value %}
+{% import "mbdb_mst_ui/MBDB/List/Itemization.jinja" as lit %}
+{% import "mbdb_mst_ui/MBDB/NameValue/Index.jinja" as nv %}
+{% from   "mbdb_mst_ui/MST/Sample/ConstituentInfo.jinja" import constituent_info %}
+
+{%- macro sample(gp, samp) %}
+  {% set chemical_environment = (gp.chemical_information.chemical_environments | selectattr("id", "equalto", samp.chemical_environment.id) | list)[0] %}
+  {% set ionic_strength = chemical_environment | maybe_get("ionic_strength") %}
+  {% set temperature = gp | maybe_get("gp.physical_conditions_at_sample_handling.temperature") %}
+
+  <div>
+    <div>
+      <div class="mbdbv-voffset">
+        <h5 class="mbdbv-header">Buffer {{ emph(chemical_environment.name) }}</h5>
+        <div class="mbdbv-hoffset">
+          {{ nv.list_open() }}
+            {{ nv.inset_open() }}
+              <h5 class="mbdbv-header">Constituents</h5>
+              <div class="mddbv-block">
+                {{ lit.list(
+                    chemical_environment.constituents,
+                    constituent_info)
+                }}
+              </div>
+            {{ nv.inset_close() }}
+            {{ nv.item("pH", measured_value(chemical_environment.pH)) }}
+            {{ nv.item(
+                "Temperature",
+                render_if2(
+                  temperature is defined,
+                  measured_value,
+                  no_value(),
+                  mvalue=temperature))
+            }}
+            {{ nv.item(
+                "Ionic strength",
+                render_if2(
+                  ionic_strength is defined,
+                  measured_value,
+                  no_value(),
+                  mvalue=ionic_strength))
+            }}
+          {{ nv.list_close() }}
+        </div>
+      </div>
+
+      <div class="mbdbv-voffset">
+        {{ nv.single("Measured in", samp.container) }}
+      </div>
+    </div>
+  </div>
+{%- endmacro %}

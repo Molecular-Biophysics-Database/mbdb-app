@@ -1,0 +1,15 @@
+{% from   "mbdb_mst_ui/Common/NoValue.jinja" import no_value %}
+{% from   "mbdb_mst_ui/Common/RenderIf.jinja" import render_if2 %}
+{% import "mbdb_mst_ui/MBDB/NameValue/Index.jinja" as nv %}
+{% from   "mbdb_mst_ui/MBDB/Organism.jinja" import organism %}
+
+{%- macro biological_origin(entity) %}
+  {{ nv.item(
+      "Organism",
+      render_if2(
+        entity.organism is defined,
+        organism,
+        no_value(),
+        org=entity.organism))
+    }}
+{%- endmacro %}

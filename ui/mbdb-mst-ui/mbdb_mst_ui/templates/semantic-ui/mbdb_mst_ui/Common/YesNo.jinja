@@ -1,0 +1,9 @@
+{%- macro yes_no(value) -%}
+  <span>
+    {%- if value is boolean -%}
+      {{ "Yes" if value else "False "}}
+    {%- else -%}
+      {{ "Yes" if (value is defined and value | length) else "No" }}
+    {%- endif -%}
+  </span>
+{%- endmacro -%}

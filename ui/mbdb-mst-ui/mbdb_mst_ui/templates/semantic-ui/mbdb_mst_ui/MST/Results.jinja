@@ -1,0 +1,29 @@
+{% from   "mbdb_mst_ui/MBDB/MeasuredValue.jinja" import measured_value %}
+{% import "mbdb_mst_ui/MBDB/NameValue/Index.jinja" as nv %}
+
+{%- macro _fitting_model(dp) %}
+  {{ dp | maybe_get("data_fitting.model") }}
+  {%- if dp | maybe_get("data_fitting.quality") is defined -%}
+    ({{ dp.data_fitting.quality }})
+  {%- endif -%}
+{%- endmacro %}
+
+{%- macro results(gp, msp) %}
+  {# TODO: In the future we might want to filter what derived parameters to display
+  {% set kd_derived_parameters = gp.derived_parameters | selectattr("type", "equalto", "Constant of dissociation (K_D)") %}
+  #}
+
+  <div>
+    {%- for datum in msp.data_analysis %}
+      {% set dp = (gp.derived_parameters | selectattr("id", "equalto", datum.derived_parameter.id) | list)[0] %}
+
+      <div class="mbdbv-block">
+        <h5 class="mbdbv-header">{{ dp.name }}</h5>
+        {{ nv.list_open() }}
+          {{ nv.item(dp.type, measured_value(dp)) }}
+          {{ nv.item("Fitting model", _fitting_model(dp)) }}
+        {{ nv.list_close() }}
+      </div>
+    {% endfor %}
+  </div>
+{%- endmacro %}

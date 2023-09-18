@@ -19,7 +19,7 @@ class MbdbMstUIResourceConfig(RecordsUIResourceConfig):
 
     templates = {
         "detail": {
-            "layout": "mbdb_mst_ui/Detail.html.jinja",
+            "layout": "mbdb_mst_ui/DetailRoot.jinja",
             "blocks": {
                 "record_main_content": "Main",
                 "record_sidebar": "Sidebar",
