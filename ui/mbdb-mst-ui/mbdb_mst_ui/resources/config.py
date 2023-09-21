@@ -1,6 +1,8 @@
 from oarepo_ui.resources.config import RecordsUIResourceConfig
 from oarepo_ui.resources import BabelComponent
 
+from mbdb_common.ui.components import MBDBEditComponent
+
 
 class MbdbMstUIResourceConfig(RecordsUIResourceConfig):
     template_folder = "../templates"
@@ -9,8 +11,9 @@ class MbdbMstUIResourceConfig(RecordsUIResourceConfig):
     ui_serializer_class = "mbdb_mst.resources.records.ui.MbdbMstUIJSONSerializer"
     api_service = "mbdb_mst"
     layout = "mbdb_mst"
+    edit_layout = 'edit_layout.json'
 
-    components = [BabelComponent]
+    components = [BabelComponent, MBDBEditComponent]
     try:
         from oarepo_vocabularies.ui.resources.components import DepositVocabularyOptionsComponent
         components.append(DepositVocabularyOptionsComponent)
@@ -31,5 +34,6 @@ class MbdbMstUIResourceConfig(RecordsUIResourceConfig):
     }
 
     def search_app_config(self, identity, api_config, overrides={}, **kwargs):
-        return super().search_app_config(identity, api_config,
-                                         overrides=overrides, endpoint='/api/user/mbdb-mst/', **kwargs)
+        return super().search_app_config(
+            identity, api_config,
+            overrides=overrides, endpoint='/api/user/mbdb-mst/', **kwargs)
