@@ -21,7 +21,7 @@ class MbdbMstServiceConfig(
 ):
     """MbdbMstRecord service config."""
 
-    PERMISSIONS_PRESETS = ["authenticated"]
+    PERMISSIONS_PRESETS = ["everyone"]
 
     url_prefix = "/mbdb-mst/"
 
@@ -38,13 +38,14 @@ class MbdbMstServiceConfig(
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        DraftFilesComponent,
-        FilesOptionsComponent,
         DataComponent,
+        FilesOptionsComponent,
+        DraftFilesComponent,
     ]
 
     model = "mbdb_mst"
     draft_cls = MbdbMstDraft
+    search_drafts = MbdbMstSearchOptions
 
     @property
     def links_item(self):

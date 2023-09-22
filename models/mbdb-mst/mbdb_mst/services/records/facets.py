@@ -9078,6 +9078,21 @@ metadata_method_specific_parameters_data_analysis_f_cold_and_hot_time_unit = Ter
     ),
 )
 
+metadata_method_specific_parameters_measurements_id = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.id",
+    label=_("metadata/method_specific_parameters/measurements/id.label"),
+)
+
+metadata_method_specific_parameters_measurements_name = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.name",
+    label=_("metadata/method_specific_parameters/measurements/name.label"),
+)
+
+metadata_method_specific_parameters_data_analysis_measurements__version = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.measurements.@v",
+    label=_("metadata/method_specific_parameters/data_analysis/measurements/@v.label"),
+)
+
 metadata_method_specific_parameters_excitation_led_color = TermsFacet(
     field="metadata.method_specific_parameters.excitation_led_color",
     label=_("metadata/method_specific_parameters/excitation_led_color.label"),
@@ -9142,11 +9157,6 @@ metadata_method_specific_parameters_measurements_measured_data_y_data_values = T
     label=_(
         "metadata/method_specific_parameters/measurements/measured_data/y_data/values.label"
     ),
-)
-
-metadata_method_specific_parameters_measurements_name = TermsFacet(
-    field="metadata.method_specific_parameters.measurements.name",
-    label=_("metadata/method_specific_parameters/measurements/name.label"),
 )
 
 metadata_method_specific_parameters_measurements_position = TermsFacet(

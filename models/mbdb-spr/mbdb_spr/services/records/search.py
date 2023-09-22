@@ -2983,6 +2983,15 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_data_analysis_derived_parameter__version": (
             facets.metadata_method_specific_parameters_data_analysis_derived_parameter__version
         ),
+        "metadata_method_specific_parameters_measurements_id": (
+            facets.metadata_method_specific_parameters_measurements_id
+        ),
+        "metadata_method_specific_parameters_measurements_name": (
+            facets.metadata_method_specific_parameters_measurements_name
+        ),
+        "metadata_method_specific_parameters_data_analysis_measurements__version": (
+            facets.metadata_method_specific_parameters_data_analysis_measurements__version
+        ),
         "metadata_method_specific_parameters_experiment_type": (
             facets.metadata_method_specific_parameters_experiment_type
         ),

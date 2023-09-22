@@ -2998,6 +2998,15 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_data_analysis_f_cold_and_hot_time_unit": (
             facets.metadata_method_specific_parameters_data_analysis_f_cold_and_hot_time_unit
         ),
+        "metadata_method_specific_parameters_measurements_id": (
+            facets.metadata_method_specific_parameters_measurements_id
+        ),
+        "metadata_method_specific_parameters_measurements_name": (
+            facets.metadata_method_specific_parameters_measurements_name
+        ),
+        "metadata_method_specific_parameters_data_analysis_measurements__version": (
+            facets.metadata_method_specific_parameters_data_analysis_measurements__version
+        ),
         "metadata_method_specific_parameters_excitation_led_color": (
             facets.metadata_method_specific_parameters_excitation_led_color
         ),
@@ -3027,9 +3036,6 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         ),
         "metadata_method_specific_parameters_measurements_measured_data_y_data_values": (
             facets.metadata_method_specific_parameters_measurements_measured_data_y_data_values
-        ),
-        "metadata_method_specific_parameters_measurements_name": (
-            facets.metadata_method_specific_parameters_measurements_name
         ),
         "metadata_method_specific_parameters_measurements_position": (
             facets.metadata_method_specific_parameters_measurements_position

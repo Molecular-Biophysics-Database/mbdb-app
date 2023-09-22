@@ -21,7 +21,7 @@ class MbdbSprMetadataUISchema(ma.Schema):
     )
 
     method_specific_parameters = ma.fields.Nested(
-        lambda: MethodSpecificParametersUISchema()
+        lambda: MethodSpecificParametersUISchema(), required=True
     )
 
 
@@ -31,11 +31,13 @@ class GeneralParametersUISchema(ma.Schema):
 
     associated_publications = ma.fields.Nested(lambda: AssociatedPublicationsUISchema())
 
-    chemical_information = ma.fields.Nested(lambda: ChemicalInformationUISchema())
+    chemical_information = ma.fields.Nested(
+        lambda: ChemicalInformationUISchema(), required=True
+    )
 
     collection_start_time = l10n.LocalizedDate(required=True)
 
-    depositors = ma.fields.Nested(lambda: DepositorsUISchema())
+    depositors = ma.fields.Nested(lambda: DepositorsUISchema(), required=True)
 
     derived_parameters = ma.fields.List(
         ma.fields.Nested(lambda: DerivedParametersItemUISchema())
@@ -45,16 +47,18 @@ class GeneralParametersUISchema(ma.Schema):
         ma.fields.Nested(lambda: FundingReferenceItemUISchema())
     )
 
-    instrument = ma.fields.Nested(lambda: InstrumentUISchema())
+    instrument = ma.fields.Nested(lambda: InstrumentUISchema(), required=True)
 
     physical_conditions_at_sample_handling = ma.fields.Nested(
         lambda: PhysicalConditionsAtSampleHandlingUISchema()
     )
 
-    record_information = ma.fields.Nested(lambda: RecordInformationUISchema())
+    record_information = ma.fields.Nested(
+        lambda: RecordInformationUISchema(), required=True
+    )
 
     schema_version = ma.fields.String(
-        required=True, validate=[ma_validate.OneOf(["0.9.8"])]
+        required=True, validate=[ma_validate.OneOf(["0.9.9"])]
     )
 
     technique = ma.fields.String(
@@ -783,9 +787,7 @@ class MethodSpecificParametersUISchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
 
-    data_analysis = ma.fields.List(
-        ma.fields.Nested(lambda: DataAnalysisItemUISchema()), required=True
-    )
+    data_analysis = ma.fields.List(ma.fields.Nested(lambda: DataAnalysisItemUISchema()))
 
     experiment_type = ma.fields.String(
         required=True,
@@ -805,7 +807,7 @@ class MethodSpecificParametersUISchema(ma.Schema):
     )
 
     schema_version = ma.fields.String(
-        required=True, validate=[ma_validate.OneOf(["0.9.0"])]
+        required=True, validate=[ma_validate.OneOf(["0.9.2"])]
     )
 
     sensor = ma.fields.Nested(lambda: SensorUISchema(), required=True)
@@ -1193,7 +1195,11 @@ class MeasurementsItemUISchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
 
+    _id = ma.fields.String(required=True, data_key="id", attribute="id")
+
     measurement_position = ma.fields.Nested(lambda: EntityUISchema(), required=True)
+
+    name = ma.fields.String(required=True)
 
     reference_measurement_position = ma.fields.Nested(lambda: EntityUISchema())
 
@@ -2538,13 +2544,15 @@ class DataAnalysisItemUISchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
 
-    data_fitting = ma.fields.Nested(lambda: DataFittingUISchema(), required=True)
+    data_fitting = ma.fields.Nested(lambda: DataFittingUISchema())
 
     data_processing_steps = ma.fields.List(
         ma.fields.Nested(lambda: DataProcessingStepsItemUISchema())
     )
 
-    derived_parameter = ma.fields.Nested(lambda: EntityUISchema(), required=True)
+    derived_parameter = ma.fields.Nested(lambda: EntityUISchema())
+
+    measurements = ma.fields.List(ma.fields.Nested(lambda: EntityUISchema()))
 
 
 class DurationUISchema(ma.Schema):

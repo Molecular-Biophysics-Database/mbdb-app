@@ -13407,6 +13407,46 @@
                                                 "facet": "metadata_method_specific_parameters_data_analysis_derived_parameter__version"
                                             }
                                         }
+                                    },
+                                    "measurements": {
+                                        "detail": "array",
+                                        "input": "array",
+                                        "help": "metadata/method_specific_parameters/data_analysis/measurements.help",
+                                        "label": "metadata/method_specific_parameters/data_analysis/measurements.label",
+                                        "hint": "metadata/method_specific_parameters/data_analysis/measurements.hint",
+                                        "child": {
+                                            "detail": "relation",
+                                            "input": "relation",
+                                            "help": "metadata/method_specific_parameters/data_analysis/measurements.help",
+                                            "label": "metadata/method_specific_parameters/data_analysis/measurements.label",
+                                            "hint": "metadata/method_specific_parameters/data_analysis/measurements.hint",
+                                            "children": {
+                                                "id": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/method_specific_parameters/measurements/id.help",
+                                                    "label": "metadata/method_specific_parameters/measurements/id.label",
+                                                    "hint": "metadata/method_specific_parameters/measurements/id.hint",
+                                                    "facet": "metadata_method_specific_parameters_measurements_id"
+                                                },
+                                                "name": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/method_specific_parameters/measurements/name.help",
+                                                    "label": "metadata/method_specific_parameters/measurements/name.label",
+                                                    "hint": "metadata/method_specific_parameters/measurements/name.hint",
+                                                    "facet": "metadata_method_specific_parameters_measurements_name"
+                                                },
+                                                "@v": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/method_specific_parameters/data_analysis/measurements/@v.help",
+                                                    "label": "metadata/method_specific_parameters/data_analysis/measurements/@v.label",
+                                                    "hint": "metadata/method_specific_parameters/data_analysis/measurements/@v.hint",
+                                                    "facet": "metadata_method_specific_parameters_data_analysis_measurements__version"
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -13675,6 +13715,14 @@
                                 "label": "metadata/method_specific_parameters/measurements.label",
                                 "hint": "metadata/method_specific_parameters/measurements.hint",
                                 "children": {
+                                    "id": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/method_specific_parameters/measurements/id.help",
+                                        "label": "metadata/method_specific_parameters/measurements/id.label",
+                                        "hint": "metadata/method_specific_parameters/measurements/id.hint",
+                                        "facet": "metadata_method_specific_parameters_measurements_id"
+                                    },
                                     "measured_data": {
                                         "detail": "measured_datum",
                                         "input": "measured_datum",
@@ -13810,6 +13858,14 @@
                                                 "facet": "metadata_method_specific_parameters_measurements_measurement_protocol_step__version"
                                             }
                                         }
+                                    },
+                                    "name": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/method_specific_parameters/measurements/name.help",
+                                        "label": "metadata/method_specific_parameters/measurements/name.label",
+                                        "hint": "metadata/method_specific_parameters/measurements/name.hint",
+                                        "facet": "metadata_method_specific_parameters_measurements_name"
                                     },
                                     "sample": {
                                         "detail": false,

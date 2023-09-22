@@ -41,6 +41,7 @@ class MbdbMstRecord(InvenioRecord):
 
     dumper_extensions = []
     dumper = MbdbMstDumper(extensions=dumper_extensions)
+    dumper_extensions = []
 
     relations = RelationsField(
         affiliations=PIDRelation(
@@ -286,6 +287,11 @@ class MbdbMstRecord(InvenioRecord):
             "metadata.method_specific_parameters.data_analysis.derived_parameter",
             keys=["id", "name"],
             related_part="metadata.general_parameters.derived_parameters",
+        ),
+        measurements=InternalRelation(
+            "metadata.method_specific_parameters.data_analysis.measurements",
+            keys=["id", "name"],
+            related_part="metadata.method_specific_parameters.measurements",
         ),
         chemical_environment=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.chemical_environment",
@@ -582,6 +588,11 @@ class MbdbMstDraft(InvenioDraft):
             keys=["id", "name"],
             related_part="metadata.general_parameters.derived_parameters",
         ),
+        measurements=InternalRelation(
+            "metadata.method_specific_parameters.data_analysis.measurements",
+            keys=["id", "name"],
+            related_part="metadata.method_specific_parameters.measurements",
+        ),
         chemical_environment=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.chemical_environment",
             keys=["id", "name"],
@@ -616,10 +627,10 @@ class MbdbMstDraft(InvenioDraft):
     bucket = ModelField(dump=False)
 
 
+MbdbMstFile.record_cls = MbdbMstRecord
+
 MbdbMstRecord.has_draft = HasDraftCheckField(
     draft_cls=MbdbMstDraft, config_key="HAS_DRAFT_CUSTOM_FIELD"
 )
-
-MbdbMstFile.record_cls = MbdbMstRecord
 
 MbdbMstFileDraft.record_cls = MbdbMstDraft
