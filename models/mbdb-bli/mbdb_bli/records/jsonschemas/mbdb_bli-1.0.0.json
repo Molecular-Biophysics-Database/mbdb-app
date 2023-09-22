@@ -5552,6 +5552,23 @@
                                                 "type": "string"
                                             }
                                         }
+                                    },
+                                    "measurements": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -5665,6 +5682,9 @@
                             "items": {
                                 "type": "object",
                                 "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
                                     "measured_data": {
                                         "type": "object",
                                         "properties": {
@@ -5723,6 +5743,9 @@
                                                 "type": "string"
                                             }
                                         }
+                                    },
+                                    "name": {
+                                        "type": "string"
                                     },
                                     "sample": {
                                         "type": "object",

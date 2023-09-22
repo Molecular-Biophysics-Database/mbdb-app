@@ -41,6 +41,7 @@ class MbdbBliRecord(InvenioRecord):
 
     dumper_extensions = []
     dumper = MbdbBliDumper(extensions=dumper_extensions)
+    dumper_extensions = []
 
     relations = RelationsField(
         affiliations=PIDRelation(
@@ -286,6 +287,11 @@ class MbdbBliRecord(InvenioRecord):
             "metadata.method_specific_parameters.data_analysis.derived_parameter",
             keys=["id", "name"],
             related_part="metadata.general_parameters.derived_parameters",
+        ),
+        measurements=InternalRelation(
+            "metadata.method_specific_parameters.data_analysis.measurements",
+            keys=["id", "name"],
+            related_part="metadata.method_specific_parameters.measurements",
         ),
         measurement_protocol_step=InternalRelation(
             "metadata.method_specific_parameters.measurements.measurement_protocol_step",
@@ -597,6 +603,11 @@ class MbdbBliDraft(InvenioDraft):
             keys=["id", "name"],
             related_part="metadata.general_parameters.derived_parameters",
         ),
+        measurements=InternalRelation(
+            "metadata.method_specific_parameters.data_analysis.measurements",
+            keys=["id", "name"],
+            related_part="metadata.method_specific_parameters.measurements",
+        ),
         measurement_protocol_step=InternalRelation(
             "metadata.method_specific_parameters.measurements.measurement_protocol_step",
             keys=["id", "name"],
@@ -646,10 +657,10 @@ class MbdbBliDraft(InvenioDraft):
     bucket = ModelField(dump=False)
 
 
+MbdbBliFile.record_cls = MbdbBliRecord
+
 MbdbBliRecord.has_draft = HasDraftCheckField(
     draft_cls=MbdbBliDraft, config_key="HAS_DRAFT_CUSTOM_FIELD"
 )
-
-MbdbBliFile.record_cls = MbdbBliRecord
 
 MbdbBliFileDraft.record_cls = MbdbBliDraft
