@@ -1,6 +1,7 @@
 {
     "model": {
         "type": "file",
+        "searchable": true,
         "marshmallow": {
             "imports": [
                 {
@@ -16,7 +17,6 @@
             "class": "mbdb_spr.services.files.schema.MbdbSprFileSchema",
             "extra-code": ""
         },
-        "searchable": true,
         "module": {
             "qualified": "mbdb_spr",
             "prefix": "MbdbSprFile",
@@ -36,9 +36,6 @@
             "extra-fixtures": [],
             "extra-code": "",
             "module": "tests"
-        },
-        "sample": {
-            "file": "data/sample_data.yaml"
         },
         "search-options": {
             "skip": true,
@@ -90,47 +87,10 @@
                 }
             ]
         },
+        "sample": {
+            "file": "data/sample_data.yaml"
+        },
         "model-name": "Mbdb_Spr",
-        "config": {
-            "generate": true,
-            "module": "mbdb_spr.config",
-            "extra_code": "",
-            "imports": []
-        },
-        "ext": {
-            "generate": true,
-            "module": "mbdb_spr.ext",
-            "class": "mbdb_spr.ext.Mbdb_sprExt",
-            "base-classes": [],
-            "extra_code": "",
-            "alias": "mbdb_spr",
-            "imports": []
-        },
-        "api-blueprint": {
-            "generate": true,
-            "alias": "mbdb_spr_file",
-            "extra_code": "",
-            "module": "mbdb_spr.views.files.api",
-            "function": "mbdb_spr.views.files.api.create_api_blueprint",
-            "imports": []
-        },
-        "app-blueprint": {
-            "generate": true,
-            "alias": "mbdb_spr_file",
-            "extra_code": "",
-            "module": "mbdb_spr.views.files.app",
-            "function": "mbdb_spr.views.files.app.create_app_blueprint",
-            "imports": []
-        },
-        "saved-model": {
-            "file": "mbdb_spr/models/files.json",
-            "module": "mbdb_spr.models",
-            "alias": "mbdb_spr_file"
-        },
-        "proxy": {
-            "module": "mbdb_spr.proxies",
-            "generate": true
-        },
         "record": {
             "class": "mbdb_spr.files.api.MbdbSprFile",
             "base-classes": [
@@ -181,65 +141,44 @@
             "generate": true,
             "skip": false
         },
-        "translations": {
-            "module": "mbdb_spr.translations",
+        "config": {
+            "generate": true,
+            "module": "mbdb_spr.config",
+            "extra_code": "",
+            "imports": []
+        },
+        "ext": {
+            "generate": true,
+            "module": "mbdb_spr.ext",
+            "class": "mbdb_spr.ext.Mbdb_sprExt",
+            "base-classes": [],
+            "extra_code": "",
+            "alias": "mbdb_spr",
+            "imports": []
+        },
+        "api-blueprint": {
+            "generate": true,
+            "alias": "mbdb_spr_file",
+            "extra_code": "",
+            "module": "mbdb_spr.views.files.api",
+            "function": "mbdb_spr.views.files.api.create_api_blueprint",
+            "imports": []
+        },
+        "app-blueprint": {
+            "generate": true,
+            "alias": "mbdb_spr_file",
+            "extra_code": "",
+            "module": "mbdb_spr.views.files.app",
+            "function": "mbdb_spr.views.files.app.create_app_blueprint",
+            "imports": []
+        },
+        "saved-model": {
+            "file": "mbdb_spr/models/files.json",
+            "module": "mbdb_spr.models",
             "alias": "mbdb_spr_file"
         },
-        "ui": {
-            "module": "mbdb_spr.models",
-            "file": "mbdb_spr/models/ui.json",
-            "alias": "mbdb_spr_file",
-            "marshmallow": {
-                "generate": true,
-                "module": "mbdb_spr.services.files.ui_schema",
-                "class": "mbdb_spr.services.files.ui_schema.MbdbSprFileUISchema",
-                "extra-code": "",
-                "base-classes": [
-                    "InvenioUISchema"
-                ],
-                "imports": [
-                    {
-                        "import": "oarepo_runtime.ui.marshmallow.InvenioUISchema"
-                    }
-                ]
-            }
-        },
-        "files-field": {
-            "field-args": [
-                "store=False",
-                "create=False",
-                "delete=False"
-            ],
-            "generate": true,
-            "field-class": "FilesField",
-            "file-class": "MbdbSprFile",
-            "imports": [
-                {
-                    "import": "invenio_records_resources.records.systemfields.FilesField"
-                },
-                {
-                    "import": "mbdb_spr.files.api.MbdbSprFile"
-                }
-            ]
-        },
-        "json-serializer": {
-            "module": "mbdb_spr.resources.files.ui",
-            "class": "mbdb_spr.resources.files.ui.MbdbSprFileUIJSONSerializer",
-            "base-classes": [
-                "MarshmallowSerializer"
-            ],
-            "imports": [
-                {
-                    "import": "flask_resources.BaseListSchema"
-                },
-                {
-                    "import": "flask_resources.MarshmallowSerializer"
-                },
-                {
-                    "import": "flask_resources.serializers.JSONSerializer"
-                }
-            ],
-            "extra-code": "",
+        "proxy": {
+            "module": "mbdb_spr.proxies",
             "generate": true
         },
         "record-metadata": {
@@ -338,21 +277,66 @@
                 }
             ]
         },
-        "draft-parent-record": {
-            "skip": true
-        },
-        "draft-parent-record-metadata": {
-            "skip": true
-        },
-        "draft-parent-record-state": {
-            "skip": true
-        },
-        "mapping": {
-            "generate": true,
+        "ui": {
+            "module": "mbdb_spr.models",
+            "file": "mbdb_spr/models/ui.json",
             "alias": "mbdb_spr_file",
-            "module": "mbdb_spr.files.mappings",
-            "index": "mbdb_spr_file-mbdb_spr_file-1.0.0",
-            "file": "mbdb_spr/files/mappings/os-v2/mbdb_spr_file/mbdb_spr_file-1.0.0.json"
+            "marshmallow": {
+                "generate": true,
+                "module": "mbdb_spr.services.files.ui_schema",
+                "class": "mbdb_spr.services.files.ui_schema.MbdbSprFileUISchema",
+                "extra-code": "",
+                "base-classes": [
+                    "InvenioUISchema"
+                ],
+                "imports": [
+                    {
+                        "import": "oarepo_runtime.ui.marshmallow.InvenioUISchema"
+                    }
+                ]
+            }
+        },
+        "json-serializer": {
+            "module": "mbdb_spr.resources.files.ui",
+            "class": "mbdb_spr.resources.files.ui.MbdbSprFileUIJSONSerializer",
+            "base-classes": [
+                "MarshmallowSerializer"
+            ],
+            "imports": [
+                {
+                    "import": "flask_resources.BaseListSchema"
+                },
+                {
+                    "import": "flask_resources.MarshmallowSerializer"
+                },
+                {
+                    "import": "flask_resources.serializers.JSONSerializer"
+                }
+            ],
+            "extra-code": "",
+            "generate": true
+        },
+        "translations": {
+            "module": "mbdb_spr.translations",
+            "alias": "mbdb_spr_file"
+        },
+        "files-field": {
+            "field-args": [
+                "store=False",
+                "create=False",
+                "delete=False"
+            ],
+            "generate": true,
+            "field-class": "FilesField",
+            "file-class": "MbdbSprFile",
+            "imports": [
+                {
+                    "import": "invenio_records_resources.records.systemfields.FilesField"
+                },
+                {
+                    "import": "mbdb_spr.files.api.MbdbSprFile"
+                }
+            ]
         },
         "permissions": {
             "class": "mbdb_spr.services.records.permissions.MbdbSprPermissionPolicy",
@@ -370,6 +354,22 @@
                     "import": "invenio_records_permissions.RecordPermissionPolicy"
                 }
             ]
+        },
+        "mapping": {
+            "generate": true,
+            "alias": "mbdb_spr_file",
+            "module": "mbdb_spr.files.mappings",
+            "index": "mbdb_spr_file-mbdb_spr_file-1.0.0",
+            "file": "mbdb_spr/files/mappings/os-v2/mbdb_spr_file/mbdb_spr_file-1.0.0.json"
+        },
+        "draft-parent-record": {
+            "skip": true
+        },
+        "draft-parent-record-metadata": {
+            "skip": true
+        },
+        "draft-parent-record-state": {
+            "skip": true
         },
         "sortable": [],
         "properties": {

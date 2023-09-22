@@ -9039,6 +9039,21 @@ metadata_method_specific_parameters_data_analysis_derived_parameter__version = T
     ),
 )
 
+metadata_method_specific_parameters_measurements_id = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.id",
+    label=_("metadata/method_specific_parameters/measurements/id.label"),
+)
+
+metadata_method_specific_parameters_measurements_name = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.name",
+    label=_("metadata/method_specific_parameters/measurements/name.label"),
+)
+
+metadata_method_specific_parameters_data_analysis_measurements__version = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.measurements.@v",
+    label=_("metadata/method_specific_parameters/data_analysis/measurements/@v.label"),
+)
+
 metadata_method_specific_parameters_experiment_type = TermsFacet(
     field="metadata.method_specific_parameters.experiment_type",
     label=_("metadata/method_specific_parameters/experiment_type.label"),

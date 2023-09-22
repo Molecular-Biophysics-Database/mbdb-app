@@ -35,15 +35,15 @@ class MbdbSprFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig)
     @property
     def file_links_list(self):
         return {
-            "self": RecordLink("{self.url_prefix}{id}/files"),
+            "self": RecordLink("{+api}/mbdb-spr/{id}/files"),
         }
 
     @property
     def file_links_item(self):
         return {
-            "commit": FileLink("{self.url_prefix}{id}/files/{key}/commit"),
-            "content": FileLink("{self.url_prefix}{id}/files/{key}/content"),
-            "self": FileLink("{self.url_prefix}{id}/files/{key}"),
+            "commit": FileLink("{+api}/mbdb-spr/{id}/files/{key}/commit"),
+            "content": FileLink("{+api}/mbdb-spr/{id}/files/{key}/content"),
+            "self": FileLink("{+api}/mbdb-spr/{id}/files/{key}"),
         }
 
 
@@ -73,13 +73,13 @@ class MbdbSprFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceCo
     @property
     def file_links_list(self):
         return {
-            "self": RecordLink("{self.url_prefix}{id}/draft/files"),
+            "self": RecordLink("{+api}/mbdb-spr/{id}/draft/files"),
         }
 
     @property
     def file_links_item(self):
         return {
-            "commit": FileLink("{self.url_prefix}{id}/draft/files/{key}/commit"),
-            "content": FileLink("{self.url_prefix}{id}/draft/files/{key}/content"),
-            "self": FileLink("{self.url_prefix}{id}/draft/files/{key}"),
+            "commit": FileLink("{+api}/mbdb-spr/{id}/draft/files/{key}/commit"),
+            "content": FileLink("{+api}/mbdb-spr/{id}/draft/files/{key}/content"),
+            "self": FileLink("{+api}/mbdb-spr/{id}/draft/files/{key}"),
         }

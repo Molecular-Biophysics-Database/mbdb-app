@@ -5552,6 +5552,23 @@
                                                 "type": "string"
                                             }
                                         }
+                                    },
+                                    "measurements": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -5727,6 +5744,9 @@
                             "items": {
                                 "type": "object",
                                 "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
                                     "measurement_position": {
                                         "type": "object",
                                         "properties": {
@@ -5740,6 +5760,9 @@
                                                 "type": "string"
                                             }
                                         }
+                                    },
+                                    "name": {
+                                        "type": "string"
                                     },
                                     "reference_measurement_position": {
                                         "type": "object",

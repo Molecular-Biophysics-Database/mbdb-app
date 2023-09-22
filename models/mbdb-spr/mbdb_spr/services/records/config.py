@@ -38,36 +38,37 @@ class MbdbSprServiceConfig(
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        DraftFilesComponent,
-        FilesOptionsComponent,
         DataComponent,
+        FilesOptionsComponent,
+        DraftFilesComponent,
     ]
 
     model = "mbdb_spr"
     draft_cls = MbdbSprDraft
+    search_drafts = MbdbSprSearchOptions
 
     @property
     def links_item(self):
         return {
-            "draft": RecordLink("{+api}/{self.url_prefix}{id}/draft"),
+            "draft": RecordLink("{+api}/mbdb-spr/{id}/draft"),
             "files": ConditionalLink(
                 cond=is_record,
-                if_=RecordLink("{+api}/records/{id}/files"),
-                else_=RecordLink("{+api}/records/{id}/draft/files"),
+                if_=RecordLink("{+api}/mbdb-spr/{id}/files"),
+                else_=RecordLink("{+api}/mbdb-spr/{id}/draft/files"),
             ),
-            "latest": RecordLink("{+api}/{self.url_prefix}{id}/versions/latest"),
-            "latest_html": RecordLink("{+ui}/{self.url_prefix}{id}/latest"),
-            "publish": RecordLink("{+api}/{self.url_prefix}{id}/draft/actions/publish"),
-            "record": RecordLink("{+api}/{self.url_prefix}{id}"),
+            "latest": RecordLink("{+api}/mbdb-spr/{id}/versions/latest"),
+            "latest_html": RecordLink("{+ui}/mbdb-spr/{id}/latest"),
+            "publish": RecordLink("{+api}/mbdb-spr/{id}/draft/actions/publish"),
+            "record": RecordLink("{+api}/mbdb-spr/{id}"),
             "self": ConditionalLink(
                 cond=is_record,
-                if_=RecordLink("{+api}{self.url_prefix}{id}"),
-                else_=RecordLink("{+api}{self.url_prefix}{id}/draft"),
+                if_=RecordLink("{+api}/mbdb-spr/{id}"),
+                else_=RecordLink("{+api}/mbdb-spr/{id}/draft"),
             ),
             "self_html": ConditionalLink(
                 cond=is_record,
-                if_=RecordLink("{+ui}{self.url_prefix}{id}"),
+                if_=RecordLink("{+ui}/mbdb-spr/{id}"),
                 else_=RecordLink("{+ui}/uploads/{id}"),
             ),
-            "versions": RecordLink("{+api}/{self.url_prefix}{id}/versions"),
+            "versions": RecordLink("{+api}/mbdb-spr/{id}/versions"),
         }

@@ -41,6 +41,7 @@ class MbdbSprRecord(InvenioRecord):
 
     dumper_extensions = []
     dumper = MbdbSprDumper(extensions=dumper_extensions)
+    dumper_extensions = []
 
     relations = RelationsField(
         affiliations=PIDRelation(
@@ -286,6 +287,11 @@ class MbdbSprRecord(InvenioRecord):
             "metadata.method_specific_parameters.data_analysis.derived_parameter",
             keys=["id", "name"],
             related_part="metadata.general_parameters.derived_parameters",
+        ),
+        measurements=InternalRelation(
+            "metadata.method_specific_parameters.data_analysis.measurements",
+            keys=["id", "name"],
+            related_part="metadata.method_specific_parameters.measurements",
         ),
         ligand=InternalRelation(
             "metadata.method_specific_parameters.measurement_positions.ligand_information.ligand",
@@ -621,6 +627,11 @@ class MbdbSprDraft(InvenioDraft):
             keys=["id", "name"],
             related_part="metadata.general_parameters.derived_parameters",
         ),
+        measurements=InternalRelation(
+            "metadata.method_specific_parameters.data_analysis.measurements",
+            keys=["id", "name"],
+            related_part="metadata.method_specific_parameters.measurements",
+        ),
         ligand=InternalRelation(
             "metadata.method_specific_parameters.measurement_positions.ligand_information.ligand",
             keys=["id", "name"],
@@ -694,10 +705,10 @@ class MbdbSprDraft(InvenioDraft):
     bucket = ModelField(dump=False)
 
 
+MbdbSprFile.record_cls = MbdbSprRecord
+
 MbdbSprRecord.has_draft = HasDraftCheckField(
     draft_cls=MbdbSprDraft, config_key="HAS_DRAFT_CUSTOM_FIELD"
 )
-
-MbdbSprFile.record_cls = MbdbSprRecord
 
 MbdbSprFileDraft.record_cls = MbdbSprDraft
