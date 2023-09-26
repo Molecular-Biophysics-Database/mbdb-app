@@ -34,4 +34,5 @@ header.oarepo {
 
 main {
     min-height: calc(100vh - 250px);
+    background-color: orange;
 }
