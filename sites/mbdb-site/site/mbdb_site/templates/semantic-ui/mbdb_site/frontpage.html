@@ -28,25 +28,15 @@
             <div class="ui container grid rel-mt-2">
                 <div class="sixteen wide column center aligned">
                     {%- block frontpage_title %}
+                    <div class="frontpage_title">
+                      Molecular Biophysics Database
+                    </div>
                     <div class="ui text container">
                         The Molecular Biophysics Database is a comprehensive resource for investigating biomolecular structure and dynamics. It provides researchers with access to experimental and computational data on molecular interactions, conformational changes, energetics, and functional properties. This repository encompasses a wide range of biomolecules, enabling in-depth analyses of molecular mechanisms and their implications in biological processes. The user-friendly interface and comprehensive data annotations make it a valuable tool for drug discovery, protein engineering, and understanding cellular processes at the atomic level.
-
-<!--                        <div class="ui header">-->
-<!--                        {%- if config.THEME_FRONTPAGE_LOGO %}-->
-<!--                            <img class="ui medium image frontpage-logo"-->
-<!--                                src="{{ url_for('static', filename=config.THEME_FRONTPAGE_LOGO) }}"-->
-<!--                                alt="{{ _(config.THEME_SITENAME) }}"/>-->
-<!--                        {%- else %}-->
-<!--                            <a class="logo" href="/">{{ _(config.THEME_SITENAME) }}</a>-->
-<!--                        {%- endif %}-->
-<!--                        </div>-->
-<!--                        <div class="ui label purple">-->
-<!--                            <h1 class="ui header  medium">{{ _(config.THEME_FRONTPAGE_TITLE) }}</h1>-->
-<!--                        </div>-->
-                </div>
-                <div class="ui text container">
-                    <a href="/mst/">MST listing</a>
-                </div>
+                    </div>
+                    <div class="ui text container">
+                      <a href="/mst/">MST listing</a>
+                    </div>
                 {%- endblock frontpage_title %}
                 {%- block frontpage_form %}
                 <div class="row rel-mt-5">
@@ -77,3 +67,17 @@
   {%- endblock bottom_section %}
 
 {%- endblock page_body %}
+
+
+<!--                        <div class="ui header">-->
+<!--                        {%- if config.THEME_FRONTPAGE_LOGO %}-->
+<!--                            <img class="ui medium image frontpage-logo"-->
+<!--                                src="{{ url_for('static', filename=config.THEME_FRONTPAGE_LOGO) }}"-->
+<!--                                alt="{{ _(config.THEME_SITENAME) }}"/>-->
+<!--                        {%- else %}-->
+<!--                            <a class="logo" href="/">{{ _(config.THEME_SITENAME) }}</a>-->
+<!--                        {%- endif %}-->
+<!--                        </div>-->
+<!--                        <div class="ui label purple">-->
+<!--                            <h1 class="ui header  medium">{{ _(config.THEME_FRONTPAGE_TITLE) }}</h1>-->
+<!--                        </div>-->
