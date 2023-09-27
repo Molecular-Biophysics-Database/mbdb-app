@@ -1,9 +1,8 @@
 import React from "react";
-import { MinimalInputForm, initForm } from "@mbdb/input-form/lib";
+import { MinimalInputForm, useContextHandler } from "@mbdb/input-form/lib";
 import { getKeeper } from "@mbdb/input-form/lib/context/keeper";
 import { Config } from "@mbdb/input-form/lib/config";
 import { FormContext } from "@mbdb/input-form/lib/context";
-import { FormContextHandler } from "@mbdb/input-form/lib/context/handler";
 import { Mbdb } from "@mbdb/input-form/lib/mbdb";
 import { submitToMbdb } from "@mbdb/input-form/lib/mbdb/submit";
 import { Data } from "@mbdb/input-form/lib/schema/data";
@@ -177,17 +176,7 @@ function ControlsTape({ ctxHandler, createDraftUrl, dataId }) {
 
 export function DepositForm({ createDraftUrl }) {
     const dataId = React.useMemo(() => Uuid.get(), []);
-    const { ctxHandler } = React.useMemo(() => {
-        const keeper = getKeeper();
-        initForm(dataId, MstSchemaName);
-
-        const ctxGetter = () => keeper.get(dataId).data;
-        const ctxUpdater = (handler) => setContextValue({ handler });
-        const ctxHandler = FormContextHandler.make(ctxGetter, ctxUpdater);
-
-        return { ctxHandler };
-    }, []);
-    const [_contextValue, setContextValue] = React.useState({ handler: ctxHandler });
+    const ctxHandler = useContextHandler(dataId, "mst");
 
     React.useEffect(() => {
         Config.set({
