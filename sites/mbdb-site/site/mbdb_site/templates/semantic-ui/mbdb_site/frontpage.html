@@ -2,6 +2,7 @@
 
 {%- block page_header %}
   {%- include "mbdb_site/header_frontpage.html" %}
+
 {%- endblock page_header %}
 
 {%- block page_body %}
@@ -24,15 +25,15 @@
 
           {% block main_column_content %}
           {%- block frontpage_search %}
-            <div id="frontpage-search-bar" class="ui container fluid frontpage-header masthead center aligned borderless segment cover-page">
+            <div id="frontpage-search-bar" class="ui container fluid masthead center aligned borderless segment cover-page">
             <div class="ui container grid rel-mt-2">
                 <div class="sixteen wide column center aligned">
                     {%- block frontpage_title %}
-                    <div class="frontpage_title">
+                    <div class="ui header grey huge">
                       Molecular Biophysics Database
                     </div>
-                    <div class="ui text container">
-                        The Molecular Biophysics Database is a comprehensive resource for investigating biomolecular structure and dynamics. It provides researchers with access to experimental and computational data on molecular interactions, conformational changes, energetics, and functional properties. This repository encompasses a wide range of biomolecules, enabling in-depth analyses of molecular mechanisms and their implications in biological processes. The user-friendly interface and comprehensive data annotations make it a valuable tool for drug discovery, protein engineering, and understanding cellular processes at the atomic level.
+                    <div>
+                      We have over xy records in our database
                     </div>
                     <div class="ui text container">
                       <a href="/mst/">MST listing</a>
@@ -65,6 +66,8 @@
 
   {%- block bottom_section %}
   {%- endblock bottom_section %}
+
+  {%- include "mbdb_site/about.html" %}
 
 {%- endblock page_body %}
 
