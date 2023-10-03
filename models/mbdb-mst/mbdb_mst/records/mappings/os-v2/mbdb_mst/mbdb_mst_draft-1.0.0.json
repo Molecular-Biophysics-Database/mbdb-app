@@ -5847,6 +5847,10 @@
                                     }
                                 }
                             },
+                            "raw_measurements": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
                             "record_information": {
                                 "type": "object",
                                 "properties": {

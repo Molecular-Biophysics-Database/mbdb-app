@@ -55,6 +55,21 @@ class Mbdb_bliExt:
         )
 
     @cached_property
+    def published_service_records(self):
+        from mbdb_bli.services.records.published.config import (
+            MbdbBliPublishedServiceConfig as PublishedServiceConfig,
+        )
+        from mbdb_bli.services.records.published.service import (
+            MbdbBliPublishedService as PublishedService,
+        )
+
+        return PublishedService(
+            config=PublishedServiceConfig(
+                proxied_drafts_config=self.service_records.config,
+            ),
+        )
+
+    @cached_property
     def service_files(self):
         return config.MBDB_BLI_FILES_SERVICE_CLASS(
             config=config.MBDB_BLI_FILES_SERVICE_CONFIG(),
@@ -65,6 +80,21 @@ class Mbdb_bliExt:
         return config.MBDB_BLI_FILES_RESOURCE_CLASS(
             service=self.service_files,
             config=config.MBDB_BLI_FILES_RESOURCE_CONFIG(),
+        )
+
+    @cached_property
+    def published_service_files(self):
+        from mbdb_bli.services.files.published.config import (
+            MbdbBliFilePublishedServiceConfig as PublishedServiceConfig,
+        )
+        from mbdb_bli.services.files.published.service import (
+            MbdbBliFilePublishedService as PublishedService,
+        )
+
+        return PublishedService(
+            config=PublishedServiceConfig(
+                proxied_drafts_config=self.service_files.config,
+            ),
         )
 
     @cached_property

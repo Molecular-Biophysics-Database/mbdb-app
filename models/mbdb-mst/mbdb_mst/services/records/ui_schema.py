@@ -53,12 +53,14 @@ class GeneralParametersUISchema(ma.Schema):
         lambda: PhysicalConditionsAtSampleHandlingUISchema()
     )
 
+    raw_measurements = ma.fields.List(ma.fields.String(), required=True)
+
     record_information = ma.fields.Nested(
         lambda: RecordInformationUISchema(), required=True
     )
 
     schema_version = ma.fields.String(
-        required=True, validate=[ma_validate.OneOf(["0.9.9"])]
+        required=True, validate=[ma_validate.OneOf(["0.9.10"])]
     )
 
     technique = ma.fields.String(
@@ -2556,6 +2558,8 @@ class DurationUISchema(ma.Schema):
                     "minutes",
                     "hours",
                     "days",
+                    "months",
+                    "years",
                 ]
             )
         ],
@@ -2829,6 +2833,8 @@ class FColdAndHotUISchema(ma.Schema):
                     "minutes",
                     "hours",
                     "days",
+                    "months",
+                    "years",
                 ]
             )
         ],

@@ -5371,6 +5371,12 @@
                                 }
                             }
                         },
+                        "raw_measurements": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
                         "record_information": {
                             "type": "object",
                             "properties": {

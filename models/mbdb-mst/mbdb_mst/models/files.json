@@ -37,6 +37,9 @@
             "extra-code": "",
             "module": "tests"
         },
+        "sample": {
+            "file": "data/sample_data.yaml"
+        },
         "search-options": {
             "skip": true,
             "generate": true,
@@ -87,60 +90,7 @@
                 }
             ]
         },
-        "sample": {
-            "file": "data/sample_data.yaml"
-        },
         "model-name": "Mbdb_Mst",
-        "record": {
-            "class": "mbdb_mst.files.api.MbdbMstFile",
-            "base-classes": [
-                "FileRecord"
-            ],
-            "imports": [
-                {
-                    "import": "invenio_records_resources.records.api.FileRecord"
-                }
-            ],
-            "generate": true,
-            "module": "mbdb_mst.files.api",
-            "extra-code": ""
-        },
-        "resource-config": {
-            "base-url": "/mbdb-mst/<pid_value>",
-            "base-classes": [
-                "FileResourceConfig"
-            ],
-            "imports": [
-                {
-                    "import": "invenio_records_resources.resources.FileResourceConfig"
-                }
-            ],
-            "generate": true,
-            "config-key": "MBDB_MST_FILES_RESOURCE_CONFIG",
-            "module": "mbdb_mst.resources.files.config",
-            "class": "mbdb_mst.resources.files.config.MbdbMstFileResourceConfig",
-            "extra-code": ""
-        },
-        "resource": {
-            "base-classes": [
-                "FileResource"
-            ],
-            "imports": [
-                {
-                    "import": "invenio_records_resources.resources.files.resource.FileResource"
-                }
-            ],
-            "generate": true,
-            "config-key": "MBDB_MST_FILES_RESOURCE_CLASS",
-            "module": "mbdb_mst.resources.files.resource",
-            "class": "mbdb_mst.resources.files.resource.MbdbMstFileResource",
-            "proxy": "current_resource",
-            "extra-code": ""
-        },
-        "ext-resource": {
-            "generate": true,
-            "skip": false
-        },
         "config": {
             "generate": true,
             "module": "mbdb_mst.config",
@@ -179,6 +129,96 @@
         },
         "proxy": {
             "module": "mbdb_mst.proxies",
+            "generate": true
+        },
+        "record": {
+            "class": "mbdb_mst.files.api.MbdbMstFile",
+            "base-classes": [
+                "FileRecord"
+            ],
+            "imports": [
+                {
+                    "import": "invenio_records_resources.records.api.FileRecord"
+                }
+            ],
+            "generate": true,
+            "module": "mbdb_mst.files.api",
+            "extra-code": ""
+        },
+        "resource-config": {
+            "base-url": "/mbdb-mst/<pid_value>",
+            "base-classes": [
+                "FileResourceConfig"
+            ],
+            "imports": [
+                {
+                    "import": "invenio_records_resources.resources.FileResourceConfig"
+                }
+            ],
+            "generate": true,
+            "base-html-url": "/mbdb-mst/",
+            "config-key": "MBDB_MST_FILES_RESOURCE_CONFIG",
+            "module": "mbdb_mst.resources.files.config",
+            "class": "mbdb_mst.resources.files.config.MbdbMstFileResourceConfig",
+            "extra-code": ""
+        },
+        "resource": {
+            "base-classes": [
+                "FileResource"
+            ],
+            "imports": [
+                {
+                    "import": "invenio_records_resources.resources.files.resource.FileResource"
+                }
+            ],
+            "generate": true,
+            "config-key": "MBDB_MST_FILES_RESOURCE_CLASS",
+            "module": "mbdb_mst.resources.files.resource",
+            "class": "mbdb_mst.resources.files.resource.MbdbMstFileResource",
+            "proxy": "current_resource",
+            "extra-code": ""
+        },
+        "ext-resource": {
+            "generate": true,
+            "skip": false
+        },
+        "ui": {
+            "module": "mbdb_mst.models",
+            "file": "mbdb_mst/models/ui.json",
+            "alias": "mbdb_mst_file",
+            "marshmallow": {
+                "generate": true,
+                "module": "mbdb_mst.services.files.ui_schema",
+                "class": "mbdb_mst.services.files.ui_schema.MbdbMstFileUISchema",
+                "extra-code": "",
+                "base-classes": [
+                    "InvenioUISchema"
+                ],
+                "imports": [
+                    {
+                        "import": "oarepo_runtime.ui.marshmallow.InvenioUISchema"
+                    }
+                ]
+            }
+        },
+        "json-serializer": {
+            "module": "mbdb_mst.resources.files.ui",
+            "class": "mbdb_mst.resources.files.ui.MbdbMstFileUIJSONSerializer",
+            "base-classes": [
+                "MarshmallowSerializer"
+            ],
+            "imports": [
+                {
+                    "import": "flask_resources.BaseListSchema"
+                },
+                {
+                    "import": "flask_resources.MarshmallowSerializer"
+                },
+                {
+                    "import": "flask_resources.serializers.JSONSerializer"
+                }
+            ],
+            "extra-code": "",
             "generate": true
         },
         "record-metadata": {
@@ -277,45 +317,6 @@
                 }
             ]
         },
-        "ui": {
-            "module": "mbdb_mst.models",
-            "file": "mbdb_mst/models/ui.json",
-            "alias": "mbdb_mst_file",
-            "marshmallow": {
-                "generate": true,
-                "module": "mbdb_mst.services.files.ui_schema",
-                "class": "mbdb_mst.services.files.ui_schema.MbdbMstFileUISchema",
-                "extra-code": "",
-                "base-classes": [
-                    "InvenioUISchema"
-                ],
-                "imports": [
-                    {
-                        "import": "oarepo_runtime.ui.marshmallow.InvenioUISchema"
-                    }
-                ]
-            }
-        },
-        "json-serializer": {
-            "module": "mbdb_mst.resources.files.ui",
-            "class": "mbdb_mst.resources.files.ui.MbdbMstFileUIJSONSerializer",
-            "base-classes": [
-                "MarshmallowSerializer"
-            ],
-            "imports": [
-                {
-                    "import": "flask_resources.BaseListSchema"
-                },
-                {
-                    "import": "flask_resources.MarshmallowSerializer"
-                },
-                {
-                    "import": "flask_resources.serializers.JSONSerializer"
-                }
-            ],
-            "extra-code": "",
-            "generate": true
-        },
         "translations": {
             "module": "mbdb_mst.translations",
             "alias": "mbdb_mst_file"
@@ -338,6 +339,51 @@
                 }
             ]
         },
+        "mapping": {
+            "generate": true,
+            "alias": "mbdb_mst_file",
+            "module": "mbdb_mst.files.mappings",
+            "index": "mbdb_mst_file-mbdb_mst_file-1.0.0",
+            "file": "mbdb_mst/files/mappings/os-v2/mbdb_mst_file/mbdb_mst_file-1.0.0.json"
+        },
+        "published-service-config": {
+            "config-key": "MBDB_MST_FILES_PUBLISHED_SERVICE_CONFIG",
+            "module": "mbdb_mst.services.files.published.config",
+            "class": "mbdb_mst.services.files.published.config.MbdbMstFilePublishedServiceConfig",
+            "extra-code": "",
+            "service-id": "published_mbdb_mst_file",
+            "base-classes": [
+                "PublishedServiceConfig",
+                "PermissionsPresetsConfigMixin"
+            ],
+            "imports": [
+                {
+                    "import": "oarepo_published_service.services.config.PublishedServiceConfig",
+                    "alias": "PublishedServiceConfig"
+                },
+                {
+                    "import": "oarepo_runtime.config.service.PermissionsPresetsConfigMixin"
+                }
+            ],
+            "generate": true
+        },
+        "published-service": {
+            "generate": true,
+            "config-key": "MBDB_MST_FILES_PUBLISHED_SERVICE_CLASS",
+            "proxy": "current_published_service",
+            "module": "mbdb_mst.services.files.published.service",
+            "class": "mbdb_mst.services.files.published.service.MbdbMstFilePublishedService",
+            "extra-code": "",
+            "base-classes": [
+                "PublishedService"
+            ],
+            "imports": [
+                {
+                    "import": "oarepo_published_service.services.service.PublishedService",
+                    "alias": "PublishedService"
+                }
+            ]
+        },
         "permissions": {
             "class": "mbdb_mst.services.records.permissions.MbdbMstPermissionPolicy",
             "generate": false,
@@ -354,13 +400,6 @@
                     "import": "invenio_records_permissions.RecordPermissionPolicy"
                 }
             ]
-        },
-        "mapping": {
-            "generate": true,
-            "alias": "mbdb_mst_file",
-            "module": "mbdb_mst.files.mappings",
-            "index": "mbdb_mst_file-mbdb_mst_file-1.0.0",
-            "file": "mbdb_mst/files/mappings/os-v2/mbdb_mst_file/mbdb_mst_file-1.0.0.json"
         },
         "draft-parent-record": {
             "skip": true
@@ -490,7 +529,7 @@
                             "help.en": "Description of what the processing step was"
                         },
                         "link_to_source_code": {
-                            "type": "keyword",
+                            "type": "url",
                             "help.en": "If processing was performed with software where the source code is legally available a link can be specified here (e.g. self-written python script in a GitHub repository"
                         },
                         "name": {
@@ -515,7 +554,7 @@
             },
             "recommended_software": {
                 "type": "keyword",
-                "help.en": "The name of the software recommended for working with the file"
+                "help.en": "The name of the software recommended for opening and working with the file"
             },
             "size": {
                 "type": "integer",

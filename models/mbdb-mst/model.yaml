@@ -19,6 +19,7 @@ record:
   permissions:
     presets:
     - everyone
+    - authenticated
   pid:
     type: mst
   properties: {}
@@ -30,6 +31,7 @@ settings:
   i18n-languages:
   - en
 use:
+- ./MST.yaml
 - ./MST.yaml
 - ./MST.yaml
 - ./MST.yaml

@@ -19,6 +19,7 @@ record:
   permissions:
     presets:
     - everyone
+    - authenticated
   pid:
     type: spr
   properties: {}
@@ -30,5 +31,6 @@ settings:
   i18n-languages:
   - en
 use:
+- ./SPR.yaml
 - ./SPR.yaml
 - ./SPR.yaml
