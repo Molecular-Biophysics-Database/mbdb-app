@@ -11,6 +11,7 @@ import { Uuid } from "@mbdb/input-form/lib/schema/uuid";
 import { ErrorDialog } from "@mbdb/input-form/lib/ui/error-dialog";
 import { LoadFileButton } from "@mbdb/input-form/lib/ui/load-file-button";
 import { doDownload, FileTypes } from "@mbdb/input-form/lib/util/download";
+import { Result } from "@mbdb/input-form/lib/util/result";
 import { Button, Icon } from "semantic-ui-react";
 
 const MstSchemaName = "mst";
@@ -19,42 +20,27 @@ function makeBaseUrl() {
     return window.location.protocol + "//" + window.location.host;
 }
 
-function makeMbdbErrors(errors) {
-    const out = [];
-
-    for (const err of errors) {
-        const field = err.field;
-        const msgs = err.messages;
-
-        if (field && msgs && Array.isArray(msgs)) {
-            out.push(`${field}: ${msgs.join(', ')}`);
-        }
-    }
-
-    return out;
-}
-
-function makeSubmissionErrorContent(code, text, errors) {
+function makeSubmissionErrorContent(code, errors) {
     return (
         code !== 0
             ? (
                 <>
-                    <div className='mbdbi-deposition-error-report mbdbi-center-text mbdbi-strong'>
+                    <div className="mbdbi-deposition-error-report mbdbi-center-text mbdbi-strong">
                         Deposition failed because the database reported an error
                     </div>
-                    <div className='mbdbi-deposition-error-report' style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 'var(--mbdbi-2hgap)' }}>
+                    <div className="mbdbi-deposition-error-report" style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: "var(--mbdbi-2hgap)" }}>
                         <div>Status code</div><div>{code}</div>
-                        <div>Message</div><div>{text}</div>
                         <div>Errors</div><div>{errors.map((err, idx) => <div key={idx}>{err}</div>)}</div>
                     </div>
                 </>
             ) : (
                 <>
-                    <div className='mbdbi-deposition-error-report mbdbi-center-text mbdbi-strong'>
+                    <div className="mbdbi-deposition-error-report mbdbi-center-text mbdbi-strong">
                         Deposition failed because the remote server could not have been contacted
                     </div>
-                    <div className='mbdbi-deposition-error-report mbdbi-center-text'>
-                        {text}
+                    <div className="mbdbi-deposition-error-report" style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: "var(--mbdbi-2hgap)" }}>
+                        <div>Status code</div><div>{code}</div>
+                        <div>Errors</div><div>{errors.map((err, idx) => <div key={idx}>{err}</div>)}</div>
                     </div>
                 </>
             )
@@ -63,8 +49,8 @@ function makeSubmissionErrorContent(code, text, errors) {
 
 function makeSubmissionErrorDialog(code, text, errors) {
     return {
-        title: 'Cannot deposit record because there was an issue on the backend',
-        icons: [<Icon name='warning' />, <Icon name='database' />],
+        title: "Cannot deposit record because there was an issue on the backend",
+        icons: [<Icon name="warning" />, <Icon name="database" />],
         content: makeSubmissionErrorContent(
             code,
             text,
@@ -75,14 +61,14 @@ function makeSubmissionErrorDialog(code, text, errors) {
 
 function showFormHasErrorsDialog(errors) {
     ErrorDialog.show({
-        title: 'Cannot deposit record',
-        icons: [<Icon name='warning' />, <Icon name='clipboard list' />],
+        title: "Cannot deposit record",
+        icons: [<Icon name="warning" />, <Icon name="clipboard list" />],
         content: (
             <>
-                <div className='mbdbi-deposition-error-report mbdbi-center-text mbdbi-strong'>Cannot deposit record because there are some invalid items in the form.</div>
-                <ul className='mbdbi-deposition-error-report'>
+                <div className="mbdbi-deposition-error-report mbdbi-center-text mbdbi-strong">Cannot deposit record because there are some invalid items in the form.</div>
+                <ul className="mbdbi-deposition-error-report">
                     {errors.map((err, idx) => (
-                        <li className='mbdbi-deposition-error-report' key={idx}>
+                        <li className="mbdbi-deposition-error-report" key={idx}>
                             <div>{Data.Path.toString(err.path)}</div>
                             <div>{err.message}</div>
                         </li>
@@ -96,25 +82,19 @@ function showFormHasErrorsDialog(errors) {
 async function createDraft(apiEndpoint, data) {
     const baseUrl = makeBaseUrl();
 
-    const { toApi, errors } = Mbdb.toData(data);
+    const { toApi, errors, files } = Mbdb.toData(data);
     if (errors.length > 0) {
         showFormHasErrorsDialog(errors);
         return;
     }
 
     try {
-        const resp = await submitToMbdb(baseUrl, apiEndpoint, toApi);
-        if (!resp.ok) {
-            resp.json().then((j) => {
-                ErrorDialog.show(makeSubmissionErrorDialog(resp.status, j.message || resp.statusText, makeMbdbErrors(j.errors ?? [])));
-            }).catch(() => {
-                ErrorDialog.show(makeSubmissionErrorDialog(resp.status, resp.statusText, []));
-            });
-
-            return;
+        const res = await submitToMbdb(baseUrl, apiEndpoint, { metadata: toApi, files }, { asDraft: true });
+        if (Result.isError(res)) {
+            ErrorDialog.show(makeSubmissionErrorDialog(res.error.code, res.error.errors));
         }
     } catch (e) {
-        ErrorDialog.show(makeSubmissionErrorDialog(0, e.message, []));
+        ErrorDialog.show(makeSubmissionErrorDialog(0, [e.message]));
     }
 }
 
@@ -132,10 +112,10 @@ function ControlsTape({ ctxHandler, createDraftUrl, dataId }) {
                                 FormContext.load(json, getData());
                                 ctxHandler.update();
                             } catch (e) {
-                                ErrorDialog.show({ title: 'Cannot load form from Internal Input file', content: <div>{e.message}</div> });
+                                ErrorDialog.show({ title: "Cannot load form from Internal Input file", content: <div>{e.message}</div> });
                             }
                         }).catch((e) => {
-                            ErrorDialog.show({ title: 'Cannot load form from Internal Input file', content: <div>{e.message}</div> });
+                            ErrorDialog.show({ title: "Cannot load form from Internal Input file", content: <div>{e.message}</div> });
                         });
                     }}
                     color="teal"
@@ -166,7 +146,7 @@ function ControlsTape({ ctxHandler, createDraftUrl, dataId }) {
                     fluid
                 >
                     <Icon name="angle double right" />
-                    <span style={{ display: 'inline-block', width: 'var(--mbdbi-2hgap)' }} />
+                    <span style={{ display: "inline-block", width: "var(--mbdbi-2hgap)" }} />
                     Create draft
                 </Button>
             </div>
@@ -180,7 +160,7 @@ export function DepositForm({ createDraftUrl }) {
 
     React.useEffect(() => {
         Config.set({
-            vocabulariesApiEndpoint: 'vocabularies',
+            vocabulariesApiEndpoint: "vocabularies",
         });
     }, []);
 
