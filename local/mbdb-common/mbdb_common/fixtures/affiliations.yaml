@@ -1,5 +1,5 @@
 ---
-id: 02bfwt286
+id: ror:02bfwt286
 title:
   en: Monash University
 props:
@@ -7,15 +7,7 @@ props:
   country: Australia
   state: Victoria
 ---
-id: 00rqy9422
-title:
-  en: University of Queensland
-props:
-  city: Brisbane
-  country: Australia
-  state: Queensland
----
-id: 01sf06y89
+id: ror:01sf06y89
 title:
   en: Macquarie University
 props:
@@ -23,7 +15,7 @@ props:
   country: Australia
   state: New South Wales
 ---
-id: 00jtmb277
+id: ror:00jtmb277
 title:
   en: University of Wollongong
 props:
@@ -31,7 +23,7 @@ props:
   country: Australia
   state: New South Wales
 ---
-id: 01nfmeh72
+id: ror:01nfmeh72
 title:
   en: University of Tasmania
 props:
@@ -39,7 +31,7 @@ props:
   country: Australia
   state: Tasmania
 ---
-id: 01kpzv902
+id: ror:01kpzv902
 title:
   en: Flinders University
 props:
@@ -47,7 +39,7 @@ props:
   country: Australia
   state: South Australia
 ---
-id: 04ttjf776
+id: ror:04ttjf776
 title:
   en: RMIT University
 props:
@@ -55,7 +47,7 @@ props:
   country: Australia
   state: Victoria
 ---
-id: 01rxfrp27
+id: ror:01rxfrp27
 title:
   en: La Trobe University
 props:
@@ -63,7 +55,7 @@ props:
   country: Australia
   state: Victoria
 ---
-id: 04j757h98
+id: ror:04j757h98
 title:
   en: Victoria University
 props:
@@ -71,7 +63,7 @@ props:
   country: Australia
   state: Victoria
 ---
-id: 04r659a56
+id: ror:04r659a56
 title:
   en: University of New England
 props:
@@ -79,7 +71,7 @@ props:
   country: Australia
   state: New South Wales
 ---
-id: 02czsnj07
+id: ror:02czsnj07
 title:
   en: Deakin University
 props:
@@ -87,7 +79,7 @@ props:
   country: Australia
   state: Victoria
 ---
-id: 02sc3r913
+id: ror:02sc3r913
 title:
   en: Griffith University
 props:
@@ -95,7 +87,7 @@ props:
   country: Australia
   state: Queensland
 ---
-id: 023q4bk22
+id: ror:023q4bk22
 title:
   en: Central Queensland University
 props:
@@ -103,7 +95,7 @@ props:
   country: Australia
   state: Queensland
 ---
-id: 01p93h210
+id: ror:01p93h210
 title:
   en: University of South Australia
 props:
@@ -111,7 +103,7 @@ props:
   country: Australia
   state: South Australia
 ---
-id: 031rekg67
+id: ror:031rekg67
 title:
   en: Swinburne University of Technology
 props:
@@ -119,7 +111,7 @@ props:
   country: Australia
   state: Victoria
 ---
-id: 006jxzx88
+id: ror:006jxzx88
 title:
   en: Bond University
 props:
@@ -127,7 +119,7 @@ props:
   country: Australia
   state: Queensland
 ---
-id: 00wfvh315
+id: ror:00wfvh315
 title:
   en: Charles Sturt University
 props:
@@ -135,7 +127,7 @@ props:
   country: Australia
   state: New South Wales
 ---
-id: 04s1nv328
+id: ror:04s1nv328
 title:
   en: University of Canberra
 props:
@@ -143,7 +135,7 @@ props:
   country: Australia
   state: Australian Capital Territory
 ---
-id: 05qbzwv83
+id: ror:05qbzwv83
 title:
   en: Federation University
 props:
@@ -151,7 +143,7 @@ props:
   country: Australia
   state: Victoria
 ---
-id: 048zcaj52
+id: ror:048zcaj52
 title:
   en: Charles Darwin University
 props:
@@ -159,7 +151,7 @@ props:
   country: Australia
   state: Northern Territory
 ---
-id: 04sjbnx57
+id: ror:04sjbnx57
 title:
   en: University of Southern Queensland
 props:
@@ -167,7 +159,7 @@ props:
   country: Australia
   state: Queensland
 ---
-id: 05ktbsm52
+id: ror:05ktbsm52
 title:
   en: Burnet Institute
 props:
@@ -175,7 +167,7 @@ props:
   country: Australia
   state: Victoria
 ---
-id: 03trvqr13
+id: ror:03trvqr13
 title:
   en: Victor Chang Cardiac Research Institute
 props:
@@ -183,7 +175,7 @@ props:
   country: Australia
   state: New South Wales
 ---
-id: 00nx6aa03
+id: ror:00nx6aa03
 title:
   en: Mater Research
 props:
@@ -191,7 +183,7 @@ props:
   country: Australia
   state: Queensland
 ---
-id: 02k3cxs74
+id: ror:02k3cxs74
 title:
   en: St Vincents Institute of Medical Research
 props:
@@ -199,7 +191,7 @@ props:
   country: Australia
   state: Victoria
 ---
-id: 046fa4y88
+id: ror:046fa4y88
 title:
   en: The Heart Research Institute
 props:
@@ -207,14 +199,14 @@ props:
   country: Australia
   state: New South Wales
 ---
-id: 02d439m40
+id: ror:02d439m40
 title:
   en: University Mental Health Research Institute
 props:
   city: Athens
   country: Greece
 ---
-id: 033yfkj90
+id: ror:033yfkj90
 title:
   en: Naval Postgraduate School
 props:
@@ -222,28 +214,28 @@ props:
   country: United States
   state: California
 ---
-id: 04h08p482
+id: ror:04h08p482
 title:
   en: Rolls-Royce (United Kingdom)
 props:
   city: Derby
   country: United Kingdom
 ---
-id: 01zctcs90
+id: ror:01zctcs90
 title:
   en: BP (United Kingdom)
 props:
   city: London
   country: United Kingdom
 ---
-id: 05m7zw681
+id: ror:05m7zw681
 title:
   en: Rio Tinto (United Kingdom)
 props:
   city: London
   country: United Kingdom
 ---
-id: 017wrhq72
+id: ror:017wrhq72
 title:
   en: Department of Water
 props:
@@ -251,14 +243,14 @@ props:
   country: Australia
   state: Western Australia
 ---
-id: 04p8ejq70
+id: ror:04p8ejq70
 title:
   en: BAE Systems (United Kingdom)
 props:
   city: London
   country: United Kingdom
 ---
-id: 03awtex73
+id: ror:03awtex73
 title:
   en: Arup Group (United States)
 props:
@@ -266,14 +258,14 @@ props:
   country: United States
   state: Massachusetts
 ---
-id: 00kv9pj15
+id: ror:00kv9pj15
 title:
   en: BT Group (United Kingdom)
 props:
   city: London
   country: United Kingdom
 ---
-id: 03mjtdk61
+id: ror:03mjtdk61
 title:
   en: Mater Health Services
 props:
@@ -281,14 +273,14 @@ props:
   country: Australia
   state: Queensland
 ---
-id: 04yyp8h20
+id: ror:04yyp8h20
 title:
   en: Pilkington (United Kingdom)
 props:
   city: St Helens
   country: United Kingdom
 ---
-id: 022rkxt86
+id: ror:022rkxt86
 title:
   en: Trojan Technologies (Canada)
 props:
@@ -296,7 +288,7 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 01wddqe20
+id: ror:01wddqe20
 title:
   en: The Alfred Hospital
 props:
@@ -304,7 +296,7 @@ props:
   country: Australia
   state: Victoria
 ---
-id: 02x2akc96
+id: ror:02x2akc96
 title:
   en: Washington State Department of Health
 props:
@@ -312,15 +304,7 @@ props:
   country: United States
   state: Washington
 ---
-id: 050khh066
-title:
-  en: New South Wales Department of Primary Industries
-props:
-  city: Orange
-  country: Australia
-  state: New South Wales
----
-id: 03kwrfk72
+id: ror:03kwrfk72
 title:
   en: Women's and Children's Hospital
 props:
@@ -328,21 +312,21 @@ props:
   country: Australia
   state: South Australia
 ---
-id: 054vpsz16
+id: ror:054vpsz16
 title:
   en: Mott Macdonald (United Kingdom)
 props:
   city: London
   country: United Kingdom
 ---
-id: 037mpqg03
+id: ror:037mpqg03
 title:
   en: Xstrata (United Kingdom)
 props:
   city: London
   country: United Kingdom
 ---
-id: 05dg9bg39
+id: ror:05dg9bg39
 title:
   en: Pathwest Laboratory Medicine
 props:
@@ -350,7 +334,7 @@ props:
   country: Australia
   state: Western Australia
 ---
-id: 05cggb038
+id: ror:05cggb038
 title:
   en: Teck (Canada)
 props:
@@ -358,7 +342,7 @@ props:
   country: Canada
   state: British Columbia
 ---
-id: 050b31k83
+id: ror:050b31k83
 title:
   en: Hunter New England Local Health District
 props:
@@ -366,7 +350,7 @@ props:
   country: Australia
   state: New South Wales
 ---
-id: 023m51b03
+id: ror:023m51b03
 title:
   en: Cancer Council Victoria
 props:
@@ -374,14 +358,14 @@ props:
   country: Australia
   state: Victoria
 ---
-id: 01q8f6705
+id: ror:01q8f6705
 title:
   en: BASF (Germany)
 props:
   city: Ludwigshafen am Rhein
   country: Germany
 ---
-id: 03t40cz74
+id: ror:03t40cz74
 title:
   en: Hypres (United States)
 props:
@@ -389,7 +373,7 @@ props:
   country: United States
   state: New York
 ---
-id: 03ebg0v16
+id: ror:03ebg0v16
 title:
   en: Boys Town
 props:
@@ -397,7 +381,7 @@ props:
   country: United States
   state: Nebraska
 ---
-id: 041b40q78
+id: ror:041b40q78
 title:
   en: Olympus (Australia)
 props:
@@ -405,49 +389,49 @@ props:
   country: Australia
   state: New South Wales
 ---
-id: 04jc0r179
+id: ror:04jc0r179
 title:
   en: UK Coal
 props:
   city: Doncaster
   country: United Kingdom
 ---
-id: 05gwtvp11
+id: ror:05gwtvp11
 title:
   en: Nuclear Research Institute Rez (Czechia)
 props:
   city: Husinec
   country: Czechia
 ---
-id: 03anc3s24
+id: ror:03anc3s24
 title:
   en: Austrian Academy of Sciences
 props:
   city: Vienna
   country: Austria
 ---
-id: 04knbh022
+id: ror:04knbh022
 title:
   en: Austrian Institute of Technology
 props:
   city: Vienna
   country: Austria
 ---
-id: 04rdtx186
+id: ror:04rdtx186
 title:
   en: Ocean University of China
 props:
   city: Qingdao
   country: China
 ---
-id: 04zfme737
+id: ror:04zfme737
 title:
   en: Liverpool John Moores University
 props:
   city: Liverpool
   country: United Kingdom
 ---
-id: 02qs84g94
+id: ror:02qs84g94
 title:
   en: University of Piraeus
 props:
@@ -455,21 +439,14 @@ props:
   country: Greece
   state: Attiki
 ---
-id: 04cw6st05
-title:
-  en: University of London
-props:
-  city: London
-  country: United Kingdom
----
-id: 03c44v465
+id: ror:03c44v465
 title:
   en: Polytechnic University of Bari
 props:
   city: Bari
   country: Italy
 ---
-id: 03cv38k47
+id: ror:03cv38k47
 title:
   en: University Medical Center Groningen
 props:
@@ -477,14 +454,14 @@ props:
   country: Netherlands
   state: Groningen
 ---
-id: 03e8s1d88
+id: ror:03e8s1d88
 title:
   en: Potsdam Institute for Climate Impact Research
 props:
   city: Potsdam
   country: Germany
 ---
-id: 00t3r8h32
+id: ror:00t3r8h32
 title:
   en: University of Lübeck
 props:
@@ -492,7 +469,7 @@ props:
   country: Germany
   state: Schleswig-Holstein
 ---
-id: 01ee9ar58
+id: ror:01ee9ar58
 title:
   en: University of Nottingham
 props:
@@ -500,35 +477,35 @@ props:
   country: United Kingdom
   state: Nottingham
 ---
-id: 04p2pa451
+id: ror:04p2pa451
 title:
   en: Institute of Transport Economics
 props:
   city: Oslo
   country: Norway
 ---
-id: 02khfkr46
+id: ror:02khfkr46
 title:
   en: Institute of Electron Technology
 props:
   city: Warsaw
   country: Poland
 ---
-id: 03fs4aq04
+id: ror:03fs4aq04
 title:
   en: Institute of Fundamental Technological Research
 props:
   city: Warsaw
   country: Poland
 ---
-id: 01nffqt88
+id: ror:01nffqt88
 title:
   en: Politecnico di Milano
 props:
   city: Milan
   country: Italy
 ---
-id: 05290cv24
+id: ror:05290cv24
 title:
   en: University of Naples Federico II
 props:
@@ -536,7 +513,7 @@ props:
   country: Italy
   state: Campania
 ---
-id: 03ykbk197
+id: ror:03ykbk197
 title:
   en: University of Portsmouth
 props:
@@ -544,21 +521,21 @@ props:
   country: United Kingdom
   state: Portsmouth
 ---
-id: 03mstc592
+id: ror:03mstc592
 title:
   en: European Molecular Biology Laboratory
 props:
   city: Heidelberg
   country: Germany
 ---
-id: 04zgvy449
+id: ror:04zgvy449
 title:
   en: PSA Peugeot Citroën (France)
 props:
   city: Paris
   country: France
 ---
-id: 02vwnat91
+id: ror:02vwnat91
 title:
   en: London South Bank University
 props:
@@ -566,7 +543,7 @@ props:
   country: United Kingdom
   state: Southwark
 ---
-id: 05r3f7h03
+id: ror:05r3f7h03
 title:
   en: Physikalisch-Technische Bundesanstalt
 props:
@@ -574,28 +551,28 @@ props:
   country: Germany
   state: Niedersachsen
 ---
-id: 00hswnk62
+id: ror:00hswnk62
 title:
   en: Queen's University Belfast
 props:
   city: Belfast
   country: United Kingdom
 ---
-id: 04qw24q55
+id: ror:04qw24q55
 title:
   en: Wageningen University & Research
 props:
   city: Wageningen
   country: Netherlands
 ---
-id: 00gzkxz88
+id: ror:00gzkxz88
 title:
   en: Weihenstephan-Triesdorf University of Applied Sciences
 props:
   city: Freising
   country: Germany
 ---
-id: 012p63287
+id: ror:012p63287
 title:
   en: University of Groningen
 props:
@@ -603,63 +580,63 @@ props:
   country: Netherlands
   state: Groningen
 ---
-id: 020268t49
+id: ror:020268t49
 title:
   en: Papiertechnische Stiftung
 props:
   city: Heidenau
   country: Germany
 ---
-id: 0249v7n71
+id: ror:0249v7n71
 title:
   en: Institute for Computer Science and Control
 props:
   city: Budapest
   country: Hungary
 ---
-id: 03kchyj69
+id: ror:03kchyj69
 title:
   en: The Welding Institute
 props:
   city: Cambridge
   country: United Kingdom
 ---
-id: 037m6e306
+id: ror:037m6e306
 title:
   en: Pera (United Kingdom)
 props:
   city: Melton Mowbray
   country: United Kingdom
 ---
-id: 026zzn846
+id: ror:026zzn846
 title:
   en: Queen Mary University of London
 props:
   city: London
   country: United Kingdom
 ---
-id: 02mw21745
+id: ror:02mw21745
 title:
   en: Rudjer Boskovic Institute
 props:
   city: Zagreb
   country: Croatia
 ---
-id: 04v98kq37
+id: ror:04v98kq37
 title:
   en: Renault (France)
 props:
   city: Boulogne-Billancourt
   country: France
 ---
-id: 02edavb98
+id: ror:02edavb98
 title:
   en: Agenzia Regionale Prevenzione e Ambiente della Regione Emilia-Romagna
 props:
   city: Modena
   country: Italy
 ---
-id: 01j5n9f07
+id: ror:01j5n9f07
 title:
   en: Institute for Atomic Energy Research
 props:
@@ -667,14 +644,7 @@ props:
   country: Hungary
   state: Pest
 ---
-id: 03613d656
-title:
-  en: Brno University of Technology
-props:
-  city: Brno
-  country: Czechia
----
-id: 02jz4aj89
+id: ror:02jz4aj89
 title:
   en: Maastricht University
 props:
@@ -682,28 +652,28 @@ props:
   country: Netherlands
   state: Limburg
 ---
-id: 032v7rj83
+id: ror:032v7rj83
 title:
   en: Robotiker
 props:
   city: Zamudio
   country: Spain
 ---
-id: 00f1xkb20
+id: ror:00f1xkb20
 title:
   en: Robosoft (France)
 props:
   city: Bidart
   country: France
 ---
-id: 017ph0934
+id: ror:017ph0934
 title:
   en: University of National and World Economy
 props:
   city: Sofia
   country: Bulgaria
 ---
-id: 01cg9ws23
+id: ror:01cg9ws23
 title:
   en: Transylvania University of Brașov
 props:
@@ -711,21 +681,21 @@ props:
   country: Romania
   state: Braşov
 ---
-id: 01ypwfg63
+id: ror:01ypwfg63
 title:
   en: Ecofys (Netherlands)
 props:
   city: Utrecht
   country: Netherlands
 ---
-id: 03dvm1235
+id: ror:03dvm1235
 title:
   en: Glasgow Caledonian University
 props:
   city: Glasgow
   country: United Kingdom
 ---
-id: 04gnjpq42
+id: ror:04gnjpq42
 title:
   en: National and Kapodistrian University of Athens
 props:
@@ -733,35 +703,28 @@ props:
   country: Greece
   state: Attiki
 ---
-id: 05591te55
-title:
-  en: Ludwig-Maximilians-Universität München
-props:
-  city: Munich
-  country: Germany
----
-id: 0052k0e03
+id: ror:0052k0e03
 title:
   en: Mykolas Romeris University
 props:
   city: Vilnius
   country: Lithuania
 ---
-id: 008x57b05
+id: ror:008x57b05
 title:
   en: University of Antwerp
 props:
   city: Antwerp
   country: Belgium
 ---
-id: 00ntfnx83
+id: ror:00ntfnx83
 title:
   en: Waseda University
 props:
   city: Tokyo
   country: Japan
 ---
-id: 02e2c7k09
+id: ror:02e2c7k09
 title:
   en: Delft University of Technology
 props:
@@ -769,7 +732,7 @@ props:
   country: Netherlands
   state: Zuid-Holland
 ---
-id: 00f7hpc57
+id: ror:00f7hpc57
 title:
   en: University of Erlangen-Nuremberg
 props:
@@ -777,7 +740,7 @@ props:
   country: Germany
   state: Bayern
 ---
-id: 0460jpj73
+id: ror:0460jpj73
 title:
   en: University of Concepción
 props:
@@ -785,7 +748,7 @@ props:
   country: Chile
   state: Bío-Bío
 ---
-id: 03ad39j10
+id: ror:03ad39j10
 title:
   en: University of Pisa
 props:
@@ -793,7 +756,7 @@ props:
   country: Italy
   state: Toscana
 ---
-id: 02550n020
+id: ror:02550n020
 title:
   en: European Synchrotron Radiation Facility
 props:
@@ -801,35 +764,35 @@ props:
   country: France
   state: Rhône-Alpes
 ---
-id: 053bqv655
+id: ror:053bqv655
 title:
   en: STMicroelectronics (Italy)
 props:
   city: Milan
   country: Italy
 ---
-id: 00m0j3d84
+id: ror:00m0j3d84
 title:
   en: Daimler (Germany)
 props:
   city: Stuttgart
   country: Germany
 ---
-id: 01nn35n25
+id: ror:01nn35n25
 title:
   en: Institute of Accelerating Systems and Applications
 props:
   city: Athens
   country: Greece
 ---
-id: 04zsytt76
+id: ror:04zsytt76
 title:
   en: Wise & Munro Learning Research
 props:
   city: The Hague
   country: Netherlands
 ---
-id: 00ks66431
+id: ror:00ks66431
 title:
   en: University of Surrey
 props:
@@ -837,14 +800,14 @@ props:
   country: United Kingdom
   state: Surrey
 ---
-id: 01ryk1543
+id: ror:01ryk1543
 title:
   en: University of Southampton
 props:
   city: Southampton
   country: United Kingdom
 ---
-id: 04tsk2644
+id: ror:04tsk2644
 title:
   en: Ruhr University Bochum
 props:
@@ -852,21 +815,21 @@ props:
   country: Germany
   state: Nordrhein-Westfalen
 ---
-id: 05kyy7d06
+id: ror:05kyy7d06
 title:
   en: Saab (Sweden)
 props:
   city: Bromma
   country: Sweden
 ---
-id: 031bsb921
+id: ror:031bsb921
 title:
   en: University of Mannheim
 props:
   city: Mannheim
   country: Germany
 ---
-id: 0107c5v14
+id: ror:0107c5v14
 title:
   en: University of Genoa
 props:
@@ -874,7 +837,7 @@ props:
   country: Italy
   state: Liguria
 ---
-id: 039bp8j42
+id: ror:039bp8j42
 title:
   en: University of Verona
 props:
@@ -882,77 +845,77 @@ props:
   country: Italy
   state: Veneto
 ---
-id: 003sav189
+id: ror:003sav189
 title:
   en: Oldenburger Institut für Informatik
 props:
   city: Oldenburg
   country: Germany
 ---
-id: 01t0n3b84
+id: ror:01t0n3b84
 title:
   en: Consorzio Pisa Ricerche
 props:
   city: Pisa
   country: Italy
 ---
-id: 0267vjk41
+id: ror:0267vjk41
 title:
   en: University of Hertfordshire
 props:
   city: Hatfield
   country: United Kingdom
 ---
-id: 034fmtr90
+id: ror:034fmtr90
 title:
   en: empirica - Communication and Technology Research
 props:
   city: Bonn
   country: Germany
 ---
-id: 019wt1929
+id: ror:019wt1929
 title:
   en: Sheffield Hallam University
 props:
   city: Sheffield
   country: United Kingdom
 ---
-id: 05b6ypc36
+id: ror:05b6ypc36
 title:
   en: Volvo (Sweden)
 props:
   city: Gothenburg
   country: Sweden
 ---
-id: 04d4dxm04
+id: ror:04d4dxm04
 title:
   en: Société de Mathématiques Appliquées et de Sciences Humaines
 props:
   city: Paris
   country: France
 ---
-id: 00hgzve81
+id: ror:00hgzve81
 title:
   en: Swedish Meteorological and Hydrological Institute
 props:
   city: Norrköping
   country: Sweden
 ---
-id: 00praab34
+id: ror:00praab34
 title:
   en: Energias de Portugal (Portugal)
 props:
   city: Lisbon
   country: Portugal
 ---
-id: 0454vek02
+id: ror:0454vek02
 title:
   en: Société Nationale des Chemins de Fer Français (France)
 props:
   city: Saint-Denis
   country: France
 ---
-id: 006hf6230
+id: ror:006hf6230
 title:
   en: University of Twente
 props:
@@ -960,42 +923,42 @@ props:
   country: Netherlands
   state: Overijssel
 ---
-id: 05re2b915
+id: ror:05re2b915
 title:
   en: European Road Transport Telematics Implementation Co-Ordination
 props:
   city: Brussels
   country: Belgium
 ---
-id: 00vs8d940
+id: ror:00vs8d940
 title:
   en: University of Bradford
 props:
   city: Bradford
   country: United Kingdom
 ---
-id: 00b7dkt53
+id: ror:00b7dkt53
 title:
   en: Centro Ricerche FIAT
 props:
   city: Orbassano
   country: Italy
 ---
-id: 00qt5ka73
+id: ror:00qt5ka73
 title:
   en: Arttic (France)
 props:
   city: Paris
   country: France
 ---
-id: 04b181w54
+id: ror:04b181w54
 title:
   en: VTT Technical Research Centre of Finland
 props:
   city: Espoo
   country: Finland
 ---
-id: 05sgb8g78
+id: ror:05sgb8g78
 title:
   en: Suranaree University of Technology
 props:
@@ -1003,14 +966,14 @@ props:
   country: Thailand
   state: Nakhon Ratchasima
 ---
-id: 01deh9c76
+id: ror:01deh9c76
 title:
   en: Deltares
 props:
   city: Delft
   country: Netherlands
 ---
-id: 05581wm82
+id: ror:05581wm82
 title:
   en: Marine Institute
 props:
@@ -1018,35 +981,35 @@ props:
   country: Ireland
   state: Galway
 ---
-id: 03sx84n71
+id: ror:03sx84n71
 title:
   en: Teagasc - The Irish Agriculture and Food Development Authority
 props:
   city: Carlow
   country: Ireland
 ---
-id: 035gy9016
+id: ror:035gy9016
 title:
   en: Tecnatom (Spain)
 props:
   city: San Sebastián de los Reyes
   country: Spain
 ---
-id: 04vfyfx73
+id: ror:04vfyfx73
 title:
   en: Teer Coatings (United Kingdom)
 props:
   city: Droitwich
   country: United Kingdom
 ---
-id: 033vryh36
+id: ror:033vryh36
 title:
   en: Tekniker
 props:
   city: Eibar
   country: Spain
 ---
-id: 02nwg5t34
+id: ror:02nwg5t34
 title:
   en: University of the West of England
 props:
@@ -1054,14 +1017,14 @@ props:
   country: United Kingdom
   state: South Gloucestershire
 ---
-id: 03d1maw17
+id: ror:03d1maw17
 title:
   en: University of Namur
 props:
   city: Namur
   country: Belgium
 ---
-id: 02p77k626
+id: ror:02p77k626
 title:
   en: University of Rome Tor Vergata
 props:
@@ -1069,14 +1032,14 @@ props:
   country: Italy
   state: Lazio
 ---
-id: 04pkc8m17
+id: ror:04pkc8m17
 title:
   en: Nokia (Finland)
 props:
   city: Espoo
   country: Finland
 ---
-id: 04vg4w365
+id: ror:04vg4w365
 title:
   en: Loughborough University
 props:
@@ -1084,56 +1047,56 @@ props:
   country: United Kingdom
   state: England
 ---
-id: 03angcq70
+id: ror:03angcq70
 title:
   en: University of Birmingham
 props:
   city: Birmingham
   country: United Kingdom
 ---
-id: 01fe0jt45
+id: ror:01fe0jt45
 title:
   en: Robert Bosch (Germany)
 props:
   city: Stuttgart
   country: Germany
 ---
-id: 042e7c302
+id: ror:042e7c302
 title:
   en: Multitel
 props:
   city: Mons
   country: Belgium
 ---
-id: 02vbxt202
+id: ror:02vbxt202
 title:
   en: ThyssenKrupp (Germany)
 props:
   city: Essen
   country: Germany
 ---
-id: 01c74sd89
+id: ror:01c74sd89
 title:
   en: STMicroelectronics (France)
 props:
   city: Montrouge
   country: France
 ---
-id: 02veezx93
+id: ror:02veezx93
 title:
   en: Transport Research Laboratory (United Kingdom)
 props:
   city: Wokingham
   country: United Kingdom
 ---
-id: 03f8bz564
+id: ror:03f8bz564
 title:
   en: Technical University of Crete
 props:
   city: Chania
   country: Greece
 ---
-id: 02c2kyt77
+id: ror:02c2kyt77
 title:
   en: Eindhoven University of Technology
 props:
@@ -1141,7 +1104,7 @@ props:
   country: Netherlands
   state: Noord-Brabant
 ---
-id: 04bs1pb34
+id: ror:04bs1pb34
 title:
   en: Hamburg University of Technology
 props:
@@ -1149,56 +1112,56 @@ props:
   country: Germany
   state: Hamburg
 ---
-id: 016st3p78
+id: ror:016st3p78
 title:
   en: Luleå University of Technology
 props:
   city: Luleå
   country: Sweden
 ---
-id: 02q8h2f47
+id: ror:02q8h2f47
 title:
   en: Institut Technologique Forêt Cellulose Bois-Construction Ameublement
 props:
   city: Paris
   country: France
 ---
-id: 030wyr187
+id: ror:030wyr187
 title:
   en: Finnish Institute of Occupational Health
 props:
   city: Helsinki
   country: Finland
 ---
-id: 008fyn775
+id: ror:008fyn775
 title:
   en: Wrocław University of Science and Technology
 props:
   city: Wrocław
   country: Poland
 ---
-id: 00x69rs40
+id: ror:00x69rs40
 title:
   en: Marche Polytechnic University
 props:
   city: Ancona
   country: Italy
 ---
-id: 023z51242
+id: ror:023z51242
 title:
   en: Enterprise Ireland
 props:
   city: Dublin
   country: Ireland
 ---
-id: 016476m91
+id: ror:016476m91
 title:
   en: University of Aberdeen
 props:
   city: Aberdeen
   country: United Kingdom
 ---
-id: 0575ycz84
+id: ror:0575ycz84
 title:
   en: Prince of Songkla University
 props:
@@ -1206,42 +1169,42 @@ props:
   country: Thailand
   state: Songkhla
 ---
-id: 00ey0ed83
+id: ror:00ey0ed83
 title:
   en: Odense University Hospital
 props:
   city: Odense
   country: Denmark
 ---
-id: 03zsp3p94
+id: ror:03zsp3p94
 title:
   en: University of the Aegean
 props:
   city: Mytilene
   country: Greece
 ---
-id: 03gd0dm95
+id: ror:03gd0dm95
 title:
   en: Aga Khan University
 props:
   city: Karachi
   country: Pakistan
 ---
-id: 0261g6j35
+id: ror:0261g6j35
 title:
   en: Chaudhary Charan Singh Haryana Agricultural University
 props:
   city: Hisar
   country: India
 ---
-id: 04pmn0e78
+id: ror:04pmn0e78
 title:
   en: University of Alcalá
 props:
   city: Alcalá de Henares
   country: Spain
 ---
-id: 02kta5139
+id: ror:02kta5139
 title:
   en: Universidad Autónoma Metropolitana
 props:
@@ -1249,28 +1212,28 @@ props:
   country: Mexico
   state: Distrito Federal
 ---
-id: 00cb9w016
+id: ror:00cb9w016
 title:
   en: Ain Shams University
 props:
   city: Cairo
   country: Egypt
 ---
-id: 05j0ve876
+id: ror:05j0ve876
 title:
   en: Aston University
 props:
   city: Birmingham
   country: United Kingdom
 ---
-id: 01jm19r53
+id: ror:01jm19r53
 title:
   en: TuTech Innovation (Germany)
 props:
   city: Hamburg
   country: Germany
 ---
-id: 03p14d497
+id: ror:03p14d497
 title:
   en: University of Augsburg
 props:
@@ -1278,42 +1241,42 @@ props:
   country: Germany
   state: Bayern
 ---
-id: 006rhxn50
+id: ror:006rhxn50
 title:
   en: FORCE Technology (Denmark)
 props:
   city: Brøndby
   country: Denmark
 ---
-id: 00bxsm637
+id: ror:00bxsm637
 title:
   en: MTU Aero Engines (Germany)
 props:
   city: Munich
   country: Germany
 ---
-id: 05j00sr48
+id: ror:05j00sr48
 title:
   en: Council for Scientific and Industrial Research
 props:
   city: Pretoria
   country: South Africa
 ---
-id: 03y5egs41
+id: ror:03y5egs41
 title:
   en: University of Pannonia
 props:
   city: Veszprém
   country: Hungary
 ---
-id: 02x681a42
+id: ror:02x681a42
 title:
   en: Swiss Federal Laboratories for Materials Science and Technology
 props:
   city: Dübendorf
   country: Switzerland
 ---
-id: 01a77tt86
+id: ror:01a77tt86
 title:
   en: University of Warwick
 props:
@@ -1321,21 +1284,21 @@ props:
   country: United Kingdom
   state: Warwickshire
 ---
-id: 03nf36p02
+id: ror:03nf36p02
 title:
   en: University of Beira Interior
 props:
   city: Covilha
   country: Portugal
 ---
-id: 05564r514
+id: ror:05564r514
 title:
   en: Association of European Renewable Energy Research Centres
 props:
   city: Brussels
   country: Belgium
 ---
-id: 041kmwe10
+id: ror:041kmwe10
 title:
   en: Imperial College London
 props:
@@ -1343,14 +1306,14 @@ props:
   country: United Kingdom
   state: Westminster
 ---
-id: 05tkyf982
+id: ror:05tkyf982
 title:
   en: Ben-Gurion University of the Negev
 props:
   city: Beersheba
   country: Israel
 ---
-id: 02hpadn98
+id: ror:02hpadn98
 title:
   en: Bielefeld University
 props:
@@ -1358,35 +1321,35 @@ props:
   country: Germany
   state: Nordrhein-Westfalen
 ---
-id: 000h6jb29
+id: ror:000h6jb29
 title:
   en: Helmholtz Centre for Environmental Research
 props:
   city: Leipzig
   country: Germany
 ---
-id: 02hbhxa68
+id: ror:02hbhxa68
 title:
   en: Airbus (United Kingdom)
 props:
   city: Bristol
   country: United Kingdom
 ---
-id: 01r4bn552
+id: ror:01r4bn552
 title:
   en: Von Karman Institute for Fluid Dynamics
 props:
   city: Sint-Genesius-Rode
   country: Belgium
 ---
-id: 04bwf3e34
+id: ror:04bwf3e34
 title:
   en: German Aerospace Center
 props:
   city: Cologne
   country: Germany
 ---
-id: 04v2twj65
+id: ror:04v2twj65
 title:
   en: Oxford Brookes University
 props:
@@ -1394,56 +1357,56 @@ props:
   country: United Kingdom
   state: Oxfordshire
 ---
-id: 02xfp8v59
+id: ror:02xfp8v59
 title:
   en: University of Brasília
 props:
   city: Brasília
   country: Brazil
 ---
-id: 027ynra39
+id: ror:027ynra39
 title:
   en: University of Bari Aldo Moro
 props:
   city: Bari
   country: Italy
 ---
-id: 0599z7n30
+id: ror:0599z7n30
 title:
   en: Instituto de Biologia Experimental Tecnológica
 props:
   city: Oeiras
   country: Portugal
 ---
-id: 02hcsa680
+id: ror:02hcsa680
 title:
   en: FIRC Institute of Molecular Oncology
 props:
   city: Milan
   country: Italy
 ---
-id: 038t36y30
+id: ror:038t36y30
 title:
   en: Heidelberg University
 props:
   city: Heidelberg
   country: Germany
 ---
-id: 03vzbgh69
+id: ror:03vzbgh69
 title:
   en: University Medical Center Freiburg
 props:
   city: Freiburg
   country: Germany
 ---
-id: 00bvhmc43
+id: ror:00bvhmc43
 title:
   en: Spanish National Cancer Research Centre
 props:
   city: Madrid
   country: Spain
 ---
-id: 01eezs655
+id: ror:01eezs655
 title:
   en: University of Regensburg
 props:
@@ -1451,35 +1414,35 @@ props:
   country: Germany
   state: Bayern
 ---
-id: 00dn4t376
+id: ror:00dn4t376
 title:
   en: Brunel University London
 props:
   city: London
   country: United Kingdom
 ---
-id: 003vfy751
+id: ror:003vfy751
 title:
   en: Université du Burundi
 props:
   city: Bujumbura
   country: Burundi
 ---
-id: 03q21mh05
+id: ror:03q21mh05
 title:
   en: Cairo University
 props:
   city: Giza
   country: Egypt
 ---
-id: 02rc97e94
+id: ror:02rc97e94
 title:
   en: University of Calabria
 props:
   city: Rende
   country: Italy
 ---
-id: 049n68p64
+id: ror:049n68p64
 title:
   en: University of Caldas
 props:
@@ -1487,14 +1450,14 @@ props:
   country: Colombia
   state: Caldas
 ---
-id: 03ths8210
+id: ror:03ths8210
 title:
   en: Carlos III University of Madrid
 props:
   city: Madrid
   country: Spain
 ---
-id: 02be6w209
+id: ror:02be6w209
 title:
   en: Sapienza University of Rome
 props:
@@ -1502,14 +1465,14 @@ props:
   country: Italy
   state: Lazio
 ---
-id: 02wk2vx54
+id: ror:02wk2vx54
 title:
   en: Saints Cyril and Methodius University of Skopje
 props:
   city: Skopje
   country: North Macedonia
 ---
-id: 05m7pjf47
+id: ror:05m7pjf47
 title:
   en: University College Dublin
 props:
@@ -1517,63 +1480,63 @@ props:
   country: Ireland
   state: Dublin
 ---
-id: 028wp3y58
+id: ror:028wp3y58
 title:
   en: Chulalongkorn University
 props:
   city: Bangkok
   country: Thailand
 ---
-id: 02495e989
+id: ror:02495e989
 title:
   en: Université Catholique de Louvain
 props:
   city: Louvain-la-Neuve
   country: Belgium
 ---
-id: 05crjpb27
+id: ror:05crjpb27
 title:
   en: Bocconi University
 props:
   city: Milan
   country: Italy
 ---
-id: 031wwwj55
+id: ror:031wwwj55
 title:
   en: University of Žilina
 props:
   city: Žilina
   country: Slovakia
 ---
-id: 058s98e36
+id: ror:058s98e36
 title:
   en: Promotion of Operational Links With Integrated Services
 props:
   city: Brussels
   country: Belgium
 ---
-id: 00dr28g20
+id: ror:00dr28g20
 title:
   en: University of Crete
 props:
   city: Rethymno
   country: Greece
 ---
-id: 04je6yw13
+id: ror:04je6yw13
 title:
   en: Cheikh Anta Diop University
 props:
   city: Dakar
   country: Senegal
 ---
-id: 04gzb2213
+id: ror:04gzb2213
 title:
   en: University of Delhi
 props:
   city: New Delhi
   country: India
 ---
-id: 05wv2vq37
+id: ror:05wv2vq37
 title:
   en: University of Dhaka
 props:
@@ -1581,49 +1544,49 @@ props:
   country: Bangladesh
   state: Dhaka
 ---
-id: 0566t4z20
+id: ror:0566t4z20
 title:
   en: Université de Dschang
 props:
   city: Dschang
   country: Cameroon
 ---
-id: 03h2bxq36
+id: ror:03h2bxq36
 title:
   en: University of Dundee
 props:
   city: Dundee
   country: United Kingdom
 ---
-id: 01v29qb04
+id: ror:01v29qb04
 title:
   en: Durham University
 props:
   city: Durham
   country: United Kingdom
 ---
-id: 02t4ekc95
+id: ror:02t4ekc95
 title:
   en: Medical University of Lodz
 props:
   city: Łódź
   country: Poland
 ---
-id: 03nyjqm54
+id: ror:03nyjqm54
 title:
   en: Universidad del Valle de Guatemala
 props:
   city: Guatemala City
   country: Guatemala
 ---
-id: 00jb9vg53
+id: ror:00jb9vg53
 title:
   en: University of Valle
 props:
   city: Santiago de Cali
   country: Colombia
 ---
-id: 026k5mg93
+id: ror:026k5mg93
 title:
   en: University of East Anglia
 props:
@@ -1631,21 +1594,21 @@ props:
   country: United Kingdom
   state: Norfolk
 ---
-id: 05n8n9378
+id: ror:05n8n9378
 title:
   en: Eduardo Mondlane University
 props:
   city: Maputo
   country: Mozambique
 ---
-id: 02eaafc18
+id: ror:02eaafc18
 title:
   en: Ege University
 props:
   city: Izmir
   country: Turkey
 ---
-id: 0080acb59
+id: ror:0080acb59
 title:
   en: John Radcliffe Hospital
 props:
@@ -1653,7 +1616,7 @@ props:
   country: United Kingdom
   state: Oxfordshire
 ---
-id: 02nkf1q06
+id: ror:02nkf1q06
 title:
   en: University of Essex
 props:
@@ -1661,21 +1624,21 @@ props:
   country: United Kingdom
   state: Essex
 ---
-id: 02qnnz951
+id: ror:02qnnz951
 title:
   en: University of Mons
 props:
   city: Mons
   country: Belgium
 ---
-id: 03srtnf24
+id: ror:03srtnf24
 title:
   en: Universidade Federal do Ceará
 props:
   city: Fortaleza
   country: Brazil
 ---
-id: 0176yjw32
+id: ror:0176yjw32
 title:
   en: Universidade Federal de Minas Gerais
 props:
@@ -1683,21 +1646,21 @@ props:
   country: Brazil
   state: Minas Gerais
 ---
-id: 02phevt59
+id: ror:02phevt59
 title:
   en: Fraunhofer Institute for Wind Energy Systems
 props:
   city: Bremerhaven
   country: Germany
 ---
-id: 034yrjf77
+id: ror:034yrjf77
 title:
   en: French National Institute for Industrial Environment and Risks
 props:
   city: Verneuil-en-Halatte
   country: France
 ---
-id: 0050vmv35
+id: ror:0050vmv35
 title:
   en: German Institute for Economic Research
 props:
@@ -1705,14 +1668,14 @@ props:
   country: Germany
   state: Berlin
 ---
-id: 041zkgm14
+id: ror:041zkgm14
 title:
   en: University of Ferrara
 props:
   city: Ferrara
   country: Italy
 ---
-id: 022fs9h90
+id: ror:022fs9h90
 title:
   en: University of Fribourg
 props:
@@ -1720,7 +1683,7 @@ props:
   country: Switzerland
   state: Freiburg
 ---
-id: 013q1eq08
+id: ror:013q1eq08
 title:
   en: Fudan University
 props:
@@ -1728,42 +1691,42 @@ props:
   country: China
   state: Shanghai
 ---
-id: 03hpdk269
+id: ror:03hpdk269
 title:
   en: Catalonian Research and Innovation Centre
 props:
   city: Cornellà de Llobregat
   country: Spain
 ---
-id: 01swzsf04
+id: ror:01swzsf04
 title:
   en: University of Geneva
 props:
   city: Geneva
   country: Switzerland
 ---
-id: 01r22mr83
+id: ror:01r22mr83
 title:
   en: University of Ghana
 props:
   city: Accra
   country: Ghana
 ---
-id: 03vfw8w96
+id: ror:03vfw8w96
 title:
   en: Royal Belgian Institute for Space Aeronomy
 props:
   city: Brussels
   country: Belgium
 ---
-id: 05hppb561
+id: ror:05hppb561
 title:
   en: Finnish Meteorological Institute
 props:
   city: Helsinki
   country: Finland
 ---
-id: 03dtebk39
+id: ror:03dtebk39
 title:
   en: National Observatory of Athens
 props:
@@ -1771,7 +1734,7 @@ props:
   country: Greece
   state: Attiki
 ---
-id: 033eqas34
+id: ror:033eqas34
 title:
   en: University of Giessen
 props:
@@ -1779,63 +1742,63 @@ props:
   country: Germany
   state: Hessen
 ---
-id: 04zerf618
+id: ror:04zerf618
 title:
   en: European Forest Institute
 props:
   city: Joensuu
   country: Finland
 ---
-id: 049bdss47
+id: ror:049bdss47
 title:
   en: Joanneum Research
 props:
   city: Graz
   country: Austria
 ---
-id: 00vtgdb53
+id: ror:00vtgdb53
 title:
   en: University of Glasgow
 props:
   city: Glasgow
   country: United Kingdom
 ---
-id: 006e5kg04
+id: ror:006e5kg04
 title:
   en: Vrije Universiteit Brussel
 props:
   city: Brussels
   country: Belgium
 ---
-id: 03bqt8z64
+id: ror:03bqt8z64
 title:
   en: National Institute of Technology
 props:
   city: Oslo
   country: Norway
 ---
-id: 050y0ba80
+id: ror:050y0ba80
 title:
   en: D'Appolonia (Italy)
 props:
   city: Genoa
   country: Italy
 ---
-id: 02gpdzc63
+id: ror:02gpdzc63
 title:
   en: Labor (Italy)
 props:
   city: Rome
   country: Italy
 ---
-id: 020xs5r81
+id: ror:020xs5r81
 title:
   en: Belgian Nuclear Research Centre
 props:
   city: Mol
   country: Belgium
 ---
-id: 00h2vm590
+id: ror:00h2vm590
 title:
   en: University of the Western Cape
 props:
@@ -1843,7 +1806,7 @@ props:
   country: South Africa
   state: Western Cape
 ---
-id: 00a0jsq62
+id: ror:00a0jsq62
 title:
   en: London School of Hygiene & Tropical Medicine
 props:
@@ -1851,56 +1814,56 @@ props:
   country: United Kingdom
   state: Camden
 ---
-id: 05tcasm11
+id: ror:05tcasm11
 title:
   en: Greek Research and Technology Network
 props:
   city: Athens
   country: Greece
 ---
-id: 050w2g362
+id: ror:050w2g362
 title:
   en: Inovamais
 props:
   city: Matosinhos Municipality
   country: Portugal
 ---
-id: 04c235406
+id: ror:04c235406
 title:
   en: DNV GL (Norway)
 props:
   city: Sandvika
   country: Norway
 ---
-id: 006x15235
+id: ror:006x15235
 title:
   en: National Institute of Engineering, Technology and Innovation
 props:
   city: Lisbon
   country: Portugal
 ---
-id: 02sj0zy88
+id: ror:02sj0zy88
 title:
   en: SELEX Sistemi Integrati
 props:
   city: Rome
   country: Italy
 ---
-id: 02x3e4q36
+id: ror:02x3e4q36
 title:
   en: Vilnius Gediminas Technical University
 props:
   city: Vilnius
   country: Lithuania
 ---
-id: 05v62cm79
+id: ror:05v62cm79
 title:
   en: University of Reading
 props:
   city: Reading
   country: United Kingdom
 ---
-id: 02f9det96
+id: ror:02f9det96
 title:
   en: University of Hildesheim
 props:
@@ -1908,98 +1871,91 @@ props:
   country: Germany
   state: Niedersachsen
 ---
-id: 00b1c9541
+id: ror:00b1c9541
 title:
   en: University of Hohenheim
 props:
   city: Stuttgart
   country: Germany
 ---
-id: 01tjs6929
+id: ror:01tjs6929
 title:
   en: National University of La Plata
 props:
   city: La Plata
   country: Argentina
 ---
-id: 02aj0kh94
+id: ror:02aj0kh94
 title:
   en: Joseph Fourier University
 props:
   city: Grenoble
   country: France
 ---
-id: 04gqx4x78
+id: ror:04gqx4x78
 title:
   en: Università Campus Bio-Medico
 props:
   city: Rome
   country: Italy
 ---
-id: 00cyydd11
+id: ror:00cyydd11
 title:
   en: University of Eastern Finland
 props:
   city: Kuopio
   country: Finland
 ---
-id: 05n3dz165
+id: ror:05n3dz165
 title:
   en: University of Jyväskylä
 props:
   city: Jyvaskyla
   country: Finland
 ---
-id: 0361bwx64
+id: ror:0361bwx64
 title:
   en: United Kingdom Atomic Energy Authority
 props:
   city: Abingdon
   country: United Kingdom
 ---
-id: 04v76ef78
+id: ror:04v76ef78
 title:
   en: Kiel University
 props:
   city: Kiel
   country: Germany
 ---
-id: 023bq8521
+id: ror:023bq8521
 title:
   en: Saint Petersburg State Electrotechnical University
 props:
   city: Saint Petersburg
   country: Russia
 ---
-id: 03fc1k060
+id: ror:03fc1k060
 title:
   en: University of Salento
 props:
   city: Lecce
   country: Italy
 ---
-id: 024mrxd33
-title:
-  en: University of Leeds
-props:
-  city: Leeds
-  country: United Kingdom
----
-id: 04h699437
+id: ror:04h699437
 title:
   en: University of Leicester
 props:
   city: Leicester
   country: United Kingdom
 ---
-id: 04j4j0a75
+id: ror:04j4j0a75
 title:
   en: National University of Lesotho
 props:
   city: Maseru
   country: Lesotho
 ---
-id: 052r2xn60
+id: ror:052r2xn60
 title:
   en: Johannes Kepler University of Linz
 props:
@@ -2007,56 +1963,56 @@ props:
   country: Austria
   state: Oberösterreich
 ---
-id: 02rycsd19
+id: ror:02rycsd19
 title:
   en: Institute for Work and Health
 props:
   city: Lausanne
   country: Switzerland
 ---
-id: 00av5yz18
+id: ror:00av5yz18
 title:
   en: Health and Safety Executive
 props:
   city: Bootle
   country: United Kingdom
 ---
-id: 04xs57h96
+id: ror:04xs57h96
 title:
   en: University of Liverpool
 props:
   city: Liverpool
   country: United Kingdom
 ---
-id: 0542q3127
+id: ror:0542q3127
 title:
   en: Lviv Polytechnic National University
 props:
   city: Lviv
   country: Ukraine
 ---
-id: 008taqp83
+id: ror:008taqp83
 title:
   en: Inter University Computation Centre
 props:
   city: Tel Aviv
   country: Israel
 ---
-id: 05sd8tv96
+id: ror:05sd8tv96
 title:
   en: Barcelona Supercomputing Center
 props:
   city: Barcelona
   country: Spain
 ---
-id: 04ehtgm24
+id: ror:04ehtgm24
 title:
   en: Lusíada University of Porto
 props:
   city: Porto
   country: Portugal
 ---
-id: 04c8e9019
+id: ror:04c8e9019
 title:
   en: Madurai Kamaraj University
 props:
@@ -2064,7 +2020,7 @@ props:
   country: India
   state: Tamil Nadu
 ---
-id: 01znkr924
+id: ror:01znkr924
 title:
   en: Mahidol University
 props:
@@ -2072,70 +2028,70 @@ props:
   country: Thailand
   state: Nakhon Pathom
 ---
-id: 01z014940
+id: ror:01z014940
 title:
   en: University of Mining and Geology "Saint Ivan Rilski"
 props:
   city: Sofia
   country: Bulgaria
 ---
-id: 05cy4wa09
+id: ror:05cy4wa09
 title:
   en: Wellcome Sanger Institute
 props:
   city: Cambridge
   country: United Kingdom
 ---
-id: 02k7wn190
+id: ror:02k7wn190
 title:
   en: University of Parma
 props:
   city: Parma
   country: Italy
 ---
-id: 00a99v816
+id: ror:00a99v816
 title:
   en: GABO:mi
 props:
   city: Munich
   country: Germany
 ---
-id: 00k4v9x79
+id: ror:00k4v9x79
 title:
   en: Higher University of San Andrés
 props:
   city: La Paz
   country: Bolivia
 ---
-id: 03z27es23
+id: ror:03z27es23
 title:
   en: University of San Simón
 props:
   city: Cochabamba
   country: Bolivia
 ---
-id: 052fdp564
+id: ror:052fdp564
 title:
   en: Enel (Italy)
 props:
   city: Rome
   country: Italy
 ---
-id: 04aaeds92
+id: ror:04aaeds92
 title:
   en: Israel Aerospace Industries (Israel)
 props:
   city: Lod
   country: Israel
 ---
-id: 03p3aeb86
+id: ror:03p3aeb86
 title:
   en: University of Murcia
 props:
   city: Murcia
   country: Spain
 ---
-id: 04vtx5s55
+id: ror:04vtx5s55
 title:
   en: University of Malawi
 props:
@@ -2143,7 +2099,7 @@ props:
   country: Malawi
   state: Nkhotakota
 ---
-id: 02y9nww90
+id: ror:02y9nww90
 title:
   en: University of Nairobi
 props:
@@ -2151,14 +2107,14 @@ props:
   country: Kenya
   state: Nairobi
 ---
-id: 011gakh74
+id: ror:011gakh74
 title:
   en: National University of Central Buenos Aires
 props:
   city: Tandil
   country: Argentina
 ---
-id: 05tj8pb04
+id: ror:05tj8pb04
 title:
   en: Abdou Moumouni University
 props:
@@ -2166,56 +2122,56 @@ props:
   country: Niger
   state: Niamey
 ---
-id: 02436cs38
+id: ror:02436cs38
 title:
   en: Unilever (Netherlands)
 props:
   city: Rotterdam
   country: Netherlands
 ---
-id: 044k9ta02
+id: ror:044k9ta02
 title:
   en: University of Palermo
 props:
   city: Palermo
   country: Italy
 ---
-id: 00t33hh48
+id: ror:00t33hh48
 title:
   en: Chinese University of Hong Kong
 props:
   city: Hong Kong
   country: China
 ---
-id: 00pt8r998
+id: ror:00pt8r998
 title:
   en: National University of the Littoral
 props:
   city: Santa Fe
   country: Argentina
 ---
-id: 04s4j9e43
+id: ror:04s4j9e43
 title:
   en: Omar Bongo University
 props:
   city: Libreville
   country: Gabon
 ---
-id: 00htwgm11
+id: ror:00htwgm11
 title:
   en: National University of Salta
 props:
   city: Salta
   country: Argentina
 ---
-id: 00xa57a59
+id: ror:00xa57a59
 title:
   en: University of Novi Sad
 props:
   city: Novi Sad
   country: Serbia
 ---
-id: 03yrrjy16
+id: ror:03yrrjy16
 title:
   en: University of Southern Denmark
 props:
@@ -2223,63 +2179,63 @@ props:
   country: Denmark
   state: Syddanmark
 ---
-id: 006gksa02
+id: ror:006gksa02
 title:
   en: University of Oviedo
 props:
   city: Oviedo
   country: Spain
 ---
-id: 01gntjh03
+id: ror:01gntjh03
 title:
   en: Royal Netherlands Institute for Sea Research
 props:
   city: Den Burg
   country: Netherlands
 ---
-id: 03xawq568
+id: ror:03xawq568
 title:
   en: Agricultural University of Athens
 props:
   city: Athens
   country: Greece
 ---
-id: 04y85wy15
+id: ror:04y85wy15
 title:
   en: Acciona (Spain)
 props:
   city: Alcobendas
   country: Spain
 ---
-id: 017wvtq80
+id: ror:017wvtq80
 title:
   en: University of Patras
 props:
   city: Pátrai
   country: Greece
 ---
-id: 017mdc710
+id: ror:017mdc710
 title:
   en: Comillas Pontifical University
 props:
   city: Madrid
   country: Spain
 ---
-id: 03tbh6y23
+id: ror:03tbh6y23
 title:
   en: University of the Philippines Diliman
 props:
   city: Quezon City
   country: Philippines
 ---
-id: 02e91jd64
+id: ror:02e91jd64
 title:
   en: Universiti Putra Malaysia
 props:
   city: Seri Kembangan
   country: Malaysia
 ---
-id: 011maz450
+id: ror:011maz450
 title:
   en: University of the Punjab
 props:
@@ -2287,7 +2243,7 @@ props:
   country: Pakistan
   state: Punjab
 ---
-id: 030s54078
+id: ror:030s54078
 title:
   en: University of the Philippines Los Baños
 props:
@@ -2295,14 +2251,14 @@ props:
   country: Philippines
   state: Laguna
 ---
-id: 02ahxbh87
+id: ror:02ahxbh87
 title:
   en: Biomedical Primate Research Centre
 props:
   city: Rijswijk
   country: Netherlands
 ---
-id: 0545p3742
+id: ror:0545p3742
 title:
   en: Plovdiv University
 props:
@@ -2310,49 +2266,49 @@ props:
   country: Bulgaria
   state: Plovdiv
 ---
-id: 02jv3k292
+id: ror:02jv3k292
 title:
   en: Sofia University
 props:
   city: Sofia
   country: Bulgaria
 ---
-id: 038j9sn30
+id: ror:038j9sn30
 title:
   en: Shanghai Institute of Hypertension
 props:
   city: Shanghai
   country: China
 ---
-id: 05rw9t746
+id: ror:05rw9t746
 title:
   en: IBM Research - Haifa
 props:
   city: Haifa
   country: Israel
 ---
-id: 01j33xk10
+id: ror:01j33xk10
 title:
   en: Fondazione Bruno Kessler
 props:
   city: Trento
   country: Italy
 ---
-id: 04xraxn18
+id: ror:04xraxn18
 title:
   en: Telethon Foundation
 props:
   city: Rome
   country: Italy
 ---
-id: 01z6bgg93
+id: ror:01z6bgg93
 title:
   en: Royal Tropical Institute
 props:
   city: Amsterdam
   country: Netherlands
 ---
-id: 00c7kvd80
+id: ror:00c7kvd80
 title:
   en: Christian Medical College & Hospital
 props:
@@ -2360,35 +2316,35 @@ props:
   country: India
   state: Tamil Nadu
 ---
-id: 05trd4x28
+id: ror:05trd4x28
 title:
   en: University of Trento
 props:
   city: Trento
   country: Italy
 ---
-id: 01hn2d233
+id: ror:01hn2d233
 title:
   en: Biomechanics Institute of Valencia
 props:
   city: Valencia
   country: Spain
 ---
-id: 01jdpyv68
+id: ror:01jdpyv68
 title:
   en: Saarland University
 props:
   city: Saarbrücken
   country: Germany
 ---
-id: 0192m2k53
+id: ror:0192m2k53
 title:
   en: University of Salerno
 props:
   city: Fisciano
   country: Italy
 ---
-id: 02rgb2k63
+id: ror:02rgb2k63
 title:
   en: Universiti Sains Malaysia
 props:
@@ -2396,7 +2352,7 @@ props:
   country: Malaysia
   state: Pulau Pinang
 ---
-id: 00jdryp44
+id: ror:00jdryp44
 title:
   en: Sokoine University of Agriculture
 props:
@@ -2404,14 +2360,14 @@ props:
   country: Tanzania
   state: Morogoro
 ---
-id: 02f7wz369
+id: ror:02f7wz369
 title:
   en: Pierre Mendès-France University
 props:
   city: Saint-Martin-d'Hères
   country: France
 ---
-id: 02wn5qz54
+id: ror:02wn5qz54
 title:
   en: University of St Andrews
 props:
@@ -2419,7 +2375,7 @@ props:
   country: United Kingdom
   state: Fife
 ---
-id: 045wgfr59
+id: ror:045wgfr59
 title:
   en: University of Stirling
 props:
@@ -2427,14 +2383,14 @@ props:
   country: United Kingdom
   state: Stirling
 ---
-id: 0046mja08
+id: ror:0046mja08
 title:
   en: An-Najah National University
 props:
   city: Nablus
   country: Palestinian Territory
 ---
-id: 05bk57929
+id: ror:05bk57929
 title:
   en: Stellenbosch University
 props:
@@ -2442,70 +2398,70 @@ props:
   country: South Africa
   state: Western Cape
 ---
-id: 05cncd958
+id: ror:05cncd958
 title:
   en: Cranfield University
 props:
   city: Cranfield
   country: United Kingdom
 ---
-id: 04nbe0v26
+id: ror:04nbe0v26
 title:
   en: Institute of Studies for the Integration of Systems
 props:
   city: Rome
   country: Italy
 ---
-id: 035pkj773
+id: ror:035pkj773
 title:
   en: Ştefan cel Mare University of Suceava
 props:
   city: Suceava
   country: Romania
 ---
-id: 00ayhx656
+id: ror:00ayhx656
 title:
   en: University of Sussex
 props:
   city: Brighton
   country: United Kingdom
 ---
-id: 05nv2rz39
+id: ror:05nv2rz39
 title:
   en: University of Eswatini
 props:
   city: Kwaluseni
   country: Eswatini
 ---
-id: 02jqtg033
+id: ror:02jqtg033
 title:
   en: Institute for Energy Technology
 props:
   city: Lillestrøm
   country: Norway
 ---
-id: 04mhzgx49
+id: ror:04mhzgx49
 title:
   en: Tel Aviv University
 props:
   city: Tel Aviv
   country: Israel
 ---
-id: 01jk32r56
+id: ror:01jk32r56
 title:
   en: Sirehna
 props:
   city: Nantes
   country: France
 ---
-id: 03bfqnx40
+id: ror:03bfqnx40
 title:
   en: Democritus University of Thrace
 props:
   city: Komotini
   country: Greece
 ---
-id: 04b8v1s79
+id: ror:04b8v1s79
 title:
   en: Tilburg University
 props:
@@ -2513,7 +2469,7 @@ props:
   country: Netherlands
   state: Noord-Brabant
 ---
-id: 02drrjp49
+id: ror:02drrjp49
 title:
   en: University of Montenegro
 props:
@@ -2521,42 +2477,42 @@ props:
   country: Montenegro
   state: Podgorica
 ---
-id: 04xyxjd90
+id: ror:04xyxjd90
 title:
   en: Nottingham Trent University
 props:
   city: Nottingham
   country: United Kingdom
 ---
-id: 00wc07928
+id: ror:00wc07928
 title:
   en: University of Lomé
 props:
   city: Lomé
   country: Togo
 ---
-id: 03jpkw355
+id: ror:03jpkw355
 title:
   en: Instituto de Soldadura e Qualidade
 props:
   city: Porto Salvo
   country: Portugal
 ---
-id: 03ynt1573
+id: ror:03ynt1573
 title:
   en: Ansaldo (Italy)
 props:
   city: Genoa
   country: Italy
 ---
-id: 001b4cb05
+id: ror:001b4cb05
 title:
   en: National University of Trujillo
 props:
   city: Trujillo
   country: Peru
 ---
-id: 03cve4549
+id: ror:03cve4549
 title:
   en: Tsinghua University
 props:
@@ -2564,28 +2520,28 @@ props:
   country: China
   state: Beijing
 ---
-id: 0409dgb37
+id: ror:0409dgb37
 title:
   en: Universidade Federal de Viçosa
 props:
   city: Viçosa
   country: Brazil
 ---
-id: 00nxna028
+id: ror:00nxna028
 title:
   en: HR Wallingford
 props:
   city: Wallingford
   country: United Kingdom
 ---
-id: 04ycpbx82
+id: ror:04ycpbx82
 title:
   en: University of Westminster
 props:
   city: London
   country: United Kingdom
 ---
-id: 03fkc8c64
+id: ror:03fkc8c64
 title:
   en: University of the West Indies
 props:
@@ -2593,7 +2549,7 @@ props:
   country: Jamaica
   state: Kingston
 ---
-id: 03gh19d69
+id: ror:03gh19d69
 title:
   en: University of Zambia
 props:
@@ -2601,7 +2557,7 @@ props:
   country: Zambia
   state: Lusaka
 ---
-id: 04ze6rb18
+id: ror:04ze6rb18
 title:
   en: University of Zimbabwe
 props:
@@ -2609,35 +2565,35 @@ props:
   country: Zimbabwe
   state: Harare
 ---
-id: 0220mzb33
+id: ror:0220mzb33
 title:
   en: King's College London
 props:
   city: London
   country: United Kingdom
 ---
-id: 013sm1c65
+id: ror:013sm1c65
 title:
   en: Wroclaw University of Economics and Business
 props:
   city: Wrocław
   country: Poland
 ---
-id: 011ashp19
+id: ror:011ashp19
 title:
   en: Sichuan University
 props:
   city: Chengdu
   country: China
 ---
-id: 01p455v08
+id: ror:01p455v08
 title:
   en: Xinjiang Medical University
 props:
   city: Ürümqi
   country: China
 ---
-id: 00a2xv884
+id: ror:00a2xv884
 title:
   en: Zhejiang University
 props:
@@ -2645,7 +2601,7 @@ props:
   country: China
   state: Zhejiang
 ---
-id: 02qnsw591
+id: ror:02qnsw591
 title:
   en: Centre for European Economic Research
 props:
@@ -2653,28 +2609,28 @@ props:
   country: Germany
   state: Baden-Württemberg
 ---
-id: 014x8q810
+id: ror:014x8q810
 title:
   en: Zentrum für Sonnenenergie- und Wasserstoff-Forschung Baden-Württemberg
 props:
   city: Ulm
   country: Germany
 ---
-id: 01b40r146
+id: ror:01b40r146
 title:
   en: Geological Survey of Denmark and Greenland
 props:
   city: Copenhagen
   country: Denmark
 ---
-id: 01411sx56
+id: ror:01411sx56
 title:
   en: Johnson Matthey (United Kingdom)
 props:
   city: London
   country: United Kingdom
 ---
-id: 01nhzsw25
+id: ror:01nhzsw25
 title:
   en: Hydro-Québec
 props:
@@ -2682,217 +2638,217 @@ props:
   country: Canada
   state: Quebec
 ---
-id: 04838xh83
+id: ror:04838xh83
 title:
   en: Empresarios Agrupados
 props:
   city: Madrid
   country: Spain
 ---
-id: 01k5qnb77
+id: ror:01k5qnb77
 title:
   en: Robert Koch Institute
 props:
   city: Berlin
   country: Germany
 ---
-id: 024xs2z82
+id: ror:024xs2z82
 title:
   en: ArcelorMittal (France)
 props:
   city: Montataire
   country: France
 ---
-id: 00tnppw48
+id: ror:00tnppw48
 title:
   en: Department for Environment Food and Rural Affairs
 props:
   city: London
   country: United Kingdom
 ---
-id: 012s7h980
+id: ror:012s7h980
 title:
   en: Acerinox (Spain)
 props:
   city: Madrid
   country: Spain
 ---
-id: 008yqe287
+id: ror:008yqe287
 title:
   en: Centro Sviluppo Materiali (Italy)
 props:
   city: Rome
   country: Italy
 ---
-id: 01je6q363
+id: ror:01je6q363
 title:
   en: Centre Technique Industriel De La Construction Metallique
 props:
   city: Saint-Aubin
   country: France
 ---
-id: 02fv8hj62
+id: ror:02fv8hj62
 title:
   en: Tecnalia
 props:
   city: San Sebastian
   country: Spain
 ---
-id: 05m5z4f19
+id: ror:05m5z4f19
 title:
   en: Steel Construction Institute
 props:
   city: Ascot
   country: United Kingdom
 ---
-id: 04z8xsz80
+id: ror:04z8xsz80
 title:
   en: Gerdau (Spain)
 props:
   city: Basauri
   country: Spain
 ---
-id: 04kgqpx54
+id: ror:04kgqpx54
 title:
   en: Voestalpine (Austria)
 props:
   city: Linz
   country: Austria
 ---
-id: 042bdnm87
+id: ror:042bdnm87
 title:
   en: Svenskt Stål (Finland)
 props:
   city: Vantaa
   country: Finland
 ---
-id: 03bj8zh59
+id: ror:03bj8zh59
 title:
   en: Tata Steel (United Kingdom)
 props:
   city: London
   country: United Kingdom
 ---
-id: 022wqqf69
+id: ror:022wqqf69
 title:
   en: Centro de Estudios e Investigaciones Técnicas de Gipuzkoa
 props:
   city: San Sebastian
   country: Spain
 ---
-id: 03pfsnq21
+id: ror:03pfsnq21
 title:
   en: Rzeszów University
 props:
   city: Rzeszów
   country: Poland
 ---
-id: 022d5qt08
+id: ror:022d5qt08
 title:
   en: Julius Kühn-Institut
 props:
   city: Quedlinburg
   country: Germany
 ---
-id: 016pfse95
+id: ror:016pfse95
 title:
   en: Neurobiologie de l'Olfaction et Modélisation en Imagerie
 props:
   city: Jouy-en-Josas
   country: France
 ---
-id: 047vb2x72
+id: ror:047vb2x72
 title:
   en: MATIMOP
 props:
   city: Tel Aviv
   country: Israel
 ---
-id: 0316ej306
+id: ror:0316ej306
 title:
   en: Weizmann Institute of Science
 props:
   city: Rehovot
   country: Israel
 ---
-id: 05kzjxq56
+id: ror:05kzjxq56
 title:
   en: Chonnam National University
 props:
   city: Gwangju
   country: South Korea
 ---
-id: 04n60ga54
+id: ror:04n60ga54
 title:
   en: Inter-University Research Institute Corporation
 props:
   city: Tsukuba
   country: Japan
 ---
-id: 02npppw10
+id: ror:02npppw10
 title:
   en: BMT Group (United Kingdom)
 props:
   city: London
   country: United Kingdom
 ---
-id: 00k5x3m24
+id: ror:00k5x3m24
 title:
   en: Portugal Telecom (Portugal)
 props:
   city: Lisbon
   country: Portugal
 ---
-id: 020m6x732
+id: ror:020m6x732
 title:
   en: Danish Meteorological Institute
 props:
   city: Copenhagen
   country: Denmark
 ---
-id: 00jzexr10
+id: ror:00jzexr10
 title:
   en: Astrakhan State Technical University
 props:
   city: Astrakhan
   country: Russia
 ---
-id: 027sdcz20
+id: ror:027sdcz20
 title:
   en: Klaipėda University
 props:
   city: Klaipėda
   country: Lithuania
 ---
-id: 04z4j3y75
+id: ror:04z4j3y75
 title:
   en: Institut Sénégalais de Recherches Agricoles
 props:
   city: Dakar
   country: Senegal
 ---
-id: 00yyp2526
+id: ror:00yyp2526
 title:
   en: Silsoe Research Institute
 props:
   city: Bedford
   country: United Kingdom
 ---
-id: 033n3pw66
+id: ror:033n3pw66
 title:
   en: University of South Bohemia in České Budějovice
 props:
   city: České Budějovice
   country: Czechia
 ---
-id: 0287e5797
+id: ror:0287e5797
 title:
   en: Siemens (United Kingdom)
 props:
   city: Camberley
   country: United Kingdom
 ---
-id: 03dke3h47
+id: ror:03dke3h47
 title:
   en: Association of Science-Technology Centers
 props:
@@ -2900,42 +2856,42 @@ props:
   country: United States
   state: District of Columbia
 ---
-id: 04mqy3p58
+id: ror:04mqy3p58
 title:
   en: Instituto de Engenharia de Sistemas e Computadores Investigação e Desenvolvimento
 props:
   city: Lisbon
   country: Portugal
 ---
-id: 006k2kk72
+id: ror:006k2kk72
 title:
   en: Düsseldorf University Hospital
 props:
   city: Düsseldorf
   country: Germany
 ---
-id: 02c5jsm26
+id: ror:02c5jsm26
 title:
   en: Research Institute of Molecular Pathology
 props:
   city: Vienna
   country: Austria
 ---
-id: 055zmrh94
+id: ror:055zmrh94
 title:
   en: John Innes Centre
 props:
   city: Norwich
   country: United Kingdom
 ---
-id: 04zb59n70
+id: ror:04zb59n70
 title:
   en: Leibniz Institute for Solid State and Materials Research
 props:
   city: Dresden
   country: Germany
 ---
-id: 001c2sn75
+id: ror:001c2sn75
 title:
   en: London Business School
 props:
@@ -2943,14 +2899,14 @@ props:
   country: United Kingdom
   state: England
 ---
-id: 02pwsw017
+id: ror:02pwsw017
 title:
   en: GAIKER Technology Centre
 props:
   city: Zamudio
   country: Spain
 ---
-id: 056ddyv20
+id: ror:056ddyv20
 title:
   en: Panteion University
 props:
@@ -2958,7 +2914,7 @@ props:
   country: Greece
   state: Attiki
 ---
-id: 0400avk24
+id: ror:0400avk24
 title:
   en: University of Bedfordshire
 props:
@@ -2966,21 +2922,21 @@ props:
   country: United Kingdom
   state: Bedford
 ---
-id: 02tc32w13
+id: ror:02tc32w13
 title:
   en: Irish Universities Association
 props:
   city: Dublin
   country: Ireland
 ---
-id: 02pagex14
+id: ror:02pagex14
 title:
   en: Archimedes Foundation
 props:
   city: Tallinn
   country: Estonia
 ---
-id: 01xnwqx93
+id: ror:01xnwqx93
 title:
   en: University Hospital Bonn
 props:
@@ -2988,112 +2944,112 @@ props:
   country: Germany
   state: Nordrhein-Westfalen
 ---
-id: 043rjaw23
+id: ror:043rjaw23
 title:
   en: Profactor (Austria)
 props:
   city: Steyr
   country: Austria
 ---
-id: 03rfvyw43
+id: ror:03rfvyw43
 title:
   en: Slovak University of Agriculture
 props:
   city: Nitra
   country: Slovakia
 ---
-id: 02qsqdv65
+id: ror:02qsqdv65
 title:
   en: Alstom (United Kingdom)
 props:
   city: London
   country: United Kingdom
 ---
-id: 01wjejq96
+id: ror:01wjejq96
 title:
   en: Yonsei University
 props:
   city: Seoul
   country: South Korea
 ---
-id: 023znxa73
+id: ror:023znxa73
 title:
   en: St Petersburg University
 props:
   city: Saint Petersburg
   country: Russia
 ---
-id: 02e8hzf44
+id: ror:02e8hzf44
 title:
   en: Helsinki University Hospital
 props:
   city: Helsinki
   country: Finland
 ---
-id: 01gmqr298
+id: ror:01gmqr298
 title:
   en: Vita-Salute San Raffaele University
 props:
   city: Milan
   country: Italy
 ---
-id: 0471kz689
+id: ror:0471kz689
 title:
   en: French Agency for Food, Environmental and Occupational Health & Safety
 props:
   city: Maisons-Alfort
   country: France
 ---
-id: 04rcxhq50
+id: ror:04rcxhq50
 title:
   en: Novartis (Italy)
 props:
   city: Origgio
   country: Italy
 ---
-id: 02h2x0161
+id: ror:02h2x0161
 title:
   en: GEOMAR Helmholtz Centre for Ocean Research Kiel
 props:
   city: Kiel
   country: Germany
 ---
-id: 02s6w8y22
+id: ror:02s6w8y22
 title:
   en: University of Bamako
 props:
   city: Bamako
   country: Mali
 ---
-id: 044xeax47
+id: ror:044xeax47
 title:
   en: Centre for Social Innovation
 props:
   city: Vienna
   country: Austria
 ---
-id: 0031wrj91
+id: ror:0031wrj91
 title:
   en: European University Institute
 props:
   city: Florence
   country: Italy
 ---
-id: 05t1h8f27
+id: ror:05t1h8f27
 title:
   en: University of Huddersfield
 props:
   city: Huddersfield
   country: United Kingdom
 ---
-id: 01h89k731
+id: ror:01h89k731
 title:
   en: TXT e-solutions (Italy)
 props:
   city: Milan
   country: Italy
 ---
-id: 03yn8s215
+id: ror:03yn8s215
 title:
   en: Vienna University of Economics and Business
 props:
@@ -3101,133 +3057,133 @@ props:
   country: Austria
   state: Niederösterreich
 ---
-id: 05qt8tf94
+id: ror:05qt8tf94
 title:
   en: Cyprus University of Technology
 props:
   city: Limassol
   country: Cyprus
 ---
-id: 01rv4p989
+id: ror:01rv4p989
 title:
   en: Middlesex University
 props:
   city: London
   country: United Kingdom
 ---
-id: 01khx4a30
+id: ror:01khx4a30
 title:
   en: Goldsmiths University of London
 props:
   city: London
   country: United Kingdom
 ---
-id: 05kytsw45
+id: ror:05kytsw45
 title:
   en: Örebro University
 props:
   city: Örebro
   country: Sweden
 ---
-id: 036x5ad56
+id: ror:036x5ad56
 title:
   en: University of Luxembourg
 props:
   city: Luxembourg
   country: Luxembourg
 ---
-id: 05ryv0s68
+id: ror:05ryv0s68
 title:
   en: Euresearch Association
 props:
   city: Bern
   country: Switzerland
 ---
-id: 01856cw59
+id: ror:01856cw59
 title:
   en: University Hospital Münster
 props:
   city: Münster
   country: Germany
 ---
-id: 05sep9w93
+id: ror:05sep9w93
 title:
   en: Instituto Tecnológico de Aragón
 props:
   city: Zaragoza
   country: Spain
 ---
-id: 03s262162
+id: ror:03s262162
 title:
   en: Athens University of Economics and Business
 props:
   city: Athens
   country: Greece
 ---
-id: 047yj9455
+id: ror:047yj9455
 title:
   en: Barcelona Media
 props:
   city: Barcelona
   country: Spain
 ---
-id: 04qzfn040
+id: ror:04qzfn040
 title:
   en: University of KwaZulu-Natal
 props:
   city: Durban
   country: South Africa
 ---
-id: 04ps1r162
+id: ror:04ps1r162
 title:
   en: Lincoln University
 props:
   city: Lincoln
   country: New Zealand
 ---
-id: 02vmnye06
+id: ror:02vmnye06
 title:
   en: Royal Military Academy
 props:
   city: Brussels
   country: Belgium
 ---
-id: 022em3k58
+id: ror:022em3k58
 title:
   en: de Duve Institute
 props:
   city: Brussels
   country: Belgium
 ---
-id: 0284gmm72
+id: ror:0284gmm72
 title:
   en: Cité Internationale Universitaire de Paris
 props:
   city: Paris
   country: France
 ---
-id: 04hym7e04
+id: ror:04hym7e04
 title:
   en: Al-Quds University
 props:
   city: East Jerusalem
   country: Palestinian Territory
 ---
-id: 04esata81
+id: ror:04esata81
 title:
   en: European Science Foundation
 props:
   city: Strasbourg
   country: France
 ---
-id: 01e6ksd91
+id: ror:01e6ksd91
 title:
   en: Università Iuav di Venezia
 props:
   city: Venice
   country: Italy
 ---
-id: 00hx57361
+id: ror:00hx57361
 title:
   en: Princeton University
 props:
@@ -3235,7 +3191,7 @@ props:
   country: United States
   state: New Jersey
 ---
-id: 0220qvk04
+id: ror:0220qvk04
 title:
   en: Shanghai Jiao Tong University
 props:
@@ -3243,42 +3199,42 @@ props:
   country: China
   state: Shanghai
 ---
-id: 0030zas98
+id: ror:0030zas98
 title:
   en: Hong Kong Polytechnic University
 props:
   city: Hong Kong
   country: China
 ---
-id: 02cqgeg62
+id: ror:02cqgeg62
 title:
   en: INRA Transfert (France)
 props:
   city: Paris
   country: France
 ---
-id: 044n25186
+id: ror:044n25186
 title:
   en: Chernivtsi National University
 props:
   city: Chernivtsi
   country: Ukraine
 ---
-id: 03bvx5w91
+id: ror:03bvx5w91
 title:
   en: Fondazione Eni Enrico Mattei
 props:
   city: Milan
   country: Italy
 ---
-id: 0204pdj19
+id: ror:0204pdj19
 title:
   en: Institute For European Environmental Policy
 props:
   city: London
   country: United Kingdom
 ---
-id: 002wcjr61
+id: ror:002wcjr61
 title:
   en: South-West University "Neofit Rilski"
 props:
@@ -3286,42 +3242,42 @@ props:
   country: Bulgaria
   state: Blagoevgrad
 ---
-id: 01jpkw634
+id: ror:01jpkw634
 title:
   en: Mediterranean Center for Environmental Studies
 props:
   city: Valencia
   country: Spain
 ---
-id: 0132f3h08
+id: ror:0132f3h08
 title:
   en: National Foundation of Political Science
 props:
   city: Paris
   country: France
 ---
-id: 00523a319
+id: ror:00523a319
 title:
   en: University of Finance and Management In Warsaw
 props:
   city: Warsaw
   country: Poland
 ---
-id: 027tvqf96
+id: ror:027tvqf96
 title:
   en: CAS Software (Germany)
 props:
   city: Karlsruhe
   country: Germany
 ---
-id: 01fpz6759
+id: ror:01fpz6759
 title:
   en: IRIS Technology Solutions (Spain)
 props:
   city: Castelldefels
   country: Spain
 ---
-id: 04qcftj32
+id: ror:04qcftj32
 title:
   en: UK Health and Environment Research Institute
 props:
@@ -3329,7 +3285,7 @@ props:
   country: United Kingdom
   state: Leicestershire
 ---
-id: 01cqx0m58
+id: ror:01cqx0m58
 title:
   en: Italian Aerospace Research Centre
 props:
@@ -3337,126 +3293,126 @@ props:
   country: Italy
   state: Campania
 ---
-id: 04grcvp20
+id: ror:04grcvp20
 title:
   en: Ingenieria Y Economia Del Transporte
 props:
   city: Madrid
   country: Spain
 ---
-id: 039bccw84
+id: ror:039bccw84
 title:
   en: Empresa Nacional de Residuos Radiactivos
 props:
   city: Madrid
   country: Spain
 ---
-id: 04pd9b824
+id: ror:04pd9b824
 title:
   en: Doosan (United Kingdom)
 props:
   city: Renfrew
   country: United Kingdom
 ---
-id: 05jeza980
+id: ror:05jeza980
 title:
   en: Rolls-Royce (Germany)
 props:
   city: Berlin
   country: Germany
 ---
-id: 010jx2260
+id: ror:010jx2260
 title:
   en: National Institute of Agricultural Botany
 props:
   city: Cambridge
   country: United Kingdom
 ---
-id: 01cqmqj90
+id: ror:01cqmqj90
 title:
   en: Hadassah Medical Center
 props:
   city: Jerusalem
   country: Israel
 ---
-id: 04a7rxb17
+id: ror:04a7rxb17
 title:
   en: University of Hyderabad
 props:
   city: Hyderabad
   country: India
 ---
-id: 01kw63t33
+id: ror:01kw63t33
 title:
   en: Federal Department of Economic Affairs Education and Research
 props:
   city: Bern
   country: Switzerland
 ---
-id: 051vpkw73
+id: ror:051vpkw73
 title:
   en: Asociacion De Investigacion De Materiales Plasticos Y Conexas
 props:
   city: Paterna
   country: Spain
 ---
-id: 03a1kt624
+id: ror:03a1kt624
 title:
   en: University of Huelva
 props:
   city: Huelva
   country: Spain
 ---
-id: 02ejsvn42
+id: ror:02ejsvn42
 title:
   en: European Committee for Standardization
 props:
   city: Brussels
   country: Belgium
 ---
-id: 02as1sh25
+id: ror:02as1sh25
 title:
   en: Dassault Aviation (France)
 props:
   city: Paris
   country: France
 ---
-id: 02tdtzx53
+id: ror:02tdtzx53
 title:
   en: Sainsbury Laboratory
 props:
   city: Norwich
   country: United Kingdom
 ---
-id: 00582g326
+id: ror:00582g326
 title:
   en: Indian Institute of Technology Roorkee
 props:
   city: Roorkee
   country: India
 ---
-id: 03dsc8d33
+id: ror:03dsc8d33
 title:
   en: Systems, Applications & Products in Data Processing (Germany)
 props:
   city: Walldorf
   country: Germany
 ---
-id: 01nthrq77
+id: ror:01nthrq77
 title:
   en: Instituto Tecnologico Del Embalaje, Transporte Y Logistica
 props:
   city: Paterna
   country: Spain
 ---
-id: 00q7d9z06
+id: ror:00q7d9z06
 title:
   en: Norwegian Institute for Air Research
 props:
   city: Lillestrøm
   country: Norway
 ---
-id: 05bqach95
+id: ror:05bqach95
 title:
   en: National Taiwan University
 props:
@@ -3464,84 +3420,84 @@ props:
   country: Taiwan
   state: Taipei
 ---
-id: 04y7eh037
+id: ror:04y7eh037
 title:
   en: Vytautas Magnus University
 props:
   city: Kaunas
   country: Lithuania
 ---
-id: 03vnshb93
+id: ror:03vnshb93
 title:
   en: Transport for London
 props:
   city: London
   country: United Kingdom
 ---
-id: 0108e1t34
+id: ror:0108e1t34
 title:
   en: Applied Research and Communications Fund
 props:
   city: Sofia
   country: Bulgaria
 ---
-id: 01yqg2h08
+id: ror:01yqg2h08
 title:
   en: Harbin Institute of Technology
 props:
   city: Harbin
   country: China
 ---
-id: 05efsr055
+id: ror:05efsr055
 title:
   en: Estonian Interuniversity Population Research Centre
 props:
   city: Tallinn
   country: Estonia
 ---
-id: 04a1mvv97
+id: ror:04a1mvv97
 title:
   en: Norwegian University of Life Sciences
 props:
   city: Ås
   country: Norway
 ---
-id: 00knyd990
+id: ror:00knyd990
 title:
   en: UK Intelligent Systems Research Institute
 props:
   city: Melton Mowbray
   country: United Kingdom
 ---
-id: 05jxj5k51
+id: ror:05jxj5k51
 title:
   en: Eesti Innovatsiooni Instituut
 props:
   city: Tallinn
   country: Estonia
 ---
-id: 0272rjm42
+id: ror:0272rjm42
 title:
   en: Doğuş University
 props:
   city: Istanbul
   country: Turkey
 ---
-id: 02s0xcm55
+id: ror:02s0xcm55
 title:
   en: Agenzia per la Promozione della Ricerca Europea
 props:
   city: Rome
   country: Italy
 ---
-id: 00t67pt25
+id: ror:00t67pt25
 title:
   en: Birmingham City University
 props:
   city: Birmingham
   country: United Kingdom
 ---
-id: 0576by029
+id: ror:0576by029
 title:
   en: Athena Research and Innovation Center In Information Communication & Knowledge
     Technologies
@@ -3549,56 +3505,56 @@ props:
   city: Marousi
   country: Greece
 ---
-id: 01vxt3d40
+id: ror:01vxt3d40
 title:
   en: University of Economics in Katowice
 props:
   city: Katowice
   country: Poland
 ---
-id: 04zmmpw58
+id: ror:04zmmpw58
 title:
   en: Swedish National Road and Transport Research Institute
 props:
   city: Linköping
   country: Sweden
 ---
-id: 04jyxq429
+id: ror:04jyxq429
 title:
   en: Center for Research and Telecommunication Experimentation for Networked Communities
 props:
   city: Trento
   country: Italy
 ---
-id: 04f4syj68
+id: ror:04f4syj68
 title:
   en: Polo Universitario Città di Prato
 props:
   city: Prato
   country: Italy
 ---
-id: 05nf86y53
+id: ror:05nf86y53
 title:
   en: Japan Atomic Energy Agency
 props:
   city: Tōkai-mura
   country: Japan
 ---
-id: 02wdp5k87
+id: ror:02wdp5k87
 title:
   en: Keskuslaboratorio
 props:
   city: Espoo
   country: Finland
 ---
-id: 04cnfrn26
+id: ror:04cnfrn26
 title:
   en: University of the Arts London
 props:
   city: London
   country: United Kingdom
 ---
-id: 03px4ez74
+id: ror:03px4ez74
 title:
   en: Zoological Society of London
 props:
@@ -3606,14 +3562,14 @@ props:
   country: United Kingdom
   state: Camden
 ---
-id: 05rtvan68
+id: ror:05rtvan68
 title:
   en: Royal University of Phnom Penh
 props:
   city: Phnom Penh
   country: Cambodia
 ---
-id: 03jkshc47
+id: ror:03jkshc47
 title:
   en: Medical University of Varna
 props:
@@ -3621,7 +3577,7 @@ props:
   country: Bulgaria
   state: Varna
 ---
-id: 019621n74
+id: ror:019621n74
 title:
   en: Public Health Institute
 props:
@@ -3629,7 +3585,7 @@ props:
   country: United States
   state: California
 ---
-id: 022k4wk35
+id: ror:022k4wk35
 title:
   en: Beijing Normal University
 props:
@@ -3637,7 +3593,7 @@ props:
   country: China
   state: Beijing
 ---
-id: 02956yf07
+id: ror:02956yf07
 title:
   en: University of Tsukuba
 props:
@@ -3645,63 +3601,63 @@ props:
   country: Japan
   state: Ibaraki
 ---
-id: 034b4g685
+id: ror:034b4g685
 title:
   en: Nuclear Research and Consultancy Group
 props:
   city: Petten
   country: Netherlands
 ---
-id: 0350e0c50
+id: ror:0350e0c50
 title:
   en: Lithuanian Energy Institute
 props:
   city: Kaunas
   country: Lithuania
 ---
-id: 05mmh5r64
+id: ror:05mmh5r64
 title:
   en: Alenia Aermacchi
 props:
   city: Varese
   country: Italy
 ---
-id: 04v403p80
+id: ror:04v403p80
 title:
   en: Interuniversity Consortium for Magnetic Resonance
 props:
   city: Sesto Fiorentino
   country: Italy
 ---
-id: 03cyjf656
+id: ror:03cyjf656
 title:
   en: University Centre in Svalbard
 props:
   city: Longyearbyen
   country: Svalbard and Jan Mayen
 ---
-id: 03y7q9t39
+id: ror:03y7q9t39
 title:
   en: University of Canterbury
 props:
   city: Christchurch
   country: New Zealand
 ---
-id: 02m11x738
+id: ror:02m11x738
 title:
   en: Furtwangen University
 props:
   city: Furtwangen im Schwarzwald
   country: Germany
 ---
-id: 00s8vne50
+id: ror:00s8vne50
 title:
   en: Yerevan State University
 props:
   city: Yerevan
   country: Armenia
 ---
-id: 05fq50484
+id: ror:05fq50484
 title:
   en: York University
 props:
@@ -3709,42 +3665,42 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 01px5cv07
+id: ror:01px5cv07
 title:
   en: Interdisciplinary Center Herzliya
 props:
   city: Herzliya
   country: Israel
 ---
-id: 00r2gde63
+id: ror:00r2gde63
 title:
   en: Ascamm Technologic Center
 props:
   city: Cerdanyola del Vallès
   country: Spain
 ---
-id: 00p8b0t20
+id: ror:00p8b0t20
 title:
   en: Belarusian State Medical University
 props:
   city: Minsk
   country: Belarus
 ---
-id: 0122p5f64
+id: ror:0122p5f64
 title:
   en: University of Jaén
 props:
   city: Jaén
   country: Spain
 ---
-id: 033t8gt11
+id: ror:033t8gt11
 title:
   en: University of Forestry
 props:
   city: Sofia
   country: Bulgaria
 ---
-id: 03zrwm897
+id: ror:03zrwm897
 title:
   en: Technical University of Varna
 props:
@@ -3752,7 +3708,7 @@ props:
   country: Bulgaria
   state: Varna
 ---
-id: 02gfys938
+id: ror:02gfys938
 title:
   en: University of Manitoba
 props:
@@ -3760,28 +3716,28 @@ props:
   country: Canada
   state: Manitoba
 ---
-id: 00c051916
+id: ror:00c051916
 title:
   en: Centre Technique des Industries Mécaniques
 props:
   city: Senlis
   country: France
 ---
-id: 0238gz740
+id: ror:0238gz740
 title:
   en: Institute for Theoretical and Experimental Physics
 props:
   city: Moscow
   country: Russia
 ---
-id: 051qv3667
+id: ror:051qv3667
 title:
   en: Applus+ IDIADA (Spain)
 props:
   city: Santa Oliva
   country: Spain
 ---
-id: 001c9fg13
+id: ror:001c9fg13
 title:
   en: Unitatea Executiva Pentru Finantarea Invatamantului Superior Si A Cercetarii
     Stiintifice Universitare
@@ -3789,49 +3745,49 @@ props:
   city: Bucharest
   country: Romania
 ---
-id: 006c1jc70
+id: ror:006c1jc70
 title:
   en: UK Material Technology Research Institute
 props:
   city: Melton Mowbray
   country: United Kingdom
 ---
-id: 00fbafs03
+id: ror:00fbafs03
 title:
   en: MBN Nanomaterialia (Italy)
 props:
   city: Carbonera
   country: Italy
 ---
-id: 04evcxq23
+id: ror:04evcxq23
 title:
   en: Consorzio Nazionale Interuniversitario per i Trasporti e la Logistica
 props:
   city: Rome
   country: Italy
 ---
-id: 02ct12k14
+id: ror:02ct12k14
 title:
   en: Network Rail
 props:
   city: London
   country: United Kingdom
 ---
-id: 00rbzpz17
+id: ror:00rbzpz17
 title:
   en: Agence Nationale de la Recherche
 props:
   city: Paris
   country: France
 ---
-id: 02n96ep67
+id: ror:02n96ep67
 title:
   en: East China Normal University
 props:
   city: Shanghai
   country: China
 ---
-id: 03yjb2x39
+id: ror:03yjb2x39
 title:
   en: University of Calgary
 props:
@@ -3839,28 +3795,28 @@ props:
   country: Canada
   state: Alberta
 ---
-id: 03kgsv495
+id: ror:03kgsv495
 title:
   en: Bar-Ilan University
 props:
   city: Ramat Gan
   country: Israel
 ---
-id: 00afdp487
+id: ror:00afdp487
 title:
   en: Victor Babeș University of Medicine and Pharmacy Timișoara
 props:
   city: Timișoara
   country: Romania
 ---
-id: 01n4pqe45
+id: ror:01n4pqe45
 title:
   en: Agency for Administration of University and Research
 props:
   city: Barcelona
   country: Spain
 ---
-id: 02jqj7156
+id: ror:02jqj7156
 title:
   en: George Mason University
 props:
@@ -3868,92 +3824,84 @@ props:
   country: United States
   state: Virginia
 ---
-id: 026452768
+id: ror:026452768
 title:
   en: PTV Group (Germany)
 props:
   city: Karlsruhe
   country: Germany
 ---
-id: 02te3c603
+id: ror:02te3c603
 title:
   en: Institute of Chemistry
 props:
   city: Bratislava
   country: Slovakia
 ---
-id: 040t43x18
+id: ror:040t43x18
 title:
   en: University of West Bohemia
 props:
   city: Pilsen
   country: Czechia
 ---
-id: 04svdmv30
+id: ror:04svdmv30
 title:
   en: Union des Industries Ferroviaires Européennes
 props:
   city: Brussels
   country: Belgium
 ---
-id: 01fkbmk11
+id: ror:01fkbmk11
 title:
   en: Maritime Research Institute Netherlands
 props:
   city: Wageningen
   country: Netherlands
 ---
-id: 04vrxay34
-title:
-  en: School of Oriental and African Studies
-props:
-  city: London
-  country: United Kingdom
-  state: Camden
----
-id: 000a2sx58
+id: ror:000a2sx58
 title:
   en: Centre for European Policy Studies
 props:
   city: Brussels
   country: Belgium
 ---
-id: 04ejkkg63
+id: ror:04ejkkg63
 title:
   en: Ecologic Institute
 props:
   city: Berlin
   country: Germany
 ---
-id: 04hp86393
+id: ror:04hp86393
 title:
   en: National Grid (United Kingdom)
 props:
   city: London
   country: United Kingdom
 ---
-id: 04pznsd21
+id: ror:04pznsd21
 title:
   en: American University of Beirut
 props:
   city: Beirut
   country: Lebanon
 ---
-id: 04v3ywz14
+id: ror:04v3ywz14
 title:
   en: China Agricultural University
 props:
   city: Beijing
   country: China
 ---
-id: 016n74679
+id: ror:016n74679
 title:
   en: Walloon Agricultural Research Centre
 props:
   city: Gembloux
   country: Belgium
 ---
-id: 00ae33288
+id: ror:00ae33288
 title:
   en: London Metropolitan University
 props:
@@ -3961,35 +3909,35 @@ props:
   country: United Kingdom
   state: Southwark
 ---
-id: 017vgxg86
+id: ror:017vgxg86
 title:
   en: Ford (Germany)
 props:
   city: Cologne
   country: Germany
 ---
-id: 02s08xt61
+id: ror:02s08xt61
 title:
   en: University of the Highlands and Islands
 props:
   city: Inverness
   country: United Kingdom
 ---
-id: 04pyb7y63
+id: ror:04pyb7y63
 title:
   en: International Flame Research Foundation
 props:
   city: Livorno
   country: Italy
 ---
-id: 011647w73
+id: ror:011647w73
 title:
   en: National University of Uzbekistan
 props:
   city: Tashkent
   country: Uzbekistan
 ---
-id: 00z5fkj61
+id: ror:00z5fkj61
 title:
   en: York St John University
 props:
@@ -3997,21 +3945,21 @@ props:
   country: United Kingdom
   state: York
 ---
-id: 05s7s9x02
+id: ror:05s7s9x02
 title:
   en: Lucideon (United Kingdom)
 props:
   city: Stoke-on-Trent
   country: United Kingdom
 ---
-id: 04v54gj93
+id: ror:04v54gj93
 title:
   en: Cambridge University Hospitals NHS Foundation Trust
 props:
   city: Cambridge
   country: United Kingdom
 ---
-id: 019ja9e37
+id: ror:019ja9e37
 title:
   en: Atomic Energy (Canada)
 props:
@@ -4019,14 +3967,14 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 00mbaq869
+id: ror:00mbaq869
 title:
   en: Timescape Surveys
 props:
   city: Newcastle upon Tyne
   country: United Kingdom
 ---
-id: 04r1x2k35
+id: ror:04r1x2k35
 title:
   en: University of Applied Sciences Kufstein
 props:
@@ -4034,14 +3982,14 @@ props:
   country: Austria
   state: Tirol
 ---
-id: 016e5hy63
+id: ror:016e5hy63
 title:
   en: Matej Bel University
 props:
   city: Banská Bystrica
   country: Slovakia
 ---
-id: 043mer456
+id: ror:043mer456
 title:
   en: University of Nebraska–Lincoln
 props:
@@ -4049,14 +3997,14 @@ props:
   country: United States
   state: Nebraska
 ---
-id: 05k87vq12
+id: ror:05k87vq12
 title:
   en: Microsoft Research (United Kingdom)
 props:
   city: Cambridge
   country: United Kingdom
 ---
-id: 00q4vv597
+id: ror:00q4vv597
 title:
   en: Hong Kong University of Science and Technology
 props:
@@ -4064,21 +4012,21 @@ props:
   country: China
   state: Hong Kong
 ---
-id: 05gba0366
+id: ror:05gba0366
 title:
   en: Russian University of Transport
 props:
   city: Moscow
   country: Russia
 ---
-id: 02fh3dt13
+id: ror:02fh3dt13
 title:
   en: Petersburg State Transport University
 props:
   city: Saint Petersburg
   country: Russia
 ---
-id: 041pakw92
+id: ror:041pakw92
 title:
   en: Renmin University of China
 props:
@@ -4086,35 +4034,35 @@ props:
   country: China
   state: Beijing
 ---
-id: 05damtm70
+id: ror:05damtm70
 title:
   en: Beijing University of Chinese Medicine
 props:
   city: Beijing
   country: China
 ---
-id: 013xs5b60
+id: ror:013xs5b60
 title:
   en: Capital Medical University
 props:
   city: Beijing
   country: China
 ---
-id: 02crev113
+id: ror:02crev113
 title:
   en: Azienda Ospedaliero-Universitaria Careggi
 props:
   city: Florence
   country: Italy
 ---
-id: 05tkvpg69
+id: ror:05tkvpg69
 title:
   en: Centro Agronomico Tropical de Investigacion y Ensenanza Catie
 props:
   city: Turrialba
   country: Costa Rica
 ---
-id: 01e3m7079
+id: ror:01e3m7079
 title:
   en: University of Cincinnati
 props:
@@ -4122,28 +4070,28 @@ props:
   country: United States
   state: Ohio
 ---
-id: 013q2cj53
+id: ror:013q2cj53
 title:
   en: Universeum
 props:
   city: Gothenburg
   country: Sweden
 ---
-id: 020q46z35
+id: ror:020q46z35
 title:
   en: University of Bangui
 props:
   city: Bangui
   country: Central African Republic
 ---
-id: 013tf3c58
+id: ror:013tf3c58
 title:
   en: FWF Austrian Science Fund
 props:
   city: Vienna
   country: Austria
 ---
-id: 02hstj355
+id: ror:02hstj355
 title:
   en: Manchester Metropolitan University
 props:
@@ -4151,14 +4099,14 @@ props:
   country: United Kingdom
   state: Manchester
 ---
-id: 05g4mtv59
+id: ror:05g4mtv59
 title:
   en: Hewlett-Packard (United Kingdom)
 props:
   city: Bracknell
   country: United Kingdom
 ---
-id: 00b30xv10
+id: ror:00b30xv10
 title:
   en: University of Pennsylvania
 props:
@@ -4166,49 +4114,49 @@ props:
   country: United States
   state: Pennsylvania
 ---
-id: 010f1sq29
+id: ror:010f1sq29
 title:
   en: North-West University
 props:
   city: Potchefstroom
   country: South Africa
 ---
-id: 026vvkz19
+id: ror:026vvkz19
 title:
   en: National Interuniversity Consortium for the Physical Sciences of Matter
 props:
   city: Rome
   country: Italy
 ---
-id: 006kce638
+id: ror:006kce638
 title:
   en: Instituto Tecnológico del Calzado y Conexas
 props:
   city: Elda
   country: Spain
 ---
-id: 051a97h21
+id: ror:051a97h21
 title:
   en: National Nuclear Corporation (United Kingdom)
 props:
   city: Knutsford
   country: United Kingdom
 ---
-id: 01yqewm58
+id: ror:01yqewm58
 title:
   en: Kuban State University
 props:
   city: Krasnodar
   country: Russia
 ---
-id: 01yjy8p80
+id: ror:01yjy8p80
 title:
   en: National University of Luján
 props:
   city: Luján
   country: Argentina
 ---
-id: 037s24f05
+id: ror:037s24f05
 title:
   en: Clemson University
 props:
@@ -4216,7 +4164,7 @@ props:
   country: United States
   state: South Carolina
 ---
-id: 02kn6nx58
+id: ror:02kn6nx58
 title:
   en: Keio University
 props:
@@ -4224,35 +4172,35 @@ props:
   country: Japan
   state: Tôkyô
 ---
-id: 05b45bk66
+id: ror:05b45bk66
 title:
   en: Regional Environmental Center for Central and Eastern Europe
 props:
   city: Szentendre
   country: Hungary
 ---
-id: 00gtcbp88
+id: ror:00gtcbp88
 title:
   en: Universidade de Pernambuco
 props:
   city: Recife
   country: Brazil
 ---
-id: 007b9cn27
+id: ror:007b9cn27
 title:
   en: National Polytechnic University of Armenia
 props:
   city: Yerevan
   country: Armenia
 ---
-id: 027b0sp52
+id: ror:027b0sp52
 title:
   en: Kema International (Netherlands)
 props:
   city: Arnhem
   country: Netherlands
 ---
-id: 03z28gk75
+id: ror:03z28gk75
 title:
   en: Teesside University
 props:
@@ -4260,21 +4208,21 @@ props:
   country: United Kingdom
   state: Middlesbrough
 ---
-id: 01ry6tw68
+id: ror:01ry6tw68
 title:
   en: Balance Technology Consulting
 props:
   city: Bremen
   country: Germany
 ---
-id: 01818mf51
+id: ror:01818mf51
 title:
   en: Messerschmitt-Bölkow-Blohm (Germany)
 props:
   city: Ottobrunn
   country: Germany
 ---
-id: 0207yh398
+id: ror:0207yh398
 title:
   en: Shandong University
 props:
@@ -4282,7 +4230,7 @@ props:
   country: China
   state: Shandong
 ---
-id: 05j0w0e76
+id: ror:05j0w0e76
 title:
   en: American Association For The Advancement of Science
 props:
@@ -4290,21 +4238,21 @@ props:
   country: United States
   state: District of Columbia
 ---
-id: 02dgmb809
+id: ror:02dgmb809
 title:
   en: Numerical Mechanics Applications International (Belgium)
 props:
   city: Brussels
   country: Belgium
 ---
-id: 04chrp450
+id: ror:04chrp450
 title:
   en: Nagoya University
 props:
   city: Nagoya
   country: Japan
 ---
-id: 02jk5qe80
+id: ror:02jk5qe80
 title:
   en: Aalborg University Hospital
 props:
@@ -4312,28 +4260,28 @@ props:
   country: Denmark
   state: Nordjylland
 ---
-id: 01m484026
+id: ror:01m484026
 title:
   en: Smithers Pira
 props:
   city: Leatherhead
   country: United Kingdom
 ---
-id: 05td3s095
+id: ror:05td3s095
 title:
   en: Nanjing Agricultural University
 props:
   city: Nanjing
   country: China
 ---
-id: 03w6kry90
+id: ror:03w6kry90
 title:
   en: Polytechnic Institute of Viana do Castelo
 props:
   city: Viana do Castelo
   country: Portugal
 ---
-id: 01jjhfr75
+id: ror:01jjhfr75
 title:
   en: Özyeğin University
 props:
@@ -4341,7 +4289,7 @@ props:
   country: Turkey
   state: İstanbul
 ---
-id: 03c4mmv16
+id: ror:03c4mmv16
 title:
   en: University of Ottawa
 props:
@@ -4349,21 +4297,21 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 01vyrm377
+id: ror:01vyrm377
 title:
   en: East China University of Science and Technology
 props:
   city: Shanghai
   country: China
 ---
-id: 00fpw9a48
+id: ror:00fpw9a48
 title:
   en: Hamburgische Schiffbau-Versuchsanstalt (Germany)
 props:
   city: Hamburg
   country: Germany
 ---
-id: 04mbfgm16
+id: ror:04mbfgm16
 title:
   en: Simmons University
 props:
@@ -4371,105 +4319,105 @@ props:
   country: United States
   state: Massachusetts
 ---
-id: 03xww6m08
+id: ror:03xww6m08
 title:
   en: Nicolae Testemițanu State University of Medicine and Pharmacy
 props:
   city: Chisinau
   country: Moldova
 ---
-id: 05a7rhx54
+id: ror:05a7rhx54
 title:
   en: Ericsson (Sweden)
 props:
   city: Kista
   country: Sweden
 ---
-id: 005b2mc68
+id: ror:005b2mc68
 title:
   en: NEC (United Kingdom)
 props:
   city: London
   country: United Kingdom
 ---
-id: 0416m3683
+id: ror:0416m3683
 title:
   en: Institut für Rundfunktechnik
 props:
   city: Munich
   country: Germany
 ---
-id: 02hm3sf87
+id: ror:02hm3sf87
 title:
   en: European Institute For Research and Strategic Studies In Telecommunications
 props:
   city: Heidelberg
   country: Germany
 ---
-id: 00m8prc86
+id: ror:00m8prc86
 title:
   en: Deutsche Telekom (Germany)
 props:
   city: Bonn
   country: Germany
 ---
-id: 01kc65v41
+id: ror:01kc65v41
 title:
   en: Fondazione "Ugo Bordoni"
 props:
   city: Rome
   country: Italy
 ---
-id: 03zzckc47
+id: ror:03zzckc47
 title:
   en: Kadir Has University
 props:
   city: Istanbul
   country: Turkey
 ---
-id: 01v5cv687
+id: ror:01v5cv687
 title:
   en: King Juan Carlos University
 props:
   city: Madrid
   country: Spain
 ---
-id: 04kdh6x72
+id: ror:04kdh6x72
 title:
   en: Research Center for Information Technology
 props:
   city: Karlsruhe
   country: Germany
 ---
-id: 0167c0661
+id: ror:0167c0661
 title:
   en: Exodus (Greece)
 props:
   city: Athens
   country: Greece
 ---
-id: 04489at23
+id: ror:04489at23
 title:
   en: City, University of London
 props:
   city: London
   country: United Kingdom
 ---
-id: 03v8v5y65
+id: ror:03v8v5y65
 title:
   en: Consorzio Interuniversitario Nazionale per l'Informatica
 props:
   city: Rome
   country: Italy
 ---
-id: 05bxb3784
+id: ror:05bxb3784
 title:
   en: Academia Sinica
 props:
   city: Taipei
   country: Taiwan
 ---
-id: 03ydkyb10
+id: ror:03ydkyb10
 title:
   en: University of Wisconsin System
 props:
@@ -4477,7 +4425,7 @@ props:
   country: United States
   state: Wisconsin
 ---
-id: 00sse7z02
+id: ror:00sse7z02
 title:
   en: EURECOM
 props:
@@ -4485,21 +4433,21 @@ props:
   country: France
   state: Provence-Alpes-Côte-d'Azur
 ---
-id: 00bkxry42
+id: ror:00bkxry42
 title:
   en: Fraunhofer Institute for Microengineering and Microsystems
 props:
   city: Mainz
   country: Germany
 ---
-id: 019k1pd13
+id: ror:019k1pd13
 title:
   en: Mid Sweden University
 props:
   city: Sundsvall
   country: Sweden
 ---
-id: 00pbh0a34
+id: ror:00pbh0a34
 title:
   en: British Museum
 props:
@@ -4507,63 +4455,63 @@ props:
   country: United Kingdom
   state: Camden
 ---
-id: 03ep3q589
+id: ror:03ep3q589
 title:
   en: Institute for Composite Materials
 props:
   city: Kaiserslautern
   country: Germany
 ---
-id: 05w5rsy15
+id: ror:05w5rsy15
 title:
   en: Aurel Vlaicu University of Arad
 props:
   city: Arad
   country: Romania
 ---
-id: 041kdhz15
+id: ror:041kdhz15
 title:
   en: University of Buea
 props:
   city: Buea
   country: Cameroon
 ---
-id: 01nr6fy72
+id: ror:01nr6fy72
 title:
   en: Ljubljana University Medical Centre
 props:
   city: Ljubljana
   country: Slovenia
 ---
-id: 005t9n460
+id: ror:005t9n460
 title:
   en: Saxion University of Applied Sciences
 props:
   city: Enschede
   country: Netherlands
 ---
-id: 043k4kk20
+id: ror:043k4kk20
 title:
   en: Korea Research Institute of Chemical Technology
 props:
   city: Daejeon
   country: South Korea
 ---
-id: 01jmxt844
+id: ror:01jmxt844
 title:
   en: University of Otago
 props:
   city: Dunedin
   country: New Zealand
 ---
-id: 01g246z62
+id: ror:01g246z62
 title:
   en: International Union of Railways
 props:
   city: Paris
   country: France
 ---
-id: 02fmkev06
+id: ror:02fmkev06
 title:
   en: Building Research Establishment
 props:
@@ -4571,42 +4519,42 @@ props:
   country: United Kingdom
   state: Hertfordshire
 ---
-id: 04y28m257
+id: ror:04y28m257
 title:
   en: SOLINET
 props:
   city: Stuttgart
   country: Germany
 ---
-id: 02yfanq70
+id: ror:02yfanq70
 title:
   en: International Vaccine Institute
 props:
   city: Seoul
   country: South Korea
 ---
-id: 0290wsh42
+id: ror:0290wsh42
 title:
   en: Istituto Universitario di Studi Superiori di Pavia
 props:
   city: Pavia
   country: Italy
 ---
-id: 010wgh593
+id: ror:010wgh593
 title:
   en: Consorzio Interuniversitario per lo Sviluppo dei Sistemi a Grande Interfase
 props:
   city: Sesto Fiorentino
   country: Italy
 ---
-id: 01bw9xe44
+id: ror:01bw9xe44
 title:
   en: Academy of Georgofili
 props:
   city: Florence
   country: Italy
 ---
-id: 00qqv6244
+id: ror:00qqv6244
 title:
   en: Medical College of Wisconsin
 props:
@@ -4614,70 +4562,70 @@ props:
   country: United States
   state: Wisconsin
 ---
-id: 01rb2ev69
+id: ror:01rb2ev69
 title:
   en: Inspiralia
 props:
   city: Madrid
   country: Spain
 ---
-id: 020k76687
+id: ror:020k76687
 title:
   en: Régie Autonome des Transports Parisiens (France)
 props:
   city: Paris
   country: France
 ---
-id: 055k3dh55
+id: ror:055k3dh55
 title:
   en: Universitatea Din Petrosani
 props:
   city: Petroşani
   country: Romania
 ---
-id: 01cesdt21
+id: ror:01cesdt21
 title:
   en: National Institute for Public Health and the Environment
 props:
   city: De Bilt
   country: Netherlands
 ---
-id: 018hjpz25
+id: ror:018hjpz25
 title:
   en: Sheffield Teaching Hospitals NHS Foundation Trust
 props:
   city: Sheffield
   country: United Kingdom
 ---
-id: 053g6we49
+id: ror:053g6we49
 title:
   en: Zagazig University
 props:
   city: Zagazig
   country: Egypt
 ---
-id: 04h9pn542
+id: ror:04h9pn542
 title:
   en: Seoul National University
 props:
   city: Seoul
   country: South Korea
 ---
-id: 02yvd4j36
+id: ror:02yvd4j36
 title:
   en: Federal Office for Radiation Protection
 props:
   city: Salzgitter
   country: Germany
 ---
-id: 04tkkr536
+id: ror:04tkkr536
 title:
   en: University of Hagen
 props:
   city: Hagen
   country: Germany
 ---
-id: 04w9fbh59
+id: ror:04w9fbh59
 title:
   en: Beijing University of Posts and Telecommunications
 props:
@@ -4685,28 +4633,28 @@ props:
   country: China
   state: Beijing
 ---
-id: 05kcb8115
+id: ror:05kcb8115
 title:
   en: Consorzio Interuniversitario Per L'Ottimizzazione E La Ricerca Operativa
 props:
   city: Bologna
   country: Italy
 ---
-id: 03g41pw14
+id: ror:03g41pw14
 title:
   en: University of Blida
 props:
   city: Blida
   country: Algeria
 ---
-id: 04qae1p49
+id: ror:04qae1p49
 title:
   en: DoCoMo Communications Laboratories Europe GmbH
 props:
   city: Munich
   country: Germany
 ---
-id: 02s2acn37
+id: ror:02s2acn37
 title:
   en: Kitware (United States)
 props:
@@ -4714,42 +4662,42 @@ props:
   country: United States
   state: New York
 ---
-id: 02x91aj62
+id: ror:02x91aj62
 title:
   en: Peter the Great St. Petersburg Polytechnic University
 props:
   city: Saint Petersburg
   country: Russia
 ---
-id: 0306jgh11
+id: ror:0306jgh11
 title:
   en: Association of Commonwealth Universities
 props:
   city: London
   country: United Kingdom
 ---
-id: 040cxgs87
+id: ror:040cxgs87
 title:
   en: Starlab Barcelona Sl
 props:
   city: Barcelona
   country: Spain
 ---
-id: 05wp7an13
+id: ror:05wp7an13
 title:
   en: Malmö University
 props:
   city: Malmo
   country: Sweden
 ---
-id: 02m82p074
+id: ror:02m82p074
 title:
   en: Suez Canal University
 props:
   city: Ismailia
   country: Egypt
 ---
-id: 02msan859
+id: ror:02msan859
 title:
   en: European University Viadrina
 props:
@@ -4757,35 +4705,35 @@ props:
   country: Germany
   state: Brandenburg
 ---
-id: 01xvwxv41
+id: ror:01xvwxv41
 title:
   en: University of Balamand
 props:
   city: Tripoli
   country: Lebanon
 ---
-id: 0590dbq33
+id: ror:0590dbq33
 title:
   en: Sintef Energi As
 props:
   city: Trondheim
   country: Norway
 ---
-id: 00p991c53
+id: ror:00p991c53
 title:
   en: Huazhong University of Science and Technology
 props:
   city: Wuhan
   country: China
 ---
-id: 04t6r6d34
+id: ror:04t6r6d34
 title:
   en: International Space University
 props:
   city: Illkirch-Graffenstaden
   country: France
 ---
-id: 01sbq1a82
+id: ror:01sbq1a82
 title:
   en: University of Delaware
 props:
@@ -4793,14 +4741,14 @@ props:
   country: United States
   state: Delaware
 ---
-id: 04d5k5771
+id: ror:04d5k5771
 title:
   en: European Institute for Energy Research
 props:
   city: Karlsruhe
   country: Germany
 ---
-id: 01rtyzb94
+id: ror:01rtyzb94
 title:
   en: Rensselaer Polytechnic Institute
 props:
@@ -4808,21 +4756,21 @@ props:
   country: United States
   state: New York
 ---
-id: 00ctk8b26
+id: ror:00ctk8b26
 title:
   en: Bristol City Council
 props:
   city: Bristol
   country: United Kingdom
 ---
-id: 012tb2g32
+id: ror:012tb2g32
 title:
   en: Tianjin University
 props:
   city: Tianjin
   country: China
 ---
-id: 03x80pn82
+id: ror:03x80pn82
 title:
   en: Harbin Engineering University
 props:
@@ -4830,14 +4778,14 @@ props:
   country: China
   state: Heilongjiang
 ---
-id: 05ewdm369
+id: ror:05ewdm369
 title:
   en: Secretariat of the Pacific Community
 props:
   city: Noumea
   country: New Caledonia
 ---
-id: 000cyem11
+id: ror:000cyem11
 title:
   en: Donald Danforth Plant Science Center
 props:
@@ -4845,7 +4793,7 @@ props:
   country: United States
   state: Missouri
 ---
-id: 02qtvee93
+id: ror:02qtvee93
 title:
   en: Carleton University
 props:
@@ -4853,7 +4801,7 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 01r7awg59
+id: ror:01r7awg59
 title:
   en: University of Guelph
 props:
@@ -4861,7 +4809,7 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 00f2z7n96
+id: ror:00f2z7n96
 title:
   en: RAND Corporation
 props:
@@ -4869,91 +4817,91 @@ props:
   country: United States
   state: California
 ---
-id: 04ctjby61
+id: ror:04ctjby61
 title:
   en: Chapingo Autonomous University
 props:
   city: Texcoco
   country: Mexico
 ---
-id: 04e582786
+id: ror:04e582786
 title:
   en: Institut Universitari D'Estudis Europeus
 props:
   city: Barcelona
   country: Spain
 ---
-id: 04dese585
+id: ror:04dese585
 title:
   en: Indian Institute of Science Bangalore
 props:
   city: Bengaluru
   country: India
 ---
-id: 03q8dnn23
+id: ror:03q8dnn23
 title:
   en: City University of Hong Kong
 props:
   city: Hong Kong
   country: China
 ---
-id: 05ne3s142
+id: ror:05ne3s142
 title:
   en: Saint Petersburg Academic University
 props:
   city: Saint Petersburg
   country: Russia
 ---
-id: 023b72294
+id: ror:023b72294
 title:
   en: Huazhong Agricultural University
 props:
   city: Wuhan
   country: China
 ---
-id: 05gnna589
+id: ror:05gnna589
 title:
   en: Consorzio Nazionale Interuniversitario per la Nanoelettronica
 props:
   city: Bologna
   country: Italy
 ---
-id: 0282m7c06
+id: ror:0282m7c06
 title:
   en: University of Banja Luka
 props:
   city: Banja Luka
   country: Bosnia and Herzegovina
 ---
-id: 043071f54
+id: ror:043071f54
 title:
   en: University of Roehampton
 props:
   city: London
   country: United Kingdom
 ---
-id: 02kzxd152
+id: ror:02kzxd152
 title:
   en: Medical University Plovdiv
 props:
   city: Plovdiv
   country: Bulgaria
 ---
-id: 03nscjy42
+id: ror:03nscjy42
 title:
   en: General Electric (Denmark)
 props:
   city: Kolding
   country: Denmark
 ---
-id: 051xgzg37
+id: ror:051xgzg37
 title:
   en: Stockholm Environment Institute
 props:
   city: Stockholm
   country: Sweden
 ---
-id: 039zvsn29
+id: ror:039zvsn29
 title:
   en: Natural History Museum
 props:
@@ -4961,7 +4909,7 @@ props:
   country: United Kingdom
   state: Westminster
 ---
-id: 01t884y44
+id: ror:01t884y44
 title:
   en: University of Bolton
 props:
@@ -4969,7 +4917,7 @@ props:
   country: United Kingdom
   state: Manchester
 ---
-id: 01y3xgc52
+id: ror:01y3xgc52
 title:
   en: Athabasca University
 props:
@@ -4977,35 +4925,35 @@ props:
   country: Canada
   state: Alberta
 ---
-id: 018dfmf50
+id: ror:018dfmf50
 title:
   en: Open University in the Netherlands
 props:
   city: Heerlen
   country: Netherlands
 ---
-id: 03ysstz10
+id: ror:03ysstz10
 title:
   en: Electronics and Telecommunications Research Institute
 props:
   city: Daejeon
   country: South Korea
 ---
-id: 00bmj0a71
+id: ror:00bmj0a71
 title:
   en: University of Greenwich
 props:
   city: London
   country: United Kingdom
 ---
-id: 01pwpsf61
+id: ror:01pwpsf61
 title:
   en: Al-Baath University
 props:
   city: Homs
   country: Syria
 ---
-id: 05qghxh33
+id: ror:05qghxh33
 title:
   en: Stony Brook University
 props:
@@ -5013,7 +4961,7 @@ props:
   country: United States
   state: New York
 ---
-id: 03yeq9x20
+id: ror:03yeq9x20
 title:
   en: University of Lincoln
 props:
@@ -5021,14 +4969,14 @@ props:
   country: United Kingdom
   state: Lincolnshire
 ---
-id: 04d4d3c02
+id: ror:04d4d3c02
 title:
   en: University of Peloponnese
 props:
   city: Tripoli
   country: Greece
 ---
-id: 04rsexf17
+id: ror:04rsexf17
 title:
   en: Stemcell Technologies
 props:
@@ -5036,56 +4984,56 @@ props:
   country: Canada
   state: British Columbia
 ---
-id: 05ek91318
+id: ror:05ek91318
 title:
   en: Orano (France)
 props:
   city: Paris
   country: France
 ---
-id: 04p2rkp70
+id: ror:04p2rkp70
 title:
   en: European University at Saint Petersburg
 props:
   city: Saint Petersburg
   country: Russia
 ---
-id: 00v542r37
+id: ror:00v542r37
 title:
   en: World Maritime University
 props:
   city: Malmo
   country: Sweden
 ---
-id: 00944ve71
+id: ror:00944ve71
 title:
   en: National Central University
 props:
   city: Taoyuan City
   country: Taiwan
 ---
-id: 015803449
+id: ror:015803449
 title:
   en: South London and Maudsley NHS Foundation Trust
 props:
   city: London
   country: United Kingdom
 ---
-id: 0441cbj57
+id: ror:0441cbj57
 title:
   en: National University of Life and Environmental Sciences of Ukraine
 props:
   city: Kyiv
   country: Ukraine
 ---
-id: 00azwtc53
+id: ror:00azwtc53
 title:
   en: Swedish Nuclear Fuel and Waste Management (Sweden)
 props:
   city: Stockholm
   country: Sweden
 ---
-id: 050j2vm64
+id: ror:050j2vm64
 title:
   en: Bangalore University
 props:
@@ -5093,21 +5041,21 @@ props:
   country: India
   state: Karnataka
 ---
-id: 02nrqs528
+id: ror:02nrqs528
 title:
   en: German Meteorological Service
 props:
   city: Offenbach
   country: Germany
 ---
-id: 00zdnkx70
+id: ror:00zdnkx70
 title:
   en: National Tsing Hua University
 props:
   city: Hsinchu
   country: Taiwan
 ---
-id: 034e92n57
+id: ror:034e92n57
 title:
   en: Harbin Veterinary Research Institute
 props:
@@ -5115,14 +5063,14 @@ props:
   country: China
   state: Heilongjiang
 ---
-id: 04b2dty93
+id: ror:04b2dty93
 title:
   en: Merck (Germany)
 props:
   city: Darmstadt
   country: Germany
 ---
-id: 02e16g702
+id: ror:02e16g702
 title:
   en: Hokkaido University
 props:
@@ -5130,7 +5078,7 @@ props:
   country: Japan
   state: Hokkaidô
 ---
-id: 02grkyz14
+id: ror:02grkyz14
 title:
   en: Western University
 props:
@@ -5138,7 +5086,7 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 02pttbw34
+id: ror:02pttbw34
 title:
   en: Baylor College of Medicine
 props:
@@ -5146,7 +5094,7 @@ props:
   country: United States
   state: Texas
 ---
-id: 04g3dn724
+id: ror:04g3dn724
 title:
   en: Massachusetts Eye and Ear Infirmary
 props:
@@ -5154,14 +5102,14 @@ props:
   country: United States
   state: Massachusetts
 ---
-id: 03q82t418
+id: ror:03q82t418
 title:
   en: NHS Lothian
 props:
   city: Edinburgh
   country: United Kingdom
 ---
-id: 03mmk1j33
+id: ror:03mmk1j33
 title:
   en: Blackberry (Canada)
 props:
@@ -5169,7 +5117,7 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 005p9kw61
+id: ror:005p9kw61
 title:
   en: New Mexico Institute of Mining and Technology
 props:
@@ -5177,14 +5125,14 @@ props:
   country: United States
   state: New Mexico
 ---
-id: 03vgz7r63
+id: ror:03vgz7r63
 title:
   en: Centre for Electrochemical Technologies
 props:
   city: San Sebastian
   country: Spain
 ---
-id: 047yk3s18
+id: ror:047yk3s18
 title:
   en: Catholic University of America
 props:
@@ -5192,7 +5140,7 @@ props:
   country: United States
   state: District of Columbia
 ---
-id: 05gq02987
+id: ror:05gq02987
 title:
   en: Brown University
 props:
@@ -5200,28 +5148,28 @@ props:
   country: United States
   state: Rhode Island
 ---
-id: 03645mz20
+id: ror:03645mz20
 title:
   en: Stichting Technasium
 props:
   city: Groningen
   country: Netherlands
 ---
-id: 05qk3dq04
+id: ror:05qk3dq04
 title:
   en: Malta Council for Science and Technology
 props:
   city: Kalkara
   country: Malta
 ---
-id: 01rxvg760
+id: ror:01rxvg760
 title:
   en: Nanjing University
 props:
   city: Nanjing
   country: China
 ---
-id: 033bb5z47
+id: ror:033bb5z47
 title:
   en: Bauhaus University, Weimar
 props:
@@ -5229,14 +5177,14 @@ props:
   country: Germany
   state: Thüringen
 ---
-id: 02gar4w80
+id: ror:02gar4w80
 title:
   en: University Library in Bratislava
 props:
   city: Bratislava
   country: Slovakia
 ---
-id: 02d0kps43
+id: ror:02d0kps43
 title:
   en: UMIT - Private Universität für Gesundheitswissenschaften, Medizinische Informatik
     und Technik
@@ -5244,21 +5192,21 @@ props:
   city: Hall in Tirol
   country: Austria
 ---
-id: 04cdk4t75
+id: ror:04cdk4t75
 title:
   en: Centre Hospitalier Universitaire de Rouen
 props:
   city: Rouen
   country: France
 ---
-id: 00ywqar95
+id: ror:00ywqar95
 title:
   en: Valahia University of Targoviste
 props:
   city: Târgovişte
   country: Romania
 ---
-id: 01egahc47
+id: ror:01egahc47
 title:
   en: Royal College of Art
 props:
@@ -5266,28 +5214,28 @@ props:
   country: United Kingdom
   state: Westminster
 ---
-id: 03mzvxz96
+id: ror:03mzvxz96
 title:
   en: University of Aleppo
 props:
   city: Aleppo
   country: Syria
 ---
-id: 044fxjq88
+id: ror:044fxjq88
 title:
   en: Saint Joseph University
 props:
   city: Beirut
   country: Lebanon
 ---
-id: 05dkqa017
+id: ror:05dkqa017
 title:
   en: University of Applied Sciences Kaiserslautern
 props:
   city: Kaiserslautern
   country: Germany
 ---
-id: 057q4rt57
+id: ror:057q4rt57
 title:
   en: Hospital for Sick Children
 props:
@@ -5295,7 +5243,7 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 00tw3jy02
+id: ror:00tw3jy02
 title:
   en: MRC Laboratory of Molecular Biology
 props:
@@ -5303,57 +5251,49 @@ props:
   country: United Kingdom
   state: Cambridgeshire
 ---
-id: 03taz7m60
-title:
-  en: University of Southern California
-props:
-  city: Los Angeles
-  country: United States
-  state: California
----
-id: 017cjz748
+id: ror:017cjz748
 title:
   en: Ulsan National Institute of Science and Technology
 props:
   city: Ulsan
   country: South Korea
 ---
-id: 03efxn362
+id: ror:03efxn362
 title:
   en: Universidad Veracruzana
 props:
   city: Xalapa
   country: Mexico
 ---
-id: 022gstf70
+id: ror:022gstf70
 title:
   en: Falmouth University
 props:
   city: Falmouth
   country: United Kingdom
 ---
-id: 017zhmm22
+id: ror:017zhmm22
 title:
   en: Xi'an Jiaotong University
 props:
   city: Xi'an
   country: China
 ---
-id: 01qt0gj86
+id: ror:01qt0gj86
 title:
   en: Lietuvos Bioetikos Komitetas
 props:
   city: Vilnius
   country: Lithuania
 ---
-id: 01km6p862
+id: ror:01km6p862
 title:
   en: United Arab Emirates University
 props:
   city: Al Ain
   country: United Arab Emirates
 ---
-id: 01skt4w74
+id: ror:01skt4w74
 title:
   en: Beijing Institute of Technology
 props:
@@ -5361,7 +5301,7 @@ props:
   country: China
   state: Beijing
 ---
-id: 04bj28v14
+id: ror:04bj28v14
 title:
   en: Loma Linda University
 props:
@@ -5369,42 +5309,42 @@ props:
   country: United States
   state: California
 ---
-id: 01drpwb22
+id: ror:01drpwb22
 title:
   en: University of Chester
 props:
   city: Chester
   country: United Kingdom
 ---
-id: 01msdga41
+id: ror:01msdga41
 title:
   en: Dornier Flugzeugwerke (Germany)
 props:
   city: Friedrichshafen
   country: Germany
 ---
-id: 04jp2hx10
+id: ror:04jp2hx10
 title:
   en: University of Northampton
 props:
   city: Northampton
   country: United Kingdom
 ---
-id: 02xyqwh78
+id: ror:02xyqwh78
 title:
   en: FEV (Germany)
 props:
   city: Aachen
   country: Germany
 ---
-id: 05cyprz33
+id: ror:05cyprz33
 title:
   en: University of Mauritius
 props:
   city: Moka
   country: Mauritius
 ---
-id: 059ncap70
+id: ror:059ncap70
 title:
   en: Ontario College of Art and Design
 props:
@@ -5412,21 +5352,21 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 040d1yx23
+id: ror:040d1yx23
 title:
   en: Senvion SE (Germany)
 props:
   city: Rendsburg
   country: Germany
 ---
-id: 01q3tbs38
+id: ror:01q3tbs38
 title:
   en: King Abdullah University of Science and Technology
 props:
   city: Jeddah
   country: Saudi Arabia
 ---
-id: 00q09pe49
+id: ror:00q09pe49
 title:
   en: National Taiwan University of Science and Technology
 props:
@@ -5434,14 +5374,14 @@ props:
   country: Taiwan
   state: Taipei
 ---
-id: 05vf56z40
+id: ror:05vf56z40
 title:
   en: University of Tehran
 props:
   city: Tehran
   country: Iran
 ---
-id: 01aff2v68
+id: ror:01aff2v68
 title:
   en: University of Waterloo
 props:
@@ -5449,7 +5389,7 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 00k1crd82
+id: ror:00k1crd82
 title:
   en: Museum of Science
 props:
@@ -5457,7 +5397,7 @@ props:
   country: United States
   state: Massachusetts
 ---
-id: 044nptt90
+id: ror:044nptt90
 title:
   en: King's College Hospital
 props:
@@ -5465,28 +5405,28 @@ props:
   country: United Kingdom
   state: Southwark
 ---
-id: 03bwf4y78
+id: ror:03bwf4y78
 title:
   en: Slovenska Narodna Kniznica
 props:
   city: Martin
   country: Slovakia
 ---
-id: 01x21tj82
+id: ror:01x21tj82
 title:
   en: Microsoft (Netherlands)
 props:
   city: Amsterdam
   country: Netherlands
 ---
-id: 04vc81p87
+id: ror:04vc81p87
 title:
   en: University of Sannio
 props:
   city: Benevento
   country: Italy
 ---
-id: 044j76961
+id: ror:044j76961
 title:
   en: University of Lethbridge
 props:
@@ -5494,14 +5434,14 @@ props:
   country: Canada
   state: Alberta
 ---
-id: 055yf1005
+id: ror:055yf1005
 title:
   en: Nagoya Institute of Technology
 props:
   city: Nagoya
   country: Japan
 ---
-id: 00df5yc52
+id: ror:00df5yc52
 title:
   en: Beijing University of Chemical Technology
 props:
@@ -5509,63 +5449,63 @@ props:
   country: China
   state: Beijing
 ---
-id: 03w9cdv26
+id: ror:03w9cdv26
 title:
   en: Maichin Dom
 props:
   city: Sofia
   country: Bulgaria
 ---
-id: 058hsp657
+id: ror:058hsp657
 title:
   en: Hospital of Lithuanian University of Health Sciences Kaunas Clinics
 props:
   city: Kaunas
   country: Lithuania
 ---
-id: 0262qgk29
+id: ror:0262qgk29
 title:
   en: National Research Mordovia State University
 props:
   city: Saransk
   country: Russia
 ---
-id: 03rqm8n56
+id: ror:03rqm8n56
 title:
   en: Ivanovo State University
 props:
   city: Ivanovo
   country: Russia
 ---
-id: 00ad27c73
+id: ror:00ad27c73
 title:
   en: Alikhanyan National Laboratory
 props:
   city: Yerevan
   country: Armenia
 ---
-id: 058b16x44
+id: ror:058b16x44
 title:
   en: University of Pitesti
 props:
   city: Piteşti
   country: Romania
 ---
-id: 03s4khd80
+id: ror:03s4khd80
 title:
   en: Cliniques Universitaires Saint-Luc
 props:
   city: Brussels
   country: Belgium
 ---
-id: 0312pnr83
+id: ror:0312pnr83
 title:
   en: De Montfort University
 props:
   city: Leicester
   country: United Kingdom
 ---
-id: 01c3xc117
+id: ror:01c3xc117
 title:
   en: University of Michigan–Flint
 props:
@@ -5573,14 +5513,14 @@ props:
   country: United States
   state: Michigan
 ---
-id: 044t4x544
+id: ror:044t4x544
 title:
   en: University of Nîmes
 props:
   city: Nîmes
   country: France
 ---
-id: 04e8jbs38
+id: ror:04e8jbs38
 title:
   en: Helmut Schmidt University
 props:
@@ -5588,56 +5528,56 @@ props:
   country: Germany
   state: Hamburg
 ---
-id: 033vjfk17
+id: ror:033vjfk17
 title:
   en: Wuhan University
 props:
   city: Wuhan
   country: China
 ---
-id: 013fsnh78
+id: ror:013fsnh78
 title:
   en: University of Waikato
 props:
   city: Hamilton
   country: New Zealand
 ---
-id: 046865y68
+id: ror:046865y68
 title:
   en: Hanyang University
 props:
   city: Seoul
   country: South Korea
 ---
-id: 04mdycw91
+id: ror:04mdycw91
 title:
   en: Eurofins (France)
 props:
   city: Nantes
   country: France
 ---
-id: 039xw7n32
+id: ror:039xw7n32
 title:
   en: University Institute of European Studies
 props:
   city: Turin
   country: Italy
 ---
-id: 01dxm2p72
+id: ror:01dxm2p72
 title:
   en: Saipem (Italy)
 props:
   city: San Donato Milanese
   country: Italy
 ---
-id: 04r0ks517
+id: ror:04r0ks517
 title:
   en: University for the Creative Arts
 props:
   city: Farnham
   country: United Kingdom
 ---
-id: 03ygmq230
+id: ror:03ygmq230
 title:
   en: Trent University
 props:
@@ -5645,7 +5585,7 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 00sge8677
+id: ror:00sge8677
 title:
   en: BRAC University
 props:
@@ -5653,14 +5593,14 @@ props:
   country: Bangladesh
   state: Dhaka
 ---
-id: 04aa89262
+id: ror:04aa89262
 title:
   en: Radiolabs
 props:
   city: Rome
   country: Italy
 ---
-id: 03y4myd35
+id: ror:03y4myd35
 title:
   en: Infectious Disease Research Institute
 props:
@@ -5668,7 +5608,7 @@ props:
   country: United States
   state: Washington
 ---
-id: 04jkbnw46
+id: ror:04jkbnw46
 title:
   en: Center for Infectious Disease Research
 props:
@@ -5676,42 +5616,42 @@ props:
   country: United States
   state: Washington
 ---
-id: 00hhkn466
+id: ror:00hhkn466
 title:
   en: Japan Society for the Promotion of Science
 props:
   city: Tokyo
   country: Japan
 ---
-id: 04qr3zq92
+id: ror:04qr3zq92
 title:
   en: University of Electronic Science and Technology of China
 props:
   city: Chengdu
   country: China
 ---
-id: 04g2pxh42
+id: ror:04g2pxh42
 title:
   en: Korea Astronomy and Space Science Institute
 props:
   city: Daejeon
   country: South Korea
 ---
-id: 04s7f5535
+id: ror:04s7f5535
 title:
   en: Beta Technology Limited
 props:
   city: Doncaster
   country: United Kingdom
 ---
-id: 05pwfyy15
+id: ror:05pwfyy15
 title:
   en: National Centre for Research and Development
 props:
   city: Warsaw
   country: Poland
 ---
-id: 00j9c2840
+id: ror:00j9c2840
 title:
   en: Oslo University Hospital
 props:
@@ -5719,28 +5659,28 @@ props:
   country: Norway
   state: Oslo
 ---
-id: 0242cby63
+id: ror:0242cby63
 title:
   en: L. N. Gumilyov Eurasian National University
 props:
   city: Nur-Sultan
   country: Kazakhstan
 ---
-id: 05t3n1398
+id: ror:05t3n1398
 title:
   en: Natural Resources Institute
 props:
   city: Chatham
   country: United Kingdom
 ---
-id: 004s18446
+id: ror:004s18446
 title:
   en: Polytechnic Institute of Castelo Branco
 props:
   city: Castelo Branco
   country: Portugal
 ---
-id: 02kq26x23
+id: ror:02kq26x23
 title:
   en: Hellenic Open University
 props:
@@ -5748,7 +5688,7 @@ props:
   country: Greece
   state: Dytiki Ellada
 ---
-id: 017pz3h73
+id: ror:017pz3h73
 title:
   en: Urban Institute
 props:
@@ -5756,7 +5696,7 @@ props:
   country: United States
   state: District of Columbia
 ---
-id: 02pf50490
+id: ror:02pf50490
 title:
   en: Immunomedics (United States)
 props:
@@ -5764,7 +5704,7 @@ props:
   country: United States
   state: New Jersey
 ---
-id: 03dzc0485
+id: ror:03dzc0485
 title:
   en: University of Regina
 props:
@@ -5772,14 +5712,14 @@ props:
   country: Canada
   state: Saskatchewan
 ---
-id: 04nyf1f54
+id: ror:04nyf1f54
 title:
   en: Shanghai Center For Bioinformation Technology
 props:
   city: Shanghai
   country: China
 ---
-id: 058rkm744
+id: ror:058rkm744
 title:
   en: Niabi Zoological Society
 props:
@@ -5787,35 +5727,35 @@ props:
   country: United States
   state: Illinois
 ---
-id: 03hvxkc45
+id: ror:03hvxkc45
 title:
   en: Bibra International
 props:
   city: London
   country: United Kingdom
 ---
-id: 01e7v7w47
+id: ror:01e7v7w47
 title:
   en: University of Calcutta
 props:
   city: Kolkata
   country: India
 ---
-id: 00qhe6a56
+id: ror:00qhe6a56
 title:
   en: Miltenyi Biotec (Germany)
 props:
   city: Cologne
   country: Germany
 ---
-id: 0595gz585
+id: ror:0595gz585
 title:
   en: University of Gondar
 props:
   city: Gonder
   country: Ethiopia
 ---
-id: 04a9tmd77
+id: ror:04a9tmd77
 title:
   en: Icahn School of Medicine at Mount Sinai
 props:
@@ -5823,21 +5763,21 @@ props:
   country: United States
   state: New York
 ---
-id: 015j35893
+id: ror:015j35893
 title:
   en: English Heritage
 props:
   city: London
   country: United Kingdom
 ---
-id: 01hsw0492
+id: ror:01hsw0492
 title:
   en: Society for Chemical Engineering and Biotechnology
 props:
   city: Frankfurt am Main
   country: Germany
 ---
-id: 057jrqr44
+id: ror:057jrqr44
 title:
   en: University of East London
 props:
@@ -5845,35 +5785,35 @@ props:
   country: United Kingdom
   state: Newham
 ---
-id: 03dnktm38
+id: ror:03dnktm38
 title:
   en: Scimar Engineering Ltd
 props:
   city: Exeter
   country: United Kingdom
 ---
-id: 00pb8h375
+id: ror:00pb8h375
 title:
   en: Bauman Moscow State Technical University
 props:
   city: Moscow
   country: Russia
 ---
-id: 0014fb593
+id: ror:0014fb593
 title:
   en: University of Food Technologies
 props:
   city: Plovdiv
   country: Bulgaria
 ---
-id: 059yhyy33
+id: ror:059yhyy33
 title:
   en: Japan Aerospace Exploration Agency
 props:
   city: Tokyo
   country: Japan
 ---
-id: 02der9h97
+id: ror:02der9h97
 title:
   en: University of Connecticut
 props:
@@ -5881,7 +5821,7 @@ props:
   country: United States
   state: Connecticut
 ---
-id: 052w4zt36
+id: ror:052w4zt36
 title:
   en: American University
 props:
@@ -5889,7 +5829,7 @@ props:
   country: United States
   state: District of Columbia
 ---
-id: 055aebe25
+id: ror:055aebe25
 title:
   en: CRE Group (United States)
 props:
@@ -5897,14 +5837,14 @@ props:
   country: United States
   state: California
 ---
-id: 04xv01a59
+id: ror:04xv01a59
 title:
   en: The Pirbright Institute
 props:
   city: Woking
   country: United Kingdom
 ---
-id: 02tpgw303
+id: ror:02tpgw303
 title:
   en: Institute for Systems Biology
 props:
@@ -5912,56 +5852,56 @@ props:
   country: United States
   state: Washington
 ---
-id: 01b8kcc49
+id: ror:01b8kcc49
 title:
   en: National Cheng Kung University
 props:
   city: Tainan City
   country: Taiwan
 ---
-id: 00js3aw79
+id: ror:00js3aw79
 title:
   en: Jilin University
 props:
   city: Changchun
   country: China
 ---
-id: 01scyh794
+id: ror:01scyh794
 title:
   en: Nanjing University of Aeronautics and Astronautics
 props:
   city: Nanjing
   country: China
 ---
-id: 00wk2mp56
+id: ror:00wk2mp56
 title:
   en: Beihang University
 props:
   city: Beijing
   country: China
 ---
-id: 003x8tf04
+id: ror:003x8tf04
 title:
   en: Profilarbed (Luxembourg)
 props:
   city: Esch-sur-Alzette
   country: Luxembourg
 ---
-id: 01z83rb65
+id: ror:01z83rb65
 title:
   en: Adi Valor
 props:
   city: Lyon
   country: France
 ---
-id: 04m7z8d34
+id: ror:04m7z8d34
 title:
   en: Cenim - Centro Nacional de Investigaciones Metalurgicas
 props:
   city: Madrid
   country: Spain
 ---
-id: 02qp3tb03
+id: ror:02qp3tb03
 title:
   en: Mayo Clinic
 props:
@@ -5969,7 +5909,7 @@ props:
   country: United States
   state: Minnesota
 ---
-id: 002hsbm82
+id: ror:002hsbm82
 title:
   en: Tufts Medical Center
 props:
@@ -5977,7 +5917,7 @@ props:
   country: United States
   state: Massachusetts
 ---
-id: 01zxdeg39
+id: ror:01zxdeg39
 title:
   en: Harvard Pilgrim Health Care
 props:
@@ -5985,7 +5925,7 @@ props:
   country: United States
   state: Massachusetts
 ---
-id: 051fd9666
+id: ror:051fd9666
 title:
   en: Case Western Reserve University
 props:
@@ -5993,28 +5933,28 @@ props:
   country: United States
   state: Ohio
 ---
-id: 055546q82
+id: ror:055546q82
 title:
   en: Ministry of Health
 props:
   city: Hanoi
   country: Vietnam
 ---
-id: 05htk5m33
+id: ror:05htk5m33
 title:
   en: Hunan University
 props:
   city: Changsha
   country: China
 ---
-id: 02g6d4t03
+id: ror:02g6d4t03
 title:
   en: Gesellschaft Fur Mathematik Und Datenverarbeitung
 props:
   city: Sankt Augustin
   country: Germany
 ---
-id: 03gjyng84
+id: ror:03gjyng84
 title:
   en: Sierra Wireless (Canada)
 props:
@@ -6022,63 +5962,63 @@ props:
   country: Canada
   state: British Columbia
 ---
-id: 05fct5h31
+id: ror:05fct5h31
 title:
   en: Military University of Technology in Warsaw
 props:
   city: Warsaw
   country: Poland
 ---
-id: 00p8xqj61
+id: ror:00p8xqj61
 title:
   en: Karpov Institute of Physical Chemistry
 props:
   city: Moscow
   country: Russia
 ---
-id: 03dnc6n82
+id: ror:03dnc6n82
 title:
   en: National Institute for Biological Standards and Control
 props:
   city: Potters Bar
   country: United Kingdom
 ---
-id: 02ntgty32
+id: ror:02ntgty32
 title:
   en: National Aeronautical Research Institute
 props:
   city: Bromma
   country: Sweden
 ---
-id: 03x516a66
+id: ror:03x516a66
 title:
   en: Federal Institute For Materials Research and Testing
 props:
   city: Berlin
   country: Germany
 ---
-id: 03sj2jc05
+id: ror:03sj2jc05
 title:
   en: Gesellschaft für Anlagen und Reaktorsicherheit
 props:
   city: Cologne
   country: Germany
 ---
-id: 003dzgw21
+id: ror:003dzgw21
 title:
   en: Centre Technique Des Industries De La Fonderie
 props:
   city: Paris
   country: France
 ---
-id: 045gmmg53
+id: ror:045gmmg53
 title:
   en: Max Rubner Institut
 props:
   city: Karlsruhe
   country: Germany
 ---
-id: 04tavpn47
+id: ror:04tavpn47
 title:
   en: Second Military Medical University
 props:
@@ -6086,56 +6026,56 @@ props:
   country: China
   state: Shanghai
 ---
-id: 03wgsss62
+id: ror:03wgsss62
 title:
   en: Arbed (Luxembourg)
 props:
   city: Esch-sur-Alzette
   country: Luxembourg
 ---
-id: 01e57nb43
+id: ror:01e57nb43
 title:
   en: Hospital Universitario Puerta de Hierro Majadahonda
 props:
   city: Madrid
   country: Spain
 ---
-id: 04r1cjx59
+id: ror:04r1cjx59
 title:
   en: Institute for Fiscal Studies
 props:
   city: London
   country: United Kingdom
 ---
-id: 00qwj7906
+id: ror:00qwj7906
 title:
   en: EA Technology
 props:
   city: Chester
   country: United Kingdom
 ---
-id: 03661z977
+id: ror:03661z977
 title:
   en: HEF Groupe (France)
 props:
   city: Andrézieux-Bouthéon
   country: France
 ---
-id: 0050ra204
+id: ror:0050ra204
 title:
   en: Centro Studi Sui Sistemi Di Trasporto Spa
 props:
   city: Naples
   country: Italy
 ---
-id: 00tzmb306
+id: ror:00tzmb306
 title:
   en: Danish Maritime Institute
 props:
   city: Kongens Lyngby
   country: Denmark
 ---
-id: 053ny5136
+id: ror:053ny5136
 title:
   en: Fujitsu (United Kingdom)
 props:
@@ -6143,189 +6083,189 @@ props:
   country: United Kingdom
   state: England
 ---
-id: 01kdvym37
+id: ror:01kdvym37
 title:
   en: Battelle-Institut ev
 props:
   city: Frankfurt am Main
   country: Germany
 ---
-id: 012ae7p27
+id: ror:012ae7p27
 title:
   en: Italtel (Italy)
 props:
   city: Milan
   country: Italy
 ---
-id: 01s7y5e82
+id: ror:01s7y5e82
 title:
   en: Lviv University
 props:
   city: Lviv
   country: Ukraine
 ---
-id: 01k6vxj52
+id: ror:01k6vxj52
 title:
   en: Omsk State University
 props:
   city: Omsk
   country: Russia
 ---
-id: 02b6gy972
+id: ror:02b6gy972
 title:
   en: Samarkand State University
 props:
   city: Samarkand
   country: Uzbekistan
 ---
-id: 01x3jjv63
+id: ror:01x3jjv63
 title:
   en: Uzhhorod National University
 props:
   city: Uzhhorod
   country: Ukraine
 ---
-id: 02he2nc27
+id: ror:02he2nc27
 title:
   en: National Research Tomsk State University
 props:
   city: Tomsk
   country: Russia
 ---
-id: 029njb796
+id: ror:029njb796
 title:
   en: Perm State University
 props:
   city: Perm
   country: Russia
 ---
-id: 05mm0yv21
+id: ror:05mm0yv21
 title:
   en: Nizhny Novgorod State Pedagogical University
 props:
   city: Nizhny Novgorod
   country: Russia
 ---
-id: 00ygzyy93
+id: ror:00ygzyy93
 title:
   en: Independent University of Moscow
 props:
   city: Moscow
   country: Russia
 ---
-id: 04s36qm86
+id: ror:04s36qm86
 title:
   en: Chelyabinsk State University
 props:
   city: Chelyabinsk
   country: Russia
 ---
-id: 00yp6m473
+id: ror:00yp6m473
 title:
   en: Udmurt State University
 props:
   city: Izhevsk
   country: Russia
 ---
-id: 05sa6gg87
+id: ror:05sa6gg87
 title:
   en: Moscow Power Engineering Institute
 props:
   city: Moscow
   country: Russia
 ---
-id: 03shav252
+id: ror:03shav252
 title:
   en: Kazan State Technological University
 props:
   city: Kazan’
   country: Russia
 ---
-id: 03wfca816
+id: ror:03wfca816
 title:
   en: National University of Kyiv Mohyla Academy
 props:
   city: Kyiv
   country: Ukraine
 ---
-id: 03q92e557
+id: ror:03q92e557
 title:
   en: Yanka Kupala State University of Grodno
 props:
   city: Hrodna
   country: Belarus
 ---
-id: 013pk4y14
+id: ror:013pk4y14
 title:
   en: Kazan State Medical University
 props:
   city: Kazan’
   country: Russia
 ---
-id: 02sehzp52
+id: ror:02sehzp52
 title:
   en: Belarusian State University of Informatics and Radioelectronics
 props:
   city: Minsk
   country: Belarus
 ---
-id: 05xaz0w84
+id: ror:05xaz0w84
 title:
   en: Odessa National Polytechnic University
 props:
   city: Odesa
   country: Ukraine
 ---
-id: 04dngzj56
+id: ror:04dngzj56
 title:
   en: American University of Armenia
 props:
   city: Yerevan
   country: Armenia
 ---
-id: 00em04n91
+id: ror:00em04n91
 title:
   en: Moscow State University of Civil Engineering
 props:
   city: Moscow
   country: Russia
 ---
-id: 059w0gb06
+id: ror:059w0gb06
 title:
   en: Karakalpak State University
 props:
   city: Nukus
   country: Uzbekistan
 ---
-id: 05t4sxc87
+id: ror:05t4sxc87
 title:
   en: Mogilev State A.Kuleshov University
 props:
   city: Mogilev
   country: Belarus
 ---
-id: 023mnb461
+id: ror:023mnb461
 title:
   en: Kaliningrad State Technical University
 props:
   city: Kaliningrad
   country: Russia
 ---
-id: 01qn0gc28
+id: ror:01qn0gc28
 title:
   en: Yuri Gagarin State Technical University of Saratov
 props:
   city: Saratov
   country: Russia
 ---
-id: 014n7rf11
+id: ror:014n7rf11
 title:
   en: Moscow State Aviation Technological University
 props:
   city: Moscow
   country: Russia
 ---
-id: 00f809463
+id: ror:00f809463
 title:
   en: Institute for Advanced Study
 props:
@@ -6333,35 +6273,35 @@ props:
   country: United States
   state: New Jersey
 ---
-id: 05ggagb37
+id: ror:05ggagb37
 title:
   en: Samara National Research University
 props:
   city: Samara
   country: Russia
 ---
-id: 036yvre49
+id: ror:036yvre49
 title:
   en: Kemerovo State University
 props:
   city: Kemerovo
   country: Russia
 ---
-id: 03n6cf849
+id: ror:03n6cf849
 title:
   en: Ricerca sul Sistema Energetico (Italy)
 props:
   city: Milan
   country: Italy
 ---
-id: 0530pts50
+id: ror:0530pts50
 title:
   en: South China University of Technology
 props:
   city: Guangzhou
   country: China
 ---
-id: 04zap7912
+id: ror:04zap7912
 title:
   en: Yunnan University of Traditional Chinese Medicine
 props:
@@ -6369,49 +6309,49 @@ props:
   country: China
   state: Yunnan
 ---
-id: 03zn9xk79
+id: ror:03zn9xk79
 title:
   en: University Teaching Hospital
 props:
   city: Lusaka
   country: Zambia
 ---
-id: 0388c3403
+id: ror:0388c3403
 title:
   en: Sichuan Agricultural University
 props:
   city: Yucheng
   country: China
 ---
-id: 02j3enb93
+id: ror:02j3enb93
 title:
   en: ArcelorMittal (Spain)
 props:
   city: Avilés
   country: Spain
 ---
-id: 01trpqt29
+id: ror:01trpqt29
 title:
   en: Pulp and Paper Technical Centre
 props:
   city: Grenoble
   country: France
 ---
-id: 0015hpp74
+id: ror:0015hpp74
 title:
   en: Hannah Research Foundation
 props:
   city: Ayr
   country: United Kingdom
 ---
-id: 033kc7n58
+id: ror:033kc7n58
 title:
   en: Creusot-Loire Entreprises (France)
 props:
   city: Suresnes
   country: France
 ---
-id: 03e5mzp60
+id: ror:03e5mzp60
 title:
   en: University of West London
 props:
@@ -6419,42 +6359,42 @@ props:
   country: United Kingdom
   state: Ealing
 ---
-id: 001n36p86
+id: ror:001n36p86
 title:
   en: Norwegian Meteorological Institute
 props:
   city: Oslo
   country: Norway
 ---
-id: 03sbpft28
+id: ror:03sbpft28
 title:
   en: University of El Salvador
 props:
   city: San Salvador
   country: El Salvador
 ---
-id: 05dbe0q91
+id: ror:05dbe0q91
 title:
   en: Warren Spring Laboratory
 props:
   city: Stevenage
   country: United Kingdom
 ---
-id: 01bvmk374
+id: ror:01bvmk374
 title:
   en: GIUNTI Intenational Division (Italy)
 props:
   city: Florence
   country: Italy
 ---
-id: 01n8x4993
+id: ror:01n8x4993
 title:
   en: Polytechnic Institute of Coimbra
 props:
   city: Coimbra
   country: Portugal
 ---
-id: 04d23a975
+id: ror:04d23a975
 title:
   en: United States Naval Research Laboratory
 props:
@@ -6462,21 +6402,21 @@ props:
   country: United States
   state: District of Columbia
 ---
-id: 035j0tq82
+id: ror:035j0tq82
 title:
   en: Orange (France)
 props:
   city: Paris
   country: France
 ---
-id: 059gcgy73
+id: ror:059gcgy73
 title:
   en: Nanjing Medical University
 props:
   city: Nanjing
   country: China
 ---
-id: 03kd28f18
+id: ror:03kd28f18
 title:
   en: University of Buckingham
 props:
@@ -6484,21 +6424,21 @@ props:
   country: United Kingdom
   state: Buckinghamshire
 ---
-id: 016sewp10
+id: ror:016sewp10
 title:
   en: Rhodes University
 props:
   city: Grahamstown
   country: South Africa
 ---
-id: 0049erg63
+id: ror:0049erg63
 title:
   en: Kookmin University
 props:
   city: Seoul
   country: South Korea
 ---
-id: 04h8e7606
+id: ror:04h8e7606
 title:
   en: Fernando Pessoa University
 props:
@@ -6506,14 +6446,14 @@ props:
   country: Portugal
   state: Porto
 ---
-id: 0288jxv49
+id: ror:0288jxv49
 title:
   en: Institute of Development Studies
 props:
   city: Brighton
   country: United Kingdom
 ---
-id: 02j5s7g39
+id: ror:02j5s7g39
 title:
   en: Australian Defence Force Academy
 props:
@@ -6521,98 +6461,98 @@ props:
   country: Australia
   state: Australian Capital Territory
 ---
-id: 03zeek684
+id: ror:03zeek684
 title:
   en: Consorzio Universitario In Ingegneria Della Qualita
 props:
   city: Pisa
   country: Italy
 ---
-id: 03qgzzb04
+id: ror:03qgzzb04
 title:
   en: Telefonica Research and Development
 props:
   city: Madrid
   country: Spain
 ---
-id: 00jk4qh27
+id: ror:00jk4qh27
 title:
   en: TECO
 props:
   city: Conselice
   country: Italy
 ---
-id: 044s2fj67
+id: ror:044s2fj67
 title:
   en: Yaroslavl State University
 props:
   city: Yaroslavl
   country: Russia
 ---
-id: 013vyke20
+id: ror:013vyke20
 title:
   en: Environment Agency Austria
 props:
   city: Vienna
   country: Austria
 ---
-id: 057skhv53
+id: ror:057skhv53
 title:
   en: Northumbrian Water Group (United Kingdom)
 props:
   city: Durham
   country: United Kingdom
 ---
-id: 01g312x22
+id: ror:01g312x22
 title:
   en: BG Group (United Kingdom)
 props:
   city: Reading
   country: United Kingdom
 ---
-id: 01xdt7541
+id: ror:01xdt7541
 title:
   en: Escola Superior Náutica Infante Dom Henrique
 props:
   city: Paço de Arcos
   country: Portugal
 ---
-id: 021vseb03
+id: ror:021vseb03
 title:
   en: Autonomous University of Tlaxcala
 props:
   city: Tlaxcala City
   country: Mexico
 ---
-id: 02j44zw77
+id: ror:02j44zw77
 title:
   en: Arianespace (France)
 props:
   city: Évry
   country: France
 ---
-id: 03sz8rb35
+id: ror:03sz8rb35
 title:
   en: Hospital General Universitario De Valencia
 props:
   city: Valencia
   country: Spain
 ---
-id: 02fjy3w42
+id: ror:02fjy3w42
 title:
   en: Ivanovo State University of Chemistry and Technology
 props:
   city: Ivanovo
   country: Russia
 ---
-id: 04b8y3f13
+id: ror:04b8y3f13
 title:
   en: Alexandrovska Hospital
 props:
   city: Sofia
   country: Bulgaria
 ---
-id: 01s1a1r54
+id: ror:01s1a1r54
 title:
   en: Ion Ionescu de la Brad University of Agricultural Sciences and Veterinary Medicine
     of Iași
@@ -6620,56 +6560,56 @@ props:
   city: Iasi
   country: Romania
 ---
-id: 029efta16
+id: ror:029efta16
 title:
   en: Universidad del Salvador
 props:
   city: Buenos Aires
   country: Argentina
 ---
-id: 038fwcw54
+id: ror:038fwcw54
 title:
   en: National Satellite Ocean Application Service
 props:
   city: Qingdao
   country: China
 ---
-id: 04084tn63
+id: ror:04084tn63
 title:
   en: National Autonomous University of Nicaragua
 props:
   city: Managua
   country: Nicaragua
 ---
-id: 03308db07
+id: ror:03308db07
 title:
   en: BT Research
 props:
   city: Ipswich
   country: United Kingdom
 ---
-id: 00x3rpv59
+id: ror:00x3rpv59
 title:
   en: Tomsk State Pedagogical University
 props:
   city: Tomsk
   country: Russia
 ---
-id: 0093wrd09
+id: ror:0093wrd09
 title:
   en: Volgograd State University
 props:
   city: Volgograd
   country: Russia
 ---
-id: 0389pzc90
+id: ror:0389pzc90
 title:
   en: Altai State Technical University
 props:
   city: Barnaul
   country: Russia
 ---
-id: 03k793y62
+id: ror:03k793y62
 title:
   en: Agricultural University of Tirana
 props:
@@ -6677,14 +6617,14 @@ props:
   country: Albania
   state: Durrës
 ---
-id: 05gh7t135
+id: ror:05gh7t135
 title:
   en: Ibermática (Spain)
 props:
   city: San Sebastian
   country: Spain
 ---
-id: 03f0f6041
+id: ror:03f0f6041
 title:
   en: University of Technology Sydney
 props:
@@ -6692,14 +6632,14 @@ props:
   country: Australia
   state: New South Wales
 ---
-id: 03t54am93
+id: ror:03t54am93
 title:
   en: Jönköping University
 props:
   city: Jönköping
   country: Sweden
 ---
-id: 055vbxf86
+id: ror:055vbxf86
 title:
   en: Addenbrooke's Hospital
 props:
@@ -6707,42 +6647,42 @@ props:
   country: United Kingdom
   state: Cambridgeshire
 ---
-id: 008wtrs16
+id: ror:008wtrs16
 title:
   en: Instituto Superior de Ciências Educativas
 props:
   city: Ramada
   country: Portugal
 ---
-id: 05mnej980
+id: ror:05mnej980
 title:
   en: Instituto Superior de Gestão
 props:
   city: Lisbon
   country: Portugal
 ---
-id: 04xbrv698
+id: ror:04xbrv698
 title:
   en: Institute for Mobile and Satellite Communication Technology
 props:
   city: Kamp-Lintfort
   country: Germany
 ---
-id: 0310h1546
+id: ror:0310h1546
 title:
   en: University of Economics in Bratislava
 props:
   city: Bratislava
   country: Slovakia
 ---
-id: 02c89h825
+id: ror:02c89h825
 title:
   en: University College Odisee
 props:
   city: Brussels
   country: Belgium
 ---
-id: 00mkhxb43
+id: ror:00mkhxb43
 title:
   en: University of Notre Dame
 props:
@@ -6750,28 +6690,28 @@ props:
   country: United States
   state: Indiana
 ---
-id: 047k2at48
+id: ror:047k2at48
 title:
   en: Al-Azhar University – Gaza
 props:
   city: Gaza
   country: Palestinian Territory
 ---
-id: 010567a58
+id: ror:010567a58
 title:
   en: Centre Hospitalier Universitaire Amiens-Picardie
 props:
   city: Amiens
   country: France
 ---
-id: 01hjzeq58
+id: ror:01hjzeq58
 title:
   en: Chiba University
 props:
   city: Chiba
   country: Japan
 ---
-id: 01kvp0178
+id: ror:01kvp0178
 title:
   en: Ontario Power Generation
 props:
@@ -6779,14 +6719,14 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 01jbb3w63
+id: ror:01jbb3w63
 title:
   en: Centre Hospitalier Universitaire de Reims
 props:
   city: Reims
   country: France
 ---
-id: 02xh9x144
+id: ror:02xh9x144
 title:
   en: University of Prince Edward Island
 props:
@@ -6794,91 +6734,91 @@ props:
   country: Canada
   state: Prince Edward Island
 ---
-id: 02hw5fp67
+id: ror:02hw5fp67
 title:
   en: National Institute for Environmental Studies
 props:
   city: Tsukuba
   country: Japan
 ---
-id: 04zah8g26
+id: ror:04zah8g26
 title:
   en: Pouliadis Associates Corporation
 props:
   city: Athens
   country: Greece
 ---
-id: 05sj3n476
+id: ror:05sj3n476
 title:
   en: Tokyo University of Science
 props:
   city: Tokyo
   country: Japan
 ---
-id: 0051rme32
+id: ror:0051rme32
 title:
   en: North West Agriculture and Forestry University
 props:
   city: Yangling
   country: China
 ---
-id: 0025g8755
+id: ror:0025g8755
 title:
   en: Luigi Sacco Hospital
 props:
   city: Milan
   country: Italy
 ---
-id: 00d80zx46
+id: ror:00d80zx46
 title:
   en: Chang Gung University
 props:
   city: Taoyuan City
   country: Taiwan
 ---
-id: 03ctjbj91
+id: ror:03ctjbj91
 title:
   en: Liverpool Hope University
 props:
   city: Liverpool
   country: United Kingdom
 ---
-id: 017g36q02
+id: ror:017g36q02
 title:
   en: Municipality of Amaroussion
 props:
   city: Marousi
   country: Greece
 ---
-id: 052czxv31
+id: ror:052czxv31
 title:
   en: Massey University
 props:
   city: Palmerston North
   country: New Zealand
 ---
-id: 01m1pv723
+id: ror:01m1pv723
 title:
   en: University Hospital of Geneva
 props:
   city: Geneva
   country: Switzerland
 ---
-id: 054zv1w86
+id: ror:054zv1w86
 title:
   en: Glencore (Switzerland)
 props:
   city: Baar
   country: Switzerland
 ---
-id: 0509tgg56
+id: ror:0509tgg56
 title:
   en: Airbus (Spain)
 props:
   city: Getafe
   country: Spain
 ---
-id: 02vm5rt34
+id: ror:02vm5rt34
 title:
   en: Vanderbilt University
 props:
@@ -6886,14 +6826,14 @@ props:
   country: United States
   state: Tennessee
 ---
-id: 01vjd7j86
+id: ror:01vjd7j86
 title:
   en: The Federal Institute for Geology
 props:
   city: Sarajevo
   country: Bosnia and Herzegovina
 ---
-id: 01grq2104
+id: ror:01grq2104
 title:
   en: Torrey Pines Institute For Molecular Studies
 props:
@@ -6901,21 +6841,21 @@ props:
   country: United States
   state: California
 ---
-id: 0184gbk60
+id: ror:0184gbk60
 title:
   en: Steinbeis Foundation
 props:
   city: Stuttgart
   country: Germany
 ---
-id: 040r8fr65
+id: ror:040r8fr65
 title:
   en: Aarhus University Hospital
 props:
   city: Aarhus
   country: Denmark
 ---
-id: 05by5hm18
+id: ror:05by5hm18
 title:
   en: California State Polytechnic University
 props:
@@ -6923,7 +6863,7 @@ props:
   country: United States
   state: California
 ---
-id: 03e71c577
+id: ror:03e71c577
 title:
   en: Centre for Addiction and Mental Health
 props:
@@ -6931,63 +6871,63 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 01xtjs520
+id: ror:01xtjs520
 title:
   en: Institut Laue-Langevin
 props:
   city: Grenoble
   country: France
 ---
-id: 00mthsf17
+id: ror:00mthsf17
 title:
   en: University Hospital of Montpellier
 props:
   city: Montpellier
   country: France
 ---
-id: 02kswma64
+id: ror:02kswma64
 title:
   en: Istituto Nazionale per la Fisica della Materia
 props:
   city: Genoa
   country: Italy
 ---
-id: 02vn11j58
+id: ror:02vn11j58
 title:
   en: Ulyanovsk State University
 props:
   city: Ulyanovsk
   country: Russia
 ---
-id: 01j9p1r26
+id: ror:01j9p1r26
 title:
   en: University of L'Aquila
 props:
   city: L’Aquila
   country: Italy
 ---
-id: 042q8va29
+id: ror:042q8va29
 title:
   en: Sidenor (Greece)
 props:
   city: Athens
   country: Greece
 ---
-id: 03fe7t173
+id: ror:03fe7t173
 title:
   en: Wuhan University of Technology
 props:
   city: Wuhan
   country: China
 ---
-id: 03y3e3s17
+id: ror:03y3e3s17
 title:
   en: Shanxi University
 props:
   city: Taiyuan
   country: China
 ---
-id: 00184ca40
+id: ror:00184ca40
 title:
   en: Ballard Power Systems (Canada)
 props:
@@ -6995,7 +6935,7 @@ props:
   country: Canada
   state: British Columbia
 ---
-id: 04b6x2g63
+id: ror:04b6x2g63
 title:
   en: Loyola University Chicago
 props:
@@ -7003,14 +6943,14 @@ props:
   country: United States
   state: Illinois
 ---
-id: 05m34fq04
+id: ror:05m34fq04
 title:
   en: Motorola (France)
 props:
   city: Saint-Aubin-sur-Mer
   country: France
 ---
-id: 02dqehb95
+id: ror:02dqehb95
 title:
   en: Purdue University West Lafayette
 props:
@@ -7018,7 +6958,7 @@ props:
   country: United States
   state: Indiana
 ---
-id: 036nfer12
+id: ror:036nfer12
 title:
   en: University of Central Florida
 props:
@@ -7026,7 +6966,7 @@ props:
   country: United States
   state: Florida
 ---
-id: 032db5x82
+id: ror:032db5x82
 title:
   en: University of South Florida
 props:
@@ -7034,49 +6974,49 @@ props:
   country: United States
   state: Florida
 ---
-id: 02vvj6403
+id: ror:02vvj6403
 title:
   en: Smolensk University for Humanities
 props:
   city: Smolensk
   country: Russia
 ---
-id: 01nxjpd08
+id: ror:01nxjpd08
 title:
   en: Vladimir State University
 props:
   city: Vladimir
   country: Russia
 ---
-id: 05qtccm96
+id: ror:05qtccm96
 title:
   en: Forbairt
 props:
   city: Dublin
   country: Ireland
 ---
-id: 02kcpr174
+id: ror:02kcpr174
 title:
   en: MRC Human Immunology Unit
 props:
   city: Oxford
   country: United Kingdom
 ---
-id: 05kzadn81
+id: ror:05kzadn81
 title:
   en: Nara Women's University
 props:
   city: Nara
   country: Japan
 ---
-id: 02zrvx577
+id: ror:02zrvx577
 title:
   en: University of Bahr El-Ghazal
 props:
   city: Wau
   country: South Sudan
 ---
-id: 016tfm930
+id: ror:016tfm930
 title:
   en: The University of Texas Medical Branch at Galveston
 props:
@@ -7084,7 +7024,7 @@ props:
   country: United States
   state: Texas
 ---
-id: 04p8yac25
+id: ror:04p8yac25
 title:
   en: Malopolska Association For Agricultural Extension At The Agricultural University
     of Cracow
@@ -7092,7 +7032,7 @@ props:
   city: Krakow
   country: Poland
 ---
-id: 049yjqb12
+id: ror:049yjqb12
 title:
   en: Communications and Information Technology Ontario
 props:
@@ -7100,7 +7040,7 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 01yj56c84
+id: ror:01yj56c84
 title:
   en: Beijing Jiaotong University
 props:
@@ -7108,56 +7048,56 @@ props:
   country: China
   state: Beijing
 ---
-id: 04my10541
+id: ror:04my10541
 title:
   en: Centre of Advanced Studies
 props:
   city: Moscow
   country: Russia
 ---
-id: 00pmcf502
+id: ror:00pmcf502
 title:
   en: Talisman Energy
 props:
   city: Aberdeen
   country: United Kingdom
 ---
-id: 04ky9dq80
+id: ror:04ky9dq80
 title:
   en: Vaexjoe Energi Ab
 props:
   city: Vaxjo
   country: Sweden
 ---
-id: 05gr4mx33
+id: ror:05gr4mx33
 title:
   en: Tashkent State Agrarian University
 props:
   city: Tashkent
   country: Uzbekistan
 ---
-id: 056r5vk88
+id: ror:056r5vk88
 title:
   en: Penza State University
 props:
   city: Penza
   country: Russia
 ---
-id: 04nj3w743
+id: ror:04nj3w743
 title:
   en: German Kazakh University
 props:
   city: Almaty
   country: Kazakhstan
 ---
-id: 03vvzk644
+id: ror:03vvzk644
 title:
   en: American University of Central Asia
 props:
   city: Bishkek
   country: Kyrgyzstan
 ---
-id: 00a6ram87
+id: ror:00a6ram87
 title:
   en: Reed College
 props:
@@ -7165,7 +7105,7 @@ props:
   country: United States
   state: Oregon
 ---
-id: 019k4jq75
+id: ror:019k4jq75
 title:
   en: Brooklyn College
 props:
@@ -7173,14 +7113,14 @@ props:
   country: United States
   state: New York
 ---
-id: 04v8db398
+id: ror:04v8db398
 title:
   en: Trencianska Univerzita Alexandra Dubceka V Trencine
 props:
   city: Trenčín
   country: Slovakia
 ---
-id: 04j5jqy92
+id: ror:04j5jqy92
 title:
   en: Social Sciences and Humanities Research Council
 props:
@@ -7188,7 +7128,7 @@ props:
   country: Canada
   state: Ontario
 ---
-id: 02e3zdp86
+id: ror:02e3zdp86
 title:
   en: Boise State University
 props:
@@ -7196,7 +7136,7 @@ props:
   country: United States
   state: Idaho
 ---
-id: 05vkpd318
+id: ror:05vkpd318
 title:
   en: La Jolla Institute For Allergy & Immunology
 props:
@@ -7204,7 +7144,7 @@ props:
   country: United States
   state: California
 ---
-id: 01ewh7m12
+id: ror:01ewh7m12
 title:
   en: International Computer Science Institute
 props:
@@ -7212,14 +7152,14 @@ props:
   country: United States
   state: California
 ---
-id: 036wvzt09
+id: ror:036wvzt09
 title:
   en: Agency for Science, Technology and Research
 props:
   city: Singapore
   country: Singapore
 ---
-id: 03xb04968
+id: ror:03xb04968
 title:
   en: Anhui Medical University
 props:
@@ -7227,7 +7167,7 @@ props:
   country: China
   state: Anhui
 ---
-id: 040vwpm13
+id: ror:040vwpm13
 title:
   en: University of Houston System
 props:
@@ -7235,28 +7175,28 @@ props:
   country: United States
   state: Texas
 ---
-id: 050mgds09
+id: ror:050mgds09
 title:
   en: Red De Fundaciones Universidad Empresa
 props:
   city: Madrid
   country: Spain
 ---
-id: 03rjt0z37
+id: ror:03rjt0z37
 title:
   en: German University in Cairo
 props:
   city: Cairo
   country: Egypt
 ---
-id: 00v6s9648
+id: ror:00v6s9648
 title:
   en: University of Worcester
 props:
   city: Worcester
   country: United Kingdom
 ---
-id: 03czfpz43
+id: ror:03czfpz43
 title:
   en: Emory University
 props:
@@ -7264,10 +7204,68 @@ props:
   country: United States
   state: Georgia
 ---
-id: 04tzy5g14
+id: ror:04tzy5g14
 title:
   en: Missouri Botanical Garden
 props:
   city: St Louis
   country: United States
   state: Missouri
+---
+id: ror:059yk7s89
+title:
+  en: Haramaya University
+props:
+  city: Dire Dawa
+  country: Ethiopia
+---
+id: ror:00ajykz30
+title:
+  en: UK Water Industry Research
+props:
+  city: London
+  country: United Kingdom
+---
+id: ror:05vvhh982
+title:
+  en: University of Arkansas System
+props:
+  city: Little Rock
+  country: United States
+  state: Arkansas
+---
+id: ror:028jc0449
+title:
+  en: Austrian Research Promotion Agency
+props:
+  city: Vienna
+  country: Austria
+---
+id: ror:007t3j908
+title:
+  en: Aleksandras Stulginskis University
+props:
+  city: Kaunas
+  country: Lithuania
+---
+id: ror:02m4p8096
+title:
+  en: Kempten University of Applied Sciences
+props:
+  city: Kempten (Allgäu)
+  country: Germany
+---
+id: ror:04q9tew83
+title:
+  en: Henry M. Jackson Foundation
+props:
+  city: Bethesda
+  country: United States
+  state: Maryland
+---
+id: ror:01easw929
+title:
+  en: Inha University
+props:
+  city: Incheon
+  country: South Korea
