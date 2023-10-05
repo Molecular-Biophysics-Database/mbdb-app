@@ -2,12 +2,12 @@ author_email: Emildandanell.agerschou@ibt.cas.cz
 author_name: Emil Dandanell Agerschou
 installation_site: mbdb-site
 merge_changes: overwrite
-model_dir: models/mbdb-mst
+model_dir: models/mbdb-spr
 model_kind: empty
-model_package: mbdb_mst
-permissions_preset: everyone
+model_package: mbdb_spr
+permissions_preset: authenticated
 permissions_presets: read_only
-pid_type: mst
+pid_type: spr
 run_tests: skip
 sites:
 - mbdb-site
