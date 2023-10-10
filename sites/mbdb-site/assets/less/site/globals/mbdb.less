@@ -1,7 +1,606 @@
-body {
-    line-height: normal;
+.test {
+    background-color: var(--mbdbv-secondary-color);
+    margin-top: 1rem;
 }
 
-.frontpage_title {
+.mbdbv-search-result-item-header-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+:root {
+    --mbdbv-border-radius: 10px;
+
+    --mbdbv-primary-color: rgba(0, 0, 0, 0.8);
+    --mbdbv-secondary-color: #B9D868;
+}
+
+@font-face {
+    font-family: 'Jost Light';
+    font-style: Light;
+    font-weight: 300;
+    src: url('../../../fonts/Jost-Light.ttf') format('truetype');
+};
+
+@font-face {
+    font-family: 'Jost Regular';
+    font-style: Regular;
+    font-weight: 400;
+    src: url('../../../fonts/Jost-Regular.ttf') format('truetype');
+};
+
+@font-face {
+    font-family: 'Jost Medium';
+    font-style: Medium;
+    font-weight: 500;
+    src: url('../../../fonts/Jost-Medium.ttf') format('truetype');
+};
+
+body {
+    line-height: normal;
+    color: var(--mbdbv-primary-color);
+    font-family: Jost Regular !important;
+    letter-spacing: 0.04rem;
+}
+
+a {
+    color: var(--mbdbv-primary-color);
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--mbdbv-secondary-color-color);
+}
+
+button {
+    color: var(--mbdbv-primary-color);
+    background-color: var(--mbdbv-secondary-color);
+    border-radius: var(--mbdbv-border-radius);
+    border-style: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+button:hover {
+    color: var(--mbdbv-secondary-color);
+    background-color: var(--mbdbv-primary-color);
+}
+
+/* General styles */
+
+.none {
+    display: none;
+}
+
+
+.mbdbv-max-width {
+    max-width: 1440px;
+    margin: auto;
+}
+
+.mbdbv-frontpage-title {
+    font-family: Jost Medium;
+    width: 360px;
+    font-size: 2.75rem;
+    line-height: 3.25rem;
+    margin: auto;
+    position: relative;
+}
+
+.mbdbv-h2-title {
+    font-family: Jost Medium;
     font-size: 2rem;
+    text-transform: capitalize;
+    position: relative;
+}
+
+.mbdbv-h2-underline {
+    position: absolute;
+    margin-top: -0.3rem;
+    top: 10;
+    width: 90px;
+    height: 3px;
+    display: block;
+    background: var(--mbdbv-secondary-color);
+    clip-path: polygon(100% 0,100% 0,100% 100%,0 100%,0 0);
+}
+
+.mbdbv-h3-title {
+    font-family: Jost Medium;
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+.mbdbv-text {
+    font-size: 1.25rem;
+    margin: 1rem 0;
+}
+
+/* Header */
+
+.mbdbv-header-desktop {
+    display: none;
+}
+
+.mbdbv-header-mobile {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 1rem;
+}
+
+/* Frontpage */
+
+.mbdbv-frontpage {
+    position: relative;
+    overflow: hidden;
+}
+
+.mbdbv-frontpage-illustration img {
+    position: absolute;
+    top: 4rem;
+    right: -7rem;
+    width: 30rem;
+    z-index: -1;
+    display: none;
+}
+
+.mbdbv-frontpage-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 8rem auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.mbdbv-frontpage-text {
+    font-size: 1.25rem;
+}
+
+.mbdbv-frontpage-search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 1rem;
+}
+
+.mbdbv-frontpage-search-input-button {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.mbdbv-frontpage-search-input {
+    width: 300px;
+    height: 50px;
+    border-radius: var(--mbdbv-border-radius);
+    background-color: var(--mbdbv-primary-color);
+    color: #fff;
+    border-style: none;
+    padding: 1rem;
+}
+
+.mbdbv-frontpage-search-input:focus {
+    background-color: var(--mbdbv-primary-color);
+    color: #fff;
+    outline-color: var(--mbdbv-secondary-color);
+}
+
+.mbdbv-frontpage-search-button {
+    width: 50px;
+    height: 50px;
+    background-color: var(--mbdbv-primary-color);
+    border-radius: var(--mbdbv-border-radius);
+    border-style: none;
+    margin-left: 0.5rem;
+}
+
+.mbdbv-frontpage-search-icon {
+    width: 20px;
+}
+
+.mbdbv-frontpage-search-methods {
+    background-color: var(--mbdbv-primary-color);
+    border-radius: var(--mbdbv-border-radius);
+    color: #fff;
+    height: 50px;
+    width: 358px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mbdbv-frontpage-search-methods-img img {
+    width: 1.5rem;
+}
+
+.mbdbv-frontpage-additional-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.mbdbv-frontpage-additional-info-advanced-search {
+    border-bottom: solid var(--mbdbv-primary-color) 1px;
+    width: fit-content;
+    margin: auto;
+}
+
+/* About */
+
+.mbdbv-about-container {
+    margin: 2rem 2rem 4rem 2rem;
+}
+
+.mbdbv-about-text-container, .mbdbv-techniques-items-container {
+    margin-top: 1.5rem;
+}
+
+.mbdbv-about-text {
+    font-size: 1.25rem;
+}
+
+/* Techniques */
+
+.mbdbv-techniques-container {
+    margin: 2rem;
+}
+
+.mbdbv-techniques-item-container {
+    display: flex;
+    align-items: center;
+}
+
+.mbdbv-techniques-item-title {
+    font-family: Jost Medium;
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+/* Partners */
+
+.mbdbv-partners-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem auto;
+}
+
+.mbdbv-partners-item {
+    margin: 1.5rem;
+}
+
+.mbdbv-partners-logo-mosbri {
+    width: 13rem;
+    cursor: pointer;
+}
+
+.mbdbv-partners-logo-ibt {
+    width: 12rem;
+    cursor: pointer;
+}
+
+.mbdbv-partners-logo-cesnet {
+    width: 13rem;
+    cursor: pointer;
+}
+
+/* Footer */
+
+.mbdbv-footer {
+    background-color: var(--mbdbv-primary-color);
+    color: #fff;
+    border-top-left-radius: var(--mbdbv-border-radius);
+    border-top-right-radius: var(--mbdbv-border-radius);
+}
+
+.mbdbv-footer-container {
+    padding: 2rem;
+}
+
+.mbdbv-footer-link-container {
+    margin: 2rem 0;
+}
+
+.mbdbv-footer-link {
+    text-transform: capitalize;
+    margin: 0.5rem;
+    font-size: 1.25rem;
+    font-family: Jost Light;
+}
+
+.mbdbv-footer-link a {
+    color: #fff;
+}
+
+.mbdbv-search-result-item-container {
+    margin: 2.5rem 1.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--mbdbv-primary-color)
+}
+
+.mbdbv-search-result-item {
+    margin: .5rem 0;
+}
+
+.mbdbv-search-result-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.mbdbv-search-result-id-container {
+    display: flex;
+    font-size: 1.5rem;
+    font-family: Jost Medium;
+}
+
+.mbdbv-search-result-id-text {
+    color: var(--mbdbv-secondary-color);
+    margin-right: .5rem;
+}
+
+.mbdbv-affiliations-container {
+    display: flex;
+}
+
+.mbdbv-affiliations-slash {
+    margin: auto .5rem;
+}
+
+.mbdbv-search-results-keywords {
+    columns: 2;
+    margin: auto;
+}
+
+.mbdbv-search-result-keyword {
+    width: 130px;
+    height: 42px;
+    margin-bottom: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: var(--mbdbv-secondary-color);
+    border-radius: var(--mbdbv-border-radius);
+}
+
+/*MediaQuary*/
+
+@media only screen and (min-width: 640px) {
+    .mbdbv-frontpage-title {
+        line-height: normal;
+        width: auto;
+    }
+
+    /* Frontpage */
+
+    .mbdbv-frontpage-search-form {
+        flex-direction: row;
+    }
+
+    .mbdbv-frontpage-search-input-button {
+        margin-bottom: 0;
+    }
+
+    .mbdbv-frontpage-search-input {
+        width: 375px;
+    }
+
+    .mbdbv-frontpage-search-button {
+        margin: 0 0.5rem;
+    }
+
+    .mbdbv-frontpage-search-methods {
+        width: 150px;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+    .mbdbv-frontpage-search-methods {
+        width: 180px;
+    }
+
+    /* About */
+
+    .mbdbv-about-container, .mbdbv-techniques-container {
+        margin: 6rem 4rem;
+    }
+
+    /* Partners */
+
+    .mbdbv-partners-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .mbdbv-partners-item {
+        margin: 2rem;
+    }
+
+    .mbdbv-partners-logo-mosbri {
+        width: 11rem;
+    }
+
+    .mbdbv-partners-logo-ibt {
+        width: 10rem;
+    }
+
+    .mbdbv-partners-logo-cesnet {
+        width: 11rem;
+    }
+
+    /* Footer */
+
+    .mbdbv-footer-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 4rem;
+    }
+
+    .mbdbv-footer-link-container {
+        margin: 0;
+    }
+
+    .mbdbv-search-result-item-container {
+        margin: 2.5rem 3rem;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+
+    /* Header */
+
+    .mbdbv-header-mobile {
+        display: none;
+    }
+    
+    .mbdbv-header-desktop {
+        display: block;
+    }
+
+    .mbdbv-header-desktop-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 2rem 3rem;
+        align-items: center;
+    }
+
+    .mbdbv-header-link a {
+        font-size: 1.25rem;
+        margin: 0.5rem;
+        color: var(--mbdbv-primary-color);
+    }
+
+    .mbdbv-header-container {
+        display: flex;
+    }
+
+    .mbdbv-header-button button {
+        width: 120px;
+        height: 40px;
+        font-size: 1.25rem;
+        margin-right: 1rem;
+    }
+
+    .mbdbv-header-orcid img {
+        width: auto;
+        height: 40px;
+    }
+
+        /* About */
+
+    .mbdbv-about-container, .mbdbv-techniques-container {
+        margin: 6rem;
+    }
+
+    .mbdbv-about-text-container {
+        max-width: 800px;
+    }
+
+
+    /* Frontpage */
+
+    .mbdbv-frontpage-illustration img {
+        display: block;
+    }
+
+    .mbdbv-frontpage-container {
+        margin: 10rem 0;
+    }
+
+    .mbdbv-frontpage-title {
+        font-size: 4rem;
+    }
+
+    .mbdbv-frontpage-search-input {
+        width: 550px;
+        height: 50px;
+        padding: 1rem;
+    }
+
+    .mbdbv-frontpage-additional-info-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 790px;
+        margin: -1rem auto auto auto;
+    }
+
+    .mbdbv-frontpage-additional-info-advanced-search {
+        border-bottom: solid var(--mbdbv-primary-color) 1px;
+        width: auto;
+        margin: 0;
+    }
+
+    /* Partners */
+
+    .mbdbv-partners-item {
+        margin: 1rem 3rem;
+    }
+
+    /* Footer */
+
+    .mbdbv-footer-container {
+        padding: 4rem 8rem;
+    }
+
+    .mbdbv-footer-link-container:last-child {
+        margin-right: 3rem;
+    }
+
+    .mbdbv-search-result-item-header-container {
+        flex-direction: row;
+    }
+
+    .mbdbv-search-results-keywords {
+        columns: 1;
+        margin: 0;
+    }
+
+    .mbdbv-search-result-container {
+        flex-direction: row;
+    }
+
+    .mbdbv-search-result-item-container {
+        margin: 2.5rem 5rem;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+
+    /* About */
+    .mbdbv-about-text-container {
+        max-width: 900px;
+    }
+
+    /* Techniques */
+
+    .mbdbv-techniques-container {
+        margin-top: 9rem;
+        margin-bottom: 9rem;
+    }
+
+    /* Partners */
+
+    .mbdbv-partners-item {
+        margin: 1rem 3rem;
+    }
+
+    .mbdbv-partners-logo-mosbri {
+        width: 15rem;
+    }
+
+    .mbdbv-partners-logo-ibt {
+        width: 14rem;
+    }
+
+    .mbdbv-partners-logo-cesnet {
+        width: 15rem;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+
 }
