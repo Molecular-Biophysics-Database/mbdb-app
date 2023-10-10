@@ -3,20 +3,20 @@ import {
   ActiveFiltersElement,
   BucketAggregationElement,
   BucketAggregationValuesElement,
-  CountElement,
   ErrorElement,
-  SearchAppFacets,
-  SearchAppLayout,
+  SearchAppSort,
   SearchAppResultOptions,
   SearchAppSearchbarContainer,
   SearchFiltersToggleElement,
-  SearchAppSort
+  SearchAppFacets,
+  ResultCount,
 } from '@js/oarepo_ui/search'
 import {
   EmptyResultsElement,
   MultipleSearchBarElement,
   ResultsGridItemWithState,
-  ResultsListItemWithState
+  ResultsListItemWithState,
+  SearchAppLayout,
 } from './components'
 import { parametrize, overrideStore } from 'react-overridable'
 
@@ -25,18 +25,19 @@ const appName = 'Mbdb_mst_ui.Search'
 const SearchAppSearchbarContainerWithConfig = parametrize(SearchAppSearchbarContainer, { appName: appName })
 const ResultsListItemWithConfig = parametrize(ResultsListItemWithState, { appName: appName })
 const ResultsGridItemWithConfig = parametrize(ResultsGridItemWithState, { appName: appName })
+const SearchAppLayoutNew = parametrize(SearchAppLayout, { appName: appName })
 
 export const defaultComponents = {
   [`${appName}.ActiveFilters.element`]: ActiveFiltersElement,
   [`${appName}.BucketAggregation.element`]: BucketAggregationElement,
   [`${appName}.BucketAggregationValues.element`]: BucketAggregationValuesElement,
-  [`${appName}.Count.element`]: CountElement,
+  [`${appName}.Count.element`]: ResultCount,
   [`${appName}.EmptyResults.element`]: EmptyResultsElement,
   [`${appName}.Error.element`]: ErrorElement,
   [`${appName}.ResultsGrid.item`]: ResultsGridItemWithConfig,
   [`${appName}.ResultsList.item`]: ResultsListItemWithConfig,
   [`${appName}.SearchApp.facets`]: SearchAppFacets,
-  [`${appName}.SearchApp.layout`]: SearchAppLayout,
+  [`${appName}.SearchApp.layout`]: SearchAppLayoutNew,
   [`${appName}.SearchApp.searchbarContainer`]: SearchAppSearchbarContainerWithConfig,
   [`${appName}.SearchApp.sort`]: SearchAppSort,
   [`${appName}.SearchApp.resultOptions`]: SearchAppResultOptions,
