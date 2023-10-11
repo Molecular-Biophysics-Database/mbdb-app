@@ -28,9 +28,9 @@ class MbdbMstUIResourceConfig(RecordsUIResourceConfig):
                 "record_sidebar": "Sidebar",
             },
         },
-        "search": {"layout": "mbdb_mst_ui/search.html"},
-        "edit": {"layout": "mbdb_mst_ui/deposit.html"},
-        "create": {"layout": "mbdb_mst_ui/deposit.html"},
+        "search": {"layout": "mbdb_mst_ui/Search.html.jinja", "app_id": "Mbdb_mst_ui.Search"},
+        "edit": {"layout": "mbdb_mst_ui/Deposit.html.jinja"},
+        "create": {"layout": "mbdb_mst_ui/Deposit.html.jinja"},
     }
 
     def search_app_config(self, identity, api_config, overrides={}, **kwargs):
