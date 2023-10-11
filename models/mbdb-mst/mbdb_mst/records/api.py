@@ -41,7 +41,6 @@ class MbdbMstRecord(InvenioRecord):
 
     dumper_extensions = []
     dumper = MbdbMstDumper(extensions=dumper_extensions)
-    dumper_extensions = []
 
     relations = RelationsField(
         affiliations=PIDRelation(

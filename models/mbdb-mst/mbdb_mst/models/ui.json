@@ -97,8 +97,8 @@
                         "facet": "processing_steps_description"
                     },
                     "link_to_source_code": {
-                        "detail": "keyword",
-                        "input": "keyword",
+                        "detail": "url",
+                        "input": "url",
                         "help": "processing_steps/link_to_source_code.help",
                         "label": "processing_steps/link_to_source_code.label",
                         "hint": "processing_steps/link_to_source_code.hint",
@@ -12963,6 +12963,21 @@
                                 }
                             }
                         },
+                        "raw_measurements": {
+                            "detail": "array",
+                            "input": "array",
+                            "help": "metadata/general_parameters/raw_measurements.help",
+                            "label": "metadata/general_parameters/raw_measurements.label",
+                            "hint": "metadata/general_parameters/raw_measurements.hint",
+                            "child": {
+                                "detail": "url",
+                                "input": "url",
+                                "help": "metadata/general_parameters/raw_measurements.help",
+                                "label": "metadata/general_parameters/raw_measurements.label",
+                                "hint": "metadata/general_parameters/raw_measurements.hint",
+                                "facet": "metadata_general_parameters_raw_measurements"
+                            }
+                        },
                         "record_information": {
                             "detail": "record_information",
                             "input": "record_information",
@@ -13333,8 +13348,8 @@
                                                     "facet": "metadata_method_specific_parameters_data_analysis_data_processing_steps_description"
                                                 },
                                                 "link_to_source_code": {
-                                                    "detail": "keyword",
-                                                    "input": "keyword",
+                                                    "detail": "url",
+                                                    "input": "url",
                                                     "help": "metadata/method_specific_parameters/data_analysis/data_processing_steps/link_to_source_code.help",
                                                     "label": "metadata/method_specific_parameters/data_analysis/data_processing_steps/link_to_source_code.label",
                                                     "hint": "metadata/method_specific_parameters/data_analysis/data_processing_steps/link_to_source_code.hint",

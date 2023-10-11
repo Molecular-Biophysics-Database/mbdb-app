@@ -21,7 +21,7 @@ class MbdbMstServiceConfig(
 ):
     """MbdbMstRecord service config."""
 
-    PERMISSIONS_PRESETS = ["everyone"]
+    PERMISSIONS_PRESETS = ["everyone", "authenticated"]
 
     url_prefix = "/mbdb-mst/"
 
@@ -38,8 +38,8 @@ class MbdbMstServiceConfig(
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        DataComponent,
         FilesOptionsComponent,
+        DataComponent,
         DraftFilesComponent,
     ]
 
@@ -68,7 +68,7 @@ class MbdbMstServiceConfig(
             "self_html": ConditionalLink(
                 cond=is_record,
                 if_=RecordLink("{+ui}/mbdb-mst/{id}"),
-                else_=RecordLink("{+ui}/uploads/{id}"),
+                else_=RecordLink("{+ui}/mbdb-mst/{id}/edit"),
             ),
             "versions": RecordLink("{+api}/mbdb-mst/{id}/versions"),
         }

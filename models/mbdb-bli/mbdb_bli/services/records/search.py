@@ -2881,6 +2881,9 @@ class MbdbBliSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_upper_error": (
             facets.metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_upper_error
         ),
+        "metadata_general_parameters_raw_measurements": (
+            facets.metadata_general_parameters_raw_measurements
+        ),
         "metadata_general_parameters_record_information_access_rights": (
             facets.metadata_general_parameters_record_information_access_rights
         ),

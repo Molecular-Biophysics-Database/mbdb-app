@@ -18,7 +18,6 @@ class MbdbBliFile(FileRecord):
     pid = PIDField(
         provider=MbdbBliFileIdProvider, context_cls=PIDFieldContext, create=True
     )
-    dumper_extensions = []
     record_cls = None  # is defined inside the parent record
 
 

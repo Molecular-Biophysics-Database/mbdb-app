@@ -8826,6 +8826,11 @@ metadata_general_parameters_physical_conditions_at_sample_handling_temperature_v
     ),
 )
 
+metadata_general_parameters_raw_measurements = TermsFacet(
+    field="metadata.general_parameters.raw_measurements",
+    label=_("metadata/general_parameters/raw_measurements.label"),
+)
+
 metadata_general_parameters_record_information_access_rights = TermsFacet(
     field="metadata.general_parameters.record_information.access_rights",
     label=_("metadata/general_parameters/record_information/access_rights.label"),

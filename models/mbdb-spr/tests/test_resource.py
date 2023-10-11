@@ -319,13 +319,13 @@ def assert_expected_links_record(pid_value, links, site_hostname="127.0.0.1:5000
     expected_links = {
         "draft": f"https://{site_hostname}/api{BASE_URL}{pid_value}/draft",
         "latest": f"https://{site_hostname}/api{BASE_URL}{pid_value}/versions/latest",
-        "latest_html": f"https://{site_hostname}{BASE_URL}{pid_value}/latest",
+        "latest_html": f"https://{site_hostname}{BASE_HTML_URL}{pid_value}/latest",
         "publish": (
             f"https://{site_hostname}/api{BASE_URL}{pid_value}/draft/actions/publish"
         ),
         "record": f"https://{site_hostname}/api{BASE_URL}{pid_value}",
         "self": f"https://{site_hostname}/api{BASE_URL}{pid_value}",
-        "self_html": f"https://{site_hostname}{BASE_URL}{pid_value}",
+        "self_html": f"https://{site_hostname}{BASE_HTML_URL}{pid_value}",
         "versions": f"https://{site_hostname}/api{BASE_URL}{pid_value}/versions",
     }
     assert expected_links.items() <= links.items()
@@ -345,6 +345,7 @@ def input_data(input_data):
 
 
 BASE_URL = MbdbSprResourceConfig.url_prefix
+BASE_HTML_URL = "/mbdb-spr/"
 """
 def check_allowed(action_name):
     permission_cls = current_service.config.permission_policy_cls
@@ -542,13 +543,13 @@ def assert_expected_links(pid_value, generated_links, site_hostname="127.0.0.1:5
     required_links = {
         "draft": f"https://{site_hostname}/api{BASE_URL}{pid_value}/draft",
         "latest": f"https://{site_hostname}/api{BASE_URL}{pid_value}/versions/latest",
-        "latest_html": f"https://{site_hostname}{BASE_URL}{pid_value}/latest",
+        "latest_html": f"https://{site_hostname}{BASE_HTML_URL}{pid_value}/latest",
         "publish": (
             f"https://{site_hostname}/api{BASE_URL}{pid_value}/draft/actions/publish"
         ),
         "record": f"https://{site_hostname}/api{BASE_URL}{pid_value}",
         "self": f"https://{site_hostname}/api{BASE_URL}{pid_value}/draft",
-        "self_html": f"https://{site_hostname}/uploads/{pid_value}",
+        "self_html": f"https://{site_hostname}{BASE_HTML_URL}{pid_value}/edit",
         "versions": f"https://{site_hostname}/api{BASE_URL}{pid_value}/versions",
     }
     assert required_links.items() <= generated_links.items()

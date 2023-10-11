@@ -19,6 +19,7 @@ record:
   permissions:
     presets:
     - everyone
+    - authenticated
   pid:
     type: bli
   properties: {}
@@ -30,5 +31,6 @@ settings:
   i18n-languages:
   - en
 use:
+- ./BLI.yaml
 - ./BLI.yaml
 - ./BLI.yaml
