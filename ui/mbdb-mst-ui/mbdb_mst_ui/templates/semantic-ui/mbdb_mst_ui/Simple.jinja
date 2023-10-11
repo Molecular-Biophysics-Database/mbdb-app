@@ -7,50 +7,51 @@
 {% from "mbdb_mst_ui/MST/Results.jinja" import results %}
 
 {%- macro simple(metadata, layout, ui) %}
-  <div class="ui container">
+  <div class=" mbdbv-record-container">
     {{ record_header(metadata | maybe_get("general_parameters.record_information.title"), ui) }}
-    <h3 class="mdbv-header">{{ metadata.general_parameters.technique }}</h3>
+    <div class="mbdbv-record-technique">Technique: {{ metadata.general_parameters.technique }}</div>
+    <div class="record-container">
+      <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">
+        <h3 class="mbdbv-record-section-title">Instrument</h3>
+          {{ render_if2(
+              metadata.general_parameters.instrument is defined,
+              instrument,
+              no_value(),
+              imt=metadata.general_parameters.instrument)
+          }}
+      </div>
 
-    <div class="mbdbv-block mbdbv-framed">
-      <h3 class="mbdbv-header">Instrument</h3>
+      <div class="mbdbv-record-section-container mbdbv-framed">
+        <h3 class="mbdbv-record-section-title">Entities of interest</h3>
         {{ render_if2(
-            metadata.general_parameters.instrument is defined,
-            instrument,
+            (metadata.general_parameters.chemical_information is defined) and (metadata.general_parameters.chemical_information.entities_of_interest is defined),
+            entities_of_interest,
             no_value(),
-            imt=metadata.general_parameters.instrument)
+            entities=metadata.general_parameters.chemical_information.entities_of_interest)
         }}
-    </div>
+      </div>
 
-    <div class="mbdbv-block mbdbv-framed">
-      <h3 class="mbdbv-header">Entities of interest</h3>
-      {{ render_if2(
-          (metadata.general_parameters.chemical_information is defined) and (metadata.general_parameters.chemical_information.entities_of_interest is defined),
-          entities_of_interest,
-          no_value(),
-          entities=metadata.general_parameters.chemical_information.entities_of_interest)
-      }}
-    </div>
+      <div class="mbdbv-record-section-container mbdbv-framed">
+        <h3 class="mbdbv-record-section-title">Measurements</h3>
+        {{ render_if2(
+            metadata.method_specific_parameters is defined,
+            measurements,
+            no_value(),
+            gp=metadata.general_parameters,
+            msp=metadata.method_specific_parameters)
+        }}
+      </div>
 
-    <div class="mbdbv-block mbdbv-framed">
-      <h3 class="mbdbv-header">Measurements</h3>
-      {{ render_if2(
-          metadata.method_specific_parameters is defined,
-          measurements,
-          no_value(),
-          gp=metadata.general_parameters,
-          msp=metadata.method_specific_parameters)
-      }}
-    </div>
-
-    <div class="mbdbv-block mbdbv-framed">
-      <h3 class="mbdbv-header">Results</h3>
-      {{ render_if2(
-          metadata.method_specific_parameters is defined,
-          results,
-          no_value(),
-          gp=metadata.general_parameters,
-          msp=metadata.method_specific_parameters)
-      }}
+      <div class="mbdbv-record-section-container mbdbv-framed">
+        <h3 class="mbdbv-record-section-title">Results</h3>
+        {{ render_if2(
+            metadata.method_specific_parameters is defined,
+            results,
+            no_value(),
+            gp=metadata.general_parameters,
+            msp=metadata.method_specific_parameters)
+        }}
+      </div>
     </div>
   </div>
 {%- endmacro %}

@@ -9,7 +9,7 @@
 
   <div>
     <div class="mbdbv-block mbdbv-framed">
-      <h4 class="mbdbv-header">Experimental setup</h4>
+      <div class="mbdbv-header">Experimental setup</div>
       {{ nv.list_open() }}
         {{ nv.item("Experiment type", msp.experiment_type) }}
         {{ nv.item("Signal type", msp.signal_type) }}
@@ -20,7 +20,7 @@
 
     {% for measurement in msp.measurements %}
       <div class="mbdbv-block mbdbv-framed">
-        <h4 class="mbdbv-header">Measurement {{ loop.index }}</h4>
+        <div class="mbdbv-header">Measurement {{ loop.index }}</div>
 
         {{ nv.list_open() }}
           {{ nv.item("Name", measurement.name) }}

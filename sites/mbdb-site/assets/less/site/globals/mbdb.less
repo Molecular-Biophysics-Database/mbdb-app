@@ -1,14 +1,3 @@
-.test {
-    background-color: var(--mbdbv-secondary-color);
-    margin-top: 1rem;
-}
-
-.mbdbv-search-result-item-header-container {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
-
 :root {
     --mbdbv-border-radius: 10px;
 
@@ -67,7 +56,16 @@ button:hover {
     background-color: var(--mbdbv-primary-color);
 }
 
+
 /* General styles */
+
+.width {
+    width: 100vw !important;
+}
+
+.ui.segment {
+    border: none !important;
+}
 
 .none {
     display: none;
@@ -76,6 +74,11 @@ button:hover {
 
 .mbdbv-max-width {
     max-width: 1440px;
+    margin: auto;
+}
+
+.mbdbv-max-width-records {
+    max-width: 1280px;
     margin: auto;
 }
 
@@ -92,13 +95,10 @@ button:hover {
     font-family: Jost Medium;
     font-size: 2rem;
     text-transform: capitalize;
-    position: relative;
 }
 
 .mbdbv-h2-underline {
-    position: absolute;
     margin-top: -0.3rem;
-    top: 10;
     width: 90px;
     height: 3px;
     display: block;
@@ -365,6 +365,77 @@ button:hover {
     border-radius: var(--mbdbv-border-radius);
 }
 
+/* Records */
+
+.mbdbv-record-container {
+    margin-top: 3rem;
+}
+
+.record-container {
+    margin-top: 1.5rem;
+    font-family: Jost Regular;
+}
+
+.mbdbv-record-title {
+    margin-bottom: .2rem;
+    font-size: 1.75rem;
+}
+
+.mbdbv-record-technique {
+    font-family: Jost Regular;
+    font-size: 1.25rem;
+    margin-top: .75rem;
+}
+
+.mbdbv-record-download-button button {
+    font-family: Jost Medium;
+    width: 160px;
+    height: 40px;
+    font-size: 1.2rem;
+    margin-top: .75rem;
+}
+
+.mbdbv-record-section-container {
+    padding: 2rem;
+    margin-bottom: 1rem;
+    height: fit-content;
+}
+
+.mbdbv-record-section-title {
+    font-family: Jost Medium;
+    font-size: 1.75rem;
+    text-transform: capitalize;
+}
+
+.mbdbv-name-value-item-name {
+    width: 160px;
+    color: var(--mbdbv-secondary-color);
+    font-family: Jost Medium;
+    font-size: 1rem;
+    margin-bottom: .25rem;
+}
+
+.mbdbv-name-value-item-name, .mbdbv-name-value-item-value {
+    margin-bottom: .35rem;
+}
+
+.mbdbv-header {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: Jost Medium;
+}
+
+.mbdbv-record-section-container:last-child {
+    margin-bottom: 0;
+}
+
+.mbdbv-search-result-item-header-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
 /*MediaQuary*/
 
 @media only screen and (min-width: 640px) {
@@ -565,6 +636,26 @@ button:hover {
 
     .mbdbv-search-result-item-container {
         margin: 2.5rem 5rem;
+    }
+
+    /* Records */
+
+    .mbdbv-record-header-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .mbdbv-record-title {
+        margin-bottom: .2rem;
+        font-size: 2.5rem;
+    }
+
+    .mbdbv-record-download-button button {
+        margin-top: 0;
+    }
+
+    .mbdbv-name-value-item-name {
+        width: 200px;
     }
 }
 

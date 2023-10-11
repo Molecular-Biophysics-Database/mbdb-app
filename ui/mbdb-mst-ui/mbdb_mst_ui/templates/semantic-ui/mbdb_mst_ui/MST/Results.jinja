@@ -18,7 +18,7 @@
       {% set dp = (gp.derived_parameters | selectattr("id", "equalto", datum.derived_parameter.id) | list)[0] %}
 
       <div class="mbdbv-block">
-        <h5 class="mbdbv-header">{{ dp.name }}</h5>
+        <div class="mbdbv-header">{{ dp.name }}</div>
         {{ nv.list_open() }}
           {{ nv.item(dp.type, measured_value(dp)) }}
           {{ nv.item("Fitting model", _fitting_model(dp)) }}
