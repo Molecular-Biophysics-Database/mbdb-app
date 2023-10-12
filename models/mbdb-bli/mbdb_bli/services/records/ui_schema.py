@@ -9,6 +9,8 @@ class MbdbBliUISchema(InvenioUISchema):
     class Meta:
         unknown = ma.RAISE
 
+    collected_default_search_fields = ma.fields.String()
+
     metadata = ma.fields.Nested(lambda: MbdbBliMetadataUISchema())
 
 
@@ -60,7 +62,7 @@ class GeneralParametersUISchema(ma.Schema):
     )
 
     schema_version = ma.fields.String(
-        required=True, validate=[ma_validate.OneOf(["0.9.10"])]
+        required=True, validate=[ma_validate.OneOf(["0.9.12"])]
     )
 
     technique = ma.fields.String(
@@ -351,8 +353,6 @@ class ConstituentsItemUISchema(ma.Schema):
 
     organ = ma.fields.String()
 
-    organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema(), required=True)
-
     polymer_type = ma.fields.String(
         required=True,
         validate=[
@@ -401,6 +401,10 @@ class ConstituentsItemUISchema(ma.Schema):
                 ]
             )
         ],
+    )
+
+    source_organism = ma.fields.Nested(
+        lambda: ExpressionOrganismUISchema(), required=True
     )
 
     storage = ma.fields.Nested(lambda: StorageUntilMeasurementUISchema())
@@ -607,8 +611,6 @@ class EntitiesOfInterestItemUISchema(ma.Schema):
 
     organ = ma.fields.String()
 
-    organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema(), required=True)
-
     polymer_type = ma.fields.String(
         required=True,
         validate=[
@@ -657,6 +659,10 @@ class EntitiesOfInterestItemUISchema(ma.Schema):
                 ]
             )
         ],
+    )
+
+    source_organism = ma.fields.Nested(
+        lambda: ExpressionOrganismUISchema(), required=True
     )
 
     storage = ma.fields.Nested(lambda: StorageUntilMeasurementUISchema())
@@ -971,8 +977,6 @@ class ComponentsItemPolymerUISchema(ma.Schema):
 
     name = ma.fields.String(required=True)
 
-    organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema())
-
     polymer_type = ma.fields.String(
         required=True,
         validate=[
@@ -996,6 +1000,8 @@ class ComponentsItemPolymerUISchema(ma.Schema):
     )
 
     sequence = ma.fields.String()
+
+    source_organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema())
 
     storage = ma.fields.Nested(lambda: StorageUntilMeasurementUISchema())
 
@@ -1039,8 +1045,6 @@ class ComponentsItemUISchema(ma.Schema):
 
     name = ma.fields.String(required=True)
 
-    organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema())
-
     polymer_type = ma.fields.String(
         required=True,
         validate=[
@@ -1064,6 +1068,8 @@ class ComponentsItemUISchema(ma.Schema):
     )
 
     sequence = ma.fields.String()
+
+    source_organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema())
 
     storage = ma.fields.Nested(lambda: StorageUntilMeasurementUISchema())
 
@@ -1145,8 +1151,6 @@ class EntitiesOfInterestItemPolymerUISchema(ma.Schema):
 
     name = ma.fields.String(required=True)
 
-    organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema())
-
     polymer_type = ma.fields.String(
         required=True,
         validate=[
@@ -1170,6 +1174,8 @@ class EntitiesOfInterestItemPolymerUISchema(ma.Schema):
     )
 
     sequence = ma.fields.String()
+
+    source_organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema())
 
     storage = ma.fields.Nested(lambda: StorageUntilMeasurementUISchema())
 
@@ -1239,8 +1245,6 @@ class PolymerUISchema(ma.Schema):
 
     name = ma.fields.String(required=True)
 
-    organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema())
-
     polymer_type = ma.fields.String(
         required=True,
         validate=[
@@ -1264,6 +1268,8 @@ class PolymerUISchema(ma.Schema):
     )
 
     sequence = ma.fields.String()
+
+    source_organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema())
 
     storage = ma.fields.Nested(lambda: StorageUntilMeasurementUISchema())
 
@@ -1392,10 +1398,12 @@ class Body_fluidUISchema(ma.Schema):
 
     name = ma.fields.String(required=True)
 
-    organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema(), required=True)
-
     preparation_protocol = ma.fields.List(
         ma.fields.Nested(lambda: ObtainedProtocolItemUISchema()), required=True
+    )
+
+    source_organism = ma.fields.Nested(
+        lambda: ExpressionOrganismUISchema(), required=True
     )
 
     storage = ma.fields.Nested(lambda: StorageUntilMeasurementUISchema())
@@ -1463,10 +1471,12 @@ class Cell_fractionUISchema(ma.Schema):
 
     organ = ma.fields.String()
 
-    organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema(), required=True)
-
     preparation_protocol = ma.fields.List(
         ma.fields.Nested(lambda: ObtainedProtocolItemUISchema()), required=True
+    )
+
+    source_organism = ma.fields.Nested(
+        lambda: ExpressionOrganismUISchema(), required=True
     )
 
     storage = ma.fields.Nested(lambda: StorageUntilMeasurementUISchema())
@@ -1527,10 +1537,12 @@ class Complex_substance_of_biological_originBody_fluidUISchema(ma.Schema):
 
     name = ma.fields.String(required=True)
 
-    organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema(), required=True)
-
     preparation_protocol = ma.fields.List(
         ma.fields.Nested(lambda: ObtainedProtocolItemUISchema()), required=True
+    )
+
+    source_organism = ma.fields.Nested(
+        lambda: ExpressionOrganismUISchema(), required=True
     )
 
     storage = ma.fields.Nested(lambda: StorageUntilMeasurementUISchema())
@@ -1598,10 +1610,12 @@ class Complex_substance_of_biological_originCell_fractionUISchema(ma.Schema):
 
     organ = ma.fields.String()
 
-    organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema(), required=True)
-
     preparation_protocol = ma.fields.List(
         ma.fields.Nested(lambda: ObtainedProtocolItemUISchema()), required=True
+    )
+
+    source_organism = ma.fields.Nested(
+        lambda: ExpressionOrganismUISchema(), required=True
     )
 
     storage = ma.fields.Nested(lambda: StorageUntilMeasurementUISchema())
@@ -1721,10 +1735,12 @@ class Complex_substance_of_biological_originUISchema(ma.Schema):
 
     organ = ma.fields.String()
 
-    organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema(), required=True)
-
     preparation_protocol = ma.fields.List(
         ma.fields.Nested(lambda: ObtainedProtocolItemUISchema()), required=True
+    )
+
+    source_organism = ma.fields.Nested(
+        lambda: ExpressionOrganismUISchema(), required=True
     )
 
     storage = ma.fields.Nested(lambda: StorageUntilMeasurementUISchema())
@@ -1795,10 +1811,12 @@ class Complex_substance_of_biological_originVirionUISchema(ma.Schema):
 
     name = ma.fields.String(required=True)
 
-    organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema(), required=True)
-
     preparation_protocol = ma.fields.List(
         ma.fields.Nested(lambda: ObtainedProtocolItemUISchema()), required=True
+    )
+
+    source_organism = ma.fields.Nested(
+        lambda: ExpressionOrganismUISchema(), required=True
     )
 
     storage = ma.fields.Nested(lambda: StorageUntilMeasurementUISchema())
@@ -2008,10 +2026,12 @@ class EntitiesOfInterestItemComplex_substance_of_biological_originUISchema(ma.Sc
 
     organ = ma.fields.String()
 
-    organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema(), required=True)
-
     preparation_protocol = ma.fields.List(
         ma.fields.Nested(lambda: ObtainedProtocolItemUISchema()), required=True
+    )
+
+    source_organism = ma.fields.Nested(
+        lambda: ExpressionOrganismUISchema(), required=True
     )
 
     storage = ma.fields.Nested(lambda: StorageUntilMeasurementUISchema())
@@ -2273,10 +2293,12 @@ class VirionUISchema(ma.Schema):
 
     name = ma.fields.String(required=True)
 
-    organism = ma.fields.Nested(lambda: ExpressionOrganismUISchema(), required=True)
-
     preparation_protocol = ma.fields.List(
         ma.fields.Nested(lambda: ObtainedProtocolItemUISchema()), required=True
+    )
+
+    source_organism = ma.fields.Nested(
+        lambda: ExpressionOrganismUISchema(), required=True
     )
 
     storage = ma.fields.Nested(lambda: StorageUntilMeasurementUISchema())
@@ -2795,7 +2817,7 @@ class TemperatureUISchema(ma.Schema):
 
 class AffiliationsItemUISchema(ma.Schema):
     class Meta:
-        unknown = ma.RAISE
+        unknown = ma.INCLUDE
 
     _id = ma.fields.String(data_key="id", attribute="id")
 
@@ -2859,7 +2881,7 @@ class DataProcessingStepsItemUISchema(ma.Schema):
 
 class EntityUISchema(ma.Schema):
     class Meta:
-        unknown = ma.RAISE
+        unknown = ma.INCLUDE
 
     _id = ma.fields.String(data_key="id", attribute="id")
 
@@ -2870,7 +2892,7 @@ class EntityUISchema(ma.Schema):
 
 class ExpressionOrganismUISchema(ma.Schema):
     class Meta:
-        unknown = ma.RAISE
+        unknown = ma.INCLUDE
 
     _id = ma.fields.String(data_key="id", attribute="id")
 
@@ -2883,7 +2905,7 @@ class ExpressionOrganismUISchema(ma.Schema):
 
 class FundingReferenceItemUISchema(ma.Schema):
     class Meta:
-        unknown = ma.RAISE
+        unknown = ma.INCLUDE
 
     _id = ma.fields.String(data_key="id", attribute="id")
 
