@@ -554,17 +554,6 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_organism = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=VocabularyFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.organism",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism.label"
-        ),
-        vocabulary="organisms",
-    ),
-)
-
 metadata_general_parameters_chemical_information_chemical_environments_constituents_polymer_type = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
@@ -842,6 +831,17 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
         label=_(
             "metadata/general_parameters/chemical_information/chemical_environments/constituents/sequence.label"
         ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_source_organism = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=VocabularyFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.source_organism",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism.label"
+        ),
+        vocabulary="organisms",
     ),
 )
 
@@ -1424,17 +1424,6 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_components_organism = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=VocabularyFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.organism",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism.label"
-        ),
-        vocabulary="organisms",
-    ),
-)
-
 metadata_general_parameters_chemical_information_chemical_environments_constituents_components_polymer_type = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
@@ -1712,6 +1701,17 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
         label=_(
             "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/sequence.label"
         ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_components_source_organism = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=VocabularyFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.components.source_organism",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism.label"
+        ),
+        vocabulary="organisms",
     ),
 )
 
@@ -2443,17 +2443,6 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_organism = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=VocabularyFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.organism",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism.label"
-        ),
-        vocabulary="organisms",
-    ),
-)
-
 metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_polymer_type = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
@@ -2731,6 +2720,17 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
         label=_(
             "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/sequence.label"
         ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_source_organism = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=VocabularyFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.source_organism",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism.label"
+        ),
+        vocabulary="organisms",
     ),
 )
 
@@ -3991,16 +3991,6 @@ metadata_general_parameters_chemical_information_entities_of_interest_name = Ter
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_organism = VocabularyFacet(
-    field=(
-        "metadata.general_parameters.chemical_information.entities_of_interest.organism"
-    ),
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/organism.label"
-    ),
-    vocabulary="organisms",
-)
-
 metadata_general_parameters_chemical_information_entities_of_interest_polymer_type = TermsFacet(
     field="metadata.general_parameters.chemical_information.entities_of_interest.polymer_type",
     label=_(
@@ -4215,6 +4205,14 @@ metadata_general_parameters_chemical_information_entities_of_interest_sequence =
     label=_(
         "metadata/general_parameters/chemical_information/entities_of_interest/sequence.label"
     ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_source_organism = VocabularyFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.source_organism",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/source_organism.label"
+    ),
+    vocabulary="organisms",
 )
 
 metadata_general_parameters_chemical_information_entities_of_interest_storage_duration_unit = TermsFacet(
@@ -4641,14 +4639,6 @@ metadata_general_parameters_chemical_information_entities_of_interest_components
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_components_organism = VocabularyFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.components.organism",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/components/organism.label"
-    ),
-    vocabulary="organisms",
-)
-
 metadata_general_parameters_chemical_information_entities_of_interest_components_polymer_type = TermsFacet(
     field="metadata.general_parameters.chemical_information.entities_of_interest.components.polymer_type",
     label=_(
@@ -4861,6 +4851,14 @@ metadata_general_parameters_chemical_information_entities_of_interest_components
     label=_(
         "metadata/general_parameters/chemical_information/entities_of_interest/components/sequence.label"
     ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_components_source_organism = VocabularyFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.components.source_organism",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism.label"
+    ),
+    vocabulary="organisms",
 )
 
 metadata_general_parameters_chemical_information_entities_of_interest_components_storage_duration_unit = TermsFacet(
@@ -5390,14 +5388,6 @@ metadata_general_parameters_chemical_information_entities_of_interest_details_co
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_details_components_organism = VocabularyFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.organism",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism.label"
-    ),
-    vocabulary="organisms",
-)
-
 metadata_general_parameters_chemical_information_entities_of_interest_details_components_polymer_type = TermsFacet(
     field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.polymer_type",
     label=_(
@@ -5610,6 +5600,14 @@ metadata_general_parameters_chemical_information_entities_of_interest_details_co
     label=_(
         "metadata/general_parameters/chemical_information/entities_of_interest/details/components/sequence.label"
     ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_details_components_source_organism = VocabularyFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.details.components.source_organism",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism.label"
+    ),
+    vocabulary="organisms",
 )
 
 metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_duration_unit = TermsFacet(
@@ -6431,14 +6429,6 @@ metadata_general_parameters_instrument_performance_test_sample_composition_name 
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_organism = VocabularyFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.organism",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/organism.label"
-    ),
-    vocabulary="organisms",
-)
-
 metadata_general_parameters_instrument_performance_test_sample_composition_polymer_type = TermsFacet(
     field="metadata.general_parameters.instrument.performance_test.sample_composition.polymer_type",
     label=_(
@@ -6651,6 +6641,14 @@ metadata_general_parameters_instrument_performance_test_sample_composition_seque
     label=_(
         "metadata/general_parameters/instrument/performance_test/sample_composition/sequence.label"
     ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_source_organism = VocabularyFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.source_organism",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism.label"
+    ),
+    vocabulary="organisms",
 )
 
 metadata_general_parameters_instrument_performance_test_sample_composition_storage_duration_unit = TermsFacet(
@@ -7073,14 +7071,6 @@ metadata_general_parameters_instrument_performance_test_sample_composition_compo
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_components_organism = VocabularyFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.organism",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism.label"
-    ),
-    vocabulary="organisms",
-)
-
 metadata_general_parameters_instrument_performance_test_sample_composition_components_polymer_type = TermsFacet(
     field="metadata.general_parameters.instrument.performance_test.sample_composition.components.polymer_type",
     label=_(
@@ -7293,6 +7283,14 @@ metadata_general_parameters_instrument_performance_test_sample_composition_compo
     label=_(
         "metadata/general_parameters/instrument/performance_test/sample_composition/components/sequence.label"
     ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_components_source_organism = VocabularyFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.components.source_organism",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism.label"
+    ),
+    vocabulary="organisms",
 )
 
 metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_duration_unit = TermsFacet(
@@ -7816,14 +7814,6 @@ metadata_general_parameters_instrument_performance_test_sample_composition_detai
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_details_components_organism = VocabularyFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.organism",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism.label"
-    ),
-    vocabulary="organisms",
-)
-
 metadata_general_parameters_instrument_performance_test_sample_composition_details_components_polymer_type = TermsFacet(
     field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.polymer_type",
     label=_(
@@ -8036,6 +8026,14 @@ metadata_general_parameters_instrument_performance_test_sample_composition_detai
     label=_(
         "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/sequence.label"
     ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_details_components_source_organism = VocabularyFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.details.components.source_organism",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism.label"
+    ),
+    vocabulary="organisms",
 )
 
 metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_duration_unit = TermsFacet(
