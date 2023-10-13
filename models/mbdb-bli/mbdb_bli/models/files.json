@@ -1,7 +1,6 @@
 {
     "model": {
         "type": "file",
-        "searchable": true,
         "marshmallow": {
             "imports": [
                 {
@@ -17,6 +16,7 @@
             "class": "mbdb_bli.services.files.schema.MbdbBliFileSchema",
             "extra-code": ""
         },
+        "searchable": true,
         "module": {
             "qualified": "mbdb_bli",
             "prefix": "MbdbBliFile",
@@ -36,9 +36,6 @@
             "extra-fixtures": [],
             "extra-code": "",
             "module": "tests"
-        },
-        "sample": {
-            "file": "data/sample_data.yaml"
         },
         "search-options": {
             "skip": true,
@@ -90,47 +87,10 @@
                 }
             ]
         },
+        "sample": {
+            "file": "data/sample_data.yaml"
+        },
         "model-name": "Mbdb_Bli",
-        "config": {
-            "generate": true,
-            "module": "mbdb_bli.config",
-            "extra_code": "",
-            "imports": []
-        },
-        "ext": {
-            "generate": true,
-            "module": "mbdb_bli.ext",
-            "class": "mbdb_bli.ext.Mbdb_bliExt",
-            "base-classes": [],
-            "extra_code": "",
-            "alias": "mbdb_bli",
-            "imports": []
-        },
-        "api-blueprint": {
-            "generate": true,
-            "alias": "mbdb_bli_file",
-            "extra_code": "",
-            "module": "mbdb_bli.views.files.api",
-            "function": "mbdb_bli.views.files.api.create_api_blueprint",
-            "imports": []
-        },
-        "app-blueprint": {
-            "generate": true,
-            "alias": "mbdb_bli_file",
-            "extra_code": "",
-            "module": "mbdb_bli.views.files.app",
-            "function": "mbdb_bli.views.files.app.create_app_blueprint",
-            "imports": []
-        },
-        "saved-model": {
-            "file": "mbdb_bli/models/files.json",
-            "module": "mbdb_bli.models",
-            "alias": "mbdb_bli_file"
-        },
-        "proxy": {
-            "module": "mbdb_bli.proxies",
-            "generate": true
-        },
         "record": {
             "class": "mbdb_bli.files.api.MbdbBliFile",
             "base-classes": [
@@ -182,44 +142,63 @@
             "generate": true,
             "skip": false
         },
-        "ui": {
-            "module": "mbdb_bli.models",
-            "file": "mbdb_bli/models/ui.json",
-            "alias": "mbdb_bli_file",
-            "marshmallow": {
-                "generate": true,
-                "module": "mbdb_bli.services.files.ui_schema",
-                "class": "mbdb_bli.services.files.ui_schema.MbdbBliFileUISchema",
-                "extra-code": "",
-                "base-classes": [
-                    "InvenioUISchema"
-                ],
-                "imports": [
-                    {
-                        "import": "oarepo_runtime.ui.marshmallow.InvenioUISchema"
-                    }
-                ]
-            }
+        "config": {
+            "generate": true,
+            "module": "mbdb_bli.config",
+            "extra_code": "",
+            "imports": []
         },
-        "json-serializer": {
-            "module": "mbdb_bli.resources.files.ui",
-            "class": "mbdb_bli.resources.files.ui.MbdbBliFileUIJSONSerializer",
-            "base-classes": [
-                "MarshmallowSerializer"
+        "ext": {
+            "generate": true,
+            "module": "mbdb_bli.ext",
+            "class": "mbdb_bli.ext.Mbdb_bliExt",
+            "base-classes": [],
+            "extra_code": "",
+            "alias": "mbdb_bli",
+            "imports": []
+        },
+        "api-blueprint": {
+            "generate": true,
+            "alias": "mbdb_bli_file",
+            "extra_code": "",
+            "module": "mbdb_bli.views.files.api",
+            "function": "mbdb_bli.views.files.api.create_api_blueprint",
+            "imports": []
+        },
+        "app-blueprint": {
+            "generate": true,
+            "alias": "mbdb_bli_file",
+            "extra_code": "",
+            "module": "mbdb_bli.views.files.app",
+            "function": "mbdb_bli.views.files.app.create_app_blueprint",
+            "imports": []
+        },
+        "saved-model": {
+            "file": "mbdb_bli/models/files.json",
+            "module": "mbdb_bli.models",
+            "alias": "mbdb_bli_file"
+        },
+        "proxy": {
+            "module": "mbdb_bli.proxies",
+            "generate": true
+        },
+        "files-field": {
+            "field-args": [
+                "store=False",
+                "create=False",
+                "delete=False"
             ],
+            "generate": true,
+            "field-class": "FilesField",
+            "file-class": "MbdbBliFile",
             "imports": [
                 {
-                    "import": "flask_resources.BaseListSchema"
+                    "import": "invenio_records_resources.records.systemfields.FilesField"
                 },
                 {
-                    "import": "flask_resources.MarshmallowSerializer"
-                },
-                {
-                    "import": "flask_resources.serializers.JSONSerializer"
+                    "import": "mbdb_bli.files.api.MbdbBliFile"
                 }
-            ],
-            "extra-code": "",
-            "generate": true
+            ]
         },
         "record-metadata": {
             "use-versioning": false,
@@ -317,25 +296,72 @@
                 }
             ]
         },
+        "ui": {
+            "module": "mbdb_bli.models",
+            "file": "mbdb_bli/models/ui.json",
+            "alias": "mbdb_bli_file",
+            "marshmallow": {
+                "generate": true,
+                "module": "mbdb_bli.services.files.ui_schema",
+                "class": "mbdb_bli.services.files.ui_schema.MbdbBliFileUISchema",
+                "extra-code": "",
+                "base-classes": [
+                    "InvenioUISchema"
+                ],
+                "imports": [
+                    {
+                        "import": "oarepo_runtime.ui.marshmallow.InvenioUISchema"
+                    }
+                ]
+            }
+        },
+        "json-serializer": {
+            "module": "mbdb_bli.resources.files.ui",
+            "class": "mbdb_bli.resources.files.ui.MbdbBliFileUIJSONSerializer",
+            "base-classes": [
+                "MarshmallowSerializer"
+            ],
+            "imports": [
+                {
+                    "import": "flask_resources.BaseListSchema"
+                },
+                {
+                    "import": "flask_resources.MarshmallowSerializer"
+                },
+                {
+                    "import": "flask_resources.serializers.JSONSerializer"
+                }
+            ],
+            "extra-code": "",
+            "generate": true
+        },
         "translations": {
             "module": "mbdb_bli.translations",
             "alias": "mbdb_bli_file"
         },
-        "files-field": {
-            "field-args": [
-                "store=False",
-                "create=False",
-                "delete=False"
+        "draft-parent-record": {
+            "skip": true
+        },
+        "draft-parent-record-metadata": {
+            "skip": true
+        },
+        "draft-parent-record-state": {
+            "skip": true
+        },
+        "permissions": {
+            "class": "mbdb_bli.services.records.permissions.MbdbBliPermissionPolicy",
+            "generate": false,
+            "presets": [
+                "everyone"
             ],
-            "generate": true,
-            "field-class": "FilesField",
-            "file-class": "MbdbBliFile",
+            "extra-code": "",
+            "module": "mbdb_bli.services.files.permissions",
+            "base-classes": [
+                "RecordPermissionPolicy"
+            ],
             "imports": [
                 {
-                    "import": "invenio_records_resources.records.systemfields.FilesField"
-                },
-                {
-                    "import": "mbdb_bli.files.api.MbdbBliFile"
+                    "import": "invenio_records_permissions.RecordPermissionPolicy"
                 }
             ]
         },
@@ -383,32 +409,6 @@
                     "alias": "PublishedService"
                 }
             ]
-        },
-        "permissions": {
-            "class": "mbdb_bli.services.records.permissions.MbdbBliPermissionPolicy",
-            "generate": false,
-            "presets": [
-                "everyone"
-            ],
-            "extra-code": "",
-            "module": "mbdb_bli.services.files.permissions",
-            "base-classes": [
-                "RecordPermissionPolicy"
-            ],
-            "imports": [
-                {
-                    "import": "invenio_records_permissions.RecordPermissionPolicy"
-                }
-            ]
-        },
-        "draft-parent-record": {
-            "skip": true
-        },
-        "draft-parent-record-metadata": {
-            "skip": true
-        },
-        "draft-parent-record-state": {
-            "skip": true
         },
         "sortable": [],
         "properties": {

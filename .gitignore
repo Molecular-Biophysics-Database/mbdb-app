@@ -5,6 +5,9 @@ __pycache__/
 # Idea software family
 .idea/
 
+# Pycharm attach files
+.attach_pid*
+
 # VScode software
 .vscode/
 

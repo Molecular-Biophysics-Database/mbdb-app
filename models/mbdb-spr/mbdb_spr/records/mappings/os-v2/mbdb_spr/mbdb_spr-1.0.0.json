@@ -5,6 +5,9 @@
                 "type": "keyword",
                 "ignore_above": 1024
             },
+            "collected_default_search_fields": {
+                "type": "text"
+            },
             "created": {
                 "type": "date",
                 "format": "strict_date_time||strict_date_time_no_millis||basic_date_time||basic_date_time_no_millis||basic_date||strict_date||strict_date_hour_minute_second||strict_date_hour_minute_second_fraction"
@@ -41,13 +44,13 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "title": {
-                                                                "dynamic": true,
                                                                 "properties": {
                                                                     "en": {
-                                                                        "type": "search_as_you_type",
-                                                                        "copy_to": "title_sort"
+                                                                        "copy_to": "collected_default_search_fields",
+                                                                        "type": "search_as_you_type"
                                                                     }
                                                                 },
+                                                                "dynamic": true,
                                                                 "type": "object"
                                                             },
                                                             "city": {
@@ -69,20 +72,24 @@
                                                         }
                                                     },
                                                     "family_name": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "given_name": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "identifiers": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     }
                                                 }
                                             },
                                             "pid": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -98,6 +105,7 @@
                                                 "ignore_above": 1024
                                             },
                                             "title": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             }
@@ -122,13 +130,13 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "title": {
-                                                                "dynamic": true,
                                                                 "properties": {
                                                                     "en": {
-                                                                        "type": "search_as_you_type",
-                                                                        "copy_to": "title_sort"
+                                                                        "copy_to": "collected_default_search_fields",
+                                                                        "type": "search_as_you_type"
                                                                     }
                                                                 },
+                                                                "dynamic": true,
                                                                 "type": "object"
                                                             },
                                                             "city": {
@@ -150,20 +158,24 @@
                                                         }
                                                     },
                                                     "family_name": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "given_name": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "identifiers": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     }
                                                 }
                                             },
                                             "pid": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -179,6 +191,7 @@
                                                 "ignore_above": 1024
                                             },
                                             "title": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             }
@@ -193,6 +206,7 @@
                                         "type": "nested",
                                         "properties": {
                                             "additional_specifications": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -200,6 +214,7 @@
                                                 "type": "nested",
                                                 "properties": {
                                                     "additional_specifications": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -207,6 +222,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "obtained_by": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -224,6 +240,7 @@
                                                                 }
                                                             },
                                                             "unit": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -286,6 +303,7 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "external_databases": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -376,6 +394,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "unit": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -402,42 +421,12 @@
                                                         }
                                                     },
                                                     "name": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
-                                                    "organism": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "id": {
-                                                                "fields": {
-                                                                    "text": {
-                                                                        "type": "search_as_you_type"
-                                                                    }
-                                                                },
-                                                                "type": "keyword",
-                                                                "ignore_above": 1024
-                                                            },
-                                                            "title": {
-                                                                "dynamic": true,
-                                                                "properties": {
-                                                                    "en": {
-                                                                        "type": "search_as_you_type",
-                                                                        "copy_to": "title_sort"
-                                                                    }
-                                                                },
-                                                                "type": "object"
-                                                            },
-                                                            "rank": {
-                                                                "type": "keyword",
-                                                                "ignore_above": 1024
-                                                            },
-                                                            "@v": {
-                                                                "type": "keyword",
-                                                                "ignore_above": 1024
-                                                            }
-                                                        }
-                                                    },
                                                     "polymer_type": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -459,6 +448,7 @@
                                                                         "type": "object",
                                                                         "properties": {
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -504,6 +494,7 @@
                                                                                 "type": "boolean"
                                                                             },
                                                                             "obtained_by": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -512,6 +503,7 @@
                                                                                 "ignore_above": 1024
                                                                             },
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -546,8 +538,41 @@
                                                         }
                                                     },
                                                     "sequence": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
+                                                    },
+                                                    "source_organism": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
+                                                                    }
+                                                                },
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "title": {
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "copy_to": "collected_default_search_fields",
+                                                                        "type": "search_as_you_type"
+                                                                    }
+                                                                },
+                                                                "dynamic": true,
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "@v": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            }
+                                                        }
                                                     },
                                                     "storage": {
                                                         "type": "object",
@@ -556,6 +581,7 @@
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "unit": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -601,6 +627,7 @@
                                                                         "type": "boolean"
                                                                     },
                                                                     "obtained_by": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -609,6 +636,7 @@
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "unit": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -644,6 +672,7 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "further_information": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -658,14 +687,17 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "variant": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "additional_identifiers": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "inchikey": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -703,6 +735,7 @@
                                                         "type": "nested",
                                                         "properties": {
                                                             "additional_specifications": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -746,6 +779,7 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "external_databases": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -836,6 +870,7 @@
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "unit": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -862,42 +897,12 @@
                                                                 }
                                                             },
                                                             "name": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
-                                                            "organism": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "id": {
-                                                                        "fields": {
-                                                                            "text": {
-                                                                                "type": "search_as_you_type"
-                                                                            }
-                                                                        },
-                                                                        "type": "keyword",
-                                                                        "ignore_above": 1024
-                                                                    },
-                                                                    "title": {
-                                                                        "dynamic": true,
-                                                                        "properties": {
-                                                                            "en": {
-                                                                                "type": "search_as_you_type",
-                                                                                "copy_to": "title_sort"
-                                                                            }
-                                                                        },
-                                                                        "type": "object"
-                                                                    },
-                                                                    "rank": {
-                                                                        "type": "keyword",
-                                                                        "ignore_above": 1024
-                                                                    },
-                                                                    "@v": {
-                                                                        "type": "keyword",
-                                                                        "ignore_above": 1024
-                                                                    }
-                                                                }
-                                                            },
                                                             "polymer_type": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -919,6 +924,7 @@
                                                                                 "type": "object",
                                                                                 "properties": {
                                                                                     "unit": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -964,6 +970,7 @@
                                                                                         "type": "boolean"
                                                                                     },
                                                                                     "obtained_by": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -972,6 +979,7 @@
                                                                                         "ignore_above": 1024
                                                                                     },
                                                                                     "unit": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -1006,8 +1014,41 @@
                                                                 }
                                                             },
                                                             "sequence": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
+                                                            },
+                                                            "source_organism": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "fields": {
+                                                                            "text": {
+                                                                                "type": "search_as_you_type"
+                                                                            }
+                                                                        },
+                                                                        "type": "keyword",
+                                                                        "ignore_above": 1024
+                                                                    },
+                                                                    "title": {
+                                                                        "properties": {
+                                                                            "en": {
+                                                                                "copy_to": "collected_default_search_fields",
+                                                                                "type": "search_as_you_type"
+                                                                            }
+                                                                        },
+                                                                        "dynamic": true,
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "keyword",
+                                                                        "ignore_above": 1024
+                                                                    },
+                                                                    "@v": {
+                                                                        "type": "keyword",
+                                                                        "ignore_above": 1024
+                                                                    }
+                                                                }
                                                             },
                                                             "storage": {
                                                                 "type": "object",
@@ -1016,6 +1057,7 @@
                                                                         "type": "object",
                                                                         "properties": {
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -1061,6 +1103,7 @@
                                                                                 "type": "boolean"
                                                                             },
                                                                             "obtained_by": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -1069,6 +1112,7 @@
                                                                                 "ignore_above": 1024
                                                                             },
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -1104,6 +1148,7 @@
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "further_information": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -1118,14 +1163,17 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "variant": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
                                                             "additional_identifiers": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
                                                             "inchikey": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -1153,6 +1201,7 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "fluid": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -1165,6 +1214,7 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "fraction": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -1236,6 +1286,7 @@
                                                         }
                                                     },
                                                     "source": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -1263,6 +1314,7 @@
                                                                 "type": "nested",
                                                                 "properties": {
                                                                     "additional_specifications": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -1306,6 +1358,7 @@
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "external_databases": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -1396,6 +1449,7 @@
                                                                         "type": "object",
                                                                         "properties": {
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -1422,42 +1476,12 @@
                                                                         }
                                                                     },
                                                                     "name": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
-                                                                    "organism": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "id": {
-                                                                                "fields": {
-                                                                                    "text": {
-                                                                                        "type": "search_as_you_type"
-                                                                                    }
-                                                                                },
-                                                                                "type": "keyword",
-                                                                                "ignore_above": 1024
-                                                                            },
-                                                                            "title": {
-                                                                                "dynamic": true,
-                                                                                "properties": {
-                                                                                    "en": {
-                                                                                        "type": "search_as_you_type",
-                                                                                        "copy_to": "title_sort"
-                                                                                    }
-                                                                                },
-                                                                                "type": "object"
-                                                                            },
-                                                                            "rank": {
-                                                                                "type": "keyword",
-                                                                                "ignore_above": 1024
-                                                                            },
-                                                                            "@v": {
-                                                                                "type": "keyword",
-                                                                                "ignore_above": 1024
-                                                                            }
-                                                                        }
-                                                                    },
                                                                     "polymer_type": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -1479,6 +1503,7 @@
                                                                                         "type": "object",
                                                                                         "properties": {
                                                                                             "unit": {
+                                                                                                "copy_to": "collected_default_search_fields",
                                                                                                 "type": "keyword",
                                                                                                 "ignore_above": 1024
                                                                                             },
@@ -1524,6 +1549,7 @@
                                                                                                 "type": "boolean"
                                                                                             },
                                                                                             "obtained_by": {
+                                                                                                "copy_to": "collected_default_search_fields",
                                                                                                 "type": "keyword",
                                                                                                 "ignore_above": 1024
                                                                                             },
@@ -1532,6 +1558,7 @@
                                                                                                 "ignore_above": 1024
                                                                                             },
                                                                                             "unit": {
+                                                                                                "copy_to": "collected_default_search_fields",
                                                                                                 "type": "keyword",
                                                                                                 "ignore_above": 1024
                                                                                             },
@@ -1566,8 +1593,41 @@
                                                                         }
                                                                     },
                                                                     "sequence": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
+                                                                    },
+                                                                    "source_organism": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "id": {
+                                                                                "fields": {
+                                                                                    "text": {
+                                                                                        "type": "search_as_you_type"
+                                                                                    }
+                                                                                },
+                                                                                "type": "keyword",
+                                                                                "ignore_above": 1024
+                                                                            },
+                                                                            "title": {
+                                                                                "properties": {
+                                                                                    "en": {
+                                                                                        "copy_to": "collected_default_search_fields",
+                                                                                        "type": "search_as_you_type"
+                                                                                    }
+                                                                                },
+                                                                                "dynamic": true,
+                                                                                "type": "object"
+                                                                            },
+                                                                            "rank": {
+                                                                                "type": "keyword",
+                                                                                "ignore_above": 1024
+                                                                            },
+                                                                            "@v": {
+                                                                                "type": "keyword",
+                                                                                "ignore_above": 1024
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "storage": {
                                                                         "type": "object",
@@ -1576,6 +1636,7 @@
                                                                                 "type": "object",
                                                                                 "properties": {
                                                                                     "unit": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -1621,6 +1682,7 @@
                                                                                         "type": "boolean"
                                                                                     },
                                                                                     "obtained_by": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -1629,6 +1691,7 @@
                                                                                         "ignore_above": 1024
                                                                                     },
                                                                                     "unit": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -1664,6 +1727,7 @@
                                                                                 "ignore_above": 1024
                                                                             },
                                                                             "further_information": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -1678,14 +1742,17 @@
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "variant": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "additional_identifiers": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "inchikey": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -1719,6 +1786,7 @@
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "unit": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -1734,6 +1802,7 @@
                                                         }
                                                     },
                                                     "product": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     }
@@ -1747,6 +1816,7 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "obtained_by": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -1784,6 +1854,7 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "unit": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -1800,6 +1871,7 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "obtained_by": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -1829,10 +1901,12 @@
                                                 "type": "nested",
                                                 "properties": {
                                                     "additional_identifiers": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "additional_specifications": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -1840,6 +1914,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "obtained_by": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -1857,6 +1932,7 @@
                                                                 }
                                                             },
                                                             "unit": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -1883,6 +1959,7 @@
                                                         }
                                                     },
                                                     "inchikey": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -1894,6 +1971,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "unit": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -1920,6 +1998,7 @@
                                                         }
                                                     },
                                                     "name": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -1941,6 +2020,7 @@
                                                                         "type": "object",
                                                                         "properties": {
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -1986,6 +2066,7 @@
                                                                                 "type": "boolean"
                                                                             },
                                                                             "obtained_by": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -1994,6 +2075,7 @@
                                                                                 "ignore_above": 1024
                                                                             },
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -2035,6 +2117,7 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "further_information": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -2069,6 +2152,7 @@
                                         "type": "nested",
                                         "properties": {
                                             "additional_specifications": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -2109,10 +2193,12 @@
                                                 "ignore_above": 1024
                                             },
                                             "external_databases": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "id": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -2203,6 +2289,7 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "unit": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -2229,42 +2316,12 @@
                                                 }
                                             },
                                             "name": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
-                                            "organism": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "id": {
-                                                        "fields": {
-                                                            "text": {
-                                                                "type": "search_as_you_type"
-                                                            }
-                                                        },
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
-                                                    "title": {
-                                                        "dynamic": true,
-                                                        "properties": {
-                                                            "en": {
-                                                                "type": "search_as_you_type",
-                                                                "copy_to": "title_sort"
-                                                            }
-                                                        },
-                                                        "type": "object"
-                                                    },
-                                                    "rank": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
-                                                    "@v": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    }
-                                                }
-                                            },
                                             "polymer_type": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -2286,6 +2343,7 @@
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "unit": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -2331,6 +2389,7 @@
                                                                         "type": "boolean"
                                                                     },
                                                                     "obtained_by": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -2339,6 +2398,7 @@
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "unit": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -2373,8 +2433,41 @@
                                                 }
                                             },
                                             "sequence": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
+                                            },
+                                            "source_organism": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "fields": {
+                                                            "text": {
+                                                                "type": "search_as_you_type"
+                                                            }
+                                                        },
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "title": {
+                                                        "properties": {
+                                                            "en": {
+                                                                "copy_to": "collected_default_search_fields",
+                                                                "type": "search_as_you_type"
+                                                            }
+                                                        },
+                                                        "dynamic": true,
+                                                        "type": "object"
+                                                    },
+                                                    "rank": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "@v": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
                                             },
                                             "storage": {
                                                 "type": "object",
@@ -2383,6 +2476,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "unit": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -2428,6 +2522,7 @@
                                                                 "type": "boolean"
                                                             },
                                                             "obtained_by": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -2436,6 +2531,7 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "unit": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -2471,6 +2567,7 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "further_information": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -2481,18 +2578,22 @@
                                                 }
                                             },
                                             "type": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "variant": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "additional_identifiers": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "inchikey": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -2530,6 +2631,7 @@
                                                 "type": "nested",
                                                 "properties": {
                                                     "additional_specifications": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -2573,6 +2675,7 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "external_databases": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -2663,6 +2766,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "unit": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -2689,42 +2793,12 @@
                                                         }
                                                     },
                                                     "name": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
-                                                    "organism": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "id": {
-                                                                "fields": {
-                                                                    "text": {
-                                                                        "type": "search_as_you_type"
-                                                                    }
-                                                                },
-                                                                "type": "keyword",
-                                                                "ignore_above": 1024
-                                                            },
-                                                            "title": {
-                                                                "dynamic": true,
-                                                                "properties": {
-                                                                    "en": {
-                                                                        "type": "search_as_you_type",
-                                                                        "copy_to": "title_sort"
-                                                                    }
-                                                                },
-                                                                "type": "object"
-                                                            },
-                                                            "rank": {
-                                                                "type": "keyword",
-                                                                "ignore_above": 1024
-                                                            },
-                                                            "@v": {
-                                                                "type": "keyword",
-                                                                "ignore_above": 1024
-                                                            }
-                                                        }
-                                                    },
                                                     "polymer_type": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -2746,6 +2820,7 @@
                                                                         "type": "object",
                                                                         "properties": {
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -2791,6 +2866,7 @@
                                                                                 "type": "boolean"
                                                                             },
                                                                             "obtained_by": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -2799,6 +2875,7 @@
                                                                                 "ignore_above": 1024
                                                                             },
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -2833,8 +2910,41 @@
                                                         }
                                                     },
                                                     "sequence": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
+                                                    },
+                                                    "source_organism": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
+                                                                    }
+                                                                },
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "title": {
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "copy_to": "collected_default_search_fields",
+                                                                        "type": "search_as_you_type"
+                                                                    }
+                                                                },
+                                                                "dynamic": true,
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "@v": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            }
+                                                        }
                                                     },
                                                     "storage": {
                                                         "type": "object",
@@ -2843,6 +2953,7 @@
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "unit": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -2888,6 +2999,7 @@
                                                                         "type": "boolean"
                                                                     },
                                                                     "obtained_by": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -2896,6 +3008,7 @@
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "unit": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -2931,6 +3044,7 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "further_information": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -2945,14 +3059,17 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "variant": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "additional_identifiers": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "inchikey": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -2980,6 +3097,7 @@
                                                 "ignore_above": 1024
                                             },
                                             "fluid": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -2992,6 +3110,7 @@
                                                 "ignore_above": 1024
                                             },
                                             "fraction": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -3063,6 +3182,7 @@
                                                 }
                                             },
                                             "source": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -3090,6 +3210,7 @@
                                                         "type": "nested",
                                                         "properties": {
                                                             "additional_specifications": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -3133,6 +3254,7 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "external_databases": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -3223,6 +3345,7 @@
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "unit": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -3249,42 +3372,12 @@
                                                                 }
                                                             },
                                                             "name": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
-                                                            "organism": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "id": {
-                                                                        "fields": {
-                                                                            "text": {
-                                                                                "type": "search_as_you_type"
-                                                                            }
-                                                                        },
-                                                                        "type": "keyword",
-                                                                        "ignore_above": 1024
-                                                                    },
-                                                                    "title": {
-                                                                        "dynamic": true,
-                                                                        "properties": {
-                                                                            "en": {
-                                                                                "type": "search_as_you_type",
-                                                                                "copy_to": "title_sort"
-                                                                            }
-                                                                        },
-                                                                        "type": "object"
-                                                                    },
-                                                                    "rank": {
-                                                                        "type": "keyword",
-                                                                        "ignore_above": 1024
-                                                                    },
-                                                                    "@v": {
-                                                                        "type": "keyword",
-                                                                        "ignore_above": 1024
-                                                                    }
-                                                                }
-                                                            },
                                                             "polymer_type": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -3306,6 +3399,7 @@
                                                                                 "type": "object",
                                                                                 "properties": {
                                                                                     "unit": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -3351,6 +3445,7 @@
                                                                                         "type": "boolean"
                                                                                     },
                                                                                     "obtained_by": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -3359,6 +3454,7 @@
                                                                                         "ignore_above": 1024
                                                                                     },
                                                                                     "unit": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -3393,8 +3489,41 @@
                                                                 }
                                                             },
                                                             "sequence": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
+                                                            },
+                                                            "source_organism": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "fields": {
+                                                                            "text": {
+                                                                                "type": "search_as_you_type"
+                                                                            }
+                                                                        },
+                                                                        "type": "keyword",
+                                                                        "ignore_above": 1024
+                                                                    },
+                                                                    "title": {
+                                                                        "properties": {
+                                                                            "en": {
+                                                                                "copy_to": "collected_default_search_fields",
+                                                                                "type": "search_as_you_type"
+                                                                            }
+                                                                        },
+                                                                        "dynamic": true,
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "keyword",
+                                                                        "ignore_above": 1024
+                                                                    },
+                                                                    "@v": {
+                                                                        "type": "keyword",
+                                                                        "ignore_above": 1024
+                                                                    }
+                                                                }
                                                             },
                                                             "storage": {
                                                                 "type": "object",
@@ -3403,6 +3532,7 @@
                                                                         "type": "object",
                                                                         "properties": {
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -3448,6 +3578,7 @@
                                                                                 "type": "boolean"
                                                                             },
                                                                             "obtained_by": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -3456,6 +3587,7 @@
                                                                                 "ignore_above": 1024
                                                                             },
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -3491,6 +3623,7 @@
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "further_information": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -3505,14 +3638,17 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "variant": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
                                                             "additional_identifiers": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
                                                             "inchikey": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -3546,6 +3682,7 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "unit": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -3561,6 +3698,7 @@
                                                 }
                                             },
                                             "product": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             }
@@ -3591,13 +3729,13 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "title": {
-                                                        "dynamic": true,
                                                         "properties": {
                                                             "en": {
-                                                                "type": "search_as_you_type",
-                                                                "copy_to": "title_sort"
+                                                                "copy_to": "collected_default_search_fields",
+                                                                "type": "search_as_you_type"
                                                             }
                                                         },
+                                                        "dynamic": true,
                                                         "type": "object"
                                                     },
                                                     "city": {
@@ -3619,14 +3757,17 @@
                                                 }
                                             },
                                             "family_name": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "given_name": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "identifiers": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             }
@@ -3648,13 +3789,13 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "title": {
-                                                        "dynamic": true,
                                                         "properties": {
                                                             "en": {
-                                                                "type": "search_as_you_type",
-                                                                "copy_to": "title_sort"
+                                                                "copy_to": "collected_default_search_fields",
+                                                                "type": "search_as_you_type"
                                                             }
                                                         },
+                                                        "dynamic": true,
                                                         "type": "object"
                                                     },
                                                     "city": {
@@ -3676,14 +3817,17 @@
                                                 }
                                             },
                                             "family_name": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "given_name": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "identifiers": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             }
@@ -3705,13 +3849,13 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "title": {
-                                                        "dynamic": true,
                                                         "properties": {
                                                             "en": {
-                                                                "type": "search_as_you_type",
-                                                                "copy_to": "title_sort"
+                                                                "copy_to": "collected_default_search_fields",
+                                                                "type": "search_as_you_type"
                                                             }
                                                         },
+                                                        "dynamic": true,
                                                         "type": "object"
                                                     },
                                                     "city": {
@@ -3733,14 +3877,17 @@
                                                 }
                                             },
                                             "family_name": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "given_name": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "identifiers": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             }
@@ -3761,10 +3908,12 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "id": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "name": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -3781,10 +3930,12 @@
                                         "ignore_above": 1024
                                     },
                                     "name": {
+                                        "copy_to": "collected_default_search_fields",
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     },
                                     "type": {
+                                        "copy_to": "collected_default_search_fields",
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     },
@@ -3827,13 +3978,13 @@
                                         "ignore_above": 1024
                                     },
                                     "title": {
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
-                                                "type": "search_as_you_type",
-                                                "copy_to": "title_sort"
+                                                "copy_to": "collected_default_search_fields",
+                                                "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "type": "object"
                                     },
                                     "funder_name": {
@@ -3850,6 +4001,7 @@
                                 "type": "object",
                                 "properties": {
                                     "manufacturer": {
+                                        "copy_to": "collected_default_search_fields",
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     },
@@ -3887,13 +4039,13 @@
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "title": {
-                                                                        "dynamic": true,
                                                                         "properties": {
                                                                             "en": {
-                                                                                "type": "search_as_you_type",
-                                                                                "copy_to": "title_sort"
+                                                                                "copy_to": "collected_default_search_fields",
+                                                                                "type": "search_as_you_type"
                                                                             }
                                                                         },
+                                                                        "dynamic": true,
                                                                         "type": "object"
                                                                     },
                                                                     "city": {
@@ -3915,20 +4067,24 @@
                                                                 }
                                                             },
                                                             "family_name": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
                                                             "given_name": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
                                                             "identifiers": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             }
                                                         }
                                                     },
                                                     "pid": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -3944,6 +4100,7 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "title": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     }
@@ -3957,6 +4114,7 @@
                                                 "type": "nested",
                                                 "properties": {
                                                     "additional_specifications": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -3964,6 +4122,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "obtained_by": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -3981,6 +4140,7 @@
                                                                 }
                                                             },
                                                             "unit": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -4043,6 +4203,7 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "external_databases": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -4133,6 +4294,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "unit": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -4159,42 +4321,12 @@
                                                         }
                                                     },
                                                     "name": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
-                                                    "organism": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "id": {
-                                                                "fields": {
-                                                                    "text": {
-                                                                        "type": "search_as_you_type"
-                                                                    }
-                                                                },
-                                                                "type": "keyword",
-                                                                "ignore_above": 1024
-                                                            },
-                                                            "title": {
-                                                                "dynamic": true,
-                                                                "properties": {
-                                                                    "en": {
-                                                                        "type": "search_as_you_type",
-                                                                        "copy_to": "title_sort"
-                                                                    }
-                                                                },
-                                                                "type": "object"
-                                                            },
-                                                            "rank": {
-                                                                "type": "keyword",
-                                                                "ignore_above": 1024
-                                                            },
-                                                            "@v": {
-                                                                "type": "keyword",
-                                                                "ignore_above": 1024
-                                                            }
-                                                        }
-                                                    },
                                                     "polymer_type": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -4216,6 +4348,7 @@
                                                                         "type": "object",
                                                                         "properties": {
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -4261,6 +4394,7 @@
                                                                                 "type": "boolean"
                                                                             },
                                                                             "obtained_by": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -4269,6 +4403,7 @@
                                                                                 "ignore_above": 1024
                                                                             },
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -4303,8 +4438,41 @@
                                                         }
                                                     },
                                                     "sequence": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
+                                                    },
+                                                    "source_organism": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
+                                                                    }
+                                                                },
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "title": {
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "copy_to": "collected_default_search_fields",
+                                                                        "type": "search_as_you_type"
+                                                                    }
+                                                                },
+                                                                "dynamic": true,
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "@v": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            }
+                                                        }
                                                     },
                                                     "storage": {
                                                         "type": "object",
@@ -4313,6 +4481,7 @@
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "unit": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -4358,6 +4527,7 @@
                                                                         "type": "boolean"
                                                                     },
                                                                     "obtained_by": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -4366,6 +4536,7 @@
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "unit": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -4401,6 +4572,7 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "further_information": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -4415,14 +4587,17 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "variant": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "additional_identifiers": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "inchikey": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -4460,6 +4635,7 @@
                                                         "type": "nested",
                                                         "properties": {
                                                             "additional_specifications": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -4503,6 +4679,7 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "external_databases": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -4593,6 +4770,7 @@
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "unit": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -4619,42 +4797,12 @@
                                                                 }
                                                             },
                                                             "name": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
-                                                            "organism": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "id": {
-                                                                        "fields": {
-                                                                            "text": {
-                                                                                "type": "search_as_you_type"
-                                                                            }
-                                                                        },
-                                                                        "type": "keyword",
-                                                                        "ignore_above": 1024
-                                                                    },
-                                                                    "title": {
-                                                                        "dynamic": true,
-                                                                        "properties": {
-                                                                            "en": {
-                                                                                "type": "search_as_you_type",
-                                                                                "copy_to": "title_sort"
-                                                                            }
-                                                                        },
-                                                                        "type": "object"
-                                                                    },
-                                                                    "rank": {
-                                                                        "type": "keyword",
-                                                                        "ignore_above": 1024
-                                                                    },
-                                                                    "@v": {
-                                                                        "type": "keyword",
-                                                                        "ignore_above": 1024
-                                                                    }
-                                                                }
-                                                            },
                                                             "polymer_type": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -4676,6 +4824,7 @@
                                                                                 "type": "object",
                                                                                 "properties": {
                                                                                     "unit": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -4721,6 +4870,7 @@
                                                                                         "type": "boolean"
                                                                                     },
                                                                                     "obtained_by": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -4729,6 +4879,7 @@
                                                                                         "ignore_above": 1024
                                                                                     },
                                                                                     "unit": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -4763,8 +4914,41 @@
                                                                 }
                                                             },
                                                             "sequence": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
+                                                            },
+                                                            "source_organism": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "fields": {
+                                                                            "text": {
+                                                                                "type": "search_as_you_type"
+                                                                            }
+                                                                        },
+                                                                        "type": "keyword",
+                                                                        "ignore_above": 1024
+                                                                    },
+                                                                    "title": {
+                                                                        "properties": {
+                                                                            "en": {
+                                                                                "copy_to": "collected_default_search_fields",
+                                                                                "type": "search_as_you_type"
+                                                                            }
+                                                                        },
+                                                                        "dynamic": true,
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "keyword",
+                                                                        "ignore_above": 1024
+                                                                    },
+                                                                    "@v": {
+                                                                        "type": "keyword",
+                                                                        "ignore_above": 1024
+                                                                    }
+                                                                }
                                                             },
                                                             "storage": {
                                                                 "type": "object",
@@ -4773,6 +4957,7 @@
                                                                         "type": "object",
                                                                         "properties": {
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -4818,6 +5003,7 @@
                                                                                 "type": "boolean"
                                                                             },
                                                                             "obtained_by": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -4826,6 +5012,7 @@
                                                                                 "ignore_above": 1024
                                                                             },
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -4861,6 +5048,7 @@
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "further_information": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -4875,14 +5063,17 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "variant": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
                                                             "additional_identifiers": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
                                                             "inchikey": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -4910,6 +5101,7 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "fluid": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -4922,6 +5114,7 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "fraction": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -4993,6 +5186,7 @@
                                                         }
                                                     },
                                                     "source": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -5020,6 +5214,7 @@
                                                                 "type": "nested",
                                                                 "properties": {
                                                                     "additional_specifications": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -5063,6 +5258,7 @@
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "external_databases": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -5153,6 +5349,7 @@
                                                                         "type": "object",
                                                                         "properties": {
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -5179,42 +5376,12 @@
                                                                         }
                                                                     },
                                                                     "name": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
-                                                                    "organism": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "id": {
-                                                                                "fields": {
-                                                                                    "text": {
-                                                                                        "type": "search_as_you_type"
-                                                                                    }
-                                                                                },
-                                                                                "type": "keyword",
-                                                                                "ignore_above": 1024
-                                                                            },
-                                                                            "title": {
-                                                                                "dynamic": true,
-                                                                                "properties": {
-                                                                                    "en": {
-                                                                                        "type": "search_as_you_type",
-                                                                                        "copy_to": "title_sort"
-                                                                                    }
-                                                                                },
-                                                                                "type": "object"
-                                                                            },
-                                                                            "rank": {
-                                                                                "type": "keyword",
-                                                                                "ignore_above": 1024
-                                                                            },
-                                                                            "@v": {
-                                                                                "type": "keyword",
-                                                                                "ignore_above": 1024
-                                                                            }
-                                                                        }
-                                                                    },
                                                                     "polymer_type": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -5236,6 +5403,7 @@
                                                                                         "type": "object",
                                                                                         "properties": {
                                                                                             "unit": {
+                                                                                                "copy_to": "collected_default_search_fields",
                                                                                                 "type": "keyword",
                                                                                                 "ignore_above": 1024
                                                                                             },
@@ -5281,6 +5449,7 @@
                                                                                                 "type": "boolean"
                                                                                             },
                                                                                             "obtained_by": {
+                                                                                                "copy_to": "collected_default_search_fields",
                                                                                                 "type": "keyword",
                                                                                                 "ignore_above": 1024
                                                                                             },
@@ -5289,6 +5458,7 @@
                                                                                                 "ignore_above": 1024
                                                                                             },
                                                                                             "unit": {
+                                                                                                "copy_to": "collected_default_search_fields",
                                                                                                 "type": "keyword",
                                                                                                 "ignore_above": 1024
                                                                                             },
@@ -5323,8 +5493,41 @@
                                                                         }
                                                                     },
                                                                     "sequence": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
+                                                                    },
+                                                                    "source_organism": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "id": {
+                                                                                "fields": {
+                                                                                    "text": {
+                                                                                        "type": "search_as_you_type"
+                                                                                    }
+                                                                                },
+                                                                                "type": "keyword",
+                                                                                "ignore_above": 1024
+                                                                            },
+                                                                            "title": {
+                                                                                "properties": {
+                                                                                    "en": {
+                                                                                        "copy_to": "collected_default_search_fields",
+                                                                                        "type": "search_as_you_type"
+                                                                                    }
+                                                                                },
+                                                                                "dynamic": true,
+                                                                                "type": "object"
+                                                                            },
+                                                                            "rank": {
+                                                                                "type": "keyword",
+                                                                                "ignore_above": 1024
+                                                                            },
+                                                                            "@v": {
+                                                                                "type": "keyword",
+                                                                                "ignore_above": 1024
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "storage": {
                                                                         "type": "object",
@@ -5333,6 +5536,7 @@
                                                                                 "type": "object",
                                                                                 "properties": {
                                                                                     "unit": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -5378,6 +5582,7 @@
                                                                                         "type": "boolean"
                                                                                     },
                                                                                     "obtained_by": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -5386,6 +5591,7 @@
                                                                                         "ignore_above": 1024
                                                                                     },
                                                                                     "unit": {
+                                                                                        "copy_to": "collected_default_search_fields",
                                                                                         "type": "keyword",
                                                                                         "ignore_above": 1024
                                                                                     },
@@ -5421,6 +5627,7 @@
                                                                                 "ignore_above": 1024
                                                                             },
                                                                             "further_information": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -5435,14 +5642,17 @@
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "variant": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "additional_identifiers": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "inchikey": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -5476,6 +5686,7 @@
                                                                         "ignore_above": 1024
                                                                     },
                                                                     "unit": {
+                                                                        "copy_to": "collected_default_search_fields",
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
@@ -5491,6 +5702,7 @@
                                                         }
                                                     },
                                                     "product": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     }
@@ -5510,10 +5722,12 @@
                                                 "type": "nested",
                                                 "properties": {
                                                     "additional_identifiers": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "additional_specifications": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -5521,6 +5735,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "obtained_by": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -5538,6 +5753,7 @@
                                                                 }
                                                             },
                                                             "unit": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -5564,6 +5780,7 @@
                                                         }
                                                     },
                                                     "inchikey": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -5575,6 +5792,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "unit": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -5601,6 +5819,7 @@
                                                         }
                                                     },
                                                     "name": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -5622,6 +5841,7 @@
                                                                         "type": "object",
                                                                         "properties": {
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -5667,6 +5887,7 @@
                                                                                 "type": "boolean"
                                                                             },
                                                                             "obtained_by": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -5675,6 +5896,7 @@
                                                                                 "ignore_above": 1024
                                                                             },
                                                                             "unit": {
+                                                                                "copy_to": "collected_default_search_fields",
                                                                                 "type": "keyword",
                                                                                 "ignore_above": 1024
                                                                             },
@@ -5716,6 +5938,7 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "further_information": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -5740,10 +5963,12 @@
                                                 "type": "boolean"
                                             },
                                             "obtained_by": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "unit": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -5776,10 +6001,12 @@
                                                 "type": "boolean"
                                             },
                                             "obtained_by": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "unit": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -5812,6 +6039,7 @@
                                                 "type": "boolean"
                                             },
                                             "obtained_by": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -5820,6 +6048,7 @@
                                                 "ignore_above": 1024
                                             },
                                             "unit": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -5875,6 +6104,7 @@
                                         "ignore_above": 1024
                                     },
                                     "keywords": {
+                                        "copy_to": "collected_default_search_fields",
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     },
@@ -5913,13 +6143,13 @@
                                                                 "ignore_above": 1024
                                                             },
                                                             "title": {
-                                                                "dynamic": true,
                                                                 "properties": {
                                                                     "en": {
-                                                                        "type": "search_as_you_type",
-                                                                        "copy_to": "title_sort"
+                                                                        "copy_to": "collected_default_search_fields",
+                                                                        "type": "search_as_you_type"
                                                                     }
                                                                 },
+                                                                "dynamic": true,
                                                                 "type": "object"
                                                             },
                                                             "city": {
@@ -5941,20 +6171,24 @@
                                                         }
                                                     },
                                                     "family_name": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "given_name": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "identifiers": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     }
                                                 }
                                             },
                                             "title": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             }
@@ -5977,6 +6211,7 @@
                                         "ignore_above": 1024
                                     },
                                     "title": {
+                                        "copy_to": "collected_default_search_fields",
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     }
@@ -5987,6 +6222,7 @@
                                 "ignore_above": 1024
                             },
                             "technique": {
+                                "copy_to": "collected_default_search_fields",
                                 "type": "keyword",
                                 "ignore_above": 1024
                             }
@@ -6059,6 +6295,7 @@
                                                 "ignore_above": 1024
                                             },
                                             "name": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -6109,10 +6346,12 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "id": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "name": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -6182,6 +6421,7 @@
                                                 "type": "double"
                                             },
                                             "unit": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             }
@@ -6199,6 +6439,7 @@
                                         "type": "object",
                                         "properties": {
                                             "unit": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -6228,6 +6469,7 @@
                                         "type": "object",
                                         "properties": {
                                             "unit": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -6314,6 +6556,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "obtained_by": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -6331,6 +6574,7 @@
                                                                 }
                                                             },
                                                             "unit": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -6360,10 +6604,12 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "id": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
                                                             "name": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -6433,6 +6679,7 @@
                                                         "type": "boolean"
                                                     },
                                                     "obtained_by": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -6441,6 +6688,7 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "unit": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -6478,6 +6726,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "obtained_by": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -6495,6 +6744,7 @@
                                                                 }
                                                             },
                                                             "unit": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -6524,10 +6774,12 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "id": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
                                                             "name": {
+                                                                "copy_to": "collected_default_search_fields",
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
@@ -6597,6 +6849,7 @@
                                                         "type": "boolean"
                                                     },
                                                     "obtained_by": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -6605,6 +6858,7 @@
                                                         "ignore_above": 1024
                                                     },
                                                     "unit": {
+                                                        "copy_to": "collected_default_search_fields",
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -6660,6 +6914,7 @@
                                                 "ignore_above": 1024
                                             },
                                             "further_information": {
+                                                "copy_to": "collected_default_search_fields",
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -6687,6 +6942,7 @@
     },
     "settings": {
         "index.mapping.total_fields.limit": 3000,
-        "index.mapping.nested_fields.limit": 200
+        "index.mapping.nested_fields.limit": 200,
+        "index.query.default_field": "collected_default_search_fields"
     }
 }
