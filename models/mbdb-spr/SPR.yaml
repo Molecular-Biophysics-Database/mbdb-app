@@ -353,7 +353,7 @@ $defs:
         ^ui_file_context:
           type: keyword
           enum: [raw measurement data]
-        type: url
+        type: keyword
   Record_information:
     properties:
       title:

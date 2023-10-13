@@ -12977,8 +12977,8 @@
                             "label": "metadata/general_parameters/raw_measurements.label",
                             "hint": "metadata/general_parameters/raw_measurements.hint",
                             "child": {
-                                "detail": "url",
-                                "input": "url",
+                                "detail": "keyword",
+                                "input": "keyword",
                                 "help": "metadata/general_parameters/raw_measurements.help",
                                 "label": "metadata/general_parameters/raw_measurements.label",
                                 "hint": "metadata/general_parameters/raw_measurements.hint",
