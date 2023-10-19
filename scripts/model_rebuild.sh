@@ -21,7 +21,7 @@ do
     modname=mbdb-$mod
     ./nrp model add $modname \
        --use mbdb-model/models/oarepo/"${mod^^}".yaml \
-       --config scripts/build_config/$mod-config.yaml \
+       --config scripts/model_configs/$mod-config.yaml \
        --no-input
 
     ./nrp model compile $modname
