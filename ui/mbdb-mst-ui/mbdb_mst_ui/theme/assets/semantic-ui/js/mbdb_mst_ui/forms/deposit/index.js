@@ -1,8 +1,22 @@
-import { createFormAppInit } from "@js/oarepo_ui";
-import { DepositForm } from "./DepositForm"
+import React from "react";
+import ReactDOM from "react-dom";
+import { getInputFromDOM } from "@js/oarepo_ui";
+import { DepositForm } from "./DepositForm";
 
-export const overriddenComponents = {
-    "FormApp.layout": DepositForm,
-};
+function initFormApp(rootElement) {
+    const formConfig = getInputFromDOM("form-config");
 
-createFormAppInit(overriddenComponents);
+    ReactDOM.render(
+        <DepositForm
+            createDraftUrl={formConfig.createUrl}
+        />,
+        rootElement
+    );
+}
+
+export function createFormAppInit() {
+    const appRoot = document.getElementById("form-app");
+    initFormApp(appRoot);
+}
+
+createFormAppInit();

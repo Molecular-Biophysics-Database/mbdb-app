@@ -41,12 +41,14 @@ class MbdbSprFileSchema(InvenioFileSchema):
     )
 
     processing_steps = ma.fields.List(
-        ma.fields.Nested(lambda: ProcessingStepsItemSchema()), required=True
+        ma.fields.Nested(lambda: ProcessingStepsItemSchema()),
+        required=True,
+        validate=[ma.validate.Length(min=1)],
     )
 
     recommended_software = ma.fields.String()
 
-    size = ma.fields.Integer(required=True)
+    size = ma.fields.Integer(required=True, validate=[ma.validate.Range(min=0)])
 
     updated = ma.fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
 

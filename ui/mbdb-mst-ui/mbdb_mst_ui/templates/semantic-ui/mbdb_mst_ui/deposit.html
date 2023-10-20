@@ -3,4 +3,6 @@
 {%- block javascript %}
     {{ super() }}
     {{ webpack['mbdb_mst_ui_deposit_form.js'] }}
+    {{ webpack['mbdb_mst_ui_deposit_form.css'] }}
+    {{ webpack['mbdb_mst_ui_components.css']}}
 {%- endblock %}

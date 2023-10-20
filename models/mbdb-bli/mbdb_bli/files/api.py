@@ -3,7 +3,7 @@ from invenio_records_resources.records.api import FileRecord
 from invenio_records_resources.records.systemfields import IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
 
-from mbdb_bli.files.models import MbdbBliFileMetadata
+from mbdb_bli.files.models import MbdbBliFileDraftMetadata, MbdbBliFileMetadata
 
 
 class MbdbBliFileIdProvider(RecordIdProviderV2):
@@ -18,5 +18,15 @@ class MbdbBliFile(FileRecord):
     pid = PIDField(
         provider=MbdbBliFileIdProvider, context_cls=PIDFieldContext, create=True
     )
-    dumper_extensions = []
+    record_cls = None  # is defined inside the parent record
+
+
+class MbdbBliFileDraft(FileRecord):
+    model_cls = MbdbBliFileDraftMetadata
+
+    index = IndexField("mbdb_bli_file_draft-mbdb_bli_file_draft-1.0.0")
+
+    pid = PIDField(
+        provider=MbdbBliFileIdProvider, context_cls=PIDFieldContext, create=True
+    )
     record_cls = None  # is defined inside the parent record

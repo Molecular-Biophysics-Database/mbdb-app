@@ -1,0 +1,8 @@
+{% from   "mbdb_mst_ui/Common/RenderIf.jinja" import render_if_exists %}
+{% import "mbdb_mst_ui/MBDB/NameValue/Index.jinja" as nv %}
+
+{%- macro substance_modification(mod) %}
+  {{ nv.item("Name", render_if_exists(mod.name)) }}
+  {{ nv.item("Position", render_if_exists(mod.position)) }}
+  {{ nv.item("Modification", render_if_exists(mod.modification)) }}
+{%- endmacro %}

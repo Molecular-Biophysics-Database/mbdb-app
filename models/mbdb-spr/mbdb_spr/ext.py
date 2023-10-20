@@ -43,6 +43,8 @@ class Mbdb_sprExt:
     def service_records(self):
         return config.MBDB_SPR_RECORD_SERVICE_CLASS(
             config=config.MBDB_SPR_RECORD_SERVICE_CONFIG(),
+            files_service=self.service_files,
+            draft_files_service=self.service_draft_files,
         )
 
     @cached_property
@@ -50,6 +52,21 @@ class Mbdb_sprExt:
         return config.MBDB_SPR_RECORD_RESOURCE_CLASS(
             service=self.service_records,
             config=config.MBDB_SPR_RECORD_RESOURCE_CONFIG(),
+        )
+
+    @cached_property
+    def published_service_records(self):
+        from mbdb_spr.services.records.published.config import (
+            MbdbSprPublishedServiceConfig as PublishedServiceConfig,
+        )
+        from mbdb_spr.services.records.published.service import (
+            MbdbSprPublishedService as PublishedService,
+        )
+
+        return PublishedService(
+            config=PublishedServiceConfig(
+                proxied_drafts_config=self.service_records.config,
+            ),
         )
 
     @cached_property
@@ -63,4 +80,32 @@ class Mbdb_sprExt:
         return config.MBDB_SPR_FILES_RESOURCE_CLASS(
             service=self.service_files,
             config=config.MBDB_SPR_FILES_RESOURCE_CONFIG(),
+        )
+
+    @cached_property
+    def published_service_files(self):
+        from mbdb_spr.services.files.published.config import (
+            MbdbSprFilePublishedServiceConfig as PublishedServiceConfig,
+        )
+        from mbdb_spr.services.files.published.service import (
+            MbdbSprFilePublishedService as PublishedService,
+        )
+
+        return PublishedService(
+            config=PublishedServiceConfig(
+                proxied_drafts_config=self.service_files.config,
+            ),
+        )
+
+    @cached_property
+    def service_draft_files(self):
+        return config.MBDB_SPR_DRAFT_FILES_SERVICE_CLASS(
+            config=config.MBDB_SPR_DRAFT_FILES_SERVICE_CONFIG(),
+        )
+
+    @cached_property
+    def resource_draft_files(self):
+        return config.MBDB_SPR_DRAFT_FILES_RESOURCE_CLASS(
+            service=self.service_draft_files,
+            config=config.MBDB_SPR_DRAFT_FILES_RESOURCE_CONFIG(),
         )

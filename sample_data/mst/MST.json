@@ -2,7 +2,7 @@
   {
     "metadata": {
       "general_parameters": {
-        "schema_version": "0.9.6",
+        "schema_version": "0.9.12",
         "record_information": {
           "publisher": "MBDB",
           "resource_type_general": "Dataset",
@@ -25,7 +25,7 @@
               ],
               "affiliations": [
                 {
-                  "id": "05gq02987"
+                  "id": "ror:05gq02987"
                 }
               ]
             }
@@ -46,7 +46,7 @@
             "family_name": "Mustermann",
             "affiliations": [
               {
-                "id": "02hpadn98"
+                "id": "ror:02hpadn98"
               }
             ]
           },
@@ -58,7 +58,7 @@
             ],
             "affiliations": [
               {
-                "id": "05gq02987"
+                "id": "ror:05gq02987"
               }
             ]
           },
@@ -68,7 +68,7 @@
               "family_name": "Doe",
               "affiliations": [
                 {
-                  "id": "02hpadn98"
+                  "id": "ror:02hpadn98"
                 }
               ]
             },
@@ -77,7 +77,7 @@
               "family_name": "Doe",
               "affiliations": [
                 {
-                  "id": "02hpadn98"
+                  "id": "ror:02hpadn98"
                 }
               ]
             }
@@ -85,10 +85,10 @@
         },
         "funding_reference": [
           {
-            "id": "308726"
+            "id": "oa:aka_________::0138cbca472312ad7dd56c2cdb8a55c2"
           },
           {
-            "id": "5T32NS007444-10"
+            "id": "oa:aka_________::05f51e273cb679ac343eb5be8ecbd9b5"
           }
         ],
         "technique": "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
@@ -198,8 +198,8 @@
               "derived_from": "Body fluid",
               "fluid": "Serum",
               "health_status": "Healthy",
-              "organism": {
-                "id": "12374"
+              "source_organism": {
+                "id": "taxid:12374"
               },
               "additional_specifications": [
                 "Blood was drawn after 12 hours of fasting"
@@ -250,8 +250,8 @@
                   },
                   "copy_number": 2,
                   "polymer_type": "polypeptide(L)",
-                  "organism": {
-                    "id": "12374"
+                  "source_organism": {
+                    "id": "taxid:12374"
                   },
                   "variant": "WT",
                   "expression_source_type": "Natively",
@@ -268,8 +268,8 @@
                   },
                   "copy_number": 2,
                   "polymer_type": "polypeptide(L)",
-                  "organism": {
-                    "id": "12374"
+                  "source_organism": {
+                    "id": "taxid:12374"
                   },
                   "variant": "V2A",
                   "modifications": {
@@ -341,10 +341,13 @@
             "value": 10.3,
             "unit": "nM"
           }
+        ],
+        "raw_measurements": [
+          "https://mbdb.eu/mst/files/foo.txt"
         ]
       },
       "method_specific_parameters": {
-        "schema_version": "0.9.2",
+        "schema_version": "0.9.5",
         "experiment_type": "Affinity",
         "signal_type": "TRIC/MST",
         "excitation_led_color": "RED (ex 605-645nm, em 660-720nm)",
@@ -359,11 +362,26 @@
             "data_fitting": {
               "model": "1:1",
               "software_name": "MO.Affinity Analysis Software"
-            }
+            },
+            "measurements": [
+              {
+                "id": "pos_1_rep_1",
+                "name": "1 nM hemoglobin + 10 mg/ml Human serum"
+              },
+              {
+                "id": "pos_2_rep_1",
+                "name": "1 nM hemoglobin + 20 mg/ml Human serum"
+              },
+              {
+                "id": "pos_3_rep_1",
+                "name": "1 nM hemoglobin + 40 mg/ml Human serum"
+              }
+            ]
           }
         ],
         "measurements": [
           {
+            "id": "pos_1_rep_1",
             "name": "1 nM hemoglobin + 10 mg/ml Human serum",
             "position": "1",
             "sample": {
@@ -1499,6 +1517,7 @@
             }
           },
           {
+            "id": "pos_2_rep_1",
             "name": "1 nM hemoglobin + 20 mg/ml Human serum",
             "position": "2",
             "sample": {
@@ -2634,8 +2653,9 @@
             }
           },
           {
+            "id": "pos_3_rep_1",
             "name": "1 nM hemoglobin + 40 mg/ml Human serum",
-            "position": "2",
+            "position": "3",
             "sample": {
               "targets": [
                 {

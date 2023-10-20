@@ -4,6 +4,9 @@
         "$schema": {
             "type": "string"
         },
+        "collected_default_search_fields": {
+            "type": "string"
+        },
         "created": {
             "type": "string",
             "format": "date-time"
@@ -373,23 +376,6 @@
                                                         "name": {
                                                             "type": "string"
                                                         },
-                                                        "organism": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "id": {
-                                                                    "type": "string"
-                                                                },
-                                                                "title": {
-                                                                    "type": "object"
-                                                                },
-                                                                "rank": {
-                                                                    "type": "string"
-                                                                },
-                                                                "@v": {
-                                                                    "type": "string"
-                                                                }
-                                                            }
-                                                        },
                                                         "polymer_type": {
                                                             "type": "string"
                                                         },
@@ -496,6 +482,23 @@
                                                         },
                                                         "sequence": {
                                                             "type": "string"
+                                                        },
+                                                        "source_organism": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "string"
+                                                                },
+                                                                "title": {
+                                                                    "type": "object"
+                                                                },
+                                                                "rank": {
+                                                                    "type": "string"
+                                                                },
+                                                                "@v": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
                                                         },
                                                         "storage": {
                                                             "type": "object",
@@ -804,23 +807,6 @@
                                                                     "name": {
                                                                         "type": "string"
                                                                     },
-                                                                    "organism": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "id": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "title": {
-                                                                                "type": "object"
-                                                                            },
-                                                                            "rank": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "@v": {
-                                                                                "type": "string"
-                                                                            }
-                                                                        }
-                                                                    },
                                                                     "polymer_type": {
                                                                         "type": "string"
                                                                     },
@@ -927,6 +913,23 @@
                                                                     },
                                                                     "sequence": {
                                                                         "type": "string"
+                                                                    },
+                                                                    "source_organism": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "id": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "title": {
+                                                                                "type": "object"
+                                                                            },
+                                                                            "rank": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "@v": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "storage": {
                                                                         "type": "object",
@@ -1308,23 +1311,6 @@
                                                                             "name": {
                                                                                 "type": "string"
                                                                             },
-                                                                            "organism": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "id": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "title": {
-                                                                                        "type": "object"
-                                                                                    },
-                                                                                    "rank": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "@v": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                }
-                                                                            },
                                                                             "polymer_type": {
                                                                                 "type": "string"
                                                                             },
@@ -1431,6 +1417,23 @@
                                                                             },
                                                                             "sequence": {
                                                                                 "type": "string"
+                                                                            },
+                                                                            "source_organism": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "id": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "title": {
+                                                                                        "type": "object"
+                                                                                    },
+                                                                                    "rank": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "@v": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
                                                                             },
                                                                             "storage": {
                                                                                 "type": "object",
@@ -2070,23 +2073,6 @@
                                             "name": {
                                                 "type": "string"
                                             },
-                                            "organism": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "id": {
-                                                        "type": "string"
-                                                    },
-                                                    "title": {
-                                                        "type": "object"
-                                                    },
-                                                    "rank": {
-                                                        "type": "string"
-                                                    },
-                                                    "@v": {
-                                                        "type": "string"
-                                                    }
-                                                }
-                                            },
                                             "polymer_type": {
                                                 "type": "string"
                                             },
@@ -2193,6 +2179,23 @@
                                             },
                                             "sequence": {
                                                 "type": "string"
+                                            },
+                                            "source_organism": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "title": {
+                                                        "type": "object"
+                                                    },
+                                                    "rank": {
+                                                        "type": "string"
+                                                    },
+                                                    "@v": {
+                                                        "type": "string"
+                                                    }
+                                                }
                                             },
                                             "storage": {
                                                 "type": "object",
@@ -2501,23 +2504,6 @@
                                                         "name": {
                                                             "type": "string"
                                                         },
-                                                        "organism": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "id": {
-                                                                    "type": "string"
-                                                                },
-                                                                "title": {
-                                                                    "type": "object"
-                                                                },
-                                                                "rank": {
-                                                                    "type": "string"
-                                                                },
-                                                                "@v": {
-                                                                    "type": "string"
-                                                                }
-                                                            }
-                                                        },
                                                         "polymer_type": {
                                                             "type": "string"
                                                         },
@@ -2624,6 +2610,23 @@
                                                         },
                                                         "sequence": {
                                                             "type": "string"
+                                                        },
+                                                        "source_organism": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "string"
+                                                                },
+                                                                "title": {
+                                                                    "type": "object"
+                                                                },
+                                                                "rank": {
+                                                                    "type": "string"
+                                                                },
+                                                                "@v": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
                                                         },
                                                         "storage": {
                                                             "type": "object",
@@ -3005,23 +3008,6 @@
                                                                 "name": {
                                                                     "type": "string"
                                                                 },
-                                                                "organism": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "id": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "title": {
-                                                                            "type": "object"
-                                                                        },
-                                                                        "rank": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "@v": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    }
-                                                                },
                                                                 "polymer_type": {
                                                                     "type": "string"
                                                                 },
@@ -3128,6 +3114,23 @@
                                                                 },
                                                                 "sequence": {
                                                                     "type": "string"
+                                                                },
+                                                                "source_organism": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "title": {
+                                                                            "type": "object"
+                                                                        },
+                                                                        "rank": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "@v": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
                                                                 },
                                                                 "storage": {
                                                                     "type": "object",
@@ -3808,23 +3811,6 @@
                                                     "name": {
                                                         "type": "string"
                                                     },
-                                                    "organism": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "id": {
-                                                                "type": "string"
-                                                            },
-                                                            "title": {
-                                                                "type": "object"
-                                                            },
-                                                            "rank": {
-                                                                "type": "string"
-                                                            },
-                                                            "@v": {
-                                                                "type": "string"
-                                                            }
-                                                        }
-                                                    },
                                                     "polymer_type": {
                                                         "type": "string"
                                                     },
@@ -3931,6 +3917,23 @@
                                                     },
                                                     "sequence": {
                                                         "type": "string"
+                                                    },
+                                                    "source_organism": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "string"
+                                                            },
+                                                            "title": {
+                                                                "type": "object"
+                                                            },
+                                                            "rank": {
+                                                                "type": "string"
+                                                            },
+                                                            "@v": {
+                                                                "type": "string"
+                                                            }
+                                                        }
                                                     },
                                                     "storage": {
                                                         "type": "object",
@@ -4239,23 +4242,6 @@
                                                                 "name": {
                                                                     "type": "string"
                                                                 },
-                                                                "organism": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "id": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "title": {
-                                                                            "type": "object"
-                                                                        },
-                                                                        "rank": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "@v": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    }
-                                                                },
                                                                 "polymer_type": {
                                                                     "type": "string"
                                                                 },
@@ -4362,6 +4348,23 @@
                                                                 },
                                                                 "sequence": {
                                                                     "type": "string"
+                                                                },
+                                                                "source_organism": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "title": {
+                                                                            "type": "object"
+                                                                        },
+                                                                        "rank": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "@v": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
                                                                 },
                                                                 "storage": {
                                                                     "type": "object",
@@ -4743,23 +4746,6 @@
                                                                         "name": {
                                                                             "type": "string"
                                                                         },
-                                                                        "organism": {
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "id": {
-                                                                                    "type": "string"
-                                                                                },
-                                                                                "title": {
-                                                                                    "type": "object"
-                                                                                },
-                                                                                "rank": {
-                                                                                    "type": "string"
-                                                                                },
-                                                                                "@v": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            }
-                                                                        },
                                                                         "polymer_type": {
                                                                             "type": "string"
                                                                         },
@@ -4866,6 +4852,23 @@
                                                                         },
                                                                         "sequence": {
                                                                             "type": "string"
+                                                                        },
+                                                                        "source_organism": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "id": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "title": {
+                                                                                    "type": "object"
+                                                                                },
+                                                                                "rank": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "@v": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            }
                                                                         },
                                                                         "storage": {
                                                                             "type": "object",
@@ -5371,6 +5374,12 @@
                                 }
                             }
                         },
+                        "raw_measurements": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
                         "record_information": {
                             "type": "object",
                             "properties": {
@@ -5552,6 +5561,23 @@
                                                 "type": "string"
                                             }
                                         }
+                                    },
+                                    "measurements": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -5727,6 +5753,9 @@
                             "items": {
                                 "type": "object",
                                 "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
                                     "measurement_position": {
                                         "type": "object",
                                         "properties": {
@@ -5740,6 +5769,9 @@
                                                 "type": "string"
                                             }
                                         }
+                                    },
+                                    "name": {
+                                        "type": "string"
                                     },
                                     "reference_measurement_position": {
                                         "type": "object",

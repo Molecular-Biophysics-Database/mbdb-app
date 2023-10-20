@@ -1,14 +1,17 @@
-import datetime
-from urllib.parse import urlencode
+import copy
 
-from invenio_records.dictutils import dict_lookup
+import pytest
 from invenio_records_permissions.generators import (
     AnyUser,
     AuthenticatedUser,
     SystemProcess,
 )
 
+# todo move to conftest
+from invenio_records_resources.services.custom_fields import BooleanCF
+
 from mbdb_spr.proxies import current_service
+from mbdb_spr.records.api import MbdbSprDraft, MbdbSprRecord
 from mbdb_spr.resources.records.config import MbdbSprResourceConfig
 
 
@@ -30,7 +33,319 @@ def get_paths(prefix, data):
     return _get_paths(prefix, data)
 
 
+@pytest.fixture(scope="module")
+def app_config(app_config):
+    app_config["HAS_DRAFT"] = [BooleanCF("has_draft")]
+    return app_config
+
+
+def _assert_single_item_response(response):
+    """Assert the fields present on a single item response."""
+    response_fields = response.json.keys()
+    fields_to_check = ["id", "metadata", "created", "updated", "links"]
+
+    for field in fields_to_check:
+        assert field in response_fields
+
+
+#
+# Operations tests
+#
+
+
+def _create_and_publish(client_with_credentials, input_data):
+    """Create a draft and publish it."""
+    # Create the draft
+    response = client_with_credentials.post(
+        MbdbSprResourceConfig.url_prefix, json=input_data
+    )
+
+    assert response.status_code == 201
+
+    recid = response.json["id"]
+
+    # Publish it
+    response = client_with_credentials.post(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}/draft/actions/publish"
+    )
+
+    assert response.status_code == 202
+    _assert_single_item_response(response)
+    return recid
+
+
+def test_publish_draft(client_with_credentials, input_data, search_clear):
+    """Test draft publication of a non-existing record.
+
+    It has to first create said draft.
+    """
+    recid = _create_and_publish(client_with_credentials, input_data)
+
+    # Check draft does not exists anymore
+    response = client_with_credentials.get(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}/draft"
+    )
+
+    assert response.status_code == 404
+
+    # Check record exists
+    response = client_with_credentials.get(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}"
+    )
+
+    assert response.status_code == 200
+
+    _assert_single_item_response(response)
+
+
+def test_search_versions(client_with_credentials, input_data, search_clear):
+    """Test search for versions."""
+    recid = _create_and_publish(client_with_credentials, input_data)
+    MbdbSprDraft.index.refresh()
+
+    # Check draft does not exists anymore
+    res = client_with_credentials.get(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}/versions"
+    )
+    assert res.status_code == 200
+
+
+#
+# Flow tests (Note that operations are tested above
+# therefore these tests do not assert their output)
+#
+
+
+def test_create_publish_new_revision(
+    client_with_credentials, input_data, search_clear, sample_metadata_list
+):
+    """Test draft creation of an existing record and publish it."""
+    recid = _create_and_publish(client_with_credentials, input_data)
+
+    # Create new draft of said record
+
+    edited_input_data = copy.deepcopy(input_data)
+    edited_input_data["metadata"] = sample_metadata_list[1]["metadata"]
+    edited_metadata = edited_input_data["metadata"]
+    orig_metadata = input_data["metadata"]
+
+    response = client_with_credentials.post(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}/draft"
+    )
+
+    assert response.status_code == 201
+    assert response.json["revision_id"] == 8
+    _assert_single_item_response(response)
+
+    # Update that new draft
+    response = client_with_credentials.put(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}/draft", json=edited_input_data
+    )
+
+    assert response.status_code == 200
+
+    # Check the actual record was not modified
+    response = client_with_credentials.get(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}"
+    )
+
+    assert response.status_code == 200
+    _assert_single_item_response(response)
+    assert response.json["metadata"] == orig_metadata
+
+    # Publish it to check the increment in reversion
+    response = client_with_credentials.post(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}/draft/actions/publish"
+    )
+
+    assert response.status_code == 202
+    _assert_single_item_response(response)
+
+    assert response.json["id"] == recid
+    assert response.json["revision_id"] == 3
+    assert response.json["metadata"] == edited_metadata
+
+    # Check it was actually edited
+    response = client_with_credentials.get(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}"
+    )
+
+    assert response.json["metadata"] == edited_metadata
+
+
+def test_mutiple_edit(client_with_credentials, input_data, search_clear):
+    """Test the revision_id when editing record multiple times.
+
+    This tests the `edit` service method.
+    """
+    recid = _create_and_publish(client_with_credentials, input_data)
+
+    # Create new draft of said record
+    response = client_with_credentials.post(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}/draft"
+    )
+
+    assert response.status_code == 201
+    assert response.json["revision_id"] == 8
+
+    # Request a second edit. Get the same draft (revision_id)
+    response = client_with_credentials.post(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}/draft"
+    )
+
+    assert response.status_code == 201
+    assert response.json["revision_id"] == 8
+
+    # Publish it to check the increment in version_id
+    response = client_with_credentials.post(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}/draft/actions/publish"
+    )
+
+    assert response.status_code == 202
+
+    # Edit again
+    response = client_with_credentials.post(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}/draft"
+    )
+
+    assert response.status_code == 201
+    assert response.json["revision_id"] == 13
+
+
+def test_redirect_to_latest_version(client_with_credentials, input_data, search_clear):
+    """Creates a new version of a record.
+
+    Publishes the draft to obtain 2 versions of a record.
+    """
+    recid = _create_and_publish(client_with_credentials, input_data)
+
+    # Create new version of said record
+    response = client_with_credentials.post(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}/versions"
+    )
+    recid_2 = response.json["id"]
+
+    # NOTE: Assuming a new version should indeed have its files.enabled set to
+    #       True automatically, we have to reset it to False for this test.
+    client_with_credentials.put(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid_2}/draft", json=input_data
+    )
+
+    # Publish it to check the increment in version
+    response = client_with_credentials.post(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid_2}/draft/actions/publish"
+    )
+    latest_version_self_link = response.json["links"]["self"]
+
+    # Read a previous versions latest
+    response = client_with_credentials.get(
+        f"{ MbdbSprResourceConfig.url_prefix}{recid}/versions/latest"
+    )
+
+    assert response.status_code == 301
+    assert response.headers["location"] == latest_version_self_link
+
+
+def test_list_drafts(client_with_credentials, input_data, vocab_cf, search_clear):
+    assert (
+        len(
+            client_with_credentials.get(MbdbSprResourceConfig.url_prefix).json["hits"][
+                "hits"
+            ]
+        )
+        == 0
+    )
+    assert (
+        len(
+            client_with_credentials.get(
+                f"user{ MbdbSprResourceConfig.url_prefix}"
+            ).json["hits"]["hits"]
+        )
+        == 0
+    )
+
+    create_draft_response = client_with_credentials.post(
+        ThesisResourceConfig.url_prefix, json=input_data
+    )
+    assert create_draft_response.status_code == 201
+    recid = create_draft_response.json["id"]
+
+    MbdbSprDraft.index.refresh()
+    MbdbSprRecord.index.refresh()
+    assert (
+        len(
+            client_with_credentials.get(MbdbSprResourceConfig.url_prefix).json["hits"][
+                "hits"
+            ]
+        )
+        == 0
+    )
+    assert (
+        len(
+            client_with_credentials.get(
+                f"user{ MbdbSprResourceConfig.url_prefix}"
+            ).json["hits"]["hits"]
+        )
+        == 1
+    )
+
+    response_publish = client_with_credentials.post(
+        f"{ThesisResourceConfig.url_prefix}{recid}/draft/actions/publish"
+    )
+    assert response_publish.status_code == 202
+
+    MbdbSprDraft.index.refresh()
+    MbdbSprRecord.index.refresh()
+    assert (
+        len(
+            client_with_credentials.get(MbdbSprResourceConfig.url_prefix).json["hits"][
+                "hits"
+            ]
+        )
+        == 1
+    )
+    assert (
+        len(
+            client_with_credentials.get(
+                f"user{ MbdbSprResourceConfig.url_prefix}"
+            ).json["hits"]["hits"]
+        )
+        == 0
+    )
+
+
+def assert_expected_links_record(pid_value, links, site_hostname="127.0.0.1:5000"):
+    """Compare generated links to expected links."""
+    expected_links = {
+        "draft": f"https://{site_hostname}/api{BASE_URL}{pid_value}/draft",
+        "latest": f"https://{site_hostname}/api{BASE_URL}{pid_value}/versions/latest",
+        "latest_html": f"https://{site_hostname}{BASE_HTML_URL}{pid_value}/latest",
+        "publish": (
+            f"https://{site_hostname}/api{BASE_URL}{pid_value}/draft/actions/publish"
+        ),
+        "record": f"https://{site_hostname}/api{BASE_URL}{pid_value}",
+        "self": f"https://{site_hostname}/api{BASE_URL}{pid_value}",
+        "self_html": f"https://{site_hostname}{BASE_HTML_URL}{pid_value}",
+        "versions": f"https://{site_hostname}/api{BASE_URL}{pid_value}/versions",
+    }
+    assert expected_links.items() <= links.items()
+
+
+def test_read_links_record(app, client_with_credentials, input_data):
+    pid_value = _create_and_publish(client_with_credentials, input_data)
+    res = client_with_credentials.get(f"{BASE_URL}{pid_value}")
+
+    assert_expected_links_record(pid_value, res.json["links"])
+
+
+@pytest.fixture()
+def input_data(input_data):
+    input_data["files"] = {"enabled": False}
+    return input_data
+
+
 BASE_URL = MbdbSprResourceConfig.url_prefix
+BASE_HTML_URL = "/mbdb-spr/"
 """
 def check_allowed(action_name):
     permission_cls = current_service.config.permission_policy_cls
@@ -69,14 +384,14 @@ def response_code_ok(action_name, user_is_auth, response, authorized_response_co
     return False
 
 
-def test_read(client_with_credentials, sample_record, search_clear):
+def test_read(client_with_credentials, sample_draft, search_clear):
     non_existing = client_with_credentials.get(f"{BASE_URL}yjuykyukyuk")
     assert non_existing.status_code == 404
 
-    get_response = client_with_credentials.get(f"{BASE_URL}{sample_record['id']}")
+    get_response = client_with_credentials.get(f"{BASE_URL}{sample_draft['id']}/draft")
     assert response_code_ok("read", True, get_response, 200)
     if is_action_allowed("read", True):
-        assert get_response.json["metadata"] == sample_record["metadata"]
+        assert get_response.json["metadata"] == sample_draft["metadata"]
 
 
 def test_create(
@@ -104,7 +419,7 @@ def test_create(
             sample_metadata_list, created_responses
         ):
             created_response_reread = client_with_credentials.get(
-                f"{BASE_URL}{created_response.json['id']}"
+                f"{BASE_URL}{created_response.json['id']}/draft"
             )
             assert response_code_ok("read", True, created_response_reread, 200)
             assert (
@@ -152,29 +467,29 @@ def test_listing( client_with_credentials, sample_records, search_clear):
 
 
 def test_update(
-    client_with_credentials, sample_record, sample_metadata_list, search_clear
+    client_with_credentials, sample_draft, sample_metadata_list, search_clear
 ):
     non_existing = client_with_credentials.put(
-        f"{BASE_URL}yjuykyukyuk", json=sample_metadata_list[5]
+        f"{BASE_URL}yjuykyukyuk/draft", json=sample_metadata_list[5]
     )
 
     old_record_read_response_json = client_with_credentials.get(
-        f"{BASE_URL}{ sample_record['id']}"
+        f"{BASE_URL}{ sample_draft['id']}/draft"
     ).json
 
     update_response = client_with_credentials.put(
-        f"{BASE_URL}{ sample_record['id']}", json=sample_metadata_list[2]
+        f"{BASE_URL}{ sample_draft['id']}/draft", json=sample_metadata_list[2]
     )
 
     updated_record_read_response = client_with_credentials.get(
-        f"{BASE_URL}{ sample_record['id']}"
+        f"{BASE_URL}{ sample_draft['id']}/draft"
     )
 
     assert response_code_ok("read", True, updated_record_read_response, 200)
     assert response_code_ok("update", True, non_existing, 404)
     assert response_code_ok("update", True, update_response, 200)
     if is_action_allowed("update", True):
-        assert old_record_read_response_json["metadata"] == sample_record.metadata
+        assert old_record_read_response_json["metadata"] == sample_draft.metadata
         assert (
             update_response.json["metadata"]
             == sample_metadata_list[2]["metadata"]
@@ -197,20 +512,20 @@ def test_update(
     #                                                              "value": "UPDATED!"})
 
 
-def test_delete(client_with_credentials, sample_record, app, search_clear):
+def test_delete(client_with_credentials, sample_draft, app, search_clear):
     non_existing = client_with_credentials.delete(f"{BASE_URL}yjuykyukyuk")
     assert response_code_ok("delete", True, non_existing, 404)
 
     delete_response = client_with_credentials.delete(
-        f"{BASE_URL}{ sample_record['id']}"
+        f"{BASE_URL}{ sample_draft['id']}/draft"
     )
     assert response_code_ok("delete", True, delete_response, 204)
 
     if is_action_allowed("delete", True):
         deleted_get_response = client_with_credentials.delete(
-            f"{BASE_URL}{ sample_record['id']}"
+            f"{BASE_URL}{ sample_draft['id']}/draft"
         )
-        assert deleted_get_response.status_code == 410
+        assert deleted_get_response.status_code == 404
 
 
 """
@@ -223,51 +538,43 @@ def test_delete_unauth(sample_record, search_clear, app):
 """
 
 
-def test_search(
-    client_with_credentials, sample_records, sample_metadata_list, search_clear
-):
-    if is_action_allowed("search", True):
-        paths = get_paths("metadata", sample_metadata_list[0]["metadata"])
+def assert_expected_links(pid_value, generated_links, site_hostname="127.0.0.1:5000"):
+    """Compare generated links to expected links."""
+    required_links = {
+        "draft": f"https://{site_hostname}/api{BASE_URL}{pid_value}/draft",
+        "latest": f"https://{site_hostname}/api{BASE_URL}{pid_value}/versions/latest",
+        "latest_html": f"https://{site_hostname}{BASE_HTML_URL}{pid_value}/latest",
+        "publish": (
+            f"https://{site_hostname}/api{BASE_URL}{pid_value}/draft/actions/publish"
+        ),
+        "record": f"https://{site_hostname}/api{BASE_URL}{pid_value}",
+        "self": f"https://{site_hostname}/api{BASE_URL}{pid_value}/draft",
+        "self_html": f"https://{site_hostname}{BASE_HTML_URL}{pid_value}/edit",
+        "versions": f"https://{site_hostname}/api{BASE_URL}{pid_value}/versions",
+    }
+    assert required_links.items() <= generated_links.items()
 
-        for record in sample_records:
-            for path in paths:
-                field_value = dict_lookup(record, path)
-                encoded_query = urlencode({"q": f'{path}:"{field_value}"'})
-                path_search_response = client_with_credentials.get(
-                    f"{BASE_URL}?{encoded_query}"
-                )
-                assert path_search_response.status_code == 200
-                path_search_results = path_search_response.json["hits"]["hits"]
-                assert len(path_search_results) > 0
-                for field_result in [
-                    dict_lookup(res, path) for res in path_search_results
-                ]:
-                    if field_result == field_value:
-                        break
-                else:
-                    raise AssertionError(
-                        "Queried field value not found in search results."
-                    )
 
-        res_fail = client_with_credentials.get(f"{BASE_URL}?q=wefrtghthy")
+def test_create_links(app, client_with_credentials, input_data):
+    res = client_with_credentials.post(BASE_URL, json=input_data)
 
-        start_datetime = (
-            datetime.datetime.utcnow() - datetime.timedelta(minutes=5)
-        ).isoformat() + "Z"
-        end_datetime = (
-            datetime.datetime.utcnow() + datetime.timedelta(minutes=5)
-        ).isoformat() + "Z"
+    pid_value = res.json["id"]
+    assert_expected_links(pid_value, res.json["links"])
 
-        encoded_query = urlencode(
-            {"q": f'created:["{start_datetime}" TO "{end_datetime}"]'}
-        )
-        res_created = client_with_credentials.get(f"{BASE_URL}?{encoded_query}")
 
-        res_created_fail = client_with_credentials.get(f"{BASE_URL}?q=2022-10-16")
-        record_created = sample_records[0].created.isoformat() + "Z"
-        res_facets = client_with_credentials.get(f"{BASE_URL}?created={record_created}")
+def test_read_links(app, client_with_credentials, sample_draft):
+    pid_value = sample_draft["id"]
+    res = client_with_credentials.get(f"{BASE_URL}{pid_value}/draft")
 
-        assert len(res_fail.json["hits"]["hits"]) == 0
-        assert len(res_created.json["hits"]["hits"]) == 10
-        assert len(res_created_fail.json["hits"]["hits"]) == 0
-        assert len(res_facets.json["hits"]["hits"]) == 1
+    assert_expected_links(pid_value, res.json["links"])
+
+
+def test_update_links(app, client_with_credentials, sample_draft, sample_metadata_list):
+    pid_value = sample_draft["id"]
+    res = client_with_credentials.get(f"{BASE_URL}{pid_value}/draft")
+    res = client_with_credentials.put(
+        f"{BASE_URL}{pid_value}/draft", json=sample_metadata_list[1]
+    )
+
+    assert res.status_code == 200
+    assert_expected_links(pid_value, res.json["links"])

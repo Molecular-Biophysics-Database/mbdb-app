@@ -4,15 +4,22 @@ plugins:
   - oarepo-model-builder-cf==4.*
   - oarepo-model-builder-vocabularies==4.*
   - oarepo-model-builder-relations==4.*
+  - oarepo-model-builder-drafts==4.*
+  - oarepo-model-builder-drafts-files==4.*
 profiles:
 - record
 - files
+- draft
+- draft_files
 record:
+  draft: {}
+  draft-files: {}
   module:
     qualified: mbdb_bli
   permissions:
     presets:
     - everyone
+    - authenticated
   pid:
     type: bli
   properties: {}
@@ -24,4 +31,9 @@ settings:
   i18n-languages:
   - en
 use:
+- ./BLI.yaml
+- ./BLI.yaml
+- ./BLI.yaml
+- ./BLI.yaml
+- ./BLI.yaml
 - ./BLI.yaml

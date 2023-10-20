@@ -116,6 +116,7 @@
                 }
             ],
             "generate": true,
+            "base-html-url": "/mbdb-spr/",
             "config-key": "MBDB_SPR_FILES_RESOURCE_CONFIG",
             "module": "mbdb_spr.resources.files.config",
             "class": "mbdb_spr.resources.files.config.MbdbSprFileResourceConfig",
@@ -182,12 +183,14 @@
             "generate": true
         },
         "files-field": {
+            "field-args": [
+                "store=False",
+                "create=False",
+                "delete=False"
+            ],
             "generate": true,
             "field-class": "FilesField",
             "file-class": "MbdbSprFile",
-            "field-args": [
-                "store=False"
-            ],
             "imports": [
                 {
                     "import": "invenio_records_resources.records.systemfields.FilesField"
@@ -219,7 +222,7 @@
                     "import": "invenio_records_resources.records.FileRecordModelMixin"
                 }
             ],
-            "table": "mbdbsprfile_metadata",
+            "table": "mbdb_spr_file_metadata",
             "alias": "mbdb_spr_file"
         },
         "service-config": {
@@ -233,6 +236,10 @@
                 },
                 {
                     "import": "oarepo_runtime.config.service.PermissionsPresetsConfigMixin"
+                },
+                {
+                    "import": "invenio_records_resources.services.RecordServiceConfig",
+                    "alias": "InvenioRecordServiceConfig"
                 },
                 {
                     "import": "invenio_records_resources.services.records.components.DataComponent"
@@ -332,6 +339,15 @@
             "module": "mbdb_spr.translations",
             "alias": "mbdb_spr_file"
         },
+        "draft-parent-record": {
+            "skip": true
+        },
+        "draft-parent-record-metadata": {
+            "skip": true
+        },
+        "draft-parent-record-state": {
+            "skip": true
+        },
         "permissions": {
             "class": "mbdb_spr.services.records.permissions.MbdbSprPermissionPolicy",
             "generate": false,
@@ -356,19 +372,57 @@
             "index": "mbdb_spr_file-mbdb_spr_file-1.0.0",
             "file": "mbdb_spr/files/mappings/os-v2/mbdb_spr_file/mbdb_spr_file-1.0.0.json"
         },
+        "published-service-config": {
+            "config-key": "MBDB_SPR_FILES_PUBLISHED_SERVICE_CONFIG",
+            "module": "mbdb_spr.services.files.published.config",
+            "class": "mbdb_spr.services.files.published.config.MbdbSprFilePublishedServiceConfig",
+            "extra-code": "",
+            "service-id": "published_mbdb_spr_file",
+            "base-classes": [
+                "PublishedServiceConfig",
+                "PermissionsPresetsConfigMixin"
+            ],
+            "imports": [
+                {
+                    "import": "oarepo_published_service.services.config.PublishedServiceConfig",
+                    "alias": "PublishedServiceConfig"
+                },
+                {
+                    "import": "oarepo_runtime.config.service.PermissionsPresetsConfigMixin"
+                }
+            ],
+            "generate": true
+        },
+        "published-service": {
+            "generate": true,
+            "config-key": "MBDB_SPR_FILES_PUBLISHED_SERVICE_CLASS",
+            "proxy": "current_published_service",
+            "module": "mbdb_spr.services.files.published.service",
+            "class": "mbdb_spr.services.files.published.service.MbdbSprFilePublishedService",
+            "extra-code": "",
+            "base-classes": [
+                "PublishedService"
+            ],
+            "imports": [
+                {
+                    "import": "oarepo_published_service.services.service.PublishedService",
+                    "alias": "PublishedService"
+                }
+            ]
+        },
         "sortable": [],
         "properties": {
             "$schema": {
                 "type": "keyword",
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
                 "ui": {
                     "marshmallow": {
                         "read": false,
                         "write": false
                     }
-                },
-                "marshmallow": {
-                    "read": false,
-                    "write": false
                 },
                 "sample": {
                     "skip": true
@@ -417,15 +471,15 @@
             },
             "id": {
                 "type": "keyword",
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
                 "ui": {
                     "marshmallow": {
                         "read": false,
                         "write": false
                     }
-                },
-                "marshmallow": {
-                    "read": false,
-                    "write": false
                 },
                 "sample": {
                     "skip": true
@@ -449,7 +503,13 @@
             "processing_steps": {
                 "type": "array",
                 "required": true,
+                "minItems": 1,
                 "help.en": "List of the processing steps performed on the file before it was deposited (e.g. exported to xlsx)",
+                "marshmallow": {
+                    "validators": [
+                        "ma.validate.Length(min=1)"
+                    ]
+                },
                 "items": {
                     "type": "object",
                     "marshmallow": {
@@ -469,7 +529,7 @@
                             "help.en": "Description of what the processing step was"
                         },
                         "link_to_source_code": {
-                            "type": "keyword",
+                            "type": "url",
                             "help.en": "If processing was performed with software where the source code is legally available a link can be specified here (e.g. self-written python script in a GitHub repository"
                         },
                         "name": {
@@ -494,13 +554,18 @@
             },
             "recommended_software": {
                 "type": "keyword",
-                "help.en": "The name of the software recommended for working with the file"
+                "help.en": "The name of the software recommended for opening and working with the file"
             },
             "size": {
                 "type": "integer",
                 "required": true,
                 "minimum": 0,
-                "help.en": "Size of the file"
+                "help.en": "Size of the file",
+                "marshmallow": {
+                    "validators": [
+                        "ma.validate.Range(min=0)"
+                    ]
+                }
             },
             "updated": {
                 "type": "date",

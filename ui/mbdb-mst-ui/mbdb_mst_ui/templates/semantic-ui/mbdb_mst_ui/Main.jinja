@@ -1,0 +1,37 @@
+{# def metadata, layout, ui #}
+
+{% from "mbdb_mst_ui/Simple.jinja" import simple %}
+{% from "mbdb_mst_ui/Complete.jinja" import complete %}
+{% from "mbdb_mst_ui/CompleteCollapsible.jinja" import complete_collapsible %}
+
+<script src="/static/jquery-3.7.1.min.js"></script>
+<script src="/static/semantic.min.js"></script>
+
+{# 
+<div class="" id="view-mode">
+  <div class="ui top attached tabular menu">
+    <a class="active item" data-tab="simple">Simple</a>
+    <a class="item" data-tab="complete">Complete</a>
+    <a class="item" data-tab="complete-collapsible">Complete (collapsible)</a>
+  </div>
+#}
+
+  <div class="ui bottom attached active tab segment width" data-tab="simple">
+    {{ simple(metadata, layout, ui) }}
+  </div>
+  <div class="ui bottom attached tab segment" data-tab="complete">
+    {{ complete(metadata, layout, ui) }}
+  </div>
+  <div class="ui bottom attached tab segment" data-tab="complete-collapsible">
+    {{ complete_collapsible(metadata, layout, ui) }}
+  </div>
+  </div>
+</div>
+
+<script>
+  jQuery('#view-mode .menu .item')
+    .tab({
+      context: $('#view-mode')
+    })
+  ;
+</script>

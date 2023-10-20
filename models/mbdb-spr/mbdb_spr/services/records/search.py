@@ -6,6 +6,8 @@ from . import facets
 class MbdbSprSearchOptions(InvenioSearchOptions):
     """MbdbSprRecord search options."""
 
+    facet_groups = {}
+
     facets = {
         "_schema": facets._schema,
         "created": facets.created,
@@ -163,9 +165,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_name": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_name
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_organism": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_organism
-        ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_polymer_type": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_polymer_type
         ),
@@ -231,6 +230,9 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_sequence": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_sequence
+        ),
+        "metadata_general_parameters_chemical_information_chemical_environments_constituents_source_organism": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_source_organism
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_storage_duration_unit": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_storage_duration_unit
@@ -391,9 +393,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_name": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_name
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_organism": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_organism
-        ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_polymer_type": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_polymer_type
         ),
@@ -459,6 +458,9 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_sequence": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_sequence
+        ),
+        "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_source_organism": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_source_organism
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_duration_unit": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_components_storage_duration_unit
@@ -667,9 +669,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_name": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_name
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_organism": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_organism
-        ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_polymer_type": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_polymer_type
         ),
@@ -735,6 +734,9 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_sequence": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_sequence
+        ),
+        "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_source_organism": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_source_organism
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_duration_unit": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_storage_duration_unit
@@ -1105,9 +1107,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_entities_of_interest_name": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_name
         ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_organism": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_organism
-        ),
         "metadata_general_parameters_chemical_information_entities_of_interest_polymer_type": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_polymer_type
         ),
@@ -1173,6 +1172,9 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         ),
         "metadata_general_parameters_chemical_information_entities_of_interest_sequence": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_sequence
+        ),
+        "metadata_general_parameters_chemical_information_entities_of_interest_source_organism": (
+            facets.metadata_general_parameters_chemical_information_entities_of_interest_source_organism
         ),
         "metadata_general_parameters_chemical_information_entities_of_interest_storage_duration_unit": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_storage_duration_unit
@@ -1333,9 +1335,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_entities_of_interest_components_name": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_components_name
         ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_components_organism": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_organism
-        ),
         "metadata_general_parameters_chemical_information_entities_of_interest_components_polymer_type": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_components_polymer_type
         ),
@@ -1401,6 +1400,9 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         ),
         "metadata_general_parameters_chemical_information_entities_of_interest_components_sequence": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_components_sequence
+        ),
+        "metadata_general_parameters_chemical_information_entities_of_interest_components_source_organism": (
+            facets.metadata_general_parameters_chemical_information_entities_of_interest_components_source_organism
         ),
         "metadata_general_parameters_chemical_information_entities_of_interest_components_storage_duration_unit": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_components_storage_duration_unit
@@ -1609,9 +1611,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_entities_of_interest_details_components_name": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_name
         ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_organism": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_organism
-        ),
         "metadata_general_parameters_chemical_information_entities_of_interest_details_components_polymer_type": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_polymer_type
         ),
@@ -1677,6 +1676,9 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         ),
         "metadata_general_parameters_chemical_information_entities_of_interest_details_components_sequence": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_sequence
+        ),
+        "metadata_general_parameters_chemical_information_entities_of_interest_details_components_source_organism": (
+            facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_source_organism
         ),
         "metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_duration_unit": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_details_components_storage_duration_unit
@@ -1996,9 +1998,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_instrument_performance_test_sample_composition_name": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_name
         ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_organism": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_organism
-        ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_polymer_type": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_polymer_type
         ),
@@ -2064,6 +2063,9 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_sequence": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_sequence
+        ),
+        "metadata_general_parameters_instrument_performance_test_sample_composition_source_organism": (
+            facets.metadata_general_parameters_instrument_performance_test_sample_composition_source_organism
         ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_storage_duration_unit": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_storage_duration_unit
@@ -2224,9 +2226,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_instrument_performance_test_sample_composition_components_name": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_name
         ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_components_organism": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_organism
-        ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_components_polymer_type": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_polymer_type
         ),
@@ -2292,6 +2291,9 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_components_sequence": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_sequence
+        ),
+        "metadata_general_parameters_instrument_performance_test_sample_composition_components_source_organism": (
+            facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_source_organism
         ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_duration_unit": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_components_storage_duration_unit
@@ -2500,9 +2502,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_name": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_name
         ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_organism": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_organism
-        ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_polymer_type": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_polymer_type
         ),
@@ -2568,6 +2567,9 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_sequence": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_sequence
+        ),
+        "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_source_organism": (
+            facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_source_organism
         ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_duration_unit": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_details_components_storage_duration_unit
@@ -2881,6 +2883,9 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_upper_error": (
             facets.metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_upper_error
         ),
+        "metadata_general_parameters_raw_measurements": (
+            facets.metadata_general_parameters_raw_measurements
+        ),
         "metadata_general_parameters_record_information_access_rights": (
             facets.metadata_general_parameters_record_information_access_rights
         ),
@@ -2982,6 +2987,15 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         ),
         "metadata_method_specific_parameters_data_analysis_derived_parameter__version": (
             facets.metadata_method_specific_parameters_data_analysis_derived_parameter__version
+        ),
+        "metadata_method_specific_parameters_measurements_id": (
+            facets.metadata_method_specific_parameters_measurements_id
+        ),
+        "metadata_method_specific_parameters_measurements_name": (
+            facets.metadata_method_specific_parameters_measurements_name
+        ),
+        "metadata_method_specific_parameters_data_analysis_measurements__version": (
+            facets.metadata_method_specific_parameters_data_analysis_measurements__version
         ),
         "metadata_method_specific_parameters_experiment_type": (
             facets.metadata_method_specific_parameters_experiment_type

@@ -1,0 +1,9 @@
+{% import "mbdb_mst_ui/MBDB/NameValue/Index.jinja" as nv %}
+
+{%- macro instrument(imt) %}
+  {{ nv.list_open() }}
+    {{ nv.item("Manufacturer", imt.manufacturer) }}
+    {{ nv.item("Name", imt.name) }}
+    {{ nv.item("Model and details", imt.model) }}
+  {{ nv.list_close() }}
+{%- endmacro %}

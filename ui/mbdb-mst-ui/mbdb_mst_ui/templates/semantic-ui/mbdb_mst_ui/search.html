@@ -1,4 +1,4 @@
-{%- extends config.BASE_TEMPLATE %}
+{%- extends "oarepo_ui/search.html" %}
 {%- set title = _("Search results") ~ " | " ~ _("mbdb-mst-ui") %}
 
 {%- block javascript %}
@@ -9,7 +9,7 @@
 {%- endblock %}
 
 {%- block page_body %}
-<div class="ui main container">
+<div class="mbdbv-max-width">
   <div data-invenio-search-config='{{ search_app_config(app_id="Mbdb_mst_ui.Search") | tojson }}'></div>
 </div>
 {%- endblock page_body %}

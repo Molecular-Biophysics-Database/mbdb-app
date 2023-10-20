@@ -1,0 +1,37 @@
+{% import "mbdb_mst_ui/MBDB/NameValue/Index.jinja" as nv %}
+{% from   "mbdb_mst_ui/MBDB/SubstanceModification.jinja" import substance_modification %}
+
+{%- macro modifications(mods) %}
+  {%- if mods.synthesis | length %}
+    <span class="mbdbv-strong">Synthesis</span>
+    <div class="mbdbv-hoffset">
+      {{ nv.list_open() }}
+        {%- for mod in mods.synthesis %}
+          {{ substance_modification(mod) }}
+        {%- endfor %}
+      {{ nv.list_close() }}
+    </div>
+  {% endif %}
+
+  {%- if mods.biological_postprocessing | length %}
+    <span class="mbdbv-strong">Biolog. postprocessing</span>
+    <div class="mbdbv-hoffset">
+      {{ nv.list_open() }}
+        {%- for mod in mods.biological_postprocessing %}
+          {{ substance_modification(mod) }}
+        {%- endfor %}
+      {{ nv.list_close() }}
+    </div>
+  {% endif %}
+
+  {%- if mods.chemical | length %}
+    <span class="mbdbv-strong">Chemical</span>
+    <div class="mbdbv-hoffset">
+      {{ nv.list_open() }}
+        {%- for mod in mods.chemical %}
+          {{ substance_modification(mod) }}
+        {%- endfor %}
+      {{ nv.list_close() }}
+    </div>
+  {% endif %}
+{%- endmacro %}

@@ -8,32 +8,17 @@
             "@translations/invenio_search_ui": [
                 "./sites/mbdb-site/.venv/lib/python3.10/site-packages/invenio_search_ui/assets/semantic-ui/translations/invenio_search_ui"
             ],
-            "@translations/oarepo_ui": [
-                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_ui/theme/assets/semantic-ui/translations/oarepo_ui"
+            "@translations/invenio_requests": [
+                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/invenio_requests/assets/semantic-ui/translations/invenio_requests"
             ],
-            "../../less": [
-                "./ui/mbdb-mst-ui/mbdb_mst_ui/theme/assets/semantic-ui/less"
-            ],
-            "@js/oarepo_ui": [
-                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_ui/theme/assets/semantic-ui/js/oarepo_ui"
-            ],
-            "@translations/invenio_app_rdm/i18next": [
-                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_ui/theme/assets/semantic-ui/translations/oarepo_ui/i18next.js"
-            ],
-            "@templates/custom_fields": [
-                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_ui/theme/assets/semantic-ui/js/custom_fields"
+            "@js/invenio_requests": [
+                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/invenio_requests/assets/semantic-ui/js/invenio_requests"
             ],
             "@translations/oarepo_vocabularies_ui": [
                 "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_vocabularies/ui/theme/assets/semantic-ui/translations/oarepo_vocabularies_ui"
             ],
             "@js/oarepo_vocabularies": [
                 "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_vocabularies/ui/theme/assets/semantic-ui/js/oarepo_vocabularies_ui"
-            ],
-            "@translations/invenio_requests": [
-                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/invenio_requests/assets/semantic-ui/translations/invenio_requests"
-            ],
-            "@js/invenio_requests": [
-                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/invenio_requests/assets/semantic-ui/js/invenio_requests"
             ],
             "@js/invenio_theme": [
                 "./sites/mbdb-site/.venv/lib/python3.10/site-packages/invenio_theme/assets/semantic-ui/js/invenio_theme"
@@ -43,6 +28,24 @@
             ],
             "themes/invenio": [
                 "./sites/mbdb-site/.venv/lib/python3.10/site-packages/invenio_theme/assets/semantic-ui/less/invenio_theme/theme"
+            ],
+            "@translations/oarepo_ui": [
+                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_ui/theme/assets/semantic-ui/translations/oarepo_ui"
+            ],
+            "../../less": [
+                "./ui/mbdb-mst-ui/mbdb_mst_ui/theme/assets/semantic-ui/less"
+            ],
+            "@less/oarepo_ui": [
+                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_ui/theme/assets/semantic-ui/less/oarepo_ui"
+            ],
+            "@js/oarepo_ui": [
+                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_ui/theme/assets/semantic-ui/js/oarepo_ui"
+            ],
+            "@translations/invenio_app_rdm/i18next": [
+                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_ui/theme/assets/semantic-ui/translations/oarepo_ui/i18next.js"
+            ],
+            "@templates/custom_fields": [
+                "./sites/mbdb-site/.venv/lib/python3.10/site-packages/oarepo_ui/theme/assets/semantic-ui/js/custom_fields"
             ],
             "@translations/mbdb_mst_ui": [
                 "./ui/mbdb-mst-ui/mbdb_mst_ui/theme/assets/semantic-ui/translations/mbdb_mst_ui"

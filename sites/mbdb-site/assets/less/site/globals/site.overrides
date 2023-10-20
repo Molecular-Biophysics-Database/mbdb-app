@@ -1,3 +1,5 @@
+@import "mbdb.less";
+
 header.oarepo {
     background-color: @topMenuColor;
 

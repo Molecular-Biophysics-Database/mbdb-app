@@ -1,17 +1,49 @@
 <footer id="footer">
-    <div class="ui container">
-      <div class="ui divider"></div>
-    </div>
-    <div class="ui grid container">
-      <div class="eight wide column">
-        {% trans link="http://inveniosoftware.org" %}Powered by
-          <a href="{{ link }}">Invenio</a>{% endtrans %}
+  <div class="mbdbv-footer">
+    <div class="mbdbv-max-width mbdbv-footer-container">
+      <div class="mbdbv-h2-title">
+        Connect with us
+        <span class="mbdbv-h2-underline"></span>
       </div>
-      <div class="eight wide column right aligned">
-      {%- if config.I18N_LANGUAGES %}
-        {% from "invenio_i18n/macros/language_selector.html" import language_selector_dropdown %}
-        {{ language_selector_dropdown() }}
-      {%- endif %}
+      <div class="mbdbv-footer-link-container">
+        <div class="mbdbv-footer-link">
+          <a href="/">
+              About
+          </a>
+        </div>
+        <div class="mbdbv-footer-link">
+          <a href="/">
+              Supported techniques
+          </a>
+        </div>
+        <div class="mbdbv-footer-link">
+          <a href="/">
+              Our partners
+          </a>
+        </div>
+        <div class="mbdbv-footer-link">
+          <a href="/">
+              Tutorials
+          </a>
+        </div>
+      </div>
+      <div class="mbdbv-footer-link-container">
+        <div class="mbdbv-footer-link">
+          <a href="/">
+              Developers team
+          </a>
+        </div>
+        <div class="mbdbv-footer-link">
+          <a href="/">
+              Contact us
+          </a>
+        </div>
+        <div class="mbdbv-footer-link">
+          <a href="/">
+              Documentation
+          </a>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>

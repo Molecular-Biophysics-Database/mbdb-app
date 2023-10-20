@@ -97,8 +97,8 @@
                         "facet": "processing_steps_description"
                     },
                     "link_to_source_code": {
-                        "detail": "keyword",
-                        "input": "keyword",
+                        "detail": "url",
+                        "input": "url",
                         "help": "processing_steps/link_to_source_code.help",
                         "label": "processing_steps/link_to_source_code.label",
                         "hint": "processing_steps/link_to_source_code.hint",
@@ -162,6 +162,13 @@
             "label": "updated.label",
             "hint": "updated.hint",
             "facet": "updated"
+        },
+        "collected_default_search_fields": {
+            "detail": "fulltext",
+            "input": "fulltext",
+            "help": "collected_default_search_fields.help",
+            "label": "collected_default_search_fields.label",
+            "hint": "collected_default_search_fields.hint"
         },
         "metadata": {
             "detail": "metadatum",
@@ -1017,45 +1024,6 @@
                                                             "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/name.hint",
                                                             "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_name"
                                                         },
-                                                        "organism": {
-                                                            "detail": "vocabulary_item",
-                                                            "edit": "vocabulary_item",
-                                                            "input": "vocabulary",
-                                                            "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism.help",
-                                                            "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism.label",
-                                                            "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism.hint",
-                                                            "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_organism",
-                                                            "children": {
-                                                                "id": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism/id.help",
-                                                                    "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism/id.label",
-                                                                    "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism/id.hint"
-                                                                },
-                                                                "title": {
-                                                                    "detail": false,
-                                                                    "input": false,
-                                                                    "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism/title.help",
-                                                                    "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism/title.label",
-                                                                    "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism/title.hint"
-                                                                },
-                                                                "rank": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism/rank.help",
-                                                                    "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism/rank.label",
-                                                                    "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism/rank.hint"
-                                                                },
-                                                                "@v": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism/@v.help",
-                                                                    "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism/@v.label",
-                                                                    "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/organism/@v.hint"
-                                                                }
-                                                            }
-                                                        },
                                                         "polymer_type": {
                                                             "detail": "keyword",
                                                             "input": "keyword",
@@ -1314,6 +1282,45 @@
                                                             "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/sequence.label",
                                                             "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/sequence.hint",
                                                             "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_sequence"
+                                                        },
+                                                        "source_organism": {
+                                                            "detail": "vocabulary_item",
+                                                            "edit": "vocabulary_item",
+                                                            "input": "vocabulary",
+                                                            "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism.help",
+                                                            "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism.label",
+                                                            "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism.hint",
+                                                            "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_source_organism",
+                                                            "children": {
+                                                                "id": {
+                                                                    "detail": "keyword",
+                                                                    "input": "keyword",
+                                                                    "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism/id.help",
+                                                                    "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism/id.label",
+                                                                    "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism/id.hint"
+                                                                },
+                                                                "title": {
+                                                                    "detail": false,
+                                                                    "input": false,
+                                                                    "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism/title.help",
+                                                                    "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism/title.label",
+                                                                    "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism/title.hint"
+                                                                },
+                                                                "rank": {
+                                                                    "detail": "keyword",
+                                                                    "input": "keyword",
+                                                                    "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism/rank.help",
+                                                                    "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism/rank.label",
+                                                                    "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism/rank.hint"
+                                                                },
+                                                                "@v": {
+                                                                    "detail": "keyword",
+                                                                    "input": "keyword",
+                                                                    "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism/@v.help",
+                                                                    "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism/@v.label",
+                                                                    "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/source_organism/@v.hint"
+                                                                }
+                                                            }
                                                         },
                                                         "storage": {
                                                             "detail": false,
@@ -2043,45 +2050,6 @@
                                                                         "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/name.hint",
                                                                         "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_name"
                                                                     },
-                                                                    "organism": {
-                                                                        "detail": "vocabulary_item",
-                                                                        "edit": "vocabulary_item",
-                                                                        "input": "vocabulary",
-                                                                        "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism.help",
-                                                                        "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism.label",
-                                                                        "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism.hint",
-                                                                        "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_organism",
-                                                                        "children": {
-                                                                            "id": {
-                                                                                "detail": "keyword",
-                                                                                "input": "keyword",
-                                                                                "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism/id.help",
-                                                                                "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism/id.label",
-                                                                                "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism/id.hint"
-                                                                            },
-                                                                            "title": {
-                                                                                "detail": false,
-                                                                                "input": false,
-                                                                                "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism/title.help",
-                                                                                "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism/title.label",
-                                                                                "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism/title.hint"
-                                                                            },
-                                                                            "rank": {
-                                                                                "detail": "keyword",
-                                                                                "input": "keyword",
-                                                                                "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism/rank.help",
-                                                                                "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism/rank.label",
-                                                                                "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism/rank.hint"
-                                                                            },
-                                                                            "@v": {
-                                                                                "detail": "keyword",
-                                                                                "input": "keyword",
-                                                                                "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism/@v.help",
-                                                                                "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism/@v.label",
-                                                                                "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/organism/@v.hint"
-                                                                            }
-                                                                        }
-                                                                    },
                                                                     "polymer_type": {
                                                                         "detail": "keyword",
                                                                         "input": "keyword",
@@ -2340,6 +2308,45 @@
                                                                         "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/sequence.label",
                                                                         "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/sequence.hint",
                                                                         "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_sequence"
+                                                                    },
+                                                                    "source_organism": {
+                                                                        "detail": "vocabulary_item",
+                                                                        "edit": "vocabulary_item",
+                                                                        "input": "vocabulary",
+                                                                        "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism.help",
+                                                                        "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism.label",
+                                                                        "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism.hint",
+                                                                        "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_components_source_organism",
+                                                                        "children": {
+                                                                            "id": {
+                                                                                "detail": "keyword",
+                                                                                "input": "keyword",
+                                                                                "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism/id.help",
+                                                                                "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism/id.label",
+                                                                                "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism/id.hint"
+                                                                            },
+                                                                            "title": {
+                                                                                "detail": false,
+                                                                                "input": false,
+                                                                                "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism/title.help",
+                                                                                "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism/title.label",
+                                                                                "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism/title.hint"
+                                                                            },
+                                                                            "rank": {
+                                                                                "detail": "keyword",
+                                                                                "input": "keyword",
+                                                                                "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism/rank.help",
+                                                                                "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism/rank.label",
+                                                                                "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism/rank.hint"
+                                                                            },
+                                                                            "@v": {
+                                                                                "detail": "keyword",
+                                                                                "input": "keyword",
+                                                                                "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism/@v.help",
+                                                                                "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism/@v.label",
+                                                                                "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/source_organism/@v.hint"
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "storage": {
                                                                         "detail": false,
@@ -3255,45 +3262,6 @@
                                                                                 "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/name.hint",
                                                                                 "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_name"
                                                                             },
-                                                                            "organism": {
-                                                                                "detail": "vocabulary_item",
-                                                                                "edit": "vocabulary_item",
-                                                                                "input": "vocabulary",
-                                                                                "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism.help",
-                                                                                "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism.label",
-                                                                                "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism.hint",
-                                                                                "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_organism",
-                                                                                "children": {
-                                                                                    "id": {
-                                                                                        "detail": "keyword",
-                                                                                        "input": "keyword",
-                                                                                        "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism/id.help",
-                                                                                        "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism/id.label",
-                                                                                        "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism/id.hint"
-                                                                                    },
-                                                                                    "title": {
-                                                                                        "detail": false,
-                                                                                        "input": false,
-                                                                                        "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism/title.help",
-                                                                                        "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism/title.label",
-                                                                                        "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism/title.hint"
-                                                                                    },
-                                                                                    "rank": {
-                                                                                        "detail": "keyword",
-                                                                                        "input": "keyword",
-                                                                                        "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism/rank.help",
-                                                                                        "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism/rank.label",
-                                                                                        "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism/rank.hint"
-                                                                                    },
-                                                                                    "@v": {
-                                                                                        "detail": "keyword",
-                                                                                        "input": "keyword",
-                                                                                        "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism/@v.help",
-                                                                                        "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism/@v.label",
-                                                                                        "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/organism/@v.hint"
-                                                                                    }
-                                                                                }
-                                                                            },
                                                                             "polymer_type": {
                                                                                 "detail": "keyword",
                                                                                 "input": "keyword",
@@ -3552,6 +3520,45 @@
                                                                                 "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/sequence.label",
                                                                                 "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/sequence.hint",
                                                                                 "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_sequence"
+                                                                            },
+                                                                            "source_organism": {
+                                                                                "detail": "vocabulary_item",
+                                                                                "edit": "vocabulary_item",
+                                                                                "input": "vocabulary",
+                                                                                "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism.help",
+                                                                                "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism.label",
+                                                                                "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism.hint",
+                                                                                "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_details_components_source_organism",
+                                                                                "children": {
+                                                                                    "id": {
+                                                                                        "detail": "keyword",
+                                                                                        "input": "keyword",
+                                                                                        "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism/id.help",
+                                                                                        "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism/id.label",
+                                                                                        "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism/id.hint"
+                                                                                    },
+                                                                                    "title": {
+                                                                                        "detail": false,
+                                                                                        "input": false,
+                                                                                        "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism/title.help",
+                                                                                        "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism/title.label",
+                                                                                        "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism/title.hint"
+                                                                                    },
+                                                                                    "rank": {
+                                                                                        "detail": "keyword",
+                                                                                        "input": "keyword",
+                                                                                        "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism/rank.help",
+                                                                                        "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism/rank.label",
+                                                                                        "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism/rank.hint"
+                                                                                    },
+                                                                                    "@v": {
+                                                                                        "detail": "keyword",
+                                                                                        "input": "keyword",
+                                                                                        "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism/@v.help",
+                                                                                        "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism/@v.label",
+                                                                                        "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/source_organism/@v.hint"
+                                                                                    }
+                                                                                }
                                                                             },
                                                                             "storage": {
                                                                                 "detail": false,
@@ -5078,45 +5085,6 @@
                                                 "hint": "metadata/general_parameters/chemical_information/entities_of_interest/name.hint",
                                                 "facet": "metadata_general_parameters_chemical_information_entities_of_interest_name"
                                             },
-                                            "organism": {
-                                                "detail": "vocabulary_item",
-                                                "edit": "vocabulary_item",
-                                                "input": "vocabulary",
-                                                "help": "metadata/general_parameters/chemical_information/entities_of_interest/organism.help",
-                                                "label": "metadata/general_parameters/chemical_information/entities_of_interest/organism.label",
-                                                "hint": "metadata/general_parameters/chemical_information/entities_of_interest/organism.hint",
-                                                "facet": "metadata_general_parameters_chemical_information_entities_of_interest_organism",
-                                                "children": {
-                                                    "id": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "help": "metadata/general_parameters/chemical_information/entities_of_interest/organism/id.help",
-                                                        "label": "metadata/general_parameters/chemical_information/entities_of_interest/organism/id.label",
-                                                        "hint": "metadata/general_parameters/chemical_information/entities_of_interest/organism/id.hint"
-                                                    },
-                                                    "title": {
-                                                        "detail": false,
-                                                        "input": false,
-                                                        "help": "metadata/general_parameters/chemical_information/entities_of_interest/organism/title.help",
-                                                        "label": "metadata/general_parameters/chemical_information/entities_of_interest/organism/title.label",
-                                                        "hint": "metadata/general_parameters/chemical_information/entities_of_interest/organism/title.hint"
-                                                    },
-                                                    "rank": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "help": "metadata/general_parameters/chemical_information/entities_of_interest/organism/rank.help",
-                                                        "label": "metadata/general_parameters/chemical_information/entities_of_interest/organism/rank.label",
-                                                        "hint": "metadata/general_parameters/chemical_information/entities_of_interest/organism/rank.hint"
-                                                    },
-                                                    "@v": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "help": "metadata/general_parameters/chemical_information/entities_of_interest/organism/@v.help",
-                                                        "label": "metadata/general_parameters/chemical_information/entities_of_interest/organism/@v.label",
-                                                        "hint": "metadata/general_parameters/chemical_information/entities_of_interest/organism/@v.hint"
-                                                    }
-                                                }
-                                            },
                                             "polymer_type": {
                                                 "detail": "keyword",
                                                 "input": "keyword",
@@ -5375,6 +5343,45 @@
                                                 "label": "metadata/general_parameters/chemical_information/entities_of_interest/sequence.label",
                                                 "hint": "metadata/general_parameters/chemical_information/entities_of_interest/sequence.hint",
                                                 "facet": "metadata_general_parameters_chemical_information_entities_of_interest_sequence"
+                                            },
+                                            "source_organism": {
+                                                "detail": "vocabulary_item",
+                                                "edit": "vocabulary_item",
+                                                "input": "vocabulary",
+                                                "help": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism.help",
+                                                "label": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism.label",
+                                                "hint": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism.hint",
+                                                "facet": "metadata_general_parameters_chemical_information_entities_of_interest_source_organism",
+                                                "children": {
+                                                    "id": {
+                                                        "detail": "keyword",
+                                                        "input": "keyword",
+                                                        "help": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism/id.help",
+                                                        "label": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism/id.label",
+                                                        "hint": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism/id.hint"
+                                                    },
+                                                    "title": {
+                                                        "detail": false,
+                                                        "input": false,
+                                                        "help": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism/title.help",
+                                                        "label": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism/title.label",
+                                                        "hint": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism/title.hint"
+                                                    },
+                                                    "rank": {
+                                                        "detail": "keyword",
+                                                        "input": "keyword",
+                                                        "help": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism/rank.help",
+                                                        "label": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism/rank.label",
+                                                        "hint": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism/rank.hint"
+                                                    },
+                                                    "@v": {
+                                                        "detail": "keyword",
+                                                        "input": "keyword",
+                                                        "help": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism/@v.help",
+                                                        "label": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism/@v.label",
+                                                        "hint": "metadata/general_parameters/chemical_information/entities_of_interest/source_organism/@v.hint"
+                                                    }
+                                                }
                                             },
                                             "storage": {
                                                 "detail": false,
@@ -6104,45 +6111,6 @@
                                                             "hint": "metadata/general_parameters/chemical_information/entities_of_interest/components/name.hint",
                                                             "facet": "metadata_general_parameters_chemical_information_entities_of_interest_components_name"
                                                         },
-                                                        "organism": {
-                                                            "detail": "vocabulary_item",
-                                                            "edit": "vocabulary_item",
-                                                            "input": "vocabulary",
-                                                            "help": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism.help",
-                                                            "label": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism.label",
-                                                            "hint": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism.hint",
-                                                            "facet": "metadata_general_parameters_chemical_information_entities_of_interest_components_organism",
-                                                            "children": {
-                                                                "id": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "help": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism/id.help",
-                                                                    "label": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism/id.label",
-                                                                    "hint": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism/id.hint"
-                                                                },
-                                                                "title": {
-                                                                    "detail": false,
-                                                                    "input": false,
-                                                                    "help": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism/title.help",
-                                                                    "label": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism/title.label",
-                                                                    "hint": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism/title.hint"
-                                                                },
-                                                                "rank": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "help": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism/rank.help",
-                                                                    "label": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism/rank.label",
-                                                                    "hint": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism/rank.hint"
-                                                                },
-                                                                "@v": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "help": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism/@v.help",
-                                                                    "label": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism/@v.label",
-                                                                    "hint": "metadata/general_parameters/chemical_information/entities_of_interest/components/organism/@v.hint"
-                                                                }
-                                                            }
-                                                        },
                                                         "polymer_type": {
                                                             "detail": "keyword",
                                                             "input": "keyword",
@@ -6401,6 +6369,45 @@
                                                             "label": "metadata/general_parameters/chemical_information/entities_of_interest/components/sequence.label",
                                                             "hint": "metadata/general_parameters/chemical_information/entities_of_interest/components/sequence.hint",
                                                             "facet": "metadata_general_parameters_chemical_information_entities_of_interest_components_sequence"
+                                                        },
+                                                        "source_organism": {
+                                                            "detail": "vocabulary_item",
+                                                            "edit": "vocabulary_item",
+                                                            "input": "vocabulary",
+                                                            "help": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism.help",
+                                                            "label": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism.label",
+                                                            "hint": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism.hint",
+                                                            "facet": "metadata_general_parameters_chemical_information_entities_of_interest_components_source_organism",
+                                                            "children": {
+                                                                "id": {
+                                                                    "detail": "keyword",
+                                                                    "input": "keyword",
+                                                                    "help": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism/id.help",
+                                                                    "label": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism/id.label",
+                                                                    "hint": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism/id.hint"
+                                                                },
+                                                                "title": {
+                                                                    "detail": false,
+                                                                    "input": false,
+                                                                    "help": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism/title.help",
+                                                                    "label": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism/title.label",
+                                                                    "hint": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism/title.hint"
+                                                                },
+                                                                "rank": {
+                                                                    "detail": "keyword",
+                                                                    "input": "keyword",
+                                                                    "help": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism/rank.help",
+                                                                    "label": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism/rank.label",
+                                                                    "hint": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism/rank.hint"
+                                                                },
+                                                                "@v": {
+                                                                    "detail": "keyword",
+                                                                    "input": "keyword",
+                                                                    "help": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism/@v.help",
+                                                                    "label": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism/@v.label",
+                                                                    "hint": "metadata/general_parameters/chemical_information/entities_of_interest/components/source_organism/@v.hint"
+                                                                }
+                                                            }
                                                         },
                                                         "storage": {
                                                             "detail": false,
@@ -7316,45 +7323,6 @@
                                                                     "hint": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/name.hint",
                                                                     "facet": "metadata_general_parameters_chemical_information_entities_of_interest_details_components_name"
                                                                 },
-                                                                "organism": {
-                                                                    "detail": "vocabulary_item",
-                                                                    "edit": "vocabulary_item",
-                                                                    "input": "vocabulary",
-                                                                    "help": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism.help",
-                                                                    "label": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism.label",
-                                                                    "hint": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism.hint",
-                                                                    "facet": "metadata_general_parameters_chemical_information_entities_of_interest_details_components_organism",
-                                                                    "children": {
-                                                                        "id": {
-                                                                            "detail": "keyword",
-                                                                            "input": "keyword",
-                                                                            "help": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism/id.help",
-                                                                            "label": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism/id.label",
-                                                                            "hint": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism/id.hint"
-                                                                        },
-                                                                        "title": {
-                                                                            "detail": false,
-                                                                            "input": false,
-                                                                            "help": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism/title.help",
-                                                                            "label": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism/title.label",
-                                                                            "hint": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism/title.hint"
-                                                                        },
-                                                                        "rank": {
-                                                                            "detail": "keyword",
-                                                                            "input": "keyword",
-                                                                            "help": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism/rank.help",
-                                                                            "label": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism/rank.label",
-                                                                            "hint": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism/rank.hint"
-                                                                        },
-                                                                        "@v": {
-                                                                            "detail": "keyword",
-                                                                            "input": "keyword",
-                                                                            "help": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism/@v.help",
-                                                                            "label": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism/@v.label",
-                                                                            "hint": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/organism/@v.hint"
-                                                                        }
-                                                                    }
-                                                                },
                                                                 "polymer_type": {
                                                                     "detail": "keyword",
                                                                     "input": "keyword",
@@ -7613,6 +7581,45 @@
                                                                     "label": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/sequence.label",
                                                                     "hint": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/sequence.hint",
                                                                     "facet": "metadata_general_parameters_chemical_information_entities_of_interest_details_components_sequence"
+                                                                },
+                                                                "source_organism": {
+                                                                    "detail": "vocabulary_item",
+                                                                    "edit": "vocabulary_item",
+                                                                    "input": "vocabulary",
+                                                                    "help": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism.help",
+                                                                    "label": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism.label",
+                                                                    "hint": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism.hint",
+                                                                    "facet": "metadata_general_parameters_chemical_information_entities_of_interest_details_components_source_organism",
+                                                                    "children": {
+                                                                        "id": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "help": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism/id.help",
+                                                                            "label": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism/id.label",
+                                                                            "hint": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism/id.hint"
+                                                                        },
+                                                                        "title": {
+                                                                            "detail": false,
+                                                                            "input": false,
+                                                                            "help": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism/title.help",
+                                                                            "label": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism/title.label",
+                                                                            "hint": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism/title.hint"
+                                                                        },
+                                                                        "rank": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "help": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism/rank.help",
+                                                                            "label": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism/rank.label",
+                                                                            "hint": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism/rank.hint"
+                                                                        },
+                                                                        "@v": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "help": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism/@v.help",
+                                                                            "label": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism/@v.label",
+                                                                            "hint": "metadata/general_parameters/chemical_information/entities_of_interest/details/components/source_organism/@v.hint"
+                                                                        }
+                                                                    }
                                                                 },
                                                                 "storage": {
                                                                     "detail": false,
@@ -9218,45 +9225,6 @@
                                                         "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/name.hint",
                                                         "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_name"
                                                     },
-                                                    "organism": {
-                                                        "detail": "vocabulary_item",
-                                                        "edit": "vocabulary_item",
-                                                        "input": "vocabulary",
-                                                        "help": "metadata/general_parameters/instrument/performance_test/sample_composition/organism.help",
-                                                        "label": "metadata/general_parameters/instrument/performance_test/sample_composition/organism.label",
-                                                        "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/organism.hint",
-                                                        "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_organism",
-                                                        "children": {
-                                                            "id": {
-                                                                "detail": "keyword",
-                                                                "input": "keyword",
-                                                                "help": "metadata/general_parameters/instrument/performance_test/sample_composition/organism/id.help",
-                                                                "label": "metadata/general_parameters/instrument/performance_test/sample_composition/organism/id.label",
-                                                                "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/organism/id.hint"
-                                                            },
-                                                            "title": {
-                                                                "detail": false,
-                                                                "input": false,
-                                                                "help": "metadata/general_parameters/instrument/performance_test/sample_composition/organism/title.help",
-                                                                "label": "metadata/general_parameters/instrument/performance_test/sample_composition/organism/title.label",
-                                                                "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/organism/title.hint"
-                                                            },
-                                                            "rank": {
-                                                                "detail": "keyword",
-                                                                "input": "keyword",
-                                                                "help": "metadata/general_parameters/instrument/performance_test/sample_composition/organism/rank.help",
-                                                                "label": "metadata/general_parameters/instrument/performance_test/sample_composition/organism/rank.label",
-                                                                "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/organism/rank.hint"
-                                                            },
-                                                            "@v": {
-                                                                "detail": "keyword",
-                                                                "input": "keyword",
-                                                                "help": "metadata/general_parameters/instrument/performance_test/sample_composition/organism/@v.help",
-                                                                "label": "metadata/general_parameters/instrument/performance_test/sample_composition/organism/@v.label",
-                                                                "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/organism/@v.hint"
-                                                            }
-                                                        }
-                                                    },
                                                     "polymer_type": {
                                                         "detail": "keyword",
                                                         "input": "keyword",
@@ -9515,6 +9483,45 @@
                                                         "label": "metadata/general_parameters/instrument/performance_test/sample_composition/sequence.label",
                                                         "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/sequence.hint",
                                                         "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_sequence"
+                                                    },
+                                                    "source_organism": {
+                                                        "detail": "vocabulary_item",
+                                                        "edit": "vocabulary_item",
+                                                        "input": "vocabulary",
+                                                        "help": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism.help",
+                                                        "label": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism.label",
+                                                        "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism.hint",
+                                                        "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_source_organism",
+                                                        "children": {
+                                                            "id": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism/id.help",
+                                                                "label": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism/id.label",
+                                                                "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism/id.hint"
+                                                            },
+                                                            "title": {
+                                                                "detail": false,
+                                                                "input": false,
+                                                                "help": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism/title.help",
+                                                                "label": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism/title.label",
+                                                                "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism/title.hint"
+                                                            },
+                                                            "rank": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism/rank.help",
+                                                                "label": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism/rank.label",
+                                                                "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism/rank.hint"
+                                                            },
+                                                            "@v": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism/@v.help",
+                                                                "label": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism/@v.label",
+                                                                "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/source_organism/@v.hint"
+                                                            }
+                                                        }
                                                     },
                                                     "storage": {
                                                         "detail": false,
@@ -10244,45 +10251,6 @@
                                                                     "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/components/name.hint",
                                                                     "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_components_name"
                                                                 },
-                                                                "organism": {
-                                                                    "detail": "vocabulary_item",
-                                                                    "edit": "vocabulary_item",
-                                                                    "input": "vocabulary",
-                                                                    "help": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism.help",
-                                                                    "label": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism.label",
-                                                                    "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism.hint",
-                                                                    "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_components_organism",
-                                                                    "children": {
-                                                                        "id": {
-                                                                            "detail": "keyword",
-                                                                            "input": "keyword",
-                                                                            "help": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism/id.help",
-                                                                            "label": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism/id.label",
-                                                                            "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism/id.hint"
-                                                                        },
-                                                                        "title": {
-                                                                            "detail": false,
-                                                                            "input": false,
-                                                                            "help": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism/title.help",
-                                                                            "label": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism/title.label",
-                                                                            "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism/title.hint"
-                                                                        },
-                                                                        "rank": {
-                                                                            "detail": "keyword",
-                                                                            "input": "keyword",
-                                                                            "help": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism/rank.help",
-                                                                            "label": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism/rank.label",
-                                                                            "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism/rank.hint"
-                                                                        },
-                                                                        "@v": {
-                                                                            "detail": "keyword",
-                                                                            "input": "keyword",
-                                                                            "help": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism/@v.help",
-                                                                            "label": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism/@v.label",
-                                                                            "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/components/organism/@v.hint"
-                                                                        }
-                                                                    }
-                                                                },
                                                                 "polymer_type": {
                                                                     "detail": "keyword",
                                                                     "input": "keyword",
@@ -10541,6 +10509,45 @@
                                                                     "label": "metadata/general_parameters/instrument/performance_test/sample_composition/components/sequence.label",
                                                                     "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/components/sequence.hint",
                                                                     "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_components_sequence"
+                                                                },
+                                                                "source_organism": {
+                                                                    "detail": "vocabulary_item",
+                                                                    "edit": "vocabulary_item",
+                                                                    "input": "vocabulary",
+                                                                    "help": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism.help",
+                                                                    "label": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism.label",
+                                                                    "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism.hint",
+                                                                    "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_components_source_organism",
+                                                                    "children": {
+                                                                        "id": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "help": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism/id.help",
+                                                                            "label": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism/id.label",
+                                                                            "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism/id.hint"
+                                                                        },
+                                                                        "title": {
+                                                                            "detail": false,
+                                                                            "input": false,
+                                                                            "help": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism/title.help",
+                                                                            "label": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism/title.label",
+                                                                            "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism/title.hint"
+                                                                        },
+                                                                        "rank": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "help": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism/rank.help",
+                                                                            "label": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism/rank.label",
+                                                                            "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism/rank.hint"
+                                                                        },
+                                                                        "@v": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "help": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism/@v.help",
+                                                                            "label": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism/@v.label",
+                                                                            "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/components/source_organism/@v.hint"
+                                                                        }
+                                                                    }
                                                                 },
                                                                 "storage": {
                                                                     "detail": false,
@@ -11456,45 +11463,6 @@
                                                                             "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/name.hint",
                                                                             "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_name"
                                                                         },
-                                                                        "organism": {
-                                                                            "detail": "vocabulary_item",
-                                                                            "edit": "vocabulary_item",
-                                                                            "input": "vocabulary",
-                                                                            "help": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism.help",
-                                                                            "label": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism.label",
-                                                                            "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism.hint",
-                                                                            "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_organism",
-                                                                            "children": {
-                                                                                "id": {
-                                                                                    "detail": "keyword",
-                                                                                    "input": "keyword",
-                                                                                    "help": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism/id.help",
-                                                                                    "label": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism/id.label",
-                                                                                    "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism/id.hint"
-                                                                                },
-                                                                                "title": {
-                                                                                    "detail": false,
-                                                                                    "input": false,
-                                                                                    "help": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism/title.help",
-                                                                                    "label": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism/title.label",
-                                                                                    "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism/title.hint"
-                                                                                },
-                                                                                "rank": {
-                                                                                    "detail": "keyword",
-                                                                                    "input": "keyword",
-                                                                                    "help": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism/rank.help",
-                                                                                    "label": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism/rank.label",
-                                                                                    "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism/rank.hint"
-                                                                                },
-                                                                                "@v": {
-                                                                                    "detail": "keyword",
-                                                                                    "input": "keyword",
-                                                                                    "help": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism/@v.help",
-                                                                                    "label": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism/@v.label",
-                                                                                    "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/organism/@v.hint"
-                                                                                }
-                                                                            }
-                                                                        },
                                                                         "polymer_type": {
                                                                             "detail": "keyword",
                                                                             "input": "keyword",
@@ -11753,6 +11721,45 @@
                                                                             "label": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/sequence.label",
                                                                             "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/sequence.hint",
                                                                             "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_sequence"
+                                                                        },
+                                                                        "source_organism": {
+                                                                            "detail": "vocabulary_item",
+                                                                            "edit": "vocabulary_item",
+                                                                            "input": "vocabulary",
+                                                                            "help": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism.help",
+                                                                            "label": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism.label",
+                                                                            "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism.hint",
+                                                                            "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_details_components_source_organism",
+                                                                            "children": {
+                                                                                "id": {
+                                                                                    "detail": "keyword",
+                                                                                    "input": "keyword",
+                                                                                    "help": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism/id.help",
+                                                                                    "label": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism/id.label",
+                                                                                    "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism/id.hint"
+                                                                                },
+                                                                                "title": {
+                                                                                    "detail": false,
+                                                                                    "input": false,
+                                                                                    "help": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism/title.help",
+                                                                                    "label": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism/title.label",
+                                                                                    "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism/title.hint"
+                                                                                },
+                                                                                "rank": {
+                                                                                    "detail": "keyword",
+                                                                                    "input": "keyword",
+                                                                                    "help": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism/rank.help",
+                                                                                    "label": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism/rank.label",
+                                                                                    "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism/rank.hint"
+                                                                                },
+                                                                                "@v": {
+                                                                                    "detail": "keyword",
+                                                                                    "input": "keyword",
+                                                                                    "help": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism/@v.help",
+                                                                                    "label": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism/@v.label",
+                                                                                    "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/source_organism/@v.hint"
+                                                                                }
+                                                                            }
                                                                         },
                                                                         "storage": {
                                                                             "detail": false,
@@ -12963,6 +12970,21 @@
                                 }
                             }
                         },
+                        "raw_measurements": {
+                            "detail": "array",
+                            "input": "array",
+                            "help": "metadata/general_parameters/raw_measurements.help",
+                            "label": "metadata/general_parameters/raw_measurements.label",
+                            "hint": "metadata/general_parameters/raw_measurements.hint",
+                            "child": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/general_parameters/raw_measurements.help",
+                                "label": "metadata/general_parameters/raw_measurements.label",
+                                "hint": "metadata/general_parameters/raw_measurements.hint",
+                                "facet": "metadata_general_parameters_raw_measurements"
+                            }
+                        },
                         "record_information": {
                             "detail": "record_information",
                             "input": "record_information",
@@ -13333,8 +13355,8 @@
                                                     "facet": "metadata_method_specific_parameters_data_analysis_data_processing_steps_description"
                                                 },
                                                 "link_to_source_code": {
-                                                    "detail": "keyword",
-                                                    "input": "keyword",
+                                                    "detail": "url",
+                                                    "input": "url",
                                                     "help": "metadata/method_specific_parameters/data_analysis/data_processing_steps/link_to_source_code.help",
                                                     "label": "metadata/method_specific_parameters/data_analysis/data_processing_steps/link_to_source_code.label",
                                                     "hint": "metadata/method_specific_parameters/data_analysis/data_processing_steps/link_to_source_code.hint",
@@ -13405,6 +13427,46 @@
                                                 "label": "metadata/method_specific_parameters/data_analysis/derived_parameter/@v.label",
                                                 "hint": "metadata/method_specific_parameters/data_analysis/derived_parameter/@v.hint",
                                                 "facet": "metadata_method_specific_parameters_data_analysis_derived_parameter__version"
+                                            }
+                                        }
+                                    },
+                                    "measurements": {
+                                        "detail": "array",
+                                        "input": "array",
+                                        "help": "metadata/method_specific_parameters/data_analysis/measurements.help",
+                                        "label": "metadata/method_specific_parameters/data_analysis/measurements.label",
+                                        "hint": "metadata/method_specific_parameters/data_analysis/measurements.hint",
+                                        "child": {
+                                            "detail": "relation",
+                                            "input": "relation",
+                                            "help": "metadata/method_specific_parameters/data_analysis/measurements.help",
+                                            "label": "metadata/method_specific_parameters/data_analysis/measurements.label",
+                                            "hint": "metadata/method_specific_parameters/data_analysis/measurements.hint",
+                                            "children": {
+                                                "id": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/method_specific_parameters/measurements/id.help",
+                                                    "label": "metadata/method_specific_parameters/measurements/id.label",
+                                                    "hint": "metadata/method_specific_parameters/measurements/id.hint",
+                                                    "facet": "metadata_method_specific_parameters_measurements_id"
+                                                },
+                                                "name": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/method_specific_parameters/measurements/name.help",
+                                                    "label": "metadata/method_specific_parameters/measurements/name.label",
+                                                    "hint": "metadata/method_specific_parameters/measurements/name.hint",
+                                                    "facet": "metadata_method_specific_parameters_measurements_name"
+                                                },
+                                                "@v": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/method_specific_parameters/data_analysis/measurements/@v.help",
+                                                    "label": "metadata/method_specific_parameters/data_analysis/measurements/@v.label",
+                                                    "hint": "metadata/method_specific_parameters/data_analysis/measurements/@v.hint",
+                                                    "facet": "metadata_method_specific_parameters_data_analysis_measurements__version"
+                                                }
                                             }
                                         }
                                     }
@@ -13675,6 +13737,14 @@
                                 "label": "metadata/method_specific_parameters/measurements.label",
                                 "hint": "metadata/method_specific_parameters/measurements.hint",
                                 "children": {
+                                    "id": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/method_specific_parameters/measurements/id.help",
+                                        "label": "metadata/method_specific_parameters/measurements/id.label",
+                                        "hint": "metadata/method_specific_parameters/measurements/id.hint",
+                                        "facet": "metadata_method_specific_parameters_measurements_id"
+                                    },
                                     "measured_data": {
                                         "detail": "measured_datum",
                                         "input": "measured_datum",
@@ -13810,6 +13880,14 @@
                                                 "facet": "metadata_method_specific_parameters_measurements_measurement_protocol_step__version"
                                             }
                                         }
+                                    },
+                                    "name": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/method_specific_parameters/measurements/name.help",
+                                        "label": "metadata/method_specific_parameters/measurements/name.label",
+                                        "hint": "metadata/method_specific_parameters/measurements/name.hint",
+                                        "facet": "metadata_method_specific_parameters_measurements_name"
                                     },
                                     "sample": {
                                         "detail": false,

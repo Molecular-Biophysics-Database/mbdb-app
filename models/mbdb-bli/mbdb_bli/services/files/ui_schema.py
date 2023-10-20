@@ -59,3 +59,8 @@ class ProcessingStepsItemUISchema(ma.Schema):
     software_tool = ma.fields.String()
 
     software_version = ma.fields.String()
+
+
+class MbdbBliFileDraftUISchema(InvenioUISchema):
+    class Meta:
+        unknown = ma.RAISE

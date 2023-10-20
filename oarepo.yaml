@@ -19,7 +19,7 @@ models:
     model_dir: models/mbdb-bli
     model_kind: empty
     model_package: mbdb_bli
-    permissions_preset: everyone
+    permissions_preset: authenticated
     permissions_presets: read_only
     pid_type: bli
     run_tests: skip
@@ -28,7 +28,7 @@ models:
     update_opensearch: run
     use_custom_fields: 'yes'
     use_docs: 'no'
-    use_drafts: 'no'
+    use_drafts: 'yes'
     use_expandable_fields: 'no'
     use_files: 'yes'
     use_metadata: 'no'
@@ -45,7 +45,7 @@ models:
     model_dir: models/mbdb-mst
     model_kind: empty
     model_package: mbdb_mst
-    permissions_preset: everyone
+    permissions_preset: authenticated
     permissions_presets: read_only
     pid_type: mst
     run_tests: skip
@@ -54,7 +54,7 @@ models:
     update_opensearch: run
     use_custom_fields: 'yes'
     use_docs: 'no'
-    use_drafts: 'no'
+    use_drafts: 'yes'
     use_expandable_fields: 'no'
     use_files: 'yes'
     use_metadata: 'no'
@@ -71,7 +71,7 @@ models:
     model_dir: models/mbdb-spr
     model_kind: empty
     model_package: mbdb_spr
-    permissions_preset: everyone
+    permissions_preset: authenticated
     permissions_presets: read_only
     pid_type: spr
     run_tests: skip
@@ -80,7 +80,7 @@ models:
     update_opensearch: run
     use_custom_fields: 'yes'
     use_docs: 'no'
-    use_drafts: 'no'
+    use_drafts: 'yes'
     use_expandable_fields: 'no'
     use_files: 'yes'
     use_metadata: 'no'
