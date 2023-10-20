@@ -24,7 +24,7 @@ const ItemHeader = ({ title, searchUrl, selfLink, id, keywords, releasedDate, gi
         </div>
         <div className="mbdbv-search-result-id-container">
           <div className="mbdbv-search-result-id-text">
-            ID 
+            ID
           </div>
           <div>
            {id}
@@ -72,20 +72,20 @@ export const ResultsListItemComponent = ({
 
   const generalParams = _get(result, "metadata.general_parameters");
   const title = _get(generalParams, "record_information.title", "<no title>");
-  const keywords = _get(generalParams, "record_information.keywords", "[]");
+  const keywords = _get(generalParams, "record_information.keywords", []);
   const releasedDate = _get(generalParams, "record_information.deposition_date", "");
   const technique = _get(generalParams, "technique", "");
   const id = _get(result, "id", "");
-  const ownerGivenName = _get(generalParams, "record_information.project.owner.given_name", "[]");
-  const ownerFamilyName = _get(generalParams, "record_information.project.owner.family_name", "[]");
-  const affiliationsTitle = _get(generalParams, "record_information.project.owner.affiliations", "[]");
+  const ownerGivenName = _get(generalParams, "record_information.project.owner.given_name", "");
+  const ownerFamilyName = _get(generalParams, "record_information.project.owner.family_name", "");
+  const affiliationsTitle = _get(generalParams, "record_information.project.owner.affiliations", []);
 
   const keyword = keywords.map(keywords => <div className="mbdbv-search-result-keyword">{keywords}</div>)
 
   const affiliationTitle = affiliationsTitle.map(affiliationsTitle => <div>{affiliationsTitle.title}</div>)
 
 
-  
+
 
   return (
     <>
