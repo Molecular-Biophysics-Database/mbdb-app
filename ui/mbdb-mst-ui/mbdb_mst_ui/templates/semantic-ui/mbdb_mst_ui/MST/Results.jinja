@@ -8,10 +8,30 @@
   {%- endif -%}
 {%- endmacro %}
 
+{# TODO: results is incomplete and buggy, this need some time to get right. Work arounds such that it doesn't chrash
+         all time was introduced (left original below as a comment
+#}
+
 {%- macro results(gp, msp) %}
-  {# TODO: In the future we might want to filter what derived parameters to display
+  <div>
+    {%- for datum in gp.derived_parameters %}
+      {% set dp = (gp.derived_parameters | selectattr("id", "equalto", datum.id) | list)[0] %}
+
+      <div class="mbdbv-block">
+        <div class="mbdbv-header">{{ dp.name }}</div>
+        {{ nv.list_open() }}
+          {{ nv.item(dp.type, measured_value(dp)) }}
+        {{ nv.list_close() }}
+      </div>
+    {% endfor %}
+  </div>
+{%- endmacro %}
+
+{#
+{%- macro results(gp, msp) %}
+
   {% set kd_derived_parameters = gp.derived_parameters | selectattr("type", "equalto", "Constant of dissociation (K_D)") %}
-  #}
+
 
   <div>
     {%- for datum in msp.data_analysis %}
@@ -27,3 +47,4 @@
     {% endfor %}
   </div>
 {%- endmacro %}
+#}
