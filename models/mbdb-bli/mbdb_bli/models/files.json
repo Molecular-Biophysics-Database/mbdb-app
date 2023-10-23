@@ -1,6 +1,7 @@
 {
     "model": {
         "type": "file",
+        "searchable": true,
         "marshmallow": {
             "imports": [
                 {
@@ -16,7 +17,6 @@
             "class": "mbdb_bli.services.files.schema.MbdbBliFileSchema",
             "extra-code": ""
         },
-        "searchable": true,
         "module": {
             "qualified": "mbdb_bli",
             "prefix": "MbdbBliFile",
@@ -51,7 +51,8 @@
                     "import": "invenio_records_resources.services.SearchOptions",
                     "alias": "InvenioSearchOptions"
                 }
-            ]
+            ],
+            "sort-options-field": "sort_options"
         },
         "facets": {
             "skip": true,
@@ -182,24 +183,6 @@
             "module": "mbdb_bli.proxies",
             "generate": true
         },
-        "files-field": {
-            "field-args": [
-                "store=False",
-                "create=False",
-                "delete=False"
-            ],
-            "generate": true,
-            "field-class": "FilesField",
-            "file-class": "MbdbBliFile",
-            "imports": [
-                {
-                    "import": "invenio_records_resources.records.systemfields.FilesField"
-                },
-                {
-                    "import": "mbdb_bli.files.api.MbdbBliFile"
-                }
-            ]
-        },
         "record-metadata": {
             "use-versioning": false,
             "generate": true,
@@ -294,7 +277,8 @@
                 {
                     "import": "invenio_pidstore.providers.recordid_v2.RecordIdProviderV2"
                 }
-            ]
+            ],
+            "extra-code": ""
         },
         "ui": {
             "module": "mbdb_bli.models",
@@ -339,14 +323,23 @@
             "module": "mbdb_bli.translations",
             "alias": "mbdb_bli_file"
         },
-        "draft-parent-record": {
-            "skip": true
-        },
-        "draft-parent-record-metadata": {
-            "skip": true
-        },
-        "draft-parent-record-state": {
-            "skip": true
+        "files-field": {
+            "field-args": [
+                "store=False",
+                "create=False",
+                "delete=False"
+            ],
+            "generate": true,
+            "field-class": "FilesField",
+            "file-class": "MbdbBliFile",
+            "imports": [
+                {
+                    "import": "invenio_records_resources.records.systemfields.FilesField"
+                },
+                {
+                    "import": "mbdb_bli.files.api.MbdbBliFile"
+                }
+            ]
         },
         "permissions": {
             "class": "mbdb_bli.services.records.permissions.MbdbBliPermissionPolicy",
@@ -409,6 +402,15 @@
                     "alias": "PublishedService"
                 }
             ]
+        },
+        "draft-parent-record": {
+            "skip": true
+        },
+        "draft-parent-record-metadata": {
+            "skip": true
+        },
+        "draft-parent-record-state": {
+            "skip": true
         },
         "sortable": [],
         "properties": {

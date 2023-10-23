@@ -38,9 +38,9 @@ class MbdbBliServiceConfig(
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        DraftFilesComponent,
         FilesOptionsComponent,
         DataComponent,
+        DraftFilesComponent,
     ]
 
     model = "mbdb_bli"
