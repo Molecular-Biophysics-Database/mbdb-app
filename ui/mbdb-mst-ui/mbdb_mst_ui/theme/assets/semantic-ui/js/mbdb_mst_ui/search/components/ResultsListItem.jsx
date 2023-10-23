@@ -24,7 +24,7 @@ const ItemHeader = ({ title, searchUrl, selfLink, id, keywords, releasedDate, gi
         </div>
         <div className="mbdbv-search-result-id-container">
           <div className="mbdbv-search-result-id-text">
-            ID 
+            ID
           </div>
           <div>
            {id}
@@ -84,7 +84,7 @@ export const ResultsListItemComponent = ({
 
   const generalParams = _get(result, "metadata.general_parameters");
   const title = _get(generalParams, "record_information.title", "<no title>");
-  const keywords = _get(generalParams, "record_information.keywords", "[]");
+  const keywords = _get(generalParams, "record_information.keywords", []);
   const releasedDate = _get(generalParams, "record_information.deposition_date", "");
   const technique = _get(generalParams, "technique", "");
   const id = _get(result, "id", "");

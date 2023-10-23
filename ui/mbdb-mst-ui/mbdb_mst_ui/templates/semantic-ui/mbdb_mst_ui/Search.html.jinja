@@ -11,6 +11,6 @@
 
 {%- block page_body %}
 <div class="ui main container">
-  <div data-invenio-search-config='{{ search_app_config }}'></div>
+  <div data-invenio-search-config='{{search_app_config | tojson}}'></div>
 </div>
 {%- endblock page_body %}

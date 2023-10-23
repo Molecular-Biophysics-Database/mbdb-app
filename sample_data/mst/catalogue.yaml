@@ -2,3 +2,6 @@ mst_data:
   - writer: service
     service: mbdb_mst
   - source: MST.json
+  - writer: service
+    service: mbdb_mst
+  - source: random_mst_data.json
