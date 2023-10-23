@@ -71,6 +71,9 @@ button:hover {
     display: none;
 }
 
+.flex {
+    display: flex;
+}
 
 .mbdbv-max-width {
     max-width: 1440px;
@@ -321,6 +324,27 @@ button:hover {
 
 .mbdbv-search-result-item {
     margin: .5rem 0;
+}
+
+.mbdbv-chemical-name {
+    margin-left: .5rem;
+    display: inline;
+}
+
+.mbdbv-search-result-item-description {
+    margin-left: .5rem !important;
+}
+
+.mbdbv-chemical-name::after {
+    content: ",";
+}
+
+.mbdbv-chemical-name:last-child::after {
+    content: "";
+}
+
+.mbdbv-search-result-item-title {
+    font-family: Jost Medium;
 }
 
 .mbdbv-search-result-container {

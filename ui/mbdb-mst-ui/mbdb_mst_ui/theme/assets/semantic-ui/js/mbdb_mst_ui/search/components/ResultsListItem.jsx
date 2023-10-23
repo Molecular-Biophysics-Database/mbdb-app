@@ -10,7 +10,7 @@ import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 
 import { i18next } from "@translations/mbdb_mst_ui/i18next";
 
-const ItemHeader = ({ title, searchUrl, selfLink, id, keywords, releasedDate, givenName, familyName, affiliationsTitle, technique }) => {
+const ItemHeader = ({ title, searchUrl, selfLink, id, keywords, releasedDate, givenName, familyName, affiliationsTitle, technique, chemicalEnviroment, entitiesOfInterest, organismOfOrigin }) => {
   const viewLink = new URL(
     selfLink,
     new URL(searchUrl, window.location.origin)
@@ -39,10 +39,22 @@ const ItemHeader = ({ title, searchUrl, selfLink, id, keywords, releasedDate, gi
             <div className="mbdbv-affiliations-slash mbdbv-search-result-item">/</div>
             <div className="mbdbv-search-result-item">{affiliationsTitle}</div>
           </div>
-          <div className="mbdbv-search-result-item">Technique: {technique}</div>
-          <div className="mbdbv-search-result-item">Chemical enviroment (buffer):</div>
-          <div className="mbdbv-search-result-item">Entities of interest:</div>
-          <div className="mbdbv-search-result-item">Organism of origin:</div>
+          <div className="flex">
+            <div className="mbdbv-search-result-item mbdbv-search-result-item-title">Technique:</div>
+            <div className="mbdbv-search-result-item mbdbv-search-result-item-description">{technique}</div>
+          </div>
+          <div className="flex">
+            <div className="mbdbv-search-result-item mbdbv-search-result-item-title">Chemical enviroment (buffer):</div>
+            <div className="mbdbv-search-result-item flex">{chemicalEnviroment}</div>
+          </div>
+          <div className="flex">
+            <div className="mbdbv-search-result-item mbdbv-search-result-item-title">Entities of interest:</div>
+            <div className="mbdbv-search-result-item">{entitiesOfInterest}</div>
+          </div>
+          <div className="flex">
+            <div className="mbdbv-search-result-item mbdbv-search-result-item-title">Organism of origin:</div>
+            <div className="mbdbv-search-result-item mbdbv-search-result-item-description">{organismOfOrigin}</div>
+          </div>
         </div>
         <div className="mbdbv-search-results-keywords">
           {keywords}
@@ -76,16 +88,25 @@ export const ResultsListItemComponent = ({
   const releasedDate = _get(generalParams, "record_information.deposition_date", "");
   const technique = _get(generalParams, "technique", "");
   const id = _get(result, "id", "");
-  const ownerGivenName = _get(generalParams, "record_information.project.owner.given_name", "");
-  const ownerFamilyName = _get(generalParams, "record_information.project.owner.family_name", "");
-  const affiliationsTitle = _get(generalParams, "record_information.project.owner.affiliations", []);
+  const ownerGivenName = _get(generalParams, "record_information.project.owner.given_name", "[]");
+  const ownerFamilyName = _get(generalParams, "record_information.project.owner.family_name", "[]");
+  const affiliationsTitle = _get(generalParams, "record_information.project.owner.affiliations", "[]");
+  const chemicalEnviroment = _get(generalParams, "chemical_information.chemical_environments[0].constituents", "[]");
+  const entitiesOfInterestLigands = _get(result, "metadata.method_specific_parameters.measurements[0].sample.ligands", "[]");
+  const entitiesOfInterestTargets = _get(result, "metadata.method_specific_parameters.measurements[0].sample.targets", "[]");
+  const organismOfOrigin = _get(generalParams, "chemical_information.entities_of_interest[0].source_organism.title", "[]");
 
   const keyword = keywords.map(keywords => <div className="mbdbv-search-result-keyword">{keywords}</div>)
 
   const affiliationTitle = affiliationsTitle.map(affiliationsTitle => <div>{affiliationsTitle.title}</div>)
 
+  const chemicalEnv = chemicalEnviroment.map((constituent) => <div className="mbdbv-chemical-name">{constituent.name}</div>)
 
+  const entitiesOfInterestLigand = entitiesOfInterestLigands.map((ligand) => <div className="mbdbv-chemical-name">{ligand.entity.name}</div>)
 
+  const entitiesOfInterestTarget = entitiesOfInterestTargets.map((target) => <div className="mbdbv-chemical-name">{target.entity.name}</div>)
+
+  const entitiesOfInterest = [...entitiesOfInterestLigand, ...entitiesOfInterestTarget];
 
   return (
     <>
@@ -106,6 +127,9 @@ export const ResultsListItemComponent = ({
             givenName={ownerGivenName}
             familyName={ownerFamilyName}
             affiliationsTitle={affiliationTitle}
+            chemicalEnviroment={chemicalEnv}
+            entitiesOfInterest={entitiesOfInterest}
+            organismOfOrigin={organismOfOrigin}
           />
           <ItemSubheader />
         </div>
