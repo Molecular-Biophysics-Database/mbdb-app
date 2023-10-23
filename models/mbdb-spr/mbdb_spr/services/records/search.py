@@ -3258,6 +3258,3 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "updated": facets.updated,
         **getattr(InvenioSearchOptions, "facets", {}),
     }
-    sort_options = {
-        **InvenioSearchOptions.sort_options,
-    }

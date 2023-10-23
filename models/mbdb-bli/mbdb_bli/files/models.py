@@ -16,4 +16,7 @@ class MbdbBliFileDraftMetadata(db.Model, RecordMetadataBase, FileRecordModelMixi
     """Model for MbdbBliFileDraft metadata."""
 
     __tablename__ = "mbdb_bli_file_draft_metadata"
+
+    # Enables SQLAlchemy-Continuum versioning
+    __versioned__ = {}
     __record_model_cls__ = MbdbBliDraftMetadata
