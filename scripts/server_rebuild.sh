@@ -31,7 +31,7 @@ echo "Done removing all Docker containters. If the script reported any warning, 
 cd ..
 
 # remove old requirements if present
-sudo rm -Rd .venv sites/mbdb-site/.venv sites/mbdb-site/requirements.txt .assets node_modules
+rm -Rdf .venv sites/mbdb-site/.venv sites/mbdb-site/requirements.txt .assets node_modules
 
 # remove old models
 #echo "removing models"
