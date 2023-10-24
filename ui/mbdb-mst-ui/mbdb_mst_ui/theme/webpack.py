@@ -13,7 +13,7 @@ theme = WebpackThemeBundle(
             },
             dependencies={
                 "react-searchkit": "^2.0.0",
-                "@mbdb/input-form": "^0.0.17",
+                "@mbdb/input-form": "^0.0.18",
             },
             devDependencies={},
             aliases={
