@@ -25,7 +25,7 @@ nrp oarepo fixtures load
 nrp oarepo fixtures load --no-system-fixtures ../../sample_data/mst
 
 # for reindexing the whole repo
-nrp oarepo reindex
+nrp oarepo index reindex
 ```
 
 ## UI development
