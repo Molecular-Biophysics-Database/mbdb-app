@@ -51,7 +51,7 @@ run_tests: skip
 update_opensearch: run
 use_custom_fields: 'yes'
 use_expandable_fields: 'no'
-use_drafts: 'no'
+use_drafts: 'yes'
 use_files: 'no'
 use_relations: 'yes'
 use_requests: 'no'
