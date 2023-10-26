@@ -21,10 +21,6 @@ from mbdb_bli.records.models import (
 class MbdbBliParentRecord(ParentRecord):
     model_cls = MbdbBliParentMetadata
 
-    # schema = ConstantField(
-    #    "$schema", "local://parent-v1.0.0.json"
-    # )
-
 
 class MbdbBliIdProvider(DraftRecordIdProviderV2):
     pid_type = "bli"

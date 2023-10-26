@@ -21,10 +21,6 @@ from mbdb_spr.records.models import (
 class MbdbSprParentRecord(ParentRecord):
     model_cls = MbdbSprParentMetadata
 
-    # schema = ConstantField(
-    #    "$schema", "local://parent-v1.0.0.json"
-    # )
-
 
 class MbdbSprIdProvider(DraftRecordIdProviderV2):
     pid_type = "spr"

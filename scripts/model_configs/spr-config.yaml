@@ -14,7 +14,7 @@ sites:
 update_opensearch: run
 use_custom_fields: 'yes'
 use_docs: 'no'
-use_drafts: 'no'
+use_drafts: 'yes'
 use_expandable_fields: 'no'
 use_files: 'yes'
 use_metadata: 'no'

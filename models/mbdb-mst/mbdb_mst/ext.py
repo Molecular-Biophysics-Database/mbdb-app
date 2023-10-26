@@ -6,6 +6,7 @@ from mbdb_mst import config as config
 
 class Mbdb_mstExt:
     def __init__(self, app=None):
+
         if app:
             self.init_app(app)
 
