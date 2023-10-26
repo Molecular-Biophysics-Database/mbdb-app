@@ -25,10 +25,11 @@ models:
     run_tests: skip
     sites:
     - mbdb-site
+    - mbdb-site
     update_opensearch: run
     use_custom_fields: 'yes'
     use_docs: 'no'
-    use_drafts: 'yes'
+    use_drafts: 'no'
     use_expandable_fields: 'no'
     use_files: 'yes'
     use_metadata: 'no'
@@ -51,10 +52,11 @@ models:
     run_tests: skip
     sites:
     - mbdb-site
+    - mbdb-site
     update_opensearch: run
     use_custom_fields: 'yes'
     use_docs: 'no'
-    use_drafts: 'yes'
+    use_drafts: 'no'
     use_expandable_fields: 'no'
     use_files: 'yes'
     use_metadata: 'no'
@@ -77,10 +79,11 @@ models:
     run_tests: skip
     sites:
     - mbdb-site
+    - mbdb-site
     update_opensearch: run
     use_custom_fields: 'yes'
     use_docs: 'no'
-    use_drafts: 'yes'
+    use_drafts: 'no'
     use_expandable_fields: 'no'
     use_files: 'yes'
     use_metadata: 'no'

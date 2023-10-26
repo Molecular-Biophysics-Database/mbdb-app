@@ -2,42 +2,22 @@ from io import BytesIO
 
 import pytest
 
-from mbdb_spr.resources.files.config import (
-    MbdbSprFileDraftResourceConfig,
-    MbdbSprFileResourceConfig,
-)
-from mbdb_spr.resources.records.config import MbdbSprResourceConfig
-
-
-@pytest.fixture()
-def input_data(input_data):
-    input_data["files"] = {"enabled": True}
-    return input_data
-
-
-BASE_URL_FILES = MbdbSprFileResourceConfig.url_prefix.replace("<pid_value>", "{id}")
-BASE_URL = MbdbSprResourceConfig.url_prefix
-
-BASE_URL_DRAFT_FILES = MbdbSprFileDraftResourceConfig.url_prefix.replace(
-    "<pid_value>", "{id}"
-)
 
 
 def test_files_api_flow(
-    client_with_credentials,
-    search_clear,
-    headers,
-    input_data,
-    base_url_files=BASE_URL_DRAFT_FILES,
+    client_with_credentials, search_clear, headers, input_data, base_urls
 ):
     """Test record creation."""
-    res = client_with_credentials.post(BASE_URL, headers=headers, json=input_data)
+    base_files_url = base_urls["base_draft_files_url"]
+    res = client_with_credentials.post(
+        base_urls["base_url"], headers=headers, json=input_data
+    )
     assert res.status_code == 201
     id_ = res.json["id"]
 
     # Initialize files upload
     res = client_with_credentials.post(
-        f"{base_url_files.replace('{id}', id_)}/files",
+        f"{base_files_url.replace('{id}', id_)}/files",
         headers=headers,
         json=[
             {"key": "test.pdf", "title": "Test file"},
@@ -51,7 +31,7 @@ def test_files_api_flow(
 
     # Get the file metadata
     res = client_with_credentials.get(
-        f"{base_url_files.replace('{id}', id_)}/files/test.pdf", headers=headers
+        f"{base_files_url.replace('{id}', id_)}/files/test.pdf", headers=headers
     )
     assert res.status_code == 200
     assert res.json["key"] == "test.pdf"
@@ -60,7 +40,7 @@ def test_files_api_flow(
 
     # Upload a file
     res = client_with_credentials.put(
-        f"{base_url_files.replace('{id}', id_)}/files/test.pdf/content",
+        f"{base_files_url.replace('{id}', id_)}/files/test.pdf/content",
         headers={
             "content-type": "application/octet-stream",
             "accept": "application/json",
@@ -72,14 +52,14 @@ def test_files_api_flow(
 
     # Commit the uploaded file
     res = client_with_credentials.post(
-        f"{base_url_files.replace('{id}', id_)}/files/test.pdf/commit", headers=headers
+        f"{base_files_url.replace('{id}', id_)}/files/test.pdf/commit", headers=headers
     )
     assert res.status_code == 200
     assert res.json["status"] == "completed"
 
     # Get the file metadata
     res = client_with_credentials.get(
-        f"{base_url_files.replace('{id}', id_)}/files/test.pdf", headers=headers
+        f"{base_files_url.replace('{id}', id_)}/files/test.pdf", headers=headers
     )
     assert res.status_code == 200
     assert res.json["key"] == "test.pdf"
@@ -90,14 +70,14 @@ def test_files_api_flow(
 
     # Read a file's content
     res = client_with_credentials.get(
-        f"{base_url_files.replace('{id}', id_)}/files/test.pdf/content", headers=headers
+        f"{base_files_url.replace('{id}', id_)}/files/test.pdf/content", headers=headers
     )
     assert res.status_code == 200
     assert res.data == b"testfile"
 
     # Update file metadata
     res = client_with_credentials.put(
-        f"{base_url_files.replace('{id}', id_)}/files/test.pdf",
+        f"{base_files_url.replace('{id}', id_)}/files/test.pdf",
         headers=headers,
         json={"title": "New title"},
     )
@@ -108,7 +88,7 @@ def test_files_api_flow(
 
     # Get all files
     res = client_with_credentials.get(
-        f"{base_url_files.replace('{id}', id_)}/files", headers=headers
+        f"{base_files_url.replace('{id}', id_)}/files", headers=headers
     )
     assert res.status_code == 200
     assert len(res.json["entries"]) == 1
@@ -118,34 +98,31 @@ def test_files_api_flow(
 
     # Delete a file
     res = client_with_credentials.delete(
-        f"{base_url_files.replace('{id}', id_)}/files/test.pdf", headers=headers
+        f"{base_files_url.replace('{id}', id_)}/files/test.pdf", headers=headers
     )
     assert res.status_code == 204
 
     # Get all files
     res = client_with_credentials.get(
-        f"{base_url_files.replace('{id}', id_)}/files", headers=headers
+        f"{base_files_url.replace('{id}', id_)}/files", headers=headers
     )
     assert res.status_code == 200
     assert len(res.json["entries"]) == 0
 
 
 def test_default_preview_file(
-    app,
-    client_with_credentials,
-    search_clear,
-    headers,
-    input_data,
-    base_url_files=BASE_URL_DRAFT_FILES,
+    app, client_with_credentials, search_clear, headers, input_data, base_urls
 ):
-    # Initialize a draft
-    res = client_with_credentials.post(BASE_URL, headers=headers, json=input_data)
+    base_files_url = base_urls["base_draft_files_url"]
+    res = client_with_credentials.post(
+        base_urls["base_url"], headers=headers, json=input_data
+    )
     assert res.status_code == 201
     id_ = res.json["id"]
 
     # Initialize 3 file uploads
     res = client_with_credentials.post(
-        f"{base_url_files.replace('{id}', id_)}/files",
+        f"{base_files_url.replace('{id}', id_)}/files",
         headers=headers,
         json=[
             {"key": "f1.pdf"},
@@ -166,7 +143,7 @@ def test_default_preview_file(
     # Upload and commit the 3 files
     for f in file_entries:
         res = client_with_credentials.put(
-            f"{base_url_files.replace('{id}', id_)}/files/{f['key']}/content",
+            f"{base_files_url.replace('{id}', id_)}/files/{f['key']}/content",
             headers={
                 "content-type": "application/octet-stream",
                 "accept": "application/json",
@@ -177,7 +154,7 @@ def test_default_preview_file(
         assert res.json["status"] == "pending"
 
         res = client_with_credentials.post(
-            f"{base_url_files.replace('{id}', id_)}/files/{f['key']}/commit",
+            f"{base_files_url.replace('{id}', id_)}/files/{f['key']}/commit",
             headers=headers,
         )
         assert res.status_code == 200
@@ -186,7 +163,7 @@ def test_default_preview_file(
     # Set the default preview file
     input_data["files"]["default_preview"] = "f1.pdf"
     res = client_with_credentials.put(
-        f"{BASE_URL}{id_}/draft", headers=headers, json=input_data
+        f"{base_urls['base_url']}{id_}/draft", headers=headers, json=input_data
     )
     assert res.status_code == 200
     assert res.json["files"]["default_preview"] == "f1.pdf"
@@ -194,7 +171,7 @@ def test_default_preview_file(
     # Change the default preview file
     input_data["files"]["default_preview"] = "f2.pdf"
     res = client_with_credentials.put(
-        f"{BASE_URL}{id_}/draft", headers=headers, json=input_data
+        f"{base_urls['base_url']}{id_}/draft", headers=headers, json=input_data
     )
     assert res.status_code == 200
     assert res.json["files"]["default_preview"] == "f2.pdf"
@@ -202,7 +179,7 @@ def test_default_preview_file(
     # Unset the default preview file
     input_data["files"]["default_preview"] = None
     res = client_with_credentials.put(
-        f"{BASE_URL}{id_}/draft", headers=headers, json=input_data
+        f"{base_urls['base_url']}{id_}/draft", headers=headers, json=input_data
     )
     assert res.status_code == 200
     assert res.json["files"].get("default_preview") is None
@@ -210,7 +187,7 @@ def test_default_preview_file(
     # Empty string the default preview file
     input_data["files"]["default_preview"] = ""
     res = client_with_credentials.put(
-        f"{BASE_URL}{id_}/draft", headers=headers, json=input_data
+        f"{base_urls['base_url']}{id_}/draft", headers=headers, json=input_data
     )
     assert res.status_code == 200
     assert res.json["files"].get("default_preview") is None
@@ -218,20 +195,20 @@ def test_default_preview_file(
     # Set the default preview file
     input_data["files"]["default_preview"] = "f3.pdf"
     res = client_with_credentials.put(
-        f"{BASE_URL}{id_}/draft", headers=headers, json=input_data
+        f"{base_urls['base_url']}{id_}/draft", headers=headers, json=input_data
     )
     assert res.status_code == 200
     assert res.json["files"]["default_preview"] == "f3.pdf"
 
     # Delete the default preview file
     res = client_with_credentials.delete(
-        f"{base_url_files.replace('{id}', id_)}/files/f3.pdf", headers=headers
+        f"{base_files_url.replace('{id}', id_)}/files/f3.pdf", headers=headers
     )
     assert res.status_code == 204
 
     # Get all files and check default preview
     res = client_with_credentials.get(
-        f"{base_url_files.replace('{id}', id_)}/files", headers=headers
+        f"{base_files_url.replace('{id}', id_)}/files", headers=headers
     )
     assert res.status_code == 200
     assert len(res.json["entries"]) == 2
@@ -239,31 +216,30 @@ def test_default_preview_file(
 
 
 def test_file_api_errors(
-    client_with_credentials,
-    search_clear,
-    headers,
-    input_data,
-    base_url_files=BASE_URL_DRAFT_FILES,
+    client_with_credentials, search_clear, headers, input_data, base_urls
 ):
-    """Test REST API errors for file management."""
+    base_files_url = base_urls["base_draft_files_url"]
+
     h = headers
 
     # Initialize a draft
-    res = client_with_credentials.post(BASE_URL, headers=headers, json=input_data)
+    res = client_with_credentials.post(
+        base_urls["base_url"], headers=headers, json=input_data
+    )
     assert res.status_code == 201
     id_ = res.json["id"]
 
     # Initialize files upload
     # Pass an object instead of an array
     res = client_with_credentials.post(
-        f"{base_url_files.replace('{id}', id_)}/files",
+        f"{base_files_url.replace('{id}', id_)}/files",
         headers=headers,
         json={"key": "test.pdf"},
     )
     assert res.status_code == 400
 
     res = client_with_credentials.post(
-        f"{base_url_files.replace('{id}', id_)}/files",
+        f"{base_files_url.replace('{id}', id_)}/files",
         headers=headers,
         json=[
             {"key": "test.pdf", "title": "Test file"},
@@ -273,7 +249,7 @@ def test_file_api_errors(
 
     # Upload a file
     res = client_with_credentials.put(
-        f"{base_url_files.replace('{id}', id_)}/files/test.pdf/content",
+        f"{base_files_url.replace('{id}', id_)}/files/test.pdf/content",
         headers={
             "content-type": "application/octet-stream",
             "accept": "application/json",
@@ -285,14 +261,14 @@ def test_file_api_errors(
 
     # Commit the uploaded file
     res = client_with_credentials.post(
-        f"{base_url_files.replace('{id}', id_)}/files/test.pdf/commit", headers=headers
+        f"{base_files_url.replace('{id}', id_)}/files/test.pdf/commit", headers=headers
     )
     assert res.status_code == 200
     assert res.json["status"] == "completed"
 
     # Initialize same file upload again
     res = client_with_credentials.post(
-        f"{base_url_files.replace('{id}', id_)}/files",
+        f"{base_files_url.replace('{id}', id_)}/files",
         headers=headers,
         json=[
             {"key": "test.pdf", "title": "Test file"},
@@ -301,27 +277,32 @@ def test_file_api_errors(
     assert res.status_code == 400
 
 
-def assert_record_file_links(id_, generated_links, site_hostname="127.0.0.1:5000"):
+def assert_record_file_links(
+    id_, generated_links, base_urls, site_hostname="127.0.0.1:5000"
+):
     """Compare generated links to expected links."""
+    base_files_url = base_urls["base_draft_files_url"]
+
     required_links = {
         "self": (
-            f"https://{site_hostname}/api{BASE_URL_DRAFT_FILES.replace('{id}', id_)}/files"
+            f"https://{site_hostname}/api{base_files_url.replace('{id}', id_)}/files"
         ),
     }
     assert required_links.items() <= generated_links.items()
 
 
-def assert_file_links(id_, generated_links, site_hostname="127.0.0.1:5000"):
+def assert_file_links(id_, generated_links, base_urls, site_hostname="127.0.0.1:5000"):
     """Compare generated links to expected links."""
+    base_files_url = base_urls["base_draft_files_url"]
     required_links = {
         "self": (
-            f"https://{site_hostname}/api{BASE_URL_DRAFT_FILES.replace('{id}', id_)}/files/test.pdf"
+            f"https://{site_hostname}/api{base_files_url.replace('{id}', id_)}/files/test.pdf"
         ),
         "content": (
-            f"https://{site_hostname}/api{BASE_URL_DRAFT_FILES.replace('{id}', id_)}/files/test.pdf/content"
+            f"https://{site_hostname}/api{base_files_url.replace('{id}', id_)}/files/test.pdf/content"
         ),
         "commit": (
-            f"https://{site_hostname}/api{BASE_URL_DRAFT_FILES.replace('{id}', id_)}/files/test.pdf/commit"
+            f"https://{site_hostname}/api{base_files_url.replace('{id}', id_)}/files/test.pdf/commit"
         ),
     }
     assert required_links.items() <= generated_links.items()
@@ -332,37 +313,39 @@ def test_record_file_links(
     client_with_credentials,
     input_data,
     headers,
+    base_urls,
     site_hostname="127.0.0.1:5000",
-    base_url_files=BASE_URL_DRAFT_FILES,
 ):
-    res = client_with_credentials.post(BASE_URL, json=input_data)
+    base_files_url = base_urls["base_draft_files_url"]
+
+    res = client_with_credentials.post(base_urls["base_url"], json=input_data)
 
     id_ = res.json["id"]
     assert (
-        f"https://{site_hostname}/api{base_url_files.replace('{id}', id_)}/files"
+        f"https://{site_hostname}/api{base_files_url.replace('{id}', id_)}/files"
         == res.json["links"]["files"]
     )
 
     res = client_with_credentials.post(
-        f"{base_url_files.replace('{id}', id_)}/files",
+        f"{base_files_url.replace('{id}', id_)}/files",
         headers=headers,
         json=[
             {"key": "test.pdf", "title": "Test file"},
         ],
     )
-    res = client_with_credentials.get(f"{base_url_files.replace('{id}', id_)}/files")
-    assert_record_file_links(id_, res.json["links"])
-    assert_file_links(id_, res.json["entries"][0]["links"])
+    res = client_with_credentials.get(f"{base_files_url.replace('{id}', id_)}/files")
+    assert_record_file_links(id_, res.json["links"], base_urls)
+    assert_file_links(id_, res.json["entries"][0]["links"], base_urls)
 
 
 @pytest.fixture()
-def published_id(client_with_credentials, location, headers):
+def published_id(client_with_credentials, location, headers, base_urls):
     """A published record."""
     h = headers
 
     # Create a draft
     res = client_with_credentials.post(
-        BASE_URL,
+        base_urls["base_url"],
         headers=h,
         json={
             "metadata": {"title": "Test"},
@@ -373,7 +356,7 @@ def published_id(client_with_credentials, location, headers):
 
     # Initialize files upload
     res = client_with_credentials.post(
-        f"{BASE_URL_DRAFT_FILES.replace('{id}', id_)}/files",
+        f"{base_urls['base_draft_files_url'].replace('{id}', id_)}/files",
         headers=h,
         json=[{"key": "test.pdf"}],
     )
@@ -383,7 +366,7 @@ def published_id(client_with_credentials, location, headers):
 
     # Upload a file
     res = client_with_credentials.put(
-        f"{BASE_URL_DRAFT_FILES.replace('{id}', id_)}/files/test.pdf/content",
+        f"{base_urls['base_draft_files_url'].replace('{id}', id_)}/files/test.pdf/content",
         headers={"content-type": "application/octet-stream"},
         data=BytesIO(b"testfile"),
     )
@@ -391,7 +374,8 @@ def published_id(client_with_credentials, location, headers):
 
     # Commit the file
     res = client_with_credentials.post(
-        f"{BASE_URL_DRAFT_FILES.replace('{id}', id_)}/files/test.pdf/commit", headers=h
+        f"{base_urls['base_draft_files_url'].replace('{id}', id_)}/files/test.pdf/commit",
+        headers=h,
     )
     assert res.status_code == 200
     assert res.json["key"] == "test.pdf"
@@ -399,26 +383,28 @@ def published_id(client_with_credentials, location, headers):
 
     # Publish the record
     res = client_with_credentials.post(
-        f"{BASE_URL}{id_}/draft/actions/publish", headers=h
+        f"{base_urls['base_url']}{id_}/draft/actions/publish", headers=h
     )
     assert res.status_code == 202
 
     return id_
 
 
-def test_files_publish_flow(client_with_credentials, search_clear, location, headers):
+def test_files_publish_flow(
+    client_with_credentials, search_clear, location, headers, base_urls
+):
     """Test record creation."""
     h = headers
     # Create a draft
     res = client_with_credentials.post(
-        BASE_URL, headers=h, json={"metadata": {"title": "Test"}}
+        base_urls["base_url"], headers=h, json={"metadata": {"title": "Test"}}
     )
     assert res.status_code == 201
     id_ = res.json["id"]
 
     # Initialize files upload
     res = client_with_credentials.post(
-        f"{BASE_URL_DRAFT_FILES.replace('{id}', id_)}/files",
+        f"{base_urls['base_draft_files_url'].replace('{id}', id_)}/files",
         headers=h,
         json=[{"key": "test.pdf"}],
     )
@@ -428,7 +414,7 @@ def test_files_publish_flow(client_with_credentials, search_clear, location, hea
 
     # Upload a file
     res = client_with_credentials.put(
-        f"{BASE_URL_DRAFT_FILES.replace('{id}', id_)}/files/test.pdf/content",
+        f"{base_urls['base_draft_files_url'].replace('{id}', id_)}/files/test.pdf/content",
         headers={"content-type": "application/octet-stream"},
         data=BytesIO(b"testfile"),
     )
@@ -436,7 +422,8 @@ def test_files_publish_flow(client_with_credentials, search_clear, location, hea
 
     # Commit the file
     res = client_with_credentials.post(
-        f"{BASE_URL_DRAFT_FILES.replace('{id}', id_)}/files/test.pdf/commit", headers=h
+        f"{base_urls['base_draft_files_url'].replace('{id}', id_)}/files/test.pdf/commit",
+        headers=h,
     )
     assert res.status_code == 200
     assert res.json["key"] == "test.pdf"
@@ -444,43 +431,45 @@ def test_files_publish_flow(client_with_credentials, search_clear, location, hea
 
     # Publish the record
     res = client_with_credentials.post(
-        f"{BASE_URL}{id_}/draft/actions/publish", headers=h
+        f"{base_urls['base_url']}{id_}/draft/actions/publish", headers=h
     )
     assert res.status_code == 202
 
     # Check published files
     res = client_with_credentials.get(
-        f"{BASE_URL_FILES.replace('{id}', id_)}/files", headers=h
+        f"{base_urls['base_files_url'].replace('{id}', id_)}/files", headers=h
     )
     assert res.status_code == 200
     assert res.json["entries"][0]["key"] == "test.pdf"
     assert res.json["entries"][0]["status"] == "completed"
 
     # Edit the record
-    res = client_with_credentials.post(f"{BASE_URL}{id_}/draft", headers=h)
+    res = client_with_credentials.post(f"{base_urls['base_url']}{id_}/draft", headers=h)
     assert res.status_code == 201
 
     # Publish again
     res = client_with_credentials.post(
-        f"{BASE_URL}{id_}/draft/actions/publish", headers=h
+        f"{base_urls['base_url']}{id_}/draft/actions/publish", headers=h
     )
     assert res.status_code == 202
 
     # Check published files
     res = client_with_credentials.get(
-        f"{BASE_URL_FILES.replace('{id}', id_)}/files", headers=h
+        f"{base_urls['base_files_url'].replace('{id}', id_)}/files", headers=h
     )
     assert res.status_code == 200
     assert res.json["entries"][0]["key"] == "test.pdf"
     assert res.json["entries"][0]["status"] == "completed"
 
 
-def test_metadata_only_record(client_with_credentials, search_clear, location, headers):
+def test_metadata_only_record(
+    client_with_credentials, search_clear, location, headers, base_urls
+):
     """Test record with files disabled."""
     h = headers
     # Create a draft
     res = client_with_credentials.post(
-        BASE_URL,
+        base_urls["base_url"],
         headers=h,
         json={"metadata": {"title": "Test"}, "files": {"enabled": False}},
     )
@@ -489,31 +478,31 @@ def test_metadata_only_record(client_with_credentials, search_clear, location, h
 
     # Publish the record
     res = client_with_credentials.post(
-        f"{BASE_URL}{id_}/draft/actions/publish", headers=h
+        f"{base_urls['base_url']}{id_}/draft/actions/publish", headers=h
     )
     assert res.status_code == 202
 
     # Check published files
     res = client_with_credentials.get(
-        f"{BASE_URL_FILES.replace('{id}', id_)}/files", headers=h
+        f"{base_urls['base_files_url'].replace('{id}', id_)}/files", headers=h
     )
     assert res.status_code == 200
     assert res.json["enabled"] is False
     assert "entries" not in res.json
 
     # Edit the record
-    res = client_with_credentials.post(f"{BASE_URL}{id_}/draft", headers=h)
+    res = client_with_credentials.post(f"{base_urls['base_url']}{id_}/draft", headers=h)
     assert res.status_code == 201
 
     # Publish again
     res = client_with_credentials.post(
-        f"{BASE_URL}{id_}/draft/actions/publish", headers=h
+        f"{base_urls['base_url']}{id_}/draft/actions/publish", headers=h
     )
     assert res.status_code == 202
 
     # Check published files
     res = client_with_credentials.get(
-        f"{BASE_URL_FILES.replace('{id}', id_)}/files", headers=h
+        f"{base_urls['base_files_url'].replace('{id}', id_)}/files", headers=h
     )
     assert res.status_code == 200
     assert res.json["enabled"] is False
@@ -521,47 +510,50 @@ def test_metadata_only_record(client_with_credentials, search_clear, location, h
 
 
 def test_import_files(
-    client_with_credentials, search_clear, location, headers, published_id
+    client_with_credentials, search_clear, location, headers, published_id, base_urls
 ):
     """Test import files from previous version."""
     h = headers
     id_ = published_id
 
     # New version
-    res = client_with_credentials.post(f"{BASE_URL}{id_}/versions", headers=h)
+    res = client_with_credentials.post(
+        f"{base_urls['base_url']}{id_}/versions", headers=h
+    )
     assert res.status_code == 201
     new_id = res.json["id"]
 
     # Check new version files
     res = client_with_credentials.get(
-        f"{BASE_URL_DRAFT_FILES.replace('{id}', new_id)}/files", headers=h
+        f"{base_urls['base_draft_files_url'].replace('{id}', new_id)}/files", headers=h
     )
     assert res.status_code == 200
     assert len(res.json["entries"]) == 0
 
     # Import files from previous version
+    # Import files from previous version
     res = client_with_credentials.post(
-        f"{BASE_URL}{new_id}/draft/actions/files-import", headers=h
+        f"{base_urls['base_url']}{new_id}/draft/actions/files-import", headers=h
     )
     assert res.status_code == 201
     assert res.content_type == "application/json"
 
     # Check new version files
     res = client_with_credentials.get(
-        f"{BASE_URL_DRAFT_FILES.replace('{id}', new_id)}/files", headers=h
+        f"{base_urls['base_draft_files_url'].replace('{id}', new_id)}/files", headers=h
     )
     assert res.status_code == 200
     assert len(res.json["entries"]) == 1
 
 
 def test_import_files_metadata_only(
-    client_with_credentials, search_clear, location, headers
+    client_with_credentials, search_clear, location, headers, base_urls
 ):
     """Test import files from previous version."""
     h = headers
 
     res = client_with_credentials.post(
-        BASE_URL,
+        base_urls["base_url"],
         headers=h,
         json={"metadata": {"title": "Test"}, "files": {"enabled": False}},
     )
@@ -570,37 +562,39 @@ def test_import_files_metadata_only(
 
     # Publish
     res = client_with_credentials.post(
-        f"{BASE_URL}{id_}/draft/actions/publish", headers=h
+        f"{base_urls['base_url']}{id_}/draft/actions/publish", headers=h
     )
     assert res.status_code == 202
 
     # New version
-    res = client_with_credentials.post(f"{BASE_URL}{id_}/versions", headers=h)
+    res = client_with_credentials.post(
+        f"{base_urls['base_url']}{id_}/versions", headers=h
+    )
     assert res.status_code == 201
     new_id = res.json["id"]
 
     # Check new version files
     res = client_with_credentials.get(
-        f"{BASE_URL_DRAFT_FILES.replace('{id}', new_id)}/files", headers=h
+        f"{base_urls['base_draft_files_url'].replace('{id}', new_id)}/files", headers=h
     )
     assert res.status_code == 200
     assert "entries" not in res.json
 
     # Import files from previous version
     res = client_with_credentials.post(
-        f"{BASE_URL}{new_id}/draft/actions/files-import", headers=h
+        f"{base_urls['base_url']}{new_id}/draft/actions/files-import", headers=h
     )
     assert res.status_code == 400
 
 
 def test_import_files_no_version(
-    client_with_credentials, search_clear, location, headers
+    client_with_credentials, search_clear, location, headers, base_urls
 ):
     """Test import files from previous version."""
     h = headers
 
     res = client_with_credentials.post(
-        BASE_URL,
+        base_urls["base_url"],
         headers=h,
         json={"metadata": {"title": "Test"}, "files": {"enabled": True}},
     )
@@ -609,34 +603,36 @@ def test_import_files_no_version(
 
     # Cannot import files from a non-existing previous version
     res = client_with_credentials.post(
-        f"{BASE_URL}{id_}/draft/actions/files-import", headers=h
+        f"{base_urls['base_url']}{id_}/draft/actions/files-import", headers=h
     )
     assert res.status_code == 404
 
 
 def assert_published_record_file_links(
-    id_, generated_links, site_hostname="127.0.0.1:5000"
+    id_, generated_links, base_urls, site_hostname="127.0.0.1:5000"
 ):
     """Compare generated links to expected links."""
     required_links = {
         "self": (
-            f"https://{site_hostname}/api{BASE_URL_FILES.replace('{id}', id_)}/files"
+            f"https://{site_hostname}/api{base_urls['base_files_url'].replace('{id}', id_)}/files"
         ),
     }
     assert required_links.items() <= generated_links.items()
 
 
-def assert_published_file_links(id_, generated_links, site_hostname="127.0.0.1:5000"):
+def assert_published_file_links(
+    id_, generated_links, base_urls, site_hostname="127.0.0.1:5000"
+):
     """Compare generated links to expected links."""
     required_links = {
         "self": (
-            f"https://{site_hostname}/api{BASE_URL_FILES.replace('{id}', id_)}/files/test.pdf"
+            f"https://{site_hostname}/api{base_urls['base_files_url'].replace('{id}', id_)}/files/test.pdf"
         ),
         "content": (
-            f"https://{site_hostname}/api{BASE_URL_FILES.replace('{id}', id_)}/files/test.pdf/content"
+            f"https://{site_hostname}/api{base_urls['base_files_url'].replace('{id}', id_)}/files/test.pdf/content"
         ),
         "commit": (
-            f"https://{site_hostname}/api{BASE_URL_FILES.replace('{id}', id_)}/files/test.pdf/commit"
+            f"https://{site_hostname}/api{base_urls['base_files_url'].replace('{id}', id_)}/files/test.pdf/commit"
         ),
     }
     assert required_links.items() <= generated_links.items()
@@ -647,30 +643,31 @@ def test_published_links(
     client_with_credentials,
     input_data,
     headers,
+    base_urls,
 ):
-    res = client_with_credentials.post(BASE_URL, json=input_data)
+    res = client_with_credentials.post(base_urls["base_url"], json=input_data)
     id_ = res.json["id"]
     client_with_credentials.post(
-        f"{BASE_URL_DRAFT_FILES.replace('{id}', id_)}/files",
+        f"{base_urls['base_draft_files_url'].replace('{id}', id_)}/files",
         headers=headers,
         json=[
             {"key": "test.pdf", "title": "Test file"},
         ],
     )
     client_with_credentials.put(
-        f"{BASE_URL_DRAFT_FILES.replace('{id}', id_)}/files/test.pdf/content",
+        f"{base_urls['base_draft_files_url'].replace('{id}', id_)}/files/test.pdf/content",
         headers={"content-type": "application/octet-stream"},
         data=BytesIO(b"testfile"),
     )
     client_with_credentials.post(
-        f"{BASE_URL_DRAFT_FILES.replace('{id}', id_)}/files/test.pdf/commit",
+        f"{base_urls['base_draft_files_url'].replace('{id}', id_)}/files/test.pdf/commit",
         headers=headers,
     )
     client_with_credentials.post(
-        f"{BASE_URL}{id_}/draft/actions/publish", headers=headers
+        f"{base_urls['base_url']}{id_}/draft/actions/publish", headers=headers
     )
     res = client_with_credentials.get(
-        f"{BASE_URL_FILES.replace('{id}', id_)}/files", headers=headers
+        f"{base_urls['base_files_url'].replace('{id}', id_)}/files", headers=headers
     )
-    assert_published_record_file_links(id_, res.json["links"])
-    assert_published_file_links(id_, res.json["entries"][0]["links"])
+    assert_published_record_file_links(id_, res.json["links"], base_urls)
+    assert_published_file_links(id_, res.json["entries"][0]["links"], base_urls)

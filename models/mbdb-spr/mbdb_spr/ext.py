@@ -6,6 +6,7 @@ from mbdb_spr import config as config
 
 class Mbdb_sprExt:
     def __init__(self, app=None):
+
         if app:
             self.init_app(app)
 
