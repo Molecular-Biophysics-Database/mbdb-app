@@ -33,8 +33,3 @@ settings:
 use:
 - ./MST.yaml
 - ./MST.yaml
-- ./MST.yaml
-- ./MST.yaml
-- ./MST.yaml
-- ./MST.yaml
-- ./MST.yaml

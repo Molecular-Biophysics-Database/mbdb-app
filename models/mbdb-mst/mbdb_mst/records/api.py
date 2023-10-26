@@ -21,10 +21,6 @@ from mbdb_mst.records.models import (
 class MbdbMstParentRecord(ParentRecord):
     model_cls = MbdbMstParentMetadata
 
-    # schema = ConstantField(
-    #    "$schema", "local://parent-v1.0.0.json"
-    # )
-
 
 class MbdbMstIdProvider(DraftRecordIdProviderV2):
     pid_type = "mst"
