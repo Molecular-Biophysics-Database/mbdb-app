@@ -21,7 +21,7 @@ class MbdbMstServiceConfig(
 ):
     """MbdbMstRecord service config."""
 
-    PERMISSIONS_PRESETS = ["everyone", "authenticated"]
+    PERMISSIONS_PRESETS = ["authenticated"]
 
     url_prefix = "/mbdb-mst/"
 
