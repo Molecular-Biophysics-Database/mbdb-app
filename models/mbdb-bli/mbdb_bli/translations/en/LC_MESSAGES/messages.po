@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2023-10-26T15:53:46.395779\n"
-"PO-Revision-Date: 2023-10-26T15:53:46.395784\n"
+"POT-Creation-Date: 2023-10-27T15:34:05.566261\n"
+"PO-Revision-Date: 2023-10-27T15:34:05.566280\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -104,7 +104,10 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/additional_specifications.help"
 msgstr ""
-"Additional information about the chemical environment can be specified here"
+"Additional information about the chemical environment can be specified here "
+"(e.g. prepared just prior to conducting the measurement, additional "
+"treatments like UV irradiation, specific storage container of chemical "
+"environment if that influenced the measurement etc.)"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents.help"
@@ -146,11 +149,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/concentration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/concentration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/expression_source_type.help"
@@ -257,17 +260,17 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/molecular_weight/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/molecular_weight/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/name.help"
 msgstr ""
 "Short descriptive name (id) of the constituent, must be unique within a "
-"record"
+"record (e.g. NaCl, Human serum P1, Lysozyme, etc.)"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/polymer_type.help"
@@ -302,11 +305,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/storage_preparation.help"
@@ -347,11 +350,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/storage_until_measurement/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/quality_controls/technique.help"
@@ -378,11 +381,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/storage/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/storage/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/storage/storage_preparation.help"
@@ -423,11 +426,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/storage/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/storage/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/supplier/catalog_number.help"
@@ -621,11 +624,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/molecular_weight/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/molecular_weight/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/name.help"
@@ -666,11 +669,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/storage_preparation.help"
@@ -711,11 +714,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/storage_until_measurement/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/quality_controls/technique.help"
@@ -742,11 +745,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/storage_preparation.help"
@@ -787,11 +790,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/storage/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/components/supplier/catalog_number.help"
@@ -1041,11 +1044,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/molecular_weight/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/molecular_weight/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/name.help"
@@ -1086,11 +1089,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/storage_preparation.help"
@@ -1131,11 +1134,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/storage_until_measurement/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/quality_controls/technique.help"
@@ -1162,11 +1165,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/storage_preparation.help"
@@ -1207,11 +1210,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/storage/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/constituents/details/components/supplier/catalog_number.help"
@@ -1318,11 +1321,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/dynamic_viscosity/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/dynamic_viscosity/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/ionic_strength/value.help"
@@ -1353,11 +1356,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/pH/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/pH/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/solvent.help"
@@ -1406,11 +1409,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/solvent/concentration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/solvent/concentration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/solvent/inchikey.help"
@@ -1441,11 +1444,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/solvent/molecular_weight/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/solvent/molecular_weight/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/solvent/name.help"
@@ -1482,11 +1485,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/storage_preparation.help"
@@ -1527,11 +1530,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/storage_until_measurement/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/chemical_environments/solvent/quality_controls/technique.help"
@@ -1677,11 +1680,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/molecular_weight/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/molecular_weight/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/name.help"
@@ -1723,11 +1726,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/storage_preparation.help"
@@ -1768,11 +1771,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/storage_until_measurement/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/quality_controls/technique.help"
@@ -1799,11 +1802,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/storage/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/storage/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/storage/storage_preparation.help"
@@ -1844,11 +1847,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/storage/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/storage/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/supplier/catalog_number.help"
@@ -2045,11 +2048,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/molecular_weight/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/molecular_weight/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/name.help"
@@ -2090,11 +2093,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/storage_preparation.help"
@@ -2135,11 +2138,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/storage_until_measurement/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/quality_controls/technique.help"
@@ -2166,11 +2169,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/storage_preparation.help"
@@ -2211,11 +2214,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/storage/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/components/supplier/catalog_number.help"
@@ -2465,11 +2468,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/molecular_weight/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/molecular_weight/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/name.help"
@@ -2510,11 +2513,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/storage_preparation.help"
@@ -2555,11 +2558,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/storage_until_measurement/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/quality_controls/technique.help"
@@ -2586,11 +2589,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/storage_preparation.help"
@@ -2631,11 +2634,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/storage/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/chemical_information/entities_of_interest/details/components/supplier/catalog_number.help"
@@ -2814,11 +2817,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/derived_parameters/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/derived_parameters/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid "metadata/general_parameters/funding_reference.help"
 msgstr "List of information about the grants that supported depositors"
@@ -2921,11 +2924,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/concentration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/concentration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/expression_source_type.help"
@@ -3032,17 +3035,17 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/molecular_weight/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/molecular_weight/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/name.help"
 msgstr ""
 "Short descriptive name (id) of the constituent, must be unique within a "
-"record"
+"record (e.g. NaCl, Human serum P1, Lysozyme, etc.)"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/polymer_type.help"
@@ -3077,11 +3080,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/storage_preparation.help"
@@ -3122,11 +3125,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/storage_until_measurement/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/quality_controls/technique.help"
@@ -3153,11 +3156,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/storage/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/storage/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/storage/storage_preparation.help"
@@ -3198,11 +3201,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/storage/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/storage/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/supplier/catalog_number.help"
@@ -3396,11 +3399,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/molecular_weight/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/molecular_weight/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/name.help"
@@ -3441,11 +3444,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/storage_preparation.help"
@@ -3486,11 +3489,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/storage_until_measurement/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/quality_controls/technique.help"
@@ -3517,11 +3520,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/storage_preparation.help"
@@ -3562,11 +3565,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/storage/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/components/supplier/catalog_number.help"
@@ -3816,11 +3819,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/molecular_weight/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/molecular_weight/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/name.help"
@@ -3861,11 +3864,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/storage_preparation.help"
@@ -3906,11 +3909,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/storage_until_measurement/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/quality_controls/technique.help"
@@ -3937,11 +3940,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/storage_preparation.help"
@@ -3982,11 +3985,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/storage/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/instrument/performance_test/sample_composition/details/components/supplier/catalog_number.help"
@@ -4114,11 +4117,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/concentration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/inchikey.help"
@@ -4149,11 +4152,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/molecular_weight/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/name.help"
@@ -4190,11 +4193,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/duration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/storage_preparation.help"
@@ -4235,11 +4238,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/storage_until_measurement/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/atmosphere/composition/quality_controls/technique.help"
@@ -4280,11 +4283,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/humidity/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/controlled.help"
@@ -4305,11 +4308,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/pressure/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/controlled.help"
@@ -4336,11 +4339,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/general_parameters/physical_conditions_at_sample_handling/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid "metadata/general_parameters/raw_measurements.help"
 msgstr "List of file(s) containing the raw measurements"
@@ -4373,8 +4376,8 @@ msgstr ""
 
 msgid "metadata/general_parameters/record_information/keywords.help"
 msgstr ""
-"List of keywords describing this particular record content, e.g. antibody, "
-"epitope, ligand optimization, SARS-CoV-2, agonist, antagonist, HIV, etc."
+"User chosen keywords describing the record content (e.g. antibody, epitope, "
+"ligand optimization, SARS-CoV-2, agonist, antagonist, HIV, etc.)"
 
 msgid ""
 "metadata/general_parameters/record_information/measurement_group_id.help"
@@ -4555,11 +4558,11 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/start_time/value.help"
@@ -4576,11 +4579,11 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/start_time/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/start_time/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/time_length/value.help"
@@ -4597,11 +4600,11 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/time_length/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/time_length/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid "metadata/method_specific_parameters/measurement_protocol/type.help"
 msgstr "Which type of step in the measurement protocol this refers to"
@@ -4679,11 +4682,11 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/analytes/concentration/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/analytes/concentration/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid "metadata/method_specific_parameters/plates/name.help"
 msgstr "Name (id) of the plate which must be unique within a record"
@@ -4725,11 +4728,11 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/temperature/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/temperature/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/well_position.help"
@@ -4803,11 +4806,11 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/sensors/hydration_time/value_error/lower_error.help"
-msgstr "The lower error, i.e. the number subtracted from the parameter value"
+msgstr "The lower error, i.e. the number subtracted from the value"
 
 msgid ""
 "metadata/method_specific_parameters/sensors/hydration_time/value_error/upper_error.help"
-msgstr "The upper error, i.e. the number added to the parameter value"
+msgstr "The upper error, i.e. the number added to the value"
 
 msgid ""
 "metadata/method_specific_parameters/sensors/ligand_information/ligand_immobilization_chemistry.help"

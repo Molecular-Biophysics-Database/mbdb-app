@@ -87,7 +87,7 @@ class GeneralParametersSchema(ma.Schema):
     )
 
     schema_version = ma.fields.String(
-        required=True, validate=[ma_validate.OneOf(["0.9.12"])]
+        required=True, validate=[ma_validate.OneOf(["0.9.13"])]
     )
 
     technique = ma.fields.String(
