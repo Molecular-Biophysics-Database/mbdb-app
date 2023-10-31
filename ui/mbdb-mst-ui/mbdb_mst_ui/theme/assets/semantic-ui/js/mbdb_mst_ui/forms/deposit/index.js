@@ -5,10 +5,13 @@ import { DepositForm } from "./DepositForm";
 
 function initFormApp(rootElement) {
     const formConfig = getInputFromDOM("form-config");
+    const initialRecord = getInputFromDOM("record");
 
     ReactDOM.render(
         <DepositForm
-            createDraftUrl={formConfig.createUrl}
+            createDraftUrl={formConfig.updateUrl ?? formConfig.createUrl}
+            update={formConfig.updateUrl ? true : false}
+            initialRecord={initialRecord}
         />,
         rootElement
     );

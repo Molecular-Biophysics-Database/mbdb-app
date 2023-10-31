@@ -67,17 +67,16 @@ button:hover {
     border: none !important;
 }
 
+.ui.container {
+    width: auto !important;
+}
+
 .none {
     display: none;
 }
 
 .flex {
     display: flex;
-}
-
-.mbdbv-max-width {
-    max-width: 1440px;
-    margin: auto;
 }
 
 .mbdbv-max-width-records {
@@ -317,9 +316,13 @@ button:hover {
 }
 
 .mbdbv-search-result-item-container {
-    margin: 2.5rem 1.5rem;
+    margin: 2.5rem 1.5rem !important;
     padding-bottom: 2.5rem;
     border-bottom: 1px solid var(--mbdbv-primary-color)
+}
+
+.mbdbv-search-result-item-container:first-child {
+    margin-top: 4rem !important;
 }
 
 .mbdbv-search-result-item {
@@ -411,12 +414,17 @@ button:hover {
     margin-top: .75rem;
 }
 
+.mbdbv-record-buttons {
+    display: flex;
+}
+
 .mbdbv-record-download-button button {
     font-family: Jost Medium;
-    width: 160px;
-    height: 40px;
+    width: 150px;
+    height: 45px;
     font-size: 1.2rem;
     margin-top: .75rem;
+    margin-right: .5rem;
 }
 
 .mbdbv-record-section-container {
@@ -539,11 +547,16 @@ button:hover {
     }
 
     .mbdbv-search-result-item-container {
-        margin: 2.5rem 3rem;
+        margin: 2.5rem 3rem !important;
     }
 }
 
 @media only screen and (min-width: 1024px) {
+
+    .mbdbv-max-width {
+        max-width: 1024px;
+        margin: auto !important;
+    }
 
     /* Header */
 
@@ -659,7 +672,7 @@ button:hover {
     }
 
     .mbdbv-search-result-item-container {
-        margin: 2.5rem 5rem;
+        margin: 2.5rem 5rem !important;
     }
 
     /* Records */
@@ -676,6 +689,8 @@ button:hover {
 
     .mbdbv-record-download-button button {
         margin-top: 0;
+        margin-right: 0;
+        margin-left: 1rem;
     }
 
     .mbdbv-name-value-item-name {
@@ -684,6 +699,11 @@ button:hover {
 }
 
 @media only screen and (min-width: 1280px) {
+
+    .mbdbv-max-width {
+        max-width: 1280px;
+        margin: auto !important;
+    }
 
     /* About */
     .mbdbv-about-text-container {
@@ -717,5 +737,8 @@ button:hover {
 }
 
 @media only screen and (min-width: 1440px) {
-
+    .mbdbv-max-width {
+        max-width: 1440px;
+        margin: auto !important;
+    }
 }

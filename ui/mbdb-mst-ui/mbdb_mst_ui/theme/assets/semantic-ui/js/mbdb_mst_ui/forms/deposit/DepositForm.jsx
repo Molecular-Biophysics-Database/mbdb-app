@@ -13,12 +13,10 @@ import { LoadFileButton } from "@mbdb/input-form/lib/ui/load-file-button";
 import { doDownload, FileTypes } from "@mbdb/input-form/lib/util/download";
 import { Result } from "@mbdb/input-form/lib/util/result";
 import { Button, Icon } from "semantic-ui-react";
+import { Deserialize as MbdbDeserialize } from '@mbdb/input-form/lib/mbdb/deserialize';
+
 
 const MstSchemaName = "mst";
-
-function makeBaseUrl() {
-    return window.location.protocol + "//" + window.location.host;
-}
 
 function makeSubmissionErrorContent(code, errors) {
     return (
@@ -79,30 +77,32 @@ function showFormHasErrorsDialog(errors) {
     });
 }
 
-async function createDraft(apiEndpoint, data) {
-    const baseUrl = makeBaseUrl();
+async function createDraft(apiEndpoint, data, update) {
 
     const { toApi, errors, files } = Mbdb.toData(data);
-    if (errors.length > 0) {
-        showFormHasErrorsDialog(errors);
-        return;
-    }
+    //if (errors.length > 0) {
+        //showFormHasErrorsDialog(errors);
+        //return;
+    //}
 
     try {
-        const res = await submitToMbdb(baseUrl, apiEndpoint, { metadata: toApi, files }, { asDraft: true });
+        const res = await submitToMbdb( apiEndpoint, { metadata: toApi, files }, { asDraft: true, update });
         if (Result.isError(res)) {
             ErrorDialog.show(makeSubmissionErrorDialog(res.error.code, res.error.errors));
+        } else {
+            window.location=res.data.links.self_html;
         }
     } catch (e) {
         ErrorDialog.show(makeSubmissionErrorDialog(0, [e.message]));
     }
 }
 
-function ControlsTape({ ctxHandler, createDraftUrl, dataId }) {
+function ControlsTape({ ctxHandler, createDraftUrl, dataId, update }) {
     const getData = () => getKeeper().get(dataId).data;
 
     return (
         <div className="mbdbv-input-controls-tape">
+            {/*
             <div>
                 <LoadFileButton
                     title="Load from JSON"
@@ -122,7 +122,7 @@ function ControlsTape({ ctxHandler, createDraftUrl, dataId }) {
                     fluid
                 />
             </div>
-
+            
             <div>
                 <Button
                     onClick={() => {
@@ -138,36 +138,59 @@ function ControlsTape({ ctxHandler, createDraftUrl, dataId }) {
             </div>
 
             <div />
+            */}
 
             <div>
-                <Button
-                    onClick={() => createDraft(createDraftUrl, getKeeper().get(dataId).data)}
-                    color="blue"
-                    fluid
+                <button
+                    onClick={() => createDraft(createDraftUrl, getKeeper().get(dataId).data, update)}
+                    className="mbdbv-record-download-button"
                 >
-                    <Icon name="angle double right" />
-                    <span style={{ display: "inline-block", width: "var(--mbdbi-2hgap)" }} />
-                    Create draft
-                </Button>
+                    Save
+                </button>
             </div>
         </div>
     );
 }
 
-export function DepositForm({ createDraftUrl }) {
-    const dataId = React.useMemo(() => Uuid.get(), []);
+export function DepositForm({ createDraftUrl, update, initialRecord }) {
+    const [formLoaded, setFormLoaded] = React.useState(false)
+    const keeper = getKeeper();
+    const { dataId, getData } = React.useMemo(() => {
+        const dataId = Uuid.get();
+        const getData = () => keeper.get(dataId).data;
+
+        return { dataId, getData };
+    }, []);
+    // const dataId = React.useMemo(() => Uuid.get(), []);
     const ctxHandler = useContextHandler(dataId, "mst");
 
     React.useEffect(() => {
-        Config.set({
-            vocabulariesApiEndpoint: "vocabularies",
-        });
+        (async () => {
+            Config.set({
+                vocabulariesApiEndpoint: "vocabularies",
+            });
+            if (initialRecord?.metadata) {
+                const internalData = await MbdbDeserialize.fromJson(getData(), JSON.stringify(initialRecord), {}, {allowPartials: true})
+                try {
+                    FormContext.load(internalData, getData());
+                    ctxHandler.update();
+                } catch (e) {
+                    ErrorDialog.show({ title: 'Cannot load form from MBDB data file', content: <div>{(e).message}</div> });
+                }
+            } 
+            setTimeout(() => setFormLoaded(true))
+        })()
     }, []);
-
-    return (
-        <div className="mbdbv-input-root">
-            <ControlsTape ctxHandler={ctxHandler} createDraftUrl={createDraftUrl} dataId={dataId} />
-            <MinimalInputForm dataId={dataId} schemaName={MstSchemaName} formContextHandler={ctxHandler} />
-        </div>
-    );
+    if (formLoaded) {
+        return (
+            <div className="mbdbv-input-root">
+                <ControlsTape ctxHandler={ctxHandler} createDraftUrl={createDraftUrl} dataId={dataId} update={update} />
+                <MinimalInputForm dataId={dataId} schemaName={MstSchemaName} formContextHandler={ctxHandler} />
+            </div>
+        );
+    } else {
+        return (
+            <div>Loading...</div>
+        )
+    }
 };
