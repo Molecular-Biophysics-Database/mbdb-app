@@ -1,12 +1,10 @@
-{%- macro measured_value(mvalue) %}
-  <span>
-    <span>{{ mvalue.value }}</span>&nbsp;<span>{{ mvalue.unit }}</span>
-    <span>
+{% macro measured_value(mvalue) %}
+    {{ mvalue.value ~ " " ~ mvalue.unit }} 
       {% if mvalue.value_error is undefined %}
         (Error not provided)
       {% else %}
-        ({{ mvalue.value_error.lower_error }} - {{ mvalue.value_error.upper_error }}{{ " %" if mvalue.value_error.errors_are_relative == True else "" }})
+        {% set error_type = " %" if mvalue.value_error.errors_are_relative == True else "" %}
+        (+ {{ mvalue.value_error.upper_error }} 
+         - {{ mvalue.value_error.lower_error }}) {{ error_type }}
       {% endif %}
-    </span>
-  </span>
-{%- endmacro %}
+{% endmacro %}

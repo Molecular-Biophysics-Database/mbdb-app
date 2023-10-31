@@ -1,33 +1,43 @@
 {% from "mbdb_mst_ui/Common/NoValue.jinja" import no_value %}
 {% from "mbdb_mst_ui/Common/RenderIf.jinja" import render_if2 %}
 {% from "mbdb_mst_ui/MBDB/EntitiesOfInterest.jinja" import entities_of_interest %}
+{% from "mbdb_mst_ui/MBDB/Depositors.jinja" import depositors %}
 {% from "mbdb_mst_ui/MBDB/Instrument.jinja" import instrument %}
 {% from "mbdb_mst_ui/MBDB/RecordHeader.jinja" import record_header %}
 {% from "mbdb_mst_ui/MST/Measurements.jinja" import measurements %}
 {% from "mbdb_mst_ui/MST/Results.jinja" import results %}
-
+  
 {%- macro simple(metadata, layout, ui) %}
+  {% set gp = metadata.general_parameters %}
+
   <div class=" mbdbv-record-container">
     {{ record_header(metadata | maybe_get("general_parameters.record_information.title"), ui) }}
-    <div class="mbdbv-record-technique">Technique: {{ metadata.general_parameters.technique }}</div>
+    <div class="mbdbv-record-technique">Technique: {{ gp.technique }}</div>
+    <div class="mbdbv-record-technique">Depositors: {{ depositors(gp) }}</div>
+    {% if gp.associated_publications is defined and gp.associated_publications.main is defined %}
+      <div class="mbdbv-record-technique">Main Publication: {{ gp.associated_publications.main.title }}</div>
+    {% endif %}  
+    
     <div class="record-container">
-      <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">
-        <h3 class="mbdbv-record-section-title">Instrument</h3>
-          {{ render_if2(
-              metadata.general_parameters.instrument is defined,
-              instrument,
-              no_value(),
-              imt=metadata.general_parameters.instrument)
-          }}
-      </div>
-
+  
       <div class="mbdbv-record-section-container mbdbv-framed">
         <h3 class="mbdbv-record-section-title">Entities of interest</h3>
         {{ render_if2(
-            (metadata.general_parameters.chemical_information is defined) and (metadata.general_parameters.chemical_information.entities_of_interest is defined),
+            (gp.chemical_information is defined) and (gp.chemical_information.entities_of_interest is defined),
             entities_of_interest,
             no_value(),
-            entities=metadata.general_parameters.chemical_information.entities_of_interest)
+            entities=gp.chemical_information.entities_of_interest)
+        }}
+      </div>
+
+      <div class="mbdbv-record-section-container mbdbv-framed">
+        <h3 class="mbdbv-record-section-title">Results</h3>
+        {{ render_if2(
+            metadata.method_specific_parameters is defined,
+            results,
+            no_value(),
+            gp=metadata.general_parameters,
+            msp=metadata.method_specific_parameters)
         }}
       </div>
 
@@ -42,14 +52,13 @@
         }}
       </div>
 
-      <div class="mbdbv-record-section-container mbdbv-framed">
-        <h3 class="mbdbv-record-section-title">Results</h3>
+      <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">
+        <h3 class="mbdbv-record-section-title">Instrument</h3>
         {{ render_if2(
-            metadata.method_specific_parameters is defined,
-            results,
-            no_value(),
-            gp=metadata.general_parameters,
-            msp=metadata.method_specific_parameters)
+              metadata.general_parameters.instrument is defined,
+              instrument,
+              no_value(),
+              imt=metadata.general_parameters.instrument)
         }}
       </div>
     </div>
