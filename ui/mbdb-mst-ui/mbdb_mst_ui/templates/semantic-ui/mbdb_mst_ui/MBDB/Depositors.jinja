@@ -1,0 +1,16 @@
+{% from "mbdb_mst_ui/MBDB/PersonName.jinja" import person_name %}
+  
+
+{%- macro depositors(gp) %} 
+  {% set depos = gp.depositors %} 
+  {% set people = [
+    person_name(depos.principal_contact),
+    person_name(depos.depositor),
+     ] %}
+  {% if depos.contributors is defined %}
+    {% for contributor in depos.contributors %}
+      {% do people.append(person_name(contributor)) %}
+    {% endfor %}
+  {% endif %}  
+{{ people|join(", ") }}
+{% endmacro %}
