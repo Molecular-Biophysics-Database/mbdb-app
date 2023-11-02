@@ -89,7 +89,7 @@ class GeneralParametersSchema(Schema):
         lambda: RecordInformationSchema(), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.13"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.14"])])
 
     technique = ma_fields.String(
         required=True,
@@ -629,7 +629,7 @@ class MethodSpecificParametersSchema(Schema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.5"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.6"])])
 
     signal_type = ma_fields.String(
         required=True,
@@ -1855,7 +1855,7 @@ class AdditionalItemSchema(Schema):
     pid = ma_fields.String(required=True)
 
     publication_year = ma_fields.Integer(
-        required=True, validate=[ma.validate.Range(min=1800)]
+        required=True, validate=[ma.validate.Range(min=1900)]
     )
 
     publisher = ma_fields.String()

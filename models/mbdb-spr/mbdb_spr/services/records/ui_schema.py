@@ -63,7 +63,7 @@ class GeneralParametersUISchema(Schema):
         lambda: RecordInformationUISchema(), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.13"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.14"])])
 
     technique = ma_fields.String(
         required=True,
