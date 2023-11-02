@@ -65,7 +65,7 @@ backup the contents of alembic directory and restore it after model compile.
 3. Add your domain(s) to list of the redirect URIs:
    1. If you're only running locally, add https://127.0.0.1:5000/oauth/authorized/orcid/
 4. Register the public API credentials in the mbdb-app:
-    1. in mbdb-app/sites/mbdb-site/ locate the files .env varibles 
+    1. in mbdb-app/sites/mbdb-site/ locate the files .env and variables 
     2. if .env is a symbolic link:
        1. delete it
        2. make a new file called .env 
