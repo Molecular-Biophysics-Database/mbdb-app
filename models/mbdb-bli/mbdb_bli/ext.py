@@ -1,7 +1,7 @@
 import re
 from functools import cached_property
 
-from mbdb_bli import config as config
+from mbdb_bli import config
 
 
 class Mbdb_bliExt:
@@ -58,14 +58,12 @@ class Mbdb_bliExt:
     @cached_property
     def published_service_records(self):
         from mbdb_bli.services.records.published.config import (
-            MbdbBliPublishedServiceConfig as PublishedServiceConfig,
+            MbdbBliPublishedServiceConfig,
         )
-        from mbdb_bli.services.records.published.service import (
-            MbdbBliPublishedService as PublishedService,
-        )
+        from mbdb_bli.services.records.published.service import MbdbBliPublishedService
 
-        return PublishedService(
-            config=PublishedServiceConfig(
+        return MbdbBliPublishedService(
+            config=MbdbBliPublishedServiceConfig(
                 proxied_drafts_config=self.service_records.config,
             ),
         )
@@ -86,14 +84,14 @@ class Mbdb_bliExt:
     @cached_property
     def published_service_files(self):
         from mbdb_bli.services.files.published.config import (
-            MbdbBliFilePublishedServiceConfig as PublishedServiceConfig,
+            MbdbBliFilePublishedServiceConfig,
         )
         from mbdb_bli.services.files.published.service import (
-            MbdbBliFilePublishedService as PublishedService,
+            MbdbBliFilePublishedService,
         )
 
-        return PublishedService(
-            config=PublishedServiceConfig(
+        return MbdbBliFilePublishedService(
+            config=MbdbBliFilePublishedServiceConfig(
                 proxied_drafts_config=self.service_files.config,
             ),
         )
