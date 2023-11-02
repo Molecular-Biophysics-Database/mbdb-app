@@ -38,9 +38,9 @@ class MbdbMstServiceConfig(
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
+        DraftFilesComponent,
         DataComponent,
         FilesOptionsComponent,
-        DraftFilesComponent,
     ]
 
     model = "mbdb_mst"

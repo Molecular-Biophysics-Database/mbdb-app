@@ -2,23 +2,24 @@ import marshmallow as ma
 from invenio_records_resources.services.files.schema import (
     FileSchema as InvenioFileSchema,
 )
-from marshmallow import validate as ma_validate
-from oarepo_runtime.validation import validate_date
+from marshmallow import Schema
+from marshmallow import fields as ma_fields
+from marshmallow.validate import OneOf
+from oarepo_runtime.services.schema.validation import validate_date
 
 
 class MbdbBliFileSchema(InvenioFileSchema):
     class Meta:
         unknown = ma.RAISE
 
-    content_type = ma.fields.String(
-        required=True,
-        validate=[ma_validate.OneOf(["text", "binary", "text and binary"])],
+    content_type = ma_fields.String(
+        required=True, validate=[OneOf(["text", "binary", "text and binary"])]
     )
 
-    context = ma.fields.String(
+    context = ma_fields.String(
         required=True,
         validate=[
-            ma_validate.OneOf(
+            OneOf(
                 [
                     "raw measurement data",
                     "derived measurement data",
@@ -29,42 +30,41 @@ class MbdbBliFileSchema(InvenioFileSchema):
         ],
     )
 
-    created = ma.fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
+    created = ma_fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
 
-    description = ma.fields.String()
+    description = ma_fields.String()
 
-    name = ma.fields.String(required=True)
+    name = ma_fields.String(required=True)
 
-    originates_from = ma.fields.String(
-        required=True,
-        validate=[ma_validate.OneOf(["Instrument software", "User", "MBDB"])],
+    originates_from = ma_fields.String(
+        required=True, validate=[OneOf(["Instrument software", "User", "MBDB"])]
     )
 
-    processing_steps = ma.fields.List(
-        ma.fields.Nested(lambda: ProcessingStepsItemSchema()),
+    processing_steps = ma_fields.List(
+        ma_fields.Nested(lambda: ProcessingStepsItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
 
-    recommended_software = ma.fields.String()
+    recommended_software = ma_fields.String()
 
-    size = ma.fields.Integer(required=True, validate=[ma.validate.Range(min=0)])
+    size = ma_fields.Integer(required=True, validate=[ma.validate.Range(min=0)])
 
-    updated = ma.fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
+    updated = ma_fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
 
 
-class ProcessingStepsItemSchema(ma.Schema):
+class ProcessingStepsItemSchema(Schema):
     class Meta:
         unknown = ma.RAISE
 
-    description = ma.fields.String(required=True)
+    description = ma_fields.String(required=True)
 
-    link_to_source_code = ma.fields.String()
+    link_to_source_code = ma_fields.String()
 
-    name = ma.fields.String(required=True)
+    name = ma_fields.String(required=True)
 
-    software_name = ma.fields.String()
+    software_name = ma_fields.String()
 
-    software_tool = ma.fields.String()
+    software_tool = ma_fields.String()
 
-    software_version = ma.fields.String()
+    software_version = ma_fields.String()

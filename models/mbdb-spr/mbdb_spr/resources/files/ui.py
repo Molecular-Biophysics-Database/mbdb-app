@@ -1,5 +1,6 @@
-from flask_resources import BaseListSchema, MarshmallowSerializer
+from flask_resources import BaseListSchema
 from flask_resources.serializers import JSONSerializer
+from oarepo_runtime.resources import LocalizedUIJSONSerializer
 
 from mbdb_spr.services.files.ui_schema import (
     MbdbSprFileDraftUISchema,
@@ -7,7 +8,7 @@ from mbdb_spr.services.files.ui_schema import (
 )
 
 
-class MbdbSprFileUIJSONSerializer(MarshmallowSerializer):
+class MbdbSprFileUIJSONSerializer(LocalizedUIJSONSerializer):
     """UI JSON serializer."""
 
     def __init__(self):
@@ -20,7 +21,7 @@ class MbdbSprFileUIJSONSerializer(MarshmallowSerializer):
         )
 
 
-class MbdbSprFileDraftUIJSONSerializer(MarshmallowSerializer):
+class MbdbSprFileDraftUIJSONSerializer(LocalizedUIJSONSerializer):
     """UI JSON serializer."""
 
     def __init__(self):

@@ -1,7 +1,7 @@
 from invenio_drafts_resources.records.api import Draft as InvenioDraft
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2, ParentRecord
 from invenio_drafts_resources.records.api import Record as InvenioRecord
-from invenio_records.systemfields import ConstantField, ModelField, RelationsField
+from invenio_records.systemfields import ConstantField, ModelField
 from invenio_records_resources.records.systemfields import FilesField, IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
 from invenio_vocabularies.records.api import Vocabulary
@@ -9,7 +9,7 @@ from oarepo_runtime.drafts.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.relations import InternalRelation, PIDRelation, RelationsField
 
 from mbdb_spr.files.api import MbdbSprFile, MbdbSprFileDraft
-from mbdb_spr.records.dumper import MbdbSprDraftDumper, MbdbSprDumper
+from mbdb_spr.records.dumpers.dumper import MbdbSprDraftDumper, MbdbSprDumper
 from mbdb_spr.records.models import (
     MbdbSprDraftMetadata,
     MbdbSprMetadata,
@@ -35,8 +35,7 @@ class MbdbSprRecord(InvenioRecord):
 
     pid = PIDField(provider=MbdbSprIdProvider, context_cls=PIDFieldContext, create=True)
 
-    dumper_extensions = []
-    dumper = MbdbSprDumper(extensions=dumper_extensions)
+    dumper = MbdbSprDumper()
 
     relations = RelationsField(
         affiliations=PIDRelation(
@@ -374,8 +373,7 @@ class MbdbSprDraft(InvenioDraft):
         delete=False,
     )
 
-    dumper_extensions = []
-    dumper = MbdbSprDraftDumper(extensions=dumper_extensions)
+    dumper = MbdbSprDraftDumper()
 
     relations = RelationsField(
         affiliations=PIDRelation(
