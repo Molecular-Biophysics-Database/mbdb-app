@@ -37,9 +37,6 @@
             "extra-code": "",
             "module": "tests"
         },
-        "sample": {
-            "file": "data/sample_data.yaml"
-        },
         "search-options": {
             "skip": true,
             "generate": true,
@@ -84,7 +81,49 @@
             ],
             "imports": []
         },
+        "sample": {
+            "file": "data/sample_data.yaml"
+        },
         "model-name": "Mbdb_Mst",
+        "record": {
+            "class": "mbdb_mst.files.api.MbdbMstFile",
+            "base-classes": [
+                "invenio_records_resources.records.api.FileRecord"
+            ],
+            "imports": [],
+            "generate": true,
+            "module": "mbdb_mst.files.api",
+            "extra-code": ""
+        },
+        "resource-config": {
+            "base-url": "/mbdb-mst/<pid_value>",
+            "base-classes": [
+                "invenio_records_resources.resources.FileResourceConfig"
+            ],
+            "imports": [],
+            "generate": true,
+            "base-html-url": "/mbdb-mst/",
+            "config-key": "MBDB_MST_FILES_RESOURCE_CONFIG",
+            "module": "mbdb_mst.resources.files.config",
+            "class": "mbdb_mst.resources.files.config.MbdbMstFileResourceConfig",
+            "extra-code": ""
+        },
+        "resource": {
+            "base-classes": [
+                "invenio_records_resources.resources.files.resource.FileResource"
+            ],
+            "imports": [],
+            "generate": true,
+            "config-key": "MBDB_MST_FILES_RESOURCE_CLASS",
+            "module": "mbdb_mst.resources.files.resource",
+            "class": "mbdb_mst.resources.files.resource.MbdbMstFileResource",
+            "proxy": "current_resource",
+            "extra-code": ""
+        },
+        "ext-resource": {
+            "generate": true,
+            "skip": false
+        },
         "config": {
             "generate": true,
             "module": "mbdb_mst.config",
@@ -125,72 +164,6 @@
             "module": "mbdb_mst.proxies",
             "generate": true
         },
-        "record": {
-            "class": "mbdb_mst.files.api.MbdbMstFile",
-            "base-classes": [
-                "invenio_records_resources.records.api.FileRecord"
-            ],
-            "imports": [],
-            "generate": true,
-            "module": "mbdb_mst.files.api",
-            "extra-code": ""
-        },
-        "resource-config": {
-            "base-url": "/mbdb-mst/<pid_value>",
-            "base-classes": [
-                "invenio_records_resources.resources.FileResourceConfig"
-            ],
-            "imports": [],
-            "generate": true,
-            "base-html-url": "/mbdb-mst/",
-            "config-key": "MBDB_MST_FILES_RESOURCE_CONFIG",
-            "module": "mbdb_mst.resources.files.config",
-            "class": "mbdb_mst.resources.files.config.MbdbMstFileResourceConfig",
-            "extra-code": ""
-        },
-        "resource": {
-            "base-classes": [
-                "invenio_records_resources.resources.files.resource.FileResource"
-            ],
-            "imports": [],
-            "generate": true,
-            "config-key": "MBDB_MST_FILES_RESOURCE_CLASS",
-            "module": "mbdb_mst.resources.files.resource",
-            "class": "mbdb_mst.resources.files.resource.MbdbMstFileResource",
-            "proxy": "current_resource",
-            "extra-code": ""
-        },
-        "ext-resource": {
-            "generate": true,
-            "skip": false
-        },
-        "ui": {
-            "module": "mbdb_mst.models",
-            "file": "mbdb_mst/models/ui.json",
-            "alias": "mbdb_mst_file",
-            "marshmallow": {
-                "generate": true,
-                "module": "mbdb_mst.services.files.ui_schema",
-                "class": "mbdb_mst.services.files.ui_schema.MbdbMstFileUISchema",
-                "extra-code": "",
-                "base-classes": [
-                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
-                ],
-                "imports": []
-            }
-        },
-        "json-serializer": {
-            "module": "mbdb_mst.resources.files.ui",
-            "class": "mbdb_mst.resources.files.ui.MbdbMstFileUIJSONSerializer",
-            "base-classes": [
-                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
-            ],
-            "imports": [],
-            "extra-code": "",
-            "generate": true,
-            "list_schema_cls": "flask_resources.BaseListSchema",
-            "format_serializer_cls": "flask_resources.serializers.JSONSerializer"
-        },
         "files-field": {
             "field-args": [
                 "store=False",
@@ -215,10 +188,6 @@
             "extra-code": "",
             "imports": [],
             "table": "mbdb_mst_file_metadata",
-            "alias": "mbdb_mst_file"
-        },
-        "translations": {
-            "module": "mbdb_mst.translations",
             "alias": "mbdb_mst_file"
         },
         "service-config": {
@@ -265,6 +234,59 @@
             "imports": [],
             "extra-code": ""
         },
+        "translations": {
+            "module": "mbdb_mst.translations",
+            "alias": "mbdb_mst_file"
+        },
+        "ui": {
+            "module": "mbdb_mst.models",
+            "file": "mbdb_mst/models/ui.json",
+            "alias": "mbdb_mst_file",
+            "marshmallow": {
+                "generate": true,
+                "module": "mbdb_mst.services.files.ui_schema",
+                "class": "mbdb_mst.services.files.ui_schema.MbdbMstFileUISchema",
+                "extra-code": "",
+                "base-classes": [
+                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
+                ],
+                "imports": []
+            }
+        },
+        "json-serializer": {
+            "module": "mbdb_mst.resources.files.ui",
+            "class": "mbdb_mst.resources.files.ui.MbdbMstFileUIJSONSerializer",
+            "base-classes": [
+                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
+            ],
+            "imports": [],
+            "extra-code": "",
+            "generate": true,
+            "list_schema_cls": "flask_resources.BaseListSchema",
+            "format_serializer_cls": "flask_resources.serializers.JSONSerializer"
+        },
+        "draft-parent-record": {
+            "skip": true
+        },
+        "draft-parent-record-metadata": {
+            "skip": true
+        },
+        "draft-parent-record-state": {
+            "skip": true
+        },
+        "permissions": {
+            "class": "mbdb_mst.services.records.permissions.MbdbMstPermissionPolicy",
+            "generate": false,
+            "presets": [
+                "everyone"
+            ],
+            "extra-code": "",
+            "module": "mbdb_mst.services.files.permissions",
+            "base-classes": [
+                "invenio_records_permissions.RecordPermissionPolicy"
+            ],
+            "imports": []
+        },
         "edtf-interval-dumper": {
             "generate": true,
             "module": "mbdb_mst.files.dumpers.edtf",
@@ -275,15 +297,6 @@
             "extra-code": "",
             "extensions": [],
             "imports": []
-        },
-        "draft-parent-record": {
-            "skip": true
-        },
-        "draft-parent-record-metadata": {
-            "skip": true
-        },
-        "draft-parent-record-state": {
-            "skip": true
         },
         "mapping": {
             "generate": true,
@@ -313,19 +326,6 @@
             "extra-code": "",
             "base-classes": [
                 "oarepo_published_service.services.service.PublishedService"
-            ],
-            "imports": []
-        },
-        "permissions": {
-            "class": "mbdb_mst.services.records.permissions.MbdbMstPermissionPolicy",
-            "generate": false,
-            "presets": [
-                "everyone"
-            ],
-            "extra-code": "",
-            "module": "mbdb_mst.services.files.permissions",
-            "base-classes": [
-                "invenio_records_permissions.RecordPermissionPolicy"
             ],
             "imports": []
         },
@@ -454,7 +454,7 @@
                         "name": {
                             "type": "keyword",
                             "required": true,
-                            "help.en": "Descriptive name of the processing step"
+                            "help.en": "Short descriptive name of the processing step"
                         },
                         "software_name": {
                             "type": "keyword",

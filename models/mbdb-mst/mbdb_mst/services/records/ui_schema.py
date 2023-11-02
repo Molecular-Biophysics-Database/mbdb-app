@@ -63,7 +63,7 @@ class GeneralParametersUISchema(Schema):
         lambda: RecordInformationUISchema(), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.13"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.14"])])
 
     technique = ma_fields.String(
         required=True,
@@ -803,7 +803,7 @@ class MethodSpecificParametersUISchema(Schema):
         ma_fields.Nested(lambda: MeasurementsItemUISchema()), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.5"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.6"])])
 
     signal_type = ma_fields.String(
         required=True,
