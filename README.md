@@ -1,4 +1,6 @@
 # mbdb-app
+Security note! Running an instance of the MBDB as described below is suitable for local development.
+**IT SHOULD NOT BE USED IN PRODUCTION**. Use a WSGI server for that.     
 
 ## Python development
 
@@ -25,7 +27,7 @@ nrp oarepo fixtures load
 nrp oarepo fixtures load --no-system-fixtures ../../sample_data/mst
 
 # for reindexing the whole repo
-nrp oarepo reindex
+nrp oarepo index reindex
 ```
 
 ## UI development
@@ -54,7 +56,27 @@ backup the contents of alembic directory and restore it after model compile.
 12. call `nrp oarepo fixtures load` to load the fixtures contained in `local/mbdb-common/mbdb_common/fixtures`
 13. call `nrp oarepo fixtures load --no-system-fixtures $PWD/sample_data/mst` to import sample data for mst
     (note: nrp runs the command internally inside the site directory, so need to use $PWD or ../.. here)
-14. call `nrp develop` and have a look at `https://localhost:5000/api/mbdb-mst`
+14. call `nrp develop` and have a look at `https://127.0.0.1:5000/api/mbdb-mst`
+
+## Setting up ORCID authentication
+
+1. Create an ORCID user account - https://orcid.org/register (it's free of charge)
+2. Register a public API https://info.orcid.org/documentation/integration-guide/registering-a-public-api-client/
+3. Add your domain(s) to list of the redirect URIs:
+   1. If you're only running locally, add https://127.0.0.1:5000/oauth/authorized/orcid/
+4. Register the public API credentials in the mbdb-app:
+    1. in mbdb-app/sites/mbdb-site/ locate the files .env and variables 
+    2. if .env is a symbolic link:
+       1. delete it
+       2. make a new file called .env 
+       3. copy the content of the variables file to .env
+    3. Inside .env, locate the following lines:
+    ```
+    INVENIO_ORCID_APP_KEY='changeme'
+    INVENIO_ORCID_APP_SECRET='changeme'
+    ``` 
+    4. Change the 'changeme' to the ORCID public APIs Client ID and Client secret, respectively 
+5. (.env is already in the .gitignore, so your information won't be leaked)
 
 # REST API
 

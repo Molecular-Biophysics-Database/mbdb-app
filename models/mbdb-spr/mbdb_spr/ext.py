@@ -1,11 +1,12 @@
 import re
 from functools import cached_property
 
-from mbdb_spr import config as config
+from mbdb_spr import config
 
 
 class Mbdb_sprExt:
     def __init__(self, app=None):
+
         if app:
             self.init_app(app)
 
@@ -57,14 +58,12 @@ class Mbdb_sprExt:
     @cached_property
     def published_service_records(self):
         from mbdb_spr.services.records.published.config import (
-            MbdbSprPublishedServiceConfig as PublishedServiceConfig,
+            MbdbSprPublishedServiceConfig,
         )
-        from mbdb_spr.services.records.published.service import (
-            MbdbSprPublishedService as PublishedService,
-        )
+        from mbdb_spr.services.records.published.service import MbdbSprPublishedService
 
-        return PublishedService(
-            config=PublishedServiceConfig(
+        return MbdbSprPublishedService(
+            config=MbdbSprPublishedServiceConfig(
                 proxied_drafts_config=self.service_records.config,
             ),
         )
@@ -85,14 +84,14 @@ class Mbdb_sprExt:
     @cached_property
     def published_service_files(self):
         from mbdb_spr.services.files.published.config import (
-            MbdbSprFilePublishedServiceConfig as PublishedServiceConfig,
+            MbdbSprFilePublishedServiceConfig,
         )
         from mbdb_spr.services.files.published.service import (
-            MbdbSprFilePublishedService as PublishedService,
+            MbdbSprFilePublishedService,
         )
 
-        return PublishedService(
-            config=PublishedServiceConfig(
+        return MbdbSprFilePublishedService(
+            config=MbdbSprFilePublishedServiceConfig(
                 proxied_drafts_config=self.service_files.config,
             ),
         )

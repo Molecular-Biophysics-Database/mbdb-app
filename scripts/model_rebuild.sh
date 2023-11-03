@@ -19,10 +19,14 @@ MODELS=(mst bli spr)
 for mod in ${MODELS[@]}
 do
     modname=mbdb-$mod
+    # remove old model
+    rm models/$modname/model.yaml
+
+    # add and build models
     ./nrp model add $modname \
        --use mbdb-model/models/oarepo/"${mod^^}".yaml \
-       --config scripts/model_configs/$mod-config.yaml \
-       --no-input
+#       --config scripts/model_configs/$mod-config.yaml \
+#       --no-input
 
     ./nrp model compile $modname
     ./nrp model install $modname

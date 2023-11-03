@@ -1,21 +1,22 @@
 import marshmallow as ma
-from marshmallow import validate as ma_validate
-from oarepo_runtime.ui.marshmallow import InvenioUISchema
+from marshmallow import Schema
+from marshmallow import fields as ma_fields
+from marshmallow.validate import OneOf
+from oarepo_runtime.services.schema.ui import InvenioUISchema
 
 
 class MbdbMstFileUISchema(InvenioUISchema):
     class Meta:
         unknown = ma.RAISE
 
-    content_type = ma.fields.String(
-        required=True,
-        validate=[ma_validate.OneOf(["text", "binary", "text and binary"])],
+    content_type = ma_fields.String(
+        required=True, validate=[OneOf(["text", "binary", "text and binary"])]
     )
 
-    context = ma.fields.String(
+    context = ma_fields.String(
         required=True,
         validate=[
-            ma_validate.OneOf(
+            OneOf(
                 [
                     "raw measurement data",
                     "derived measurement data",
@@ -26,39 +27,38 @@ class MbdbMstFileUISchema(InvenioUISchema):
         ],
     )
 
-    description = ma.fields.String()
+    description = ma_fields.String()
 
-    name = ma.fields.String(required=True)
+    name = ma_fields.String(required=True)
 
-    originates_from = ma.fields.String(
-        required=True,
-        validate=[ma_validate.OneOf(["Instrument software", "User", "MBDB"])],
+    originates_from = ma_fields.String(
+        required=True, validate=[OneOf(["Instrument software", "User", "MBDB"])]
     )
 
-    processing_steps = ma.fields.List(
-        ma.fields.Nested(lambda: ProcessingStepsItemUISchema()), required=True
+    processing_steps = ma_fields.List(
+        ma_fields.Nested(lambda: ProcessingStepsItemUISchema()), required=True
     )
 
-    recommended_software = ma.fields.String()
+    recommended_software = ma_fields.String()
 
-    size = ma.fields.Integer(required=True)
+    size = ma_fields.Integer(required=True)
 
 
-class ProcessingStepsItemUISchema(ma.Schema):
+class ProcessingStepsItemUISchema(Schema):
     class Meta:
         unknown = ma.RAISE
 
-    description = ma.fields.String(required=True)
+    description = ma_fields.String(required=True)
 
-    link_to_source_code = ma.fields.String()
+    link_to_source_code = ma_fields.String()
 
-    name = ma.fields.String(required=True)
+    name = ma_fields.String(required=True)
 
-    software_name = ma.fields.String()
+    software_name = ma_fields.String()
 
-    software_tool = ma.fields.String()
+    software_tool = ma_fields.String()
 
-    software_version = ma.fields.String()
+    software_version = ma_fields.String()
 
 
 class MbdbMstFileDraftUISchema(InvenioUISchema):

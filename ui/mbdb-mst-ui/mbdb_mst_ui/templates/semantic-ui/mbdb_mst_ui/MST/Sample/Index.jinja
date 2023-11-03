@@ -10,46 +10,33 @@
   {% set chemical_environment = (gp.chemical_information.chemical_environments | selectattr("id", "equalto", samp.chemical_environment.id) | list)[0] %}
   {% set ionic_strength = chemical_environment | maybe_get("ionic_strength") %}
   {% set temperature = gp | maybe_get("gp.physical_conditions_at_sample_handling.temperature") %}
+    
+  {{ nv.list_open() }}
+  {{nv.item("Buffer (chemical environment)", chemical_environment.name) }}
+  {{nv.item("Buffer Constituents",
+              lit.list(
+                chemical_environment.constituents,
+                constituent_info)) }}
+  
+  {{ nv.item("pH (Buffer)", measured_value(chemical_environment.pH)) }}
+    {{ nv.item(
+        "Ionic strength (Buffer)",
+        render_if2(
+          ionic_strength is defined,
+          measured_value,
+          no_value(),
+          mvalue=ionic_strength))
+      }}
+  {{ nv.item(
+        "Temperature",
+        render_if2(
+          temperature is defined,
+          measured_value,
+          no_value(),
+          mvalue=temperature))
+      }}
 
-  <div>
-    <div>
-      <div class="mbdbv-voffset">
-        <h5 class="mbdbv-header">Buffer {{ emph(chemical_environment.name) }}</h5>
-        <div class="mbdbv-hoffset">
-          {{ nv.list_open() }}
-            {{ nv.inset_open() }}
-              <h5 class="mbdbv-header">Constituents</h5>
-              <div class="mddbv-block">
-                {{ lit.list(
-                    chemical_environment.constituents,
-                    constituent_info)
-                }}
-              </div>
-            {{ nv.inset_close() }}
-            {{ nv.item("pH", measured_value(chemical_environment.pH)) }}
-            {{ nv.item(
-                "Temperature",
-                render_if2(
-                  temperature is defined,
-                  measured_value,
-                  no_value(),
-                  mvalue=temperature))
-            }}
-            {{ nv.item(
-                "Ionic strength",
-                render_if2(
-                  ionic_strength is defined,
-                  measured_value,
-                  no_value(),
-                  mvalue=ionic_strength))
-            }}
-          {{ nv.list_close() }}
-        </div>
-      </div>
+  {{ nv.item("Sample container", samp.container) }}
+  {{ nv.list_close() }}   
 
-      <div class="mbdbv-voffset">
-        {{ nv.single("Measured in", samp.container) }}
-      </div>
-    </div>
-  </div>
 {%- endmacro %}

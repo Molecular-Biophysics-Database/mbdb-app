@@ -5,11 +5,11 @@
 
 {%- macro biological_origin(entity) %}
   {{ nv.item(
-      "Organism",
+      "Source organism",
       render_if2(
-        entity.organism is defined,
+        entity.source_organism is defined,
         organism,
         no_value(),
-        org=entity.organism))
+        org=entity.source_organism))
     }}
 {%- endmacro %}

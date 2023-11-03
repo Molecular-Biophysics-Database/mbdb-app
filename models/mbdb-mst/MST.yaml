@@ -9,9 +9,12 @@ record:
         general_parameters:
           use: '#/$defs/General_parameters'
           required: true
+          help.en: The general parameter of the experiment
         method_specific_parameters:
           use: '#/$defs/MST_specific_parameters'
           required: true
+          help.en: The parameters of the experiment that is specific to MST/TRIC/Spectral
+            Shift
     collected_default_search_fields:
       type: fulltext
       marshmallow:
@@ -68,6 +71,8 @@ record:
         index.mapping.total_fields.limit: 3000
         index.mapping.nested_fields.limit: 200
         index.query.default_field: collected_default_search_fields
+  resource-config:
+    base-html-url: /mst/
 plugins:
   builder:
     disable: [script_sample_data]
@@ -79,18 +84,18 @@ $defs:
     properties:
       schema_version:
         type: keyword
-        enum: [0.9.5]
+        enum: [0.9.6]
         help.en: The schema version used to annotate the MST method specific parameters
         required: true
       experiment_type:
         type: keyword
         enum: [Affinity, Concentration, Other]
-        help.en: Type of physical parameter measured
+        help.en: The type of physical parameter that was sought
         required: true
       signal_type:
         type: keyword
         enum: [Initial intensity, TRIC/MST, Spectral shift]
-        help.en: Which type of signal was measured
+        help.en: The type of signal that was being measured
         required: true
       excitation_led_color:
         type: keyword
@@ -114,19 +119,20 @@ $defs:
         minimum: 0.0
         maximum: 100.0
         help.en: The power of the infrared LASER used in the experiment in percentages.
-          A change in nomenclature occurred in Nanotemper's software, however the
-          underlying data is still stored in percentages use the following conversion;
+          Even though a change in nomenclature occurred in Nanotemper's control software,
+          the underlying data is still stored in percentages. Use the following conversion;
           Low = 20, Medium = 40, High = 60
         required: true
       measurements[]:
         ^minItems: 1
-        ^help.en: List of the information about each measurement, including, target(s),
-          ligand(s), chemical environment, and position of the sample within the instrument
+        ^help.en: List of the information about each measurement. This includes target(s),
+          ligand(s), chemical environment, and the position of the sample within the
+          instrument
         ^required: true
         use: '#/$defs/Measurement'
       data_analysis[]:
         ^minItems: 1
-        ^help.en: Details of how the data was processed and model in order to derive
+        ^help.en: Details of how the data was processed and modelled in order to derive
           parameters from it
         use: '#/$defs/MST_data_analysis'
   MST_data_analysis:
@@ -137,12 +143,16 @@ $defs:
         keys: [id, name]
       measurements[]:
         ^minItems: 1
-        ^help.en: List of measurement links that was analyzed together
+        ^help.en: List of the measurements that was analyzed together for a specific
+          parameter
         type: relation
         model: '#mst-measurement'
         keys: [id, name]
       f_cold_and_hot:
         use: '#/$defs/F_cold_and_hot'
+        help.en: If the data was analyzed with time windows corresponding to fluorescence
+          before and after an IR laser was heating the sample the edges of the time
+          windows can be specified here
       data_processing_steps[]:
         ^minItems: 1
         ^help.en: Describe the steps in the data analysis prior to fitting (removing
@@ -150,33 +160,36 @@ $defs:
         use: '#/$defs/Processing_step'
       data_fitting:
         use: '#/$defs/Data_fitting'
+        help.en: The details of how data fitting of the data to obtain the derived
+          parameter was performed
   F_cold_and_hot:
     properties:
       time_unit:
         use: '#/$defs/TIME_UNITS'
         required: true
+        help.en: The unit of time used for reporting measurement data
       f_cold_start:
         type: double
         minimum: -100.0
-        help.en: Numerical value of the start point of time interval used to establish
+        help.en: Numerical value of the start-point of time interval used to establish
           the initial fluorescence, F_cold
         required: true
       f_cold_end:
         type: double
         minimum: -100.0
-        help.en: Numerical value of the end point of time interval used to establish
+        help.en: Numerical value of the end-point of time interval used to establish
           the initial fluorescence, F_cold
         required: true
       f_hot_start:
         type: double
         minimum: 0.0
-        help.en: Numerical value of the start point of time interval used to establish
+        help.en: Numerical value of the start-point of time interval used to establish
           the fluorescence temperature induced change in fluorescence, F_hot
         required: true
       f_hot_end:
         type: double
         minimum: 0.0
-        help.en: Numerical value of the end point of time interval used to establish
+        help.en: Numerical value of the end-point of time interval used to establish
           the fluorescence temperature induced change in fluorescence, F_hot
         required: true
   Measurement:
@@ -198,14 +211,20 @@ $defs:
       sample:
         use: '#/$defs/Sample'
         required: true
+        help.en: Information about the sample including concentrations of ligands
+          and targets, and which chemical environment the sample was composed of
       measured_data:
         properties:
           x_data:
             use: '#/$defs/Measured_data_series'
             required: true
+            help.en: Values for the independent variable, normally time, of the measured
+              data
           y_data:
             use: '#/$defs/Measured_data_series'
             required: true
+            help.en: Values for the dependent variable, normally fluorescence intensity,
+              of the measured data
     id: mst-measurement
   Sample:
     properties:
@@ -246,20 +265,27 @@ $defs:
     properties:
       schema_version:
         type: keyword
-        enum: [0.9.12]
+        enum: [0.9.14]
         help.en: The schema version used to annotate the general parameters
         required: true
       record_information:
         use: '#/$defs/Record_information'
         required: true
+        help.en: Information about the record itself, including whether this particular
+          record is associated with other records
       depositors:
         use: '#/$defs/Depositors'
         required: true
+        help.en: Information about the depositors (authors) of this record
       associated_publications:
         use: '#/$defs/Associated_publications'
+        help.en: Information about if data in this record is associated with published
+          literature
       funding_reference[]:
         ^minItems: 1
-        ^help.en: List of information about the grants that supported depositors
+        ^help.en: List of information about the grants that supported generation of
+          the raw data annotated by this record. Note that this information is based
+          on OpenAire Projects
         keys: [id, title, props.funder_name]
         vocabulary-type: grants
         type: vocabulary
@@ -269,21 +295,36 @@ $defs:
               properties:
                 en:
                   copy_to: collected_default_search_fields
+          id:
+            mapping:
+              copy_to: collected_default_search_fields
       technique:
         use: '#/$defs/SUPPORTED_TECHNIQUES'
         required: true
+        help.en: The type of experimental technique used for collecting the raw data
+          annotated by this record
       collection_start_time:
         type: date
-        help.en: The time when collection of the data began
+        help.en: The date when collection of the raw data began
         required: true
       instrument:
         use: '#/$defs/Instrument'
         required: true
+        help.en: Information about the instrument being used to collect (measure)
+          the raw data annotated by this record
       physical_conditions_at_sample_handling:
         use: '#/$defs/Physical_conditions'
+        help.en: Information about the physical conditions immediately before sample
+          handling. Especially relevant when the conditions differ from the measurement
+          conditions or where special precautions were taken (e.g. keeping samples
+          on ice until measured, or stored under Argon atmosphere until it was measured)
       chemical_information:
         use: '#/$defs/Chemical_information'
         required: true
+        help.en: Information about entities of interest that were being measured (e.g.
+          Lysozyme) or used to alter the behaviour of the measured species (e.g. Peptidoglycan),
+          and the chemical environments that was used in the measurement (e.g. buffers,
+          cleaning solutions)
       derived_parameters[]:
         ^minItems: 1
         ^help.en: List of the parameters (results) that were derived from analyzing
@@ -297,7 +338,7 @@ $defs:
         ^ui_file_context:
           type: keyword
           enum: [raw measurement data]
-        type: keyword
+        type: url
   Record_information:
     properties:
       title:
@@ -308,9 +349,8 @@ $defs:
           copy_to: collected_default_search_fields
       keywords[]:
         ^minItems: 1
-        ^help.en: List of keywords describing this particular record content, e.g.
-          antibody, epitope, ligand optimization, SARS-CoV-2, agonist, antagonist,
-          HIV, etc.
+        ^help.en: User chosen keywords describing the record content (e.g. antibody,
+          epitope, ligand optimization, SARS-CoV-2, agonist, antagonist, HIV, etc.)
         ^required: true
         type: keyword
         mapping:
@@ -324,6 +364,8 @@ $defs:
           field should be used as sole link
       project:
         use: '#/$defs/Project'
+        help.en: Projects are typically longer running research projects that would
+          be expected to have several records associated with them over time
       access_rights:
         type: keyword
         enum: [open access, embargoed access, restricted access]
@@ -357,7 +399,8 @@ $defs:
         required: true
       resource_type:
         type: keyword
-        help.en: Datacite item which will show the type of experiment (MST/BLI/SPR)
+        help.en: DataCite item which shows type of dataset the record is and corresponds
+          directly to which kind of technique was used (MST/BLI/SPR)
         required: true
       internal_id:
         type: keyword
@@ -372,7 +415,7 @@ $defs:
       subject_category:
         type: keyword
         enum: [Biophysics]
-        help.en: Subject category the record data belongs to default is Biophysics
+        help.en: DataCite subject category the record data belongs to default is Biophysics
         required: true
       deposition_date:
         type: date
@@ -387,6 +430,7 @@ $defs:
       manufacturer:
         use: '#/$defs/COMPANIES'
         required: true
+        help.en: Name of the manufacturer of the instrument used for raw data collection
       name:
         type: keyword
         help.en: The name of the instrument as provided by the manufacturer
@@ -398,6 +442,8 @@ $defs:
           backreflection optics)
       performance_test:
         use: '#/$defs/Performance_test'
+        help.en: If a performance test of the instrument that was carried out, the
+          details and results can be specified here
   Entity_base:
     properties:
       id:
@@ -420,14 +466,15 @@ $defs:
         help.en: The type of the entity, where the options are (biological) Polymer,
           Chemical, Molecular assembly or Complex substance. Chemical polymers such
           as PEG 5000 should be described as being a Chemical. Complex substance refers
-          to substance which cannot be exactly specified as for its chemical composition,
-          e.g. blood, serum, plant extract
+          to substances which are not exactly specified by their exact chemical composition
+          by the time measurement were performed, but e.g. blood, serum, plant extract
         required: true
         mapping:
           copy_to: collected_default_search_fields
     id: entity
   Entity:
-    help.en: Description of the entity which varies depending on the type of entity
+    help.en: Details of the entity including identifiers and protocols used to obtain
+      the entity. Which information is required, varies depending the type of entity
     required: true
     schemas:
       Polymer:
@@ -464,13 +511,14 @@ $defs:
       concentration:
         use: '#/$defs/Concentration'
         required: true
+        help.en: Concentration of the entity
   Molecular_assembly:
     properties:
       external_databases[]:
         ^minItems: 1
         ^help.en: List of identifiers to records in external databases containing
           information about the molecular assembly as a whole can be specified here
-          (e.g. 1YQ2; PDB); information about the individual components should be
+          (e.g. PDB:1YQ2 ); information about the individual components should be
           specified in the details of the individual components
         type: keyword
         mapping:
@@ -488,6 +536,7 @@ $defs:
       molecular_weight:
         use: '#/$defs/Molecular_weight'
         required: true
+        help.en: The molecular weight of the molecular assembly
       chemical_modifications[]:
         ^minItems: 1
         ^help.en: List describing deliberate modifications made to the molecular assembly
@@ -496,8 +545,12 @@ $defs:
         type: nested
       supplier:
         use: '#/$defs/Supplier'
+        help.en: If the molecular assembly was purchased from a supplier, the name
+          and catlog number can be specified here
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the molecular assembly was stored between being
+          acquired and measured, including temperature and duration
       quality_controls[]:
         ^minItems: 1
         ^help.en: Quality controls performed e.g. purity, aggregation state etc.
@@ -512,8 +565,6 @@ $defs:
         ^help.en: Additional information about the macromolecular assembly can be
           specified here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
   Assembly_component_base:
     properties:
       name:
@@ -565,10 +616,11 @@ $defs:
       molecular_weight:
         use: '#/$defs/Molecular_weight'
         required: true
+        help.en: The molecular weight of the polymer
       external_databases[]:
         ^minItems: 1
         ^help.en: List of identifiers to records in external databases containing
-          information about the polymer can be specified here (e.g Q8KRF6, UniProt)
+          information about the polymer can be specified here (e.g UNIPROT:Q8KRF6)
         type: keyword
         mapping:
           copy_to: collected_default_search_fields
@@ -589,8 +641,14 @@ $defs:
               properties:
                 en:
                   copy_to: collected_default_search_fields
+          id:
+            mapping:
+              copy_to: collected_default_search_fields
       modifications:
         use: '#/$defs/Polymer_modifications'
+        help.en: If the polymer contains modifications such as non-natural aminoacids,
+          post translational modification, or chemically modifications like labeling,
+          it can be specified here
       expression_source_type:
         type: keyword
         enum: [Natively, Recombinantly, Synthetically]
@@ -602,8 +660,12 @@ $defs:
         type: vocabulary
       supplier:
         use: '#/$defs/Supplier'
+        help.en: If the polymer was purchased from a supplier, the name and catalog
+          number can be specified here (Merck, SKU 10837059001)
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the polymer assembly between being acquired
+          and measured, including temperature and duration
       quality_controls[]:
         ^minItems: 1
         ^help.en: Quality controls performed e.g. purity, aggregation state etc.
@@ -613,8 +675,6 @@ $defs:
         ^minItems: 1
         ^help.en: Additional information about the polymer can be specified here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
   Polymer_modifications:
     properties:
       synthesis[]:
@@ -674,8 +734,6 @@ $defs:
         ^help.en: Unique and persistent identifier from an external source; options
           of sources are CAS number, Pubchem Compound ID, and Pubchem Substance ID
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       isotopic_labeling:
         type: keyword
         help.en: If the isotopic composition of the chemical was altered from the
@@ -683,8 +741,10 @@ $defs:
       molecular_weight:
         use: '#/$defs/Molecular_weight'
         required: true
+        help.en: The molecular weight of the polymer
       supplier:
         use: '#/$defs/Supplier'
+        help.en: The name of the supplier and the catalog number of the chemical
       quality_controls[]:
         ^minItems: 1
         ^help.en: Quality controls performed e.g. purity, aggregation state etc.
@@ -695,8 +755,6 @@ $defs:
         ^help.en: Additional information about the chemical can be specified here
           (e.g. RNase free water, recrystallization, desalting)
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
   Chemical_environment:
     properties:
       id:
@@ -730,10 +788,13 @@ $defs:
       pH:
         use: '#/$defs/PH'
         required: true
+        help.en: The pH value of the chemical environment and how the value was determined
       ionic_strength:
         use: '#/$defs/Ionic_strength'
+        help.en: The ionic strength of the chemical environment
       dynamic_viscosity:
         use: '#/$defs/Dynamic_viscosity'
+        help.en: The dynamic viscosity of the chemical environment
       degassing_method:
         type: keyword
         enum: [Low pressure, Heating, Sonication bath]
@@ -741,20 +802,22 @@ $defs:
           here
       ultrafiltration_method:
         use: '#/$defs/Ultrafiltration'
+        help.en: If the chemical environment was subjected to ultrafiltration, the
+          method method can be specified here
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the chemical environment can be specified
-          here
+          here (e.g. prepared just prior to conducting the measurement, additional
+          treatments like UV irradiation, specific storage container of chemical environment
+          if that influenced the measurement etc.)
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
     id: chemical-environment
   Constituent_base:
     properties:
       name:
         type: keyword
         help.en: Short descriptive name (id) of the constituent, must be unique within
-          a record
+          a record (e.g. NaCl, Human serum P1, Lysozyme, etc.)
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -769,6 +832,8 @@ $defs:
       concentration:
         use: '#/$defs/Concentration'
         required: true
+        help.en: Concentration of the constituent including its relative concentration
+          related to the collected sample or absolute concentration of the constituent
   Chemical_constituent_base:
     properties:
       name:
@@ -786,6 +851,8 @@ $defs:
       concentration:
         use: '#/$defs/Concentration'
         required: true
+        help.en: Concentration of the constituent including its relative concentration
+          related to the collected sample or absolute concentration of the constituent
   Chemical_constituent:
     help.en: The details about the chemically defined constituent i.e. of type Polymer,
       Chemical, and Molecular assembly
@@ -861,6 +928,9 @@ $defs:
               properties:
                 en:
                   copy_to: collected_default_search_fields
+          id:
+            mapping:
+              copy_to: collected_default_search_fields
       preparation_protocol[]:
         ^minItems: 1
         ^help.en: List of the steps performed during the preparation of the complex
@@ -869,13 +939,13 @@ $defs:
         use: '#/$defs/Step'
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
   Body_fluid:
     properties:
       fluid:
@@ -960,15 +1030,17 @@ $defs:
       location:
         use: '#/$defs/Coordinates'
         required: true
+        help.en: The coordinates, in decimal notation, where the complex substance
+          was collected
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
   Complex_substance_of_chemical_origin:
     properties:
       class:
@@ -979,6 +1051,7 @@ $defs:
       details:
         use: '#/$defs/Lipid_assembly'
         required: true
+        help.en: The chemical origin where the complex substance was derived from
       preparation_protocol[]:
         ^minItems: 1
         ^help.en: List of the steps performed during the preparation of the complex
@@ -987,13 +1060,13 @@ $defs:
         use: '#/$defs/Step'
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
   Lipid_assembly:
     properties:
       type:
@@ -1009,6 +1082,7 @@ $defs:
       size:
         use: '#/$defs/Size'
         required: true
+        help.en: The size of the lipid assembly
       components[]:
         ^minItems: 1
         ^help.en: The components of the lipid assembly
@@ -1039,21 +1113,25 @@ $defs:
         use: '#/$defs/Step'
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
   Depositors:
     properties:
       depositor:
         use: '#/$defs/Person'
         required: true
+        help.en: The person who made the deposition to MBDB
       principal_contact:
         use: '#/$defs/Person'
         required: true
+        help.en: The person responsible for the record and the one to contact for
+          inquiries, would typically be the principle investigator group leader, or
+          laboratory head
       contributors[]:
         ^minItems: 1
         ^help.en: List of other people who contributed to generating the deposited
@@ -1083,7 +1161,8 @@ $defs:
           copy_to: collected_default_search_fields
       affiliations[]:
         ^minItems: 1
-        ^help.en: The affiliation of the person
+        ^help.en: The affiliation of the person. Note that this is based on the Research
+          Organization Registry (ROR)
         keys: [id, title, props.city, props.state, props.country]
         vocabulary-type: affiliations
         type: vocabulary
@@ -1093,6 +1172,9 @@ $defs:
               properties:
                 en:
                   copy_to: collected_default_search_fields
+          id:
+            mapping:
+              copy_to: collected_default_search_fields
   Publication:
     properties:
       pid:
@@ -1109,12 +1191,12 @@ $defs:
           copy_to: collected_default_search_fields
       publication_year:
         type: integer
-        minimum: 1800
+        minimum: 1900
         help.en: The publication year
         required: true
       authors[]:
         ^minItems: 1
-        ^help.en: The authors of the publication
+        ^help.en: Information about the authors of the publication
         use: '#/$defs/Person'
         type: nested
       resource_type:
@@ -1134,24 +1216,28 @@ $defs:
           to other data within the MBDB
       title:
         type: keyword
-        help.en: Short title of the MBDB project
+        help.en: Short title of the project
         required: true
         mapping:
           copy_to: collected_default_search_fields
       description:
         type: keyword
-        help.en: Short description of what the MBDB project is about
+        help.en: Short description of what the project is about
         required: true
       owner:
         use: '#/$defs/Person'
         required: true
+        help.en: The person responsible for the project, typically a project leader,
+          principle investigator, or group leader
   Associated_publications:
     properties:
       main:
         use: '#/$defs/Publication'
+        help.en: Information about the publication where the raw data or derived parameters
+          first appeared
       additional[]:
         ^minItems: 1
-        ^help.en: Additional publications can be specified here, if applicable
+        ^help.en: Information about publications in addition to the main publication
         use: '#/$defs/Publication'
         type: nested
   Derived_parameter:
@@ -1161,8 +1247,8 @@ $defs:
         required: true
       name:
         type: keyword
-        help.en: Descriptive name (id) of the parameter (e.g. Kd between Lysozyme
-          and VHH). Must be unique with in a record
+        help.en: Descriptive name (id) of the derived parameter (e.g. Kd of Lysozyme
+          and VHH2). Must be unique within a record
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -1189,6 +1275,8 @@ $defs:
         required: true
       value_error:
         use: '#/$defs/Value_error'
+        help.en: The expected error of the derived parameter (e.g. in terms of standard
+          deviations, or relative error)
       unit:
         type: keyword
         help.en: Unit of the derived parameter
@@ -1215,7 +1303,7 @@ $defs:
         help.en: The position where the modification occurs
       modification:
         type: keyword
-        help.en: The type of modification
+        help.en: The common name/type of the modification
         required: true
       protocol[]:
         ^minItems: 1
@@ -1260,6 +1348,8 @@ $defs:
       storage_until_measurement:
         use: '#/$defs/Storage'
         required: true
+        help.en: How the sample was stored between the quality control was performed
+          until it was measured, including temperature and duration
       report:
         type: url
         help.en: Report with the results of the quality control, as a pdf file
@@ -1271,12 +1361,12 @@ $defs:
     properties:
       model:
         type: keyword
-        help.en: Description of the model(e.g. 1:1 binding)
+        help.en: Description of the model (e.g. 1:1 binding)
         required: true
       software_name:
         type: keyword
-        help.en: The name of the software that was used for doing the fitting (e.g.
-          Excel)
+        help.en: The name of the software that was used for doing the data fitting
+          (e.g. Excel)
       software_version:
         type: keyword
         help.en: The version of the software that was used for the step
@@ -1292,7 +1382,7 @@ $defs:
     properties:
       name:
         type: keyword
-        help.en: Descriptive name of the processing step
+        help.en: Short descriptive name of the processing step
         required: true
       description:
         type: keyword
@@ -1317,21 +1407,32 @@ $defs:
     properties:
       temperature:
         use: '#/$defs/Temperature'
+        help.en: The storage temperature of the samples immediately prior to being
+          measured and whether the temperature was actively being controlled (e.g.
+          autosampler held at 15 degrees, stored on ice, room temperature)
       pressure:
         use: '#/$defs/Pressure'
+        help.en: The storage pressure of the samples immediately prior to being measured
+          and whether the pressure was actively being controlled, if applicable
       humidity:
         use: '#/$defs/Humidity'
+        help.en: The storage humidity of the samples immediately prior to being measured
+          and whether the humidity was actively being controlled, if applicable
       atmosphere:
         use: '#/$defs/Atmosphere'
+        help.en: The storage atmosphere of the samples immediately prior to being
+          measured and whether the atmosphere was actively being controlled, if applicable
   Value_error:
     properties:
       upper_error:
         type: double
-        help.en: The upper error, i.e. the number added to the parameter value
+        help.en: The upper error, i.e. the number that should be added the value to
+          get the upper bound
         required: true
       lower_error:
         type: double
-        help.en: The lower error, i.e. the number subtracted from the parameter value
+        help.en: The lower error, i.e. the number that should be subtracted from the
+          value to get the lower bound
         required: true
       errors_are_relative:
         type: boolean
@@ -1350,6 +1451,8 @@ $defs:
         required: true
       value_error:
         use: '#/$defs/Value_error'
+        help.en: The expected error of the dynamic viscosity (e.g. standard deviation,
+          % error)
       unit:
         type: keyword
         enum: [Pa s]
@@ -1358,6 +1461,7 @@ $defs:
       obtained_by:
         use: '#/$defs/OBTAINED_TYPES'
         required: true
+        help.en: The means by which the dynamic viscosity was obtained
   PH:
     properties:
       value:
@@ -1366,17 +1470,22 @@ $defs:
         required: true
       value_error:
         use: '#/$defs/Value_error'
+        help.en: The reported error of the value of pH (e.g. standard deviation, %
+          error)
       obtained_by:
         use: '#/$defs/OBTAINED_TYPES'
         required: true
+        help.en: The means through which the pH value was obtained
   Temperature:
     properties:
       value:
         type: double
-        help.en: Numeric value of the temperature
+        help.en: The numeric value of the temperature
         required: true
       value_error:
         use: '#/$defs/Value_error'
+        help.en: The reported error of the value of the temperature (e.g. standard
+          deviation, % error)
       operational_value:
         type: keyword
         enum: [Room temperature, On Ice, Other]
@@ -1385,9 +1494,11 @@ $defs:
       unit:
         use: '#/$defs/TEMPERATURE_UNITS'
         required: true
+        help.en: The unit of temperature
       obtained_by:
         use: '#/$defs/OBTAINED_TYPES'
         required: true
+        help.en: The means through which the temperature value was obtained
       controlled:
         type: boolean
         help.en: Whether the temperature was actively controlled
@@ -1396,16 +1507,20 @@ $defs:
     properties:
       value:
         type: double
-        help.en: Numeric value of the pressure
+        help.en: The numeric value of the pressure
         required: true
       value_error:
         use: '#/$defs/Value_error'
+        help.en: The reported error of the value of the pressure (e.g. standard deviation,
+          % error)
       unit:
         use: '#/$defs/PRESSURE_UNITS'
         required: true
+        help.en: The unit of the pressure
       obtained_by:
         use: '#/$defs/OBTAINED_TYPES'
         required: true
+        help.en: The means through which the pressure value was obtained
       controlled:
         type: boolean
         help.en: Whether the pressure was actively controlled
@@ -1414,16 +1529,20 @@ $defs:
     properties:
       value:
         type: double
-        help.en: Numeric value of the humidity
+        help.en: The numeric value of the humidity
         required: true
       value_error:
         use: '#/$defs/Value_error'
+        help.en: The reported error of the value of the humidity (e.g. standard deviation,
+          % error)
       unit:
         use: '#/$defs/HUMIDITY_UNITS'
         required: true
+        help.en: The unit of the humidity
       obtained_by:
         use: '#/$defs/OBTAINED_TYPES'
         required: true
+        help.en: The means through which the humidity value was obtained
       controlled:
         type: boolean
         help.en: Whether the humidity was actively controlled
@@ -1444,13 +1563,16 @@ $defs:
       value:
         type: double
         minimum: 0.0
-        help.en: Numerical value of the time point or duration
+        help.en: The numerical value of the time point or duration
         required: true
       value_error:
         use: '#/$defs/Value_error'
+        help.en: The reported error of the value of the time point or duration (e.g.
+          standard deviation, % error)
       unit:
         use: '#/$defs/TIME_UNITS'
         required: true
+        help.en: The unit of the time duration
   Concentration:
     properties:
       value:
@@ -1460,11 +1582,15 @@ $defs:
         required: true
       value_error:
         use: '#/$defs/Value_error'
+        help.en: The expected error of the concentration (e.g. standard  deviation,
+          % error)
       unit:
         use: '#/$defs/CONCENTRATION_UNITS'
         required: true
+        help.en: The unit of the concentration
       obtained_by:
         use: '#/$defs/OBTAINED_TYPES'
+        help.en: The means through which the concentration was obtained
       obtained_protocol[]:
         ^minItems: 1
         ^help.en: Information of how the concentration was obtained (e.g, Absorbance
@@ -1480,6 +1606,7 @@ $defs:
       unit:
         use: '#/$defs/CONCENTRATION_UNITS'
         required: true
+        help.en: The unit of the ionic strength
   Molecular_weight:
     properties:
       value:
@@ -1488,9 +1615,12 @@ $defs:
         required: true
       value_error:
         use: '#/$defs/Value_error'
+        help.en: The expected error of the molecular weight (e.g. standard  deviation,
+          % error)
       unit:
         use: '#/$defs/MOLECULAR_WEIGHT_UNITS'
         required: true
+        help.en: The unit of the molecular weight
   Size:
     properties:
       type:
@@ -1506,6 +1636,7 @@ $defs:
       unit:
         use: '#/$defs/LENGTH_UNITS'
         required: true
+        help.en: The unit of the size
       median:
         type: double
         minimum: 0.0
@@ -1550,6 +1681,8 @@ $defs:
           type: nested
       published_test_protocol:
         use: '#/$defs/Publication'
+        help.en: If the protocol used for the performance test has been published,
+          the publication can be specified here
       report:
         type: url
         help.en: The file containing the report of the performance test, preferably
@@ -1567,8 +1700,10 @@ $defs:
       temperature:
         use: '#/$defs/Temperature'
         required: true
+        help.en: The temperature the sample was stored at
       duration:
         use: '#/$defs/Time_duration'
+        help.en: Length of time the sample was stored before being measured
       storage_preparation[]:
         ^minItems: 1
         ^help.en: The specific steps that were taken to prepare the samples for storage
@@ -1587,8 +1722,6 @@ $defs:
         ^minItems: 1
         ^help.en: Further information e.g. batch number
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
   Coordinates:
     properties:
       S-N(latitude):
@@ -1606,58 +1739,38 @@ $defs:
   OBTAINED_TYPES:
     type: keyword
     enum: [Measurement, Calculation, Assumption, Other]
-    mapping:
-      copy_to: collected_default_search_fields
   CONCENTRATION_UNITS:
     type: keyword
     enum: [M, mM, µM, nM, pM, fM, aM, g/L, mg/mL, µg/mL, ng/mL, mol/kg, mmol/kg, v/v
         %, w/w %, v/w %, w/v %, U/ml, '% saturated']
-    mapping:
-      copy_to: collected_default_search_fields
   HUMIDITY_UNITS:
     type: keyword
     enum: ['%', g/m^3, oz/y^3]
-    mapping:
-      copy_to: collected_default_search_fields
   PRESSURE_UNITS:
     type: keyword
     enum: [Pa, kPa, MPa, Bar, mBar, atm, Torr, PSI, mmHg, inchHg]
-    mapping:
-      copy_to: collected_default_search_fields
   TEMPERATURE_UNITS:
     type: keyword
     enum: [K, °C, °F]
     required: true
-    mapping:
-      copy_to: collected_default_search_fields
   TIME_UNITS:
     type: keyword
     enum: [nanoseconds, microseconds, milliseconds, seconds, minutes, hours, days,
       months, years]
-    mapping:
-      copy_to: collected_default_search_fields
   LENGTH_UNITS:
     type: keyword
     enum: [Å, nm, μm, mm, cm, m]
-    mapping:
-      copy_to: collected_default_search_fields
   MOLECULAR_WEIGHT_UNITS:
     type: keyword
     enum: [g/mol, Da, kDa, MDa]
-    mapping:
-      copy_to: collected_default_search_fields
   SUPPORTED_TECHNIQUES:
     type: keyword
     enum: [Bio-layer interferometry (BLI), Microscale thermophoresis/Temperature related
         intensity change (MST/TRIC), Surface plasmon resonance (SPR)]
-    mapping:
-      copy_to: collected_default_search_fields
   COMPANIES:
     type: keyword
     enum: [Bio-Rad, Bruker, Cytiva, Gatorbio, GE Healthcare, Nanotemper, Nicoya Life,
       Sartorius, Malvern Panalytical, Refeyn, TA Instruments]
-    mapping:
-      copy_to: collected_default_search_fields
   ConstituentPolymerPolymorphic:
     properties:
       polymer_type:
@@ -1678,10 +1791,11 @@ $defs:
       molecular_weight:
         use: '#/$defs/Molecular_weight'
         required: true
+        help.en: The molecular weight of the polymer
       external_databases[]:
         ^minItems: 1
         ^help.en: List of identifiers to records in external databases containing
-          information about the polymer can be specified here (e.g Q8KRF6, UniProt)
+          information about the polymer can be specified here (e.g UNIPROT:Q8KRF6)
         type: keyword
         mapping:
           copy_to: collected_default_search_fields
@@ -1702,8 +1816,14 @@ $defs:
               properties:
                 en:
                   copy_to: collected_default_search_fields
+          id:
+            mapping:
+              copy_to: collected_default_search_fields
       modifications:
         use: '#/$defs/Polymer_modifications'
+        help.en: If the polymer contains modifications such as non-natural aminoacids,
+          post translational modification, or chemically modifications like labeling,
+          it can be specified here
       expression_source_type:
         type: keyword
         enum: [Natively, Recombinantly, Synthetically]
@@ -1715,8 +1835,12 @@ $defs:
         type: vocabulary
       supplier:
         use: '#/$defs/Supplier'
+        help.en: If the polymer was purchased from a supplier, the name and catalog
+          number can be specified here (Merck, SKU 10837059001)
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the polymer assembly between being acquired
+          and measured, including temperature and duration
       quality_controls[]:
         ^minItems: 1
         ^help.en: Quality controls performed e.g. purity, aggregation state etc.
@@ -1726,12 +1850,10 @@ $defs:
         ^minItems: 1
         ^help.en: Additional information about the polymer can be specified here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the constituent, must be unique within
-          a record
+          a record (e.g. NaCl, Human serum P1, Lysozyme, etc.)
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -1746,6 +1868,8 @@ $defs:
       concentration:
         use: '#/$defs/Concentration'
         required: true
+        help.en: Concentration of the constituent including its relative concentration
+          related to the collected sample or absolute concentration of the constituent
   ConstituentChemicalPolymorphic:
     properties:
       inchikey:
@@ -1763,8 +1887,6 @@ $defs:
         ^help.en: Unique and persistent identifier from an external source; options
           of sources are CAS number, Pubchem Compound ID, and Pubchem Substance ID
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       isotopic_labeling:
         type: keyword
         help.en: If the isotopic composition of the chemical was altered from the
@@ -1772,8 +1894,10 @@ $defs:
       molecular_weight:
         use: '#/$defs/Molecular_weight'
         required: true
+        help.en: The molecular weight of the polymer
       supplier:
         use: '#/$defs/Supplier'
+        help.en: The name of the supplier and the catalog number of the chemical
       quality_controls[]:
         ^minItems: 1
         ^help.en: Quality controls performed e.g. purity, aggregation state etc.
@@ -1784,12 +1908,10 @@ $defs:
         ^help.en: Additional information about the chemical can be specified here
           (e.g. RNase free water, recrystallization, desalting)
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the constituent, must be unique within
-          a record
+          a record (e.g. NaCl, Human serum P1, Lysozyme, etc.)
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -1804,13 +1926,15 @@ $defs:
       concentration:
         use: '#/$defs/Concentration'
         required: true
+        help.en: Concentration of the constituent including its relative concentration
+          related to the collected sample or absolute concentration of the constituent
   ConstituentMolecular_assemblyPolymorphic:
     properties:
       external_databases[]:
         ^minItems: 1
         ^help.en: List of identifiers to records in external databases containing
           information about the molecular assembly as a whole can be specified here
-          (e.g. 1YQ2; PDB); information about the individual components should be
+          (e.g. PDB:1YQ2 ); information about the individual components should be
           specified in the details of the individual components
         type: keyword
         mapping:
@@ -1828,6 +1952,7 @@ $defs:
       molecular_weight:
         use: '#/$defs/Molecular_weight'
         required: true
+        help.en: The molecular weight of the molecular assembly
       chemical_modifications[]:
         ^minItems: 1
         ^help.en: List describing deliberate modifications made to the molecular assembly
@@ -1836,8 +1961,12 @@ $defs:
         type: nested
       supplier:
         use: '#/$defs/Supplier'
+        help.en: If the molecular assembly was purchased from a supplier, the name
+          and catlog number can be specified here
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the molecular assembly was stored between being
+          acquired and measured, including temperature and duration
       quality_controls[]:
         ^minItems: 1
         ^help.en: Quality controls performed e.g. purity, aggregation state etc.
@@ -1852,12 +1981,10 @@ $defs:
         ^help.en: Additional information about the macromolecular assembly can be
           specified here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the constituent, must be unique within
-          a record
+          a record (e.g. NaCl, Human serum P1, Lysozyme, etc.)
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -1872,6 +1999,8 @@ $defs:
       concentration:
         use: '#/$defs/Concentration'
         required: true
+        help.en: Concentration of the constituent including its relative concentration
+          related to the collected sample or absolute concentration of the constituent
   Assembly_componentPolymerPolymorphic:
     properties:
       polymer_type:
@@ -1892,10 +2021,11 @@ $defs:
       molecular_weight:
         use: '#/$defs/Molecular_weight'
         required: true
+        help.en: The molecular weight of the polymer
       external_databases[]:
         ^minItems: 1
         ^help.en: List of identifiers to records in external databases containing
-          information about the polymer can be specified here (e.g Q8KRF6, UniProt)
+          information about the polymer can be specified here (e.g UNIPROT:Q8KRF6)
         type: keyword
         mapping:
           copy_to: collected_default_search_fields
@@ -1916,8 +2046,14 @@ $defs:
               properties:
                 en:
                   copy_to: collected_default_search_fields
+          id:
+            mapping:
+              copy_to: collected_default_search_fields
       modifications:
         use: '#/$defs/Polymer_modifications'
+        help.en: If the polymer contains modifications such as non-natural aminoacids,
+          post translational modification, or chemically modifications like labeling,
+          it can be specified here
       expression_source_type:
         type: keyword
         enum: [Natively, Recombinantly, Synthetically]
@@ -1929,8 +2065,12 @@ $defs:
         type: vocabulary
       supplier:
         use: '#/$defs/Supplier'
+        help.en: If the polymer was purchased from a supplier, the name and catalog
+          number can be specified here (Merck, SKU 10837059001)
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the polymer assembly between being acquired
+          and measured, including temperature and duration
       quality_controls[]:
         ^minItems: 1
         ^help.en: Quality controls performed e.g. purity, aggregation state etc.
@@ -1940,8 +2080,6 @@ $defs:
         ^minItems: 1
         ^help.en: Additional information about the polymer can be specified here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) given to the assembly component. The
@@ -1976,8 +2114,6 @@ $defs:
         ^help.en: Unique and persistent identifier from an external source; options
           of sources are CAS number, Pubchem Compound ID, and Pubchem Substance ID
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       isotopic_labeling:
         type: keyword
         help.en: If the isotopic composition of the chemical was altered from the
@@ -1985,8 +2121,10 @@ $defs:
       molecular_weight:
         use: '#/$defs/Molecular_weight'
         required: true
+        help.en: The molecular weight of the polymer
       supplier:
         use: '#/$defs/Supplier'
+        help.en: The name of the supplier and the catalog number of the chemical
       quality_controls[]:
         ^minItems: 1
         ^help.en: Quality controls performed e.g. purity, aggregation state etc.
@@ -1997,8 +2135,6 @@ $defs:
         ^help.en: Additional information about the chemical can be specified here
           (e.g. RNase free water, recrystallization, desalting)
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) given to the assembly component. The
@@ -2063,6 +2199,9 @@ $defs:
               properties:
                 en:
                   copy_to: collected_default_search_fields
+          id:
+            mapping:
+              copy_to: collected_default_search_fields
       preparation_protocol[]:
         ^minItems: 1
         ^help.en: List of the steps performed during the preparation of the complex
@@ -2071,17 +2210,17 @@ $defs:
         use: '#/$defs/Step'
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the constituent, must be unique within
-          a record
+          a record (e.g. NaCl, Human serum P1, Lysozyme, etc.)
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -2096,6 +2235,8 @@ $defs:
       concentration:
         use: '#/$defs/Concentration'
         required: true
+        help.en: Concentration of the constituent including its relative concentration
+          related to the collected sample or absolute concentration of the constituent
   Complex_substance_of_biological_originCell_fractionPolymorphic:
     properties:
       fraction:
@@ -2137,6 +2278,9 @@ $defs:
               properties:
                 en:
                   copy_to: collected_default_search_fields
+          id:
+            mapping:
+              copy_to: collected_default_search_fields
       preparation_protocol[]:
         ^minItems: 1
         ^help.en: List of the steps performed during the preparation of the complex
@@ -2145,17 +2289,17 @@ $defs:
         use: '#/$defs/Step'
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the constituent, must be unique within
-          a record
+          a record (e.g. NaCl, Human serum P1, Lysozyme, etc.)
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -2170,6 +2314,8 @@ $defs:
       concentration:
         use: '#/$defs/Concentration'
         required: true
+        help.en: Concentration of the constituent including its relative concentration
+          related to the collected sample or absolute concentration of the constituent
   Complex_substance_of_biological_originVirionPolymorphic:
     properties:
       Genetic_material:
@@ -2211,6 +2357,9 @@ $defs:
               properties:
                 en:
                   copy_to: collected_default_search_fields
+          id:
+            mapping:
+              copy_to: collected_default_search_fields
       preparation_protocol[]:
         ^minItems: 1
         ^help.en: List of the steps performed during the preparation of the complex
@@ -2219,17 +2368,17 @@ $defs:
         use: '#/$defs/Step'
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the constituent, must be unique within
-          a record
+          a record (e.g. NaCl, Human serum P1, Lysozyme, etc.)
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -2244,6 +2393,8 @@ $defs:
       concentration:
         use: '#/$defs/Concentration'
         required: true
+        help.en: Concentration of the constituent including its relative concentration
+          related to the collected sample or absolute concentration of the constituent
   ConstituentComplex_substance_of_environmental_originPolymorphic:
     properties:
       source:
@@ -2263,19 +2414,21 @@ $defs:
       location:
         use: '#/$defs/Coordinates'
         required: true
+        help.en: The coordinates, in decimal notation, where the complex substance
+          was collected
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the constituent, must be unique within
-          a record
+          a record (e.g. NaCl, Human serum P1, Lysozyme, etc.)
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -2290,6 +2443,8 @@ $defs:
       concentration:
         use: '#/$defs/Concentration'
         required: true
+        help.en: Concentration of the constituent including its relative concentration
+          related to the collected sample or absolute concentration of the constituent
   ConstituentComplex_substance_of_chemical_originPolymorphic:
     properties:
       class:
@@ -2300,6 +2455,7 @@ $defs:
       details:
         use: '#/$defs/Lipid_assembly'
         required: true
+        help.en: The chemical origin where the complex substance was derived from
       preparation_protocol[]:
         ^minItems: 1
         ^help.en: List of the steps performed during the preparation of the complex
@@ -2308,17 +2464,17 @@ $defs:
         use: '#/$defs/Step'
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the constituent, must be unique within
-          a record
+          a record (e.g. NaCl, Human serum P1, Lysozyme, etc.)
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -2333,6 +2489,8 @@ $defs:
       concentration:
         use: '#/$defs/Concentration'
         required: true
+        help.en: Concentration of the constituent including its relative concentration
+          related to the collected sample or absolute concentration of the constituent
   ConstituentComplex_substance_of_industrial_production_originPolymorphic:
     properties:
       product:
@@ -2351,17 +2509,17 @@ $defs:
         use: '#/$defs/Step'
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the constituent, must be unique within
-          a record
+          a record (e.g. NaCl, Human serum P1, Lysozyme, etc.)
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -2376,6 +2534,8 @@ $defs:
       concentration:
         use: '#/$defs/Concentration'
         required: true
+        help.en: Concentration of the constituent including its relative concentration
+          related to the collected sample or absolute concentration of the constituent
   Chemical_constituentChemicalPolymorphic:
     properties:
       inchikey:
@@ -2393,8 +2553,6 @@ $defs:
         ^help.en: Unique and persistent identifier from an external source; options
           of sources are CAS number, Pubchem Compound ID, and Pubchem Substance ID
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       isotopic_labeling:
         type: keyword
         help.en: If the isotopic composition of the chemical was altered from the
@@ -2402,8 +2560,10 @@ $defs:
       molecular_weight:
         use: '#/$defs/Molecular_weight'
         required: true
+        help.en: The molecular weight of the polymer
       supplier:
         use: '#/$defs/Supplier'
+        help.en: The name of the supplier and the catalog number of the chemical
       quality_controls[]:
         ^minItems: 1
         ^help.en: Quality controls performed e.g. purity, aggregation state etc.
@@ -2414,8 +2574,6 @@ $defs:
         ^help.en: Additional information about the chemical can be specified here
           (e.g. RNase free water, recrystallization, desalting)
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the constituent, must be unique within
@@ -2431,6 +2589,8 @@ $defs:
       concentration:
         use: '#/$defs/Concentration'
         required: true
+        help.en: Concentration of the constituent including its relative concentration
+          related to the collected sample or absolute concentration of the constituent
   EntityPolymerPolymorphic:
     properties:
       polymer_type:
@@ -2451,10 +2611,11 @@ $defs:
       molecular_weight:
         use: '#/$defs/Molecular_weight'
         required: true
+        help.en: The molecular weight of the polymer
       external_databases[]:
         ^minItems: 1
         ^help.en: List of identifiers to records in external databases containing
-          information about the polymer can be specified here (e.g Q8KRF6, UniProt)
+          information about the polymer can be specified here (e.g UNIPROT:Q8KRF6)
         type: keyword
         mapping:
           copy_to: collected_default_search_fields
@@ -2475,8 +2636,14 @@ $defs:
               properties:
                 en:
                   copy_to: collected_default_search_fields
+          id:
+            mapping:
+              copy_to: collected_default_search_fields
       modifications:
         use: '#/$defs/Polymer_modifications'
+        help.en: If the polymer contains modifications such as non-natural aminoacids,
+          post translational modification, or chemically modifications like labeling,
+          it can be specified here
       expression_source_type:
         type: keyword
         enum: [Natively, Recombinantly, Synthetically]
@@ -2488,8 +2655,12 @@ $defs:
         type: vocabulary
       supplier:
         use: '#/$defs/Supplier'
+        help.en: If the polymer was purchased from a supplier, the name and catalog
+          number can be specified here (Merck, SKU 10837059001)
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the polymer assembly between being acquired
+          and measured, including temperature and duration
       quality_controls[]:
         ^minItems: 1
         ^help.en: Quality controls performed e.g. purity, aggregation state etc.
@@ -2499,12 +2670,8 @@ $defs:
         ^minItems: 1
         ^help.en: Additional information about the polymer can be specified here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       id:
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the entity; must be unique within
@@ -2522,8 +2689,8 @@ $defs:
         help.en: The type of the entity, where the options are (biological) Polymer,
           Chemical, Molecular assembly or Complex substance. Chemical polymers such
           as PEG 5000 should be described as being a Chemical. Complex substance refers
-          to substance which cannot be exactly specified as for its chemical composition,
-          e.g. blood, serum, plant extract
+          to substances which are not exactly specified by their exact chemical composition
+          by the time measurement were performed, but e.g. blood, serum, plant extract
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -2544,8 +2711,6 @@ $defs:
         ^help.en: Unique and persistent identifier from an external source; options
           of sources are CAS number, Pubchem Compound ID, and Pubchem Substance ID
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       isotopic_labeling:
         type: keyword
         help.en: If the isotopic composition of the chemical was altered from the
@@ -2553,8 +2718,10 @@ $defs:
       molecular_weight:
         use: '#/$defs/Molecular_weight'
         required: true
+        help.en: The molecular weight of the polymer
       supplier:
         use: '#/$defs/Supplier'
+        help.en: The name of the supplier and the catalog number of the chemical
       quality_controls[]:
         ^minItems: 1
         ^help.en: Quality controls performed e.g. purity, aggregation state etc.
@@ -2565,12 +2732,8 @@ $defs:
         ^help.en: Additional information about the chemical can be specified here
           (e.g. RNase free water, recrystallization, desalting)
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       id:
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the entity; must be unique within
@@ -2588,8 +2751,8 @@ $defs:
         help.en: The type of the entity, where the options are (biological) Polymer,
           Chemical, Molecular assembly or Complex substance. Chemical polymers such
           as PEG 5000 should be described as being a Chemical. Complex substance refers
-          to substance which cannot be exactly specified as for its chemical composition,
-          e.g. blood, serum, plant extract
+          to substances which are not exactly specified by their exact chemical composition
+          by the time measurement were performed, but e.g. blood, serum, plant extract
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -2599,7 +2762,7 @@ $defs:
         ^minItems: 1
         ^help.en: List of identifiers to records in external databases containing
           information about the molecular assembly as a whole can be specified here
-          (e.g. 1YQ2; PDB); information about the individual components should be
+          (e.g. PDB:1YQ2 ); information about the individual components should be
           specified in the details of the individual components
         type: keyword
         mapping:
@@ -2617,6 +2780,7 @@ $defs:
       molecular_weight:
         use: '#/$defs/Molecular_weight'
         required: true
+        help.en: The molecular weight of the molecular assembly
       chemical_modifications[]:
         ^minItems: 1
         ^help.en: List describing deliberate modifications made to the molecular assembly
@@ -2625,8 +2789,12 @@ $defs:
         type: nested
       supplier:
         use: '#/$defs/Supplier'
+        help.en: If the molecular assembly was purchased from a supplier, the name
+          and catlog number can be specified here
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the molecular assembly was stored between being
+          acquired and measured, including temperature and duration
       quality_controls[]:
         ^minItems: 1
         ^help.en: Quality controls performed e.g. purity, aggregation state etc.
@@ -2641,12 +2809,8 @@ $defs:
         ^help.en: Additional information about the macromolecular assembly can be
           specified here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       id:
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the entity; must be unique within
@@ -2664,8 +2828,8 @@ $defs:
         help.en: The type of the entity, where the options are (biological) Polymer,
           Chemical, Molecular assembly or Complex substance. Chemical polymers such
           as PEG 5000 should be described as being a Chemical. Complex substance refers
-          to substance which cannot be exactly specified as for its chemical composition,
-          e.g. blood, serum, plant extract
+          to substances which are not exactly specified by their exact chemical composition
+          by the time measurement were performed, but e.g. blood, serum, plant extract
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -2716,6 +2880,9 @@ $defs:
               properties:
                 en:
                   copy_to: collected_default_search_fields
+          id:
+            mapping:
+              copy_to: collected_default_search_fields
       preparation_protocol[]:
         ^minItems: 1
         ^help.en: List of the steps performed during the preparation of the complex
@@ -2724,17 +2891,15 @@ $defs:
         use: '#/$defs/Step'
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       id:
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the entity; must be unique within
@@ -2752,8 +2917,8 @@ $defs:
         help.en: The type of the entity, where the options are (biological) Polymer,
           Chemical, Molecular assembly or Complex substance. Chemical polymers such
           as PEG 5000 should be described as being a Chemical. Complex substance refers
-          to substance which cannot be exactly specified as for its chemical composition,
-          e.g. blood, serum, plant extract
+          to substances which are not exactly specified by their exact chemical composition
+          by the time measurement were performed, but e.g. blood, serum, plant extract
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -2798,6 +2963,9 @@ $defs:
               properties:
                 en:
                   copy_to: collected_default_search_fields
+          id:
+            mapping:
+              copy_to: collected_default_search_fields
       preparation_protocol[]:
         ^minItems: 1
         ^help.en: List of the steps performed during the preparation of the complex
@@ -2806,17 +2974,15 @@ $defs:
         use: '#/$defs/Step'
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       id:
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the entity; must be unique within
@@ -2834,8 +3000,8 @@ $defs:
         help.en: The type of the entity, where the options are (biological) Polymer,
           Chemical, Molecular assembly or Complex substance. Chemical polymers such
           as PEG 5000 should be described as being a Chemical. Complex substance refers
-          to substance which cannot be exactly specified as for its chemical composition,
-          e.g. blood, serum, plant extract
+          to substances which are not exactly specified by their exact chemical composition
+          by the time measurement were performed, but e.g. blood, serum, plant extract
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -2880,6 +3046,9 @@ $defs:
               properties:
                 en:
                   copy_to: collected_default_search_fields
+          id:
+            mapping:
+              copy_to: collected_default_search_fields
       preparation_protocol[]:
         ^minItems: 1
         ^help.en: List of the steps performed during the preparation of the complex
@@ -2888,17 +3057,15 @@ $defs:
         use: '#/$defs/Step'
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       id:
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the entity; must be unique within
@@ -2916,8 +3083,8 @@ $defs:
         help.en: The type of the entity, where the options are (biological) Polymer,
           Chemical, Molecular assembly or Complex substance. Chemical polymers such
           as PEG 5000 should be described as being a Chemical. Complex substance refers
-          to substance which cannot be exactly specified as for its chemical composition,
-          e.g. blood, serum, plant extract
+          to substances which are not exactly specified by their exact chemical composition
+          by the time measurement were performed, but e.g. blood, serum, plant extract
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -2940,19 +3107,19 @@ $defs:
       location:
         use: '#/$defs/Coordinates'
         required: true
+        help.en: The coordinates, in decimal notation, where the complex substance
+          was collected
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       id:
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the entity; must be unique within
@@ -2970,8 +3137,8 @@ $defs:
         help.en: The type of the entity, where the options are (biological) Polymer,
           Chemical, Molecular assembly or Complex substance. Chemical polymers such
           as PEG 5000 should be described as being a Chemical. Complex substance refers
-          to substance which cannot be exactly specified as for its chemical composition,
-          e.g. blood, serum, plant extract
+          to substances which are not exactly specified by their exact chemical composition
+          by the time measurement were performed, but e.g. blood, serum, plant extract
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -2985,6 +3152,7 @@ $defs:
       details:
         use: '#/$defs/Lipid_assembly'
         required: true
+        help.en: The chemical origin where the complex substance was derived from
       preparation_protocol[]:
         ^minItems: 1
         ^help.en: List of the steps performed during the preparation of the complex
@@ -2993,17 +3161,15 @@ $defs:
         use: '#/$defs/Step'
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       id:
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the entity; must be unique within
@@ -3021,8 +3187,8 @@ $defs:
         help.en: The type of the entity, where the options are (biological) Polymer,
           Chemical, Molecular assembly or Complex substance. Chemical polymers such
           as PEG 5000 should be described as being a Chemical. Complex substance refers
-          to substance which cannot be exactly specified as for its chemical composition,
-          e.g. blood, serum, plant extract
+          to substances which are not exactly specified by their exact chemical composition
+          by the time measurement were performed, but e.g. blood, serum, plant extract
         required: true
         mapping:
           copy_to: collected_default_search_fields
@@ -3044,17 +3210,15 @@ $defs:
         use: '#/$defs/Step'
       storage:
         use: '#/$defs/Storage'
+        help.en: Information about how the complex substance was stored between being
+          acquired and measured, including temperature and duration
       additional_specifications[]:
         ^minItems: 1
         ^help.en: Additional information about the complex substance can be specified
           here
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       id:
         type: keyword
-        mapping:
-          copy_to: collected_default_search_fields
       name:
         type: keyword
         help.en: Short descriptive name (id) of the entity; must be unique within
@@ -3072,8 +3236,8 @@ $defs:
         help.en: The type of the entity, where the options are (biological) Polymer,
           Chemical, Molecular assembly or Complex substance. Chemical polymers such
           as PEG 5000 should be described as being a Chemical. Complex substance refers
-          to substance which cannot be exactly specified as for its chemical composition,
-          e.g. blood, serum, plant extract
+          to substances which are not exactly specified by their exact chemical composition
+          by the time measurement were performed, but e.g. blood, serum, plant extract
         required: true
         mapping:
           copy_to: collected_default_search_fields

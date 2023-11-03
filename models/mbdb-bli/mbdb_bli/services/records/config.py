@@ -21,7 +21,7 @@ class MbdbBliServiceConfig(
 ):
     """MbdbBliRecord service config."""
 
-    PERMISSIONS_PRESETS = ["everyone", "authenticated"]
+    PERMISSIONS_PRESETS = ["authenticated"]
 
     url_prefix = "/mbdb-bli/"
 
@@ -38,9 +38,9 @@ class MbdbBliServiceConfig(
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        FilesOptionsComponent,
         DataComponent,
         DraftFilesComponent,
+        FilesOptionsComponent,
     ]
 
     model = "mbdb_bli"
@@ -57,7 +57,7 @@ class MbdbBliServiceConfig(
                 else_=RecordLink("{+api}/mbdb-bli/{id}/draft/files"),
             ),
             "latest": RecordLink("{+api}/mbdb-bli/{id}/versions/latest"),
-            "latest_html": RecordLink("{+ui}/mbdb-bli/{id}/latest"),
+            "latest_html": RecordLink("{+ui}/bli/{id}/latest"),
             "publish": RecordLink("{+api}/mbdb-bli/{id}/draft/actions/publish"),
             "record": RecordLink("{+api}/mbdb-bli/{id}"),
             "self": ConditionalLink(
@@ -67,8 +67,8 @@ class MbdbBliServiceConfig(
             ),
             "self_html": ConditionalLink(
                 cond=is_record,
-                if_=RecordLink("{+ui}/mbdb-bli/{id}"),
-                else_=RecordLink("{+ui}/mbdb-bli/{id}/edit"),
+                if_=RecordLink("{+ui}/bli/{id}"),
+                else_=RecordLink("{+ui}/bli/{id}/edit"),
             ),
             "versions": RecordLink("{+api}/mbdb-bli/{id}/versions"),
         }

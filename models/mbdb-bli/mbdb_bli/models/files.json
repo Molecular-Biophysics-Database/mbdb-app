@@ -44,14 +44,9 @@
             "extra-code": "",
             "class": "mbdb_bli.services.files.search.MbdbBliFileSearchOptions",
             "base-classes": [
-                "InvenioSearchOptions"
+                "invenio_records_resources.services.SearchOptions{InvenioSearchOptions}"
             ],
-            "imports": [
-                {
-                    "import": "invenio_records_resources.services.SearchOptions",
-                    "alias": "InvenioSearchOptions"
-                }
-            ],
+            "imports": [],
             "sort-options-field": "sort_options"
         },
         "facets": {
@@ -75,18 +70,16 @@
         "record-dumper": {
             "skip": true,
             "generate": true,
-            "module": "mbdb_bli.files.dumper",
-            "class": "mbdb_bli.files.dumper.MbdbBliFileDumper",
+            "module": "mbdb_bli.files.dumpers.dumper",
+            "class": "mbdb_bli.files.dumpers.dumper.MbdbBliFileDumper",
             "base-classes": [
-                "SearchDumper"
+                "oarepo_runtime.records.dumpers.SearchDumper"
             ],
             "extra-code": "",
-            "extensions": [],
-            "imports": [
-                {
-                    "import": "invenio_records.dumpers.SearchDumper"
-                }
-            ]
+            "extensions": [
+                "{{mbdb_bli.files.dumpers.edtf.MbdbBliFileEDTFIntervalDumperExt}}()"
+            ],
+            "imports": []
         },
         "sample": {
             "file": "data/sample_data.yaml"
@@ -95,13 +88,9 @@
         "record": {
             "class": "mbdb_bli.files.api.MbdbBliFile",
             "base-classes": [
-                "FileRecord"
+                "invenio_records_resources.records.api.FileRecord"
             ],
-            "imports": [
-                {
-                    "import": "invenio_records_resources.records.api.FileRecord"
-                }
-            ],
+            "imports": [],
             "generate": true,
             "module": "mbdb_bli.files.api",
             "extra-code": ""
@@ -109,13 +98,9 @@
         "resource-config": {
             "base-url": "/mbdb-bli/<pid_value>",
             "base-classes": [
-                "FileResourceConfig"
+                "invenio_records_resources.resources.FileResourceConfig"
             ],
-            "imports": [
-                {
-                    "import": "invenio_records_resources.resources.FileResourceConfig"
-                }
-            ],
+            "imports": [],
             "generate": true,
             "base-html-url": "/mbdb-bli/",
             "config-key": "MBDB_BLI_FILES_RESOURCE_CONFIG",
@@ -125,13 +110,9 @@
         },
         "resource": {
             "base-classes": [
-                "FileResource"
+                "invenio_records_resources.resources.files.resource.FileResource"
             ],
-            "imports": [
-                {
-                    "import": "invenio_records_resources.resources.files.resource.FileResource"
-                }
-            ],
+            "imports": [],
             "generate": true,
             "config-key": "MBDB_BLI_FILES_RESOURCE_CLASS",
             "module": "mbdb_bli.resources.files.resource",
@@ -183,51 +164,38 @@
             "module": "mbdb_bli.proxies",
             "generate": true
         },
+        "files-field": {
+            "field-args": [
+                "store=False",
+                "create=False",
+                "delete=False"
+            ],
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "mbdb_bli.files.api.MbdbBliFile",
+            "imports": []
+        },
         "record-metadata": {
             "use-versioning": false,
             "generate": true,
             "module": "mbdb_bli.files.models",
             "class": "mbdb_bli.files.models.MbdbBliFileMetadata",
             "base-classes": [
-                "db.Model",
-                "RecordMetadataBase",
-                "FileRecordModelMixin"
+                "invenio_db.db{db.Model}",
+                "invenio_records.models.RecordMetadataBase",
+                "invenio_records_resources.records.FileRecordModelMixin"
             ],
             "extra-code": "",
-            "imports": [
-                {
-                    "import": "invenio_records.models.RecordMetadataBase"
-                },
-                {
-                    "import": "invenio_db.db"
-                },
-                {
-                    "import": "invenio_records_resources.records.FileRecordModelMixin"
-                }
-            ],
+            "imports": [],
             "table": "mbdb_bli_file_metadata",
             "alias": "mbdb_bli_file"
         },
         "service-config": {
             "base-classes": [
-                "PermissionsPresetsConfigMixin",
-                "FileServiceConfig"
+                "oarepo_runtime.config.service.PermissionsPresetsConfigMixin",
+                "invenio_records_resources.services.FileServiceConfig"
             ],
-            "imports": [
-                {
-                    "import": "invenio_records_resources.services.FileServiceConfig"
-                },
-                {
-                    "import": "oarepo_runtime.config.service.PermissionsPresetsConfigMixin"
-                },
-                {
-                    "import": "invenio_records_resources.services.RecordServiceConfig",
-                    "alias": "InvenioRecordServiceConfig"
-                },
-                {
-                    "import": "invenio_records_resources.services.records.components.DataComponent"
-                }
-            ],
+            "imports": [],
             "generate": true,
             "config-key": "MBDB_BLI_FILES_SERVICE_CONFIG",
             "module": "mbdb_bli.services.files.config",
@@ -235,18 +203,14 @@
             "extra-code": "",
             "service-id": "mbdb_bli_file",
             "components": [
-                "DataComponent"
+                "{{invenio_records_resources.services.records.components.DataComponent}}"
             ]
         },
         "service": {
             "base-classes": [
-                "FileService"
+                "invenio_records_resources.services.FileService"
             ],
-            "imports": [
-                {
-                    "import": "invenio_records_resources.services.FileService"
-                }
-            ],
+            "imports": [],
             "generate": true,
             "config-key": "MBDB_BLI_FILES_SERVICE_CLASS",
             "proxy": "current_service",
@@ -260,25 +224,19 @@
             "module": "mbdb_bli.files.api",
             "provider-class": "mbdb_bli.files.api.MbdbBliFileIdProvider",
             "provider-base-classes": [
-                "RecordIdProviderV2"
+                "invenio_pidstore.providers.recordid_v2.RecordIdProviderV2"
             ],
-            "field-class": "PIDField",
-            "context-class": "PIDFieldContext",
+            "field-class": "invenio_records_resources.records.systemfields.pid.PIDField",
+            "context-class": "invenio_records_resources.records.systemfields.pid.PIDFieldContext",
             "field-args": [
                 "create=True"
             ],
-            "imports": [
-                {
-                    "import": "invenio_records_resources.records.systemfields.pid.PIDField"
-                },
-                {
-                    "import": "invenio_records_resources.records.systemfields.pid.PIDFieldContext"
-                },
-                {
-                    "import": "invenio_pidstore.providers.recordid_v2.RecordIdProviderV2"
-                }
-            ],
+            "imports": [],
             "extra-code": ""
+        },
+        "translations": {
+            "module": "mbdb_bli.translations",
+            "alias": "mbdb_bli_file"
         },
         "ui": {
             "module": "mbdb_bli.models",
@@ -290,56 +248,31 @@
                 "class": "mbdb_bli.services.files.ui_schema.MbdbBliFileUISchema",
                 "extra-code": "",
                 "base-classes": [
-                    "InvenioUISchema"
+                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
                 ],
-                "imports": [
-                    {
-                        "import": "oarepo_runtime.ui.marshmallow.InvenioUISchema"
-                    }
-                ]
+                "imports": []
             }
         },
         "json-serializer": {
             "module": "mbdb_bli.resources.files.ui",
             "class": "mbdb_bli.resources.files.ui.MbdbBliFileUIJSONSerializer",
             "base-classes": [
-                "MarshmallowSerializer"
+                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
             ],
-            "imports": [
-                {
-                    "import": "flask_resources.BaseListSchema"
-                },
-                {
-                    "import": "flask_resources.MarshmallowSerializer"
-                },
-                {
-                    "import": "flask_resources.serializers.JSONSerializer"
-                }
-            ],
+            "imports": [],
             "extra-code": "",
-            "generate": true
-        },
-        "translations": {
-            "module": "mbdb_bli.translations",
-            "alias": "mbdb_bli_file"
-        },
-        "files-field": {
-            "field-args": [
-                "store=False",
-                "create=False",
-                "delete=False"
-            ],
             "generate": true,
-            "field-class": "FilesField",
-            "file-class": "MbdbBliFile",
-            "imports": [
-                {
-                    "import": "invenio_records_resources.records.systemfields.FilesField"
-                },
-                {
-                    "import": "mbdb_bli.files.api.MbdbBliFile"
-                }
-            ]
+            "list_schema_cls": "flask_resources.BaseListSchema",
+            "format_serializer_cls": "flask_resources.serializers.JSONSerializer"
+        },
+        "draft-parent-record": {
+            "skip": true
+        },
+        "draft-parent-record-metadata": {
+            "skip": true
+        },
+        "draft-parent-record-state": {
+            "skip": true
         },
         "permissions": {
             "class": "mbdb_bli.services.records.permissions.MbdbBliPermissionPolicy",
@@ -350,13 +283,20 @@
             "extra-code": "",
             "module": "mbdb_bli.services.files.permissions",
             "base-classes": [
-                "RecordPermissionPolicy"
+                "invenio_records_permissions.RecordPermissionPolicy"
             ],
-            "imports": [
-                {
-                    "import": "invenio_records_permissions.RecordPermissionPolicy"
-                }
-            ]
+            "imports": []
+        },
+        "edtf-interval-dumper": {
+            "generate": true,
+            "module": "mbdb_bli.files.dumpers.edtf",
+            "class": "mbdb_bli.files.dumpers.edtf.MbdbBliFileEDTFIntervalDumperExt",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
+            ],
+            "extra-code": "",
+            "extensions": [],
+            "imports": []
         },
         "mapping": {
             "generate": true,
@@ -372,17 +312,8 @@
             "extra-code": "",
             "service-id": "published_mbdb_bli_file",
             "base-classes": [
-                "PublishedServiceConfig",
-                "PermissionsPresetsConfigMixin"
-            ],
-            "imports": [
-                {
-                    "import": "oarepo_published_service.services.config.PublishedServiceConfig",
-                    "alias": "PublishedServiceConfig"
-                },
-                {
-                    "import": "oarepo_runtime.config.service.PermissionsPresetsConfigMixin"
-                }
+                "oarepo_published_service.services.config.PublishedServiceConfig",
+                "oarepo_runtime.config.service.PermissionsPresetsConfigMixin"
             ],
             "generate": true
         },
@@ -394,23 +325,9 @@
             "class": "mbdb_bli.services.files.published.service.MbdbBliFilePublishedService",
             "extra-code": "",
             "base-classes": [
-                "PublishedService"
+                "oarepo_published_service.services.service.PublishedService"
             ],
-            "imports": [
-                {
-                    "import": "oarepo_published_service.services.service.PublishedService",
-                    "alias": "PublishedService"
-                }
-            ]
-        },
-        "draft-parent-record": {
-            "skip": true
-        },
-        "draft-parent-record-metadata": {
-            "skip": true
-        },
-        "draft-parent-record-state": {
-            "skip": true
+            "imports": []
         },
         "sortable": [],
         "properties": {
@@ -537,7 +454,7 @@
                         "name": {
                             "type": "keyword",
                             "required": true,
-                            "help.en": "Descriptive name of the processing step"
+                            "help.en": "Short descriptive name of the processing step"
                         },
                         "software_name": {
                             "type": "keyword",

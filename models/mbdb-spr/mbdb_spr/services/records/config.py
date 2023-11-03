@@ -21,7 +21,7 @@ class MbdbSprServiceConfig(
 ):
     """MbdbSprRecord service config."""
 
-    PERMISSIONS_PRESETS = ["everyone", "authenticated"]
+    PERMISSIONS_PRESETS = ["authenticated"]
 
     url_prefix = "/mbdb-spr/"
 
@@ -38,9 +38,9 @@ class MbdbSprServiceConfig(
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        FilesOptionsComponent,
         DataComponent,
         DraftFilesComponent,
+        FilesOptionsComponent,
     ]
 
     model = "mbdb_spr"
@@ -57,7 +57,7 @@ class MbdbSprServiceConfig(
                 else_=RecordLink("{+api}/mbdb-spr/{id}/draft/files"),
             ),
             "latest": RecordLink("{+api}/mbdb-spr/{id}/versions/latest"),
-            "latest_html": RecordLink("{+ui}/mbdb-spr/{id}/latest"),
+            "latest_html": RecordLink("{+ui}/spr/{id}/latest"),
             "publish": RecordLink("{+api}/mbdb-spr/{id}/draft/actions/publish"),
             "record": RecordLink("{+api}/mbdb-spr/{id}"),
             "self": ConditionalLink(
@@ -67,8 +67,8 @@ class MbdbSprServiceConfig(
             ),
             "self_html": ConditionalLink(
                 cond=is_record,
-                if_=RecordLink("{+ui}/mbdb-spr/{id}"),
-                else_=RecordLink("{+ui}/mbdb-spr/{id}/edit"),
+                if_=RecordLink("{+ui}/spr/{id}"),
+                else_=RecordLink("{+ui}/spr/{id}/edit"),
             ),
             "versions": RecordLink("{+api}/mbdb-spr/{id}/versions"),
         }

@@ -1,7 +1,7 @@
 from invenio_drafts_resources.records.api import Draft as InvenioDraft
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2, ParentRecord
 from invenio_drafts_resources.records.api import Record as InvenioRecord
-from invenio_records.systemfields import ConstantField, ModelField, RelationsField
+from invenio_records.systemfields import ConstantField, ModelField
 from invenio_records_resources.records.systemfields import FilesField, IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
 from invenio_vocabularies.records.api import Vocabulary
@@ -9,7 +9,7 @@ from oarepo_runtime.drafts.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.relations import InternalRelation, PIDRelation, RelationsField
 
 from mbdb_bli.files.api import MbdbBliFile, MbdbBliFileDraft
-from mbdb_bli.records.dumper import MbdbBliDraftDumper, MbdbBliDumper
+from mbdb_bli.records.dumpers.dumper import MbdbBliDraftDumper, MbdbBliDumper
 from mbdb_bli.records.models import (
     MbdbBliDraftMetadata,
     MbdbBliMetadata,
@@ -20,10 +20,6 @@ from mbdb_bli.records.models import (
 
 class MbdbBliParentRecord(ParentRecord):
     model_cls = MbdbBliParentMetadata
-
-    # schema = ConstantField(
-    #    "$schema", "local://parent-v1.0.0.json"
-    # )
 
 
 class MbdbBliIdProvider(DraftRecordIdProviderV2):
@@ -39,8 +35,7 @@ class MbdbBliRecord(InvenioRecord):
 
     pid = PIDField(provider=MbdbBliIdProvider, context_cls=PIDFieldContext, create=True)
 
-    dumper_extensions = []
-    dumper = MbdbBliDumper(extensions=dumper_extensions)
+    dumper = MbdbBliDumper()
 
     relations = RelationsField(
         affiliations=PIDRelation(
@@ -354,8 +349,7 @@ class MbdbBliDraft(InvenioDraft):
         delete=False,
     )
 
-    dumper_extensions = []
-    dumper = MbdbBliDraftDumper(extensions=dumper_extensions)
+    dumper = MbdbBliDraftDumper()
 
     relations = RelationsField(
         affiliations=PIDRelation(
