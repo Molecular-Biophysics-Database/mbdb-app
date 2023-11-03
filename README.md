@@ -88,7 +88,7 @@ backup the contents of alembic directory and restore it after model compile.
 
 
 # get token
-> export REPOTOKEN=$(invenio tokens create -n resttest -u miroslav.simek@cesnet.cz); echo $REPOTOKEN
+> export REPOTOKEN=$(./nrp invenio tokens create -n resttest -u miroslav.simek@cesnet.cz); echo $REPOTOKEN
 
 BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y
 
