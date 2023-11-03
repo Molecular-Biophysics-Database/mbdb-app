@@ -82,7 +82,7 @@ backup the contents of alembic directory and restore it after model compile.
 
 ```bash
 # create user
-> invenio users create -a -c miroslav.simek@cesnet.cz
+> ./nrp invenio users create -a -c miroslav.simek@cesnet.cz
 
 {'email': 'miroslav.simek@cesnet.cz', 'password': '****', 'active': True, ...}
 
