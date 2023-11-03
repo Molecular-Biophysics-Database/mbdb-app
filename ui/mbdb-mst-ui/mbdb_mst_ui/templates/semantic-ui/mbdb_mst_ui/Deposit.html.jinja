@@ -6,3 +6,7 @@
     {{ webpack['mbdb_mst_ui_deposit_form.css'] }}
     {{ webpack['mbdb_mst_ui_components.css']}}
 {%- endblock %}
+{%- block form_main_content %}
+    {{ super() }}
+    <input id="files" type="hidden" name="files" value='{{extra_context.files | tojson }}' />
+{%- endblock %}

@@ -90,7 +90,7 @@ async function createDraft(apiEndpoint, data, update) {
         if (Result.isError(res)) {
             ErrorDialog.show(makeSubmissionErrorDialog(res.error.code, res.error.errors));
         } else {
-            window.location=res.data.links.self_html;
+            //window.location=res.data.links.self_html;
         }
     } catch (e) {
         ErrorDialog.show(makeSubmissionErrorDialog(0, [e.message]));
@@ -152,7 +152,20 @@ function ControlsTape({ ctxHandler, createDraftUrl, dataId, update }) {
     );
 }
 
-export function DepositForm({ createDraftUrl, update, initialRecord }) {
+function convertInitialFiles(initialFiles) {
+    const entries = initialFiles.entries
+    const convertedFiles = {}
+
+    entries.forEach(entry => {
+        const key = entry.key
+        const metadata = entry.metadata?.description || entry.metadata
+        convertedFiles[key] = metadata
+    }) 
+
+    return convertedFiles
+}
+
+export function DepositForm({ createDraftUrl, update, initialRecord, initialFiles }) {
     const [formLoaded, setFormLoaded] = React.useState(false)
     const keeper = getKeeper();
     const { dataId, getData } = React.useMemo(() => {
@@ -170,7 +183,8 @@ export function DepositForm({ createDraftUrl, update, initialRecord }) {
                 vocabulariesApiEndpoint: "vocabularies",
             });
             if (initialRecord?.metadata) {
-                const internalData = await MbdbDeserialize.fromJson(getData(), JSON.stringify(initialRecord), {}, {allowPartials: true})
+                const convertedFiles = convertInitialFiles(initialFiles)
+                const internalData = await MbdbDeserialize.fromJson(getData(), JSON.stringify(initialRecord), convertedFiles, {allowPartials: true})
                 try {
                     FormContext.load(internalData, getData());
                     ctxHandler.update();

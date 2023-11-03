@@ -6,12 +6,14 @@ import { DepositForm } from "./DepositForm";
 function initFormApp(rootElement) {
     const formConfig = getInputFromDOM("form-config");
     const initialRecord = getInputFromDOM("record");
+    const initialFiles = getInputFromDOM("files")
 
     ReactDOM.render(
         <DepositForm
             createDraftUrl={formConfig.updateUrl ?? formConfig.createUrl}
             update={formConfig.updateUrl ? true : false}
             initialRecord={initialRecord}
+            initialFiles={initialFiles}
         />,
         rootElement
     );
