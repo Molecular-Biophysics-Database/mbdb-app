@@ -1207,15 +1207,15 @@
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
-                                                    "Genetic_material": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
                                                     "capsid_type": {
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "envelope_type": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "genetic_material": {
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -1258,10 +1258,10 @@
                                                     "location": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "S-N(latitude)": {
+                                                            "s-n(latitude)": {
                                                                 "type": "double"
                                                             },
-                                                            "W-E(longitude)": {
+                                                            "w-e(longitude)": {
                                                                 "type": "double"
                                                             }
                                                         }
@@ -1836,7 +1836,7 @@
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
-                                            "pH": {
+                                            "ph": {
                                                 "type": "object",
                                                 "properties": {
                                                     "obtained_by": {
@@ -3062,15 +3062,15 @@
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
-                                            "Genetic_material": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
                                             "capsid_type": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "envelope_type": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "genetic_material": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
@@ -3113,10 +3113,10 @@
                                             "location": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "S-N(latitude)": {
+                                                    "s-n(latitude)": {
                                                         "type": "double"
                                                     },
-                                                    "W-E(longitude)": {
+                                                    "w-e(longitude)": {
                                                         "type": "double"
                                                     }
                                                 }
@@ -5039,15 +5039,15 @@
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
-                                                    "Genetic_material": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
                                                     "capsid_type": {
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "envelope_type": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "genetic_material": {
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
@@ -5090,10 +5090,10 @@
                                                     "location": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "S-N(latitude)": {
+                                                            "s-n(latitude)": {
                                                                 "type": "double"
                                                             },
-                                                            "W-E(longitude)": {
+                                                            "w-e(longitude)": {
                                                                 "type": "double"
                                                             }
                                                         }

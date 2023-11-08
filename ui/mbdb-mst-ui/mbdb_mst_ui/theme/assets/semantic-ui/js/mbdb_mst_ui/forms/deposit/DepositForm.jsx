@@ -16,10 +16,6 @@ import { Button, Icon } from "semantic-ui-react";
 
 const MstSchemaName = "mst";
 
-function makeBaseUrl() {
-    return window.location.protocol + "//" + window.location.host;
-}
-
 function makeSubmissionErrorContent(code, errors) {
     return (
         code !== 0
@@ -80,7 +76,6 @@ function showFormHasErrorsDialog(errors) {
 }
 
 async function createDraft(apiEndpoint, data) {
-    const baseUrl = makeBaseUrl();
 
     const { toApi, errors, files } = Mbdb.toData(data);
     if (errors.length > 0) {
@@ -89,7 +84,7 @@ async function createDraft(apiEndpoint, data) {
     }
 
     try {
-        const res = await submitToMbdb(baseUrl, apiEndpoint, { metadata: toApi, files }, { asDraft: true });
+        const res = await submitToMbdb( apiEndpoint, { metadata: toApi, files }, { asDraft: true });
         if (Result.isError(res)) {
             ErrorDialog.show(makeSubmissionErrorDialog(res.error.code, res.error.errors));
         }

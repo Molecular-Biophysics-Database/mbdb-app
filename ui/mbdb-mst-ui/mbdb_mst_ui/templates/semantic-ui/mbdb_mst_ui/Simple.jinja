@@ -26,7 +26,7 @@
             (gp.chemical_information is defined) and (gp.chemical_information.entities_of_interest is defined),
             entities_of_interest,
             no_value(),
-            entities=gp.chemical_information.entities_of_interest)
+            entities=gp.get("chemical_information", {}).get("entities_of_interest"))
         }}
       </div>
 
@@ -36,8 +36,8 @@
             metadata.method_specific_parameters is defined,
             results,
             no_value(),
-            gp=metadata.general_parameters,
-            msp=metadata.method_specific_parameters)
+            gp=gp,
+            msp=metadata.get("method_specific_parameters"))
         }}
       </div>
 
@@ -47,18 +47,18 @@
             metadata.method_specific_parameters is defined,
             measurements,
             no_value(),
-            gp=metadata.general_parameters,
-            msp=metadata.method_specific_parameters)
+            gp=gp,
+            msp=metadata.get("method_specific_parameters"))
         }}
       </div>
 
       <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">
         <h3 class="mbdbv-record-section-title">Instrument</h3>
         {{ render_if2(
-              metadata.general_parameters.instrument is defined,
+              gp.instrument is defined,
               instrument,
               no_value(),
-              imt=metadata.general_parameters.instrument)
+              imt=gp.get("instrument"))
         }}
       </div>
     </div>
