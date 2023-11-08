@@ -2,7 +2,8 @@
   
 
 {%- macro depositors(gp) %} 
-  {% set depos = gp.depositors %} 
+{% if (gp.get("depositors"))%}
+  {% set depos = gp.get("depositors", {}) %} 
   {% set people = [
     person_name(depos.principal_contact),
     person_name(depos.depositor),
@@ -13,4 +14,5 @@
     {% endfor %}
   {% endif %}  
 {{ people|join(", ") }}
+{% endif %}
 {% endmacro %}
