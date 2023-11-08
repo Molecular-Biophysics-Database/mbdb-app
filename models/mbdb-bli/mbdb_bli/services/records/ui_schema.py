@@ -57,13 +57,13 @@ class GeneralParametersUISchema(Schema):
         lambda: PhysicalConditionsAtSampleHandlingUISchema()
     )
 
-    raw_measurements = ma_fields.List(ma_fields.String(), required=True)
+    raw_measurements = ma_fields.List(ma_fields.String())
 
     record_information = ma_fields.Nested(
         lambda: RecordInformationUISchema(), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.14"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.15"])])
 
     technique = ma_fields.String(
         required=True,
@@ -2745,13 +2745,9 @@ class LocationUISchema(Schema):
     class Meta:
         unknown = ma.RAISE
 
-    s_n_latitude_ = ma_fields.Float(
-        required=True, data_key="s-n(latitude)", attribute="s-n(latitude)"
-    )
+    latitude = ma_fields.Float(required=True)
 
-    w_e_longitude_ = ma_fields.Float(
-        required=True, data_key="w-e(longitude)", attribute="w-e(longitude)"
-    )
+    longitude = ma_fields.Float(required=True)
 
 
 class ObtainedProtocolItemUISchema(Schema):

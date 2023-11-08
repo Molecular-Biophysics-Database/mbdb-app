@@ -2106,22 +2106,22 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_location_s_n_latitude_ = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_location_latitude = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.location.s-n(latitude)",
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.location.latitude",
         label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/s-n(latitude).label"
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/latitude.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_location_w_e_longitude_ = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_location_longitude = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.location.w-e(longitude)",
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.location.longitude",
         label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/w-e(longitude).label"
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/longitude.label"
         ),
     ),
 )
@@ -5139,17 +5139,17 @@ metadata_general_parameters_chemical_information_entities_of_interest_host_organ
     vocabulary="organisms",
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_location_s_n_latitude_ = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.location.s-n(latitude)",
+metadata_general_parameters_chemical_information_entities_of_interest_location_latitude = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.location.latitude",
     label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/location/s-n(latitude).label"
+        "metadata/general_parameters/chemical_information/entities_of_interest/location/latitude.label"
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_location_w_e_longitude_ = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.location.w-e(longitude)",
+metadata_general_parameters_chemical_information_entities_of_interest_location_longitude = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.location.longitude",
     label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/location/w-e(longitude).label"
+        "metadata/general_parameters/chemical_information/entities_of_interest/location/longitude.label"
     ),
 )
 
@@ -7567,17 +7567,17 @@ metadata_general_parameters_instrument_performance_test_sample_composition_host_
     vocabulary="organisms",
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_location_s_n_latitude_ = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.location.s-n(latitude)",
+metadata_general_parameters_instrument_performance_test_sample_composition_location_latitude = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.location.latitude",
     label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/location/s-n(latitude).label"
+        "metadata/general_parameters/instrument/performance_test/sample_composition/location/latitude.label"
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_location_w_e_longitude_ = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.location.w-e(longitude)",
+metadata_general_parameters_instrument_performance_test_sample_composition_location_longitude = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.location.longitude",
     label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/location/w-e(longitude).label"
+        "metadata/general_parameters/instrument/performance_test/sample_composition/location/longitude.label"
     ),
 )
 

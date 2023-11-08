@@ -2812,21 +2812,21 @@
                                                             "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/location.label",
                                                             "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/location.hint",
                                                             "children": {
-                                                                "s-n(latitude)": {
+                                                                "latitude": {
                                                                     "detail": "double",
                                                                     "input": "double",
-                                                                    "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/s-n(latitude).help",
-                                                                    "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/s-n(latitude).label",
-                                                                    "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/s-n(latitude).hint",
-                                                                    "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_location_s_n_latitude_"
+                                                                    "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/latitude.help",
+                                                                    "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/latitude.label",
+                                                                    "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/latitude.hint",
+                                                                    "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_location_latitude"
                                                                 },
-                                                                "w-e(longitude)": {
+                                                                "longitude": {
                                                                     "detail": "double",
                                                                     "input": "double",
-                                                                    "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/w-e(longitude).help",
-                                                                    "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/w-e(longitude).label",
-                                                                    "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/w-e(longitude).hint",
-                                                                    "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_location_w_e_longitude_"
+                                                                    "help": "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/longitude.help",
+                                                                    "label": "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/longitude.label",
+                                                                    "hint": "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/longitude.hint",
+                                                                    "facet": "metadata_general_parameters_chemical_information_chemical_environments_constituents_location_longitude"
                                                                 }
                                                             }
                                                         },
@@ -6873,21 +6873,21 @@
                                                 "label": "metadata/general_parameters/chemical_information/entities_of_interest/location.label",
                                                 "hint": "metadata/general_parameters/chemical_information/entities_of_interest/location.hint",
                                                 "children": {
-                                                    "s-n(latitude)": {
+                                                    "latitude": {
                                                         "detail": "double",
                                                         "input": "double",
-                                                        "help": "metadata/general_parameters/chemical_information/entities_of_interest/location/s-n(latitude).help",
-                                                        "label": "metadata/general_parameters/chemical_information/entities_of_interest/location/s-n(latitude).label",
-                                                        "hint": "metadata/general_parameters/chemical_information/entities_of_interest/location/s-n(latitude).hint",
-                                                        "facet": "metadata_general_parameters_chemical_information_entities_of_interest_location_s_n_latitude_"
+                                                        "help": "metadata/general_parameters/chemical_information/entities_of_interest/location/latitude.help",
+                                                        "label": "metadata/general_parameters/chemical_information/entities_of_interest/location/latitude.label",
+                                                        "hint": "metadata/general_parameters/chemical_information/entities_of_interest/location/latitude.hint",
+                                                        "facet": "metadata_general_parameters_chemical_information_entities_of_interest_location_latitude"
                                                     },
-                                                    "w-e(longitude)": {
+                                                    "longitude": {
                                                         "detail": "double",
                                                         "input": "double",
-                                                        "help": "metadata/general_parameters/chemical_information/entities_of_interest/location/w-e(longitude).help",
-                                                        "label": "metadata/general_parameters/chemical_information/entities_of_interest/location/w-e(longitude).label",
-                                                        "hint": "metadata/general_parameters/chemical_information/entities_of_interest/location/w-e(longitude).hint",
-                                                        "facet": "metadata_general_parameters_chemical_information_entities_of_interest_location_w_e_longitude_"
+                                                        "help": "metadata/general_parameters/chemical_information/entities_of_interest/location/longitude.help",
+                                                        "label": "metadata/general_parameters/chemical_information/entities_of_interest/location/longitude.label",
+                                                        "hint": "metadata/general_parameters/chemical_information/entities_of_interest/location/longitude.hint",
+                                                        "facet": "metadata_general_parameters_chemical_information_entities_of_interest_location_longitude"
                                                     }
                                                 }
                                             },
@@ -11013,21 +11013,21 @@
                                                         "label": "metadata/general_parameters/instrument/performance_test/sample_composition/location.label",
                                                         "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/location.hint",
                                                         "children": {
-                                                            "s-n(latitude)": {
+                                                            "latitude": {
                                                                 "detail": "double",
                                                                 "input": "double",
-                                                                "help": "metadata/general_parameters/instrument/performance_test/sample_composition/location/s-n(latitude).help",
-                                                                "label": "metadata/general_parameters/instrument/performance_test/sample_composition/location/s-n(latitude).label",
-                                                                "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/location/s-n(latitude).hint",
-                                                                "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_location_s_n_latitude_"
+                                                                "help": "metadata/general_parameters/instrument/performance_test/sample_composition/location/latitude.help",
+                                                                "label": "metadata/general_parameters/instrument/performance_test/sample_composition/location/latitude.label",
+                                                                "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/location/latitude.hint",
+                                                                "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_location_latitude"
                                                             },
-                                                            "w-e(longitude)": {
+                                                            "longitude": {
                                                                 "detail": "double",
                                                                 "input": "double",
-                                                                "help": "metadata/general_parameters/instrument/performance_test/sample_composition/location/w-e(longitude).help",
-                                                                "label": "metadata/general_parameters/instrument/performance_test/sample_composition/location/w-e(longitude).label",
-                                                                "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/location/w-e(longitude).hint",
-                                                                "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_location_w_e_longitude_"
+                                                                "help": "metadata/general_parameters/instrument/performance_test/sample_composition/location/longitude.help",
+                                                                "label": "metadata/general_parameters/instrument/performance_test/sample_composition/location/longitude.label",
+                                                                "hint": "metadata/general_parameters/instrument/performance_test/sample_composition/location/longitude.hint",
+                                                                "facet": "metadata_general_parameters_instrument_performance_test_sample_composition_location_longitude"
                                                             }
                                                         }
                                                     },

@@ -191,17 +191,6 @@
             "list_schema_cls": "flask_resources.BaseListSchema",
             "format_serializer_cls": "flask_resources.serializers.JSONSerializer"
         },
-        "files-field": {
-            "field-args": [
-                "store=False",
-                "create=False",
-                "delete=False"
-            ],
-            "generate": true,
-            "field-class": "invenio_records_resources.records.systemfields.FilesField",
-            "file-class": "mbdb_spr.files.api.MbdbSprFile",
-            "imports": []
-        },
         "record-metadata": {
             "use-versioning": false,
             "generate": true,
@@ -217,9 +206,16 @@
             "table": "mbdb_spr_file_metadata",
             "alias": "mbdb_spr_file"
         },
-        "translations": {
-            "module": "mbdb_spr.translations",
-            "alias": "mbdb_spr_file"
+        "files-field": {
+            "field-args": [
+                "store=False",
+                "create=False",
+                "delete=False"
+            ],
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "mbdb_spr.files.api.MbdbSprFile",
+            "imports": []
         },
         "service-config": {
             "base-classes": [
@@ -265,6 +261,10 @@
             "imports": [],
             "extra-code": ""
         },
+        "translations": {
+            "module": "mbdb_spr.translations",
+            "alias": "mbdb_spr_file"
+        },
         "edtf-interval-dumper": {
             "generate": true,
             "module": "mbdb_spr.files.dumpers.edtf",
@@ -275,15 +275,6 @@
             "extra-code": "",
             "extensions": [],
             "imports": []
-        },
-        "draft-parent-record": {
-            "skip": true
-        },
-        "draft-parent-record-metadata": {
-            "skip": true
-        },
-        "draft-parent-record-state": {
-            "skip": true
         },
         "mapping": {
             "generate": true,
@@ -315,6 +306,15 @@
                 "oarepo_published_service.services.service.PublishedService"
             ],
             "imports": []
+        },
+        "draft-parent-record": {
+            "skip": true
+        },
+        "draft-parent-record-metadata": {
+            "skip": true
+        },
+        "draft-parent-record-state": {
+            "skip": true
         },
         "permissions": {
             "class": "mbdb_spr.services.records.permissions.MbdbSprPermissionPolicy",

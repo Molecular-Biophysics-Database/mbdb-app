@@ -38,8 +38,8 @@ class MbdbBliServiceConfig(
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        DraftFilesComponent,
         DataComponent,
+        DraftFilesComponent,
         FilesOptionsComponent,
     ]
 

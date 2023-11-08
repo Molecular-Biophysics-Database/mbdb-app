@@ -579,11 +579,11 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_host_organism": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_host_organism
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_location_s_n_latitude_": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_location_s_n_latitude_
+        "metadata_general_parameters_chemical_information_chemical_environments_constituents_location_latitude": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_location_latitude
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_location_w_e_longitude_": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_location_w_e_longitude_
+        "metadata_general_parameters_chemical_information_chemical_environments_constituents_location_longitude": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_location_longitude
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_source": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_source
@@ -1521,11 +1521,11 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_entities_of_interest_host_organism": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_host_organism
         ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_location_s_n_latitude_": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_location_s_n_latitude_
+        "metadata_general_parameters_chemical_information_entities_of_interest_location_latitude": (
+            facets.metadata_general_parameters_chemical_information_entities_of_interest_location_latitude
         ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_location_w_e_longitude_": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_location_w_e_longitude_
+        "metadata_general_parameters_chemical_information_entities_of_interest_location_longitude": (
+            facets.metadata_general_parameters_chemical_information_entities_of_interest_location_longitude
         ),
         "metadata_general_parameters_chemical_information_entities_of_interest_source": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_source
@@ -2412,11 +2412,11 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_instrument_performance_test_sample_composition_host_organism": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_host_organism
         ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_location_s_n_latitude_": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_location_s_n_latitude_
+        "metadata_general_parameters_instrument_performance_test_sample_composition_location_latitude": (
+            facets.metadata_general_parameters_instrument_performance_test_sample_composition_location_latitude
         ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_location_w_e_longitude_": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_location_w_e_longitude_
+        "metadata_general_parameters_instrument_performance_test_sample_composition_location_longitude": (
+            facets.metadata_general_parameters_instrument_performance_test_sample_composition_location_longitude
         ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_source": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_source

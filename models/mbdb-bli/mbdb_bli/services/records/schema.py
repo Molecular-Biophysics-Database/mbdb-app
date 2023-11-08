@@ -82,14 +82,14 @@ class GeneralParametersSchema(Schema):
     )
 
     raw_measurements = ma_fields.List(
-        ma_fields.String(), required=True, validate=[ma.validate.Length(min=1)]
+        ma_fields.String(), validate=[ma.validate.Length(min=1)]
     )
 
     record_information = ma_fields.Nested(
         lambda: RecordInformationSchema(), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.14"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.15"])])
 
     technique = ma_fields.String(
         required=True,
@@ -2385,18 +2385,12 @@ class LocationSchema(Schema):
     class Meta:
         unknown = ma.RAISE
 
-    s_n_latitude_ = ma_fields.Float(
-        required=True,
-        data_key="s-n(latitude)",
-        attribute="s-n(latitude)",
-        validate=[ma.validate.Range(min=-90.0, max=90.0)],
+    latitude = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=-90.0, max=90.0)]
     )
 
-    w_e_longitude_ = ma_fields.Float(
-        required=True,
-        data_key="w-e(longitude)",
-        attribute="w-e(longitude)",
-        validate=[ma.validate.Range(min=-180.0, max=180.0)],
+    longitude = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=-180.0, max=180.0)]
     )
 
 

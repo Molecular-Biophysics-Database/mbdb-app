@@ -1258,10 +1258,10 @@
                                                     "location": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "s-n(latitude)": {
+                                                            "latitude": {
                                                                 "type": "double"
                                                             },
-                                                            "w-e(longitude)": {
+                                                            "longitude": {
                                                                 "type": "double"
                                                             }
                                                         }
@@ -3113,10 +3113,10 @@
                                             "location": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "s-n(latitude)": {
+                                                    "latitude": {
                                                         "type": "double"
                                                     },
-                                                    "w-e(longitude)": {
+                                                    "longitude": {
                                                         "type": "double"
                                                     }
                                                 }
@@ -5090,10 +5090,10 @@
                                                     "location": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "s-n(latitude)": {
+                                                            "latitude": {
                                                                 "type": "double"
                                                             },
-                                                            "w-e(longitude)": {
+                                                            "longitude": {
                                                                 "type": "double"
                                                             }
                                                         }
