@@ -16,14 +16,12 @@ class MbdbMstFileUISchema(InvenioUISchema):
     context = ma_fields.String(
         required=True,
         validate=[
-            OneOf(
-                [
-                    "raw measurement data",
-                    "derived measurement data",
-                    "quality control report",
-                    "performance test report",
-                ]
-            )
+            OneOf([
+                "raw measurement data",
+                "derived measurement data",
+                "quality control report",
+                "performance test report",
+            ])
         ],
     )
 

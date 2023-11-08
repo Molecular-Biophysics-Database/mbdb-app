@@ -2055,16 +2055,6 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_Genetic_material = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_information.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.Genetic_material",
-        label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/Genetic_material.label"
-        ),
-    ),
-)
-
 metadata_general_parameters_chemical_information_chemical_environments_constituents_capsid_type = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
@@ -2081,6 +2071,16 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
         field="metadata.general_parameters.chemical_information.chemical_environments.constituents.envelope_type",
         label=_(
             "metadata/general_parameters/chemical_information/chemical_environments/constituents/envelope_type.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_information_chemical_environments_constituents_genetic_material = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_information.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.genetic_material",
+        label=_(
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/genetic_material.label"
         ),
     ),
 )
@@ -2106,22 +2106,22 @@ metadata_general_parameters_chemical_information_chemical_environments_constitue
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_location_S_N_latitude_ = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_location_s_n_latitude_ = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.location.S-N(latitude)",
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.location.s-n(latitude)",
         label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/S-N(latitude).label"
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/s-n(latitude).label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_constituents_location_W_E_longitude_ = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_constituents_location_w_e_longitude_ = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.location.W-E(longitude)",
+        field="metadata.general_parameters.chemical_information.chemical_environments.constituents.location.w-e(longitude)",
         label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/W-E(longitude).label"
+            "metadata/general_parameters/chemical_information/chemical_environments/constituents/location/w-e(longitude).label"
         ),
     ),
 )
@@ -3206,62 +3206,62 @@ metadata_general_parameters_chemical_information_chemical_environments_name = Ne
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_pH_obtained_by = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_ph_obtained_by = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.pH.obtained_by",
+        field="metadata.general_parameters.chemical_information.chemical_environments.ph.obtained_by",
         label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/pH/obtained_by.label"
+            "metadata/general_parameters/chemical_information/chemical_environments/ph/obtained_by.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_pH_value = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_ph_value = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.pH.value",
+        field="metadata.general_parameters.chemical_information.chemical_environments.ph.value",
         label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/pH/value.label"
+            "metadata/general_parameters/chemical_information/chemical_environments/ph/value.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_pH_value_error_error_level = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_ph_value_error_error_level = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.pH.value_error.error_level",
+        field="metadata.general_parameters.chemical_information.chemical_environments.ph.value_error.error_level",
         label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/pH/value_error/error_level.label"
+            "metadata/general_parameters/chemical_information/chemical_environments/ph/value_error/error_level.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_pH_value_error_errors_are_relative = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_ph_value_error_errors_are_relative = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.pH.value_error.errors_are_relative",
+        field="metadata.general_parameters.chemical_information.chemical_environments.ph.value_error.errors_are_relative",
         label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/pH/value_error/errors_are_relative.label"
+            "metadata/general_parameters/chemical_information/chemical_environments/ph/value_error/errors_are_relative.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_pH_value_error_lower_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_ph_value_error_lower_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.pH.value_error.lower_error",
+        field="metadata.general_parameters.chemical_information.chemical_environments.ph.value_error.lower_error",
         label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/pH/value_error/lower_error.label"
+            "metadata/general_parameters/chemical_information/chemical_environments/ph/value_error/lower_error.label"
         ),
     ),
 )
 
-metadata_general_parameters_chemical_information_chemical_environments_pH_value_error_upper_error = NestedLabeledFacet(
+metadata_general_parameters_chemical_information_chemical_environments_ph_value_error_upper_error = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_information.chemical_environments.pH.value_error.upper_error",
+        field="metadata.general_parameters.chemical_information.chemical_environments.ph.value_error.upper_error",
         label=_(
-            "metadata/general_parameters/chemical_information/chemical_environments/pH/value_error/upper_error.label"
+            "metadata/general_parameters/chemical_information/chemical_environments/ph/value_error/upper_error.label"
         ),
     ),
 )
@@ -5103,13 +5103,6 @@ metadata_general_parameters_chemical_information_entities_of_interest_tissue = T
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_Genetic_material = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.Genetic_material",
-    label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/Genetic_material.label"
-    ),
-)
-
 metadata_general_parameters_chemical_information_entities_of_interest_capsid_type = TermsFacet(
     field="metadata.general_parameters.chemical_information.entities_of_interest.capsid_type",
     label=_(
@@ -5121,6 +5114,13 @@ metadata_general_parameters_chemical_information_entities_of_interest_envelope_t
     field="metadata.general_parameters.chemical_information.entities_of_interest.envelope_type",
     label=_(
         "metadata/general_parameters/chemical_information/entities_of_interest/envelope_type.label"
+    ),
+)
+
+metadata_general_parameters_chemical_information_entities_of_interest_genetic_material = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.genetic_material",
+    label=_(
+        "metadata/general_parameters/chemical_information/entities_of_interest/genetic_material.label"
     ),
 )
 
@@ -5139,17 +5139,17 @@ metadata_general_parameters_chemical_information_entities_of_interest_host_organ
     vocabulary="organisms",
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_location_S_N_latitude_ = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.location.S-N(latitude)",
+metadata_general_parameters_chemical_information_entities_of_interest_location_s_n_latitude_ = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.location.s-n(latitude)",
     label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/location/S-N(latitude).label"
+        "metadata/general_parameters/chemical_information/entities_of_interest/location/s-n(latitude).label"
     ),
 )
 
-metadata_general_parameters_chemical_information_entities_of_interest_location_W_E_longitude_ = TermsFacet(
-    field="metadata.general_parameters.chemical_information.entities_of_interest.location.W-E(longitude)",
+metadata_general_parameters_chemical_information_entities_of_interest_location_w_e_longitude_ = TermsFacet(
+    field="metadata.general_parameters.chemical_information.entities_of_interest.location.w-e(longitude)",
     label=_(
-        "metadata/general_parameters/chemical_information/entities_of_interest/location/W-E(longitude).label"
+        "metadata/general_parameters/chemical_information/entities_of_interest/location/w-e(longitude).label"
     ),
 )
 
@@ -7531,13 +7531,6 @@ metadata_general_parameters_instrument_performance_test_sample_composition_tissu
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_Genetic_material = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.Genetic_material",
-    label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/Genetic_material.label"
-    ),
-)
-
 metadata_general_parameters_instrument_performance_test_sample_composition_capsid_type = TermsFacet(
     field="metadata.general_parameters.instrument.performance_test.sample_composition.capsid_type",
     label=_(
@@ -7549,6 +7542,13 @@ metadata_general_parameters_instrument_performance_test_sample_composition_envel
     field="metadata.general_parameters.instrument.performance_test.sample_composition.envelope_type",
     label=_(
         "metadata/general_parameters/instrument/performance_test/sample_composition/envelope_type.label"
+    ),
+)
+
+metadata_general_parameters_instrument_performance_test_sample_composition_genetic_material = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.genetic_material",
+    label=_(
+        "metadata/general_parameters/instrument/performance_test/sample_composition/genetic_material.label"
     ),
 )
 
@@ -7567,17 +7567,17 @@ metadata_general_parameters_instrument_performance_test_sample_composition_host_
     vocabulary="organisms",
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_location_S_N_latitude_ = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.location.S-N(latitude)",
+metadata_general_parameters_instrument_performance_test_sample_composition_location_s_n_latitude_ = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.location.s-n(latitude)",
     label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/location/S-N(latitude).label"
+        "metadata/general_parameters/instrument/performance_test/sample_composition/location/s-n(latitude).label"
     ),
 )
 
-metadata_general_parameters_instrument_performance_test_sample_composition_location_W_E_longitude_ = TermsFacet(
-    field="metadata.general_parameters.instrument.performance_test.sample_composition.location.W-E(longitude)",
+metadata_general_parameters_instrument_performance_test_sample_composition_location_w_e_longitude_ = TermsFacet(
+    field="metadata.general_parameters.instrument.performance_test.sample_composition.location.w-e(longitude)",
     label=_(
-        "metadata/general_parameters/instrument/performance_test/sample_composition/location/W-E(longitude).label"
+        "metadata/general_parameters/instrument/performance_test/sample_composition/location/w-e(longitude).label"
     ),
 )
 

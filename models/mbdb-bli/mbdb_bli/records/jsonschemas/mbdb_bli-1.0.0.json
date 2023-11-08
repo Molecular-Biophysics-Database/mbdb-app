@@ -1088,13 +1088,13 @@
                                                         "tissue": {
                                                             "type": "string"
                                                         },
-                                                        "Genetic_material": {
-                                                            "type": "string"
-                                                        },
                                                         "capsid_type": {
                                                             "type": "string"
                                                         },
                                                         "envelope_type": {
+                                                            "type": "string"
+                                                        },
+                                                        "genetic_material": {
                                                             "type": "string"
                                                         },
                                                         "host_cell_type": {
@@ -1120,10 +1120,10 @@
                                                         "location": {
                                                             "type": "object",
                                                             "properties": {
-                                                                "S-N(latitude)": {
+                                                                "s-n(latitude)": {
                                                                     "type": "number"
                                                                 },
-                                                                "W-E(longitude)": {
+                                                                "w-e(longitude)": {
                                                                     "type": "number"
                                                                 }
                                                             }
@@ -1648,7 +1648,7 @@
                                             "name": {
                                                 "type": "string"
                                             },
-                                            "pH": {
+                                            "ph": {
                                                 "type": "object",
                                                 "properties": {
                                                     "obtained_by": {
@@ -2785,13 +2785,13 @@
                                             "tissue": {
                                                 "type": "string"
                                             },
-                                            "Genetic_material": {
-                                                "type": "string"
-                                            },
                                             "capsid_type": {
                                                 "type": "string"
                                             },
                                             "envelope_type": {
+                                                "type": "string"
+                                            },
+                                            "genetic_material": {
                                                 "type": "string"
                                             },
                                             "host_cell_type": {
@@ -2817,10 +2817,10 @@
                                             "location": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "S-N(latitude)": {
+                                                    "s-n(latitude)": {
                                                         "type": "number"
                                                     },
-                                                    "W-E(longitude)": {
+                                                    "w-e(longitude)": {
                                                         "type": "number"
                                                     }
                                                 }
@@ -4523,13 +4523,13 @@
                                                     "tissue": {
                                                         "type": "string"
                                                     },
-                                                    "Genetic_material": {
-                                                        "type": "string"
-                                                    },
                                                     "capsid_type": {
                                                         "type": "string"
                                                     },
                                                     "envelope_type": {
+                                                        "type": "string"
+                                                    },
+                                                    "genetic_material": {
                                                         "type": "string"
                                                     },
                                                     "host_cell_type": {
@@ -4555,10 +4555,10 @@
                                                     "location": {
                                                         "type": "object",
                                                         "properties": {
-                                                            "S-N(latitude)": {
+                                                            "s-n(latitude)": {
                                                                 "type": "number"
                                                             },
-                                                            "W-E(longitude)": {
+                                                            "w-e(longitude)": {
                                                                 "type": "number"
                                                             }
                                                         }

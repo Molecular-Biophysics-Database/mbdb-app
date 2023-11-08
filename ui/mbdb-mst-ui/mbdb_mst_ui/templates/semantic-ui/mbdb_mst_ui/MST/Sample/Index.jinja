@@ -18,7 +18,7 @@
                 chemical_environment.constituents,
                 constituent_info)) }}
   
-  {{ nv.item("pH (Buffer)", measured_value(chemical_environment.pH)) }}
+  {{ nv.item("pH (Buffer)", measured_value(chemical_environment.ph)) }}
     {{ nv.item(
         "Ionic strength (Buffer)",
         render_if2(

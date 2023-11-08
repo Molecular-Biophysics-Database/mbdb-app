@@ -46,7 +46,7 @@
             results,
             no_value(),
             gp=gp,
-            msp=metadata.method_specific_parameters)
+            msp=metadata.get("method_specific_parameters"))
         }}
       </div>
 
@@ -64,11 +64,10 @@
       <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">
         <h3 class="mbdbv-record-section-title">Instrument</h3>
         {{ render_if2(
-            metadata.method_specific_parameters is defined,
-            results,
-            no_value(),
-            gp=gp,
-            msp=metadata.get("method_specific_parameters"))
+              gp.instrument is defined,
+              instrument,
+              no_value(),
+              imt=gp.get("instrument"))
         }}
       </div>
 
