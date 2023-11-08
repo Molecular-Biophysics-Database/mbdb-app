@@ -90,7 +90,7 @@ async function createDraft(apiEndpoint, data, update) {
         if (Result.isError(res)) {
             ErrorDialog.show(makeSubmissionErrorDialog(res.error.code, res.error.errors));
         } else {
-            //window.location=res.data.links.self_html;
+            window.location=res.data.links.self_html;
         }
     } catch (e) {
         ErrorDialog.show(makeSubmissionErrorDialog(0, [e.message]));
@@ -143,7 +143,7 @@ function ControlsTape({ ctxHandler, createDraftUrl, dataId, update }) {
             <div>
                 <button
                     onClick={() => createDraft(createDraftUrl, getKeeper().get(dataId).data, update)}
-                    className="mbdbv-record-download-button"
+                    className="mbdbv-record-save-button"
                 >
                     Save
                 </button>
