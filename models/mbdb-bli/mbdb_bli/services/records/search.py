@@ -564,14 +564,14 @@ class MbdbBliSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_tissue": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_tissue
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_Genetic_material": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_Genetic_material
-        ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_capsid_type": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_capsid_type
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_envelope_type": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_envelope_type
+        ),
+        "metadata_general_parameters_chemical_information_chemical_environments_constituents_genetic_material": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_genetic_material
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_host_cell_type": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_host_cell_type
@@ -579,11 +579,11 @@ class MbdbBliSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_host_organism": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_host_organism
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_location_S_N_latitude_": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_location_S_N_latitude_
+        "metadata_general_parameters_chemical_information_chemical_environments_constituents_location_s_n_latitude_": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_location_s_n_latitude_
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_constituents_location_W_E_longitude_": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_location_W_E_longitude_
+        "metadata_general_parameters_chemical_information_chemical_environments_constituents_location_w_e_longitude_": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_location_w_e_longitude_
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_constituents_source": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_constituents_source
@@ -879,23 +879,23 @@ class MbdbBliSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_chemical_environments_name": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_name
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_pH_obtained_by": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_pH_obtained_by
+        "metadata_general_parameters_chemical_information_chemical_environments_ph_obtained_by": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_ph_obtained_by
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_pH_value": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_pH_value
+        "metadata_general_parameters_chemical_information_chemical_environments_ph_value": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_ph_value
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_pH_value_error_error_level": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_pH_value_error_error_level
+        "metadata_general_parameters_chemical_information_chemical_environments_ph_value_error_error_level": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_ph_value_error_error_level
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_pH_value_error_errors_are_relative": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_pH_value_error_errors_are_relative
+        "metadata_general_parameters_chemical_information_chemical_environments_ph_value_error_errors_are_relative": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_ph_value_error_errors_are_relative
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_pH_value_error_lower_error": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_pH_value_error_lower_error
+        "metadata_general_parameters_chemical_information_chemical_environments_ph_value_error_lower_error": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_ph_value_error_lower_error
         ),
-        "metadata_general_parameters_chemical_information_chemical_environments_pH_value_error_upper_error": (
-            facets.metadata_general_parameters_chemical_information_chemical_environments_pH_value_error_upper_error
+        "metadata_general_parameters_chemical_information_chemical_environments_ph_value_error_upper_error": (
+            facets.metadata_general_parameters_chemical_information_chemical_environments_ph_value_error_upper_error
         ),
         "metadata_general_parameters_chemical_information_chemical_environments_solvent_additional_identifiers": (
             facets.metadata_general_parameters_chemical_information_chemical_environments_solvent_additional_identifiers
@@ -1506,14 +1506,14 @@ class MbdbBliSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_entities_of_interest_tissue": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_tissue
         ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_Genetic_material": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_Genetic_material
-        ),
         "metadata_general_parameters_chemical_information_entities_of_interest_capsid_type": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_capsid_type
         ),
         "metadata_general_parameters_chemical_information_entities_of_interest_envelope_type": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_envelope_type
+        ),
+        "metadata_general_parameters_chemical_information_entities_of_interest_genetic_material": (
+            facets.metadata_general_parameters_chemical_information_entities_of_interest_genetic_material
         ),
         "metadata_general_parameters_chemical_information_entities_of_interest_host_cell_type": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_host_cell_type
@@ -1521,11 +1521,11 @@ class MbdbBliSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_information_entities_of_interest_host_organism": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_host_organism
         ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_location_S_N_latitude_": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_location_S_N_latitude_
+        "metadata_general_parameters_chemical_information_entities_of_interest_location_s_n_latitude_": (
+            facets.metadata_general_parameters_chemical_information_entities_of_interest_location_s_n_latitude_
         ),
-        "metadata_general_parameters_chemical_information_entities_of_interest_location_W_E_longitude_": (
-            facets.metadata_general_parameters_chemical_information_entities_of_interest_location_W_E_longitude_
+        "metadata_general_parameters_chemical_information_entities_of_interest_location_w_e_longitude_": (
+            facets.metadata_general_parameters_chemical_information_entities_of_interest_location_w_e_longitude_
         ),
         "metadata_general_parameters_chemical_information_entities_of_interest_source": (
             facets.metadata_general_parameters_chemical_information_entities_of_interest_source
@@ -2397,14 +2397,14 @@ class MbdbBliSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_instrument_performance_test_sample_composition_tissue": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_tissue
         ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_Genetic_material": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_Genetic_material
-        ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_capsid_type": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_capsid_type
         ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_envelope_type": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_envelope_type
+        ),
+        "metadata_general_parameters_instrument_performance_test_sample_composition_genetic_material": (
+            facets.metadata_general_parameters_instrument_performance_test_sample_composition_genetic_material
         ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_host_cell_type": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_host_cell_type
@@ -2412,11 +2412,11 @@ class MbdbBliSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_instrument_performance_test_sample_composition_host_organism": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_host_organism
         ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_location_S_N_latitude_": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_location_S_N_latitude_
+        "metadata_general_parameters_instrument_performance_test_sample_composition_location_s_n_latitude_": (
+            facets.metadata_general_parameters_instrument_performance_test_sample_composition_location_s_n_latitude_
         ),
-        "metadata_general_parameters_instrument_performance_test_sample_composition_location_W_E_longitude_": (
-            facets.metadata_general_parameters_instrument_performance_test_sample_composition_location_W_E_longitude_
+        "metadata_general_parameters_instrument_performance_test_sample_composition_location_w_e_longitude_": (
+            facets.metadata_general_parameters_instrument_performance_test_sample_composition_location_w_e_longitude_
         ),
         "metadata_general_parameters_instrument_performance_test_sample_composition_source": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_source
