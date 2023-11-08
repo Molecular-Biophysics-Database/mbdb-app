@@ -6,8 +6,9 @@
 {% from "mbdb_mst_ui/MBDB/RecordHeader.jinja" import record_header %}
 {% from "mbdb_mst_ui/MST/Measurements.jinja" import measurements %}
 {% from "mbdb_mst_ui/MST/Results.jinja" import results %}
+{% from "mbdb_mst_ui/MBDB/RawMeasurements.jinja" import raw_measurements %}
   
-{%- macro simple(metadata, layout, ui) %}
+{%- macro simple(metadata, layout, ui, files) %}
   {% set gp = metadata.general_parameters %}
 
   <div class=" mbdbv-record-container">
@@ -73,6 +74,14 @@
 
       <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">
         <h3 class="mbdbv-record-section-title">Raw measurements</h3>
+        {{ render_if2(
+              gp.raw_measurements is defined,
+              raw_measurements,
+              no_value(),
+              raw_measurements=gp.get("raw_measurements"),
+              files = files
+              )
+        }}
       </div>
     </div>
   </div>
