@@ -1,7 +1,6 @@
 """Additional views."""
 
-from flask import Blueprint
-from flask import render_template
+from flask import Blueprint, render_template
 
 def create_blueprint(app):
     """Register blueprint routes on app."""
@@ -11,8 +10,10 @@ def create_blueprint(app):
         template_folder="./templates",
     )
 
-    @blueprint.route('/templates/mbdb_site/under-development.html')
-    def new_page():
-        return render_template('under-development.html')
+    blueprint.add_url_rule(**{"rule": "/under-development", "view_func": under_development})
 
     return blueprint
+
+
+def under_development():
+    return render_template('semantic-ui/mbdb_site/under-development.html')
