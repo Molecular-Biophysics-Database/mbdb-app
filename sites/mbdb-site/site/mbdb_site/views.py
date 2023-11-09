@@ -1,11 +1,8 @@
 """Additional views."""
 
 from flask import Blueprint
+from flask import render_template
 
-
-#
-# Registration
-#
 def create_blueprint(app):
     """Register blueprint routes on app."""
     blueprint = Blueprint(
@@ -14,5 +11,8 @@ def create_blueprint(app):
         template_folder="./templates",
     )
 
-    # Add URL rules
+    @blueprint.route('/templates/mbdb_site/under-development.html')
+    def new_page():
+        return render_template('under-development.html')
+
     return blueprint
