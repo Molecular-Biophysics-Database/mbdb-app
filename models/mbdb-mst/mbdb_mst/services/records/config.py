@@ -68,7 +68,8 @@ class MbdbMstServiceConfig(
             "self_html": ConditionalLink(
                 cond=is_record,
                 if_=RecordLink("{+ui}/mst/{id}"),
-                else_=RecordLink("{+ui}/mst/{id}/edit"),
+                else_=RecordLink("{+ui}/mst/{id}"),
             ),
             "versions": RecordLink("{+api}/mbdb-mst/{id}/versions"),
         }
+

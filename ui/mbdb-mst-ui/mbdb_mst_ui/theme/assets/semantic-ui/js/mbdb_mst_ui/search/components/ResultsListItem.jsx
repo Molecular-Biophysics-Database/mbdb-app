@@ -17,7 +17,7 @@ const ItemHeader = ({ title, searchUrl, selfLink, id, keywords, releasedDate, gi
   );
 
   return (
-    <div className="mbdbv-search-result-item-container">
+    <div className="mbdbv-search-result-item-container mbdbv-max-width">
       <div className="mbdbv-search-result-item-header-container">
         <div className="mbdbv-h2-title">
           <a href={viewLink}>{title}</a>
@@ -80,7 +80,9 @@ export const ResultsListItemComponent = ({
   appName,
   ...rest
 }) => {
+
   const searchAppConfig = useContext(SearchConfigurationContext);
+  const result1 = _get(result);
 
   const generalParams = _get(result, "metadata.general_parameters");
   const title = _get(generalParams, "record_information.title", "<no title>");
@@ -90,7 +92,7 @@ export const ResultsListItemComponent = ({
   const id = _get(result, "id", "");
   const contactGivenName = _get(generalParams, "depositors.principal_contact.given_name", "");
   const contactFamilyName = _get(generalParams, "depositors.principal_contact.family_name", "");
-  const affiliationsTitle = _get(generalParams, "depositors.principal_contact.affiliations", []);
+  const affiliations = _get(generalParams, "depositors.principal_contact.affiliations", []);
   const chemicalEnviroment = _get(generalParams, "chemical_information.chemical_environments[0].constituents", []);
   const entitiesOfInterestLigands = _get(result, "metadata.method_specific_parameters.measurements[0].sample.ligands", []);
   const entitiesOfInterestTargets = _get(result, "metadata.method_specific_parameters.measurements[0].sample.targets", []);
@@ -98,7 +100,7 @@ export const ResultsListItemComponent = ({
 
   const keyword = keywords.map(keywords => <div className="mbdbv-search-result-keyword">{keywords}</div>)
 
-  const affiliationTitle = affiliationsTitle.map(affiliationsTitle => <div>{affiliationsTitle.title}</div>)
+  const affiliationTitle = affiliations.map(affiliations => <div>{affiliations.title}</div>)
 
   const chemicalEnv = chemicalEnviroment.map((constituent) => <div className="mbdbv-chemical-name">{constituent.name}</div>)
 

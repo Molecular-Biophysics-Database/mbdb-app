@@ -2,6 +2,7 @@ from oarepo_ui.resources.config import RecordsUIResourceConfig
 from oarepo_ui.resources import BabelComponent
 
 from mbdb_common.ui.components import MBDBEditComponent
+from .mbdb_files_component import MBDBFilesComponent
 
 
 class MbdbMstUIResourceConfig(RecordsUIResourceConfig):
@@ -13,7 +14,7 @@ class MbdbMstUIResourceConfig(RecordsUIResourceConfig):
     layout = "mbdb_mst"
     edit_layout = 'edit_layout.json'
 
-    components = [BabelComponent, MBDBEditComponent]
+    components = [BabelComponent, MBDBEditComponent, MBDBFilesComponent]
     try:
         from oarepo_vocabularies.ui.resources.components import DepositVocabularyOptionsComponent
         components.append(DepositVocabularyOptionsComponent)

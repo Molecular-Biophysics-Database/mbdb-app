@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 from invenio_records_resources.services.records.components import ServiceComponent
 import inspect
+from invenio_records_resources.proxies import current_service_registry
 
 
 class MBDBEditComponent(ServiceComponent):
@@ -15,3 +16,4 @@ class MBDBEditComponent(ServiceComponent):
         if json_location.exists():
             layout = json.loads(json_location.read_text())
             form_config['editLayout'] = layout
+        
