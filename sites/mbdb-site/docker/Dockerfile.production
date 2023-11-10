@@ -9,6 +9,7 @@ ARG SITE_DIR=/repository/sites/${REPOSITORY_SITE_NAME}
 
 ENV SITE_DIR=$SITE_DIR
 ENV REPOSITORY_SITE_NAME=${REPOSITORY_SITE_NAME}
+ENV PATH=/pdm/bin:${PATH}
 
 RUN echo "Site dir is ${SITE_DIR}, repository site name is ${REPOSITORY_SITE_NAME}"
 
