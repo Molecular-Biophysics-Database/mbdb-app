@@ -24,7 +24,7 @@ nrp invenio index init
 nrp oarepo cf init
 nrp oarepo fixtures load
 nrp invenio files location create --default default file:////tmp/data
-nrp oarepo fixtures load --no-system-fixtures sample_data/mst
+nrp oarepo fixtures load --no-system-fixtures ../../sample_data/mst
 
 nrp invenio users create --password 123456 -a -c test@test.com
 TOKEN=$(nrp invenio tokens create -n test -u test@test.com)
