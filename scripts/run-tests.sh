@@ -4,7 +4,7 @@ set -e
 
 export PATH=$PWD:$PATH
 
-nrp upgrade --outside-container
+nrp upgrade --outside-docker
 nrp build
 
 nrp invenio db init
