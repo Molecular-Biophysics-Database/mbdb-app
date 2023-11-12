@@ -12,6 +12,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      INVENIO_SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://postgres:postgres@localhost:5432/mbdb
+
     services:
       postgres:
         image: postgres
@@ -30,7 +33,7 @@ jobs:
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
         with:
-          python-version: 3.10
+          python-version: "3.10"
       - name: Cache pip
         uses: actions/cache@v3
         with:
