@@ -2,7 +2,10 @@
 
 set -e
 
-export PATH=$PWD:$PATH
+curl -sSL https://pdm-project.org/install-pdm.py | python -p /tmp/pdm -
+
+export PATH=$PWD:/tmp/pdm/bin:$PATH
+
 
 nrp upgrade --outside-docker
 nrp build
