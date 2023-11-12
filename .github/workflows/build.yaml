@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       INVENIO_SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://postgres:postgres@localhost:5432/mbdb
+      INVENIO_OPENSEARCH_PORT: "9400"
+      INVENIO_REDIS_PORT: "6379"
 
     services:
       postgres:
@@ -69,6 +71,17 @@ jobs:
         with:
           redis-version: ${{ matrix.redis-version }}
 
+      - name: Freeze packages
+        run: |
+          .venv/nrp/bin/pip freeze > requirements.txt
+          cat sites/mbdb-site/requirements.txt >> requirements.txt
+
       - name: Run tests
         run: |
           ./scripts/run-tests.sh
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: requirements.txt
+          path: requirements.txt
