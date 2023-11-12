@@ -11,12 +11,7 @@ echo "use_docker: false" > .oarepo-user.yaml
 set
 
 # nrp upgrade
-(
-cd sites/mbdb-site
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-)
+nrp build
 
 nrp invenio db init
 nrp invenio db create
