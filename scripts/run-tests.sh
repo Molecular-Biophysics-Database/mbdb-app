@@ -8,7 +8,15 @@ export PATH=$PWD:/tmp/pdm/bin:$PATH
 
 echo "use_docker: false" > .oarepo-user.yaml
 
-nrp upgrade
+set
+
+# nrp upgrade
+(
+cd sites/mbdb-site
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+)
 
 nrp invenio db init
 nrp invenio db create
@@ -18,6 +26,8 @@ nrp oarepo fixtures load
 nrp invenio files location create --default default file:////tmp/data
 nrp oarepo fixtures load --no-system-fixtures sample_data/mst
 
+nrp invenio users create --password 123456 -a -c test@test.com
+TOKEN=$(nrp invenio tokens create -n test -u test@test.com)
 
 nrp run 2>&1 | tee nrp-server.log &
 NRP_SERVER_PID=$!
@@ -26,4 +36,4 @@ trap "kill $NRP_SERVER_PID" EXIT
 
 sleep 5
 
-curl -X https://127.0.0.1:5000/api/mbdb-mst
+curl -H "Authorization: Bearer $TOKEN" -X GET https://127.0.0.1:5000/api/mbdb-mst
