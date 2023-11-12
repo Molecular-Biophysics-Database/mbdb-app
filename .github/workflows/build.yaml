@@ -16,6 +16,8 @@ jobs:
       INVENIO_SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://postgres:postgres@localhost:5432/mbdb
       INVENIO_OPENSEARCH_PORT: "9200"
       INVENIO_REDIS_PORT: "6379"
+      INVENIO_CELERY_BROKER_URL: "redis://localhost:6379/0"
+      INVENIO_BROKER_URL: "redis://localhost:6379/0"
 
     services:
       postgres:
