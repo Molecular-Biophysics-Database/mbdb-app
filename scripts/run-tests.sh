@@ -10,8 +10,8 @@ echo "use_docker: false" > .oarepo-user.yaml
 
 set
 
-# nrp upgrade
-nrp build
+nrp upgrade
+# nrp build
 
 nrp invenio db init
 nrp invenio db create
@@ -31,4 +31,4 @@ trap "kill $NRP_SERVER_PID" EXIT
 
 sleep 20
 
-curl --retry-max-time 120 -k -H "Authorization: Bearer $TOKEN" -X GET https://127.0.0.1:5000/api/mbdb-mst
+curl --retry-max-time 120 -k -H "Authorization: Bearer $TOKEN" -X GET https://127.0.0.1:5000/api/mbdb-mst/
