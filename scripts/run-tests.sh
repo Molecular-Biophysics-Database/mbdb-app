@@ -2,6 +2,8 @@
 
 set -e
 
+export PATH=$PWD:$PATH
+
 nrp upgrade
 nrp build
 
