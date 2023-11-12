@@ -29,6 +29,6 @@ NRP_SERVER_PID=$!
 
 trap "kill $NRP_SERVER_PID" EXIT
 
-sleep 5
+sleep 20
 
-curl -H "Authorization: Bearer $TOKEN" -X GET https://127.0.0.1:5000/api/mbdb-mst
+curl --retry-max-time 120 -H "Authorization: Bearer $TOKEN" -X GET https://127.0.0.1:5000/api/mbdb-mst
