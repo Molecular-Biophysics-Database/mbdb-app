@@ -5,6 +5,24 @@ title:
 props:
   rank: no rank
 ---
+id: taxid:9606
+title:
+  en: Homo sapiens
+props:
+  rank: species
+---
+id: taxid:562
+title:
+  en: Escherichia coli
+props:
+  rank: species
+---
+id: taxid:10090
+title:
+  en: Mus musculus
+props:
+  rank: species
+---
 id: taxid:10239
 title:
   en: Viruses
