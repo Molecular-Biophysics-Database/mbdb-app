@@ -1,0 +1,59 @@
+{%- extends "invenio_theme/frontpage.html" %}
+
+{%- block page_body %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>MBDB - Testing MST deposition</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="test.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">MBDB - Testing MST deposition</h1>
+</header>
+<h1 class="unnumbered" id="whats-the-task">What’s the task?</h1>
+<p>Make a test deposition of a MST dataset and report back the shortcomings or bugs related to:</p>
+<ol>
+<li><p>Missing fields (i.e. I have information abut the measurement I want to give, but I can’t)</p></li>
+<li><p>Unnecessary fields (i.e I don’t understand why this field is here)</p></li>
+<li><p>Unclear help text (i.e. I don’t understand what I’m supposed to put in this field)</p></li>
+<li><p>Layout/functionality of deposition form (i.e. the current layout annoys me for reasons x, y, and z)</p></li>
+</ol>
+<p>Please have a look at the section before reporting something, and report back to<br />
+<strong><a href="mailto:mbdb@ibt.cas.cz?subject=MBDB%20-%20 Testing%20MST%20deposition">mbdb@ibt.cas.cz</a></strong>. Other suggestions/observations are of course also welcome, however we’ll prioritise the ones related to above points, as changes to these things will become difficult when the MBDB goes fully online.</p>
+<h1 class="unnumbered" id="why-should-i-do-it">Why should I do it?</h1>
+<p>As much as we enjoy writing code in peace and quiet, we’re creating MBDB to be useful to people. Towards this end, we would appreciate your input while it’s still not too painful to change things. As soon as real data come in and people get used to de , we will be much more restricted in what we can change. Ask for changes now will save yourself and your lab colleagues from future annoyance, and make MBDB a much more useful resource!</p>
+<h1 class="unnumbered" id="where-and-how">Where and how?</h1>
+<p>You will require an ORCID account to be able make a deposition, so please make one <a href="https://orcid.org/">here</a> if you don’t already have one. The first time you login to the MBDB you’ll be asked for an email address, feel free to give us a fake one as we currently won’t use this information.</p>
+<ol>
+<li><p>Please go to the <a href="https://mbdb.test.du.cesnet.cz/">MBDB test server</a></p></li>
+<li><p>Proceed by:</p>
+<ol>
+<li><p>Logging in directly by clicking the ORCID logo</p></li>
+<li><p>Click on deposit (and be redirected to the login page)</p></li>
+</ol></li>
+<li><p>Use the form to make a deposition.</p></li>
+</ol>
+<h1 class="unnumbered" id="sec:shortcommings">Known shortcomings</h1>
+<ul>
+<li><p>Individual user rights are not implemented yet, i.e. anybody can change anybody else’s record (please be nice to each other). We’re working on it.</p></li>
+<li><p>Only a small subset of organism, affiliations, and grants are available in this test. Searching the online resources is under development.</p></li>
+<li><p>Collections of records (Projects and Measurement Groups) aren’t implemented yet.</p></li>
+<li><p>Documentation not aimed and programmers are currently not available. We’re working on it.</p></li>
+<li><p>Searching in a more precise way than a text based search is cumbersome at the moment. We’re working on developing a tool to make this easier.</p></li>
+<li><p>DOIs are not currently generated as we would be required to keep the records indefinitely.</p></li>
+</ul>
+</body>
+</html>
+{%- endblock page_body %}

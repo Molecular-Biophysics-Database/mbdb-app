@@ -10,10 +10,17 @@ def create_blueprint(app):
         template_folder="./templates",
     )
 
-    blueprint.add_url_rule(**{"rule": "/under-development", "view_func": under_development})
+    # default endpoint if know page is currently available 
+    blueprint.add_url_rule(rule="/under-development", view_func=under_development)
+
+    # testing instructions are temporarily placed here
+    blueprint.add_url_rule(rule="/tutorial", view_func=tutorial)
 
     return blueprint
 
 
 def under_development():
     return render_template('semantic-ui/mbdb_site/under-development.html')
+
+def tutorial():
+    return render_template('semantic-ui/mbdb_site/tutorial.html')
