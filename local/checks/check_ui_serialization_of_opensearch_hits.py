@@ -4,7 +4,6 @@ import sys
 from invenio_app.factory import create_app
 from mbdb_mst.services.records.ui_schema import MbdbMstUISchema
 from babel import Locale
-import friendly_traceback as ft
 
 
 def check_ui_serialization(json_file):
