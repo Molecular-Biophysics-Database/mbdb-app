@@ -2444,9 +2444,9 @@ class MeasuredDataUISchema(Schema):
     class Meta:
         unknown = ma.RAISE
 
-    x_data = ma_fields.Nested(lambda: XDataUISchema(), required=True)
+    x_data = ma_fields.Nested(lambda: XDataUISchema())
 
-    y_data = ma_fields.Nested(lambda: XDataUISchema(), required=True)
+    y_data = ma_fields.Nested(lambda: XDataUISchema())
 
 
 class MolecularWeightUISchema(Schema):
