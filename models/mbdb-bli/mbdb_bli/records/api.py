@@ -5,8 +5,13 @@ from invenio_records.systemfields import ConstantField, ModelField
 from invenio_records_resources.records.systemfields import FilesField, IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
 from invenio_vocabularies.records.api import Vocabulary
-from oarepo_runtime.drafts.systemfields.has_draftcheck import HasDraftCheckField
-from oarepo_runtime.relations import InternalRelation, PIDRelation, RelationsField
+from oarepo_runtime.records.relations import (
+    InternalRelation,
+    PIDRelation,
+    RelationsField,
+)
+from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
+from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
 
 from mbdb_bli.files.api import MbdbBliFile, MbdbBliFileDraft
 from mbdb_bli.records.dumpers.dumper import MbdbBliDraftDumper, MbdbBliDumper
@@ -328,6 +333,7 @@ class MbdbBliRecord(InvenioRecord):
     versions_model_cls = MbdbBliParentState
 
     parent_record_cls = MbdbBliParentRecord
+    record_status = RecordStatusSystemField()
 
     files = FilesField(file_cls=MbdbBliFile, store=False, create=False, delete=False)
 
@@ -642,6 +648,7 @@ class MbdbBliDraft(InvenioDraft):
     versions_model_cls = MbdbBliParentState
 
     parent_record_cls = MbdbBliParentRecord
+    record_status = RecordStatusSystemField()
     has_draft = HasDraftCheckField(config_key="HAS_DRAFT_CUSTOM_FIELD")
 
     files = FilesField(file_cls=MbdbBliFileDraft, store=False)
