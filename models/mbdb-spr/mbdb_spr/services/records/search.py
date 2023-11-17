@@ -9,9 +9,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
     facet_groups = {}
 
     facets = {
-        "_schema": facets._schema,
-        "created": facets.created,
-        "_id": facets._id,
         "metadata_general_parameters_associated_publications_additional_authors_affiliations": (
             facets.metadata_general_parameters_associated_publications_additional_authors_affiliations
         ),
@@ -1827,9 +1824,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_derived_parameters_entities_involved_copy_number": (
             facets.metadata_general_parameters_derived_parameters_entities_involved_copy_number
         ),
-        "metadata_general_parameters_derived_parameters_entities_involved_entity__version": (
-            facets.metadata_general_parameters_derived_parameters_entities_involved_entity__version
-        ),
         "metadata_general_parameters_derived_parameters_id": (
             facets.metadata_general_parameters_derived_parameters_id
         ),
@@ -2985,17 +2979,11 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_data_analysis_data_processing_steps_software_version": (
             facets.metadata_method_specific_parameters_data_analysis_data_processing_steps_software_version
         ),
-        "metadata_method_specific_parameters_data_analysis_derived_parameter__version": (
-            facets.metadata_method_specific_parameters_data_analysis_derived_parameter__version
-        ),
         "metadata_method_specific_parameters_measurements_id": (
             facets.metadata_method_specific_parameters_measurements_id
         ),
         "metadata_method_specific_parameters_measurements_name": (
             facets.metadata_method_specific_parameters_measurements_name
-        ),
-        "metadata_method_specific_parameters_data_analysis_measurements__version": (
-            facets.metadata_method_specific_parameters_data_analysis_measurements__version
         ),
         "metadata_method_specific_parameters_experiment_type": (
             facets.metadata_method_specific_parameters_experiment_type
@@ -3005,9 +2993,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         ),
         "metadata_method_specific_parameters_measurement_positions_id": (
             facets.metadata_method_specific_parameters_measurement_positions_id
-        ),
-        "metadata_method_specific_parameters_measurement_positions_ligand_information_ligand__version": (
-            facets.metadata_method_specific_parameters_measurement_positions_ligand_information_ligand__version
         ),
         "metadata_method_specific_parameters_measurement_positions_ligand_information_ligand_immobilization_chemistry": (
             facets.metadata_method_specific_parameters_measurement_positions_ligand_information_ligand_immobilization_chemistry
@@ -3026,9 +3011,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         ),
         "metadata_method_specific_parameters_measurement_protocol_flow_direction": (
             facets.metadata_method_specific_parameters_measurement_protocol_flow_direction
-        ),
-        "metadata_method_specific_parameters_measurement_protocol_flow_path__version": (
-            facets.metadata_method_specific_parameters_measurement_protocol_flow_path__version
         ),
         "metadata_method_specific_parameters_measurement_protocol_flow_rate": (
             facets.metadata_method_specific_parameters_measurement_protocol_flow_rate
@@ -3081,12 +3063,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_measurement_protocol_type": (
             facets.metadata_method_specific_parameters_measurement_protocol_type
         ),
-        "metadata_method_specific_parameters_measurements_measurement_position__version": (
-            facets.metadata_method_specific_parameters_measurements_measurement_position__version
-        ),
-        "metadata_method_specific_parameters_measurements_reference_measurement_position__version": (
-            facets.metadata_method_specific_parameters_measurements_reference_measurement_position__version
-        ),
         "metadata_method_specific_parameters_measurements_reference_samples_analytes_concentration_obtained_by": (
             facets.metadata_method_specific_parameters_measurements_reference_samples_analytes_concentration_obtained_by
         ),
@@ -3113,15 +3089,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         ),
         "metadata_method_specific_parameters_measurements_reference_samples_analytes_concentration_value_error_upper_error": (
             facets.metadata_method_specific_parameters_measurements_reference_samples_analytes_concentration_value_error_upper_error
-        ),
-        "metadata_method_specific_parameters_measurements_reference_samples_analytes_entity__version": (
-            facets.metadata_method_specific_parameters_measurements_reference_samples_analytes_entity__version
-        ),
-        "metadata_method_specific_parameters_measurements_reference_samples_chemical_environment__version": (
-            facets.metadata_method_specific_parameters_measurements_reference_samples_chemical_environment__version
-        ),
-        "metadata_method_specific_parameters_measurements_reference_samples_measurement_step__version": (
-            facets.metadata_method_specific_parameters_measurements_reference_samples_measurement_step__version
         ),
         "metadata_method_specific_parameters_measurements_reference_samples_position": (
             facets.metadata_method_specific_parameters_measurements_reference_samples_position
@@ -3186,15 +3153,6 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_measurements_samples_analytes_concentration_value_error_upper_error": (
             facets.metadata_method_specific_parameters_measurements_samples_analytes_concentration_value_error_upper_error
         ),
-        "metadata_method_specific_parameters_measurements_samples_analytes_entity__version": (
-            facets.metadata_method_specific_parameters_measurements_samples_analytes_entity__version
-        ),
-        "metadata_method_specific_parameters_measurements_samples_chemical_environment__version": (
-            facets.metadata_method_specific_parameters_measurements_samples_chemical_environment__version
-        ),
-        "metadata_method_specific_parameters_measurements_samples_measurement_step__version": (
-            facets.metadata_method_specific_parameters_measurements_samples_measurement_step__version
-        ),
         "metadata_method_specific_parameters_measurements_samples_position": (
             facets.metadata_method_specific_parameters_measurements_samples_position
         ),
@@ -3255,6 +3213,5 @@ class MbdbSprSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_sensor_surface_properties": (
             facets.metadata_method_specific_parameters_sensor_surface_properties
         ),
-        "updated": facets.updated,
         **getattr(InvenioSearchOptions, "facets", {}),
     }

@@ -1,4 +1,5 @@
 from oarepo_runtime.records.dumpers import SearchDumper
+from oarepo_runtime.records.systemfields.mapping import SystemFieldDumperExt
 
 from mbdb_spr.records.dumpers.edtf import (
     MbdbSprDraftEDTFIntervalDumperExt,
@@ -9,10 +10,10 @@ from mbdb_spr.records.dumpers.edtf import (
 class MbdbSprDumper(SearchDumper):
     """MbdbSprRecord opensearch dumper."""
 
-    extensions = [MbdbSprEDTFIntervalDumperExt()]
+    extensions = [SystemFieldDumperExt(), MbdbSprEDTFIntervalDumperExt()]
 
 
 class MbdbSprDraftDumper(SearchDumper):
     """MbdbSprDraft opensearch dumper."""
 
-    extensions = [MbdbSprDraftEDTFIntervalDumperExt()]
+    extensions = [SystemFieldDumperExt(), MbdbSprDraftEDTFIntervalDumperExt()]
