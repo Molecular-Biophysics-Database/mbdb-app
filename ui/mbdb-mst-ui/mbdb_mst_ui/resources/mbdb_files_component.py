@@ -17,3 +17,8 @@ class MBDBFilesComponent(ServiceComponent):
         self, **kwargs
     ):
         self.before_ui_edit(**kwargs)
+
+    def before_ui_create(self, extra_context, **kwargs):
+        extra_context['files'] = {
+            'entries': []
+        }
