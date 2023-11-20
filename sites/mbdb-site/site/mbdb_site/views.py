@@ -16,6 +16,10 @@ def create_blueprint(app):
     # testing instructions are temporarily placed here
     blueprint.add_url_rule(rule="/tutorial", view_func=tutorial)
 
+    # contact information
+    blueprint.add_url_rule(rule="/contact", view_func=contact_information)
+
+
     return blueprint
 
 
@@ -24,3 +28,6 @@ def under_development():
 
 def tutorial():
     return render_template('semantic-ui/mbdb_site/tutorial.html')
+
+def contact_information():
+    return render_template('semantic-ui/mbdb_site/contact-information.html')    
