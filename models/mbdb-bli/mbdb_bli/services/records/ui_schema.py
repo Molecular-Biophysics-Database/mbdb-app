@@ -3,6 +3,7 @@ from marshmallow import Schema
 from marshmallow import fields as ma_fields
 from marshmallow.fields import String
 from marshmallow.validate import OneOf
+from oarepo_runtime.services.schema.marshmallow import DictOnlySchema
 from oarepo_runtime.services.schema.ui import InvenioUISchema, LocalizedDate
 from oarepo_vocabularies.services.ui_schema import VocabularyI18nStrUIField
 
@@ -29,7 +30,7 @@ class MbdbBliMetadataUISchema(Schema):
     )
 
 
-class GeneralParametersUISchema(Schema):
+class GeneralParametersUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -80,7 +81,7 @@ class GeneralParametersUISchema(Schema):
     )
 
 
-class ChemicalInformationUISchema(Schema):
+class ChemicalInformationUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -94,7 +95,7 @@ class ChemicalInformationUISchema(Schema):
     )
 
 
-class InstrumentUISchema(Schema):
+class InstrumentUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -124,7 +125,7 @@ class InstrumentUISchema(Schema):
     performance_test = ma_fields.Nested(lambda: PerformanceTestUISchema())
 
 
-class ChemicalEnvironmentsItemUISchema(Schema):
+class ChemicalEnvironmentsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -155,7 +156,7 @@ class ChemicalEnvironmentsItemUISchema(Schema):
     ultrafiltration_method = ma_fields.Nested(lambda: UltrafiltrationMethodUISchema())
 
 
-class PerformanceTestUISchema(Schema):
+class PerformanceTestUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -171,7 +172,7 @@ class PerformanceTestUISchema(Schema):
     )
 
 
-class Complex_substance_of_chemical_originUISchema(Schema):
+class Complex_substance_of_chemical_originUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -212,7 +213,7 @@ class Complex_substance_of_chemical_originUISchema(Schema):
     )
 
 
-class ConstituentsItemUISchema(Schema):
+class ConstituentsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -406,7 +407,9 @@ class ConstituentsItemUISchema(Schema):
     variant = ma_fields.String()
 
 
-class EntitiesOfInterestItemComplex_substance_of_chemical_originUISchema(Schema):
+class EntitiesOfInterestItemComplex_substance_of_chemical_originUISchema(
+    DictOnlySchema
+):
     class Meta:
         unknown = ma.RAISE
 
@@ -447,7 +450,7 @@ class EntitiesOfInterestItemComplex_substance_of_chemical_originUISchema(Schema)
     )
 
 
-class EntitiesOfInterestItemUISchema(Schema):
+class EntitiesOfInterestItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -641,7 +644,7 @@ class EntitiesOfInterestItemUISchema(Schema):
     variant = ma_fields.String()
 
 
-class PhysicalConditionsAtSampleHandlingUISchema(Schema):
+class PhysicalConditionsAtSampleHandlingUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -654,7 +657,7 @@ class PhysicalConditionsAtSampleHandlingUISchema(Schema):
     temperature = ma_fields.Nested(lambda: TemperatureUISchema())
 
 
-class AtmosphereUISchema(Schema):
+class AtmosphereUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -663,7 +666,7 @@ class AtmosphereUISchema(Schema):
     )
 
 
-class DetailsUISchema(Schema):
+class DetailsUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -685,7 +688,7 @@ class DetailsUISchema(Schema):
     )
 
 
-class EntitiesOfInterestItemMolecular_assemblyUISchema(Schema):
+class EntitiesOfInterestItemMolecular_assemblyUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -737,7 +740,7 @@ class EntitiesOfInterestItemMolecular_assemblyUISchema(Schema):
     )
 
 
-class MethodSpecificParametersUISchema(Schema):
+class MethodSpecificParametersUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -766,7 +769,7 @@ class MethodSpecificParametersUISchema(Schema):
     )
 
 
-class Molecular_assemblyUISchema(Schema):
+class Molecular_assemblyUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -818,7 +821,7 @@ class Molecular_assemblyUISchema(Schema):
     )
 
 
-class ChemicalUISchema(Schema):
+class ChemicalUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -860,7 +863,7 @@ class ChemicalUISchema(Schema):
     )
 
 
-class ComponentsItemChemicalUISchema(Schema):
+class ComponentsItemChemicalUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -889,7 +892,7 @@ class ComponentsItemChemicalUISchema(Schema):
     type = ma_fields.String(required=True, validate=[OneOf(["Polymer", "Chemical"])])
 
 
-class ComponentsItemPolymerUISchema(Schema):
+class ComponentsItemPolymerUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -946,7 +949,7 @@ class ComponentsItemPolymerUISchema(Schema):
     variant = ma_fields.String()
 
 
-class ComponentsItemUISchema(Schema):
+class ComponentsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1009,7 +1012,7 @@ class ComponentsItemUISchema(Schema):
     variant = ma_fields.String()
 
 
-class EntitiesOfInterestItemChemicalUISchema(Schema):
+class EntitiesOfInterestItemChemicalUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1051,7 +1054,7 @@ class EntitiesOfInterestItemChemicalUISchema(Schema):
     )
 
 
-class EntitiesOfInterestItemPolymerUISchema(Schema):
+class EntitiesOfInterestItemPolymerUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1121,7 +1124,7 @@ class EntitiesOfInterestItemPolymerUISchema(Schema):
     variant = ma_fields.String()
 
 
-class MeasurementsItemUISchema(Schema):
+class MeasurementsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1140,7 +1143,7 @@ class MeasurementsItemUISchema(Schema):
     sensor = ma_fields.Nested(lambda: EntityUISchema(), required=True)
 
 
-class PolymerUISchema(Schema):
+class PolymerUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1210,7 +1213,7 @@ class PolymerUISchema(Schema):
     variant = ma_fields.String()
 
 
-class SolventItemUISchema(Schema):
+class SolventItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1239,7 +1242,7 @@ class SolventItemUISchema(Schema):
     type = ma_fields.String(required=True, validate=[OneOf(["Chemical"])])
 
 
-class SolventItemUISchema(Schema):
+class SolventItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1268,7 +1271,7 @@ class SolventItemUISchema(Schema):
     type = ma_fields.String(required=True, validate=[OneOf(["Chemical"])])
 
 
-class AssociatedPublicationsUISchema(Schema):
+class AssociatedPublicationsUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1277,7 +1280,7 @@ class AssociatedPublicationsUISchema(Schema):
     main = ma_fields.Nested(lambda: AdditionalItemUISchema())
 
 
-class Body_fluidUISchema(Schema):
+class Body_fluidUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1336,7 +1339,7 @@ class Body_fluidUISchema(Schema):
     )
 
 
-class Cell_fractionUISchema(Schema):
+class Cell_fractionUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1406,7 +1409,7 @@ class Cell_fractionUISchema(Schema):
     )
 
 
-class Complex_substance_of_biological_originBody_fluidUISchema(Schema):
+class Complex_substance_of_biological_originBody_fluidUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1465,7 +1468,7 @@ class Complex_substance_of_biological_originBody_fluidUISchema(Schema):
     )
 
 
-class Complex_substance_of_biological_originCell_fractionUISchema(Schema):
+class Complex_substance_of_biological_originCell_fractionUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1535,7 +1538,7 @@ class Complex_substance_of_biological_originCell_fractionUISchema(Schema):
     )
 
 
-class Complex_substance_of_biological_originUISchema(Schema):
+class Complex_substance_of_biological_originUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1645,7 +1648,7 @@ class Complex_substance_of_biological_originUISchema(Schema):
     )
 
 
-class Complex_substance_of_biological_originVirionUISchema(Schema):
+class Complex_substance_of_biological_originVirionUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1708,7 +1711,7 @@ class Complex_substance_of_biological_originVirionUISchema(Schema):
     )
 
 
-class Complex_substance_of_environmental_originUISchema(Schema):
+class Complex_substance_of_environmental_originUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1757,7 +1760,7 @@ class Complex_substance_of_environmental_originUISchema(Schema):
     )
 
 
-class Complex_substance_of_industrial_production_originUISchema(Schema):
+class Complex_substance_of_industrial_production_originUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -1793,7 +1796,9 @@ class Complex_substance_of_industrial_production_originUISchema(Schema):
     )
 
 
-class EntitiesOfInterestItemComplex_substance_of_biological_originUISchema(Schema):
+class EntitiesOfInterestItemComplex_substance_of_biological_originUISchema(
+    DictOnlySchema
+):
     class Meta:
         unknown = ma.RAISE
 
@@ -1903,7 +1908,9 @@ class EntitiesOfInterestItemComplex_substance_of_biological_originUISchema(Schem
     )
 
 
-class EntitiesOfInterestItemComplex_substance_of_environmental_originUISchema(Schema):
+class EntitiesOfInterestItemComplex_substance_of_environmental_originUISchema(
+    DictOnlySchema
+):
     class Meta:
         unknown = ma.RAISE
 
@@ -1953,7 +1960,7 @@ class EntitiesOfInterestItemComplex_substance_of_environmental_originUISchema(Sc
 
 
 class EntitiesOfInterestItemComplex_substance_of_industrial_production_originUISchema(
-    Schema
+    DictOnlySchema
 ):
     class Meta:
         unknown = ma.RAISE
@@ -1990,7 +1997,7 @@ class EntitiesOfInterestItemComplex_substance_of_industrial_production_originUIS
     )
 
 
-class QualityControlsItemUISchema(Schema):
+class QualityControlsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2017,7 +2024,7 @@ class QualityControlsItemUISchema(Schema):
     technique = ma_fields.String(required=True)
 
 
-class RecordInformationUISchema(Schema):
+class RecordInformationUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2058,7 +2065,7 @@ class RecordInformationUISchema(Schema):
     title = ma_fields.String(required=True)
 
 
-class SampleUISchema(Schema):
+class SampleUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2077,7 +2084,7 @@ class SampleUISchema(Schema):
     well_position = ma_fields.String(required=True)
 
 
-class VirionUISchema(Schema):
+class VirionUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2140,7 +2147,7 @@ class VirionUISchema(Schema):
     )
 
 
-class AdditionalItemUISchema(Schema):
+class AdditionalItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2159,7 +2166,7 @@ class AdditionalItemUISchema(Schema):
     title = ma_fields.String()
 
 
-class AnalytesItemUISchema(Schema):
+class AnalytesItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2168,7 +2175,7 @@ class AnalytesItemUISchema(Schema):
     entity = ma_fields.Nested(lambda: EntityUISchema(), required=True)
 
 
-class DepositorsUISchema(Schema):
+class DepositorsUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2179,7 +2186,7 @@ class DepositorsUISchema(Schema):
     principal_contact = ma_fields.Nested(lambda: AuthorsItemUISchema(), required=True)
 
 
-class DerivedParametersItemUISchema(Schema):
+class DerivedParametersItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2216,7 +2223,7 @@ class DerivedParametersItemUISchema(Schema):
     value_error = ma_fields.Nested(lambda: ValueErrorUISchema())
 
 
-class MeasurementProtocolItemUISchema(Schema):
+class MeasurementProtocolItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2246,7 +2253,7 @@ class MeasurementProtocolItemUISchema(Schema):
     )
 
 
-class ModificationsUISchema(Schema):
+class ModificationsUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2263,7 +2270,7 @@ class ModificationsUISchema(Schema):
     )
 
 
-class PlatesItemUISchema(Schema):
+class PlatesItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2282,7 +2289,7 @@ class PlatesItemUISchema(Schema):
     wells = ma_fields.String(required=True, validate=[OneOf(["96", "384"])])
 
 
-class ProjectUISchema(Schema):
+class ProjectUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2295,7 +2302,7 @@ class ProjectUISchema(Schema):
     title = ma_fields.String(required=True)
 
 
-class SensorsItemUISchema(Schema):
+class SensorsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2316,7 +2323,7 @@ class SensorsItemUISchema(Schema):
     surface_properties = ma_fields.String()
 
 
-class StorageUntilMeasurementUISchema(Schema):
+class StorageUntilMeasurementUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2329,7 +2336,7 @@ class StorageUntilMeasurementUISchema(Schema):
     temperature = ma_fields.Nested(lambda: TemperatureUISchema(), required=True)
 
 
-class AuthorsItemUISchema(Schema):
+class AuthorsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2342,7 +2349,7 @@ class AuthorsItemUISchema(Schema):
     identifiers = ma_fields.List(ma_fields.String())
 
 
-class BiologicalPostprocessingItemUISchema(Schema):
+class BiologicalPostprocessingItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2353,7 +2360,7 @@ class BiologicalPostprocessingItemUISchema(Schema):
     protocol = ma_fields.List(ma_fields.Nested(lambda: ObtainedProtocolItemUISchema()))
 
 
-class ConcentrationUISchema(Schema):
+class ConcentrationUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2397,7 +2404,7 @@ class ConcentrationUISchema(Schema):
     value_error = ma_fields.Nested(lambda: ValueErrorUISchema())
 
 
-class DataAnalysisItemUISchema(Schema):
+class DataAnalysisItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2412,7 +2419,7 @@ class DataAnalysisItemUISchema(Schema):
     measurements = ma_fields.List(ma_fields.Nested(lambda: EntityUISchema()))
 
 
-class DurationUISchema(Schema):
+class DurationUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2438,7 +2445,7 @@ class DurationUISchema(Schema):
     value_error = ma_fields.Nested(lambda: ValueErrorUISchema())
 
 
-class DynamicViscosityUISchema(Schema):
+class DynamicViscosityUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2454,7 +2461,7 @@ class DynamicViscosityUISchema(Schema):
     value_error = ma_fields.Nested(lambda: ValueErrorUISchema())
 
 
-class EntitiesInvolvedItemUISchema(Schema):
+class EntitiesInvolvedItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2463,7 +2470,7 @@ class EntitiesInvolvedItemUISchema(Schema):
     entity = ma_fields.Nested(lambda: EntityUISchema(), required=True)
 
 
-class HumidityUISchema(Schema):
+class HumidityUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2481,7 +2488,7 @@ class HumidityUISchema(Schema):
     value_error = ma_fields.Nested(lambda: ValueErrorUISchema())
 
 
-class LigandInformationUISchema(Schema):
+class LigandInformationUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2494,7 +2501,7 @@ class LigandInformationUISchema(Schema):
     )
 
 
-class MeasuredDataUISchema(Schema):
+class MeasuredDataUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2503,7 +2510,7 @@ class MeasuredDataUISchema(Schema):
     time = ma_fields.Nested(lambda: ResponseUISchema(), required=True)
 
 
-class MolecularWeightUISchema(Schema):
+class MolecularWeightUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2516,7 +2523,7 @@ class MolecularWeightUISchema(Schema):
     value_error = ma_fields.Nested(lambda: ValueErrorUISchema())
 
 
-class PhUISchema(Schema):
+class PhUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2530,7 +2537,7 @@ class PhUISchema(Schema):
     value_error = ma_fields.Nested(lambda: ValueErrorUISchema())
 
 
-class PressureUISchema(Schema):
+class PressureUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2564,7 +2571,7 @@ class PressureUISchema(Schema):
     value_error = ma_fields.Nested(lambda: ValueErrorUISchema())
 
 
-class ShakingSpeedUISchema(Schema):
+class ShakingSpeedUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2575,7 +2582,7 @@ class ShakingSpeedUISchema(Schema):
     value_error = ma_fields.Nested(lambda: ValueErrorUISchema())
 
 
-class SurfaceModificationUISchema(Schema):
+class SurfaceModificationUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2586,7 +2593,7 @@ class SurfaceModificationUISchema(Schema):
     type = ma_fields.String()
 
 
-class TemperatureUISchema(Schema):
+class TemperatureUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2608,7 +2615,7 @@ class TemperatureUISchema(Schema):
     value_error = ma_fields.Nested(lambda: ValueErrorUISchema())
 
 
-class AffiliationsItemUISchema(Schema):
+class AffiliationsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.INCLUDE
 
@@ -2625,7 +2632,7 @@ class AffiliationsItemUISchema(Schema):
     title = VocabularyI18nStrUIField()
 
 
-class DataFittingUISchema(Schema):
+class DataFittingUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2653,7 +2660,7 @@ class DataFittingUISchema(Schema):
     software_version = ma_fields.String()
 
 
-class DataProcessingStepsItemUISchema(Schema):
+class DataProcessingStepsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2670,7 +2677,7 @@ class DataProcessingStepsItemUISchema(Schema):
     software_version = ma_fields.String()
 
 
-class EntityUISchema(Schema):
+class EntityUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.INCLUDE
 
@@ -2681,7 +2688,7 @@ class EntityUISchema(Schema):
     name = ma_fields.String(required=True)
 
 
-class ExpressionOrganismUISchema(Schema):
+class ExpressionOrganismUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.INCLUDE
 
@@ -2694,7 +2701,7 @@ class ExpressionOrganismUISchema(Schema):
     title = VocabularyI18nStrUIField()
 
 
-class FundingReferenceItemUISchema(Schema):
+class FundingReferenceItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.INCLUDE
 
@@ -2707,7 +2714,7 @@ class FundingReferenceItemUISchema(Schema):
     title = VocabularyI18nStrUIField()
 
 
-class IonicStrengthUISchema(Schema):
+class IonicStrengthUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2741,7 +2748,7 @@ class IonicStrengthUISchema(Schema):
     value = ma_fields.Float(required=True)
 
 
-class LocationUISchema(Schema):
+class LocationUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2750,7 +2757,7 @@ class LocationUISchema(Schema):
     longitude = ma_fields.Float(required=True)
 
 
-class ObtainedProtocolItemUISchema(Schema):
+class ObtainedProtocolItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2759,7 +2766,7 @@ class ObtainedProtocolItemUISchema(Schema):
     name = ma_fields.String(required=True)
 
 
-class ResponseUISchema(Schema):
+class ResponseUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2772,7 +2779,7 @@ class ResponseUISchema(Schema):
     values = ma_fields.List(ma_fields.Float(), required=True)
 
 
-class SizeUISchema(Schema):
+class SizeUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2795,7 +2802,7 @@ class SizeUISchema(Schema):
     upper = ma_fields.Float()
 
 
-class SupplierUISchema(Schema):
+class SupplierUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2806,7 +2813,7 @@ class SupplierUISchema(Schema):
     name = ma_fields.String(required=True)
 
 
-class UltrafiltrationMethodUISchema(Schema):
+class UltrafiltrationMethodUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2833,7 +2840,7 @@ class UltrafiltrationMethodUISchema(Schema):
     )
 
 
-class ValueErrorUISchema(Schema):
+class ValueErrorUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 

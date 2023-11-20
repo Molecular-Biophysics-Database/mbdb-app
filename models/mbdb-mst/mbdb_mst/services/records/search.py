@@ -9,9 +9,6 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
     facet_groups = {}
 
     facets = {
-        "_schema": facets._schema,
-        "created": facets.created,
-        "_id": facets._id,
         "metadata_general_parameters_associated_publications_additional_authors_affiliations": (
             facets.metadata_general_parameters_associated_publications_additional_authors_affiliations
         ),
@@ -1827,9 +1824,6 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_derived_parameters_entities_involved_copy_number": (
             facets.metadata_general_parameters_derived_parameters_entities_involved_copy_number
         ),
-        "metadata_general_parameters_derived_parameters_entities_involved_entity__version": (
-            facets.metadata_general_parameters_derived_parameters_entities_involved_entity__version
-        ),
         "metadata_general_parameters_derived_parameters_id": (
             facets.metadata_general_parameters_derived_parameters_id
         ),
@@ -2985,9 +2979,6 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_data_analysis_data_processing_steps_software_version": (
             facets.metadata_method_specific_parameters_data_analysis_data_processing_steps_software_version
         ),
-        "metadata_method_specific_parameters_data_analysis_derived_parameter__version": (
-            facets.metadata_method_specific_parameters_data_analysis_derived_parameter__version
-        ),
         "metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_cold_end": (
             facets.metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_cold_end
         ),
@@ -3008,9 +2999,6 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         ),
         "metadata_method_specific_parameters_measurements_name": (
             facets.metadata_method_specific_parameters_measurements_name
-        ),
-        "metadata_method_specific_parameters_data_analysis_measurements__version": (
-            facets.metadata_method_specific_parameters_data_analysis_measurements__version
         ),
         "metadata_method_specific_parameters_excitation_led_color": (
             facets.metadata_method_specific_parameters_excitation_led_color
@@ -3045,9 +3033,6 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_measurements_position": (
             facets.metadata_method_specific_parameters_measurements_position
         ),
-        "metadata_method_specific_parameters_measurements_sample_chemical_environment__version": (
-            facets.metadata_method_specific_parameters_measurements_sample_chemical_environment__version
-        ),
         "metadata_method_specific_parameters_measurements_sample_container": (
             facets.metadata_method_specific_parameters_measurements_sample_container
         ),
@@ -3077,9 +3062,6 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         ),
         "metadata_method_specific_parameters_measurements_sample_ligands_concentration_value_error_upper_error": (
             facets.metadata_method_specific_parameters_measurements_sample_ligands_concentration_value_error_upper_error
-        ),
-        "metadata_method_specific_parameters_measurements_sample_ligands_entity__version": (
-            facets.metadata_method_specific_parameters_measurements_sample_ligands_entity__version
         ),
         "metadata_method_specific_parameters_measurements_sample_preparation_description": (
             facets.metadata_method_specific_parameters_measurements_sample_preparation_description
@@ -3114,15 +3096,11 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_measurements_sample_targets_concentration_value_error_upper_error": (
             facets.metadata_method_specific_parameters_measurements_sample_targets_concentration_value_error_upper_error
         ),
-        "metadata_method_specific_parameters_measurements_sample_targets_entity__version": (
-            facets.metadata_method_specific_parameters_measurements_sample_targets_entity__version
-        ),
         "metadata_method_specific_parameters_schema_version": (
             facets.metadata_method_specific_parameters_schema_version
         ),
         "metadata_method_specific_parameters_signal_type": (
             facets.metadata_method_specific_parameters_signal_type
         ),
-        "updated": facets.updated,
         **getattr(InvenioSearchOptions, "facets", {}),
     }

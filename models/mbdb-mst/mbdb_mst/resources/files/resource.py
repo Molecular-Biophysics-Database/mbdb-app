@@ -1,5 +1,5 @@
-from invenio_records_resources.resources.files.resource import FileResource
-from oarepo_runtime.resources import S3RedirectFileResource
+from oarepo_ui.resources.file_resource import S3RedirectFileResource
+
 
 class MbdbMstFileResource(S3RedirectFileResource):
     """MbdbMstFile resource."""

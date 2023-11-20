@@ -8,7 +8,8 @@ from invenio_records_resources.services.records.components import (
     DataComponent,
     FilesOptionsComponent,
 )
-from oarepo_runtime.config.service import PermissionsPresetsConfigMixin
+from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
+from oarepo_runtime.services.results import RecordList
 
 from mbdb_bli.records.api import MbdbBliDraft, MbdbBliRecord
 from mbdb_bli.services.records.permissions import MbdbBliPermissionPolicy
@@ -20,6 +21,8 @@ class MbdbBliServiceConfig(
     PermissionsPresetsConfigMixin, InvenioRecordDraftsServiceConfig
 ):
     """MbdbBliRecord service config."""
+
+    result_list_cls = RecordList
 
     PERMISSIONS_PRESETS = ["authenticated"]
 
@@ -38,9 +41,9 @@ class MbdbBliServiceConfig(
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        DataComponent,
         DraftFilesComponent,
         FilesOptionsComponent,
+        DataComponent,
     ]
 
     model = "mbdb_bli"

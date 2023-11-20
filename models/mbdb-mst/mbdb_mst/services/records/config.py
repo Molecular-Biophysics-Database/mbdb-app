@@ -8,7 +8,8 @@ from invenio_records_resources.services.records.components import (
     DataComponent,
     FilesOptionsComponent,
 )
-from oarepo_runtime.config.service import PermissionsPresetsConfigMixin
+from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
+from oarepo_runtime.services.results import RecordList
 
 from mbdb_mst.records.api import MbdbMstDraft, MbdbMstRecord
 from mbdb_mst.services.records.permissions import MbdbMstPermissionPolicy
@@ -20,6 +21,8 @@ class MbdbMstServiceConfig(
     PermissionsPresetsConfigMixin, InvenioRecordDraftsServiceConfig
 ):
     """MbdbMstRecord service config."""
+
+    result_list_cls = RecordList
 
     PERMISSIONS_PRESETS = ["authenticated"]
 
@@ -38,9 +41,9 @@ class MbdbMstServiceConfig(
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        DataComponent,
         DraftFilesComponent,
         FilesOptionsComponent,
+        DataComponent,
     ]
 
     model = "mbdb_mst"
@@ -68,8 +71,7 @@ class MbdbMstServiceConfig(
             "self_html": ConditionalLink(
                 cond=is_record,
                 if_=RecordLink("{+ui}/mst/{id}"),
-                else_=RecordLink("{+ui}/mst/{id}"),
+                else_=RecordLink("{+ui}/mst/{id}/edit"),
             ),
             "versions": RecordLink("{+api}/mbdb-mst/{id}/versions"),
         }
-

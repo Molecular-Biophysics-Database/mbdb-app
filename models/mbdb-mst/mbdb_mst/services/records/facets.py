@@ -2,15 +2,9 @@
 
 from flask_babelex import lazy_gettext as _
 from invenio_records_resources.services.records.facets import TermsFacet
-from oarepo_runtime.facets.date import DateTimeFacet
-from oarepo_runtime.facets.nested_facet import NestedLabeledFacet
+from oarepo_runtime.services.facets.date import DateTimeFacet
+from oarepo_runtime.services.facets.nested_facet import NestedLabeledFacet
 from oarepo_vocabularies.services.facets import VocabularyFacet
-
-_schema = TermsFacet(field="$schema", label=_("$schema.label"))
-
-created = DateTimeFacet(field="created", label=_("created.label"))
-
-_id = TermsFacet(field="id", label=_("id.label"))
 
 metadata_general_parameters_associated_publications_additional_authors_affiliations = NestedLabeledFacet(
     path="metadata.general_parameters.associated_publications.additional",
@@ -5964,19 +5958,6 @@ metadata_general_parameters_derived_parameters_entities_involved_copy_number = N
     ),
 )
 
-metadata_general_parameters_derived_parameters_entities_involved_entity__version = NestedLabeledFacet(
-    path="metadata.general_parameters.derived_parameters",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.derived_parameters.entities_involved",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.derived_parameters.entities_involved.entity.@v",
-            label=_(
-                "metadata/general_parameters/derived_parameters/entities_involved/entity/@v.label"
-            ),
-        ),
-    ),
-)
-
 metadata_general_parameters_derived_parameters_id = NestedLabeledFacet(
     path="metadata.general_parameters.derived_parameters",
     nested_facet=TermsFacet(
@@ -9035,13 +9016,6 @@ metadata_method_specific_parameters_data_analysis_data_processing_steps_software
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_derived_parameter__version = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.derived_parameter.@v",
-    label=_(
-        "metadata/method_specific_parameters/data_analysis/derived_parameter/@v.label"
-    ),
-)
-
 metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_cold_end = TermsFacet(
     field="metadata.method_specific_parameters.data_analysis.f_cold_and_hot.f_cold_end",
     label=_(
@@ -9089,11 +9063,6 @@ metadata_method_specific_parameters_measurements_id = TermsFacet(
 metadata_method_specific_parameters_measurements_name = TermsFacet(
     field="metadata.method_specific_parameters.measurements.name",
     label=_("metadata/method_specific_parameters/measurements/name.label"),
-)
-
-metadata_method_specific_parameters_data_analysis_measurements__version = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.measurements.@v",
-    label=_("metadata/method_specific_parameters/data_analysis/measurements/@v.label"),
 )
 
 metadata_method_specific_parameters_excitation_led_color = TermsFacet(
@@ -9167,13 +9136,6 @@ metadata_method_specific_parameters_measurements_position = TermsFacet(
     label=_("metadata/method_specific_parameters/measurements/position.label"),
 )
 
-metadata_method_specific_parameters_measurements_sample_chemical_environment__version = TermsFacet(
-    field="metadata.method_specific_parameters.measurements.sample.chemical_environment.@v",
-    label=_(
-        "metadata/method_specific_parameters/measurements/sample/chemical_environment/@v.label"
-    ),
-)
-
 metadata_method_specific_parameters_measurements_sample_container = TermsFacet(
     field="metadata.method_specific_parameters.measurements.sample.container",
     label=_("metadata/method_specific_parameters/measurements/sample/container.label"),
@@ -9239,13 +9201,6 @@ metadata_method_specific_parameters_measurements_sample_ligands_concentration_va
     field="metadata.method_specific_parameters.measurements.sample.ligands.concentration.value_error.upper_error",
     label=_(
         "metadata/method_specific_parameters/measurements/sample/ligands/concentration/value_error/upper_error.label"
-    ),
-)
-
-metadata_method_specific_parameters_measurements_sample_ligands_entity__version = TermsFacet(
-    field="metadata.method_specific_parameters.measurements.sample.ligands.entity.@v",
-    label=_(
-        "metadata/method_specific_parameters/measurements/sample/ligands/entity/@v.label"
     ),
 )
 
@@ -9326,13 +9281,6 @@ metadata_method_specific_parameters_measurements_sample_targets_concentration_va
     ),
 )
 
-metadata_method_specific_parameters_measurements_sample_targets_entity__version = TermsFacet(
-    field="metadata.method_specific_parameters.measurements.sample.targets.entity.@v",
-    label=_(
-        "metadata/method_specific_parameters/measurements/sample/targets/entity/@v.label"
-    ),
-)
-
 metadata_method_specific_parameters_schema_version = TermsFacet(
     field="metadata.method_specific_parameters.schema_version",
     label=_("metadata/method_specific_parameters/schema_version.label"),
@@ -9342,5 +9290,3 @@ metadata_method_specific_parameters_signal_type = TermsFacet(
     field="metadata.method_specific_parameters.signal_type",
     label=_("metadata/method_specific_parameters/signal_type.label"),
 )
-
-updated = DateTimeFacet(field="updated", label=_("updated.label"))

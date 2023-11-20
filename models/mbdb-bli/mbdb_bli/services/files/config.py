@@ -1,6 +1,7 @@
 from invenio_records_resources.services import FileLink, FileServiceConfig, RecordLink
 from invenio_records_resources.services.records.components import DataComponent
-from oarepo_runtime.config.service import PermissionsPresetsConfigMixin
+from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
+from oarepo_runtime.services.results import RecordList
 
 from mbdb_bli.records.api import MbdbBliDraft, MbdbBliRecord
 from mbdb_bli.services.files.permissions import MbdbBliFileDraftPermissionPolicy
@@ -10,6 +11,8 @@ from mbdb_bli.services.records.permissions import MbdbBliPermissionPolicy
 
 class MbdbBliFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
     """MbdbBliRecord service config."""
+
+    result_list_cls = RecordList
 
     PERMISSIONS_PRESETS = ["everyone"]
 
@@ -49,6 +52,8 @@ class MbdbBliFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig)
 
 class MbdbBliFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
     """MbdbBliDraft service config."""
+
+    result_list_cls = RecordList
 
     PERMISSIONS_PRESETS = ["everyone"]
 
