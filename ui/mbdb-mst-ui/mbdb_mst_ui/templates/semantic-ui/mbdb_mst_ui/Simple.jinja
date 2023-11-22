@@ -20,16 +20,6 @@
     {% endif %}  
     
     <div class="record-container">
-      <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">
-        <h3 class="mbdbv-record-section-title">Instrument</h3>
-          {{ render_if2(
-              gp.instrument is defined,
-              instrument,
-              no_value(),
-              imt=gp.get("instrument"))
-          }}
-      </div>
-
       <div class="mbdbv-record-section-container mbdbv-framed">
         <h3 class="mbdbv-record-section-title">Entities of interest</h3>
         {{ render_if2(
