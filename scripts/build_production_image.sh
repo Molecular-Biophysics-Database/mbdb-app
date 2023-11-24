@@ -16,3 +16,8 @@ docker build . -f sites/mbdb-site/docker/Dockerfile.production -t mbdb-app:lates
   --build-arg REPOSITORY_DOCUMENTATION="https://mbdb.test.du.cesnet.cz" \
   --compress \
   --force-rm 
+
+
+id=$(docker create mbdb-app:latest)
+docker cp $id:/invenio/instance/static /tmp/static 
+docker rm -v $id

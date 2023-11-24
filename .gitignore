@@ -89,3 +89,6 @@ pdm.lock
 /mbdb-model
 
 .DS_Store
+
+#
+sites/mbdb-site/data/
