@@ -17,7 +17,17 @@ docker build . -f sites/mbdb-site/docker/Dockerfile.production -t mbdb-app:lates
   --compress \
   --force-rm 
 
-
 id=$(docker create mbdb-app:latest)
+rm -rdf /tmp/static 
 docker cp $id:/invenio/instance/static /tmp/static 
 docker rm -v $id
+
+rm -rdf /usr/share/nginx/invenio/static/*
+cp -r /tmp/static/ /usr/share/nginx/invenio/
+chmod -R a+r /usr/share/nginx/invenio/static/*
+
+export INVENIO_DOCKER_USER_ID=1001:1001
+
+cd sites/mbdb-site
+docker compose -f docker-compose-production.yml down repo
+docker compose -f docker-compose-production.yml up -d

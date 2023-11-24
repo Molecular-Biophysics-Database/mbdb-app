@@ -47,20 +47,13 @@ services:
     extends:
       file: docker-services.yml
       service: pgadmin
-
-  s3:
-    extends:
-      file: docker-services.yml
-      service: s3
-    ports:
-      - "${INVENIO_S3_HOST}:${INVENIO_S3_PORT}:9000"
-      - "${INVENIO_S3_HOST}:${INVENIO_S3_PORT1}:9001"
   repo:
     image: mbdb-app:latest
     user: ${INVENIO_DOCKER_USER_ID}
     ports:
       - '127.0.0.1:5000:5000'
     restart: 'unless-stopped'
+    env_file: .env
     # environment goes from .env file
     environment:
       - 'INVENIO_SECRET_KEY=CHANGE_ME'
@@ -72,7 +65,6 @@ services:
       - 'INVENIO_OPENSEARCH_HOST=search'
       - 'INVENIO_OPENSEARCH_DASHBOARD_HOST=opensearch-dashboards'
       - 'INVENIO_DATABASE_HOST=db'
-      - 'INVENIO_S3_HOST=s3'
       - 'INVENIO_REDIS_PORT=6379'
       - 'INVENIO_RABBIT_PORT=5672'
       - 'INVENIO_RABBIT_ADMIN_PORT=15672'
@@ -80,8 +72,7 @@ services:
       - 'INVENIO_OPENSEARCH_CLUSTER_PORT=9400'
       - 'INVENIO_OPENSEARCH_DASHBOARD_PORT=5601'
       - 'INVENIO_DATABASE_PORT=5432'
-      - 'INVENIO_S3_PORT=9000'
-      - 'INVENIO_S3_PORT1=9001'
+
 volumes:
   db-data:
   opensearch-data:
