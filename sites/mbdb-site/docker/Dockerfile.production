@@ -59,4 +59,4 @@ COPY sites/${REPOSITORY_SITE_NAME}/docker/uwsgi/uwsgi.ini /opt/invenio/src/uwsgi
 
 ENV PATH=${INVENIO_VENV}/bin:${PATH}
 
-ENTRYPOINT [ "sh", "-c" ]
+ENTRYPOINT [ "uwsgi", "--ini", "/opt/invenio/src/uwsgi/uwsgi.ini" ]
