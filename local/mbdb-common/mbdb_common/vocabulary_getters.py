@@ -1,8 +1,8 @@
 import requests
 import math
-import flask_restful
 from oarepo_vocabularies.authorities.service import AuthorityService
 from invenio_records_resources.services.base import LinksTemplate
+from invenio_records_rest.errors import SearchPaginationRESTError
 
 
 def start_pos_api_page(page: int, size: int, api_size: int) -> int:
@@ -45,8 +45,8 @@ def empty_if_last_page(total, page):
     if total == 0 and page == 1:
         return []
     else:
-        flask_restful.abort(
-            400, message=f"page is bigger than the number of available pages"
+        raise SearchPaginationRESTError(
+            description=f"Page '{page}' is bigger than the number of available pages",
         )
 
 
