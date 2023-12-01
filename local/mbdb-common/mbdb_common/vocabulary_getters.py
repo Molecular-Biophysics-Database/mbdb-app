@@ -22,26 +22,34 @@ def get_last_page(total: int, size: int) -> int:
     return math.ceil(total / size)
 
 
-def make_endpoint(query, page, size, vocabulary_type):
-    """helper function make endpoint based on the app context"""
-    # Not really how LinksTemplate is intended to be initialized but we only need the context so it should be okay
+def make_endpoint(query: str, page: int, size: int, vocabulary_type: str):
+    """helper function that makes an endpoint using app context"""
+    # This isn't really how LinksTemplate is intended to be initialized, but we only need it for
+    # the app context, so it's okay
     template = LinksTemplate(links=None)
     url = template.context["api"]
     return f"{url}/vocabularies/{vocabulary_type}/authoritative?q={query}&page={page}&size={size}"
 
 
-def make_links(query, page, size, total, vocabulary_type):
+def make_links(
+    query: str, page: int, size: int, total: int, vocabulary_type: str
+) -> dict:
+    """helper function that construct the link section of the returned dict from AuthorityService.search"""
     links = {"self": make_endpoint(query, page, size, vocabulary_type)}
     if page < get_last_page(total, size):
         links["next"] = make_endpoint(query, page + 1, size, vocabulary_type)
     return links
 
 
-def hit_dict(hits: list, total: int, links: dict):
+def hit_dict(hits: list[dict], total: int, links: dict) -> dict:
+    """assembles the dict that AuthorityService.search returns"""
     return {"hits": {"total": total, "hits": hits}, "links": links}
 
 
-def empty_if_last_page(total, page):
+def empty_hits(total: int, page: int) -> list:
+    """helper function that raise an error if we move beyond the last page"""
+    # in case there were no results, even the first page would be beyond the last page,
+    # however that is not considered an error state, so we return an empty list
     if total == 0 and page == 1:
         return []
     else:
@@ -64,8 +72,12 @@ class RORService(AuthorityService):
         n_api_pages = math.ceil(size_ratio) + int(exceeds_page(page, size, api_size))
         affiliations = []
         total = 0
+
         for offset in range(n_api_pages, 0, -1):
+            # the offset is the page offset from the last page we need to fetch,
+            # i.e. we fetch api_page e.g. 2, 3, 4 as offset is decreases with each iteration
             api_page = math.ceil(page * size_ratio) - offset + 1
+
             params = {"query": query, "page": api_page}
             response = requests.get(url, params=params)
             response_json = response.json()
@@ -75,13 +87,15 @@ class RORService(AuthorityService):
                 self.convert_ror_record(hit) for hit in response_json["items"]
             ]
 
+        # make sure we don't return elements beyond the last page
         if page > get_last_page(total, size):
-            hits = empty_if_last_page(total, page)
+            hits = empty_hits(total, page)
         else:
-            hits = affiliations[start_pos : start_pos + size]
+            hits = affiliations
 
         # construct the return object
         start_pos = start_pos_api_page(page, size, api_size)
+        hits = hits[start_pos: start_pos + size]
         links = make_links(query, page, size, total, vocabulary_type="affiliations")
         return hit_dict(hits, total, links)
 
@@ -120,16 +134,14 @@ class NCBIService(AuthorityService):
         suggested_json = suggested.json()
 
         try:
-            taxids = [
-                hit["tax_id"] for hit in suggested_json["sci_name_and_ids"]
-            ]  # noqa
+            taxids = [hit["tax_id"] for hit in suggested_json["sci_name_and_ids"]]
         except KeyError:
             taxids = []
         total = len(taxids)
 
         # make sure we don't return elements beyond the last page
         if page > get_last_page(total, size):
-            hits = empty_if_last_page(total, page)
+            hits = empty_hits(total, page)
         else:
             hits = self.from_taxid(taxids)
 
@@ -166,8 +178,8 @@ class NCBIService(AuthorityService):
             hit = hit["taxonomy"]
             organisms.append(self.convert_ncbi_record(hit))
 
-        # note that elements in organism are not in the order they were supplied in!
-        # We need to enforce they're in the same order the taxids list,
+        # note that elements in organism are not in the order they were fetched in!
+        # We need to enforce they're in the same order as the taxids list,
         # as the list is a search based ranking and pagination also becomes meaningless otherwise
 
         order = {taxid: i for i, taxid in enumerate(taxids)}
@@ -177,7 +189,7 @@ class NCBIService(AuthorityService):
 
 class OpenAireService(AuthorityService):  # noqa
     def search(self, *, query=None, page=1, size=10, **kwargs):
-        # both page and size can be specified for the endpoint
+        # both page and size can be specified direct to this endpoint
         url = "https://api.openaire.eu/search/projects"
         params = {"keywords": query, "page": page, "size": size, "format": "json"}
 
@@ -186,16 +198,17 @@ class OpenAireService(AuthorityService):  # noqa
 
         total = response_json["response"]["header"]["total"]["$"]
 
+        # make sure we don't return elements beyond the last page
         if page > get_last_page(total, size):
-            grants = empty_if_last_page(total, page)
+            hits = empty_hits(total, page)
         else:
-            grants = [
+            hits = [
                 self.convert_oa_record(hit)
                 for hit in response_json["response"]["results"]["result"]
             ]
 
         links = make_links(query, page, size, total, vocabulary_type="grants")
-        return hit_dict(grants, total, links)
+        return hit_dict(hits, total, links)
 
     def get(self, item_id, **kwargs):
         if not item_id.startswith("oa:"):
@@ -208,9 +221,7 @@ class OpenAireService(AuthorityService):  # noqa
 
     @staticmethod
     def convert_oa_record(hit):
-        funding_tree = hit["metadata"]["oaf:entity"]["oaf:project"][
-            "fundingtree"
-        ]  # noqa
+        funding_tree = hit["metadata"]["oaf:entity"]["oaf:project"]["fundingtree"]
         if not isinstance(funding_tree, list):
             funding_tree = [funding_tree]
 
