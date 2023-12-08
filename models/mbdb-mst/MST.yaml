@@ -8,6 +8,7 @@ record:
       mapping:
         copy_to: collected_default_search_fields
     metadata:
+      type: object
       general_parameters:
         use: '#/$defs/General_parameters'
         required: true
