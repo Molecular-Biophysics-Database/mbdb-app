@@ -18,6 +18,7 @@ class Mbdb_sprExt:
             self.register_flask_extension(app)
 
     def register_flask_extension(self, app):
+
         app.extensions["mbdb_spr"] = self
 
     def init_config(self, app):

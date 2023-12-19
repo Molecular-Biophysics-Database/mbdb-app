@@ -10,6 +10,7 @@ from sqlalchemy_utils import UUIDType
 
 
 class MbdbSprParentMetadata(db.Model, RecordMetadataBase):
+
     __tablename__ = "mbdb_spr_parent_record_metadata"
 
 
