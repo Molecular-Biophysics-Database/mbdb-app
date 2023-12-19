@@ -1,4 +1,7 @@
 import marshmallow as ma
+from invenio_drafts_resources.services.records.schema import (
+    ParentSchema as InvenioParentSchema,
+)
 from invenio_vocabularies.services.schema import i18n_strings
 from marshmallow import Schema
 from marshmallow import fields as ma_fields
@@ -11,11 +14,16 @@ from oarepo_runtime.services.schema.polymorphic import PolymorphicSchema
 from oarepo_runtime.services.schema.validation import validate_date
 
 
+class GeneratedParentSchema(InvenioParentSchema):
+    """"""
+
+
 class MbdbBliSchema(BaseRecordSchema):
     class Meta:
         unknown = ma.RAISE
 
     metadata = ma_fields.Nested(lambda: MbdbBliMetadataSchema())
+    parent = ma.fields.Nested(GeneratedParentSchema)
     files = ma.fields.Nested(
         lambda: FilesOptionsSchema(), load_default={"enabled": True}
     )

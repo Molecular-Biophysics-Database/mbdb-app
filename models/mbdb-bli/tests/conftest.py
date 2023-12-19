@@ -38,12 +38,10 @@ APP_CONFIG = {
         "invenio_jsonschemas.proxies.current_refresolver_store"
     ),
     "RATELIMIT_AUTHENTICATED_USER": "200 per second",
-    "SEARCH_HOSTS": [
-        {
-            "host": os.environ.get("OPENSEARCH_HOST", "localhost"),
-            "port": os.environ.get("OPENSEARCH_PORT", "9200"),
-        }
-    ],
+    "SEARCH_HOSTS": [{
+        "host": os.environ.get("OPENSEARCH_HOST", "localhost"),
+        "port": os.environ.get("OPENSEARCH_PORT", "9200"),
+    }],
     # disable redis cache
     "CACHE_TYPE": "SimpleCache",  # Flask-Caching related configs
     "CACHE_DEFAULT_TIMEOUT": 300,
