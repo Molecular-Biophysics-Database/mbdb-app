@@ -1,17 +1,15 @@
 import json
 from pathlib import Path
-from invenio_records_resources.services.records.components import ServiceComponent
 import inspect
-from invenio_records_resources.proxies import current_service_registry
+from oarepo_ui.resources.components import UIResourceComponent
 
 
-class MBDBEditComponent(ServiceComponent):
+class MBDBEditComponent(UIResourceComponent):
     def form_config(
-        self, *, form_config, resource, record,
-            view_args, identity, **kwargs
+        self, *, form_config, **kwargs
     ):
         json_location = (
-                Path(inspect.getfile(type(resource.config))).parent / resource.config.edit_layout
+                Path(inspect.getfile(type(self.config))).parent / self.config.edit_layout
         )
         if json_location.exists():
             layout = json.loads(json_location.read_text())
