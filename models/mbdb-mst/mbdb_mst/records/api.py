@@ -32,6 +32,7 @@ class MbdbMstIdProvider(DraftRecordIdProviderV2):
 
 
 class MbdbMstRecord(InvenioRecord):
+
     model_cls = MbdbMstMetadata
 
     schema = ConstantField("$schema", "local://mbdb_mst-1.0.0.json")
@@ -327,6 +328,7 @@ class MbdbMstRecord(InvenioRecord):
 
 
 class MbdbMstDraft(InvenioDraft):
+
     model_cls = MbdbMstDraftMetadata
 
     schema = ConstantField("$schema", "local://mbdb_mst-1.0.0.json")
@@ -619,6 +621,7 @@ class MbdbMstDraft(InvenioDraft):
 
     parent_record_cls = MbdbMstParentRecord
     record_status = RecordStatusSystemField()
+
     has_draft = HasDraftCheckField(config_key="HAS_DRAFT_CUSTOM_FIELD")
 
     files = FilesField(file_cls=MbdbMstFileDraft, store=False)
@@ -628,6 +631,7 @@ class MbdbMstDraft(InvenioDraft):
 
 
 MbdbMstFile.record_cls = MbdbMstRecord
+
 
 MbdbMstRecord.has_draft = HasDraftCheckField(
     draft_cls=MbdbMstDraft, config_key="HAS_DRAFT_CUSTOM_FIELD"
