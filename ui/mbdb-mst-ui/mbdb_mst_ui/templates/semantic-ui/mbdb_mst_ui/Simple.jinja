@@ -8,7 +8,7 @@
 {% from "mbdb_mst_ui/MST/Results.jinja" import results %}
 {% from "mbdb_mst_ui/MBDB/RawMeasurements.jinja" import raw_measurements %}
   
-{%- macro simple(metadata, layout, ui, files) %}
+{%- macro simple(metadata, ui, files) %}
   {% set gp = metadata.general_parameters %}
 
   <div class=" mbdbv-record-container">

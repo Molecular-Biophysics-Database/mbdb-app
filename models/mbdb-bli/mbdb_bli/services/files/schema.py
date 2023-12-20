@@ -9,6 +9,7 @@ from marshmallow import fields as ma_fields
 from marshmallow.validate import OneOf
 from oarepo_runtime.services.schema.marshmallow import DictOnlySchema
 from oarepo_runtime.services.schema.validation import validate_date
+from marshmallow_utils.fields import NestedAttribute
 
 
 class GeneratedParentSchema(InvenioParentSchema):
@@ -56,7 +57,7 @@ class MbdbBliFileSchema(InvenioFileSchema):
     size = ma_fields.Integer(required=True, validate=[ma.validate.Range(min=0)])
 
     updated = ma_fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
-    parent = ma.fields.Nested(GeneratedParentSchema)
+    parent = NestedAttribute(GeneratedParentSchema)
 
 
 class ProcessingStepsItemSchema(DictOnlySchema):

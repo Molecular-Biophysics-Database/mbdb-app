@@ -1,4 +1,4 @@
-{# def metadata, layout, ui, extra_context #}
+{# def metadata, ui, extra_context #}
 
 {% from "mbdb_mst_ui/Simple.jinja" import simple %}
 {% from "mbdb_mst_ui/Complete.jinja" import complete %}
@@ -17,13 +17,13 @@
 #}
 
   <div class="ui bottom attached active tab segment width" data-tab="simple">
-    {{ simple(metadata, layout, ui, extra_context.files) }}
+    {{ simple(metadata, ui, extra_context.files) }}
   </div>
   <div class="ui bottom attached tab segment" data-tab="complete">
-    {{ complete(metadata, layout, ui) }}
+    {{ complete(metadata, ui) }}
   </div>
   <div class="ui bottom attached tab segment" data-tab="complete-collapsible">
-    {{ complete_collapsible(metadata, layout, ui) }}
+    {{ complete_collapsible(metadata, ui) }}
   </div>
   </div>
 </div>

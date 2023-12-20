@@ -1,4 +1,4 @@
-{# def metadata, ui, layout, extra_context #}
+{# def record, metadata, ui, extra_context #}
 {% extends "oarepo_ui/detail.html" %}
 
 {%- block head_links %}
@@ -8,3 +8,11 @@
 {{ webpack['mbdb_mst_ui_components.css']}}
 
 {%- endblock %}
+
+{% block record_main_content %}
+    <Main metadata={metadata} ui={ui} extra_context={extra_context} record={record}/>
+{% endblock %}
+
+{% block record_sidebar %}
+    <Sidebar metadata={metadata} ui={ui} extra_context={extra_context} record={record}/>
+{% endblock record_sidebar %}
