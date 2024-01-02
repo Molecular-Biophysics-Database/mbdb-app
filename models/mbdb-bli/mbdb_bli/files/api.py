@@ -11,6 +11,7 @@ class MbdbBliFileIdProvider(RecordIdProviderV2):
 
 
 class MbdbBliFile(FileRecord):
+
     model_cls = MbdbBliFileMetadata
 
     index = IndexField("mbdb_bli_file-mbdb_bli_file-1.0.0")
@@ -22,6 +23,7 @@ class MbdbBliFile(FileRecord):
 
 
 class MbdbBliFileDraft(FileRecord):
+
     model_cls = MbdbBliFileDraftMetadata
 
     index = IndexField("mbdb_bli_file_draft-mbdb_bli_file_draft-1.0.0")

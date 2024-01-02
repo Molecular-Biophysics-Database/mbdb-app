@@ -18,6 +18,7 @@ class Mbdb_bliExt:
             self.register_flask_extension(app)
 
     def register_flask_extension(self, app):
+
         app.extensions["mbdb_bli"] = self
 
     def init_config(self, app):

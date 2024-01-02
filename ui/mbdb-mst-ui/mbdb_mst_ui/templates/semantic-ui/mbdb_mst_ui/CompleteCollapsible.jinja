@@ -34,7 +34,7 @@
   {%- endfor %}
 {%- endmacro %}
 
-{%- macro complete_collapsible(metadata, layout, ui) %}
+{%- macro complete_collapsible(metadata, ui) %}
   <div class="ui container">
     {{ record_header(metadata | maybe_get("general_parameters.record_information.title"), ui) }}
 

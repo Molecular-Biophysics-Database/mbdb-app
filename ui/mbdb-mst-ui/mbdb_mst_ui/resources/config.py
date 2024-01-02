@@ -21,17 +21,13 @@ class MbdbMstUIResourceConfig(RecordsUIResourceConfig):
     except ImportError:
         pass
 
+    search_app_id = "Mbdb_mst_ui.Search"
+
     templates = {
-        "detail": {
-            "layout": "mbdb_mst_ui/DetailRoot.jinja",
-            "blocks": {
-                "record_main_content": "Main",
-                "record_sidebar": "Sidebar",
-            },
-        },
-        "search": {"layout": "mbdb_mst_ui/Search.html.jinja", "app_id": "Mbdb_mst_ui.Search"},
-        "edit": {"layout": "mbdb_mst_ui/Deposit.html.jinja"},
-        "create": {"layout": "mbdb_mst_ui/Deposit.html.jinja"},
+        "detail": "mbdb_mst_ui.DetailRoot",
+        "search": "mbdb_mst_ui.Search",
+        "edit": "mbdb_mst_ui.Deposit",
+        "create": "mbdb_mst_ui.Deposit",
     }
 
     def search_app_config(self, identity, api_config, overrides={}, **kwargs):

@@ -11,6 +11,7 @@ class MbdbSprFileIdProvider(RecordIdProviderV2):
 
 
 class MbdbSprFile(FileRecord):
+
     model_cls = MbdbSprFileMetadata
 
     index = IndexField("mbdb_spr_file-mbdb_spr_file-1.0.0")
@@ -22,6 +23,7 @@ class MbdbSprFile(FileRecord):
 
 
 class MbdbSprFileDraft(FileRecord):
+
     model_cls = MbdbSprFileDraftMetadata
 
     index = IndexField("mbdb_spr_file_draft-mbdb_spr_file_draft-1.0.0")
