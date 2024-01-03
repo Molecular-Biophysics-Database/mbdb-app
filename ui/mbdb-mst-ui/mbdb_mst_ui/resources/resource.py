@@ -6,3 +6,7 @@ class MbdbMstUIResource(RecordsUIResource):
             return super()._get_record(resource_requestctx, allow_draft=False)
         except:
             return super()._get_record(resource_requestctx, allow_draft=True)
+
+    def empty_record(self, resource_requestctx, **kwargs):
+        """Create an empty record with default values. """
+        return {}
