@@ -12,8 +12,6 @@ from marshmallow_utils.fields import SanitizedUnicode
 from oarepo_runtime.services.schema.marshmallow import BaseRecordSchema, DictOnlySchema
 from oarepo_runtime.services.schema.polymorphic import PolymorphicSchema
 from oarepo_runtime.services.schema.validation import validate_date
-from marshmallow_utils.fields import NestedAttribute
-
 
 
 class GeneratedParentSchema(InvenioParentSchema):
@@ -25,7 +23,7 @@ class MbdbMstSchema(BaseRecordSchema):
         unknown = ma.RAISE
 
     metadata = ma_fields.Nested(lambda: MbdbMstMetadataSchema())
-    parent = NestedAttribute(GeneratedParentSchema)
+    parent = ma.fields.Nested(GeneratedParentSchema)
     files = ma.fields.Nested(
         lambda: FilesOptionsSchema(), load_default={"enabled": True}
     )
