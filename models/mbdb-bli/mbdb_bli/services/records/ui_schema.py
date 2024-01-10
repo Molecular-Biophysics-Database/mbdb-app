@@ -54,8 +54,8 @@ class GeneralParametersUISchema(DictOnlySchema):
 
     instrument = ma_fields.Nested(lambda: InstrumentUISchema(), required=True)
 
-    physical_conditions_at_sample_handling = ma_fields.Nested(
-        lambda: PhysicalConditionsAtSampleHandlingUISchema()
+    physical_conditions_prior_to_measurement = ma_fields.Nested(
+        lambda: PhysicalConditionsPriorToMeasurementUISchema()
     )
 
     raw_measurements = ma_fields.List(ma_fields.String())
@@ -64,7 +64,7 @@ class GeneralParametersUISchema(DictOnlySchema):
         lambda: RecordInformationUISchema(), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.15"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.16"])])
 
     technique = ma_fields.String(
         required=True,
@@ -644,7 +644,7 @@ class EntitiesOfInterestItemUISchema(DictOnlySchema):
     variant = ma_fields.String()
 
 
-class PhysicalConditionsAtSampleHandlingUISchema(DictOnlySchema):
+class PhysicalConditionsPriorToMeasurementUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 

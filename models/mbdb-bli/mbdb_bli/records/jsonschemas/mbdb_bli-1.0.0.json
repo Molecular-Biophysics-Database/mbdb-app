@@ -5036,7 +5036,7 @@
                                 }
                             }
                         },
-                        "physical_conditions_at_sample_handling": {
+                        "physical_conditions_prior_to_measurement": {
                             "type": "object",
                             "properties": {
                                 "atmosphere": {
