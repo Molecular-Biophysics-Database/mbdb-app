@@ -1,10 +1,10 @@
+{% from "mbdb_mst_ui/Common/RenderIf.jinja" import render_if_exists %}
 {%- macro raw_measurements(raw_measurements, files) %} 
-
     {% for measurement_url in raw_measurements %}
         {% for file in files.entries %}
             {% if "files/" + file.key == measurement_url %}
                 <a href="{{file.links.content}}" target="_blank">Download</a>
-                Description:{{file.metadata.description.description}}
+                Description: {{render_if_exists(file.metadata.description.description)}}
             {% endif %}
         {% endfor %}
     {% endfor %}
