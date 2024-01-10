@@ -1,18 +1,24 @@
 {% from "mbdb_mst_ui/MBDB/PersonName.jinja" import person_name %}
   
-
 {%- macro depositors(gp) %} 
 {% if (gp.get("depositors"))%}
   {% set depos = gp.get("depositors", {}) %} 
-  {% set people = [
-    person_name(depos.principal_contact),
-    person_name(depos.depositor),
-     ] %}
+  {% set people = [] %}
+
+  {% if depos.principal_contact is defined %}
+    {% do people.append(person_name(depos.principal_contact)) %}
+  {% endif %}
+
+  {% if depos.depositor is defined %}
+    {% do people.append(person_name(depos.depositor)) %}
+  {% endif %}
+
   {% if depos.contributors is defined %}
     {% for contributor in depos.contributors %}
       {% do people.append(person_name(contributor)) %}
     {% endfor %}
   {% endif %}  
-{{ people|join(", ") }}
+
+{{ people | join(", ") }}
 {% endif %}
 {% endmacro %}

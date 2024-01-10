@@ -1,5 +1,9 @@
 {% macro measured_value(mvalue) %}
-    {{ mvalue.value ~ " " ~ mvalue.unit }} 
+    {% if mvalue.value is defined and mvalue.unit is defined %}
+      {{ mvalue.value ~ " " ~ mvalue.unit }} 
+    {% else %}
+      (Not provided)
+    {% endif %}
       {% if mvalue.value_error is undefined %}
         (Error not provided)
       {% else %}

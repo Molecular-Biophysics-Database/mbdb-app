@@ -1,3 +1,4 @@
+{% from "mbdb_mst_ui/Common/RenderIf.jinja" import render_if_exists %}
 {%- macro organism(org) %}
-  <span>{{ org.title }}</span>
+  {{render_if_exists(org.title)}}
 {%- endmacro %}
