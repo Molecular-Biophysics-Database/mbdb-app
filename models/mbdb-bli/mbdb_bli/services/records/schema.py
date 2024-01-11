@@ -85,8 +85,8 @@ class GeneralParametersSchema(DictOnlySchema):
 
     instrument = ma_fields.Nested(lambda: InstrumentSchema(), required=True)
 
-    physical_conditions_at_sample_handling = ma_fields.Nested(
-        lambda: PhysicalConditionsAtSampleHandlingSchema()
+    physical_conditions_prior_to_measurement = ma_fields.Nested(
+        lambda: PhysicalConditionsPriorToMeasurementSchema()
     )
 
     raw_measurements = ma_fields.List(
@@ -97,7 +97,7 @@ class GeneralParametersSchema(DictOnlySchema):
         lambda: RecordInformationSchema(), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.15"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.16"])])
 
     technique = ma_fields.String(
         required=True,
@@ -400,7 +400,7 @@ class EntitiesOfInterestItemComplex_substance_of_chemical_originSchema(DictOnlyS
     )
 
 
-class PhysicalConditionsAtSampleHandlingSchema(DictOnlySchema):
+class PhysicalConditionsPriorToMeasurementSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 

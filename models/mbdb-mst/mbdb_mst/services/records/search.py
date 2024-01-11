@@ -2670,212 +2670,212 @@ class MbdbMstSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_instrument_performance_test_sample_composition_product": (
             facets.metadata_general_parameters_instrument_performance_test_sample_composition_product
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_additional_identifiers": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_additional_identifiers
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_additional_identifiers": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_additional_identifiers
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_additional_specifications": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_additional_specifications
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_additional_specifications": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_additional_specifications
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_obtained_by": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_obtained_by
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_obtained_by": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_obtained_by
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_obtained_protocol_description": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_obtained_protocol_description
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_obtained_protocol_description": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_obtained_protocol_description
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_obtained_protocol_name": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_obtained_protocol_name
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_obtained_protocol_name": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_obtained_protocol_name
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_unit": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_unit
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_unit": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_unit
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_value": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_value
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_error_level": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_error_level
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_value_error_error_level": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_value_error_error_level
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_errors_are_relative": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_errors_are_relative
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_value_error_errors_are_relative": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_value_error_errors_are_relative
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_lower_error": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_lower_error
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_value_error_lower_error": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_value_error_lower_error
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_upper_error": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_concentration_value_error_upper_error
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_value_error_upper_error": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_concentration_value_error_upper_error
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_inchikey": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_inchikey
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_inchikey": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_inchikey
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_isotopic_labeling": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_isotopic_labeling
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_isotopic_labeling": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_isotopic_labeling
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_unit": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_unit
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_molecular_weight_unit": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_molecular_weight_unit
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_molecular_weight_value": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_molecular_weight_value
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_error_level": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_error_level
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_molecular_weight_value_error_error_level": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_molecular_weight_value_error_error_level
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_errors_are_relative": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_errors_are_relative
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_molecular_weight_value_error_errors_are_relative": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_molecular_weight_value_error_errors_are_relative
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_lower_error": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_lower_error
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_molecular_weight_value_error_lower_error": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_molecular_weight_value_error_lower_error
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_upper_error": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_molecular_weight_value_error_upper_error
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_molecular_weight_value_error_upper_error": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_molecular_weight_value_error_upper_error
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_name": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_name
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_name": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_name
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_parameter": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_parameter
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_parameter": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_parameter
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_report": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_report
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_report": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_report
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_unit": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_unit
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_duration_unit": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_duration_unit
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_duration_value": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_duration_value
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_error_level": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_error_level
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_error_level": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_error_level
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_errors_are_relative
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_lower_error": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_lower_error
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_lower_error": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_lower_error
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_upper_error": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_upper_error
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_upper_error": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_duration_value_error_upper_error
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_description": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_description
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_description": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_description
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_name": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_name
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_name": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_storage_preparation_name
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_controlled": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_controlled
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_controlled": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_controlled
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_obtained_by": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_obtained_by
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_obtained_by": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_obtained_by
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_operational_value": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_operational_value
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_operational_value": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_operational_value
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_unit": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_unit
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_unit": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_unit
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_error_level": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_error_level
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_error_level": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_error_level
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_errors_are_relative
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_lower_error": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_lower_error
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_lower_error": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_lower_error
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_upper_error": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_upper_error
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_upper_error": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_storage_until_measurement_temperature_value_error_upper_error
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_technique": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_quality_controls_technique
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_technique": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_quality_controls_technique
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_supplier_catalog_number": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_supplier_catalog_number
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_supplier_catalog_number": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_supplier_catalog_number
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_supplier_further_information": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_supplier_further_information
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_supplier_further_information": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_supplier_further_information
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_supplier_name": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_supplier_name
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_supplier_name": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_supplier_name
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_type": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_atmosphere_composition_type
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_type": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_atmosphere_composition_type
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_controlled": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_humidity_controlled
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_controlled": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_controlled
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_obtained_by": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_humidity_obtained_by
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_obtained_by": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_obtained_by
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_unit": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_humidity_unit
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_unit": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_unit
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_value": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_value
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_error_level": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_error_level
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_value_error_error_level": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_value_error_error_level
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_errors_are_relative": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_errors_are_relative
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_value_error_errors_are_relative": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_value_error_errors_are_relative
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_lower_error": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_lower_error
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_value_error_lower_error": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_value_error_lower_error
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_upper_error": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_humidity_value_error_upper_error
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_value_error_upper_error": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_humidity_value_error_upper_error
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_controlled": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_pressure_controlled
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_controlled": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_controlled
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_obtained_by": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_pressure_obtained_by
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_obtained_by": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_obtained_by
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_unit": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_pressure_unit
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_unit": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_unit
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_value": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_value
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_error_level": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_error_level
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_value_error_error_level": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_value_error_error_level
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_errors_are_relative": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_errors_are_relative
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_value_error_errors_are_relative": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_value_error_errors_are_relative
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_lower_error": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_lower_error
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_value_error_lower_error": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_value_error_lower_error
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_upper_error": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_pressure_value_error_upper_error
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_value_error_upper_error": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_pressure_value_error_upper_error
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_controlled": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_temperature_controlled
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_controlled": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_controlled
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_obtained_by": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_temperature_obtained_by
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_obtained_by": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_obtained_by
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_operational_value": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_temperature_operational_value
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_operational_value": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_operational_value
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_unit": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_temperature_unit
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_unit": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_unit
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_value": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_value
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_error_level": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_error_level
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_value_error_error_level": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_value_error_error_level
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_errors_are_relative": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_errors_are_relative
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_value_error_errors_are_relative": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_value_error_errors_are_relative
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_lower_error": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_lower_error
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_value_error_lower_error": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_value_error_lower_error
         ),
-        "metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_upper_error": (
-            facets.metadata_general_parameters_physical_conditions_at_sample_handling_temperature_value_error_upper_error
+        "metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_value_error_upper_error": (
+            facets.metadata_general_parameters_physical_conditions_prior_to_measurement_temperature_value_error_upper_error
         ),
         "metadata_general_parameters_raw_measurements": (
             facets.metadata_general_parameters_raw_measurements
