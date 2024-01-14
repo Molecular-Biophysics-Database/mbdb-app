@@ -1,0 +1,54 @@
+$defs:
+  use: ["./general-parameters-definitions.yaml", "./mst-definitions.yaml"]
+
+plugins:
+  builder:
+    disable:
+    - script_sample_data
+  packages:
+  - oarepo-model-builder-drafts-files
+  - oarepo-model-builder-relations
+  - oarepo-model-builder-files
+  - oarepo-model-builder-requests
+  - oarepo-model-builder-cf
+  - oarepo-model-builder-drafts
+  - oarepo-model-builder-ui
+  - oarepo-model-builder-polymorphic
+  - oarepo-model-builder-vocabularies
+profiles:
+- record
+- draft
+- files
+- draft_files
+record:
+  use: ["invenio", "./mst-requests.yaml"]
+  draft: {}
+  draft-files:
+    resource:
+      base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
+  files:
+    use: ['./mst-files.yaml', 'invenio_files']
+    resource:
+      base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
+  module:
+    qualified: mst
+  permissions:
+    presets:
+    - authenticated
+  pid:
+    type: mst
+  properties:
+    metadata:
+      properties:
+        use: ["./general-parameters-metadata.yaml", "./mst-metadata.yaml"]
+  resource-config:
+    base-url: /records/mst/
+    base-html-url: /mst/
+
+runtime-dependencies: {}
+
+settings:
+  i18n-languages: [en]
+  extension-elements: [ui_file_context]
+
+use: ["./mst-settings.yaml"]

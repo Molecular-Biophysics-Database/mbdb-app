@@ -1,125 +1,21 @@
-config:
-  oarepo_cli: .venv/nrp/bin/nrp
-  python: python3.10
-  sites:
-  - mbdb-site
-local:
-  mbdb-common:
-    branch: null
-    github_clone_url: null
-    local_dir: local/mbdb-common
-    sites:
-    - mbdb-site
 models:
-  mbdb-bli:
-    author_email: Emildandanell.agerschou@ibt.cas.cz
-    author_name: Emil Dandanell Agerschou
-    installation_site: mbdb-site
-    merge_changes: overwrite
-    model_dir: models/mbdb-bli
-    model_kind: empty
-    model_package: mbdb_bli
-    permissions_preset: authenticated
-    permissions_presets: read_only
-    pid_type: bli
-    run_tests: skip
-    sites:
-    - mbdb-site
-    update_opensearch: run
-    use_custom_fields: 'yes'
-    use_docs: 'no'
-    use_drafts: 'yes'
-    use_expandable_fields: 'no'
-    use_files: 'yes'
-    use_metadata: 'no'
-    use_nr_vocabularies: 'no'
-    use_relations: 'yes'
-    use_requests: 'no'
-    use_tests: 'no'
-    use_vocabularies: 'yes'
-  mbdb-mst:
-    author_email: Emildandanell.agerschou@ibt.cas.cz
-    author_name: Emil Dandanell Agerschou
-    installation_site: mbdb-site
-    merge_changes: overwrite
-    model_dir: models/mbdb-mst
-    model_kind: empty
-    model_package: mbdb_mst
-    permissions_preset: authenticated
-    permissions_presets: read_only
-    pid_type: mst
-    run_tests: skip
-    sites:
-    - mbdb-site
-    update_opensearch: run
-    use_custom_fields: 'yes'
-    use_docs: 'no'
-    use_drafts: 'yes'
-    use_expandable_fields: 'no'
-    use_files: 'yes'
-    use_metadata: 'no'
-    use_nr_vocabularies: 'no'
-    use_relations: 'yes'
-    use_requests: 'no'
-    use_tests: 'no'
-    use_vocabularies: 'yes'
-  mbdb-spr:
-    author_email: Emildandanell.agerschou@ibt.cas.cz
-    author_name: Emil Dandanell Agerschou
-    installation_site: mbdb-site
-    merge_changes: overwrite
-    model_dir: models/mbdb-spr
-    model_kind: empty
-    model_package: mbdb_spr
-    permissions_preset: authenticated
-    permissions_presets: read_only
-    pid_type: spr
-    run_tests: skip
-    sites:
-    - mbdb-site
-    update_opensearch: run
-    use_custom_fields: 'yes'
-    use_docs: 'no'
-    use_drafts: 'yes'
-    use_expandable_fields: 'no'
-    use_files: 'yes'
-    use_metadata: 'no'
-    use_nr_vocabularies: 'no'
-    use_relations: 'yes'
-    use_requests: 'no'
-    use_tests: 'no'
-    use_vocabularies: 'yes'
-sites:
-  mbdb-site:
-    author_email: emildandanell.agerschou@ibt.cas.cz
-    author_name: Emil Dandanell Agerschou
-    copyright_holder: Institute of Biotechnology of the Czech Academy of Sciences
-    init_database: 'yes'
-    pdm_name: mbdb-site
-    repository_name: Molecular-Biophysics-Database
-    site_dir: sites/mbdb-site
-    site_package: mbdb_site
-    transifex_project: ''
-    use_oarepo_vocabularies: 'yes'
-    www: https://mbdb.eu/
-    year: '2023'
-type: monorepo
-ui:
-  mbdb-mst-ui:
-    cookiecutter_api_service: mbdb_mst
-    cookiecutter_app_name: mbdb-mst-ui
-    cookiecutter_app_package: mbdb_mst_ui
-    cookiecutter_author: Emil Dandanell Agerschou
-    cookiecutter_author_email: Emildandanell.agerschou@ibt.cas.cz
-    cookiecutter_ext_name: MbdbMstExtension
-    cookiecutter_local_model_path: ../../models/mbdb-mst
-    cookiecutter_model_package: mbdb_mst
-    cookiecutter_repository_url: ''
-    cookiecutter_resource: MbdbMstUIResource
-    cookiecutter_resource_config: MbdbMstUIResourceConfig
-    cookiecutter_ui_record_serializer_class: mbdb_mst.resources.records.ui.MbdbMstUIJSONSerializer
-    model_name: mbdb-mst
-    sites:
-    - mbdb-site
-    ui_dir: ui/mbdb-mst-ui
-    url_prefix: /mst/
+- api_prefix: records/mst
+  base_model: empty
+  features: [custom_fields, relations, files, drafts, tests, communities, requests]
+  model_description: Microscale thermophoresis
+  model_name: mst
+  model_package: mst
+  pid_type: mst
+repository:
+  model_package: models
+  oarepo_version: 12
+  repository_human_name: Molecular Biophysics Database
+  repository_package: mbdb_app
+  shared_package: common
+  ui_package: ui
+uis:
+- api_service: mst
+  endpoint: /mst/
+  model: mst
+  name: mst
+  ui_serializer_class: mst.resources.records.ui.MstUIJSONSerializer

@@ -1,0 +1,5 @@
+{% import "mst/MBDB/NameValue/Index.jinja" as nv %}
+
+{%- macro chemical_origin(entity) %}
+  {{ nv.item("Class", entity.class | nice_name) }}
+{%- endmacro %}

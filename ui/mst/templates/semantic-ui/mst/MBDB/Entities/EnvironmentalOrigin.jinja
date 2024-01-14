@@ -1,0 +1,17 @@
+{% from   "mst/Common/NoValue.jinja" import no_value %}
+{% from   "mst/Common/RenderIf.jinja" import render_if2 %}
+{% from   "mst/MBDB/Location.jinja" import location %}
+{% import "mst/MBDB/NameValue/Index.jinja" as nv %}
+
+{%- macro environmental_origin(entity) %}
+  {{ nv.item("Source", entity.source) }}
+  {{ nv.item(
+      "Location",
+      render_if2(
+        entity.location is defined and entity.location.value is defined,
+        location,
+        no_value(),
+        location=entity.location
+      ))
+  }}
+{%- endmacro %}

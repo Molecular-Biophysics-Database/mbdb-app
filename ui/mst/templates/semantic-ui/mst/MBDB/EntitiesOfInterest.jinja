@@ -1,0 +1,36 @@
+{% from   "mst/MBDB/Entities/BiologicalOrigin.jinja" import biological_origin %}
+{% from   "mst/MBDB/Entities/Chemical.jinja" import chemical %}
+{% from   "mst/MBDB/Entities/ChemicalOrigin.jinja" import chemical_origin %}
+{% from   "mst/MBDB/Entities/EnvironmentalOrigin.jinja" import environmental_origin %}
+{% from   "mst/MBDB/Entities/IndustrialOrigin.jinja" import industrial_origin %}
+{% from   "mst/MBDB/Entities/MolecularAssembly.jinja" import molecular_assembly %}
+{% from   "mst/MBDB/Entities/Polymer.jinja" import polymer %}
+{% import "mst/MBDB/NameValue/Index.jinja" as nv %}
+
+{%- macro entities_of_interest(entities) %}
+  {{ nv.list_open() }}
+    {%- for entity in entities %}
+      {{ nv.item("Name", entity.name) }}
+      {{ nv.item("Type", entity.type) }}
+
+      {%- if entity.type == "Chemical" %}
+        {{ chemical(entity) }}
+      {%- elif entity.type == "Complex substance of biological origin" %}
+        {{ biological_origin(entity) }}
+      {%- elif entity.type == "Complex substance of chemical origin" %}
+        {{ chemical_origin(entity) }}
+      {%- elif entity.type == "Complex substance of environmental origin" %}
+        {{ environmental_origin(entity) }}
+      {%- elif entity.type == "Complex substance of industrial production origin" %}
+        {{ industrial_origin(entity) }}
+      {%- elif entity.type == "Molecular assembly" %}
+        {{ molecular_assembly(entity) }}
+      {%- elif entity.type == "Polymer" %}
+        {{ polymer(entity) }}
+      {%- endif %}
+
+      {{ nv.spacer() }}
+
+    {%- endfor %}
+  {{ nv.list_close() }}
+{%- endmacro %}

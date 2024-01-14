@@ -1,0 +1,24 @@
+{% from   "mst/Common/NoValue.jinja" import no_value %}
+{% from   "mst/Common/RenderIf.jinja" import render_if2 %}
+{% import "mst/MBDB/NameValue/Index.jinja" as nv %}
+{% from   "mst/MBDB/Entities/Polymer/Modifications.jinja" import modifications %}
+{% from   "mst/MBDB/Organism.jinja" import organism %}
+
+{%- macro polymer(entity) %}
+  {{ nv.item(
+      "Source organism",
+      render_if2(
+        entity.source_organism is defined,
+        organism,
+        no_value(),
+        org=entity.source_organism)) }}
+  {{ nv.item("Sequence", entity.sequence) }}
+  {{ nv.item(
+      "Modifications",
+      render_if2(
+        entity.modifications is defined,
+        modifications,
+        no_value(),
+        mods=entity.modifications
+      )) }}
+{%- endmacro %}

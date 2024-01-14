@@ -1,9 +1,6 @@
 # `ui` folder
 
-Contains your UI for a model.
-Note: the common parts of the user interface should be
-either in sites/<your site>/site or local/<ui components package>,
-not here.
+Contains user interface for your repository.
 
 ## Creating UI
 

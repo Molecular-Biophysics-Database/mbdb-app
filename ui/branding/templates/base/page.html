@@ -1,0 +1,7 @@
+{% extends "invenio_theme/page.html" %}
+
+{%- block css %}
+  <!-- semantic ui - should we use that or not ? -->
+  {{super()}}
+  {{ webpack['branding.css'] }}
+{%- endblock css %}

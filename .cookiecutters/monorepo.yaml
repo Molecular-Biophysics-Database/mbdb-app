@@ -1,4 +1,0 @@
-default_context:
-  python: python3.9
-  repo_human_name: mbdb-app
-  repo_name: mbdb-app
