@@ -1,4 +1,4 @@
-MST_specific_parameters:
+method_specific_parameters:
   properties:
     schema_version:
       type: keyword

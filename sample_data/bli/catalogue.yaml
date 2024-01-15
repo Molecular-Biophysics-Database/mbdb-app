@@ -1,0 +1,4 @@
+bli_data:
+  - writer: service
+    service: mbdb_bli
+  - source: BLI.json

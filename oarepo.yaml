@@ -1,7 +1,7 @@
 models:
 - api_prefix: records/mst
   base_model: empty
-  features: [custom_fields, relations, files, drafts, tests, communities, requests]
+  features: [requests, files, custom_fields, tests, drafts, communities, relations]
   model_description: Microscale thermophoresis
   model_name: mst
   model_package: mst

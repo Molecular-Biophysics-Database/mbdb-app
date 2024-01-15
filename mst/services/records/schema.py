@@ -98,9 +98,11 @@ class MstMetadataSchema(Schema):
     class Meta:
         unknown = ma.RAISE
 
-    General_parameters = ma_fields.Nested(lambda: GeneralParametersSchema())
+    general_parameters = ma_fields.Nested(lambda: GeneralParametersSchema())
 
-    MST_specific_parameters = ma_fields.Nested(lambda: MSTSpecificParametersSchema())
+    method_specific_parameters = ma_fields.Nested(
+        lambda: MethodSpecificParametersSchema()
+    )
 
 
 class GeneralParametersSchema(DictOnlySchema):
@@ -626,7 +628,7 @@ class ComponentsItemSchema(PolymorphicSchema):
     type_field = "type"
 
 
-class MSTSpecificParametersSchema(DictOnlySchema):
+class MethodSpecificParametersSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 

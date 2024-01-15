@@ -16,7 +16,7 @@
             "metadata": {
                 "type": "object",
                 "properties": {
-                    "General_parameters": {
+                    "general_parameters": {
                         "type": "object",
                         "properties": {
                             "associated_publications": {
@@ -6113,7 +6113,7 @@
                             }
                         }
                     },
-                    "MST_specific_parameters": {
+                    "method_specific_parameters": {
                         "type": "object",
                         "properties": {
                             "data_analysis": {

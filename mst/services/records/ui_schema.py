@@ -19,9 +19,11 @@ class MstMetadataUISchema(Schema):
     class Meta:
         unknown = ma.RAISE
 
-    General_parameters = ma_fields.Nested(lambda: GeneralParametersUISchema())
+    general_parameters = ma_fields.Nested(lambda: GeneralParametersUISchema())
 
-    MST_specific_parameters = ma_fields.Nested(lambda: MSTSpecificParametersUISchema())
+    method_specific_parameters = ma_fields.Nested(
+        lambda: MethodSpecificParametersUISchema()
+    )
 
 
 class GeneralParametersUISchema(DictOnlySchema):
@@ -734,7 +736,7 @@ class EntitiesOfInterestItemMolecular_assemblyUISchema(DictOnlySchema):
     )
 
 
-class MSTSpecificParametersUISchema(DictOnlySchema):
+class MethodSpecificParametersUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 

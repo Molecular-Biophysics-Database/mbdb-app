@@ -1,4 +1,4 @@
-General_parameters:
+general_parameters:
   properties:
     schema_version:
       type: keyword
