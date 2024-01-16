@@ -163,6 +163,13 @@
             "hint": "updated.hint",
             "facet": "updated"
         },
+        "collected_default_search_fields": {
+            "detail": "fulltext",
+            "input": "fulltext",
+            "help": "collected_default_search_fields.help",
+            "label": "collected_default_search_fields.label",
+            "hint": "collected_default_search_fields.hint"
+        },
         "metadata": {
             "detail": "metadatum",
             "input": "metadatum",

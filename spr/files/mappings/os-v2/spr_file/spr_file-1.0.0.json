@@ -1,0 +1,78 @@
+{
+    "mappings": {
+        "properties": {
+            "$schema": {
+                "type": "keyword",
+                "ignore_above": 1024
+            },
+            "content_type": {
+                "type": "keyword",
+                "ignore_above": 1024
+            },
+            "context": {
+                "type": "keyword",
+                "ignore_above": 1024
+            },
+            "created": {
+                "type": "date",
+                "format": "basic_date||strict_date"
+            },
+            "description": {
+                "type": "keyword",
+                "ignore_above": 1024
+            },
+            "id": {
+                "type": "keyword",
+                "ignore_above": 1024
+            },
+            "name": {
+                "type": "keyword",
+                "ignore_above": 1024
+            },
+            "originates_from": {
+                "type": "keyword",
+                "ignore_above": 1024
+            },
+            "processing_steps": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
+                    "link_to_source_code": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
+                    "name": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
+                    "software_name": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
+                    "software_tool": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
+                    "software_version": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    }
+                }
+            },
+            "recommended_software": {
+                "type": "keyword",
+                "ignore_above": 1024
+            },
+            "size": {
+                "type": "integer"
+            },
+            "updated": {
+                "type": "date",
+                "format": "basic_date||strict_date"
+            }
+        }
+    }
+}

@@ -98,10 +98,12 @@ class MstMetadataSchema(Schema):
     class Meta:
         unknown = ma.RAISE
 
-    general_parameters = ma_fields.Nested(lambda: GeneralParametersSchema())
+    general_parameters = ma_fields.Nested(
+        lambda: GeneralParametersSchema(), required=True
+    )
 
     method_specific_parameters = ma_fields.Nested(
-        lambda: MethodSpecificParametersSchema()
+        lambda: MethodSpecificParametersSchema(), required=True
     )
 
 

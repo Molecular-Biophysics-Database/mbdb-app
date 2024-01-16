@@ -2,11 +2,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-01-15T13:48:46.661315\n"
-"PO-Revision-Date: 2024-01-15T13:48:46.661326\n"
+"POT-Creation-Date: 2024-01-16T07:18:50.022971\n"
+"PO-Revision-Date: 2024-01-16T07:18:50.022980\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+msgid "metadata/general_parameters.help"
+msgstr "The general parameter of the experiment"
 
 msgid "metadata/general_parameters/associated_publications.help"
 msgstr ""
@@ -6086,6 +6089,10 @@ msgid "metadata/general_parameters/technique.help"
 msgstr ""
 "The type of experimental technique used for collecting the raw data "
 "annotated by this record"
+
+msgid "metadata/method_specific_parameters.help"
+msgstr ""
+"The parameters of the experiment that is specific to MST/TRIC/Spectral Shift"
 
 msgid "metadata/method_specific_parameters/data_analysis.help"
 msgstr ""

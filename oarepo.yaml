@@ -1,11 +1,27 @@
 models:
 - api_prefix: records/mst
-  base_model: empty
-  features: [requests, files, custom_fields, tests, drafts, communities, relations]
+  base_model: &id001 empty
+  features: [&id002 requests, &id003 relations, &id004 drafts, &id005 files, &id006 tests,
+    &id007 custom_fields, communities]
   model_description: Microscale thermophoresis
   model_name: mst
   model_package: mst
   pid_type: mst
+- api_prefix: records/bli
+  base_model: *id001
+  features: [*id002, *id003, &id008 nr_vocabularies, &id009 vocabularies, *id004,
+    *id005, *id006, *id007]
+  model_description: ''
+  model_name: bli
+  model_package: bli
+  pid_type: bli
+- api_prefix: records/spr
+  base_model: *id001
+  features: [*id002, *id003, *id008, *id009, *id004, *id005, *id006, *id007]
+  model_description: ''
+  model_name: spr
+  model_package: spr
+  pid_type: spr
 repository:
   model_package: models
   oarepo_version: 12

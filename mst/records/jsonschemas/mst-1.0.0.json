@@ -4,6 +4,9 @@
         "$schema": {
             "type": "string"
         },
+        "collected_default_search_fields": {
+            "type": "string"
+        },
         "created": {
             "type": "string",
             "format": "date-time"

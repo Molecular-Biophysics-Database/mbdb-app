@@ -1,5 +1,5 @@
 $defs:
-  use: ["./general-parameters-definitions.yaml", "./mst-definitions.yaml"]
+  use: ["./general_parameters-definitions.yaml", "./mst-definitions.yaml"]
 
 plugins:
   builder:
@@ -21,13 +21,13 @@ profiles:
 - files
 - draft_files
 record:
-  use: ["invenio", "./mst-requests.yaml"]
+  use: ["invenio", "./requests.yaml"]
   draft: {}
   draft-files:
     resource:
       base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
   files:
-    use: ['./mst-files.yaml', 'invenio_files']
+    use: ['./files.yaml', 'invenio_files']
     resource:
       base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
   module:
@@ -40,7 +40,7 @@ record:
   properties:
     metadata:
       properties:
-        use: ["./general-parameters-metadata.yaml", "./mst-metadata.yaml"]
+        use: ["./mst-metadata.yaml"]
   resource-config:
     base-url: /records/mst/
     base-html-url: /mst/
@@ -51,4 +51,4 @@ settings:
   i18n-languages: [en]
   extension-elements: [ui_file_context]
 
-use: ["./mst-settings.yaml"]
+use: ["./settings.yaml"]

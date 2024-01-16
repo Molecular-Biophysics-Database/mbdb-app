@@ -12,6 +12,8 @@ class MstUISchema(InvenioUISchema):
     class Meta:
         unknown = ma.RAISE
 
+    collected_default_search_fields = ma_fields.String()
+
     metadata = ma_fields.Nested(lambda: MstMetadataUISchema())
 
 
@@ -19,10 +21,12 @@ class MstMetadataUISchema(Schema):
     class Meta:
         unknown = ma.RAISE
 
-    general_parameters = ma_fields.Nested(lambda: GeneralParametersUISchema())
+    general_parameters = ma_fields.Nested(
+        lambda: GeneralParametersUISchema(), required=True
+    )
 
     method_specific_parameters = ma_fields.Nested(
-        lambda: MethodSpecificParametersUISchema()
+        lambda: MethodSpecificParametersUISchema(), required=True
     )
 
 

@@ -1,55 +1,9 @@
+general_parameters:
+  use: '#/$defs/General_parameters'
+  required: true
+  help.en: The general parameter of the experiment
 method_specific_parameters:
-  properties:
-    schema_version:
-      type: keyword
-      enum: [0.9.7]
-      help.en: The schema version used to annotate the MST method specific parameters
-      required: true
-    experiment_type:
-      type: keyword
-      enum: [Affinity, Concentration, Other]
-      help.en: The type of physical parameter that was sought
-      required: true
-    signal_type:
-      type: keyword
-      enum: [Initial intensity, TRIC/MST, Spectral shift]
-      help.en: The type of signal that was being measured
-      required: true
-    excitation_led_color:
-      type: keyword
-      enum: ['RED (ex 605-645nm, em 660-720nm)', 'RED (ex 610-645nm, em 680-720nm)',
-        'GREEN (ex 555-585nm, em 605-690nm)', 'GREEN (ex 515-550nm, em 565-600nm)',
-        'BLUE (ex 480-500nm, em 515-550nm)', 'BLUE (ex 460-500nm, em 515-560nm)',
-        'UV (ex 260-300nm, em 330-380nm)', Spectral shift]
-      help.en: The color of the excitation LED used for the experiment. NOTE that
-        colors are specific to the combination in which it occurs, e.g. the GREEN
-        in a BLUE/GREEN instrument, is not the same as the GREEN in a GREEN/RED
-        instrument
-      required: true
-    excitation_led_power:
-      type: double
-      minimum: 0.0
-      maximum: 100.0
-      help.en: The power, in percentage, of the excitation LED used in experiment
-      required: true
-    ir_mst_laser_power:
-      type: double
-      minimum: 0.0
-      maximum: 100.0
-      help.en: The power of the infrared LASER used in the experiment in percentages.
-        Even though a change in nomenclature occurred in Nanotemper's control software,
-        the underlying data is still stored in percentages. Use the following conversion;
-        Low = 20, Medium = 40, High = 60
-      required: true
-    measurements[]:
-      ^minItems: 1
-      ^help.en: List of the information about each measurement. This includes target(s),
-        ligand(s), chemical environment, and the position of the sample within the
-        instrument
-      ^required: true
-      use: '#/$defs/Measurement'
-    data_analysis[]:
-      ^minItems: 1
-      ^help.en: Details of how the data was processed and modelled in order to derive
-        parameters from it
-      use: '#/$defs/MST_data_analysis'
+  use: '#/$defs/MST_specific_parameters'
+  required: true
+  help.en: The parameters of the experiment that is specific to MST/TRIC/Spectral
+    Shift

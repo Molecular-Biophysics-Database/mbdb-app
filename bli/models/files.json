@@ -1,0 +1,522 @@
+{
+    "model": {
+        "type": "file",
+        "searchable": true,
+        "marshmallow": {
+            "imports": [
+                {
+                    "import": "invenio_records_resources.services.files.schema.FileSchema",
+                    "alias": "InvenioFileSchema"
+                }
+            ],
+            "base-classes": [
+                "InvenioFileSchema"
+            ],
+            "generate": true,
+            "module": "bli.services.files.schema",
+            "class": "bli.services.files.schema.BliFileSchema",
+            "extra-code": ""
+        },
+        "resource": {
+            "base-classes": [
+                "oarepo_ui.resources.file_resource.S3RedirectFileResource"
+            ],
+            "imports": [],
+            "generate": true,
+            "config-key": "BLI_FILES_RESOURCE_CLASS",
+            "module": "bli.resources.files.resource",
+            "class": "bli.resources.files.resource.BliFileResource",
+            "proxy": "current_resource",
+            "extra-code": ""
+        },
+        "tests": {
+            "extra-fixtures": [],
+            "extra-code": "",
+            "module": "tests"
+        },
+        "sample": {
+            "file": "data/sample_data.yaml"
+        },
+        "search-options": {
+            "skip": true,
+            "generate": true,
+            "module": "bli.services.files.search",
+            "extra-code": "",
+            "class": "bli.services.files.search.BliFileSearchOptions",
+            "base-classes": [
+                "invenio_records_resources.services.SearchOptions{InvenioSearchOptions}"
+            ],
+            "imports": [],
+            "sort-options-field": "sort_options"
+        },
+        "facets": {
+            "skip": true,
+            "generate": true,
+            "module": "bli.services.files.facets",
+            "extra-code": ""
+        },
+        "json-schema-settings": {
+            "skip": true,
+            "generate": true,
+            "alias": "bli_file",
+            "version": "1.0.0",
+            "module": "bli.files.jsonschemas",
+            "name": "bli_file-1.0.0.json",
+            "file": "bli/files/jsonschemas/bli_file-1.0.0.json"
+        },
+        "mapping-settings": {
+            "skip": true
+        },
+        "record-dumper": {
+            "skip": true,
+            "generate": true,
+            "module": "bli.files.dumpers.dumper",
+            "class": "bli.files.dumpers.dumper.BliFileDumper",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.SearchDumper"
+            ],
+            "extra-code": "",
+            "extensions": [
+                "{{bli.files.dumpers.edtf.BliFileEDTFIntervalDumperExt}}()"
+            ],
+            "imports": []
+        },
+        "module": {
+            "qualified": "bli",
+            "prefix": "BliFile",
+            "alias": "bli_file",
+            "path": "bli",
+            "base": "bli",
+            "base-upper": "BLI",
+            "base-title": "Bli",
+            "kebab-module": "bli",
+            "prefix-upper": "BLIFILE",
+            "prefix-snake": "bli_file",
+            "suffix": "bli_file",
+            "suffix-upper": "BLI_FILE",
+            "suffix-snake": "bli_file"
+        },
+        "model-name": "Bli",
+        "config": {
+            "generate": true,
+            "module": "bli.config",
+            "extra_code": "",
+            "imports": []
+        },
+        "ext": {
+            "generate": true,
+            "module": "bli.ext",
+            "class": "bli.ext.BliExt",
+            "base-classes": [],
+            "extra_code": "",
+            "alias": "bli",
+            "imports": []
+        },
+        "api-blueprint": {
+            "generate": true,
+            "alias": "bli_file",
+            "extra_code": "",
+            "module": "bli.views.files.api",
+            "function": "bli.views.files.api.create_api_blueprint",
+            "imports": []
+        },
+        "app-blueprint": {
+            "generate": true,
+            "alias": "bli_file",
+            "extra_code": "",
+            "module": "bli.views.files.app",
+            "function": "bli.views.files.app.create_app_blueprint",
+            "imports": []
+        },
+        "saved-model": {
+            "file": "bli/models/files.json",
+            "module": "bli.models",
+            "alias": "bli_file"
+        },
+        "proxy": {
+            "module": "bli.proxies",
+            "generate": true
+        },
+        "record": {
+            "class": "bli.files.api.BliFile",
+            "base-classes": [
+                "invenio_records_resources.records.api.FileRecord"
+            ],
+            "imports": [],
+            "generate": true,
+            "module": "bli.files.api",
+            "extra-code": ""
+        },
+        "resource-config": {
+            "base-url": "/records/bli/<pid_value>",
+            "base-classes": [
+                "invenio_records_resources.resources.FileResourceConfig"
+            ],
+            "imports": [],
+            "generate": true,
+            "base-html-url": "/bli/",
+            "config-key": "BLI_FILES_RESOURCE_CONFIG",
+            "module": "bli.resources.files.config",
+            "class": "bli.resources.files.config.BliFileResourceConfig",
+            "extra-code": ""
+        },
+        "ext-resource": {
+            "generate": true,
+            "skip": false
+        },
+        "ui": {
+            "module": "bli.models",
+            "file": "bli/models/ui.json",
+            "alias": "bli_file",
+            "marshmallow": {
+                "generate": true,
+                "module": "bli.services.files.ui_schema",
+                "class": "bli.services.files.ui_schema.BliFileUISchema",
+                "extra-code": "",
+                "base-classes": [
+                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
+                ],
+                "imports": []
+            }
+        },
+        "json-serializer": {
+            "module": "bli.resources.files.ui",
+            "class": "bli.resources.files.ui.BliFileUIJSONSerializer",
+            "base-classes": [
+                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
+            ],
+            "imports": [],
+            "extra-code": "",
+            "generate": true,
+            "list_schema_cls": "flask_resources.BaseListSchema",
+            "format_serializer_cls": "flask_resources.serializers.JSONSerializer"
+        },
+        "record-metadata": {
+            "use-versioning": false,
+            "generate": true,
+            "module": "bli.files.models",
+            "class": "bli.files.models.BliFileMetadata",
+            "base-classes": [
+                "invenio_db.db{db.Model}",
+                "invenio_records.models.RecordMetadataBase",
+                "invenio_records_resources.records.FileRecordModelMixin"
+            ],
+            "extra-code": "",
+            "imports": [],
+            "table": "bli_file_metadata",
+            "alias": "bli_file"
+        },
+        "service-config": {
+            "base-classes": [
+                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
+                "invenio_records_resources.services.FileServiceConfig"
+            ],
+            "imports": [],
+            "generate": true,
+            "config-key": "BLI_FILES_SERVICE_CONFIG",
+            "module": "bli.services.files.config",
+            "class": "bli.services.files.config.BliFileServiceConfig",
+            "extra-code": "",
+            "service-id": "bli_file",
+            "components": [
+                "{{invenio_records_resources.services.records.components.DataComponent}}"
+            ],
+            "result-list-class": "oarepo_runtime.services.results.RecordList"
+        },
+        "service": {
+            "base-classes": [
+                "invenio_records_resources.services.FileService"
+            ],
+            "imports": [],
+            "generate": true,
+            "config-key": "BLI_FILES_SERVICE_CLASS",
+            "proxy": "current_service",
+            "module": "bli.services.files.service",
+            "class": "bli.services.files.service.BliFileService",
+            "extra-code": ""
+        },
+        "pid": {
+            "type": "blfl",
+            "generate": true,
+            "module": "bli.files.api",
+            "provider-class": "bli.files.api.BliFileIdProvider",
+            "provider-base-classes": [
+                "invenio_pidstore.providers.recordid_v2.RecordIdProviderV2"
+            ],
+            "field-class": "invenio_records_resources.records.systemfields.pid.PIDField",
+            "context-class": "invenio_records_resources.records.systemfields.pid.PIDFieldContext",
+            "field-args": [
+                "create=True"
+            ],
+            "imports": [],
+            "extra-code": ""
+        },
+        "files-field": {
+            "field-args": [
+                "store=False",
+                "create=False",
+                "delete=False"
+            ],
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "bli.files.api.BliFile",
+            "imports": []
+        },
+        "translations": {
+            "module": "bli.translations",
+            "alias": "bli_file"
+        },
+        "edtf-interval-dumper": {
+            "generate": true,
+            "module": "bli.files.dumpers.edtf",
+            "class": "bli.files.dumpers.edtf.BliFileEDTFIntervalDumperExt",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
+            ],
+            "extra-code": "",
+            "extensions": [],
+            "imports": []
+        },
+        "permissions": {
+            "class": "bli.services.records.permissions.BliPermissionPolicy",
+            "generate": false,
+            "presets": [
+                "everyone"
+            ],
+            "extra-code": "",
+            "module": "bli.services.files.permissions",
+            "base-classes": [
+                "invenio_records_permissions.RecordPermissionPolicy"
+            ],
+            "imports": []
+        },
+        "draft-parent-record": {
+            "generate": false,
+            "skip": true
+        },
+        "draft-parent-record-metadata": {
+            "skip": true
+        },
+        "draft-parent-record-state": {
+            "skip": true
+        },
+        "mapping": {
+            "generate": true,
+            "alias": "bli_file",
+            "module": "bli.files.mappings",
+            "index": "bli_file-bli_file-1.0.0",
+            "file": "bli/files/mappings/os-v2/bli_file/bli_file-1.0.0.json"
+        },
+        "published-service-config": {
+            "config-key": "BLI_FILES_PUBLISHED_SERVICE_CONFIG",
+            "module": "bli.services.files.published.config",
+            "class": "bli.services.files.published.config.BliFilePublishedServiceConfig",
+            "extra-code": "",
+            "service-id": "published_bli_file",
+            "base-classes": [
+                "oarepo_published_service.services.config.PublishedServiceConfig",
+                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin"
+            ],
+            "generate": true
+        },
+        "published-service": {
+            "generate": true,
+            "config-key": "BLI_FILES_PUBLISHED_SERVICE_CLASS",
+            "proxy": "current_published_service",
+            "module": "bli.services.files.published.service",
+            "class": "bli.services.files.published.service.BliFilePublishedService",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_published_service.services.service.PublishedService"
+            ],
+            "imports": []
+        },
+        "requests": {},
+        "parent-record-marshmallow": {
+            "module": "bli.services.files.schema",
+            "class": "bli.services.files.schema.GeneratedParentSchema",
+            "generate": true,
+            "base-classes": [
+                "invenio_drafts_resources.services.records.schema.ParentSchema{InvenioParentSchema}"
+            ]
+        },
+        "record-resolver": {
+            "generate": false,
+            "skip": true
+        },
+        "sortable": [],
+        "properties": {
+            "$schema": {
+                "type": "keyword",
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "content_type": {
+                "type": "keyword",
+                "required": true,
+                "enum": [
+                    "text",
+                    "binary",
+                    "text and binary"
+                ],
+                "help.en": "Type of the file content in terms of how it can be read (text, binary, etc.)"
+            },
+            "context": {
+                "type": "keyword",
+                "required": true,
+                "enum": [
+                    "raw measurement data",
+                    "derived measurement data",
+                    "quality control report",
+                    "performance test report"
+                ],
+                "help.en": "The context the file should be understood within (e.g. raw measurement data)"
+            },
+            "created": {
+                "type": "date",
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "read": true,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "description": {
+                "type": "keyword",
+                "help.en": "Short description of what the file contains"
+            },
+            "id": {
+                "type": "keyword",
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "name": {
+                "type": "keyword",
+                "required": true,
+                "help.en": "Name of the file"
+            },
+            "originates_from": {
+                "type": "keyword",
+                "required": true,
+                "enum": [
+                    "Instrument software",
+                    "User",
+                    "MBDB"
+                ],
+                "help.en": "What is the source of the file"
+            },
+            "processing_steps": {
+                "type": "array",
+                "required": true,
+                "minItems": 1,
+                "help.en": "List of the processing steps performed on the file before it was deposited (e.g. exported to xlsx)",
+                "marshmallow": {
+                    "validators": [
+                        "ma.validate.Length(min=1)"
+                    ]
+                },
+                "items": {
+                    "type": "object",
+                    "marshmallow": {
+                        "generate": true,
+                        "class": "bli.services.files.schema.ProcessingStepsItemSchema"
+                    },
+                    "ui": {
+                        "marshmallow": {
+                            "generate": true,
+                            "class": "bli.services.files.ui_schema.ProcessingStepsItemUISchema"
+                        }
+                    },
+                    "properties": {
+                        "description": {
+                            "type": "keyword",
+                            "required": true,
+                            "help.en": "Description of what the processing step was"
+                        },
+                        "link_to_source_code": {
+                            "type": "url",
+                            "help.en": "If processing was performed with software where the source code is legally available a link can be specified here (e.g. self-written python script in a GitHub repository"
+                        },
+                        "name": {
+                            "type": "keyword",
+                            "required": true,
+                            "help.en": "Short descriptive name of the processing step"
+                        },
+                        "software_name": {
+                            "type": "keyword",
+                            "help.en": "The name of the software that was used for the step (e.g. Excel)"
+                        },
+                        "software_tool": {
+                            "type": "keyword",
+                            "help.en": "The name of the tool within the specified software, i.e. a particular method called or \"button pressed\" (e.g. equation solver, buffer subtraction)"
+                        },
+                        "software_version": {
+                            "type": "keyword",
+                            "help.en": "The version of the software that was used for the step"
+                        }
+                    }
+                }
+            },
+            "recommended_software": {
+                "type": "keyword",
+                "help.en": "The name of the software recommended for opening and working with the file"
+            },
+            "size": {
+                "type": "integer",
+                "required": true,
+                "minimum": 0,
+                "help.en": "Size of the file",
+                "marshmallow": {
+                    "validators": [
+                        "ma.validate.Range(min=0)"
+                    ]
+                }
+            },
+            "updated": {
+                "type": "date",
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "read": true,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                }
+            }
+        }
+    }
+}
