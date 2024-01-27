@@ -1,7 +1,6 @@
 from invenio_db import db
 from invenio_records.models import RecordMetadataBase
 from invenio_records_resources.records import FileRecordModelMixin
-
 from mst.records.models import MstDraftMetadata, MstMetadata
 
 

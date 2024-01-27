@@ -154,10 +154,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[
             OneOf([
                 "Bio-layer interferometry (BLI)",
-                (
-                    "Microscale thermophoresis/Temperature related intensity change"
-                    " (MST/TRIC)"
-                ),
+                "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
                 "Surface plasmon resonance (SPR)",
             ])
         ],

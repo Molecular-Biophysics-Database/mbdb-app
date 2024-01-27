@@ -5,6 +5,7 @@ from bli import config
 
 
 class BliExt:
+
     def __init__(self, app=None):
 
         if app:

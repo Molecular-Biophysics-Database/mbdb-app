@@ -1,8 +1,7 @@
 from flask_resources import BaseListSchema
 from flask_resources.serializers import JSONSerializer
-from oarepo_runtime.resources import LocalizedUIJSONSerializer
-
 from mst.services.records.ui_schema import MstUISchema
+from oarepo_runtime.resources import LocalizedUIJSONSerializer
 
 
 class MstUIJSONSerializer(LocalizedUIJSONSerializer):

@@ -5,15 +5,14 @@ from invenio_drafts_resources.services.records.components import DraftFilesCompo
 from invenio_drafts_resources.services.records.config import is_record
 from invenio_records_resources.services import ConditionalLink, RecordLink
 from invenio_records_resources.services.records.components import DataComponent
-from oarepo_requests.services.components import PublishDraftComponent
-from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
-from oarepo_runtime.services.files import FilesComponent
-from oarepo_runtime.services.results import RecordList
-
 from mst.records.api import MstDraft, MstRecord
 from mst.services.records.permissions import MstPermissionPolicy
 from mst.services.records.schema import MstSchema
 from mst.services.records.search import MstSearchOptions
+from oarepo_requests.services.components import PublishDraftComponent
+from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
+from oarepo_runtime.services.files import FilesComponent
+from oarepo_runtime.services.results import RecordList
 
 
 class MstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsServiceConfig):

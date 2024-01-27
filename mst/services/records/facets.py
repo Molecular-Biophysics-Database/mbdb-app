@@ -82,9 +82,7 @@ metadata_general_parameters_associated_publications_additional_publication_year 
 metadata_general_parameters_associated_publications_additional_publisher = NestedLabeledFacet(
     path="metadata.general_parameters.associated_publications.additional",
     nested_facet=TermsFacet(
-        field=(
-            "metadata.general_parameters.associated_publications.additional.publisher"
-        ),
+        field="metadata.general_parameters.associated_publications.additional.publisher",
         label=_(
             "metadata/general_parameters/associated_publications/additional/publisher.label"
         ),
@@ -3161,9 +3159,7 @@ metadata_general_parameters_chemical_information_chemical_environments_dynamic_v
 metadata_general_parameters_chemical_information_chemical_environments_id = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_information.chemical_environments",
     nested_facet=TermsFacet(
-        field=(
-            "metadata.general_parameters.chemical_information.chemical_environments.id"
-        ),
+        field="metadata.general_parameters.chemical_information.chemical_environments.id",
         label=_(
             "metadata/general_parameters/chemical_information/chemical_environments/id.label"
         ),
@@ -4193,9 +4189,7 @@ metadata_general_parameters_chemical_information_entities_of_interest_quality_co
 )
 
 metadata_general_parameters_chemical_information_entities_of_interest_sequence = TermsFacet(
-    field=(
-        "metadata.general_parameters.chemical_information.entities_of_interest.sequence"
-    ),
+    field="metadata.general_parameters.chemical_information.entities_of_interest.sequence",
     label=_(
         "metadata/general_parameters/chemical_information/entities_of_interest/sequence.label"
     ),
@@ -4357,9 +4351,7 @@ metadata_general_parameters_chemical_information_entities_of_interest_type = Ter
 )
 
 metadata_general_parameters_chemical_information_entities_of_interest_variant = TermsFacet(
-    field=(
-        "metadata.general_parameters.chemical_information.entities_of_interest.variant"
-    ),
+    field="metadata.general_parameters.chemical_information.entities_of_interest.variant",
     label=_(
         "metadata/general_parameters/chemical_information/entities_of_interest/variant.label"
     ),
@@ -4373,9 +4365,7 @@ metadata_general_parameters_chemical_information_entities_of_interest_additional
 )
 
 metadata_general_parameters_chemical_information_entities_of_interest_inchikey = TermsFacet(
-    field=(
-        "metadata.general_parameters.chemical_information.entities_of_interest.inchikey"
-    ),
+    field="metadata.general_parameters.chemical_information.entities_of_interest.inchikey",
     label=_(
         "metadata/general_parameters/chemical_information/entities_of_interest/inchikey.label"
     ),
@@ -5073,9 +5063,7 @@ metadata_general_parameters_chemical_information_entities_of_interest_cell_type 
 )
 
 metadata_general_parameters_chemical_information_entities_of_interest_fraction = TermsFacet(
-    field=(
-        "metadata.general_parameters.chemical_information.entities_of_interest.fraction"
-    ),
+    field="metadata.general_parameters.chemical_information.entities_of_interest.fraction",
     label=_(
         "metadata/general_parameters/chemical_information/entities_of_interest/fraction.label"
     ),
@@ -5089,9 +5077,7 @@ metadata_general_parameters_chemical_information_entities_of_interest_organ = Te
 )
 
 metadata_general_parameters_chemical_information_entities_of_interest_tissue = TermsFacet(
-    field=(
-        "metadata.general_parameters.chemical_information.entities_of_interest.tissue"
-    ),
+    field="metadata.general_parameters.chemical_information.entities_of_interest.tissue",
     label=_(
         "metadata/general_parameters/chemical_information/entities_of_interest/tissue.label"
     ),
@@ -5148,9 +5134,7 @@ metadata_general_parameters_chemical_information_entities_of_interest_location_l
 )
 
 metadata_general_parameters_chemical_information_entities_of_interest_source = TermsFacet(
-    field=(
-        "metadata.general_parameters.chemical_information.entities_of_interest.source"
-    ),
+    field="metadata.general_parameters.chemical_information.entities_of_interest.source",
     label=_(
         "metadata/general_parameters/chemical_information/entities_of_interest/source.label"
     ),
@@ -5843,9 +5827,7 @@ metadata_general_parameters_chemical_information_entities_of_interest_details_ty
 )
 
 metadata_general_parameters_chemical_information_entities_of_interest_product = TermsFacet(
-    field=(
-        "metadata.general_parameters.chemical_information.entities_of_interest.product"
-    ),
+    field="metadata.general_parameters.chemical_information.entities_of_interest.product",
     label=_(
         "metadata/general_parameters/chemical_information/entities_of_interest/product.label"
     ),
@@ -6060,9 +6042,7 @@ metadata_general_parameters_instrument_name = TermsFacet(
 )
 
 metadata_general_parameters_instrument_performance_test_additional_information = TermsFacet(
-    field=(
-        "metadata.general_parameters.instrument.performance_test.additional_information"
-    ),
+    field="metadata.general_parameters.instrument.performance_test.additional_information",
     label=_(
         "metadata/general_parameters/instrument/performance_test/additional_information.label"
     ),
@@ -8957,9 +8937,7 @@ metadata_method_specific_parameters_data_analysis_data_fitting_quality_type = Te
 )
 
 metadata_method_specific_parameters_data_analysis_data_fitting_software_name = TermsFacet(
-    field=(
-        "metadata.method_specific_parameters.data_analysis.data_fitting.software_name"
-    ),
+    field="metadata.method_specific_parameters.data_analysis.data_fitting.software_name",
     label=_(
         "metadata/method_specific_parameters/data_analysis/data_fitting/software_name.label"
     ),
@@ -8987,9 +8965,7 @@ metadata_method_specific_parameters_data_analysis_data_processing_steps_link_to_
 )
 
 metadata_method_specific_parameters_data_analysis_data_processing_steps_name = TermsFacet(
-    field=(
-        "metadata.method_specific_parameters.data_analysis.data_processing_steps.name"
-    ),
+    field="metadata.method_specific_parameters.data_analysis.data_processing_steps.name",
     label=_(
         "metadata/method_specific_parameters/data_analysis/data_processing_steps/name.label"
     ),
@@ -9024,9 +9000,7 @@ metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_cold_end = Te
 )
 
 metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_cold_start = TermsFacet(
-    field=(
-        "metadata.method_specific_parameters.data_analysis.f_cold_and_hot.f_cold_start"
-    ),
+    field="metadata.method_specific_parameters.data_analysis.f_cold_and_hot.f_cold_start",
     label=_(
         "metadata/method_specific_parameters/data_analysis/f_cold_and_hot/f_cold_start.label"
     ),
@@ -9040,9 +9014,7 @@ metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_hot_end = Ter
 )
 
 metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_hot_start = TermsFacet(
-    field=(
-        "metadata.method_specific_parameters.data_analysis.f_cold_and_hot.f_hot_start"
-    ),
+    field="metadata.method_specific_parameters.data_analysis.f_cold_and_hot.f_hot_start",
     label=_(
         "metadata/method_specific_parameters/data_analysis/f_cold_and_hot/f_hot_start.label"
     ),
@@ -9100,9 +9072,7 @@ metadata_method_specific_parameters_measurements_measured_data_x_data_unit = Ter
 )
 
 metadata_method_specific_parameters_measurements_measured_data_x_data_values = TermsFacet(
-    field=(
-        "metadata.method_specific_parameters.measurements.measured_data.x_data.values"
-    ),
+    field="metadata.method_specific_parameters.measurements.measured_data.x_data.values",
     label=_(
         "metadata/method_specific_parameters/measurements/measured_data/x_data/values.label"
     ),
@@ -9123,9 +9093,7 @@ metadata_method_specific_parameters_measurements_measured_data_y_data_unit = Ter
 )
 
 metadata_method_specific_parameters_measurements_measured_data_y_data_values = TermsFacet(
-    field=(
-        "metadata.method_specific_parameters.measurements.measured_data.y_data.values"
-    ),
+    field="metadata.method_specific_parameters.measurements.measured_data.y_data.values",
     label=_(
         "metadata/method_specific_parameters/measurements/measured_data/y_data/values.label"
     ),

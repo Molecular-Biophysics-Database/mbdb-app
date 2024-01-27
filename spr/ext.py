@@ -5,6 +5,7 @@ from spr import config
 
 
 class SprExt:
+
     def __init__(self, app=None):
 
         if app:

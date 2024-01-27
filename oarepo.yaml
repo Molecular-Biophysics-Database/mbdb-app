@@ -1,24 +1,35 @@
+i18n:
+  babel_input_translations: []
+  babel_output_translations: i18n/translations
+  babel_source_paths:
+  - mst
+  - mst
+  - spr
+  - bli
+  i18next_input_translations: []
+  i18next_output_translations: i18n/semantic-ui/translations
+  i18next_source_paths: []
+  languages:
+  - en
 models:
 - api_prefix: records/mst
-  base_model: empty
-  features: [relations, files, drafts, requests, custom_fields,
-    tests, communities]
+  base_model: &id001 empty
+  features: [&id002 tests, &id003 custom_fields, &id004 communities, &id005 requests,
+    &id006 files, &id007 drafts, &id008 relations]
   model_description: Microscale thermophoresis
   model_name: mst
   model_package: mst
   pid_type: mst
 - api_prefix: records/bli
-  base_model: empty
-  features: [relations, files, drafts, requests, custom_fields,
-    tests, communities]
+  base_model: *id001
+  features: [*id002, *id003, *id004, *id005, *id006, *id007, *id008]
   model_description: ''
   model_name: bli
   model_package: bli
   pid_type: bli
 - api_prefix: records/spr
-  base_model: empty
-  features: [relations, files, drafts, requests, custom_fields,
-    tests, communities]
+  base_model: *id001
+  features: [*id002, *id003, *id004, *id005, *id006, *id007, *id008]
   model_description: ''
   model_name: spr
   model_package: spr

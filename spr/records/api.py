@@ -211,9 +211,7 @@ class SprRecord(InvenioRecord):
         entity=InternalRelation(
             "metadata.general_parameters.derived_parameters.entities_involved.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         funding_reference=PIDRelation(
             "metadata.general_parameters.funding_reference",
@@ -305,9 +303,7 @@ class SprRecord(InvenioRecord):
         ligand=InternalRelation(
             "metadata.method_specific_parameters.measurement_positions.ligand_information.ligand",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         path=InternalRelation(
             "metadata.method_specific_parameters.measurement_protocol.flow.path",
@@ -327,16 +323,12 @@ class SprRecord(InvenioRecord):
         analytes_entity=InternalRelation(
             "metadata.method_specific_parameters.measurements.reference_samples.analytes.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         chemical_environment=InternalRelation(
             "metadata.method_specific_parameters.measurements.reference_samples.chemical_environment",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.chemical_environments"
-            ),
+            related_part="metadata.general_parameters.chemical_information.chemical_environments",
         ),
         measurement_step=InternalRelation(
             "metadata.method_specific_parameters.measurements.reference_samples.measurement_step",
@@ -346,16 +338,12 @@ class SprRecord(InvenioRecord):
         samples_analytes_entity=InternalRelation(
             "metadata.method_specific_parameters.measurements.samples.analytes.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         samples_chemical_environment=InternalRelation(
             "metadata.method_specific_parameters.measurements.samples.chemical_environment",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.chemical_environments"
-            ),
+            related_part="metadata.general_parameters.chemical_information.chemical_environments",
         ),
         samples_measurement_step=InternalRelation(
             "metadata.method_specific_parameters.measurements.samples.measurement_step",
@@ -548,9 +536,7 @@ class SprDraft(InvenioDraft):
         entity=InternalRelation(
             "metadata.general_parameters.derived_parameters.entities_involved.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         funding_reference=PIDRelation(
             "metadata.general_parameters.funding_reference",
@@ -642,9 +628,7 @@ class SprDraft(InvenioDraft):
         ligand=InternalRelation(
             "metadata.method_specific_parameters.measurement_positions.ligand_information.ligand",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         path=InternalRelation(
             "metadata.method_specific_parameters.measurement_protocol.flow.path",
@@ -664,16 +648,12 @@ class SprDraft(InvenioDraft):
         analytes_entity=InternalRelation(
             "metadata.method_specific_parameters.measurements.reference_samples.analytes.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         chemical_environment=InternalRelation(
             "metadata.method_specific_parameters.measurements.reference_samples.chemical_environment",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.chemical_environments"
-            ),
+            related_part="metadata.general_parameters.chemical_information.chemical_environments",
         ),
         measurement_step=InternalRelation(
             "metadata.method_specific_parameters.measurements.reference_samples.measurement_step",
@@ -683,16 +663,12 @@ class SprDraft(InvenioDraft):
         samples_analytes_entity=InternalRelation(
             "metadata.method_specific_parameters.measurements.samples.analytes.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         samples_chemical_environment=InternalRelation(
             "metadata.method_specific_parameters.measurements.samples.chemical_environment",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.chemical_environments"
-            ),
+            related_part="metadata.general_parameters.chemical_information.chemical_environments",
         ),
         samples_measurement_step=InternalRelation(
             "metadata.method_specific_parameters.measurements.samples.measurement_step",

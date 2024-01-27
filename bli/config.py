@@ -1,6 +1,4 @@
 from bli.records.api import BliDraft, BliRecord
-from bli.records.requests.delete_record.types import DeleteRecordRequestType
-from bli.records.requests.publish_draft.types import PublishDraftRequestType
 from bli.records.requests.resolvers import BliDraftResolver, BliResolver
 from bli.resources.files.config import BliFileDraftResourceConfig, BliFileResourceConfig
 from bli.resources.files.resource import BliFileDraftResource, BliFileResource
@@ -11,6 +9,9 @@ from bli.services.files.service import BliFileDraftService, BliFileService
 from bli.services.records.config import BliServiceConfig
 from bli.services.records.service import BliService
 from oarepo_runtime.records.entity_resolvers import UserResolver
+
+from common.requests.delete_record.types import DeleteRecordRequestType
+from common.requests.publish_draft.types import PublishDraftRequestType
 
 BLI_RECORD_RESOURCE_CONFIG = BliResourceConfig
 

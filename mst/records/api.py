@@ -7,14 +7,6 @@ from invenio_records_resources.records.systemfields.pid import PIDField, PIDFiel
 from invenio_requests.records import Request
 from invenio_requests.records.systemfields.relatedrecord import RelatedRecord
 from invenio_vocabularies.records.api import Vocabulary
-from oarepo_runtime.records.relations import (
-    InternalRelation,
-    PIDRelation,
-    RelationsField,
-)
-from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
-from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
-
 from mst.files.api import MstFile, MstFileDraft
 from mst.records.dumpers.dumper import MstDraftDumper, MstDumper
 from mst.records.models import (
@@ -23,6 +15,13 @@ from mst.records.models import (
     MstParentMetadata,
     MstParentState,
 )
+from oarepo_runtime.records.relations import (
+    InternalRelation,
+    PIDRelation,
+    RelationsField,
+)
+from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
+from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
 
 
 class MstParentRecord(ParentRecord):
@@ -212,9 +211,7 @@ class MstRecord(InvenioRecord):
         entity=InternalRelation(
             "metadata.general_parameters.derived_parameters.entities_involved.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         funding_reference=PIDRelation(
             "metadata.general_parameters.funding_reference",
@@ -306,23 +303,17 @@ class MstRecord(InvenioRecord):
         chemical_environment=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.chemical_environment",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.chemical_environments"
-            ),
+            related_part="metadata.general_parameters.chemical_information.chemical_environments",
         ),
         ligands_entity=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.ligands.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         targets_entity=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.targets.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
     )
 
@@ -510,9 +501,7 @@ class MstDraft(InvenioDraft):
         entity=InternalRelation(
             "metadata.general_parameters.derived_parameters.entities_involved.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         funding_reference=PIDRelation(
             "metadata.general_parameters.funding_reference",
@@ -604,23 +593,17 @@ class MstDraft(InvenioDraft):
         chemical_environment=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.chemical_environment",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.chemical_environments"
-            ),
+            related_part="metadata.general_parameters.chemical_information.chemical_environments",
         ),
         ligands_entity=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.ligands.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         targets_entity=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.targets.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
     )
 

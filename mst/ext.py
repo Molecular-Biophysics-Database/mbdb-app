@@ -5,6 +5,7 @@ from mst import config
 
 
 class MstExt:
+
     def __init__(self, app=None):
 
         if app:

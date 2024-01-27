@@ -211,9 +211,7 @@ class BliRecord(InvenioRecord):
         entity=InternalRelation(
             "metadata.general_parameters.derived_parameters.entities_involved.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         funding_reference=PIDRelation(
             "metadata.general_parameters.funding_reference",
@@ -310,16 +308,12 @@ class BliRecord(InvenioRecord):
         analytes_entity=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.analytes.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         chemical_environment=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.chemical_environment",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.chemical_environments"
-            ),
+            related_part="metadata.general_parameters.chemical_information.chemical_environments",
         ),
         plate=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.plate",
@@ -334,9 +328,7 @@ class BliRecord(InvenioRecord):
         ligand=InternalRelation(
             "metadata.method_specific_parameters.sensors.ligand_information.ligand",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
     )
 
@@ -524,9 +516,7 @@ class BliDraft(InvenioDraft):
         entity=InternalRelation(
             "metadata.general_parameters.derived_parameters.entities_involved.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         funding_reference=PIDRelation(
             "metadata.general_parameters.funding_reference",
@@ -623,16 +613,12 @@ class BliDraft(InvenioDraft):
         analytes_entity=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.analytes.entity",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
         chemical_environment=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.chemical_environment",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.chemical_environments"
-            ),
+            related_part="metadata.general_parameters.chemical_information.chemical_environments",
         ),
         plate=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.plate",
@@ -647,9 +633,7 @@ class BliDraft(InvenioDraft):
         ligand=InternalRelation(
             "metadata.method_specific_parameters.sensors.ligand_information.ligand",
             keys=["id", "name"],
-            related_part=(
-                "metadata.general_parameters.chemical_information.entities_of_interest"
-            ),
+            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
         ),
     )
 

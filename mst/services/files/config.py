@@ -1,12 +1,11 @@
 from invenio_records_resources.services import FileLink, FileServiceConfig, RecordLink
 from invenio_records_resources.services.records.components import DataComponent
-from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
-from oarepo_runtime.services.results import RecordList
-
 from mst.records.api import MstDraft, MstRecord
 from mst.services.files.permissions import MstFileDraftPermissionPolicy
 from mst.services.files.schema import MstFileSchema
 from mst.services.records.permissions import MstPermissionPolicy
+from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
+from oarepo_runtime.services.results import RecordList
 
 
 class MstFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):

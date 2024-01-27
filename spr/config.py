@@ -1,7 +1,5 @@
 from oarepo_runtime.records.entity_resolvers import UserResolver
 from spr.records.api import SprDraft, SprRecord
-from spr.records.requests.delete_record.types import DeleteRecordRequestType
-from spr.records.requests.publish_draft.types import PublishDraftRequestType
 from spr.records.requests.resolvers import SprDraftResolver, SprResolver
 from spr.resources.files.config import SprFileDraftResourceConfig, SprFileResourceConfig
 from spr.resources.files.resource import SprFileDraftResource, SprFileResource
@@ -11,6 +9,9 @@ from spr.services.files.config import SprFileDraftServiceConfig, SprFileServiceC
 from spr.services.files.service import SprFileDraftService, SprFileService
 from spr.services.records.config import SprServiceConfig
 from spr.services.records.service import SprService
+
+from common.requests.delete_record.types import DeleteRecordRequestType
+from common.requests.publish_draft.types import PublishDraftRequestType
 
 SPR_RECORD_RESOURCE_CONFIG = SprResourceConfig
 

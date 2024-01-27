@@ -1,8 +1,4 @@
-from oarepo_runtime.records.entity_resolvers import UserResolver
-
 from mst.records.api import MstDraft, MstRecord
-from mst.records.requests.delete_record.types import DeleteRecordRequestType
-from mst.records.requests.publish_draft.types import PublishDraftRequestType
 from mst.records.requests.resolvers import MstDraftResolver, MstResolver
 from mst.resources.files.config import MstFileDraftResourceConfig, MstFileResourceConfig
 from mst.resources.files.resource import MstFileDraftResource, MstFileResource
@@ -12,6 +8,10 @@ from mst.services.files.config import MstFileDraftServiceConfig, MstFileServiceC
 from mst.services.files.service import MstFileDraftService, MstFileService
 from mst.services.records.config import MstServiceConfig
 from mst.services.records.service import MstService
+from oarepo_runtime.records.entity_resolvers import UserResolver
+
+from common.requests.delete_record.types import DeleteRecordRequestType
+from common.requests.publish_draft.types import PublishDraftRequestType
 
 MST_RECORD_RESOURCE_CONFIG = MstResourceConfig
 
