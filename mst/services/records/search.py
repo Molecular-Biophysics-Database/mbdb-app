@@ -1,9 +1,8 @@
-from invenio_records_resources.services import SearchOptions as InvenioSearchOptions
-
+from common.services.records import MBDBSearchOptions
 from . import facets
 
 
-class MstSearchOptions(InvenioSearchOptions):
+class MstSearchOptions(MBDBSearchOptions):
     """MstRecord search options."""
 
     facet_groups = {}
@@ -1040,5 +1039,5 @@ class MstSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_measurements_sample_targets_concentration_value_error_upper_error": facets.metadata_method_specific_parameters_measurements_sample_targets_concentration_value_error_upper_error,
         "metadata_method_specific_parameters_schema_version": facets.metadata_method_specific_parameters_schema_version,
         "metadata_method_specific_parameters_signal_type": facets.metadata_method_specific_parameters_signal_type,
-        **getattr(InvenioSearchOptions, "facets", {}),
+        **getattr(MBDBSearchOptions, "facets", {}),
     }
