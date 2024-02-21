@@ -1,14 +1,17 @@
 i18n:
-  babel_input_translations: []
+  babel_input_translations:
+    - mst/translations
+    - spr/translations
+    - bli/translations
   babel_output_translations: i18n/translations
   babel_source_paths:
-  - mst
-  - mst
-  - spr
-  - bli
+    - mst
+    - spr
+    - bli
   i18next_input_translations: []
   i18next_output_translations: i18n/semantic-ui/translations
-  i18next_source_paths: []
+  i18next_source_paths:
+    - ui
   languages:
   - en
 models:

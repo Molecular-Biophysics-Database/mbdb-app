@@ -37,7 +37,8 @@ export const defaultComponents = {
   [`${appName}.ResultsGrid.item`]: ResultsGridItemWithConfig,
   [`${appName}.ResultsList.item`]: ResultsListItemWithConfig,
   [`${appName}.SearchApp.facets`]: SearchAppFacets,
-  [`${appName}.SearchApp.layout`]: SearchAppLayoutNew,
+  // TODO: need to fix this - global styles vs. components
+  // [`${appName}.SearchApp.layout`]: SearchAppLayoutNew,
   [`${appName}.SearchApp.searchbarContainer`]: SearchAppSearchbarContainerWithConfig,
   [`${appName}.SearchApp.sort`]: SearchAppSort,
   [`${appName}.SearchApp.resultOptions`]: SearchAppResultOptions,
