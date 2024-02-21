@@ -35,6 +35,9 @@ spr_file_draft = "spr.views.draft_files.app:create_app_blueprint"
 bli = "bli.views.records.app:create_app_blueprint"
 bli_file = "bli.views.files.app:create_app_blueprint"
 bli_file_draft = "bli.views.draft_files.app:create_app_blueprint"
+mst_requests = "mst.views.requests.api:create_api_blueprint"
+bli_requests = "bli.views.requests.api:create_api_blueprint"
+spr_requests = "spr.views.requests.api:create_api_blueprint"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"
@@ -79,14 +82,14 @@ spr_file_draft = "spr.views.draft_files.api:create_api_blueprint"
 bli = "bli.views.records.api:create_api_blueprint"
 bli_file = "bli.views.files.api:create_api_blueprint"
 bli_file_draft = "bli.views.draft_files.api:create_api_blueprint"
+mst_requests = "mst.views.requests.api:create_api_blueprint"
+bli_requests = "bli.views.requests.api:create_api_blueprint"
+spr_requests = "spr.views.requests.api:create_api_blueprint"
 
 [project.entry-points."invenio_search.mappings"]
 mst = "mst.records.mappings"
-mst_file = "mst.files.mappings"
 spr = "spr.records.mappings"
-spr_file = "spr.files.mappings"
 bli = "bli.records.mappings"
-bli_file = "bli.files.mappings"
 
 [project.entry-points."invenio_jsonschemas.schemas"]
 mst = "mst.records.jsonschemas"
@@ -95,19 +98,13 @@ bli = "bli.records.jsonschemas"
 
 [project.entry-points."oarepo.models"]
 mst = "mst.models:records.json"
-mst_file = "mst.models:files.json"
 spr = "spr.models:records.json"
-spr_file = "spr.models:files.json"
 bli = "bli.models:records.json"
-bli_file = "bli.models:files.json"
 
 [project.entry-points."oarepo.ui"]
 mst = "mst.models:ui.json"
-mst_file = "mst.models:ui.json"
 spr = "spr.models:ui.json"
-spr_file = "spr.models:ui.json"
 bli = "bli.models:ui.json"
-bli_file = "bli.models:ui.json"
 
 [project.optional-dependencies]
 tests = [

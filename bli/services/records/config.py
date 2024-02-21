@@ -1,7 +1,3 @@
-from bli.records.api import BliDraft, BliRecord
-from bli.services.records.permissions import BliPermissionPolicy
-from bli.services.records.schema import BliSchema
-from bli.services.records.search import BliSearchOptions
 from invenio_drafts_resources.services import (
     RecordServiceConfig as InvenioRecordDraftsServiceConfig,
 )
@@ -9,16 +5,22 @@ from invenio_drafts_resources.services.records.components import DraftFilesCompo
 from invenio_drafts_resources.services.records.config import is_record
 from invenio_records_resources.services import ConditionalLink, RecordLink
 from invenio_records_resources.services.records.components import DataComponent
-from oarepo_requests.services.components import PublishDraftComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 from oarepo_runtime.services.files import FilesComponent
-from oarepo_runtime.services.results import RecordList
+
+from bli.records.api import BliDraft, BliRecord
+from bli.services.records.permissions import BliPermissionPolicy
+from bli.services.records.results import BliRecordItem, BliRecordList
+from bli.services.records.schema import BliSchema
+from bli.services.records.search import BliSearchOptions
 
 
 class BliServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsServiceConfig):
     """BliRecord service config."""
 
-    result_list_cls = RecordList
+    result_item_cls = BliRecordItem
+
+    result_list_cls = BliRecordList
 
     PERMISSIONS_PRESETS = ["authenticated"]
 
@@ -37,10 +39,9 @@ class BliServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        PublishDraftComponent("publish_draft", "delete_record"),
+        DraftFilesComponent,
         FilesComponent,
         DataComponent,
-        DraftFilesComponent,
     ]
 
     model = "bli"
@@ -60,6 +61,7 @@ class BliServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
             "latest_html": RecordLink("{+ui}/bli/{id}/latest"),
             "publish": RecordLink("{+api}/records/bli/{id}/draft/actions/publish"),
             "record": RecordLink("{+api}/records/bli/{id}"),
+            "requests": RecordLink("{+api}/records/bli/{id}/requests"),
             "self": ConditionalLink(
                 cond=is_record,
                 if_=RecordLink("{+api}/records/bli/{id}"),

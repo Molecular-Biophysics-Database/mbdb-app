@@ -1,7 +1,8 @@
 import importlib_metadata
-from bli.resources.files.ui import BliFileDraftUIJSONSerializer, BliFileUIJSONSerializer
 from flask_resources import ResponseHandler
 from invenio_records_resources.resources import FileResourceConfig
+
+from bli.resources.files.ui import BliFileDraftUIJSONSerializer, BliFileUIJSONSerializer
 
 
 class BliFileResourceConfig(FileResourceConfig):

@@ -4,8 +4,6 @@ from invenio_drafts_resources.records.api import Record as InvenioRecord
 from invenio_records.systemfields import ConstantField, ModelField
 from invenio_records_resources.records.systemfields import FilesField, IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
-from invenio_requests.records import Request
-from invenio_requests.records.systemfields.relatedrecord import RelatedRecord
 from invenio_vocabularies.records.api import Vocabulary
 from oarepo_runtime.records.relations import (
     InternalRelation,
@@ -14,6 +12,7 @@ from oarepo_runtime.records.relations import (
 )
 from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
+
 from spr.files.api import SprFile, SprFileDraft
 from spr.records.dumpers.dumper import SprDraftDumper, SprDumper
 from spr.records.models import (
@@ -26,14 +25,6 @@ from spr.records.models import (
 
 class SprParentRecord(ParentRecord):
     model_cls = SprParentMetadata
-    delete_record = RelatedRecord(
-        Request,
-        keys=["type", "receiver", "status"],
-    )
-    publish_draft = RelatedRecord(
-        Request,
-        keys=["type", "receiver", "status"],
-    )
 
 
 class SprIdProvider(DraftRecordIdProviderV2):

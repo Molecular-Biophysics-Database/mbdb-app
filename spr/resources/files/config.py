@@ -1,6 +1,7 @@
 import importlib_metadata
 from flask_resources import ResponseHandler
 from invenio_records_resources.resources import FileResourceConfig
+
 from spr.resources.files.ui import SprFileDraftUIJSONSerializer, SprFileUIJSONSerializer
 
 

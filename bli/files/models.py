@@ -1,7 +1,8 @@
-from bli.records.models import BliDraftMetadata, BliMetadata
 from invenio_db import db
 from invenio_records.models import RecordMetadataBase
 from invenio_records_resources.records import FileRecordModelMixin
+
+from bli.records.models import BliDraftMetadata, BliMetadata
 
 
 class BliFileMetadata(db.Model, RecordMetadataBase, FileRecordModelMixin):

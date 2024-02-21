@@ -5,20 +5,22 @@ from invenio_drafts_resources.services.records.components import DraftFilesCompo
 from invenio_drafts_resources.services.records.config import is_record
 from invenio_records_resources.services import ConditionalLink, RecordLink
 from invenio_records_resources.services.records.components import DataComponent
-from mst.records.api import MstDraft, MstRecord
-from mst.services.records.permissions import MstPermissionPolicy
-from mst.services.records.schema import MstSchema
-from mst.services.records.search import MstSearchOptions
-from oarepo_requests.services.components import PublishDraftComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 from oarepo_runtime.services.files import FilesComponent
-from oarepo_runtime.services.results import RecordList
+
+from mst.records.api import MstDraft, MstRecord
+from mst.services.records.permissions import MstPermissionPolicy
+from mst.services.records.results import MstRecordItem, MstRecordList
+from mst.services.records.schema import MstSchema
+from mst.services.records.search import MstSearchOptions
 
 
 class MstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsServiceConfig):
     """MstRecord service config."""
 
-    result_list_cls = RecordList
+    result_item_cls = MstRecordItem
+
+    result_list_cls = MstRecordList
 
     PERMISSIONS_PRESETS = ["authenticated"]
 
@@ -37,10 +39,9 @@ class MstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        PublishDraftComponent("publish_draft", "delete_record"),
+        DraftFilesComponent,
         FilesComponent,
         DataComponent,
-        DraftFilesComponent,
     ]
 
     model = "mst"
@@ -60,6 +61,7 @@ class MstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
             "latest_html": RecordLink("{+ui}/mst/{id}/latest"),
             "publish": RecordLink("{+api}/records/mst/{id}/draft/actions/publish"),
             "record": RecordLink("{+api}/records/mst/{id}"),
+            "requests": RecordLink("{+api}/records/mst/{id}/requests"),
             "self": ConditionalLink(
                 cond=is_record,
                 if_=RecordLink("{+api}/records/mst/{id}"),

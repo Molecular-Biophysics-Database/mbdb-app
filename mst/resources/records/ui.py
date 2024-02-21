@@ -1,7 +1,9 @@
+from flask import g
 from flask_resources import BaseListSchema
 from flask_resources.serializers import JSONSerializer
-from mst.services.records.ui_schema import MstUISchema
 from oarepo_runtime.resources import LocalizedUIJSONSerializer
+
+from mst.services.records.ui_schema import MstUISchema
 
 
 class MstUIJSONSerializer(LocalizedUIJSONSerializer):
@@ -13,5 +15,5 @@ class MstUIJSONSerializer(LocalizedUIJSONSerializer):
             format_serializer_cls=JSONSerializer,
             object_schema_cls=MstUISchema,
             list_schema_cls=BaseListSchema,
-            schema_context={"object_key": "ui"},
+            schema_context={"object_key": "ui", "identity": g.identity},
         )

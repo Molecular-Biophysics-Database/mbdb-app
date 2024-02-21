@@ -1,7 +1,9 @@
-from bli.services.records.ui_schema import BliUISchema
+from flask import g
 from flask_resources import BaseListSchema
 from flask_resources.serializers import JSONSerializer
 from oarepo_runtime.resources import LocalizedUIJSONSerializer
+
+from bli.services.records.ui_schema import BliUISchema
 
 
 class BliUIJSONSerializer(LocalizedUIJSONSerializer):
@@ -13,5 +15,5 @@ class BliUIJSONSerializer(LocalizedUIJSONSerializer):
             format_serializer_cls=JSONSerializer,
             object_schema_cls=BliUISchema,
             list_schema_cls=BaseListSchema,
-            schema_context={"object_key": "ui"},
+            schema_context={"object_key": "ui", "identity": g.identity},
         )

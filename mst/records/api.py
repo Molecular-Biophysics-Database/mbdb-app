@@ -4,17 +4,7 @@ from invenio_drafts_resources.records.api import Record as InvenioRecord
 from invenio_records.systemfields import ConstantField, ModelField
 from invenio_records_resources.records.systemfields import FilesField, IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
-from invenio_requests.records import Request
-from invenio_requests.records.systemfields.relatedrecord import RelatedRecord
 from invenio_vocabularies.records.api import Vocabulary
-from mst.files.api import MstFile, MstFileDraft
-from mst.records.dumpers.dumper import MstDraftDumper, MstDumper
-from mst.records.models import (
-    MstDraftMetadata,
-    MstMetadata,
-    MstParentMetadata,
-    MstParentState,
-)
 from oarepo_runtime.records.relations import (
     InternalRelation,
     PIDRelation,
@@ -23,17 +13,18 @@ from oarepo_runtime.records.relations import (
 from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
 
+from mst.files.api import MstFile, MstFileDraft
+from mst.records.dumpers.dumper import MstDraftDumper, MstDumper
+from mst.records.models import (
+    MstDraftMetadata,
+    MstMetadata,
+    MstParentMetadata,
+    MstParentState,
+)
+
 
 class MstParentRecord(ParentRecord):
     model_cls = MstParentMetadata
-    delete_record = RelatedRecord(
-        Request,
-        keys=["type", "receiver", "status"],
-    )
-    publish_draft = RelatedRecord(
-        Request,
-        keys=["type", "receiver", "status"],
-    )
 
 
 class MstIdProvider(DraftRecordIdProviderV2):

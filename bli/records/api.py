@@ -1,19 +1,9 @@
-from bli.files.api import BliFile, BliFileDraft
-from bli.records.dumpers.dumper import BliDraftDumper, BliDumper
-from bli.records.models import (
-    BliDraftMetadata,
-    BliMetadata,
-    BliParentMetadata,
-    BliParentState,
-)
 from invenio_drafts_resources.records.api import Draft as InvenioDraft
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2, ParentRecord
 from invenio_drafts_resources.records.api import Record as InvenioRecord
 from invenio_records.systemfields import ConstantField, ModelField
 from invenio_records_resources.records.systemfields import FilesField, IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
-from invenio_requests.records import Request
-from invenio_requests.records.systemfields.relatedrecord import RelatedRecord
 from invenio_vocabularies.records.api import Vocabulary
 from oarepo_runtime.records.relations import (
     InternalRelation,
@@ -23,17 +13,18 @@ from oarepo_runtime.records.relations import (
 from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
 
+from bli.files.api import BliFile, BliFileDraft
+from bli.records.dumpers.dumper import BliDraftDumper, BliDumper
+from bli.records.models import (
+    BliDraftMetadata,
+    BliMetadata,
+    BliParentMetadata,
+    BliParentState,
+)
+
 
 class BliParentRecord(ParentRecord):
     model_cls = BliParentMetadata
-    delete_record = RelatedRecord(
-        Request,
-        keys=["type", "receiver", "status"],
-    )
-    publish_draft = RelatedRecord(
-        Request,
-        keys=["type", "receiver", "status"],
-    )
 
 
 class BliIdProvider(DraftRecordIdProviderV2):

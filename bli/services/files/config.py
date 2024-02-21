@@ -1,17 +1,14 @@
-from bli.records.api import BliDraft, BliRecord
-from bli.services.files.permissions import BliFileDraftPermissionPolicy
-from bli.services.files.schema import BliFileSchema
-from bli.services.records.permissions import BliPermissionPolicy
 from invenio_records_resources.services import FileLink, FileServiceConfig, RecordLink
 from invenio_records_resources.services.records.components import DataComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
-from oarepo_runtime.services.results import RecordList
+
+from bli.records.api import BliDraft, BliRecord
+from bli.services.files.schema import BliFileSchema
+from bli.services.records.permissions import BliPermissionPolicy
 
 
 class BliFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
     """BliRecord service config."""
-
-    result_list_cls = RecordList
 
     PERMISSIONS_PRESETS = ["everyone"]
 
@@ -52,13 +49,9 @@ class BliFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
 class BliFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
     """BliDraft service config."""
 
-    result_list_cls = RecordList
-
     PERMISSIONS_PRESETS = ["everyone"]
 
     url_prefix = "/records/bli/<pid_value>/draft"
-
-    base_permission_policy_cls = BliFileDraftPermissionPolicy
 
     schema = BliFileSchema
 

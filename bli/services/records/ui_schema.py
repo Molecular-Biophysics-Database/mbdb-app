@@ -3,12 +3,13 @@ from marshmallow import Schema
 from marshmallow import fields as ma_fields
 from marshmallow.fields import String
 from marshmallow.validate import OneOf
+from oarepo_requests.services.ui_schema import UIRequestsSerializationMixin
 from oarepo_runtime.services.schema.marshmallow import DictOnlySchema
 from oarepo_runtime.services.schema.ui import InvenioUISchema, LocalizedDate
 from oarepo_vocabularies.services.ui_schema import VocabularyI18nStrUIField
 
 
-class BliUISchema(InvenioUISchema):
+class BliUISchema(UIRequestsSerializationMixin, InvenioUISchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -69,11 +70,13 @@ class GeneralParametersUISchema(DictOnlySchema):
     technique = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Bio-layer interferometry (BLI)",
-                "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
-                "Surface plasmon resonance (SPR)",
-            ])
+            OneOf(
+                [
+                    "Bio-layer interferometry (BLI)",
+                    "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
+                    "Surface plasmon resonance (SPR)",
+                ]
+            )
         ],
     )
 
@@ -99,19 +102,21 @@ class InstrumentUISchema(DictOnlySchema):
     manufacturer = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Bio-Rad",
-                "Bruker",
-                "Cytiva",
-                "Gatorbio",
-                "GE Healthcare",
-                "Nanotemper",
-                "Nicoya Life",
-                "Sartorius",
-                "Malvern Panalytical",
-                "Refeyn",
-                "TA Instruments",
-            ])
+            OneOf(
+                [
+                    "Bio-Rad",
+                    "Bruker",
+                    "Cytiva",
+                    "Gatorbio",
+                    "GE Healthcare",
+                    "Nanotemper",
+                    "Nicoya Life",
+                    "Sartorius",
+                    "Malvern Panalytical",
+                    "Refeyn",
+                    "TA Instruments",
+                ]
+            )
         ],
     )
 
@@ -197,15 +202,17 @@ class Complex_substance_of_chemical_originUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -268,39 +275,43 @@ class ConstituentsItemUISchema(DictOnlySchema):
     fluid = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Blood",
-                "Fecal matter",
-                "Milk",
-                "Plasma",
-                "Saliva",
-                "Serum",
-                "Urine",
-                "Plant extract",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Blood",
+                    "Fecal matter",
+                    "Milk",
+                    "Plasma",
+                    "Saliva",
+                    "Serum",
+                    "Urine",
+                    "Plant extract",
+                    "Other",
+                ]
+            )
         ],
     )
 
     fraction = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Ribosome",
-                "Cell wall",
-                "VesicleCell lysate/Cytoplasm",
-                "Cell Membrane",
-                "Extracellular matrix",
-                "Lysosome",
-                "Golgi Apparatus",
-                "Mitochondrion",
-                "Nucleus",
-                "Rough Endoplasmic Reticulum",
-                "Smooth Endoplasmic Reticulum",
-                "Vacuole",
-                "Chloroplast",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Ribosome",
+                    "Cell wall",
+                    "VesicleCell lysate/Cytoplasm",
+                    "Cell Membrane",
+                    "Extracellular matrix",
+                    "Lysosome",
+                    "Golgi Apparatus",
+                    "Mitochondrion",
+                    "Nucleus",
+                    "Rough Endoplasmic Reticulum",
+                    "Smooth Endoplasmic Reticulum",
+                    "Vacuole",
+                    "Chloroplast",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -334,16 +345,18 @@ class ConstituentsItemUISchema(DictOnlySchema):
     polymer_type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "cyclic-pseudo-peptide",
-                "peptide nucleic acid",
-                "polydeoxyribonucleotide",
-                "polydeoxyribonucleotide/polyribonucleotide hybrid",
-                "polypeptide(D)",
-                "polypeptide(L)",
-                "polyribonucleotide",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "cyclic-pseudo-peptide",
+                    "peptide nucleic acid",
+                    "polydeoxyribonucleotide",
+                    "polydeoxyribonucleotide/polyribonucleotide hybrid",
+                    "polypeptide(D)",
+                    "polypeptide(L)",
+                    "polyribonucleotide",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -364,15 +377,17 @@ class ConstituentsItemUISchema(DictOnlySchema):
     source = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Fresh water",
-                "Marine",
-                "Ice core",
-                "Sediment",
-                "Sewage",
-                "Soil",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Fresh water",
+                    "Marine",
+                    "Ice core",
+                    "Sediment",
+                    "Sewage",
+                    "Soil",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -389,15 +404,17 @@ class ConstituentsItemUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -434,15 +451,17 @@ class EntitiesOfInterestItemComplex_substance_of_chemical_originUISchema(
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -505,39 +524,43 @@ class EntitiesOfInterestItemUISchema(DictOnlySchema):
     fluid = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Blood",
-                "Fecal matter",
-                "Milk",
-                "Plasma",
-                "Saliva",
-                "Serum",
-                "Urine",
-                "Plant extract",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Blood",
+                    "Fecal matter",
+                    "Milk",
+                    "Plasma",
+                    "Saliva",
+                    "Serum",
+                    "Urine",
+                    "Plant extract",
+                    "Other",
+                ]
+            )
         ],
     )
 
     fraction = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Ribosome",
-                "Cell wall",
-                "VesicleCell lysate/Cytoplasm",
-                "Cell Membrane",
-                "Extracellular matrix",
-                "Lysosome",
-                "Golgi Apparatus",
-                "Mitochondrion",
-                "Nucleus",
-                "Rough Endoplasmic Reticulum",
-                "Smooth Endoplasmic Reticulum",
-                "Vacuole",
-                "Chloroplast",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Ribosome",
+                    "Cell wall",
+                    "VesicleCell lysate/Cytoplasm",
+                    "Cell Membrane",
+                    "Extracellular matrix",
+                    "Lysosome",
+                    "Golgi Apparatus",
+                    "Mitochondrion",
+                    "Nucleus",
+                    "Rough Endoplasmic Reticulum",
+                    "Smooth Endoplasmic Reticulum",
+                    "Vacuole",
+                    "Chloroplast",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -571,16 +594,18 @@ class EntitiesOfInterestItemUISchema(DictOnlySchema):
     polymer_type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "cyclic-pseudo-peptide",
-                "peptide nucleic acid",
-                "polydeoxyribonucleotide",
-                "polydeoxyribonucleotide/polyribonucleotide hybrid",
-                "polypeptide(D)",
-                "polypeptide(L)",
-                "polyribonucleotide",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "cyclic-pseudo-peptide",
+                    "peptide nucleic acid",
+                    "polydeoxyribonucleotide",
+                    "polydeoxyribonucleotide/polyribonucleotide hybrid",
+                    "polypeptide(D)",
+                    "polypeptide(L)",
+                    "polyribonucleotide",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -601,15 +626,17 @@ class EntitiesOfInterestItemUISchema(DictOnlySchema):
     source = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Fresh water",
-                "Marine",
-                "Ice core",
-                "Sediment",
-                "Sewage",
-                "Soil",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Fresh water",
+                    "Marine",
+                    "Ice core",
+                    "Sediment",
+                    "Sewage",
+                    "Soil",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -626,15 +653,17 @@ class EntitiesOfInterestItemUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -724,15 +753,17 @@ class EntitiesOfInterestItemMolecular_assemblyUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -805,15 +836,17 @@ class Molecular_assemblyUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -847,15 +880,17 @@ class ChemicalUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -916,16 +951,18 @@ class ComponentsItemPolymerUISchema(DictOnlySchema):
     polymer_type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "cyclic-pseudo-peptide",
-                "peptide nucleic acid",
-                "polydeoxyribonucleotide",
-                "polydeoxyribonucleotide/polyribonucleotide hybrid",
-                "polypeptide(D)",
-                "polypeptide(L)",
-                "polyribonucleotide",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "cyclic-pseudo-peptide",
+                    "peptide nucleic acid",
+                    "polydeoxyribonucleotide",
+                    "polydeoxyribonucleotide/polyribonucleotide hybrid",
+                    "polypeptide(D)",
+                    "polypeptide(L)",
+                    "polyribonucleotide",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -979,16 +1016,18 @@ class ComponentsItemUISchema(DictOnlySchema):
     polymer_type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "cyclic-pseudo-peptide",
-                "peptide nucleic acid",
-                "polydeoxyribonucleotide",
-                "polydeoxyribonucleotide/polyribonucleotide hybrid",
-                "polypeptide(D)",
-                "polypeptide(L)",
-                "polyribonucleotide",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "cyclic-pseudo-peptide",
+                    "peptide nucleic acid",
+                    "polydeoxyribonucleotide",
+                    "polydeoxyribonucleotide/polyribonucleotide hybrid",
+                    "polypeptide(D)",
+                    "polypeptide(L)",
+                    "polyribonucleotide",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -1038,15 +1077,17 @@ class EntitiesOfInterestItemChemicalUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -1078,16 +1119,18 @@ class EntitiesOfInterestItemPolymerUISchema(DictOnlySchema):
     polymer_type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "cyclic-pseudo-peptide",
-                "peptide nucleic acid",
-                "polydeoxyribonucleotide",
-                "polydeoxyribonucleotide/polyribonucleotide hybrid",
-                "polypeptide(D)",
-                "polypeptide(L)",
-                "polyribonucleotide",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "cyclic-pseudo-peptide",
+                    "peptide nucleic acid",
+                    "polydeoxyribonucleotide",
+                    "polydeoxyribonucleotide/polyribonucleotide hybrid",
+                    "polypeptide(D)",
+                    "polypeptide(L)",
+                    "polyribonucleotide",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -1106,15 +1149,17 @@ class EntitiesOfInterestItemPolymerUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -1167,16 +1212,18 @@ class PolymerUISchema(DictOnlySchema):
     polymer_type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "cyclic-pseudo-peptide",
-                "peptide nucleic acid",
-                "polydeoxyribonucleotide",
-                "polydeoxyribonucleotide/polyribonucleotide hybrid",
-                "polypeptide(D)",
-                "polypeptide(L)",
-                "polyribonucleotide",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "cyclic-pseudo-peptide",
+                    "peptide nucleic acid",
+                    "polydeoxyribonucleotide",
+                    "polydeoxyribonucleotide/polyribonucleotide hybrid",
+                    "polypeptide(D)",
+                    "polypeptide(L)",
+                    "polyribonucleotide",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -1195,15 +1242,17 @@ class PolymerUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -1292,17 +1341,19 @@ class Body_fluidUISchema(DictOnlySchema):
     fluid = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Blood",
-                "Fecal matter",
-                "Milk",
-                "Plasma",
-                "Saliva",
-                "Serum",
-                "Urine",
-                "Plant extract",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Blood",
+                    "Fecal matter",
+                    "Milk",
+                    "Plasma",
+                    "Saliva",
+                    "Serum",
+                    "Urine",
+                    "Plant extract",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -1323,15 +1374,17 @@ class Body_fluidUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -1353,22 +1406,24 @@ class Cell_fractionUISchema(DictOnlySchema):
     fraction = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Ribosome",
-                "Cell wall",
-                "VesicleCell lysate/Cytoplasm",
-                "Cell Membrane",
-                "Extracellular matrix",
-                "Lysosome",
-                "Golgi Apparatus",
-                "Mitochondrion",
-                "Nucleus",
-                "Rough Endoplasmic Reticulum",
-                "Smooth Endoplasmic Reticulum",
-                "Vacuole",
-                "Chloroplast",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Ribosome",
+                    "Cell wall",
+                    "VesicleCell lysate/Cytoplasm",
+                    "Cell Membrane",
+                    "Extracellular matrix",
+                    "Lysosome",
+                    "Golgi Apparatus",
+                    "Mitochondrion",
+                    "Nucleus",
+                    "Rough Endoplasmic Reticulum",
+                    "Smooth Endoplasmic Reticulum",
+                    "Vacuole",
+                    "Chloroplast",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -1393,15 +1448,17 @@ class Cell_fractionUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -1421,17 +1478,19 @@ class Complex_substance_of_biological_originBody_fluidUISchema(DictOnlySchema):
     fluid = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Blood",
-                "Fecal matter",
-                "Milk",
-                "Plasma",
-                "Saliva",
-                "Serum",
-                "Urine",
-                "Plant extract",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Blood",
+                    "Fecal matter",
+                    "Milk",
+                    "Plasma",
+                    "Saliva",
+                    "Serum",
+                    "Urine",
+                    "Plant extract",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -1452,15 +1511,17 @@ class Complex_substance_of_biological_originBody_fluidUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -1482,22 +1543,24 @@ class Complex_substance_of_biological_originCell_fractionUISchema(DictOnlySchema
     fraction = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Ribosome",
-                "Cell wall",
-                "VesicleCell lysate/Cytoplasm",
-                "Cell Membrane",
-                "Extracellular matrix",
-                "Lysosome",
-                "Golgi Apparatus",
-                "Mitochondrion",
-                "Nucleus",
-                "Rough Endoplasmic Reticulum",
-                "Smooth Endoplasmic Reticulum",
-                "Vacuole",
-                "Chloroplast",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Ribosome",
+                    "Cell wall",
+                    "VesicleCell lysate/Cytoplasm",
+                    "Cell Membrane",
+                    "Extracellular matrix",
+                    "Lysosome",
+                    "Golgi Apparatus",
+                    "Mitochondrion",
+                    "Nucleus",
+                    "Rough Endoplasmic Reticulum",
+                    "Smooth Endoplasmic Reticulum",
+                    "Vacuole",
+                    "Chloroplast",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -1522,15 +1585,17 @@ class Complex_substance_of_biological_originCell_fractionUISchema(DictOnlySchema
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -1566,39 +1631,43 @@ class Complex_substance_of_biological_originUISchema(DictOnlySchema):
     fluid = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Blood",
-                "Fecal matter",
-                "Milk",
-                "Plasma",
-                "Saliva",
-                "Serum",
-                "Urine",
-                "Plant extract",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Blood",
+                    "Fecal matter",
+                    "Milk",
+                    "Plasma",
+                    "Saliva",
+                    "Serum",
+                    "Urine",
+                    "Plant extract",
+                    "Other",
+                ]
+            )
         ],
     )
 
     fraction = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Ribosome",
-                "Cell wall",
-                "VesicleCell lysate/Cytoplasm",
-                "Cell Membrane",
-                "Extracellular matrix",
-                "Lysosome",
-                "Golgi Apparatus",
-                "Mitochondrion",
-                "Nucleus",
-                "Rough Endoplasmic Reticulum",
-                "Smooth Endoplasmic Reticulum",
-                "Vacuole",
-                "Chloroplast",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Ribosome",
+                    "Cell wall",
+                    "VesicleCell lysate/Cytoplasm",
+                    "Cell Membrane",
+                    "Extracellular matrix",
+                    "Lysosome",
+                    "Golgi Apparatus",
+                    "Mitochondrion",
+                    "Nucleus",
+                    "Rough Endoplasmic Reticulum",
+                    "Smooth Endoplasmic Reticulum",
+                    "Vacuole",
+                    "Chloroplast",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -1632,15 +1701,17 @@ class Complex_substance_of_biological_originUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -1695,15 +1766,17 @@ class Complex_substance_of_biological_originVirionUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -1727,15 +1800,17 @@ class Complex_substance_of_environmental_originUISchema(DictOnlySchema):
     source = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Fresh water",
-                "Marine",
-                "Ice core",
-                "Sediment",
-                "Sewage",
-                "Soil",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Fresh water",
+                    "Marine",
+                    "Ice core",
+                    "Sediment",
+                    "Sewage",
+                    "Soil",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -1744,15 +1819,17 @@ class Complex_substance_of_environmental_originUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -1780,15 +1857,17 @@ class Complex_substance_of_industrial_production_originUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -1826,39 +1905,43 @@ class EntitiesOfInterestItemComplex_substance_of_biological_originUISchema(
     fluid = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Blood",
-                "Fecal matter",
-                "Milk",
-                "Plasma",
-                "Saliva",
-                "Serum",
-                "Urine",
-                "Plant extract",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Blood",
+                    "Fecal matter",
+                    "Milk",
+                    "Plasma",
+                    "Saliva",
+                    "Serum",
+                    "Urine",
+                    "Plant extract",
+                    "Other",
+                ]
+            )
         ],
     )
 
     fraction = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Ribosome",
-                "Cell wall",
-                "VesicleCell lysate/Cytoplasm",
-                "Cell Membrane",
-                "Extracellular matrix",
-                "Lysosome",
-                "Golgi Apparatus",
-                "Mitochondrion",
-                "Nucleus",
-                "Rough Endoplasmic Reticulum",
-                "Smooth Endoplasmic Reticulum",
-                "Vacuole",
-                "Chloroplast",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Ribosome",
+                    "Cell wall",
+                    "VesicleCell lysate/Cytoplasm",
+                    "Cell Membrane",
+                    "Extracellular matrix",
+                    "Lysosome",
+                    "Golgi Apparatus",
+                    "Mitochondrion",
+                    "Nucleus",
+                    "Rough Endoplasmic Reticulum",
+                    "Smooth Endoplasmic Reticulum",
+                    "Vacuole",
+                    "Chloroplast",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -1892,15 +1975,17 @@ class EntitiesOfInterestItemComplex_substance_of_biological_originUISchema(
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -1926,15 +2011,17 @@ class EntitiesOfInterestItemComplex_substance_of_environmental_originUISchema(
     source = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Fresh water",
-                "Marine",
-                "Ice core",
-                "Sediment",
-                "Sewage",
-                "Soil",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "Fresh water",
+                    "Marine",
+                    "Ice core",
+                    "Sediment",
+                    "Sewage",
+                    "Soil",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -1943,15 +2030,17 @@ class EntitiesOfInterestItemComplex_substance_of_environmental_originUISchema(
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -1981,15 +2070,17 @@ class EntitiesOfInterestItemComplex_substance_of_industrial_production_originUIS
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -2001,14 +2092,16 @@ class QualityControlsItemUISchema(DictOnlySchema):
     parameter = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "aggregation state",
-                "homogeneity",
-                "identity",
-                "purity",
-                "stability",
-                "Other",
-            ])
+            OneOf(
+                [
+                    "aggregation state",
+                    "homogeneity",
+                    "identity",
+                    "purity",
+                    "stability",
+                    "Other",
+                ]
+            )
         ],
     )
 
@@ -2131,15 +2224,17 @@ class VirionUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Polymer",
-                "Chemical",
-                "Molecular assembly",
-                "Complex substance of biological origin",
-                "Complex substance of environmental origin",
-                "Complex substance of chemical origin",
-                "Complex substance of industrial production origin",
-            ])
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial production origin",
+                ]
+            )
         ],
     )
 
@@ -2198,18 +2293,20 @@ class DerivedParametersItemUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Concentration",
-                "Stoichiometry",
-                "Constant of association (K_A)",
-                "Constant of dissociation (K_D)",
-                "Association rate (k_on)",
-                "Dissociation rate (k_off)",
-                "Change in enthalpy (delta H)",
-                "Change in entropy (delta S)",
-                "Change in Gibbs free energy (delta G)",
-                "Molecular weight (MW)",
-            ])
+            OneOf(
+                [
+                    "Concentration",
+                    "Stoichiometry",
+                    "Constant of association (K_A)",
+                    "Constant of dissociation (K_D)",
+                    "Association rate (k_on)",
+                    "Dissociation rate (k_off)",
+                    "Change in enthalpy (delta H)",
+                    "Change in entropy (delta S)",
+                    "Change in Gibbs free energy (delta G)",
+                    "Molecular weight (MW)",
+                ]
+            )
         ],
     )
 
@@ -2237,15 +2334,17 @@ class MeasurementProtocolItemUISchema(DictOnlySchema):
     type = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Association",
-                "Baseline",
-                "Dissociation",
-                "Regeneration",
-                "Load",
-                "Wash",
-                "Activation",
-            ])
+            OneOf(
+                [
+                    "Association",
+                    "Baseline",
+                    "Dissociation",
+                    "Regeneration",
+                    "Load",
+                    "Wash",
+                    "Activation",
+                ]
+            )
         ],
     )
 
@@ -2372,27 +2471,29 @@ class ConcentrationUISchema(DictOnlySchema):
     unit = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "M",
-                "mM",
-                "µM",
-                "nM",
-                "pM",
-                "fM",
-                "aM",
-                "g/L",
-                "mg/mL",
-                "µg/mL",
-                "ng/mL",
-                "mol/kg",
-                "mmol/kg",
-                "v/v %",
-                "w/w %",
-                "v/w %",
-                "w/v %",
-                "U/ml",
-                "% saturated",
-            ])
+            OneOf(
+                [
+                    "M",
+                    "mM",
+                    "µM",
+                    "nM",
+                    "pM",
+                    "fM",
+                    "aM",
+                    "g/L",
+                    "mg/mL",
+                    "µg/mL",
+                    "ng/mL",
+                    "mol/kg",
+                    "mmol/kg",
+                    "v/v %",
+                    "w/w %",
+                    "v/w %",
+                    "w/v %",
+                    "U/ml",
+                    "% saturated",
+                ]
+            )
         ],
     )
 
@@ -2423,17 +2524,19 @@ class DurationUISchema(DictOnlySchema):
     unit = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "nanoseconds",
-                "microseconds",
-                "milliseconds",
-                "seconds",
-                "minutes",
-                "hours",
-                "days",
-                "months",
-                "years",
-            ])
+            OneOf(
+                [
+                    "nanoseconds",
+                    "microseconds",
+                    "milliseconds",
+                    "seconds",
+                    "minutes",
+                    "hours",
+                    "days",
+                    "months",
+                    "years",
+                ]
+            )
         ],
     )
 
@@ -2548,18 +2651,20 @@ class PressureUISchema(DictOnlySchema):
     unit = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "Pa",
-                "kPa",
-                "MPa",
-                "Bar",
-                "mBar",
-                "atm",
-                "Torr",
-                "PSI",
-                "mmHg",
-                "inchHg",
-            ])
+            OneOf(
+                [
+                    "Pa",
+                    "kPa",
+                    "MPa",
+                    "Bar",
+                    "mBar",
+                    "atm",
+                    "Torr",
+                    "PSI",
+                    "mmHg",
+                    "inchHg",
+                ]
+            )
         ],
     )
 
@@ -2639,16 +2744,18 @@ class DataFittingUISchema(DictOnlySchema):
 
     quality_type = ma_fields.String(
         validate=[
-            OneOf([
-                "R^2",
-                "SEM",
-                "red. Chi^2",
-                "1sigma",
-                "2sigma",
-                "3sigma",
-                "5sigma",
-                "Skewness",
-            ])
+            OneOf(
+                [
+                    "R^2",
+                    "SEM",
+                    "red. Chi^2",
+                    "1sigma",
+                    "2sigma",
+                    "3sigma",
+                    "5sigma",
+                    "Skewness",
+                ]
+            )
         ]
     )
 
@@ -2718,27 +2825,29 @@ class IonicStrengthUISchema(DictOnlySchema):
     unit = ma_fields.String(
         required=True,
         validate=[
-            OneOf([
-                "M",
-                "mM",
-                "µM",
-                "nM",
-                "pM",
-                "fM",
-                "aM",
-                "g/L",
-                "mg/mL",
-                "µg/mL",
-                "ng/mL",
-                "mol/kg",
-                "mmol/kg",
-                "v/v %",
-                "w/w %",
-                "v/w %",
-                "w/v %",
-                "U/ml",
-                "% saturated",
-            ])
+            OneOf(
+                [
+                    "M",
+                    "mM",
+                    "µM",
+                    "nM",
+                    "pM",
+                    "fM",
+                    "aM",
+                    "g/L",
+                    "mg/mL",
+                    "µg/mL",
+                    "ng/mL",
+                    "mol/kg",
+                    "mmol/kg",
+                    "v/v %",
+                    "w/w %",
+                    "v/w %",
+                    "w/v %",
+                    "U/ml",
+                    "% saturated",
+                ]
+            )
         ],
     )
 
@@ -2816,18 +2925,20 @@ class UltrafiltrationMethodUISchema(DictOnlySchema):
 
     filter_material = ma_fields.String(
         validate=[
-            OneOf([
-                "Polyethersulfone (PES)",
-                "Polyvinylidene flouride (PVDF)",
-                "Cellulose acetate (CA)",
-                "Composite regenerated cellulose (CRC)",
-                "Microporous Glass Fiber (MGF)",
-                "Nylon",
-                "Polytetrafluoroethylene (PTFE)",
-                "Hydrophilic Polytetrafluoroethylene (PTFE)",
-                "Mixed cellulose ester (MCE)",
-                "Polypropylene (PP)",
-            ])
+            OneOf(
+                [
+                    "Polyethersulfone (PES)",
+                    "Polyvinylidene flouride (PVDF)",
+                    "Cellulose acetate (CA)",
+                    "Composite regenerated cellulose (CRC)",
+                    "Microporous Glass Fiber (MGF)",
+                    "Nylon",
+                    "Polytetrafluoroethylene (PTFE)",
+                    "Hydrophilic Polytetrafluoroethylene (PTFE)",
+                    "Mixed cellulose ester (MCE)",
+                    "Polypropylene (PP)",
+                ]
+            )
         ]
     )
 

@@ -1,25 +1,12 @@
 draft:
   requests:
-    publish-draft:
-      actions:
-        submit:
-          class: oarepo_requests.actions.publish_draft.PublishDraftSubmitAction
-          generate: false
-      type:
+    types:
+      publish-draft:
         class: common.requests.publish_draft.types.PublishDraftRequestType
         generate: false
 
 requests:
-  delete-record:
-    actions:
-      submit:
-        class: oarepo_requests.actions.delete_topic.DeleteTopicSubmitAction
-        generate: false
-    type:
+  types:
+    delete-record:
       class: common.requests.delete_record.types.DeleteRecordRequestType
       generate: false
-
-service-config:
-  components:
-  - '{{oarepo_requests.services.components.PublishDraftComponent}}("publish_draft",
-    "delete_record")'

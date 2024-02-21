@@ -1,17 +1,14 @@
 from invenio_records_resources.services import FileLink, FileServiceConfig, RecordLink
 from invenio_records_resources.services.records.components import DataComponent
+from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
+
 from mst.records.api import MstDraft, MstRecord
-from mst.services.files.permissions import MstFileDraftPermissionPolicy
 from mst.services.files.schema import MstFileSchema
 from mst.services.records.permissions import MstPermissionPolicy
-from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
-from oarepo_runtime.services.results import RecordList
 
 
 class MstFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
     """MstRecord service config."""
-
-    result_list_cls = RecordList
 
     PERMISSIONS_PRESETS = ["everyone"]
 
@@ -52,13 +49,9 @@ class MstFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
 class MstFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
     """MstDraft service config."""
 
-    result_list_cls = RecordList
-
     PERMISSIONS_PRESETS = ["everyone"]
 
     url_prefix = "/records/mst/<pid_value>/draft"
-
-    base_permission_policy_cls = MstFileDraftPermissionPolicy
 
     schema = MstFileSchema
 

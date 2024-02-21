@@ -1,17 +1,14 @@
 from invenio_records_resources.services import FileLink, FileServiceConfig, RecordLink
 from invenio_records_resources.services.records.components import DataComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
-from oarepo_runtime.services.results import RecordList
+
 from spr.records.api import SprDraft, SprRecord
-from spr.services.files.permissions import SprFileDraftPermissionPolicy
 from spr.services.files.schema import SprFileSchema
 from spr.services.records.permissions import SprPermissionPolicy
 
 
 class SprFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
     """SprRecord service config."""
-
-    result_list_cls = RecordList
 
     PERMISSIONS_PRESETS = ["everyone"]
 
@@ -52,13 +49,9 @@ class SprFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
 class SprFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
     """SprDraft service config."""
 
-    result_list_cls = RecordList
-
     PERMISSIONS_PRESETS = ["everyone"]
 
     url_prefix = "/records/spr/<pid_value>/draft"
-
-    base_permission_policy_cls = SprFileDraftPermissionPolicy
 
     schema = SprFileSchema
 

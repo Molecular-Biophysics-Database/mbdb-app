@@ -5,12 +5,12 @@ from invenio_drafts_resources.services.records.components import DraftFilesCompo
 from invenio_drafts_resources.services.records.config import is_record
 from invenio_records_resources.services import ConditionalLink, RecordLink
 from invenio_records_resources.services.records.components import DataComponent
-from oarepo_requests.services.components import PublishDraftComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 from oarepo_runtime.services.files import FilesComponent
-from oarepo_runtime.services.results import RecordList
+
 from spr.records.api import SprDraft, SprRecord
 from spr.services.records.permissions import SprPermissionPolicy
+from spr.services.records.results import SprRecordItem, SprRecordList
 from spr.services.records.schema import SprSchema
 from spr.services.records.search import SprSearchOptions
 
@@ -18,7 +18,9 @@ from spr.services.records.search import SprSearchOptions
 class SprServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsServiceConfig):
     """SprRecord service config."""
 
-    result_list_cls = RecordList
+    result_item_cls = SprRecordItem
+
+    result_list_cls = SprRecordList
 
     PERMISSIONS_PRESETS = ["authenticated"]
 
@@ -37,10 +39,9 @@ class SprServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        PublishDraftComponent("publish_draft", "delete_record"),
+        DraftFilesComponent,
         FilesComponent,
         DataComponent,
-        DraftFilesComponent,
     ]
 
     model = "spr"
@@ -60,6 +61,7 @@ class SprServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
             "latest_html": RecordLink("{+ui}/spr/{id}/latest"),
             "publish": RecordLink("{+api}/records/spr/{id}/draft/actions/publish"),
             "record": RecordLink("{+api}/records/spr/{id}"),
+            "requests": RecordLink("{+api}/records/spr/{id}/requests"),
             "self": ConditionalLink(
                 cond=is_record,
                 if_=RecordLink("{+api}/records/spr/{id}"),

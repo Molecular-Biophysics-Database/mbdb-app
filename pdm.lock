@@ -2359,12 +2359,13 @@ files = [
 
 [[package]]
 name = "json5"
-version = "0.9.14"
+version = "0.9.17"
+requires_python = ">=3.8"
 summary = "A Python implementation of the JSON5 data format."
 groups = ["default"]
 files = [
-    {file = "json5-0.9.14-py2.py3-none-any.whl", hash = "sha256:740c7f1b9e584a468dbb2939d8d458db3427f2c93ae2139d05f47e453eae964f"},
-    {file = "json5-0.9.14.tar.gz", hash = "sha256:9ed66c3a6ca3510a976a9ef9b8c0787de24802724ab1860bc0153c7fdd589b02"},
+    {file = "json5-0.9.17-py2.py3-none-any.whl", hash = "sha256:f8ec1ecf985951d70f780f6f877c4baca6a47b6e61e02c4cd190138d10a7805a"},
+    {file = "json5-0.9.17.tar.gz", hash = "sha256:717d99d657fa71b7094877b1d921b1cce40ab444389f6d770302563bb7dfd9ae"},
 ]
 
 [[package]]
@@ -3141,20 +3142,20 @@ files = [
 
 [[package]]
 name = "oarepo-requests"
-version = "1.0.4"
+version = "1.1.0"
 summary = ""
 groups = ["default"]
 dependencies = [
     "invenio-requests",
 ]
 files = [
-    {file = "oarepo-requests-1.0.4.tar.gz", hash = "sha256:0ce4733440896b219ea812d63adcd0cf9b42d85cfe120716d30780d9f3b6ef4f"},
-    {file = "oarepo_requests-1.0.4-py3-none-any.whl", hash = "sha256:228fc6ecef3362c5f376bce58a8f961274ac2198ecf1a208bf6977fd10a39f10"},
+    {file = "oarepo-requests-1.1.0.tar.gz", hash = "sha256:fa2dac4e4d69a8e99de795051b331b6e0cd29150a7084a94fbd7a984e2eae63f"},
+    {file = "oarepo_requests-1.1.0-py3-none-any.whl", hash = "sha256:f2e37d57acb049ae7e41070bac3d6c50251459f164315a5c99714c6e4fbcd18c"},
 ]
 
 [[package]]
 name = "oarepo-runtime"
-version = "1.5.5"
+version = "1.5.11"
 summary = "A set of runtime extensions of Invenio repository"
 groups = ["default"]
 dependencies = [
@@ -3169,13 +3170,13 @@ dependencies = [
     "pyyaml",
 ]
 files = [
-    {file = "oarepo-runtime-1.5.5.tar.gz", hash = "sha256:9ac13060dc3e74336277bfeacba396e74ddcd139d328598163e2833f622731b3"},
-    {file = "oarepo_runtime-1.5.5-py3-none-any.whl", hash = "sha256:71c5ce637d969f8a0968c2acac201fc9b5da42f3077e428344254452b263099a"},
+    {file = "oarepo-runtime-1.5.11.tar.gz", hash = "sha256:3fa006bb8f8dbe1a5c0cd7bc528d283b1c8970381146e8cb555263fc39efcbd7"},
+    {file = "oarepo_runtime-1.5.11-py3-none-any.whl", hash = "sha256:c815688d093866cca1a7dd3ee3ac184cf0d9a91d34490504d1c0f24665cb0ba1"},
 ]
 
 [[package]]
 name = "oarepo-ui"
-version = "5.0.101"
+version = "5.0.105"
 requires_python = ">=3.6"
 summary = "UI module for invenio 3.5+"
 groups = ["default"]
@@ -3187,13 +3188,13 @@ dependencies = [
     "oarepo-runtime",
 ]
 files = [
-    {file = "oarepo-ui-5.0.101.tar.gz", hash = "sha256:c88eeae391ebac060361db98556dabde379fef85277cd796faeff994b8251f63"},
-    {file = "oarepo_ui-5.0.101-py2.py3-none-any.whl", hash = "sha256:c9ee92dafca12fb0a7850b98579f125a15e49acd7d7ef0fa61978862cb8102a1"},
+    {file = "oarepo-ui-5.0.105.tar.gz", hash = "sha256:d65eae9af7e820482d6254ac0041ba8324a6ba2353ef5924fdf4a92777219725"},
+    {file = "oarepo_ui-5.0.105-py2.py3-none-any.whl", hash = "sha256:ef631da64b13ca4fab0573fc3180ebdbb133317ae3a3f63299f3ce07b03bd167"},
 ]
 
 [[package]]
 name = "oarepo-vocabularies"
-version = "2.0.73"
+version = "2.0.74"
 summary = "Support for custom fields and hierarchy on Invenio vocabularies"
 groups = ["default"]
 dependencies = [
@@ -3204,8 +3205,8 @@ dependencies = [
     "openpyxl",
 ]
 files = [
-    {file = "oarepo-vocabularies-2.0.73.tar.gz", hash = "sha256:be3a14e4ec22c246ac72014228edb1b25de2f92c67b105fa01c9e4ee0dd0d9bd"},
-    {file = "oarepo_vocabularies-2.0.73-py3-none-any.whl", hash = "sha256:a35b08a8a06829b3ad1d4db2cbe7c7934bb1b0e5983989b1f2b2bba66b66c626"},
+    {file = "oarepo-vocabularies-2.0.74.tar.gz", hash = "sha256:d942603b8aea67587e1515ecde11649a7090029302b93d2657370c8a349c42e4"},
+    {file = "oarepo_vocabularies-2.0.74-py3-none-any.whl", hash = "sha256:4fb2e99c63cd1f88cd8d677fe63fc843e502e3307ca62ae8b13457c532d66eca"},
 ]
 
 [[package]]
@@ -3902,13 +3903,13 @@ files = [
 
 [[package]]
 name = "setuptools"
-version = "69.0.3"
+version = "69.1.0"
 requires_python = ">=3.8"
 summary = "Easily download, build, install, upgrade, and uninstall Python packages"
 groups = ["default"]
 files = [
-    {file = "setuptools-69.0.3-py3-none-any.whl", hash = "sha256:385eb4edd9c9d5c17540511303e39a147ce2fc04bc55289c322b9e5904fe2c05"},
-    {file = "setuptools-69.0.3.tar.gz", hash = "sha256:be1af57fc409f93647f2e8e4573a142ed38724b8cdd389706a867bb4efcf1e78"},
+    {file = "setuptools-69.1.0-py3-none-any.whl", hash = "sha256:c054629b81b946d63a9c6e732bc8b2513a7c3ea645f11d0139a2191d735c60c6"},
+    {file = "setuptools-69.1.0.tar.gz", hash = "sha256:850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"},
 ]
 
 [[package]]

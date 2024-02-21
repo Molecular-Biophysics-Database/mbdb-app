@@ -1,4 +1,4 @@
-from oarepo_requests.actions.publish_draft import PublishDraftSubmitAction
+from oarepo_requests.actions.publish_draft import PublishDraftAcceptAction
 from oarepo_requests.types.publish_draft import PublishDraftRequestType as BasePublishDraftRequestType
 from oarepo_runtime.i18n import lazy_gettext as _
 
@@ -10,7 +10,6 @@ class PublishDraftRequestType(BasePublishDraftRequestType):
 
     available_actions = {
         **BasePublishDraftRequestType.available_actions,
-        "submit": PublishDraftSubmitAction,
     }
 
     allowed_topic_ref_types = [

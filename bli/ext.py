@@ -1,6 +1,8 @@
 import re
 from functools import cached_property
 
+from oarepo_requests.resources.draft.config import DraftRecordRequestsResourceConfig
+
 from bli import config
 
 
@@ -58,6 +60,18 @@ class BliExt:
         )
 
     @cached_property
+    def service_requests(self):
+        return config.BLI_REQUESTS_SERVICE_CLASS(record_service=self.service_records)
+
+    @cached_property
+    def resource_requests(self):
+        return config.BLI_REQUESTS_RESOURCE_CLASS(
+            service=self.service_requests,
+            config=config.BLI_RECORD_RESOURCE_CONFIG(),
+            record_requests_config=DraftRecordRequestsResourceConfig(),
+        )
+
+    @cached_property
     def published_service_records(self):
         from bli.services.records.published.config import BliPublishedServiceConfig
         from bli.services.records.published.service import BliPublishedService
@@ -79,17 +93,6 @@ class BliExt:
         return config.BLI_FILES_RESOURCE_CLASS(
             service=self.service_files,
             config=config.BLI_FILES_RESOURCE_CONFIG(),
-        )
-
-    @cached_property
-    def published_service_files(self):
-        from bli.services.files.published.config import BliFilePublishedServiceConfig
-        from bli.services.files.published.service import BliFilePublishedService
-
-        return BliFilePublishedService(
-            config=BliFilePublishedServiceConfig(
-                proxied_drafts_config=self.service_files.config,
-            ),
         )
 
     @cached_property
