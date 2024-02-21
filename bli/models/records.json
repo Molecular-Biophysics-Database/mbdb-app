@@ -783,7 +783,6 @@
                         "properties": {
                             "associated_publication": {
                                 "type": "polymorphic",
-                                "required": true,
                                 "schemas": {
                                     "Article": {
                                         "type": "object",

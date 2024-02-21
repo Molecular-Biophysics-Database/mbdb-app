@@ -35,9 +35,7 @@ class GeneralParametersUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    associated_publication = ma_fields.Nested(
-        lambda: AssociatedPublicationUISchema(), required=True
-    )
+    associated_publication = ma_fields.Nested(lambda: AssociatedPublicationUISchema())
 
     chemical_environments = ma_fields.List(
         ma_fields.Nested(lambda: ChemicalEnvironmentsItemUISchema()), required=True

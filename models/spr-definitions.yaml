@@ -1071,7 +1071,6 @@ Publication_base:
 Publication:
   help.en: Information about the publication. peer-reviewed articles, books, and theses
     (dissertations) can be annotated
-  required: true
   schemas:
     Article:
       use: '#/$defs/PublicationArticlePolymorphic'
