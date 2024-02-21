@@ -44,129 +44,57 @@ class BliRecord(InvenioRecord):
     dumper = BliDumper()
 
     relations = RelationsField(
-        affiliations=PIDRelation(
-            "metadata.general_parameters.associated_publications.additional.authors.affiliations",
-            keys=[
-                "id",
-                "title",
-                {"key": "props.city", "target": "city"},
-                {"key": "props.state", "target": "state"},
-                {"key": "props.country", "target": "country"},
-            ],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
-        ),
-        authors_affiliations=PIDRelation(
-            "metadata.general_parameters.associated_publications.main.authors.affiliations",
-            keys=[
-                "id",
-                "title",
-                {"key": "props.city", "target": "city"},
-                {"key": "props.state", "target": "state"},
-                {"key": "props.country", "target": "country"},
-            ],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
-        ),
         expression_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.expression_organism",
+            "metadata.general_parameters.chemical_environments.constituents.expression_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.source_organism",
+            "metadata.general_parameters.chemical_environments.constituents.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.components.expression_organism",
+            "metadata.general_parameters.chemical_environments.constituents.components.expression_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.components.source_organism",
+            "metadata.general_parameters.chemical_environments.constituents.components.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         Body_fluid_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.source_organism",
+            "metadata.general_parameters.chemical_environments.constituents.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         Cell_fraction_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.source_organism",
+            "metadata.general_parameters.chemical_environments.constituents.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         host_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.host_organism",
+            "metadata.general_parameters.chemical_environments.constituents.host_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         Virion_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.source_organism",
+            "metadata.general_parameters.chemical_environments.constituents.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         components_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.expression_organism",
+            "metadata.general_parameters.chemical_environments.constituents.components.expression_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         components_Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.source_organism",
+            "metadata.general_parameters.chemical_environments.constituents.components.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
-        entities_of_interest_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        entities_of_interest_Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Molecular_assembly_components_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.components.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Molecular_assembly_components_Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.components.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Complex_substance_of_biological_origin_Body_fluid_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Complex_substance_of_biological_origin_Cell_fraction_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Virion_host_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.host_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Complex_substance_of_biological_origin_Virion_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        details_components_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.details.components.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        details_components_Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.details.components.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        contributors_affiliations=PIDRelation(
+        affiliations=PIDRelation(
             "metadata.general_parameters.depositors.contributors.affiliations",
             keys=[
                 "id",
@@ -199,97 +127,130 @@ class BliRecord(InvenioRecord):
             ],
             pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
         ),
-        entity=InternalRelation(
-            "metadata.general_parameters.derived_parameters.entities_involved.entity",
-            keys=["id", "name"],
-            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
+        entities_of_interest_Polymer_expression_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.expression_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
-        funding_reference=PIDRelation(
-            "metadata.general_parameters.funding_reference",
+        entities_of_interest_Polymer_source_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Molecular_assembly_components_Polymer_expression_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.components.expression_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Molecular_assembly_components_Polymer_source_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.components.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Complex_substance_of_biological_origin_Body_fluid_source_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Complex_substance_of_biological_origin_Cell_fraction_source_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Virion_host_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.host_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Complex_substance_of_biological_origin_Virion_source_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Lipid_assembly_components_Polymer_expression_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.components.expression_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Lipid_assembly_components_Polymer_source_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.components.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        funding_references=PIDRelation(
+            "metadata.general_parameters.funding_references",
             keys=["id", "title", {"key": "props.funder_name", "target": "funder_name"}],
             pid_field=Vocabulary.pid.with_type_ctx("grants"),
         ),
-        published_test_protocol_authors_affiliations=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.published_test_protocol.authors.affiliations",
-            keys=[
-                "id",
-                "title",
-                {"key": "props.city", "target": "city"},
-                {"key": "props.state", "target": "state"},
-                {"key": "props.country", "target": "country"},
-            ],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
-        ),
-        sample_composition_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        sample_composition_Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        sample_composition_Molecular_assembly_components_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.components.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        sample_composition_Molecular_assembly_components_Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.components.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        sample_composition_Complex_substance_of_biological_origin_Body_fluid_source_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        sample_composition_Complex_substance_of_biological_origin_Cell_fraction_source_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Complex_substance_of_biological_origin_Virion_host_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.host_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        sample_composition_Complex_substance_of_biological_origin_Virion_source_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Complex_substance_of_chemical_origin_details_components_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.details.components.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Complex_substance_of_chemical_origin_details_components_Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.details.components.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        owner_affiliations=PIDRelation(
-            "metadata.general_parameters.record_information.project.owner.affiliations",
-            keys=[
-                "id",
-                "title",
-                {"key": "props.city", "target": "city"},
-                {"key": "props.state", "target": "state"},
-                {"key": "props.country", "target": "country"},
-            ],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
-        ),
-        derived_parameter=InternalRelation(
-            "metadata.method_specific_parameters.data_analysis.derived_parameter",
+        entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
             keys=["id", "name"],
-            related_part="metadata.general_parameters.derived_parameters",
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Constant_of_association_KA_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Constant_of_dissociation_KD_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Association_rate_kOn_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Dissociation_rate_kOff_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Change_in_enthalpy_deltaH_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Change_in_entropy_deltaS_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Change_in_Gibbs_free_energy_deltaG_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Molecular_weight_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Half_maximal_effective_concentration_EC50_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Hill_coefficient_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
         ),
         measurements=InternalRelation(
             "metadata.method_specific_parameters.data_analysis.measurements",
             keys=["id", "name"],
             related_part="metadata.method_specific_parameters.measurements",
+        ),
+        result=InternalRelation(
+            "metadata.method_specific_parameters.data_analysis.result",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.results",
         ),
         measurement_protocol_step=InternalRelation(
             "metadata.method_specific_parameters.measurements.measurement_protocol_step",
@@ -299,12 +260,12 @@ class BliRecord(InvenioRecord):
         analytes_entity=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.analytes.entity",
             keys=["id", "name"],
-            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
+            related_part="metadata.general_parameters.entities_of_interest",
         ),
         chemical_environment=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.chemical_environment",
             keys=["id", "name"],
-            related_part="metadata.general_parameters.chemical_information.chemical_environments",
+            related_part="metadata.general_parameters.chemical_environments",
         ),
         plate=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.plate",
@@ -319,7 +280,7 @@ class BliRecord(InvenioRecord):
         ligand=InternalRelation(
             "metadata.method_specific_parameters.sensors.ligand_information.ligand",
             keys=["id", "name"],
-            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
+            related_part="metadata.general_parameters.entities_of_interest",
         ),
     )
 
@@ -349,129 +310,57 @@ class BliDraft(InvenioDraft):
     dumper = BliDraftDumper()
 
     relations = RelationsField(
-        affiliations=PIDRelation(
-            "metadata.general_parameters.associated_publications.additional.authors.affiliations",
-            keys=[
-                "id",
-                "title",
-                {"key": "props.city", "target": "city"},
-                {"key": "props.state", "target": "state"},
-                {"key": "props.country", "target": "country"},
-            ],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
-        ),
-        authors_affiliations=PIDRelation(
-            "metadata.general_parameters.associated_publications.main.authors.affiliations",
-            keys=[
-                "id",
-                "title",
-                {"key": "props.city", "target": "city"},
-                {"key": "props.state", "target": "state"},
-                {"key": "props.country", "target": "country"},
-            ],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
-        ),
         expression_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.expression_organism",
+            "metadata.general_parameters.chemical_environments.constituents.expression_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.source_organism",
+            "metadata.general_parameters.chemical_environments.constituents.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.components.expression_organism",
+            "metadata.general_parameters.chemical_environments.constituents.components.expression_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.components.source_organism",
+            "metadata.general_parameters.chemical_environments.constituents.components.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         Body_fluid_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.source_organism",
+            "metadata.general_parameters.chemical_environments.constituents.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         Cell_fraction_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.source_organism",
+            "metadata.general_parameters.chemical_environments.constituents.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         host_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.host_organism",
+            "metadata.general_parameters.chemical_environments.constituents.host_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         Virion_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.source_organism",
+            "metadata.general_parameters.chemical_environments.constituents.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         components_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.expression_organism",
+            "metadata.general_parameters.chemical_environments.constituents.components.expression_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
         components_Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.chemical_environments.constituents.details.components.source_organism",
+            "metadata.general_parameters.chemical_environments.constituents.components.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
-        entities_of_interest_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        entities_of_interest_Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Molecular_assembly_components_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.components.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Molecular_assembly_components_Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.components.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Complex_substance_of_biological_origin_Body_fluid_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Complex_substance_of_biological_origin_Cell_fraction_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Virion_host_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.host_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Complex_substance_of_biological_origin_Virion_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        details_components_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.details.components.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        details_components_Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.chemical_information.entities_of_interest.details.components.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        contributors_affiliations=PIDRelation(
+        affiliations=PIDRelation(
             "metadata.general_parameters.depositors.contributors.affiliations",
             keys=[
                 "id",
@@ -504,97 +393,130 @@ class BliDraft(InvenioDraft):
             ],
             pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
         ),
-        entity=InternalRelation(
-            "metadata.general_parameters.derived_parameters.entities_involved.entity",
-            keys=["id", "name"],
-            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
+        entities_of_interest_Polymer_expression_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.expression_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
-        funding_reference=PIDRelation(
-            "metadata.general_parameters.funding_reference",
+        entities_of_interest_Polymer_source_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Molecular_assembly_components_Polymer_expression_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.components.expression_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Molecular_assembly_components_Polymer_source_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.components.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Complex_substance_of_biological_origin_Body_fluid_source_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Complex_substance_of_biological_origin_Cell_fraction_source_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Virion_host_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.host_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Complex_substance_of_biological_origin_Virion_source_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Lipid_assembly_components_Polymer_expression_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.components.expression_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Lipid_assembly_components_Polymer_source_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.components.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        funding_references=PIDRelation(
+            "metadata.general_parameters.funding_references",
             keys=["id", "title", {"key": "props.funder_name", "target": "funder_name"}],
             pid_field=Vocabulary.pid.with_type_ctx("grants"),
         ),
-        published_test_protocol_authors_affiliations=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.published_test_protocol.authors.affiliations",
-            keys=[
-                "id",
-                "title",
-                {"key": "props.city", "target": "city"},
-                {"key": "props.state", "target": "state"},
-                {"key": "props.country", "target": "country"},
-            ],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
-        ),
-        sample_composition_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        sample_composition_Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        sample_composition_Molecular_assembly_components_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.components.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        sample_composition_Molecular_assembly_components_Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.components.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        sample_composition_Complex_substance_of_biological_origin_Body_fluid_source_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        sample_composition_Complex_substance_of_biological_origin_Cell_fraction_source_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Complex_substance_of_biological_origin_Virion_host_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.host_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        sample_composition_Complex_substance_of_biological_origin_Virion_source_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Complex_substance_of_chemical_origin_details_components_Polymer_expression_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.details.components.expression_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        Complex_substance_of_chemical_origin_details_components_Polymer_source_organism=PIDRelation(
-            "metadata.general_parameters.instrument.performance_test.sample_composition.details.components.source_organism",
-            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
-            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
-        ),
-        owner_affiliations=PIDRelation(
-            "metadata.general_parameters.record_information.project.owner.affiliations",
-            keys=[
-                "id",
-                "title",
-                {"key": "props.city", "target": "city"},
-                {"key": "props.state", "target": "state"},
-                {"key": "props.country", "target": "country"},
-            ],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
-        ),
-        derived_parameter=InternalRelation(
-            "metadata.method_specific_parameters.data_analysis.derived_parameter",
+        entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
             keys=["id", "name"],
-            related_part="metadata.general_parameters.derived_parameters",
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Constant_of_association_KA_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Constant_of_dissociation_KD_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Association_rate_kOn_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Dissociation_rate_kOff_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Change_in_enthalpy_deltaH_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Change_in_entropy_deltaS_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Change_in_Gibbs_free_energy_deltaG_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Molecular_weight_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Half_maximal_effective_concentration_EC50_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Hill_coefficient_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
         ),
         measurements=InternalRelation(
             "metadata.method_specific_parameters.data_analysis.measurements",
             keys=["id", "name"],
             related_part="metadata.method_specific_parameters.measurements",
+        ),
+        result=InternalRelation(
+            "metadata.method_specific_parameters.data_analysis.result",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.results",
         ),
         measurement_protocol_step=InternalRelation(
             "metadata.method_specific_parameters.measurements.measurement_protocol_step",
@@ -604,12 +526,12 @@ class BliDraft(InvenioDraft):
         analytes_entity=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.analytes.entity",
             keys=["id", "name"],
-            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
+            related_part="metadata.general_parameters.entities_of_interest",
         ),
         chemical_environment=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.chemical_environment",
             keys=["id", "name"],
-            related_part="metadata.general_parameters.chemical_information.chemical_environments",
+            related_part="metadata.general_parameters.chemical_environments",
         ),
         plate=InternalRelation(
             "metadata.method_specific_parameters.measurements.sample.plate",
@@ -624,7 +546,7 @@ class BliDraft(InvenioDraft):
         ligand=InternalRelation(
             "metadata.method_specific_parameters.sensors.ligand_information.ligand",
             keys=["id", "name"],
-            related_part="metadata.general_parameters.chemical_information.entities_of_interest",
+            related_part="metadata.general_parameters.entities_of_interest",
         ),
     )
 

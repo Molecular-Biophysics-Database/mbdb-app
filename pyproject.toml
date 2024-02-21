@@ -71,6 +71,9 @@ spr = "spr.records.models"
 spr_file = "spr.files.models"
 bli = "bli.records.models"
 bli_file = "bli.files.models"
+spr_file_draft = "spr.files.models"
+mst_file_draft = "mst.files.models"
+bli_file_draft = "bli.files.models"
 
 [project.entry-points."invenio_base.api_blueprints"]
 mst = "mst.views.records.api:create_api_blueprint"

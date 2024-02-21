@@ -25,7 +25,6 @@ class BliFileSchema(RequestsSchemaMixin, InvenioFileSchema):
                     "raw measurement data",
                     "derived measurement data",
                     "quality control report",
-                    "performance test report",
                 ]
             )
         ],
@@ -65,7 +64,5 @@ class ProcessingStepsItemSchema(DictOnlySchema):
     name = ma_fields.String(required=True)
 
     software_name = ma_fields.String()
-
-    software_tool = ma_fields.String()
 
     software_version = ma_fields.String()

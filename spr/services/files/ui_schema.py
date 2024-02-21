@@ -21,7 +21,6 @@ class SprFileUISchema(InvenioUISchema):
                     "raw measurement data",
                     "derived measurement data",
                     "quality control report",
-                    "performance test report",
                 ]
             )
         ],
@@ -55,8 +54,6 @@ class ProcessingStepsItemUISchema(DictOnlySchema):
     name = ma_fields.String(required=True)
 
     software_name = ma_fields.String()
-
-    software_tool = ma_fields.String()
 
     software_version = ma_fields.String()
 
