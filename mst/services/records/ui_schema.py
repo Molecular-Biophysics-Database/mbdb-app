@@ -46,8 +46,7 @@ class GeneralParametersUISchema(DictOnlySchema):
     depositors = ma_fields.Nested(lambda: DepositorsUISchema(), required=True)
 
     entities_of_interest = ma_fields.List(
-        ma_fields.Nested(lambda: EntitiesOfInterestItemUISchema(), required=True),
-        required=True,
+        ma_fields.Nested(lambda: EntitiesOfInterestItemUISchema()), required=True
     )
 
     funding_references = ma_fields.List(
@@ -62,9 +61,7 @@ class GeneralParametersUISchema(DictOnlySchema):
         lambda: RecordInformationUISchema(), required=True
     )
 
-    results = ma_fields.List(
-        ma_fields.Nested(lambda: ResultsItemUISchema(), required=True)
-    )
+    results = ma_fields.List(ma_fields.Nested(lambda: ResultsItemUISchema()))
 
     schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.18"])])
 
@@ -90,16 +87,14 @@ class ChemicalEnvironmentsItemUISchema(DictOnlySchema):
 
     additional_specifications = ma_fields.List(ma_fields.String())
 
-    constituents = ma_fields.List(
-        ma_fields.Nested(lambda: ConstituentsItemUISchema(), required=True)
-    )
+    constituents = ma_fields.List(ma_fields.Nested(lambda: ConstituentsItemUISchema()))
 
     name = ma_fields.String(required=True)
 
     ph = ma_fields.Float(required=True)
 
     solvent = ma_fields.List(
-        ma_fields.Nested(lambda: SolventItemUISchema(), required=True), required=True
+        ma_fields.Nested(lambda: SolventItemUISchema()), required=True
     )
 
 
@@ -121,7 +116,7 @@ class Complex_substance_of_chemical_originUISchema(DictOnlySchema):
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemUISchema(), required=True), required=True
+        ma_fields.Nested(lambda: ComponentsItemUISchema()), required=True
     )
 
     concentration = ma_fields.Nested(lambda: ConcentrationUISchema(), required=True)
@@ -174,7 +169,7 @@ class Complex_substance_of_chemical_originUISchema(DictOnlySchema):
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemUISchema(), required=True), required=True
+        ma_fields.Nested(lambda: ComponentsItemUISchema()), required=True
     )
 
     concentration = ma_fields.Nested(lambda: ConcentrationUISchema(), required=True)
@@ -240,7 +235,7 @@ class ConstituentsItemUISchema(DictOnlySchema):
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemUISchema(), required=True), required=True
+        ma_fields.Nested(lambda: ComponentsItemUISchema()), required=True
     )
 
     concentration = ma_fields.Nested(lambda: ConcentrationUISchema(), required=True)
@@ -420,7 +415,7 @@ class EntitiesOfInterestItemComplex_substance_of_chemical_originUISchema(
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemUISchema(), required=True), required=True
+        ma_fields.Nested(lambda: ComponentsItemUISchema()), required=True
     )
 
     name = ma_fields.String(required=True)
@@ -475,7 +470,7 @@ class EntitiesOfInterestItemComplex_substance_of_chemical_originUISchema(
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemUISchema(), required=True), required=True
+        ma_fields.Nested(lambda: ComponentsItemUISchema()), required=True
     )
 
     name = ma_fields.String(required=True)
@@ -521,7 +516,7 @@ class EntitiesOfInterestItemMolecular_assemblyUISchema(DictOnlySchema):
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemUISchema(), required=True), required=True
+        ma_fields.Nested(lambda: ComponentsItemUISchema()), required=True
     )
 
     external_databases = ma_fields.List(ma_fields.String())
@@ -585,7 +580,7 @@ class EntitiesOfInterestItemUISchema(DictOnlySchema):
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemUISchema(), required=True), required=True
+        ma_fields.Nested(lambda: ComponentsItemUISchema()), required=True
     )
 
     derived_from = ma_fields.String(
@@ -752,7 +747,7 @@ class Molecular_assemblyUISchema(DictOnlySchema):
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemUISchema(), required=True), required=True
+        ma_fields.Nested(lambda: ComponentsItemUISchema()), required=True
     )
 
     concentration = ma_fields.Nested(lambda: ConcentrationUISchema(), required=True)
@@ -1092,11 +1087,11 @@ class QualityControlsUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    homogeneity = ma_fields.Nested(lambda: HomogeneityUISchema(), required=True)
+    homogeneity = ma_fields.Nested(lambda: HomogeneityUISchema())
 
     identity = ma_fields.Nested(lambda: IdentityUISchema())
 
-    purity = ma_fields.Nested(lambda: PurityUISchema(), required=True)
+    purity = ma_fields.Nested(lambda: PurityUISchema())
 
 
 class Association_rate_kOnUISchema(DictOnlySchema):

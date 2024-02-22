@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-02-21T17:58:36.590807\n"
-"PO-Revision-Date: 2024-02-21T17:58:36.590808\n"
+"POT-Creation-Date: 2024-02-22T17:10:12.692797\n"
+"PO-Revision-Date: 2024-02-22T17:10:12.692798\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3983,10 +3983,10 @@ msgid ""
 "metadata/general_parameters/entities_of_interest/external_databases.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/entities_of_interest/id.help"
+msgid "metadata/general_parameters/entities_of_interest/id.label"
 msgstr ""
 
-msgid "metadata/general_parameters/entities_of_interest/id.label"
+msgid "metadata/general_parameters/entities_of_interest/id.help"
 msgstr ""
 
 msgid "metadata/general_parameters/entities_of_interest/id.hint"
@@ -6963,10 +6963,10 @@ msgstr ""
 msgid "metadata/general_parameters/results/entities_involved/entity/@v.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/results/id.help"
+msgid "metadata/general_parameters/results/id.label"
 msgstr ""
 
-msgid "metadata/general_parameters/results/id.label"
+msgid "metadata/general_parameters/results/id.help"
 msgstr ""
 
 msgid "metadata/general_parameters/results/id.hint"

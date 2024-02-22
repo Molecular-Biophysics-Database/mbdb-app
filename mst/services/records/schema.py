@@ -77,7 +77,7 @@ class GeneralParametersSchema(DictOnlySchema):
     depositors = ma_fields.Nested(lambda: DepositorsSchema(), required=True)
 
     entities_of_interest = ma_fields.List(
-        ma_fields.Nested(lambda: EntitiesOfInterestItemSchema(), required=True),
+        ma_fields.Nested(lambda: EntitiesOfInterestItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
@@ -98,7 +98,7 @@ class GeneralParametersSchema(DictOnlySchema):
     )
 
     results = ma_fields.List(
-        ma_fields.Nested(lambda: ResultsItemSchema(), required=True),
+        ma_fields.Nested(lambda: ResultsItemSchema()),
         validate=[ma.validate.Length(min=1)],
     )
 
@@ -129,7 +129,7 @@ class ChemicalEnvironmentsItemSchema(DictOnlySchema):
     )
 
     constituents = ma_fields.List(
-        ma_fields.Nested(lambda: ConstituentsItemSchema(), required=True),
+        ma_fields.Nested(lambda: ConstituentsItemSchema()),
         validate=[ma.validate.Length(min=1)],
     )
 
@@ -138,7 +138,7 @@ class ChemicalEnvironmentsItemSchema(DictOnlySchema):
     ph = ma_fields.Float(required=True)
 
     solvent = ma_fields.List(
-        ma_fields.Nested(lambda: SolventItemSchema(), required=True),
+        ma_fields.Nested(lambda: SolventItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
@@ -292,7 +292,7 @@ class Complex_substance_of_chemical_originLipid_assemblySchema(DictOnlySchema):
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemSchema(), required=True),
+        ma_fields.Nested(lambda: ComponentsItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
@@ -345,7 +345,7 @@ class EntitiesOfInterestItemMolecular_assemblySchema(DictOnlySchema):
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemSchema(), required=True),
+        ma_fields.Nested(lambda: ComponentsItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
@@ -398,7 +398,7 @@ class Lipid_assemblySchema(DictOnlySchema):
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemSchema(), required=True),
+        ma_fields.Nested(lambda: ComponentsItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
@@ -451,7 +451,7 @@ class Molecular_assemblySchema(DictOnlySchema):
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemSchema(), required=True),
+        ma_fields.Nested(lambda: ComponentsItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
@@ -811,11 +811,11 @@ class QualityControlsSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    homogeneity = ma_fields.Nested(lambda: HomogeneitySchema(), required=True)
+    homogeneity = ma_fields.Nested(lambda: HomogeneitySchema())
 
     identity = ma_fields.Nested(lambda: IdentitySchema())
 
-    purity = ma_fields.Nested(lambda: PuritySchema(), required=True)
+    purity = ma_fields.Nested(lambda: PuritySchema())
 
 
 class ResultsItemSchema(PolymorphicSchema):
