@@ -1,0 +1,2587 @@
+# Translations template for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-02-23 07:30+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.14.0\n"
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:11
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:11
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:11
+msgid "metadata/general_parameters/associated_publication/journal.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:16
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:16
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:16
+msgid "metadata/general_parameters/associated_publication/pid.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:21
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:21
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:21
+msgid "metadata/general_parameters/associated_publication/title.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:26
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:26
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:26
+msgid "metadata/general_parameters/associated_publication/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:31
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:31
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:31
+msgid "metadata/general_parameters/associated_publication/publisher.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:36
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:36
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:36
+msgid "metadata/general_parameters/associated_publication/degree_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:43
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:43
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:43
+msgid ""
+"metadata/general_parameters/chemical_environments/additional_specifications.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:53
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:53
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:53
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/additional_specifications.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:63
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:63
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:63
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/concentration/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:73
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:73
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:73
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/concentration/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:83
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:83
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:83
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/expression_organism.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:94
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:94
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:94
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/expression_source_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:104
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:104
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:104
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/external_databases.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:116
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:116
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:116
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/modifications/biological_postprocessing/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:129
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:129
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:129
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/modifications/biological_postprocessing/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:142
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:142
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:142
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/modifications/biological_postprocessing/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:155
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:155
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:155
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/modifications/biological_postprocessing/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:168
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:168
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:168
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/modifications/chemical/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:181
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:181
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:181
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/modifications/chemical/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:194
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:194
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:194
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/modifications/chemical/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:207
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:207
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:207
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/modifications/chemical/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:220
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:220
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:220
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:233
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:233
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:233
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:246
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:246
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:246
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:259
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:259
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:259
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:270
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:270
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:270
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/molecular_weight/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:280
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:280
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:280
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/molecular_weight/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:290
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:290
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:290
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:300
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:300
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:300
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/polymer_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:310
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:310
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:310
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/checked.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:320
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:320
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:320
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/expected"
+" number_of_species.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:330
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:330
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:330
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:340
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:340
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:340
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/number_of_species_observed.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:350
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:350
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:350
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/by_fingerprinting/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:360
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:360
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:360
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/by_intact_mass/deviation_from_expected_mass/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:370
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:370
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:370
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/by_intact_mass/deviation_from_expected_mass/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:380
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:380
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:380
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/by_intact_mass/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:390
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:390
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:390
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/by_sequencing/coverage.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:400
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:400
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:400
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/by_sequencing/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:410
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:410
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:410
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/checked.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:420
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:420
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:420
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/checked.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:430
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:430
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:430
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:440
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:440
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:440
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/purity_percentage.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:450
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:450
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:450
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/sequence.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:460
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:460
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:460
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/source_organism.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:471
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:471
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:471
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:481
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:481
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:481
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/variant.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:491
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:491
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:491
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/additional_identifiers.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:501
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:501
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:501
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/inchikey.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:511
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:511
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:511
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/isotopic_labeling.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:523
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:523
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:523
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/chemical_modifications/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:536
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:536
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:536
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/chemical_modifications/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:549
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:549
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:549
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/chemical_modifications/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:562
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:562
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:562
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/chemical_modifications/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:573
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:573
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:573
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/additional_specifications.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:583
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:583
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:583
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/copy_number.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:593
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:593
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:593
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/expression_organism.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:604
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:604
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:604
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/expression_source_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:614
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:614
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:614
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/external_databases.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:626
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:626
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:626
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/modifications/biological_postprocessing/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:639
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:639
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:639
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/modifications/biological_postprocessing/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:652
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:652
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:652
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/modifications/biological_postprocessing/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:665
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:665
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:665
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/modifications/biological_postprocessing/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:678
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:678
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:678
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/modifications/chemical/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:691
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:691
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:691
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/modifications/chemical/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:704
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:704
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:704
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/modifications/chemical/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:717
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:717
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:717
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/modifications/chemical/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:730
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:730
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:730
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:743
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:743
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:743
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:756
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:756
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:756
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:769
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:769
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:769
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:780
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:780
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:780
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/molecular_weight/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:790
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:790
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:790
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/molecular_weight/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:800
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:800
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:800
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:810
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:810
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:810
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/polymer_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:820
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:820
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:820
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/checked.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:830
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:830
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:830
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/expected"
+" number_of_species.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:840
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:840
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:840
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:850
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:850
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:850
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/number_of_species_observed.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:860
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:860
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:860
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/by_fingerprinting/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:870
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:870
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:870
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/by_intact_mass/deviation_from_expected_mass/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:880
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:880
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:880
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/by_intact_mass/deviation_from_expected_mass/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:890
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:890
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:890
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/by_intact_mass/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:900
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:900
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:900
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/by_sequencing/coverage.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:910
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:910
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:910
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/by_sequencing/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:920
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:920
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:920
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/checked.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:930
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:930
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:930
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/checked.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:940
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:940
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:940
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:950
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:950
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:950
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/purity_percentage.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:960
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:960
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:960
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/sequence.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:970
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:970
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:970
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/source_organism.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:981
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:981
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:981
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:991
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:991
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:991
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/variant.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1001
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1001
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1001
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/additional_identifiers.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1011
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1011
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1011
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/inchikey.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1021
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1021
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1021
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/isotopic_labeling.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1031
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1031
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1031
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/derived_from.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1041
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1041
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1041
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/fluid.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1051
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1051
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1051
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/health_status.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1061
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1061
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1061
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/preparation_protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1071
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1071
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1071
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/preparation_protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1081
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1081
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1081
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/storage/duration/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1091
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1091
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1091
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/storage/duration/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1101
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1101
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1101
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/storage/storage_preparation/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1111
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1111
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1111
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/storage/storage_preparation/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1121
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1121
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1121
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/storage/temperature/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1131
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1131
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1131
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/storage/temperature/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1141
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1141
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1141
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/cell_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1151
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1151
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1151
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/fraction.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1161
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1161
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1161
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/organ.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1171
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1171
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1171
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/tissue.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1181
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1181
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1181
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/capsid_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1191
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1191
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1191
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/envelope_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1201
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1201
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1201
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/genetic_material.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1211
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1211
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1211
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/host_cell_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1221
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1221
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1221
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/host_organism.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1232
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1232
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1232
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/location/latitude.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1242
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1242
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1242
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/location/longitude.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1252
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1252
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1252
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/source.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1262
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1262
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1262
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/assembly_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1272
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1272
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1272
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/class.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1282
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1282
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1282
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/number_of_mono_layers.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1292
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1292
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1292
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/size/lower.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1302
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1302
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1302
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/size/mean.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1312
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1312
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1312
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/size/median.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1322
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1322
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1322
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/size/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1332
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1332
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1332
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/size/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1342
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1342
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1342
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/size/upper.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1352
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1352
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1352
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/product.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1362
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1362
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1362
+msgid "metadata/general_parameters/chemical_environments/id.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1370
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1370
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1370
+msgid "metadata/general_parameters/chemical_environments/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1378
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1378
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1378
+msgid "metadata/general_parameters/chemical_environments/ph.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1386
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1386
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1386
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/additional_identifiers.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1396
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1396
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1396
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/additional_specifications.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1406
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1406
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1406
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/concentration/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1416
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1416
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1416
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/concentration/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1426
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1426
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1426
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/inchikey.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1436
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1436
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1436
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/isotopic_labeling.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1446
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1446
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1446
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/molecular_weight/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1456
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1456
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1456
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/molecular_weight/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1466
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1466
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1466
+msgid "metadata/general_parameters/chemical_environments/solvent/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1474
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1474
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1474
+msgid "metadata/general_parameters/chemical_environments/solvent/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1480
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1480
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1480
+msgid "metadata/general_parameters/collection_start_time.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1487
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1487
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1487
+msgid "metadata/general_parameters/depositors/contributors/affiliations.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1498
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1498
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1498
+msgid "metadata/general_parameters/depositors/contributors/family_name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1508
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1508
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1508
+msgid "metadata/general_parameters/depositors/contributors/given_name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1516
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1516
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1516
+msgid "metadata/general_parameters/depositors/contributors/identifiers.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1524
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1524
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1524
+msgid "metadata/general_parameters/depositors/depositor/affiliations.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1530
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1530
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1530
+msgid "metadata/general_parameters/depositors/depositor/family_name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1535
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1535
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1535
+msgid "metadata/general_parameters/depositors/depositor/given_name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1540
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1540
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1540
+msgid "metadata/general_parameters/depositors/depositor/identifiers.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1545
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1545
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1545
+msgid ""
+"metadata/general_parameters/depositors/principal_contact/affiliations.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1553
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1553
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1553
+msgid ""
+"metadata/general_parameters/depositors/principal_contact/family_name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1560
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1560
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1560
+msgid ""
+"metadata/general_parameters/depositors/principal_contact/given_name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1567
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1567
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1567
+msgid ""
+"metadata/general_parameters/depositors/principal_contact/identifiers.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1574
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1574
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1574
+msgid ""
+"metadata/general_parameters/entities_of_interest/additional_specifications.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1581
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1581
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1581
+msgid ""
+"metadata/general_parameters/entities_of_interest/expression_organism.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1589
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1589
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1589
+msgid ""
+"metadata/general_parameters/entities_of_interest/expression_source_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1596
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1596
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1596
+msgid ""
+"metadata/general_parameters/entities_of_interest/external_databases.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1603
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1603
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1603
+msgid "metadata/general_parameters/entities_of_interest/id.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1610
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1610
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1610
+msgid ""
+"metadata/general_parameters/entities_of_interest/modifications/biological_postprocessing/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1620
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1620
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1620
+msgid ""
+"metadata/general_parameters/entities_of_interest/modifications/biological_postprocessing/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1630
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1630
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1630
+msgid ""
+"metadata/general_parameters/entities_of_interest/modifications/biological_postprocessing/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1640
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1640
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1640
+msgid ""
+"metadata/general_parameters/entities_of_interest/modifications/biological_postprocessing/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1650
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1650
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1650
+msgid ""
+"metadata/general_parameters/entities_of_interest/modifications/chemical/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1660
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1660
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1660
+msgid ""
+"metadata/general_parameters/entities_of_interest/modifications/chemical/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1670
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1670
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1670
+msgid ""
+"metadata/general_parameters/entities_of_interest/modifications/chemical/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1680
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1680
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1680
+msgid ""
+"metadata/general_parameters/entities_of_interest/modifications/chemical/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1690
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1690
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1690
+msgid ""
+"metadata/general_parameters/entities_of_interest/modifications/synthesis/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1700
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1700
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1700
+msgid ""
+"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1710
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1710
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1710
+msgid ""
+"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1720
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1720
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1720
+msgid ""
+"metadata/general_parameters/entities_of_interest/modifications/synthesis/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1728
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1728
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1728
+msgid ""
+"metadata/general_parameters/entities_of_interest/molecular_weight/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1735
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1735
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1735
+msgid ""
+"metadata/general_parameters/entities_of_interest/molecular_weight/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1742
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1742
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1742
+msgid "metadata/general_parameters/entities_of_interest/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1747
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1747
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1747
+msgid "metadata/general_parameters/entities_of_interest/polymer_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1752
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1752
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1752
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/checked.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1759
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1759
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1759
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/expected"
+" number_of_species.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1766
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1766
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1766
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1773
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1773
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1773
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/number_of_species_observed.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1780
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1780
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1780
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/identity/by_fingerprinting/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1787
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1787
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1787
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/identity/by_intact_mass/deviation_from_expected_mass/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1794
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1794
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1794
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/identity/by_intact_mass/deviation_from_expected_mass/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1801
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1801
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1801
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/identity/by_intact_mass/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1808
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1808
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1808
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/identity/by_sequencing/coverage.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1815
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1815
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1815
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/identity/by_sequencing/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1822
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1822
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1822
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/identity/checked.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1829
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1829
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1829
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/purity/checked.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1836
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1836
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1836
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/purity/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1843
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1843
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1843
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/purity/purity_percentage.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1850
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1850
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1850
+msgid "metadata/general_parameters/entities_of_interest/sequence.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1855
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1855
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1855
+msgid "metadata/general_parameters/entities_of_interest/source_organism.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1861
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1861
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1861
+msgid "metadata/general_parameters/entities_of_interest/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1866
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1866
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1866
+msgid "metadata/general_parameters/entities_of_interest/variant.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1871
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1871
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1871
+msgid ""
+"metadata/general_parameters/entities_of_interest/additional_identifiers.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1878
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1878
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1878
+msgid "metadata/general_parameters/entities_of_interest/inchikey.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1883
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1883
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1883
+msgid ""
+"metadata/general_parameters/entities_of_interest/isotopic_labeling.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1890
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1890
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1890
+msgid ""
+"metadata/general_parameters/entities_of_interest/chemical_modifications/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1900
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1900
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1900
+msgid ""
+"metadata/general_parameters/entities_of_interest/chemical_modifications/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1910
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1910
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1910
+msgid ""
+"metadata/general_parameters/entities_of_interest/chemical_modifications/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1920
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1920
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1920
+msgid ""
+"metadata/general_parameters/entities_of_interest/chemical_modifications/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1928
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1928
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1928
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/additional_specifications.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1935
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1935
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1935
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/copy_number.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1942
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1942
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1942
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/expression_organism.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1950
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1950
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1950
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/expression_source_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1957
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1957
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1957
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/external_databases.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1966
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1966
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1966
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/modifications/biological_postprocessing/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1976
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1976
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1976
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/modifications/biological_postprocessing/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1986
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1986
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1986
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/modifications/biological_postprocessing/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:1996
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:1996
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:1996
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/modifications/biological_postprocessing/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2006
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2006
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2006
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/modifications/chemical/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2016
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2016
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2016
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/modifications/chemical/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2026
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2026
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2026
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/modifications/chemical/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2036
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2036
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2036
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/modifications/chemical/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2046
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2046
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2046
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2056
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2056
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2056
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2066
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2066
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2066
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2076
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2076
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2076
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2084
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2084
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2084
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/molecular_weight/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2091
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2091
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2091
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/molecular_weight/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2098
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2098
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2098
+msgid "metadata/general_parameters/entities_of_interest/components/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2103
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2103
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2103
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/polymer_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2110
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2110
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2110
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/checked.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2117
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2117
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2117
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/expected"
+" number_of_species.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2124
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2124
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2124
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2131
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2131
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2131
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/number_of_species_observed.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2138
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2138
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2138
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/by_fingerprinting/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2145
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2145
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2145
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/by_intact_mass/deviation_from_expected_mass/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2152
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2152
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2152
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/by_intact_mass/deviation_from_expected_mass/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2159
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2159
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2159
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/by_intact_mass/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2166
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2166
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2166
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/by_sequencing/coverage.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2173
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2173
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2173
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/by_sequencing/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2180
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2180
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2180
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/checked.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2187
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2187
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2187
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/purity/checked.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2194
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2194
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2194
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/purity/method.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2201
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2201
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2201
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/purity/purity_percentage.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2208
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2208
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2208
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/sequence.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2215
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2215
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2215
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/source_organism.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2223
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2223
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2223
+msgid "metadata/general_parameters/entities_of_interest/components/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2228
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2228
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2228
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/variant.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2235
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2235
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2235
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/additional_identifiers.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2242
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2242
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2242
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/inchikey.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2249
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2249
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2249
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/isotopic_labeling.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2256
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2256
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2256
+msgid "metadata/general_parameters/entities_of_interest/derived_from.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2261
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2261
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2261
+msgid "metadata/general_parameters/entities_of_interest/fluid.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2266
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2266
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2266
+msgid "metadata/general_parameters/entities_of_interest/health_status.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2271
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2271
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2271
+msgid ""
+"metadata/general_parameters/entities_of_interest/preparation_protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2278
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2278
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2278
+msgid ""
+"metadata/general_parameters/entities_of_interest/preparation_protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2285
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2285
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2285
+msgid ""
+"metadata/general_parameters/entities_of_interest/storage/duration/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2292
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2292
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2292
+msgid ""
+"metadata/general_parameters/entities_of_interest/storage/duration/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2299
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2299
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2299
+msgid ""
+"metadata/general_parameters/entities_of_interest/storage/storage_preparation/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2306
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2306
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2306
+msgid ""
+"metadata/general_parameters/entities_of_interest/storage/storage_preparation/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2313
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2313
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2313
+msgid ""
+"metadata/general_parameters/entities_of_interest/storage/temperature/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2320
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2320
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2320
+msgid ""
+"metadata/general_parameters/entities_of_interest/storage/temperature/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2327
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2327
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2327
+msgid "metadata/general_parameters/entities_of_interest/cell_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2332
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2332
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2332
+msgid "metadata/general_parameters/entities_of_interest/fraction.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2337
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2337
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2337
+msgid "metadata/general_parameters/entities_of_interest/organ.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2342
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2342
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2342
+msgid "metadata/general_parameters/entities_of_interest/tissue.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2347
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2347
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2347
+msgid "metadata/general_parameters/entities_of_interest/capsid_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2352
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2352
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2352
+msgid "metadata/general_parameters/entities_of_interest/envelope_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2357
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2357
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2357
+msgid ""
+"metadata/general_parameters/entities_of_interest/genetic_material.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2362
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2362
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2362
+msgid "metadata/general_parameters/entities_of_interest/host_cell_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2367
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2367
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2367
+msgid "metadata/general_parameters/entities_of_interest/host_organism.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2373
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2373
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2373
+msgid ""
+"metadata/general_parameters/entities_of_interest/location/latitude.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2378
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2378
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2378
+msgid ""
+"metadata/general_parameters/entities_of_interest/location/longitude.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2385
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2385
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2385
+msgid "metadata/general_parameters/entities_of_interest/source.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2390
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2390
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2390
+msgid "metadata/general_parameters/entities_of_interest/assembly_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2395
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2395
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2395
+msgid "metadata/general_parameters/entities_of_interest/class.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2400
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2400
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2400
+msgid ""
+"metadata/general_parameters/entities_of_interest/number_of_mono_layers.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2407
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2407
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2407
+msgid "metadata/general_parameters/entities_of_interest/size/lower.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2412
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2412
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2412
+msgid "metadata/general_parameters/entities_of_interest/size/mean.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2417
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2417
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2417
+msgid "metadata/general_parameters/entities_of_interest/size/median.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2422
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2422
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2422
+msgid "metadata/general_parameters/entities_of_interest/size/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2427
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2427
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2427
+msgid "metadata/general_parameters/entities_of_interest/size/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2432
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2432
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2432
+msgid "metadata/general_parameters/entities_of_interest/size/upper.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2437
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2437
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2437
+msgid "metadata/general_parameters/entities_of_interest/product.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2442
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2442
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2442
+msgid "metadata/general_parameters/funding_references.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2448
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2448
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2448
+msgid "metadata/general_parameters/instrument/manufacturer.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2453
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2453
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2453
+msgid "metadata/general_parameters/instrument/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2458
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2458
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2458
+msgid "metadata/general_parameters/raw_measurement_files.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2463
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2463
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2463
+msgid "metadata/general_parameters/record_information/access_rights.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2468
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2468
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2468
+msgid "metadata/general_parameters/record_information/date_available.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2473
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2473
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2473
+msgid "metadata/general_parameters/record_information/deposition_date.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2478
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2478
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2478
+msgid ""
+"metadata/general_parameters/record_information/external_identifier.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2483
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2483
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2483
+msgid ""
+"metadata/general_parameters/record_information/metadata_access_rights.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2490
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2490
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2490
+msgid "metadata/general_parameters/record_information/publisher.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2495
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2495
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2495
+msgid "metadata/general_parameters/record_information/resource_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2500
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2500
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2500
+msgid ""
+"metadata/general_parameters/record_information/resource_type_general.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2507
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2507
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2507
+msgid "metadata/general_parameters/record_information/subject_category.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2512
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2512
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2512
+msgid "metadata/general_parameters/record_information/title.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2519
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2519
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2519
+msgid ""
+"metadata/general_parameters/results/entities_involved/copy_number.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2527
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2527
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2527
+msgid "metadata/general_parameters/results/id.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2532
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2532
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2532
+msgid "metadata/general_parameters/results/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2537
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2537
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2537
+msgid "metadata/general_parameters/results/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2542
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2542
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2542
+msgid "metadata/general_parameters/results/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2547
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2547
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2547
+msgid "metadata/general_parameters/results/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2552
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2552
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2552
+msgid "metadata/general_parameters/results/value_error/is_relative.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2557
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2557
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2557
+msgid "metadata/general_parameters/results/value_error/lower.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2562
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2562
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2562
+msgid "metadata/general_parameters/results/value_error/upper.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2567
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2567
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2567
+msgid "metadata/general_parameters/schema_version.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2572
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2572
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2572
+msgid "metadata/general_parameters/technique.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2577
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2577
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2577
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_fitting/model.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2584
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2584
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2584
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2591
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2591
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2591
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2598
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2598
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2598
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_fitting/software_name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2605
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2605
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2605
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_fitting/software_version.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2612
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2612
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2612
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing_steps/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2619
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2619
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2619
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing_steps/link_to_source_code.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2626
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2626
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2626
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing_steps/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2633
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2633
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2633
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing_steps/software_name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2640
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2640
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2640
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing_steps/software_version.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2647
+msgid ""
+"metadata/method_specific_parameters/data_analysis/f_cold_and_hot/f_cold_end.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2654
+msgid ""
+"metadata/method_specific_parameters/data_analysis/f_cold_and_hot/f_cold_start.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2661
+msgid ""
+"metadata/method_specific_parameters/data_analysis/f_cold_and_hot/f_hot_end.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2668
+msgid ""
+"metadata/method_specific_parameters/data_analysis/f_cold_and_hot/f_hot_start.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2675
+msgid ""
+"metadata/method_specific_parameters/data_analysis/f_cold_and_hot/time_unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2647
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2682
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2647
+msgid "metadata/method_specific_parameters/measurements/id.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2652
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2687
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2652
+msgid "metadata/method_specific_parameters/measurements/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2692
+msgid "metadata/method_specific_parameters/excitation_led_color.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2697
+msgid "metadata/method_specific_parameters/excitation_led_power.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2657
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2702
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2657
+msgid "metadata/method_specific_parameters/experiment_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2707
+msgid "metadata/method_specific_parameters/ir_mst_laser_power.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2712
+msgid "metadata/method_specific_parameters/measurements/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2717
+msgid ""
+"metadata/method_specific_parameters/measurements/sample/ligands/concentration/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2724
+msgid ""
+"metadata/method_specific_parameters/measurements/sample/ligands/concentration/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2731
+msgid ""
+"metadata/method_specific_parameters/measurements/sample/measurement_container.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2764
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2738
+msgid ""
+"metadata/method_specific_parameters/measurements/sample/preparation_protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2771
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2745
+msgid ""
+"metadata/method_specific_parameters/measurements/sample/preparation_protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2752
+msgid ""
+"metadata/method_specific_parameters/measurements/sample/targets/concentration/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2759
+msgid ""
+"metadata/method_specific_parameters/measurements/sample/targets/concentration/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2862
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2766
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2861
+msgid "metadata/method_specific_parameters/schema_version.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2771
+msgid "metadata/method_specific_parameters/signal_type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2776
+msgid "metadata/method_specific_parameters/temperature/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/mst/services/records/facets.py:2781
+msgid "metadata/method_specific_parameters/temperature/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2662
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/flow_cell.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2669
+msgid "metadata/method_specific_parameters/measurement_positions/id.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2674
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand_information/ligand_immobilization_chemistry.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2681
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand_information/ligand_immobilization_protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2688
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand_information/ligand_immobilization_protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2695
+msgid "metadata/method_specific_parameters/measurement_positions/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2700
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2705
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/flow/direction.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2712
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/flow/rate.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2717
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/flow/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2662
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2722
+msgid "metadata/method_specific_parameters/measurement_protocol/id.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2667
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2727
+msgid "metadata/method_specific_parameters/measurement_protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2707
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2732
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/start_time/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2714
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2739
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/start_time/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2721
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2746
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/time_length/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2728
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2753
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/time_length/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2735
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2760
+msgid "metadata/method_specific_parameters/measurement_protocol/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2765
+msgid ""
+"metadata/method_specific_parameters/measurements/reference_samples/analytes/concentration/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2772
+msgid ""
+"metadata/method_specific_parameters/measurements/reference_samples/analytes/concentration/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2779
+msgid ""
+"metadata/method_specific_parameters/measurements/reference_samples/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2786
+msgid ""
+"metadata/method_specific_parameters/measurements/reference_samples/preparation_protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2793
+msgid ""
+"metadata/method_specific_parameters/measurements/reference_samples/preparation_protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2800
+msgid ""
+"metadata/method_specific_parameters/measurements/reference_samples/temperature/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2807
+msgid ""
+"metadata/method_specific_parameters/measurements/reference_samples/temperature/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2814
+msgid ""
+"metadata/method_specific_parameters/measurements/samples/analytes/concentration/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2821
+msgid ""
+"metadata/method_specific_parameters/measurements/samples/analytes/concentration/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2828
+msgid ""
+"metadata/method_specific_parameters/measurements/samples/position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2833
+msgid ""
+"metadata/method_specific_parameters/measurements/samples/preparation_protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2840
+msgid ""
+"metadata/method_specific_parameters/measurements/samples/preparation_protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2847
+msgid ""
+"metadata/method_specific_parameters/measurements/samples/temperature/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2854
+msgid ""
+"metadata/method_specific_parameters/measurements/samples/temperature/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2866
+msgid "metadata/method_specific_parameters/sensor/id.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2871
+msgid "metadata/method_specific_parameters/sensor/previously_used.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2876
+msgid "metadata/method_specific_parameters/sensor/sensor_initialization.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2881
+msgid ""
+"metadata/method_specific_parameters/sensor/supplier/catalog_number.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2886
+msgid ""
+"metadata/method_specific_parameters/sensor/supplier/further_information.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2893
+msgid "metadata/method_specific_parameters/sensor/supplier/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/spr/services/records/facets.py:2898
+msgid "metadata/method_specific_parameters/sensor/surface_properties.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2672
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/shaking_speed/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2679
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2686
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/is_relative.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2693
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/lower.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2700
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/upper.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2740
+msgid ""
+"metadata/method_specific_parameters/measurements/sample/analytes/concentration/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2747
+msgid ""
+"metadata/method_specific_parameters/measurements/sample/analytes/concentration/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2754
+msgid "metadata/method_specific_parameters/plates/id.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2759
+msgid "metadata/method_specific_parameters/plates/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2778
+msgid ""
+"metadata/method_specific_parameters/measurements/sample/temperature/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2785
+msgid ""
+"metadata/method_specific_parameters/measurements/sample/temperature/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2792
+msgid ""
+"metadata/method_specific_parameters/measurements/sample/well_position.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2799
+msgid "metadata/method_specific_parameters/sensors/id.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2804
+msgid "metadata/method_specific_parameters/sensors/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2809
+msgid "metadata/method_specific_parameters/plates/sealing.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2814
+msgid ""
+"metadata/method_specific_parameters/plates/supplier/catalog_number.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2819
+msgid ""
+"metadata/method_specific_parameters/plates/supplier/further_information.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2826
+msgid "metadata/method_specific_parameters/plates/supplier/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2831
+msgid ""
+"metadata/method_specific_parameters/plates/surface_modification/protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2838
+msgid ""
+"metadata/method_specific_parameters/plates/surface_modification/protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2845
+msgid ""
+"metadata/method_specific_parameters/plates/surface_modification/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2852
+msgid "metadata/method_specific_parameters/plates/type.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2857
+msgid "metadata/method_specific_parameters/plates/wells.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2867
+msgid "metadata/method_specific_parameters/sensors/hydration_time/unit.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2872
+msgid "metadata/method_specific_parameters/sensors/hydration_time/value.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2877
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand_information/ligand_immobilization_chemistry.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2884
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand_information/ligand_immobilization_protocol/description.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2891
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand_information/ligand_immobilization_protocol/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2898
+msgid "metadata/method_specific_parameters/sensors/previously_used.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2903
+msgid "metadata/method_specific_parameters/sensors/sensor_id.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2908
+msgid ""
+"metadata/method_specific_parameters/sensors/supplier/catalog_number.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2915
+msgid ""
+"metadata/method_specific_parameters/sensors/supplier/further_information.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2922
+msgid "metadata/method_specific_parameters/sensors/supplier/name.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2927
+msgid "metadata/method_specific_parameters/sensors/surface_properties.label"
+msgstr ""
+
+msgid "Filter results"
+msgstr ""
