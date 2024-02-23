@@ -11607,3 +11607,24 @@ msgstr "The type of surface properties the sensor has, e.g. Protein A"
 
 msgid "metadata/method_specific_parameters/sensors/surface_properties.hint"
 msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/common/requests/publish_draft/types.py:9
+msgid "Publish-draft"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/ui/branding/templates/base/detail.html:19
+msgid "Record details"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/ui/mst/templates/semantic-ui/mst/Search.jinja:3
+msgid "Search results"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/ui/mst/templates/semantic-ui/mst/Search.jinja:3
+msgid "mst"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/ui/pages/templates/TitlePage.jinja:20
+#: /Users/m/w/nrp/mbdb-app/ui/pages/templates/TitlePage.jinja:21
+msgid "Search"
+msgstr ""

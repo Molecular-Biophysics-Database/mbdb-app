@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-23 07:30+0100\n"
+"POT-Creation-Date: 2024-02-23 07:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2581,6 +2581,27 @@ msgstr ""
 
 #: /Users/m/w/nrp/mbdb-app/bli/services/records/facets.py:2927
 msgid "metadata/method_specific_parameters/sensors/surface_properties.label"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/common/requests/publish_draft/types.py:9
+msgid "Publish-draft"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/ui/branding/templates/base/detail.html:19
+msgid "Record details"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/ui/mst/templates/semantic-ui/mst/Search.jinja:3
+msgid "Search results"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/ui/mst/templates/semantic-ui/mst/Search.jinja:3
+msgid "mst"
+msgstr ""
+
+#: /Users/m/w/nrp/mbdb-app/ui/pages/templates/TitlePage.jinja:20
+#: /Users/m/w/nrp/mbdb-app/ui/pages/templates/TitlePage.jinja:21
+msgid "Search"
 msgstr ""
 
 msgid "Filter results"
