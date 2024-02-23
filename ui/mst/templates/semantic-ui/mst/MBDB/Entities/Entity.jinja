@@ -1,0 +1,27 @@
+{# def entity #}
+
+<div class="mbdb-entity">
+    <IField label="Name" d={entity.name}>
+        {{ entity.name }}
+    </IField>
+
+    <IField label="Type" d={entity.type}>
+        {{ entity.type }}
+    </IField>
+
+    {%- if entity.type == "Chemical" %}
+        <Chemical entity={ entity } />
+    {%- elif entity.type == "Complex substance of biological origin" %}
+        <BiologicalOrigin entity={ entity } />
+    {%- elif entity.type == "Complex substance of chemical origin" %}
+        <ChemicalOrigin entity={ entity } />
+    {%- elif entity.type == "Complex substance of environmental origin" %}
+        <EnvironmentalOrigin entity={ entity } />
+    {%- elif entity.type == "Complex substance of industrial production origin" %}
+        <IndustrialOrigin entity={ entity } />
+    {%- elif entity.type == "Molecular assembly" %}
+        <MolecularAssembly entity={ entity } />
+    {%- elif entity.type == "Polymer" %}
+        <Polymer entity={ entity } />
+    {%- endif %}
+</div>

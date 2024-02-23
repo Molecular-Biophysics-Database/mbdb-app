@@ -3144,15 +3144,15 @@ files = [
 
 [[package]]
 name = "oarepo-requests"
-version = "1.1.0"
+version = "1.1.2"
 summary = ""
 groups = ["default"]
 dependencies = [
     "invenio-requests",
 ]
 files = [
-    {file = "oarepo-requests-1.1.0.tar.gz", hash = "sha256:fa2dac4e4d69a8e99de795051b331b6e0cd29150a7084a94fbd7a984e2eae63f"},
-    {file = "oarepo_requests-1.1.0-py3-none-any.whl", hash = "sha256:f2e37d57acb049ae7e41070bac3d6c50251459f164315a5c99714c6e4fbcd18c"},
+    {file = "oarepo-requests-1.1.2.tar.gz", hash = "sha256:dd272fb1bffbaad6d1d07f71bc09e204c7dbef3071081c9fd31b840c5cb5c76b"},
+    {file = "oarepo_requests-1.1.2-py3-none-any.whl", hash = "sha256:522155ae0da38ec78ff3c0bae4ecee6a0eff18fd86159656988be9e4ef12e962"},
 ]
 
 [[package]]
@@ -3905,13 +3905,13 @@ files = [
 
 [[package]]
 name = "setuptools"
-version = "69.1.0"
+version = "69.1.1"
 requires_python = ">=3.8"
 summary = "Easily download, build, install, upgrade, and uninstall Python packages"
 groups = ["default"]
 files = [
-    {file = "setuptools-69.1.0-py3-none-any.whl", hash = "sha256:c054629b81b946d63a9c6e732bc8b2513a7c3ea645f11d0139a2191d735c60c6"},
-    {file = "setuptools-69.1.0.tar.gz", hash = "sha256:850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"},
+    {file = "setuptools-69.1.1-py3-none-any.whl", hash = "sha256:02fa291a0471b3a18b2b2481ed902af520c69e8ae0919c13da936542754b4c56"},
+    {file = "setuptools-69.1.1.tar.gz", hash = "sha256:5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"},
 ]
 
 [[package]]

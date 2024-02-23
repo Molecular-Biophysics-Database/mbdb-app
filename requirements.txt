@@ -9,7 +9,7 @@ jinjax==0.30
 json5==0.9.17
 langcodes==3.3.0
 oarepo-published-service==1.0.2
-oarepo-requests==1.1.0
+oarepo-requests==1.1.2
 oarepo-runtime==1.5.11
 oarepo-ui==5.0.105
 oarepo-vocabularies==2.0.74

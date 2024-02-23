@@ -1,39 +1,66 @@
-{# def metadata, ui, extra_context #}
+{# def record, metadata, ui, extra_context, d, context #}
 
-{% from "mst/Simple.jinja" import simple %}
-{% from "mst/Complete.jinja" import complete %}
-{% from "mst/CompleteCollapsible.jinja" import complete_collapsible %}
+{% set md=d.metadata %}
+{% set gp=md.general_parameters %}
+{% set msp=md.method_specific_parameters %}
 
-<script src="/static/jquery-3.7.1.min.js"></script>
-<script src="/static/semantic.min.js"></script>
+<RecordHeader md={md} links={d.links} />
 
-{# 
-<div class="" id="view-mode">
-  <div class="ui top attached tabular menu">
-    <a class="active item" data-tab="simple">Simple</a>
-    <a class="item" data-tab="complete">Complete</a>
-    <a class="item" data-tab="complete-collapsible">Complete (collapsible)</a>
-  </div>
-#}
+<IField label="Technique:" d={gp.technique} field_class="mbdbv-record-technique">
+    {{ gp.technique }}
+</IField>
 
-  <div class="ui bottom attached active tab segment width" data-tab="simple">
-    {{ simple(metadata, ui, extra_context.files) }}
-  </div>
-{#
-  <div class="ui bottom attached tab segment" data-tab="complete">
-    {{ complete(metadata, ui) }}
-  </div>
-  <div class="ui bottom attached tab segment" data-tab="complete-collapsible">
-    {{ complete_collapsible(metadata, ui) }}
-  </div>
-  </div>
-#}
+<IField label="Depositors:" d={gp.technique} field_class="mbdbv-record-technique">
+    <Depositors d={gp.depositors} />
+</IField>
+
+{#        <IField label="Main Publication:" #}
+{#                d={gp.associated_publication}#}
+{#                field_class="mbdbv-record-technique">#}
+{#            <AssociatedPublication d={gp.associated_publication} />#}
+{#        </IField>#}
+
+
+<div class="mbdbv-record-container">
+
+    <div class="mbdbv-record-section-container mbdbv-framed">
+        <h3 class="mbdbv-record-section-title">Entities of interest</h3>
+        <EntitiesOfInterest entities={gp.chemical_information.entities_of_interest} />
+    </div>
+
+    <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">
+        <h3 class="mbdbv-record-section-title">Results</h3>
+        <INonEmpty d={msp} >
+            <Results gp={gp} msp={msp} />
+        </INonEmpty>
+    </div>
+
+    <div class="mbdbv-record-section-container mbdbv-framed">
+        <h3 class="mbdbv-record-section-title">Measurements</h3>
+        <INonEmpty d={msp} >
+            <Measurements gp={gp} msp={msp} />
+        </INonEmpty>
+    </div>
+            {##}
+            {#        <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">#}
+            {#            <h3 class="mbdbv-record-section-title">Instrument</h3>#}
+            {#            {{ render_if2(#}
+            {#          gp.instrument is defined,#}
+            {#          instrument,#}
+            {#          no_value(),#}
+            {#          imt=gp.get("instrument")) }}#}
+            {#        </div>#}
+            {##}
+            {#        <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">#}
+            {#            <h3 class="mbdbv-record-section-title">Raw measurements</h3>#}
+            {#            {{ render_if2(#}
+            {#          gp.raw_measurements is defined,#}
+            {#          raw_measurements,#}
+            {#          no_value(),#}
+            {#          raw_measurements=gp.get("raw_measurements"),#}
+            {#          files = files#}
+            {#          ) }}#}
+            {#        </div>#}
+            {#    </div>#}
 </div>
 
-<script>
-  jQuery('#view-mode .menu .item')
-    .tab({
-      context: $('#view-mode')
-    })
-  ;
-</script>

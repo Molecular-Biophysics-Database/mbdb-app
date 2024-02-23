@@ -1,15 +1,5 @@
-{% from   "mst/Common/NoValue.jinja" import no_value %}
-{% from   "mst/Common/RenderIf.jinja" import render_if2 %}
-{% import "mst/MBDB/NameValue/Index.jinja" as nv %}
-{% from   "mst/MBDB/Organism.jinja" import organism %}
+{# def entity #}
 
-{%- macro biological_origin(entity) %}
-  {{ nv.item(
-      "Source organism",
-      render_if2(
-        entity.source_organism is defined,
-        organism,
-        no_value(),
-        org=entity.source_organism))
-    }}
-{%- endmacro %}
+<IField label="Source organism" d={entity.source_organism} >
+    <Organism organism={entity.source_organism} />
+</IField>

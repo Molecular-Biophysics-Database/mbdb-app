@@ -1,0 +1,5 @@
+{#def label, label_class="", data_class="", field_class="" #}
+<div {% if field_class %}class="{{field_class}}"{% endif %}>
+<span {% if label_class %}class="{{label_class}}"{% endif %}>{{ label }}</span>
+<span {% if data_class %}class="{{data_class}}"{% endif %}>{{ content }}</span>
+</div>

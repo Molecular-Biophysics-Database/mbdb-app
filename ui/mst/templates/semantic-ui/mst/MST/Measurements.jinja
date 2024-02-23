@@ -1,38 +1,23 @@
-{% import "mst/MBDB/NameValue/Index.jinja" as nv %}
-{% from   "mst/MST/ExcitationLed.jinja" import excitation_led %}
-{% from   "mst/MST/Sample/Index.jinja" import sample %}
+{# def msp, gp #}
 
-{%- macro measurements(gp, msp) %}
-  {# TODO: In the future we might want to filter what derived parameters to display
-  {% set kd_derived_parameters = gp.derived_parameters | selectattr("type", "equalto", "Constant of dissociation (K_D)") %}
-  #}
-
-  <div>
+<div>
     <div class="mbdbv-block mbdbv-framed">
-      <div class="mbdbv-header">Experimental setup</div>
-      {{ nv.list_open() }}
-        {{ nv.item("Experiment type", msp.experiment_type) }}
-        {{ nv.item("Signal type", msp.signal_type) }}
-        {{ nv.item("Excitation LED", excitation_led(msp.excitation_led_power, msp.excitation_led_color)) }}
-        {{ nv.item("Laser power", msp.ir_mst_laser_power) }}
-      {{ nv.list_close() }}
+        <div class="mbdbv-header">Experimental setup</div>
+        <IField label="Experiment type" d={ msp.experiment_type }/>
+        <IField label="Signal type" d={ msp.signal_type }/>
+        <IField label="Excitation LED" d={ msp.excitation_led_power }>
+            <ExcitationLed power={ msp.excitation_led_power } color={ msp.excitation_led_color }/>
+        </IField>
+        <IField label="Laser power" d={ msp.ir_mst_laser_power }/>
     </div>
 
-    {% for measurement in msp.measurements %}
-      <div class="mbdbv-block mbdbv-framed">
-        <div class="mbdbv-header">Measurement {{ loop.index }}</div>
+    {% for measurement in array(msp.measurements) %}
+        <div class="mbdbv-block mbdbv-framed">
+            <div class="mbdbv-header">Measurement {{ loop.index }}</div>
+            <IField label="Name" d={ measurement.name }/>
+            <IField label="Position" d={ measurement.position }/>
 
-        {{ nv.list_open() }}
-          {{ nv.item("Name", measurement.name) }}
-          {{ nv.item("Position", measurement.position) }}
-
-          {{ nv.inset_open() }}
-            {{ sample(gp, measurement.sample) }}
-          {{ nv.inset_close() }}
-
-          {{ nv.spacer() }}
-        {{ nv.list_close() }}
-      </div>
+            <Sample gp={gp} sample={ measurement.sample }/>
+        </div>
     {% endfor %}
-  </div>
-{%- endmacro %}
+</div>

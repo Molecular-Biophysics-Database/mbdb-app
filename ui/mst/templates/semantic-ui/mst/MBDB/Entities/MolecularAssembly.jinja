@@ -1,18 +1,4 @@
-{% from   "mst/Common/NoValue.jinja" import no_value %}
-{% from   "mst/Common/RenderIf.jinja" import render_if2 %}
-{% from   "mst/Common/YesNo.jinja" import yes_no %}
-{% from   "mst/MBDB/MeasuredValue.jinja" import measured_value %}
-{% import "mst/MBDB/NameValue/Index.jinja" as nv %}
+{# def entity #}
 
-{%- macro molecular_assembly(entity) %}
-  {{ nv.item(
-      "Mw",
-      render_if2(
-        entity.molecular_weight is defined and entity.molecular_weight.value is defined,
-        measured_value,
-        no_value(),
-        mvalue=entity.molecular_weight
-      ))
-  }}
-  {{ nv.item("Is chemically modified", yes_no(entity.chemical_modifications)) }}
-{%- endmacro %}
+<MeasuredValueField label="Mw" d={entity.molecular_weight} />
+<YesNoField label="Is chemically modified" d={entity.chemical_modifications} />

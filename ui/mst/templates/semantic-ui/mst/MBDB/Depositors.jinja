@@ -1,18 +1,8 @@
-{% from "mst/MBDB/PersonName.jinja" import person_name %}
-  
+{# def d #}
 
-{%- macro depositors(gp) %} 
-{% if (gp.get("depositors"))%}
-  {% set depos = gp.get("depositors", {}) %} 
-  {% set people = [
-    person_name(depos.principal_contact),
-    person_name(depos.depositor),
-     ] %}
-  {% if depos.contributors is defined %}
-    {% for contributor in depos.contributors %}
-      {% do people.append(person_name(contributor)) %}
-    {% endfor %}
-  {% endif %}  
-{{ people|join(", ") }}
-{% endif %}
-{% endmacro %}
+{%- for depositor in array(d) -%}
+    {%- for person in array(depositor.principal_contact, depositor.depositor, depositor.contributors)  -%}
+        {%- if not loop.first %}, {% endif -%}
+        <Person person={person} ></Person>
+    {%- endfor -%}
+{%- endfor -%}

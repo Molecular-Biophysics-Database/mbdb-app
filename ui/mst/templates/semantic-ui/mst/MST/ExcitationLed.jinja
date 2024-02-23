@@ -1,17 +1,17 @@
-{%- macro excitation_led(led_power, led_color) %}
-  <div class="mbdbv-mst-excitation-led">
+{# def power, color #}
+
+<div class="mbdbv-mst-excitation-led">
     <span class="mbdbv-emphasize">
       Power:
     </span>
     <span>
-      {{ led_power }}
+      {{ power }}
     </span>
 
     <span class="mbdbv-emphasize">
       Color:
     </span>
     <span>
-      {{ led_color }}
+      {{ color }}
     </span>
-  </div>
-{%- endmacro %}
+</div>
