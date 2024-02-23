@@ -4,7 +4,7 @@
 
 {%- macro measurements(gp, msp) %}
   {# TODO: In the future we might want to filter what derived parameters to display
-  {% set kd_derived_parameters = gp.derived_parameters | selectattr("type", "equalto", "Constant of dissociation (K_D)") %}
+  {% set kd_result = gp.results | selectattr("type", "equalto", "Constant of dissociation KD") %}
   #}
 
   <div>

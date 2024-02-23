@@ -25,10 +25,10 @@
       <div class="mbdbv-record-section-container mbdbv-framed">
         <h3 class="mbdbv-record-section-title">Entities of interest</h3>
         {{ render_if2(
-            (gp.chemical_information is defined) and (gp.chemical_information.entities_of_interest is defined),
+            (gp.entities_of_interest is defined),
             entities_of_interest,
             no_value(),
-            entities=gp.get("chemical_information", {}).get("entities_of_interest"))
+            entities=gp.get("entities_of_interest"))
         }}
       </div>
 

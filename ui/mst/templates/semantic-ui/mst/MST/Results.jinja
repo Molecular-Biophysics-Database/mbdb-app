@@ -14,8 +14,8 @@
 
 {%- macro results(gp, msp) %}
   <div>
-    {%- for datum in gp.derived_parameters %}
-      {% set dp = (gp.derived_parameters | selectattr("id", "equalto", datum.id) | list)[0] %}
+    {%- for datum in gp.results %}
+      {% set dp = (gp.results | selectattr("id", "equalto", datum.id) | list)[0] %}
 
       <div class="mbdbv-block">
         <div class="mbdbv-header">{{ dp.name }}</div>
