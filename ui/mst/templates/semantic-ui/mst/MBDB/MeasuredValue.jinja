@@ -1,10 +1,15 @@
 {# def value #}
 
-{{ value.value ~ " " ~ value.unit }} 
-  {% if value.value_error._is_empty %}
+{% if value.unit.is_empty %}
+    {{ value.record_value }}
+{% else %}
+    {{ value.record_value ~ " " ~ value.unit }}
+{% endif %}
+
+{% if value.value_error._is_empty %}
     (Error not provided)
-  {% else %}
+{% else %}
     {% set error_type = " %" if value.value_error.errors_are_relative == True else "" %}
-    (+ {{ value.value_error.upper_error }} 
+    (+ {{ value.value_error.upper_error }}
      - {{ value.value_error.lower_error }}) {{ error_type }}
-  {% endif %}
+{% endif %}

@@ -1,5 +1,6 @@
 import jinja2
-from oarepo_ui.resources.templating import FieldData, EMPTY_FIELD_DATA, ichain
+from oarepo_ui.resources.templating.data import FieldData, EMPTY_FIELD_DATA
+from oarepo_ui.resources.templating.filters import ichain
 
 
 def _is_undefined(v):

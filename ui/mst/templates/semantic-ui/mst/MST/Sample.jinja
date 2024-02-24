@@ -3,13 +3,13 @@
 {% set chemical_environment=find_reference(gp.chemical_environments, sample.chemical_environment.id) %}
 
 <IField label="Buffer (chemical environment)" d={chemical_environment.name} />
-{#  TODO#}
-{#  {{nv.item("Buffer Constituents",#}
-{#              lit.list(#}
-{#                chemical_environment.constituents,#}
-{#                constituent_info)) }}#}
+<IField label="Buffer Constituents" d={chemical_environment.constituents} >
+    {% for constituent in array(chemical_environment.constituents) %}
+        <ConstituentInfo constituent={constituent} />
+    {% endfor %}
+</IField>
 
-<MeasuredValueField label="pH (Buffer)" value={chemical_environment.ph} />
+<IField label="pH (Buffer)" d={chemical_environment.ph} />
 <MeasuredValueField label="Ionic strength (Buffer)" value={chemical_environment.ionic_strength} />
 <MeasuredValueField label="Temperature" value={gp.physical_conditions_at_sample_handling.temperature} />
 

@@ -1,23 +1,21 @@
 {# def msp, gp #}
 
 <div>
-    <div class="mbdbv-block mbdbv-framed">
-        <div class="mbdbv-header">Experimental setup</div>
+    <SubSection title="Experimental setup">
         <IField label="Experiment type" d={ msp.experiment_type }/>
-        <IField label="Signal type" d={ msp.signal_type }/>
         <IField label="Excitation LED" d={ msp.excitation_led_power }>
             <ExcitationLed power={ msp.excitation_led_power } color={ msp.excitation_led_color }/>
         </IField>
         <IField label="Laser power" d={ msp.ir_mst_laser_power }/>
-    </div>
+    </SubSection>
 
     {% for measurement in array(msp.measurements) %}
-        <div class="mbdbv-block mbdbv-framed">
-            <div class="mbdbv-header">Measurement {{ loop.index }}</div>
+        {% set title='Measurement ' ~ loop.index %}
+        <SubSection title={ title }>
             <IField label="Name" d={ measurement.name }/>
             <IField label="Position" d={ measurement.position }/>
 
             <Sample gp={gp} sample={ measurement.sample }/>
-        </div>
+        </SubSection>
     {% endfor %}
 </div>

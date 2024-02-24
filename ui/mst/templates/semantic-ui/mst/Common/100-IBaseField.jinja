@@ -1,5 +1,4 @@
 {#def label, label_class="", data_class="", field_class="" #}
-<div {% if field_class %}class="{{field_class}}"{% endif %}>
-<span {% if label_class %}class="{{label_class}}"{% endif %}>{{ label }}</span>
-<span {% if data_class %}class="{{data_class}}"{% endif %}>{{ content }}</span>
-</div>
+
+<div class="mbdbv-name-value-item-name {{label_class}}">{{ label }}</div>
+<div class="mbdbv-name-value-item-value {{data_class}}">{{ content }}</div>

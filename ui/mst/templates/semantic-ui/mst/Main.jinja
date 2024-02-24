@@ -6,13 +6,12 @@
 
 <RecordHeader md={md} links={d.links} />
 
-<IField label="Technique:" d={gp.technique} field_class="mbdbv-record-technique">
-    {{ gp.technique }}
-</IField>
-
-<IField label="Depositors:" d={gp.technique} field_class="mbdbv-record-technique">
-    <Depositors d={gp.depositors} />
-</IField>
+<ValueList>
+    <IField label="Technique:" d={gp.technique} field_class="mbdbv-record-technique" />
+    <IField label="Depositors:" d={gp.technique} field_class="mbdbv-record-technique">
+        <Depositors d={gp.depositors} />
+    </IField>
+</ValueList>
 
 {#        <IField label="Main Publication:" #}
 {#                d={gp.associated_publication}#}
@@ -23,44 +22,25 @@
 
 <div class="mbdbv-record-container">
 
-    <div class="mbdbv-record-section-container mbdbv-framed">
-        <h3 class="mbdbv-record-section-title">Entities of interest</h3>
-        <EntitiesOfInterest entities={gp.chemical_information.entities_of_interest} />
-    </div>
+    <Section title="Entities of interest">
+        <EntitiesOfInterest entities={gp.entities_of_interest} />
+    </Section>
 
-    <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">
-        <h3 class="mbdbv-record-section-title">Results</h3>
-        <INonEmpty d={msp} >
-            <Results gp={gp} msp={msp} />
-        </INonEmpty>
-    </div>
+    <Section title="Results">
+        <Results gp={gp} msp={msp} />
+    </Section>
 
-    <div class="mbdbv-record-section-container mbdbv-framed">
-        <h3 class="mbdbv-record-section-title">Measurements</h3>
-        <INonEmpty d={msp} >
-            <Measurements gp={gp} msp={msp} />
-        </INonEmpty>
-    </div>
-            {##}
-            {#        <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">#}
-            {#            <h3 class="mbdbv-record-section-title">Instrument</h3>#}
-            {#            {{ render_if2(#}
-            {#          gp.instrument is defined,#}
-            {#          instrument,#}
-            {#          no_value(),#}
-            {#          imt=gp.get("instrument")) }}#}
-            {#        </div>#}
-            {##}
-            {#        <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">#}
-            {#            <h3 class="mbdbv-record-section-title">Raw measurements</h3>#}
-            {#            {{ render_if2(#}
-            {#          gp.raw_measurements is defined,#}
-            {#          raw_measurements,#}
-            {#          no_value(),#}
-            {#          raw_measurements=gp.get("raw_measurements"),#}
-            {#          files = files#}
-            {#          ) }}#}
-            {#        </div>#}
-            {#    </div>#}
+    <Section title="Measurements">
+        <Measurements gp={gp} msp={msp} />
+    </Section>
+
+    <Section title="Instrument">
+        <Instrument instrument={gp.instrument} />
+    </Section>
+
+    <Section title="Raw measurements" >
+        <RawMeasurements raw_measurements={gp.raw_measurements} files={extra_context.files} />
+    </Section>
+
 </div>
 

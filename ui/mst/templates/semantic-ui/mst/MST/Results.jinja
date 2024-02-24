@@ -1,12 +1,9 @@
 {# def gp, msp #}
 
-<div>
-    {%- for dp in array(gp.derived_parameters) %}
-        <div class="mbdbv-block">
-            <div class="mbdbv-header">{{ dp.name }}</div>
-            <IBaseField label={dp.type} >
-                <MeasuredValue value={dp} />
-            </IBaseField>
-        </div>
+<ValueList>
+    {%- for dp in array(gp.results) %}
+        <IField label={ dp.name } >
+            <MeasuredValue value={dp} />
+        </IField>
     {% endfor %}
-</div>
+</ValueList>

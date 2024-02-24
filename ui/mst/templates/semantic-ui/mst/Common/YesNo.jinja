@@ -6,6 +6,6 @@
     {%- if sc is boolean -%}
       {{ "Yes" if sc else "False "}}
     {%- else -%}
-      {{ "Yes" if (sc | length) else "No" }}
+      {{ "Yes" if sc and (sc | length) else "No" }}
     {%- endif -%}
 </span>
