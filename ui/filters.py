@@ -40,7 +40,6 @@ def find_reference(parts, part_id):
         part_id = part_id.value
 
     for part in ichain(parts):
-        print(str(part), part_id)
         if part.id.value == part_id:
             return part
 

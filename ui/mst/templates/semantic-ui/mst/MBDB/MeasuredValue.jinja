@@ -1,9 +1,9 @@
 {# def value #}
 
 {% if value.unit.is_empty %}
-    {{ value.record_value }}
+    {{ value.value }}
 {% else %}
-    {{ value.record_value ~ " " ~ value.unit }}
+    {{ value.value ~ " " ~ value.unit }}
 {% endif %}
 
 {% if value.value_error._is_empty %}

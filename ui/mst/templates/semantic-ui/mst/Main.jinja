@@ -6,9 +6,14 @@
 
 <RecordHeader md={md} links={d.links} />
 
+{#
+    note: if you do not specify label for IField, it is taken directly from the model
+    (and translated to the current language) and thus is consistent with facets
+#}
+
 <ValueList>
-    <IField label="Technique:" d={gp.technique} field_class="mbdbv-record-technique" />
-    <IField label="Depositors:" d={gp.technique} field_class="mbdbv-record-technique">
+    <IField d={gp.technique} field_class="mbdbv-record-technique" />
+    <IField d={gp.depositors} field_class="mbdbv-record-technique">
         <Depositors d={gp.depositors} />
     </IField>
 </ValueList>
