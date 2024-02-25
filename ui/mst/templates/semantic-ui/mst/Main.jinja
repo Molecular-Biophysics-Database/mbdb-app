@@ -11,12 +11,12 @@
     (and translated to the current language) and thus is consistent with facets
 #}
 
-<ValueList>
+<IValueList>
     <IField d={gp.technique} field_class="mbdbv-record-technique" />
     <IField d={gp.depositors} field_class="mbdbv-record-technique">
         <Depositors d={gp.depositors} />
     </IField>
-</ValueList>
+</IValueList>
 
 {#        <IField label="Main Publication:" #}
 {#                d={gp.associated_publication}#}
@@ -27,11 +27,11 @@
 
 <div class="mbdbv-record-container">
 
-    <Section title="Entities of interest">
+    <Section title={gp.entities_of_interest._ui_label}>
         <EntitiesOfInterest entities={gp.entities_of_interest} />
     </Section>
 
-    <Section title="Results">
+    <Section title={gp.results._ui_label}>
         <Results gp={gp} msp={msp} />
     </Section>
 
