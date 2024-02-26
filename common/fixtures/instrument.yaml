@@ -1,0 +1,130 @@
+# MST instruments
+---
+id: 'imt:1'
+title:
+  en: 'Monolith X'
+props:
+  manufacturer: 'Nanotemper'
+---
+id: 'imt:2'
+title:
+  en: 'Monolith'
+props:
+  manufacturer: 'Nanotemper'
+---
+id: 'imt:3'
+title:
+  en: 'Dianthus'
+props:
+  manufacturer: 'Nanotemper'
+# BLI instruments
+---
+id: 'imt:4'
+title:
+  en: 'Octet R2 (Two-Channel System)'
+props:
+  manufacturer: 'Sartorius'
+---
+id: 'imt:5'
+title:
+  en: 'Octet R5 (Four-Channel System)'
+props:
+  manufacturer: 'Sartorius'
+---
+id: 'imt:6'
+title:
+  en: 'Octet R8 (Eigth-Channel System)'
+props:
+  manufacturer: 'Sartorius'
+---
+id: 'imt:7'
+title:
+  en: 'Octet RH96 (96-Channel Ultra High Throughut Octet System)'
+props:
+  manufacturer: 'Sartorius'
+---
+id: 'imt:8'
+title:
+  en: 'Octet RH16 (16-Channel High Throughut Octet System)'
+props:
+  manufacturer: 'Sartorius'
+---
+id: 'imt:9'
+title:
+  en: 'Octet N1 (Personal Assay System)'
+props:
+  manufacturer: 'Sartorius'
+
+# SPR instruments
+id: 'imt:10'
+title:
+  en: 'Biacore T200'
+props:
+  manufacturer: 'Cytiva'
+---
+id: 'imt:11'
+title:
+  en: 'Biacore S200'
+props:
+  manufacturer: 'Cytiva'
+---
+id: 'imt:12'
+title:
+  en: 'Biacore X100'
+props:
+  manufacturer: 'Cytiva'
+---
+id: 'imt:13'
+title:
+  en: 'Biacore 8K+'
+props:
+  manufacturer: 'Cytiva'
+---
+id: 'imt:14'
+title:
+  en: 'Biacore 8K'
+props:
+  manufacturer: 'Cytiva'
+---
+id: 'imt:15'
+title:
+  en: 'Biacore 4000 SPR system'
+props:
+  manufacturer: 'Cytiva'
+---
+id: 'imt:16'
+title:
+  en: 'Biacore 3000 SPR system'
+props:
+  manufacturer: 'Cytiva'
+---
+id: 'imt:17'
+title:
+  en: 'Biacore 1S+'
+props:
+  manufacturer: 'Cytiva'
+---
+id: 'imt:18'
+title:
+  en: 'Biacore 1K+'
+props:
+  manufacturer: 'Cytiva'
+---
+id: 'imt:19'
+title:
+  en: 'Biacore 1K'
+props:
+  manufacturer: 'Cytiva'
+---
+id: 'imt:20'
+title:
+  en: 'OpenSPR'
+props:
+  manufacturer: 'Nicoya'
+---
+id: 'imt:21'
+title:
+  en: 'OpenSPR-XT'
+props:
+  manufacturer: 'Nicoya'
+# ITC instruments
