@@ -29,7 +29,7 @@ def run_marshmallow_test():
 
 
 entities = [
-{
+          {
             "id": "eoi-human-serum",
             "name": "Human serum",
             "type": "Complex substance of biological origin",
@@ -56,6 +56,8 @@ entities = [
               "temperature": {
                 "value": -80,
                 "unit": "°C",
+                "obtained_by": "Measurement",
+                "controlled": True
               },
               "storage_preparation": [
                 {
@@ -72,16 +74,88 @@ entities = [
             "external_databases": [
               "pdb:2HCO"
             ],
-            "quality_controls": {
-              "purity": {
-                "checked": "Yes",
-                "method": "SDS-PAGE",
-                "purity_percentage": ">99 %"
-              },
-              "homogeneity": {
-                "checked": "No"
-              }
+            "molecular_weight": {
+              "value": 64.5,
+              "unit": "kDa"
             },
+            "components": [
+              {
+                "name": "Hemoglobin subunit alpha",
+                "type": "Polymer",
+                "molecular_weight": {
+                  "value": 16,
+                  "unit": "kDa"
+                },
+                "copy_number": 2,
+                "polymer_type": "polypeptide(L)",
+                "source_organism": {
+                  "id": "taxid:12374"
+                },
+                "variant": "WT",
+                "expression_source_type": "Natively",
+                "external_databases": [
+                  "Uniprot:P69905"
+                ]
+              },
+              {
+                "name": "Hemoglobin subunit beta",
+                "type": "Polymer",
+                "molecular_weight": {
+                  "value": 16,
+                  "unit": "kDa"
+                },
+                "copy_number": 2,
+                "polymer_type": "polypeptide(L)",
+                "source_organism": {
+                  "id": "taxid:12374"
+                },
+                "variant": "V2A",
+                "modifications": {
+                  "biological_postprocessing": [
+                    {
+                      "position": "S10",
+                      "type": "Phosphorylation"
+                    }
+                  ],
+                  "chemical": [
+                    {
+                      "type": "FITC labelling",
+                      "protocol": [
+                        {
+                          "name": "Make the solution more alkaline",
+                          "description": "Addition of 10 ul 1 M bicarbonate to 90 ul protein solution"
+                        },
+                        {
+                          "name": "Solubilise NHS-FITC",
+                          "description": "100 % DMSO was added to make a 2 mM concentrated stock of NHS-FITC"
+                        },
+                        {
+                          "name": "Labelling reaction",
+                          "description": "Added NHS-FITC stock to protein in a 5:1 molar ratio and incubated sample for 15 min."
+                        },
+                        {
+                          "name": "Removal of unconjugated dye",
+                          "description": "Using a 2 ml PD10 column, the unconjugated dye was removed"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "sequence": "MAHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFGKEFTPPVQAAYQKVVAGVANALAHKYH",
+                "expression_source_type": "Recombinantly",
+                "external_databases": [
+                  "Uniprot:P68871"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "eoi-hemoglobin-antibody",
+            "name": "Hemoglobin antibody",
+            "type": "Molecular assembly",
+            "external_databases": [
+              "pdb:2HCO"
+            ],
             "molecular_weight": {
               "value": 64.5,
               "unit": "kDa"
@@ -157,7 +231,7 @@ entities = [
               }
             ]
           }
-]
+        ]
 
 if __name__ == '__main__':
     api = create_api()

@@ -1,6 +1,6 @@
 {# def value #}
 
-{% if value.unit.is_empty %}
+{% if value.unit._is_empty %}
     {{ value.value }}
 {% else %}
     {{ value.value ~ " " ~ value.unit }}

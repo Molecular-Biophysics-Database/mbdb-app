@@ -5,23 +5,23 @@
         {{ entity.name }}
     </IField>
 
-    <IField label="Type" d={scalar(entity.type)}>
+    <IField label="Type" d={field_value(entity.type)}>
         {{ entity.type }}
     </IField>
 
-    {%- if scalar(entity.type) == "Chemical" %}
+    {%- if field_value(entity.type) == "Chemical" %}
         <Chemical entity={ entity } />
-    {%- elif scalar(entity.type) == "Complex substance of biological origin" %}
+    {%- elif field_value(entity.type) == "Complex substance of biological origin" %}
         <BiologicalOrigin entity={ entity } />
-    {%- elif scalar(entity.type) == "Complex substance of chemical origin" %}
+    {%- elif field_value(entity.type) == "Complex substance of chemical origin" %}
         <ChemicalOrigin entity={ entity } />
-    {%- elif scalar(entity.type) == "Complex substance of environmental origin" %}
+    {%- elif field_value(entity.type) == "Complex substance of environmental origin" %}
         <EnvironmentalOrigin entity={ entity } />
-    {%- elif scalar(entity.type) == "Complex substance of industrial production origin" %}
+    {%- elif field_value(entity.type) == "Complex substance of industrial production origin" %}
         <IndustrialOrigin entity={ entity } />
-    {%- elif scalar(entity.type) == "Molecular assembly" %}
+    {%- elif field_value(entity.type) == "Molecular assembly" %}
         <MolecularAssembly entity={ entity } />
-    {%- elif scalar(entity.type) == "Polymer" %}
+    {%- elif field_value(entity.type) == "Polymer" %}
         <Polymer entity={ entity } />
     {%- endif %}
 </div>
