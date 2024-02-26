@@ -128,24 +128,27 @@ class NCBIService(AuthorityService):
 
         # This endpoint is unstable in terms of which hits are returned
         search_url = (
-            f"https://api.ncbi.nlm.nih.gov/datasets/v1/taxonomy/taxon_suggest/{query}"
+            f"https://api.ncbi.nlm.nih.gov/datasets/v2alpha/taxonomy/taxon_suggest/{query}"
         )
         suggested = requests.get(search_url)
         suggested_json = suggested.json()
 
         try:
-            taxids = [hit["tax_id"] for hit in suggested_json["sci_name_and_ids"]]
+            response_json = [hit for hit in suggested_json["sci_name_and_ids"] if 'sci_name' in hit]
         except KeyError:
-            taxids = []
-        total = len(taxids)
+            response_json = []
+        total = len(response_json)
 
         # make sure we don't return elements beyond the last page
         if page > get_last_page(total, size):
             hits = empty_hits(total, page)
         else:
-            hits = self.from_taxid(taxids)
+            hits = [
+                self.convert_ncbi_record(hit)
+                for hit in response_json
+            ]
 
-        start_pos = start_pos_api_page(page, size, api_size)
+        start_pos = start_pos_api_page(page, size, api_size) 
         hits = hits[start_pos : start_pos + size]
         links = make_links(query, page, size, total, vocabulary_type="organisms")
         return hit_dict(hits, total, links)
@@ -153,8 +156,10 @@ class NCBIService(AuthorityService):
     def get(self, item_id, **kwargs):
         if not item_id.startswith("taxid:"):
             raise KeyError(f'item_id, "{item_id}", is not a NCBI tax id')
-
-        return self.from_taxid([item_id[6:]])[0]
+        
+        url = f"https://api.ncbi.nlm.nih.gov/datasets/v2alpha/taxonomy/taxon_suggest/{item_id[6:]}"
+        r = requests.get(url).json()
+        return self.convert_ncbi_record(r[0])
 
     @staticmethod
     def convert_ncbi_record(hit):
@@ -164,27 +169,9 @@ class NCBIService(AuthorityService):
             rank = "NO RANK"
         return {
             "id": f'taxid:{hit["tax_id"]}',
-            "title": {"en": hit["organism_name"]},
+            "title": {"en": hit["sci_name"]},
             "props": {"rank": rank},
         }
-
-    def from_taxid(self, taxids):
-        taxid_url = "https://api.ncbi.nlm.nih.gov/datasets/v1/taxonomy/taxon/"
-        taxid_params = {"returned_content": "TAXIDS"}  # noqa
-
-        response = requests.get(f"{taxid_url}{','.join(taxids)}", params=taxid_params)
-        organisms = []
-        for hit in response.json()["taxonomy_nodes"]:
-            hit = hit["taxonomy"]
-            organisms.append(self.convert_ncbi_record(hit))
-
-        # note that elements in organism are not in the order they were fetched in!
-        # We need to enforce they're in the same order as the taxids list,
-        # as the list is a search based ranking and pagination also becomes meaningless otherwise
-
-        order = {taxid: i for i, taxid in enumerate(taxids)}
-        organisms.sort(key=lambda x: order[x["id"][6:]])
-        return organisms
 
 
 class OpenAireService(AuthorityService):  # noqa
