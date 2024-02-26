@@ -3,7 +3,6 @@ import math
 from oarepo_vocabularies.authorities.service import AuthorityService
 from invenio_records_resources.services.base import LinksTemplate
 from invenio_records_rest.errors import SearchPaginationRESTError
-from urllib.parse import quote
 
 
 def start_pos_api_page(page: int, size: int, api_size: int) -> int:
@@ -61,7 +60,13 @@ def empty_hits(total: int, page: int) -> list:
 
 class RORService(AuthorityService):
     def search(self, *, query=None, page=1, size=10, **kwargs):
-        url = f'https://api.ror.org/organizations?query.advanced=name:{quote(query)}&page={page}'
+        url = "https://api.ror.org/organizations"
+
+        #  the size for this API is fixed to 20 so in the following cases we should
+        #  fetch multiple pages from the api:
+        #   1. size > api_size
+        #   2. when size > remaining element on the api_page where the page begins
+
         api_size = 20
         size_ratio = size / api_size
         n_api_pages = math.ceil(size_ratio) + int(exceeds_page(page, size, api_size))
@@ -73,8 +78,8 @@ class RORService(AuthorityService):
             # i.e. we fetch api_page e.g. 2, 3, 4 as offset is decreases with each iteration
             api_page = math.ceil(page * size_ratio) - offset + 1
 
-            url = f'https://api.ror.org/organizations?query.advanced=name:{quote(query)}&page={api_page}'
-            response = requests.get(url)
+            params = {"query": query, "page": api_page}
+            response = requests.get(url, params=params)
             response_json = response.json()
             total = response_json["number_of_results"]
 
@@ -87,7 +92,8 @@ class RORService(AuthorityService):
             hits = empty_hits(total, page)
         else:
             hits = affiliations
-        
+
+        # construct the return object
         start_pos = start_pos_api_page(page, size, api_size)
         hits = hits[start_pos: start_pos + size]
         links = make_links(query, page, size, total, vocabulary_type="affiliations")
@@ -96,10 +102,10 @@ class RORService(AuthorityService):
     def get(self, item_id, **kwargs):
         if not item_id.startswith("ror:"):
             raise KeyError(f'item_id, "{item_id}", is not a ROR id')
-        
-        url = f"https://api.ror.org/organizations/query{item_id[4:]}"
+
+        url = f"https://api.ror.org/organizations/{item_id[4:]}"
         r = requests.get(url).json()
-        return self.convert_ror_record(r[0])
+        return self.convert_ror_record(r)
 
     @staticmethod
     def convert_ror_record(hit):
@@ -237,3 +243,80 @@ class OpenAireService(AuthorityService):  # noqa
                 "funder_name": funder_name,
             },
         }
+
+class PubChemService(AuthorityService):
+    def search(self, *, query=None, page=1, size=10, **kwargs):
+        # both page and size can be specified direct to this endpoint
+        url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{query}/property/Title,MolecularFormula,MolecularWeight,InChIKey/JSON?name_type=word"
+        response = requests.get(url)
+        response_json = response.json()
+
+        response_json = self.get_other_id(response_json)  # Selecting hits with title and InchiKey and adding other identifiers
+
+        total = len(response_json)
+
+        if page > get_last_page(total, size):
+            hits = empty_hits(total, page)
+        else:
+            hits = [
+                self.convert_pubchem_record(hit)
+                for hit in response
+            ]
+        
+        start_pos = start_pos_api_page(page, size, total) 
+        hits = hits[start_pos : start_pos + size]
+        links = make_links(query, page, size, total, vocabulary_type="chemical")
+        return hit_dict(hits, total, links)
+    
+
+    def get_other_id(response_json):
+        
+        '''
+        Obtain all hits with a valid Title and InChIKey, and retrieve their additional identifiers.
+        '''
+
+        response = []
+        for hit in response_json["PropertyTable"]["Properties"]:
+            if 'Title' in hit and 'InchiKey' in hit:
+                ids =[f'CID: {hit['CID']}']
+
+                url = f'https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/CID/{hit['CID']}/xrefs/RegistryID,RN/JSON'  # Calling Pubchem API to obtain other identifiers of the compound
+                other_ids_json = requests.get(url).json()
+
+                if 'RN' in other_ids_json:
+                    ids.append(f'cas: {cas}' for cas in other_ids_json['RN'])
+
+                elif 'CHEMBL' in other_ids_json['RegistryID']:
+                    ids.append(f'chembl: {chembl}' for chembl in other_ids_json['RegistryID'] if "CHEMBL" in chembl)
+
+            hit['additional_identifiers'] = ids
+            response.append(hit)
+        
+        return response
+
+
+    @staticmethod
+    def convert_pubchem_record(hit):
+        try:
+            formattedData = {
+                'id': f'InChiKey: {hit['InChIKey']}',
+                'title': {'en': hit['Title']},
+                'props': {
+                    'inchikey': hit['InChIKey'],
+                    'molecular_formula': hit['MolecularFormula'],
+                    'molecular_weight': hit['MolecularWeight'],
+                    'additional_identifiers': hit['additional_identifiers']
+                }
+            }
+            return formattedData
+        except KeyError:
+            pass
+
+    def get(self, item_id, **kwargs):
+        if not item_id.startswith("InChiKey:"):
+            raise KeyError(f'item_id, "{item_id}", is not a PubChem id')
+        url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/{item_id[9:]}/property/Title,MolecularFormula,MolecularWeight,InChIKey/JSON"
+        
+        r = requests.get(url).json()
+        r = self.get_other_id(r)
+        return self.convert_pubchem_record(r[0][0])
