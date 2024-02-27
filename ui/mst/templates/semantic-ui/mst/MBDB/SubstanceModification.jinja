@@ -1,8 +1,5 @@
-{% from   "mst/Common/RenderIf.jinja" import render_if_exists %}
-{% import "mst/MBDB/NameValue/Index.jinja" as nv %}
+{# def mod #}
 
-{%- macro substance_modification(mod) %}
-  {{ nv.item("Name", render_if_exists(mod.name)) }}
-  {{ nv.item("Position", render_if_exists(mod.position)) }}
-  {{ nv.item("Modification", render_if_exists(mod.modification)) }}
-{%- endmacro %}
+<IField label="Name" d={mod.name} />
+<IField label="Position" d={mod.position} />
+<IField label="Modification" d={mod.modification} />

@@ -1,50 +1,9 @@
-{% from   "mst/MBDB/MeasuredValue.jinja" import measured_value %}
-{% import "mst/MBDB/NameValue/Index.jinja" as nv %}
+{# def gp, msp #}
 
-{%- macro _fitting_model(dp) %}
-  {{ dp | maybe_get("data_fitting.model") }}
-  {%- if dp | maybe_get("data_fitting.quality") is defined -%}
-    ({{ dp.data_fitting.quality }})
-  {%- endif -%}
-{%- endmacro %}
-
-{# TODO: results is incomplete and buggy, this need some time to get right. Work arounds such that it doesn't chrash
-         all time was introduced (left original below as a comment
-#}
-
-{%- macro results(gp, msp) %}
-  <div>
-    {%- for datum in gp.derived_parameters %}
-      {% set dp = (gp.derived_parameters | selectattr("id", "equalto", datum.id) | list)[0] %}
-
-      <div class="mbdbv-block">
-        <div class="mbdbv-header">{{ dp.name }}</div>
-        {{ nv.list_open() }}
-          {{ nv.item(dp.type, measured_value(dp)) }}
-        {{ nv.list_close() }}
-      </div>
+<IValueList>
+    {%- for dp in array(gp.results) %}
+        <IField label={ dp.name } >
+            <MeasuredValue value={dp} />
+        </IField>
     {% endfor %}
-  </div>
-{%- endmacro %}
-
-{#
-{%- macro results(gp, msp) %}
-
-  {% set kd_derived_parameters = gp.derived_parameters | selectattr("type", "equalto", "Constant of dissociation (K_D)") %}
-
-
-  <div>
-    {%- for datum in msp.data_analysis %}
-      {% set dp = (gp.derived_parameters | selectattr("id", "equalto", datum.derived_parameter.id) | list)[0] %}
-
-      <div class="mbdbv-block">
-        <div class="mbdbv-header">{{ dp.name }}</div>
-        {{ nv.list_open() }}
-          {{ nv.item(dp.type, measured_value(dp)) }}
-          {{ nv.item("Fitting model", _fitting_model(dp)) }}
-        {{ nv.list_close() }}
-      </div>
-    {% endfor %}
-  </div>
-{%- endmacro %}
-#}
+</IValueList>

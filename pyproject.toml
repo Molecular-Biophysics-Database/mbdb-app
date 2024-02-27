@@ -42,11 +42,8 @@ spr_requests = "spr.views.requests.api:create_api_blueprint"
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"
 mst = "mst"
-mst_file = "mst"
 spr = "spr"
-spr_file = "spr"
 bli = "bli"
-bli_file = "bli"
 
 [project.entry-points."invenio_db.alembic"]
 repo = "common:alembic"

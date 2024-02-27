@@ -8,6 +8,8 @@ i18n:
     - mst
     - spr
     - bli
+    - common
+    - ui
   i18next_input_translations: []
   i18next_output_translations: i18n/semantic-ui/translations
   i18next_source_paths:
