@@ -182,6 +182,15 @@ class SprRecord(InvenioRecord):
             keys=["id", "title", {"key": "props.funder_name", "target": "funder_name"}],
             pid_field=Vocabulary.pid.with_type_ctx("grants"),
         ),
+        instrument=PIDRelation(
+            "metadata.general_parameters.instrument",
+            keys=[
+                "id",
+                "title",
+                {"key": "props.manufacturer", "target": "manufacturer"},
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("instruments"),
+        ),
         entity=InternalRelation(
             "metadata.general_parameters.results.entities_involved.entity",
             keys=["id", "name"],
@@ -467,6 +476,15 @@ class SprDraft(InvenioDraft):
             "metadata.general_parameters.funding_references",
             keys=["id", "title", {"key": "props.funder_name", "target": "funder_name"}],
             pid_field=Vocabulary.pid.with_type_ctx("grants"),
+        ),
+        instrument=PIDRelation(
+            "metadata.general_parameters.instrument",
+            keys=[
+                "id",
+                "title",
+                {"key": "props.manufacturer", "target": "manufacturer"},
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("instruments"),
         ),
         entity=InternalRelation(
             "metadata.general_parameters.results.entities_involved.entity",

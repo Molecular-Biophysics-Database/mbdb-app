@@ -39,9 +39,9 @@ class SprServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
+        DataComponent,
         DraftFilesComponent,
         FilesComponent,
-        DataComponent,
     ]
 
     model = "spr"
