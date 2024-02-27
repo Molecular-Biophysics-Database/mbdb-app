@@ -1732,10 +1732,16 @@
                         "instrument": {
                             "type": "object",
                             "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "title": {
+                                    "type": "object"
+                                },
                                 "manufacturer": {
                                     "type": "string"
                                 },
-                                "name": {
+                                "@v": {
                                     "type": "string"
                                 }
                             }
