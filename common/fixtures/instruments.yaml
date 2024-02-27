@@ -1,0 +1,333 @@
+# MST instruments
+---
+id: 'ins:1'
+title:
+  en: 'Monolith X'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:2'
+title:
+  en: 'Monolith NT.115 RED'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:3'
+title:
+  en: 'Monolith NT.115 Pico RED'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:4'
+title:
+  en: 'Monolith NT.115 BLUE'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:5'
+title:
+  en: 'Monolith NT.115 RED/BLUE'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:6'
+title:
+  en: 'Monolith NT.115 RED/GREEN'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:7'
+title:
+  en: 'Monolith NT.115 BLUE/GREEN'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:8'
+title:
+  en: 'Monolith NT.115 Pico RED/BLUE'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:9'
+title:
+  en: 'Monolith NT.115 Pico RED/GREEN'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:10'
+title:
+  en: 'Monolith NT.Labelfree'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:11'
+title:
+  en: 'Monolith RED/BLUE'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:12'
+title:
+  en: 'Monolith RED/GREEN'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:13'
+title:
+  en: 'Monolith BLUE/GREEN'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:14'
+title:
+  en: 'Monolith Labelfree'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:15'
+title:
+  en: 'Monolith RED/LabelFree'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:16'
+title:
+  en: 'Monolith Pico RED'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:17'
+title:
+  en: 'Monolith Pico RED/BLUE'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:18'
+title:
+  en: 'Monolith Pico RED/LabelFree'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:19'
+title:
+  en: 'Monolith Nt Automated Nano BLUE/GREEN'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:20'
+title:
+  en: 'Monolith Nt Automated Nano BLUE/RED'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:21'
+title:
+  en: 'Monolith Nt Automated Nano GREEN/RED'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:22'
+title:
+  en: 'Monolith Nt Automated Pico RED'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:23'
+title:
+  en: 'Monolith Nt Automated LabelFree'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:24'
+title:
+  en: 'Monolith Nt Automated Nano BLUE/GREEN - LabelFree'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:25'
+title:
+  en: 'Monolith Nt Automated Nano BLUE/RED - LabelFree'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:26'
+title:
+  en: 'Monolith Nt Automated Nano GREEN/RED - LabelFree'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:27'
+title:
+  en: 'Monolith Nt Automated Pico RED - nano BLUE/GREEN'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:28'
+title:
+  en: 'Monolith Nt Automated Pico RED / LabelFree'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+---
+id: 'ins:29'
+title:
+  en: 'Dianthus'
+props:
+  manufacturer: 'Nanotemper'
+  technique: "MST"
+# BLI instrumets
+---
+id: 'ins:30'
+title:
+  en: 'Octet R2 (Two-Channel System)'
+props:
+  manufacturer: 'Sartorius'
+  technique: "BLI"
+---
+id: 'ins:31'
+title:
+  en: 'Octet R5 (Four-Channel System)'
+props:
+  manufacturer: 'Sartorius'
+  technique: "BLI"
+---
+id: 'ins:32'
+title:
+  en: 'Octet R8 (Eigth-Channel System)'
+props:
+  manufacturer: 'Sartorius'
+  technique: "BLI"
+---
+id: 'ins:33'
+title:
+  en: 'Octet RH96 (96-Channel Ultra High Throughut Octet System)'
+props:
+  manufacturer: 'Sartorius'
+  technique: "BLI"
+---
+id: 'ins:34'
+title:
+  en: 'Octet RH16 (16-Channel High Throughut Octet System)'
+props:
+  manufacturer: 'Sartorius'
+  technique: "BLI"
+---
+id: 'ins:35'
+title:
+  en: 'Octet N1 (Personal Assay System)'
+props:
+  manufacturer: 'Sartorius'
+  technique: "BLI"
+---
+# SPR instruments
+id: 'ins:36'
+title:
+  en: 'Biacore T200'
+props:
+  manufacturer: 'Cytiva'
+  technique: "SPR"
+---
+id: 'ins:37'
+title:
+  en: 'Biacore S200'
+props:
+  manufacturer: 'Cytiva'
+  technique: "SPR"
+---
+id: 'ins:38'
+title:
+  en: 'Biacore X100'
+props:
+  manufacturer: 'Cytiva'
+  technique: "SPR"
+---
+id: 'ins:39'
+title:
+  en: 'Biacore 8K+'
+props:
+  manufacturer: 'Cytiva'
+  technique: "SPR"
+---
+id: 'ins:40'
+title:
+  en: 'Biacore 8K'
+props:
+  manufacturer: 'Cytiva'
+  technique: "SPR"
+---
+id: 'ins:41'
+title:
+  en: 'Biacore 4000 SPR system'
+props:
+  manufacturer: 'Cytiva'
+  technique: "SPR"
+---
+id: 'ins:42'
+title:
+  en: 'Biacore 3000 SPR system'
+props:
+  manufacturer: 'Cytiva'
+  technique: "SPR"
+---
+id: 'ins:43'
+title:
+  en: 'Biacore 1S+'
+props:
+  manufacturer: 'Cytiva'
+  technique: "SPR"
+---
+id: 'ins:44'
+title:
+  en: 'Biacore 1K+'
+props:
+  manufacturer: 'Cytiva'
+  technique: "SPR"
+---
+id: 'ins:45'
+title:
+  en: 'Biacore 1K'
+props:
+  manufacturer: 'Cytiva'
+  technique: "SPR"
+---
+id: 'ins:46'
+title:
+  en: 'OpenSPR'
+props:
+  manufacturer: 'Nicoya'
+  technique: "SPR"
+---
+id: 'ins:47'
+title:
+  en: 'OpenSPR-XT'
+props:
+  manufacturer: 'Nicoya'
+  technique: "SPR"
+# ITC instruments

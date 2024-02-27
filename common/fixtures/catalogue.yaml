@@ -21,3 +21,12 @@ vocabulary-organisms:
     title:
       en: Organisms
   - source: organisms.yaml
+
+
+vocabulary-instruments:
+  - writer: vocabulary
+    vocabulary: instruments
+    pid_type: v-ins
+    title:
+      en: Instruments
+  - source: instruments.yaml
