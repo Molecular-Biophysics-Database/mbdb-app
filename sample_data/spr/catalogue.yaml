@@ -1,4 +1,4 @@
 spr_data:
   - writer: service
-    service: mbdb_spr
+    service: spr
   - source: SPR.json
