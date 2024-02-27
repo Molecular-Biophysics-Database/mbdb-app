@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-27 09:56+0100\n"
+"POT-Creation-Date: 2024-02-27 11:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2575,6 +2575,27 @@ msgstr ""
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:2923
 msgid "metadata/method_specific_parameters/sensors/surface_properties.label"
+msgstr ""
+
+#: /home/emil/bin/mbdb-app/common/requests/publish_draft/types.py:9
+msgid "Publish-draft"
+msgstr ""
+
+#: /home/emil/bin/mbdb-app/ui/branding/templates/base/detail.html:19
+msgid "Record details"
+msgstr ""
+
+#: /home/emil/bin/mbdb-app/ui/mst/templates/semantic-ui/mst/Search.jinja:3
+msgid "Search results"
+msgstr ""
+
+#: /home/emil/bin/mbdb-app/ui/mst/templates/semantic-ui/mst/Search.jinja:3
+msgid "mst"
+msgstr ""
+
+#: /home/emil/bin/mbdb-app/ui/pages/templates/TitlePage.jinja:20
+#: /home/emil/bin/mbdb-app/ui/pages/templates/TitlePage.jinja:21
+msgid "Search"
 msgstr ""
 
 msgid "Filter results"
