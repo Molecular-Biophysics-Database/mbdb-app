@@ -4124,28 +4124,41 @@
                             }
                         },
                         "instrument": {
-                            "detail": false,
-                            "input": false,
+                            "detail": "vocabulary_item",
+                            "edit": "vocabulary_item",
+                            "input": "vocabulary",
                             "help": "metadata/general_parameters/instrument.help",
                             "label": "metadata/general_parameters/instrument.label",
                             "hint": "metadata/general_parameters/instrument.hint",
+                            "facet": "metadata_general_parameters_instrument",
                             "children": {
+                                "id": {
+                                    "detail": "keyword",
+                                    "input": "keyword",
+                                    "help": "metadata/general_parameters/instrument/id.help",
+                                    "label": "metadata/general_parameters/instrument/id.label",
+                                    "hint": "metadata/general_parameters/instrument/id.hint"
+                                },
+                                "title": {
+                                    "detail": false,
+                                    "input": false,
+                                    "help": "metadata/general_parameters/instrument/title.help",
+                                    "label": "metadata/general_parameters/instrument/title.label",
+                                    "hint": "metadata/general_parameters/instrument/title.hint"
+                                },
                                 "manufacturer": {
                                     "detail": "keyword",
                                     "input": "keyword",
                                     "help": "metadata/general_parameters/instrument/manufacturer.help",
                                     "label": "metadata/general_parameters/instrument/manufacturer.label",
-                                    "hint": "metadata/general_parameters/instrument/manufacturer.hint",
-                                    "enum": "metadata/general_parameters/instrument/manufacturer.enum",
-                                    "facet": "metadata_general_parameters_instrument_manufacturer"
+                                    "hint": "metadata/general_parameters/instrument/manufacturer.hint"
                                 },
-                                "name": {
+                                "@v": {
                                     "detail": "keyword",
                                     "input": "keyword",
-                                    "help": "metadata/general_parameters/instrument/name.help",
-                                    "label": "metadata/general_parameters/instrument/name.label",
-                                    "hint": "metadata/general_parameters/instrument/name.hint",
-                                    "facet": "metadata_general_parameters_instrument_name"
+                                    "help": "metadata/general_parameters/instrument/@v.help",
+                                    "label": "metadata/general_parameters/instrument/@v.label",
+                                    "hint": "metadata/general_parameters/instrument/@v.hint"
                                 }
                             }
                         },

@@ -77,7 +77,7 @@ class GeneralParametersSchema(DictOnlySchema):
     depositors = ma_fields.Nested(lambda: DepositorsSchema(), required=True)
 
     entities_of_interest = ma_fields.List(
-        ma_fields.Nested(lambda: EntitiesOfInterestItemSchema(), required=True),
+        ma_fields.Nested(lambda: EntitiesOfInterestItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
@@ -98,11 +98,11 @@ class GeneralParametersSchema(DictOnlySchema):
     )
 
     results = ma_fields.List(
-        ma_fields.Nested(lambda: ResultsItemSchema(), required=True),
+        ma_fields.Nested(lambda: ResultsItemSchema()),
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.18"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.19"])])
 
     technique = ma_fields.String(
         required=True,
@@ -129,7 +129,7 @@ class ChemicalEnvironmentsItemSchema(DictOnlySchema):
     )
 
     constituents = ma_fields.List(
-        ma_fields.Nested(lambda: ConstituentsItemSchema(), required=True),
+        ma_fields.Nested(lambda: ConstituentsItemSchema()),
         validate=[ma.validate.Length(min=1)],
     )
 
@@ -138,7 +138,7 @@ class ChemicalEnvironmentsItemSchema(DictOnlySchema):
     ph = ma_fields.Float(required=True)
 
     solvent = ma_fields.List(
-        ma_fields.Nested(lambda: SolventItemSchema(), required=True),
+        ma_fields.Nested(lambda: SolventItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
@@ -292,7 +292,7 @@ class Complex_substance_of_chemical_originLipid_assemblySchema(DictOnlySchema):
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemSchema(), required=True),
+        ma_fields.Nested(lambda: ComponentsItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
@@ -345,7 +345,7 @@ class EntitiesOfInterestItemMolecular_assemblySchema(DictOnlySchema):
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemSchema(), required=True),
+        ma_fields.Nested(lambda: ComponentsItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
@@ -398,7 +398,7 @@ class Lipid_assemblySchema(DictOnlySchema):
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemSchema(), required=True),
+        ma_fields.Nested(lambda: ComponentsItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
@@ -451,7 +451,7 @@ class Molecular_assemblySchema(DictOnlySchema):
     )
 
     components = ma_fields.List(
-        ma_fields.Nested(lambda: ComponentsItemSchema(), required=True),
+        ma_fields.Nested(lambda: ComponentsItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
@@ -811,11 +811,11 @@ class QualityControlsSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    homogeneity = ma_fields.Nested(lambda: HomogeneitySchema(), required=True)
+    homogeneity = ma_fields.Nested(lambda: HomogeneitySchema())
 
     identity = ma_fields.Nested(lambda: IdentitySchema())
 
-    purity = ma_fields.Nested(lambda: PuritySchema(), required=True)
+    purity = ma_fields.Nested(lambda: PuritySchema())
 
 
 class ResultsItemSchema(PolymorphicSchema):
@@ -2619,30 +2619,15 @@ class FundingReferencesItemSchema(DictOnlySchema):
 
 class InstrumentSchema(DictOnlySchema):
     class Meta:
-        unknown = ma.RAISE
+        unknown = ma.INCLUDE
 
-    manufacturer = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(
-                [
-                    "Bio-Rad",
-                    "Bruker",
-                    "Cytiva",
-                    "Gatorbio",
-                    "GE Healthcare",
-                    "Nanotemper",
-                    "Nicoya Life",
-                    "Sartorius",
-                    "Malvern Panalytical",
-                    "Refeyn",
-                    "TA Instruments",
-                ]
-            )
-        ],
-    )
+    _id = String(data_key="id", attribute="id")
 
-    name = ma_fields.String(required=True)
+    _version = String(data_key="@v", attribute="@v")
+
+    manufacturer = ma_fields.String()
+
+    title = i18n_strings
 
 
 class LocationSchema(DictOnlySchema):

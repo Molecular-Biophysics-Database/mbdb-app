@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-02-21T17:58:36.590807\n"
-"PO-Revision-Date: 2024-02-21T17:58:36.590808\n"
+"POT-Creation-Date: 2024-02-27T09:45:12.302438\n"
+"PO-Revision-Date: 2024-02-27T09:45:12.302440\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3983,10 +3983,10 @@ msgid ""
 "metadata/general_parameters/entities_of_interest/external_databases.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/entities_of_interest/id.help"
+msgid "metadata/general_parameters/entities_of_interest/id.label"
 msgstr ""
 
-msgid "metadata/general_parameters/entities_of_interest/id.label"
+msgid "metadata/general_parameters/entities_of_interest/id.help"
 msgstr ""
 
 msgid "metadata/general_parameters/entities_of_interest/id.hint"
@@ -6706,6 +6706,24 @@ msgstr ""
 msgid "metadata/general_parameters/instrument.hint"
 msgstr ""
 
+msgid "metadata/general_parameters/instrument/id.help"
+msgstr ""
+
+msgid "metadata/general_parameters/instrument/id.label"
+msgstr ""
+
+msgid "metadata/general_parameters/instrument/id.hint"
+msgstr ""
+
+msgid "metadata/general_parameters/instrument/title.help"
+msgstr ""
+
+msgid "metadata/general_parameters/instrument/title.label"
+msgstr ""
+
+msgid "metadata/general_parameters/instrument/title.hint"
+msgstr ""
+
 msgid "metadata/general_parameters/instrument/manufacturer.help"
 msgstr ""
 
@@ -6715,48 +6733,13 @@ msgstr ""
 msgid "metadata/general_parameters/instrument/manufacturer.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/instrument/manufacturer.enum.Bio-Rad"
+msgid "metadata/general_parameters/instrument/@v.help"
 msgstr ""
 
-msgid "metadata/general_parameters/instrument/manufacturer.enum.Bruker"
+msgid "metadata/general_parameters/instrument/@v.label"
 msgstr ""
 
-msgid "metadata/general_parameters/instrument/manufacturer.enum.Cytiva"
-msgstr ""
-
-msgid "metadata/general_parameters/instrument/manufacturer.enum.Gatorbio"
-msgstr ""
-
-msgid "metadata/general_parameters/instrument/manufacturer.enum.GE Healthcare"
-msgstr ""
-
-msgid "metadata/general_parameters/instrument/manufacturer.enum.Nanotemper"
-msgstr ""
-
-msgid "metadata/general_parameters/instrument/manufacturer.enum.Nicoya Life"
-msgstr ""
-
-msgid "metadata/general_parameters/instrument/manufacturer.enum.Sartorius"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/instrument/manufacturer.enum.Malvern Panalytical"
-msgstr ""
-
-msgid "metadata/general_parameters/instrument/manufacturer.enum.Refeyn"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/instrument/manufacturer.enum.TA Instruments"
-msgstr ""
-
-msgid "metadata/general_parameters/instrument/name.help"
-msgstr ""
-
-msgid "metadata/general_parameters/instrument/name.label"
-msgstr ""
-
-msgid "metadata/general_parameters/instrument/name.hint"
+msgid "metadata/general_parameters/instrument/@v.hint"
 msgstr ""
 
 msgid "metadata/general_parameters/raw_measurement_files.help"
@@ -6963,10 +6946,10 @@ msgstr ""
 msgid "metadata/general_parameters/results/entities_involved/entity/@v.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/results/id.help"
+msgid "metadata/general_parameters/results/id.label"
 msgstr ""
 
-msgid "metadata/general_parameters/results/id.label"
+msgid "metadata/general_parameters/results/id.help"
 msgstr ""
 
 msgid "metadata/general_parameters/results/id.hint"
@@ -7246,7 +7229,7 @@ msgstr ""
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.9.18"
+msgid "metadata/general_parameters/schema_version.enum.0.9.19"
 msgstr ""
 
 msgid "metadata/general_parameters/technique.help"

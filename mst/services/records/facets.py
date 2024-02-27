@@ -2443,14 +2443,10 @@ metadata_general_parameters_funding_references = VocabularyFacet(
     vocabulary="grants",
 )
 
-metadata_general_parameters_instrument_manufacturer = TermsFacet(
-    field="metadata.general_parameters.instrument.manufacturer",
-    label=_("metadata/general_parameters/instrument/manufacturer.label"),
-)
-
-metadata_general_parameters_instrument_name = TermsFacet(
-    field="metadata.general_parameters.instrument.name",
-    label=_("metadata/general_parameters/instrument/name.label"),
+metadata_general_parameters_instrument = VocabularyFacet(
+    field="metadata.general_parameters.instrument",
+    label=_("metadata/general_parameters/instrument.label"),
+    vocabulary="instruments",
 )
 
 metadata_general_parameters_raw_measurement_files = TermsFacet(
