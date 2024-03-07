@@ -316,9 +316,9 @@ metadata_general_parameters_chemical_environments_constituents_quality_controls_
 metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_expected_number_of_species = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.quality_controls.homogeneity.expected number_of_species",
+        field="metadata.general_parameters.chemical_environments.constituents.quality_controls.homogeneity.expected_number_of_species",
         label=_(
-            "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/expected number_of_species.label"
+            "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/expected_number_of_species.label"
         ),
     ),
 )
@@ -826,9 +826,9 @@ metadata_general_parameters_chemical_environments_constituents_components_qualit
 metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_expected_number_of_species = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.components.quality_controls.homogeneity.expected number_of_species",
+        field="metadata.general_parameters.chemical_environments.constituents.components.quality_controls.homogeneity.expected_number_of_species",
         label=_(
-            "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/expected number_of_species.label"
+            "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/expected_number_of_species.label"
         ),
     ),
 )
@@ -1755,9 +1755,9 @@ metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_ch
 )
 
 metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_expected_number_of_species = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.quality_controls.homogeneity.expected number_of_species",
+    field="metadata.general_parameters.entities_of_interest.quality_controls.homogeneity.expected_number_of_species",
     label=_(
-        "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/expected number_of_species.label"
+        "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/expected_number_of_species.label"
     ),
 )
 
@@ -2113,9 +2113,9 @@ metadata_general_parameters_entities_of_interest_components_quality_controls_hom
 )
 
 metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_expected_number_of_species = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.components.quality_controls.homogeneity.expected number_of_species",
+    field="metadata.general_parameters.entities_of_interest.components.quality_controls.homogeneity.expected_number_of_species",
     label=_(
-        "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/expected number_of_species.label"
+        "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/expected_number_of_species.label"
     ),
 )
 

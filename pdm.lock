@@ -2322,7 +2322,7 @@ files = [
 
 [[package]]
 name = "jinja2-simple-tags"
-version = "0.5.0"
+version = "0.6.1"
 requires_python = ">=3.6"
 summary = "Base classes for quick-and-easy template tag development"
 groups = ["default"]
@@ -2330,8 +2330,8 @@ dependencies = [
     "Jinja2>=2.10",
 ]
 files = [
-    {file = "jinja2-simple-tags-0.5.0.tar.gz", hash = "sha256:59c27096e337ed735c761a3fbbac57bd44913beaaadafdf0dfd450bcd4f7724e"},
-    {file = "jinja2_simple_tags-0.5.0-py2.py3-none-any.whl", hash = "sha256:131cbc95eaed329be390509dcfd9d8d91231a66b27ef2259c76f1d19148cef95"},
+    {file = "jinja2-simple-tags-0.6.1.tar.gz", hash = "sha256:54abf83883dcd13f8fd2ea2c42feeea8418df3640907bd5251dec5e25a6af0e3"},
+    {file = "jinja2_simple_tags-0.6.1-py2.py3-none-any.whl", hash = "sha256:7b7cfa92f6813a1e0f0b61b9efcab60e6793674753e1f784ff270542e80ae20f"},
 ]
 
 [[package]]
@@ -2361,13 +2361,13 @@ files = [
 
 [[package]]
 name = "json5"
-version = "0.9.17"
+version = "0.9.22"
 requires_python = ">=3.8"
 summary = "A Python implementation of the JSON5 data format."
 groups = ["default"]
 files = [
-    {file = "json5-0.9.17-py2.py3-none-any.whl", hash = "sha256:f8ec1ecf985951d70f780f6f877c4baca6a47b6e61e02c4cd190138d10a7805a"},
-    {file = "json5-0.9.17.tar.gz", hash = "sha256:717d99d657fa71b7094877b1d921b1cce40ab444389f6d770302563bb7dfd9ae"},
+    {file = "json5-0.9.22-py3-none-any.whl", hash = "sha256:6621007c70897652f8b5d03885f732771c48d1925591ad989aa80c7e0e5ad32f"},
+    {file = "json5-0.9.22.tar.gz", hash = "sha256:b729bde7650b2196a35903a597d2b704b8fdf8648bfb67368cfb79f1174a17bd"},
 ]
 
 [[package]]
@@ -3157,28 +3157,26 @@ files = [
 
 [[package]]
 name = "oarepo-runtime"
-version = "1.5.11"
+version = "1.5.15"
 summary = "A set of runtime extensions of Invenio repository"
 groups = ["default"]
 dependencies = [
     "deepmerge",
     "flask-babelex",
-    "invenio-records-resources>=0.21.4",
-    "invenio-records>=0.3.1",
-    "invenio-search>=2.1.0",
     "langcodes",
     "marshmallow",
     "openpyxl",
     "pyyaml",
+    "tqdm",
 ]
 files = [
-    {file = "oarepo-runtime-1.5.11.tar.gz", hash = "sha256:3fa006bb8f8dbe1a5c0cd7bc528d283b1c8970381146e8cb555263fc39efcbd7"},
-    {file = "oarepo_runtime-1.5.11-py3-none-any.whl", hash = "sha256:c815688d093866cca1a7dd3ee3ac184cf0d9a91d34490504d1c0f24665cb0ba1"},
+    {file = "oarepo-runtime-1.5.15.tar.gz", hash = "sha256:7f6c319d5f7a06da4cee333b665868eedc5424369a78a7ca136354609b0b2db6"},
+    {file = "oarepo_runtime-1.5.15-py3-none-any.whl", hash = "sha256:d40e65761dd81c8d5e760f13d5fcf4f24e276e8422c21b28aebdbf89273de074"},
 ]
 
 [[package]]
 name = "oarepo-ui"
-version = "5.0.106"
+version = "5.1.2"
 requires_python = ">=3.6"
 summary = "UI module for invenio 3.5+"
 groups = ["default"]
@@ -3190,13 +3188,13 @@ dependencies = [
     "oarepo-runtime",
 ]
 files = [
-    {file = "oarepo-ui-5.0.106.tar.gz", hash = "sha256:a2c212d15f93f6efd155dfe2f7e829ef5cf6d578a5b2116d64593a6897873d16"},
-    {file = "oarepo_ui-5.0.106-py2.py3-none-any.whl", hash = "sha256:07ab672ee927c00fa429fb1dfc9fe354c176b33a76042901f3c335315c6b6185"},
+    {file = "oarepo-ui-5.1.2.tar.gz", hash = "sha256:3d90a8ea88379db2962f72b150466a769fc4a273e5f07a3f90d79ccf1fe9d372"},
+    {file = "oarepo_ui-5.1.2-py2.py3-none-any.whl", hash = "sha256:1d4e959782bbc9db6e49d740e185a09354a871439238ee401c3b23ecfd8ea577"},
 ]
 
 [[package]]
 name = "oarepo-vocabularies"
-version = "2.0.74"
+version = "2.0.78"
 summary = "Support for custom fields and hierarchy on Invenio vocabularies"
 groups = ["default"]
 dependencies = [
@@ -3207,8 +3205,8 @@ dependencies = [
     "openpyxl",
 ]
 files = [
-    {file = "oarepo-vocabularies-2.0.74.tar.gz", hash = "sha256:d942603b8aea67587e1515ecde11649a7090029302b93d2657370c8a349c42e4"},
-    {file = "oarepo_vocabularies-2.0.74-py3-none-any.whl", hash = "sha256:4fb2e99c63cd1f88cd8d677fe63fc843e502e3307ca62ae8b13457c532d66eca"},
+    {file = "oarepo-vocabularies-2.0.78.tar.gz", hash = "sha256:40c8722c911dba5f51a755fc846fba03573351ad1a793beddd61a5aedd859591"},
+    {file = "oarepo_vocabularies-2.0.78-py3-none-any.whl", hash = "sha256:8e93551d23fa81d7075c3420a9e2069f0be8976ce20b38336166e7f4a9fa20d6"},
 ]
 
 [[package]]
@@ -3567,13 +3565,13 @@ files = [
 
 [[package]]
 name = "pyparsing"
-version = "3.1.1"
+version = "3.1.2"
 requires_python = ">=3.6.8"
 summary = "pyparsing module - Classes and methods to define and execute parsing grammars"
 groups = ["default"]
 files = [
-    {file = "pyparsing-3.1.1-py3-none-any.whl", hash = "sha256:32c7c0b711493c72ff18a981d24f28aaf9c1fb7ed5e9667c9e84e3db623bdbfb"},
-    {file = "pyparsing-3.1.1.tar.gz", hash = "sha256:ede28a1a32462f5a9705e07aea48001a08f7cf81a021585011deba701581a0db"},
+    {file = "pyparsing-3.1.2-py3-none-any.whl", hash = "sha256:f9db75911801ed778fe61bb643079ff86601aca99fcae6345aa67292038fb742"},
+    {file = "pyparsing-3.1.2.tar.gz", hash = "sha256:a1bac0ce561155ecc3ed78ca94d3c9378656ad4c94c1270de543f621420f94ad"},
 ]
 
 [[package]]
@@ -4133,6 +4131,20 @@ files = [
     {file = "tornado-6.4-cp38-abi3-win32.whl", hash = "sha256:6f8a6c77900f5ae93d8b4ae1196472d0ccc2775cc1dfdc9e7727889145c45052"},
     {file = "tornado-6.4-cp38-abi3-win_amd64.whl", hash = "sha256:10aeaa8006333433da48dec9fe417877f8bcc21f48dda8d661ae79da357b2a63"},
     {file = "tornado-6.4.tar.gz", hash = "sha256:72291fa6e6bc84e626589f1c29d90a5a6d593ef5ae68052ee2ef000dfd273dee"},
+]
+
+[[package]]
+name = "tqdm"
+version = "4.66.2"
+requires_python = ">=3.7"
+summary = "Fast, Extensible Progress Meter"
+groups = ["default"]
+dependencies = [
+    "colorama; platform_system == \"Windows\"",
+]
+files = [
+    {file = "tqdm-4.66.2-py3-none-any.whl", hash = "sha256:1ee4f8a893eb9bef51c6e35730cebf234d5d0b6bd112b0271e10ed7c24a02bd9"},
+    {file = "tqdm-4.66.2.tar.gz", hash = "sha256:6cd52cdf0fef0e0f543299cfc96fec90d7b8a7e88745f411ec33eb44d5ed3531"},
 ]
 
 [[package]]

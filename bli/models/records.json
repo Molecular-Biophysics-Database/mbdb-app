@@ -471,10 +471,6 @@
             "imports": [],
             "additional-args": []
         },
-        "translations": {
-            "module": "bli.translations",
-            "alias": "bli"
-        },
         "json-schema-settings": {
             "generate": true,
             "alias": "bli",
@@ -562,6 +558,10 @@
                 "{{bli.records.dumpers.edtf.BliEDTFIntervalDumperExt}}()"
             ],
             "imports": []
+        },
+        "translations": {
+            "module": "bli.translations",
+            "alias": "bli"
         },
         "files-field": {
             "generate": true,
@@ -1233,6 +1233,8 @@
                                                                     }
                                                                 },
                                                                 "vocabulary-type": "organisms",
+                                                                "help.en": "The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy",
+                                                                "label.en": "Source organism",
                                                                 "imports": [
                                                                     {
                                                                         "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -1286,6 +1288,8 @@
                                                                     }
                                                                 ],
                                                                 "vocabulary-type": "organisms",
+                                                                "help.en": "The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy",
+                                                                "label.en": "Expression organism",
                                                                 "imports": [
                                                                     {
                                                                         "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -1845,7 +1849,7 @@
                                                                                         "help.en": "The method used to evaluate the homogeneity",
                                                                                         "label.en": "Method"
                                                                                     },
-                                                                                    "expected number_of_species": {
+                                                                                    "expected_number_of_species": {
                                                                                         "type": "integer",
                                                                                         "required": true,
                                                                                         "minimum": 1,
@@ -2397,6 +2401,8 @@
                                                                                         }
                                                                                     },
                                                                                     "vocabulary-type": "organisms",
+                                                                                    "help.en": "The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy",
+                                                                                    "label.en": "Source organism",
                                                                                     "imports": [
                                                                                         {
                                                                                             "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -2450,6 +2456,8 @@
                                                                                         }
                                                                                     ],
                                                                                     "vocabulary-type": "organisms",
+                                                                                    "help.en": "The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy",
+                                                                                    "label.en": "Expression organism",
                                                                                     "imports": [
                                                                                         {
                                                                                             "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -3009,7 +3017,7 @@
                                                                                                             "help.en": "The method used to evaluate the homogeneity",
                                                                                                             "label.en": "Method"
                                                                                                         },
-                                                                                                        "expected number_of_species": {
+                                                                                                        "expected_number_of_species": {
                                                                                                             "type": "integer",
                                                                                                             "required": true,
                                                                                                             "minimum": 1,
@@ -3729,7 +3737,7 @@
                                                                                         "help.en": "The method used to evaluate the homogeneity",
                                                                                         "label.en": "Method"
                                                                                     },
-                                                                                    "expected number_of_species": {
+                                                                                    "expected_number_of_species": {
                                                                                         "type": "integer",
                                                                                         "required": true,
                                                                                         "minimum": 1,
@@ -4017,6 +4025,8 @@
                                                                             }
                                                                         },
                                                                         "vocabulary-type": "organisms",
+                                                                        "help.en": "Identification of the organism to the lowest taxonomic rank possible e.g. strain. Note that this is based on the NCBI taxonomy",
+                                                                        "label.en": "Source organism",
                                                                         "imports": [
                                                                             {
                                                                                 "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -4421,6 +4431,8 @@
                                                                             }
                                                                         },
                                                                         "vocabulary-type": "organisms",
+                                                                        "help.en": "Identification of the organism to the lowest taxonomic rank possible e.g. strain. Note that this is based on the NCBI taxonomy",
+                                                                        "label.en": "Source organism",
                                                                         "imports": [
                                                                             {
                                                                                 "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -4787,6 +4799,8 @@
                                                                             }
                                                                         ],
                                                                         "vocabulary-type": "organisms",
+                                                                        "help.en": "The host organism the virion was produced in. Note that information is based on the NCBI taxonomy",
+                                                                        "label.en": "Host organism",
                                                                         "imports": [
                                                                             {
                                                                                 "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -4862,6 +4876,8 @@
                                                                             }
                                                                         },
                                                                         "vocabulary-type": "organisms",
+                                                                        "help.en": "Identification of the organism to the lowest taxonomic rank possible e.g. strain. Note that this is based on the NCBI taxonomy",
+                                                                        "label.en": "Source organism",
                                                                         "imports": [
                                                                             {
                                                                                 "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -5698,6 +5714,8 @@
                                                                                                 }
                                                                                             },
                                                                                             "vocabulary-type": "organisms",
+                                                                                            "help.en": "The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy",
+                                                                                            "label.en": "Source organism",
                                                                                             "imports": [
                                                                                                 {
                                                                                                     "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -5751,6 +5769,8 @@
                                                                                                 }
                                                                                             ],
                                                                                             "vocabulary-type": "organisms",
+                                                                                            "help.en": "The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy",
+                                                                                            "label.en": "Expression organism",
                                                                                             "imports": [
                                                                                                 {
                                                                                                     "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -6310,7 +6330,7 @@
                                                                                                                     "help.en": "The method used to evaluate the homogeneity",
                                                                                                                     "label.en": "Method"
                                                                                                                 },
-                                                                                                                "expected number_of_species": {
+                                                                                                                "expected_number_of_species": {
                                                                                                                     "type": "integer",
                                                                                                                     "required": true,
                                                                                                                     "minimum": 1,
@@ -7437,6 +7457,8 @@
                                                             }
                                                         ],
                                                         "vocabulary-type": "organisms",
+                                                        "help.en": "The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy",
+                                                        "label.en": "Expression organism",
                                                         "imports": [
                                                             {
                                                                 "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -7920,7 +7942,7 @@
                                                                                 "help.en": "The method used to evaluate the homogeneity",
                                                                                 "label.en": "Method"
                                                                             },
-                                                                            "expected number_of_species": {
+                                                                            "expected_number_of_species": {
                                                                                 "type": "integer",
                                                                                 "required": true,
                                                                                 "minimum": 1,
@@ -8019,7 +8041,7 @@
                                                                         "help.en": "Whether the homogeneity was checked",
                                                                         "label.en": "Checked"
                                                                     },
-                                                                    "expected number_of_species": {
+                                                                    "expected_number_of_species": {
                                                                         "type": "integer",
                                                                         "required": true,
                                                                         "minimum": 1,
@@ -8393,6 +8415,8 @@
                                                             }
                                                         },
                                                         "vocabulary-type": "organisms",
+                                                        "help.en": "Identification of the organism to the lowest taxonomic rank possible e.g. strain. Note that this is based on the NCBI taxonomy",
+                                                        "label.en": "Source organism",
                                                         "imports": [
                                                             {
                                                                 "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -8771,6 +8795,8 @@
                                                                                 }
                                                                             },
                                                                             "vocabulary-type": "organisms",
+                                                                            "help.en": "The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy",
+                                                                            "label.en": "Source organism",
                                                                             "imports": [
                                                                                 {
                                                                                     "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -8824,6 +8850,8 @@
                                                                                 }
                                                                             ],
                                                                             "vocabulary-type": "organisms",
+                                                                            "help.en": "The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy",
+                                                                            "label.en": "Expression organism",
                                                                             "imports": [
                                                                                 {
                                                                                     "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -9383,7 +9411,7 @@
                                                                                                     "help.en": "The method used to evaluate the homogeneity",
                                                                                                     "label.en": "Method"
                                                                                                 },
-                                                                                                "expected number_of_species": {
+                                                                                                "expected_number_of_species": {
                                                                                                     "type": "integer",
                                                                                                     "required": true,
                                                                                                     "minimum": 1,
@@ -9731,6 +9759,8 @@
                                                                         }
                                                                     ],
                                                                     "vocabulary-type": "organisms",
+                                                                    "help.en": "The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy",
+                                                                    "label.en": "Expression organism",
                                                                     "imports": [
                                                                         {
                                                                             "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -10214,7 +10244,7 @@
                                                                                             "help.en": "The method used to evaluate the homogeneity",
                                                                                             "label.en": "Method"
                                                                                         },
-                                                                                        "expected number_of_species": {
+                                                                                        "expected_number_of_species": {
                                                                                             "type": "integer",
                                                                                             "required": true,
                                                                                             "minimum": 1,
@@ -10313,7 +10343,7 @@
                                                                                     "help.en": "Whether the homogeneity was checked",
                                                                                     "label.en": "Checked"
                                                                                 },
-                                                                                "expected number_of_species": {
+                                                                                "expected_number_of_species": {
                                                                                     "type": "integer",
                                                                                     "required": true,
                                                                                     "minimum": 1,
@@ -10686,6 +10716,8 @@
                                                                         }
                                                                     },
                                                                     "vocabulary-type": "organisms",
+                                                                    "help.en": "The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy",
+                                                                    "label.en": "Source organism",
                                                                     "imports": [
                                                                         {
                                                                             "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -11146,6 +11178,8 @@
                                                             }
                                                         ],
                                                         "vocabulary-type": "organisms",
+                                                        "help.en": "The host organism the virion was produced in. Note that information is based on the NCBI taxonomy",
+                                                        "label.en": "Host organism",
                                                         "imports": [
                                                             {
                                                                 "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -11449,7 +11483,9 @@
                                         },
                                         "id": {
                                             "type": "keyword",
-                                            "required": true
+                                            "required": true,
+                                            "help.en": "Unique ID for the chemical environment to be used as a link",
+                                            "label.en": "Id"
                                         },
                                         "name": {
                                             "type": "keyword",
@@ -12672,6 +12708,8 @@
                                                         }
                                                     },
                                                     "vocabulary-type": "organisms",
+                                                    "help.en": "The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy",
+                                                    "label.en": "Source organism",
                                                     "imports": [
                                                         {
                                                             "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -12725,6 +12763,8 @@
                                                         }
                                                     ],
                                                     "vocabulary-type": "organisms",
+                                                    "help.en": "The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy",
+                                                    "label.en": "Expression organism",
                                                     "imports": [
                                                         {
                                                             "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -13284,7 +13324,7 @@
                                                                             "help.en": "The method used to evaluate the homogeneity",
                                                                             "label.en": "Method"
                                                                         },
-                                                                        "expected number_of_species": {
+                                                                        "expected_number_of_species": {
                                                                             "type": "integer",
                                                                             "required": true,
                                                                             "minimum": 1,
@@ -13736,6 +13776,8 @@
                                                                             }
                                                                         },
                                                                         "vocabulary-type": "organisms",
+                                                                        "help.en": "The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy",
+                                                                        "label.en": "Source organism",
                                                                         "imports": [
                                                                             {
                                                                                 "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -13789,6 +13831,8 @@
                                                                             }
                                                                         ],
                                                                         "vocabulary-type": "organisms",
+                                                                        "help.en": "The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy",
+                                                                        "label.en": "Expression organism",
                                                                         "imports": [
                                                                             {
                                                                                 "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -14348,7 +14392,7 @@
                                                                                                 "help.en": "The method used to evaluate the homogeneity",
                                                                                                 "label.en": "Method"
                                                                                             },
-                                                                                            "expected number_of_species": {
+                                                                                            "expected_number_of_species": {
                                                                                                 "type": "integer",
                                                                                                 "required": true,
                                                                                                 "minimum": 1,
@@ -15068,7 +15112,7 @@
                                                                             "help.en": "The method used to evaluate the homogeneity",
                                                                             "label.en": "Method"
                                                                         },
-                                                                        "expected number_of_species": {
+                                                                        "expected_number_of_species": {
                                                                             "type": "integer",
                                                                             "required": true,
                                                                             "minimum": 1,
@@ -15306,6 +15350,8 @@
                                                                 }
                                                             },
                                                             "vocabulary-type": "organisms",
+                                                            "help.en": "Identification of the organism to the lowest taxonomic rank possible e.g. strain. Note that this is based on the NCBI taxonomy",
+                                                            "label.en": "Source organism",
                                                             "imports": [
                                                                 {
                                                                     "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -15660,6 +15706,8 @@
                                                                 }
                                                             },
                                                             "vocabulary-type": "organisms",
+                                                            "help.en": "Identification of the organism to the lowest taxonomic rank possible e.g. strain. Note that this is based on the NCBI taxonomy",
+                                                            "label.en": "Source organism",
                                                             "imports": [
                                                                 {
                                                                     "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -15976,6 +16024,8 @@
                                                                 }
                                                             ],
                                                             "vocabulary-type": "organisms",
+                                                            "help.en": "The host organism the virion was produced in. Note that information is based on the NCBI taxonomy",
+                                                            "label.en": "Host organism",
                                                             "imports": [
                                                                 {
                                                                     "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -16051,6 +16101,8 @@
                                                                 }
                                                             },
                                                             "vocabulary-type": "organisms",
+                                                            "help.en": "Identification of the organism to the lowest taxonomic rank possible e.g. strain. Note that this is based on the NCBI taxonomy",
+                                                            "label.en": "Source organism",
                                                             "imports": [
                                                                 {
                                                                     "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -16787,6 +16839,8 @@
                                                                                     }
                                                                                 },
                                                                                 "vocabulary-type": "organisms",
+                                                                                "help.en": "The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy",
+                                                                                "label.en": "Source organism",
                                                                                 "imports": [
                                                                                     {
                                                                                         "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -16840,6 +16894,8 @@
                                                                                     }
                                                                                 ],
                                                                                 "vocabulary-type": "organisms",
+                                                                                "help.en": "The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy",
+                                                                                "label.en": "Expression organism",
                                                                                 "imports": [
                                                                                     {
                                                                                         "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -17399,7 +17455,7 @@
                                                                                                         "help.en": "The method used to evaluate the homogeneity",
                                                                                                         "label.en": "Method"
                                                                                                     },
-                                                                                                    "expected number_of_species": {
+                                                                                                    "expected_number_of_species": {
                                                                                                         "type": "integer",
                                                                                                         "required": true,
                                                                                                         "minimum": 1,
@@ -18369,6 +18425,8 @@
                                                 }
                                             ],
                                             "vocabulary-type": "organisms",
+                                            "help.en": "The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy",
+                                            "label.en": "Expression organism",
                                             "imports": [
                                                 {
                                                     "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -18856,7 +18914,7 @@
                                                                     "help.en": "The method used to evaluate the homogeneity",
                                                                     "label.en": "Method"
                                                                 },
-                                                                "expected number_of_species": {
+                                                                "expected_number_of_species": {
                                                                     "type": "integer",
                                                                     "required": true,
                                                                     "minimum": 1,
@@ -18955,7 +19013,7 @@
                                                             "help.en": "Whether the homogeneity was checked",
                                                             "label.en": "Checked"
                                                         },
-                                                        "expected number_of_species": {
+                                                        "expected_number_of_species": {
                                                             "type": "integer",
                                                             "required": true,
                                                             "minimum": 1,
@@ -19329,6 +19387,8 @@
                                                 }
                                             },
                                             "vocabulary-type": "organisms",
+                                            "help.en": "Identification of the organism to the lowest taxonomic rank possible e.g. strain. Note that this is based on the NCBI taxonomy",
+                                            "label.en": "Source organism",
                                             "imports": [
                                                 {
                                                     "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -19710,6 +19770,8 @@
                                                                     }
                                                                 },
                                                                 "vocabulary-type": "organisms",
+                                                                "help.en": "The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy",
+                                                                "label.en": "Source organism",
                                                                 "imports": [
                                                                     {
                                                                         "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -19763,6 +19825,8 @@
                                                                     }
                                                                 ],
                                                                 "vocabulary-type": "organisms",
+                                                                "help.en": "The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy",
+                                                                "label.en": "Expression organism",
                                                                 "imports": [
                                                                     {
                                                                         "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -20322,7 +20386,7 @@
                                                                                         "help.en": "The method used to evaluate the homogeneity",
                                                                                         "label.en": "Method"
                                                                                     },
-                                                                                    "expected number_of_species": {
+                                                                                    "expected_number_of_species": {
                                                                                         "type": "integer",
                                                                                         "required": true,
                                                                                         "minimum": 1,
@@ -20670,6 +20734,8 @@
                                                             }
                                                         ],
                                                         "vocabulary-type": "organisms",
+                                                        "help.en": "The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy",
+                                                        "label.en": "Expression organism",
                                                         "imports": [
                                                             {
                                                                 "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -21153,7 +21219,7 @@
                                                                                 "help.en": "The method used to evaluate the homogeneity",
                                                                                 "label.en": "Method"
                                                                             },
-                                                                            "expected number_of_species": {
+                                                                            "expected_number_of_species": {
                                                                                 "type": "integer",
                                                                                 "required": true,
                                                                                 "minimum": 1,
@@ -21252,7 +21318,7 @@
                                                                         "help.en": "Whether the homogeneity was checked",
                                                                         "label.en": "Checked"
                                                                     },
-                                                                    "expected number_of_species": {
+                                                                    "expected_number_of_species": {
                                                                         "type": "integer",
                                                                         "required": true,
                                                                         "minimum": 1,
@@ -21625,6 +21691,8 @@
                                                             }
                                                         },
                                                         "vocabulary-type": "organisms",
+                                                        "help.en": "The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy",
+                                                        "label.en": "Source organism",
                                                         "imports": [
                                                             {
                                                                 "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -22085,6 +22153,8 @@
                                                 }
                                             ],
                                             "vocabulary-type": "organisms",
+                                            "help.en": "The host organism the virion was produced in. Note that information is based on the NCBI taxonomy",
+                                            "label.en": "Host organism",
                                             "imports": [
                                                 {
                                                     "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -22547,6 +22617,8 @@
                                     }
                                 ],
                                 "vocabulary-type": "instruments",
+                                "help.en": "Information about the instrument being used to collect (measure) the raw data annotated by this record",
+                                "label.en": "Instrument",
                                 "imports": [
                                     {
                                         "import": "invenio_vocabularies.records.api.Vocabulary"
@@ -22862,6 +22934,8 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
+                                                                "help.en": "Name (ids) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
                                                                     "generate": true,
@@ -22921,7 +22995,7 @@
                                                         "lower": {
                                                             "type": "double",
                                                             "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
                                                             "label.en": "Lower"
                                                         },
                                                         "upper": {
@@ -23027,6 +23101,8 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
+                                                                "help.en": "Name (ids) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
                                                                     "generate": false,
@@ -23086,7 +23162,7 @@
                                                         "lower": {
                                                             "type": "double",
                                                             "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
                                                             "label.en": "Lower"
                                                         },
                                                         "upper": {
@@ -23199,6 +23275,8 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
+                                                                "help.en": "Name (ids) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
                                                                     "generate": false,
@@ -23258,7 +23336,7 @@
                                                         "lower": {
                                                             "type": "double",
                                                             "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
                                                             "label.en": "Lower"
                                                         },
                                                         "upper": {
@@ -23371,6 +23449,8 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
+                                                                "help.en": "Name (ids) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
                                                                     "generate": false,
@@ -23430,7 +23510,7 @@
                                                         "lower": {
                                                             "type": "double",
                                                             "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
                                                             "label.en": "Lower"
                                                         },
                                                         "upper": {
@@ -23543,6 +23623,8 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
+                                                                "help.en": "Name (ids) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
                                                                     "generate": false,
@@ -23602,7 +23684,7 @@
                                                         "lower": {
                                                             "type": "double",
                                                             "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
                                                             "label.en": "Lower"
                                                         },
                                                         "upper": {
@@ -23708,6 +23790,8 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
+                                                                "help.en": "Name (ids) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
                                                                     "generate": false,
@@ -23767,7 +23851,7 @@
                                                         "lower": {
                                                             "type": "double",
                                                             "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
                                                             "label.en": "Lower"
                                                         },
                                                         "upper": {
@@ -23874,6 +23958,8 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
+                                                                "help.en": "Name (ids) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
                                                                     "generate": false,
@@ -23933,7 +24019,7 @@
                                                         "lower": {
                                                             "type": "double",
                                                             "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
                                                             "label.en": "Lower"
                                                         },
                                                         "upper": {
@@ -24040,6 +24126,8 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
+                                                                "help.en": "Name (ids) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
                                                                     "generate": false,
@@ -24099,7 +24187,7 @@
                                                         "lower": {
                                                             "type": "double",
                                                             "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
                                                             "label.en": "Lower"
                                                         },
                                                         "upper": {
@@ -24206,6 +24294,8 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
+                                                                "help.en": "Name (ids) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
                                                                     "generate": false,
@@ -24265,7 +24355,7 @@
                                                         "lower": {
                                                             "type": "double",
                                                             "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
                                                             "label.en": "Lower"
                                                         },
                                                         "upper": {
@@ -24374,6 +24464,8 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
+                                                                "help.en": "Name (ids) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
                                                                     "generate": false,
@@ -24433,7 +24525,7 @@
                                                         "lower": {
                                                             "type": "double",
                                                             "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
                                                             "label.en": "Lower"
                                                         },
                                                         "upper": {
@@ -24557,6 +24649,8 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
+                                                                "help.en": "Name (ids) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
                                                                     "generate": false,
@@ -24616,7 +24710,7 @@
                                                         "lower": {
                                                             "type": "double",
                                                             "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
                                                             "label.en": "Lower"
                                                         },
                                                         "upper": {
@@ -24722,6 +24816,8 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
+                                                                "help.en": "Name (ids) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
                                                                     "generate": false,
@@ -24781,7 +24877,7 @@
                                                         "lower": {
                                                             "type": "double",
                                                             "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
                                                             "label.en": "Lower"
                                                         },
                                                         "upper": {
@@ -24883,6 +24979,8 @@
                                                             "id",
                                                             "name"
                                                         ],
+                                                        "help.en": "Name (ids) of the entity (from the entities of interest defined in the general parameters)",
+                                                        "label.en": "Entity",
                                                         "marshmallow": {
                                                             "unknown": "INCLUDE",
                                                             "generate": false,
@@ -25005,7 +25103,7 @@
                                                 "lower": {
                                                     "type": "double",
                                                     "required": true,
-                                                    "help.en": "The lower error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
+                                                    "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
                                                     "label.en": "Lower"
                                                 },
                                                 "upper": {
@@ -25220,7 +25318,9 @@
                                                 "properties": {
                                                     "id": {
                                                         "type": "keyword",
-                                                        "required": true
+                                                        "required": true,
+                                                        "help.en": "Unique ID to be used as a link target",
+                                                        "label.en": "Id"
                                                     },
                                                     "name": {
                                                         "type": "keyword",
@@ -25254,6 +25354,8 @@
                                                 "id",
                                                 "name"
                                             ],
+                                            "help.en": "Link to a result that was defined in the general parameters",
+                                            "label.en": "Result",
                                             "marshmallow": {
                                                 "unknown": "INCLUDE",
                                                 "generate": false,
@@ -25340,7 +25442,9 @@
                                     "properties": {
                                         "id": {
                                             "type": "keyword",
-                                            "required": true
+                                            "required": true,
+                                            "help.en": "id to be used for internal links",
+                                            "label.en": "Id"
                                         },
                                         "name": {
                                             "type": "keyword",
@@ -25409,7 +25513,7 @@
                                                         "lower": {
                                                             "type": "double",
                                                             "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide it in fractional form (e.g.  0.01 for 1 %)",
                                                             "label.en": "Lower"
                                                         },
                                                         "upper": {
@@ -25562,7 +25666,9 @@
                                     "properties": {
                                         "id": {
                                             "type": "keyword",
-                                            "required": true
+                                            "required": true,
+                                            "help.en": "Unique ID to be used as a link target",
+                                            "label.en": "Id"
                                         },
                                         "measurement_protocol_step": {
                                             "type": "relation",
@@ -25572,6 +25678,8 @@
                                                 "id",
                                                 "name"
                                             ],
+                                            "help.en": "link to one of the measurement steps",
+                                            "label.en": "Measurement protocol step",
                                             "marshmallow": {
                                                 "unknown": "INCLUDE",
                                                 "generate": false,
@@ -25587,7 +25695,9 @@
                                             "properties": {
                                                 "id": {
                                                     "type": "keyword",
-                                                    "required": true
+                                                    "required": true,
+                                                    "help.en": "id to be used for internal links",
+                                                    "label.en": "Id"
                                                 },
                                                 "name": {
                                                     "type": "keyword",
@@ -25724,6 +25834,8 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
                                                                     "generate": false,
@@ -25779,6 +25891,8 @@
                                                         "id",
                                                         "name"
                                                     ],
+                                                    "help.en": "Name (id) of the chemical environment of the sample (from the chemical environments defined in the general parameters)",
+                                                    "label.en": "Chemical environment",
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
                                                         "generate": false,
@@ -25794,7 +25908,9 @@
                                                     "properties": {
                                                         "id": {
                                                             "type": "keyword",
-                                                            "required": true
+                                                            "required": true,
+                                                            "help.en": "Unique ID for the chemical environment to be used as a link",
+                                                            "label.en": "Id"
                                                         },
                                                         "name": {
                                                             "type": "keyword",
@@ -25828,6 +25944,8 @@
                                                         "id",
                                                         "name"
                                                     ],
+                                                    "help.en": "link to one of the plates",
+                                                    "label.en": "Plate",
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
                                                         "generate": false,
@@ -25843,7 +25961,9 @@
                                                     "properties": {
                                                         "id": {
                                                             "type": "keyword",
-                                                            "required": true
+                                                            "required": true,
+                                                            "help.en": "id to be used for internal links",
+                                                            "label.en": "Id"
                                                         },
                                                         "name": {
                                                             "type": "keyword",
@@ -25958,6 +26078,8 @@
                                                 "id",
                                                 "name"
                                             ],
+                                            "help.en": "link to the sensor used for the measurement",
+                                            "label.en": "Sensor",
                                             "marshmallow": {
                                                 "unknown": "INCLUDE",
                                                 "generate": false,
@@ -25973,7 +26095,9 @@
                                             "properties": {
                                                 "id": {
                                                     "type": "keyword",
-                                                    "required": true
+                                                    "required": true,
+                                                    "help.en": "id to be used for internal links",
+                                                    "label.en": "Id"
                                                 },
                                                 "name": {
                                                     "type": "keyword",
@@ -26030,7 +26154,9 @@
                                     "properties": {
                                         "id": {
                                             "type": "keyword",
-                                            "required": true
+                                            "required": true,
+                                            "help.en": "id to be used for internal links",
+                                            "label.en": "Id"
                                         },
                                         "name": {
                                             "type": "keyword",
@@ -26250,7 +26376,9 @@
                                         },
                                         "id": {
                                             "type": "keyword",
-                                            "required": true
+                                            "required": true,
+                                            "help.en": "id to be used for internal links",
+                                            "label.en": "Id"
                                         },
                                         "ligand_information": {
                                             "type": "object",
@@ -26274,6 +26402,8 @@
                                                         "id",
                                                         "name"
                                                     ],
+                                                    "help.en": "Name (id) of the ligand (entity that is immobilized, from the list of entities of interest defined in the general parameters)",
+                                                    "label.en": "Ligand",
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
                                                         "generate": false,

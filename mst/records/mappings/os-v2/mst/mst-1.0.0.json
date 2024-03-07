@@ -239,7 +239,7 @@
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
-                                                            "expected number_of_species": {
+                                                            "expected_number_of_species": {
                                                                 "type": "integer"
                                                             },
                                                             "method": {
@@ -573,7 +573,7 @@
                                                                         "type": "keyword",
                                                                         "ignore_above": 1024
                                                                     },
-                                                                    "expected number_of_species": {
+                                                                    "expected_number_of_species": {
                                                                         "type": "integer"
                                                                     },
                                                                     "method": {
@@ -1336,7 +1336,7 @@
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
-                                                    "expected number_of_species": {
+                                                    "expected_number_of_species": {
                                                         "type": "integer"
                                                     },
                                                     "method": {
@@ -1671,7 +1671,7 @@
                                                                 "type": "keyword",
                                                                 "ignore_above": 1024
                                                             },
-                                                            "expected number_of_species": {
+                                                            "expected_number_of_species": {
                                                                 "type": "integer"
                                                             },
                                                             "method": {

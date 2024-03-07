@@ -217,7 +217,7 @@
                                                                 "checked": {
                                                                     "type": "string"
                                                                 },
-                                                                "expected number_of_species": {
+                                                                "expected_number_of_species": {
                                                                     "type": "integer"
                                                                 },
                                                                 "method": {
@@ -511,7 +511,7 @@
                                                                             "checked": {
                                                                                 "type": "string"
                                                                             },
-                                                                            "expected number_of_species": {
+                                                                            "expected_number_of_species": {
                                                                                 "type": "integer"
                                                                             },
                                                                             "method": {
@@ -1144,7 +1144,7 @@
                                                     "checked": {
                                                         "type": "string"
                                                     },
-                                                    "expected number_of_species": {
+                                                    "expected_number_of_species": {
                                                         "type": "integer"
                                                     },
                                                     "method": {
@@ -1438,7 +1438,7 @@
                                                                 "checked": {
                                                                     "type": "string"
                                                                 },
-                                                                "expected number_of_species": {
+                                                                "expected_number_of_species": {
                                                                     "type": "integer"
                                                                 },
                                                                 "method": {

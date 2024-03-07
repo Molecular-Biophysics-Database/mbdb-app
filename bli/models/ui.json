@@ -521,12 +521,12 @@
                                                                     "enum": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/checked.enum",
                                                                     "facet": "metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_checked"
                                                                 },
-                                                                "expected number_of_species": {
+                                                                "expected_number_of_species": {
                                                                     "detail": "integer",
                                                                     "input": "integer",
-                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/expected number_of_species.help",
-                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/expected number_of_species.label",
-                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/expected number_of_species.hint",
+                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/expected_number_of_species.help",
+                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/expected_number_of_species.label",
+                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/expected_number_of_species.hint",
                                                                     "facet": "metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_expected_number_of_species"
                                                                 },
                                                                 "method": {
@@ -1217,12 +1217,12 @@
                                                                                 "enum": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/checked.enum",
                                                                                 "facet": "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_checked"
                                                                             },
-                                                                            "expected number_of_species": {
+                                                                            "expected_number_of_species": {
                                                                                 "detail": "integer",
                                                                                 "input": "integer",
-                                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/expected number_of_species.help",
-                                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/expected number_of_species.label",
-                                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/expected number_of_species.hint",
+                                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/expected_number_of_species.help",
+                                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/expected_number_of_species.label",
+                                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/expected_number_of_species.hint",
                                                                                 "facet": "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_expected_number_of_species"
                                                                             },
                                                                             "method": {
@@ -2723,12 +2723,12 @@
                                                         "enum": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/checked.enum",
                                                         "facet": "metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_checked"
                                                     },
-                                                    "expected number_of_species": {
+                                                    "expected_number_of_species": {
                                                         "detail": "integer",
                                                         "input": "integer",
-                                                        "help": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/expected number_of_species.help",
-                                                        "label": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/expected number_of_species.label",
-                                                        "hint": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/expected number_of_species.hint",
+                                                        "help": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/expected_number_of_species.help",
+                                                        "label": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/expected_number_of_species.label",
+                                                        "hint": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/expected_number_of_species.hint",
                                                         "facet": "metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_expected_number_of_species"
                                                     },
                                                     "method": {
@@ -3419,12 +3419,12 @@
                                                                     "enum": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/checked.enum",
                                                                     "facet": "metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_checked"
                                                                 },
-                                                                "expected number_of_species": {
+                                                                "expected_number_of_species": {
                                                                     "detail": "integer",
                                                                     "input": "integer",
-                                                                    "help": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/expected number_of_species.help",
-                                                                    "label": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/expected number_of_species.label",
-                                                                    "hint": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/expected number_of_species.hint",
+                                                                    "help": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/expected_number_of_species.help",
+                                                                    "label": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/expected_number_of_species.label",
+                                                                    "hint": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/expected_number_of_species.hint",
                                                                     "facet": "metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_expected_number_of_species"
                                                                 },
                                                                 "method": {

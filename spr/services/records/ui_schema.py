@@ -3008,11 +3008,7 @@ class HomogeneityUISchema(DictOnlySchema):
 
     checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
-    expected_number_of_species = ma_fields.Integer(
-        required=True,
-        data_key="expected number_of_species",
-        attribute="expected number_of_species",
-    )
+    expected_number_of_species = ma_fields.Integer(required=True)
 
     method = ma_fields.String(
         required=True,
@@ -3037,11 +3033,7 @@ class HomogeneityUISchema(DictOnlySchema):
 
     checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
-    expected_number_of_species = ma_fields.Integer(
-        required=True,
-        data_key="expected number_of_species",
-        attribute="expected number_of_species",
-    )
+    expected_number_of_species = ma_fields.Integer(required=True)
 
     method = ma_fields.String(
         required=True,

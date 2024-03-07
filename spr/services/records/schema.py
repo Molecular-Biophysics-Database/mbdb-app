@@ -2832,10 +2832,7 @@ class YesSchema(DictOnlySchema):
     checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
     expected_number_of_species = ma_fields.Integer(
-        required=True,
-        data_key="expected number_of_species",
-        attribute="expected number_of_species",
-        validate=[ma.validate.Range(min=1)],
+        required=True, validate=[ma.validate.Range(min=1)]
     )
 
     method = ma_fields.String(

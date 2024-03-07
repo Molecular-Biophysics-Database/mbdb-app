@@ -22,7 +22,6 @@ vocabulary-organisms:
       en: Organisms
   - source: organisms.yaml
 
-
 vocabulary-instruments:
   - writer: vocabulary
     vocabulary: instruments
