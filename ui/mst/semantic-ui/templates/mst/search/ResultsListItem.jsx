@@ -75,7 +75,6 @@ const ItemSubheader = ({keywords, id}) => {
 export const ResultsListItemComponent = ({
   currentQueryState,
   result,
-  appName,
   ...rest
 }) => {
 
@@ -111,7 +110,7 @@ export const ResultsListItemComponent = ({
   return (
     <>
       <Overridable
-        id={buildUID("RecordsResultsListItem.layout", "", appName)}
+        id={buildUID("RecordsResultsListItem.layout", "", searchAppConfig.appName)}
         result={result}
         title={title}
       >
@@ -141,17 +140,16 @@ export const ResultsListItemComponent = ({
 ResultsListItemComponent.propTypes = {
   currentQueryState: PropTypes.object,
   result: PropTypes.object.isRequired,
-  appName: PropTypes.string,
 };
 
 ResultsListItemComponent.defaultProps = {
   currentQueryState: null,
-  appName: "",
 };
 
 export const ResultsListItem = (props) => {
+  const { appName } = useContext(SearchConfigurationContext);
   return (
-    <Overridable id={buildUID("ResultsListItem", "", props.appName)} {...props}>
+    <Overridable id={buildUID("ResultsListItem", "", appName)} {...props}>
       <ResultsListItemComponent {...props} />
     </Overridable>
   );
@@ -160,21 +158,18 @@ export const ResultsListItem = (props) => {
 ResultsListItem.propTypes = {
   currentQueryState: PropTypes.object,
   result: PropTypes.object.isRequired,
-  appName: PropTypes.string,
 };
 
 ResultsListItem.defaultProps = {
   currentQueryState: null,
-  appName: "",
 };
 
 export const ResultsListItemWithState = withState(
-  ({ currentQueryState, updateQueryState, result, appName }) => (
+  ({ currentQueryState, updateQueryState, result }) => (
     <ResultsListItem
       currentQueryState={currentQueryState}
       updateQueryState={updateQueryState}
       result={result}
-      appName={appName}
     />
   )
 );
@@ -187,3 +182,5 @@ ResultsListItemWithState.propTypes = {
 ResultsListItemWithState.defaultProps = {
   currentQueryState: null,
 };
+
+export default ResultsListItemWithState

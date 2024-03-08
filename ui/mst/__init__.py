@@ -22,7 +22,7 @@ class MstResourceConfig(RecordsUIResourceConfig):
     edit_layout = 'edit_layout.json'
 
 
-    search_app_id = "mst"
+    application_id = "mst"
 
     templates = {
         "detail": "mst.Detail",
