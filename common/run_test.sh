@@ -5,8 +5,8 @@ set -e
 curl -sSL https://pdm-project.org/install-pdm.py | python - -p /tmp/pdm
 
 export PATH=$PWD:/tmp/pdm/bin:$PATH
-which python
-#export PYTHON=/tmp
+#which python
+export PYTHON=/opt/hostedtoolcache/Python/3.10.13/x64/bin/python
 
 echo "use_docker: false" > .oarepo-user.yaml
 
