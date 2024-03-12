@@ -5,16 +5,19 @@ set -e
 curl -sSL https://pdm-project.org/install-pdm.py | python - -p /tmp/pdm
 
 export PATH=$PWD:/tmp/pdm/bin:$PATH
+which python
+#export PYTHON=/tmp
 
 echo "use_docker: false" > .oarepo-user.yaml
 
 set
 
+ls --all
+
 nrp upgrade
 # nrp build
 
 source .venv/bin/activate
-
 
 invenio db init
 invenio db create
