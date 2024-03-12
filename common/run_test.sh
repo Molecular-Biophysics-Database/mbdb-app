@@ -5,8 +5,8 @@ set -e
 curl -sSL https://pdm-project.org/install-pdm.py | python - -p /tmp/pdm
 
 export PATH=$PWD:/tmp/pdm/bin:$PATH
-#which python
-export PYTHON=/opt/hostedtoolcache/Python/3.10.13/x64/bin/python
+# somewhere in the build process it is assumed that $PYTHON is set
+export PYTHON=`which python`
 
 echo "use_docker: false" > .oarepo-user.yaml
 
@@ -22,7 +22,7 @@ source .venv/bin/activate
 invenio db init
 invenio db create
 invenio index init
-nrp oarepo cf init
+invenio oarepo cf init
 invenio fixtures load
 invenio files location create --default default file:////tmp/data
 invenio fixtures load --no-system-fixtures ../../sample_data/mst
