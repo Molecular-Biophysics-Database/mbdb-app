@@ -12,8 +12,6 @@ echo "use_docker: false" > .oarepo-user.yaml
 
 set
 
-ls --all
-
 nrp upgrade
 # nrp build
 
@@ -23,9 +21,9 @@ invenio db init
 invenio db create
 invenio index init
 invenio oarepo cf init
-invenio fixtures load
+invenio oarepo fixtures load
 invenio files location create --default default file:////tmp/data
-invenio fixtures load --no-system-fixtures ../../sample_data/mst
+invenio oarepo fixtures load --no-system-fixtures sample_data/mst
 
 invenio users create --password 123456 -a -c test@test.com
 TOKEN=$(nrp invenio tokens create -n test -u test@test.com)
