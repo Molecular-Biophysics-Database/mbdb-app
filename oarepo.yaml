@@ -1,26 +1,28 @@
 i18n:
   babel_input_translations:
-    - mst/translations
-    - spr/translations
-    - bli/translations
+  - mst/translations
+  - spr/translations
+  - bli/translations
+  - itc/translations
   babel_output_translations: i18n/translations
   babel_source_paths:
-    - mst
-    - spr
-    - bli
-    - common
-    - ui
+  - mst
+  - spr
+  - bli
+  - itc
+  - common
+  - ui
   i18next_input_translations: []
   i18next_output_translations: i18n/semantic-ui/translations
   i18next_source_paths:
-    - ui
+  - ui
   languages:
   - en
 models:
 - api_prefix: records/mst
   base_model: &id001 empty
-  features: [&id002 tests, &id003 custom_fields, &id004 communities, &id005 requests,
-    &id006 files, &id007 drafts, &id008 relations]
+  features: [&id002 communities, &id003 tests, &id004 drafts, &id005 relations, &id006 requests,
+    &id007 files, &id008 custom_fields]
   model_description: Microscale thermophoresis
   model_name: mst
   model_package: mst
@@ -39,6 +41,13 @@ models:
   model_name: spr
   model_package: spr
   pid_type: spr
+- api_prefix: records/itc
+  base_model: *id001
+  features: [*id002, *id003, *id004, *id005, *id006, *id007, *id008]
+  model_description: ''
+  model_name: itc
+  model_package: itc
+  pid_type: itc
 repository:
   model_package: models
   oarepo_version: 12
