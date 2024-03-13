@@ -26,7 +26,7 @@ invenio files location create --default default file:////tmp/data
 invenio oarepo fixtures load --no-system-fixtures sample_data/mst
 
 invenio users create --password 123456 -a -c test@test.com
-TOKEN=$(nrp invenio tokens create -n test -u test@test.com)
+TOKEN=$(invenio tokens create -n test -u test@test.com)
 
 nrp run 2>&1 | tee nrp-server.log &
 NRP_SERVER_PID=$!
