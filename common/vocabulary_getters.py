@@ -244,80 +244,84 @@ class OpenAireService(AuthorityService):  # noqa
             },
         }
 
+
 class PubChemService(AuthorityService):
+    base_url = "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound"
+    cid_url = base_url + "/CID"
+    properties = "Title,MolecularFormula,MolecularWeight,InChIKey"
+
     def search(self, *, query=None, page=1, size=10, **kwargs):
         # both page and size can be specified direct to this endpoint
-        url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{query}/property/Title,MolecularFormula,MolecularWeight,InChIKey/JSON?name_type=word"
+        url = f"{self.base_url}/name/{query}/property/{self.properties}/JSON?name_type=word"
         response = requests.get(url)
-        response_json = response.json()
-
-        response_json = self.get_other_id(response_json)  # Selecting hits with title and InchiKey and adding other identifiers
-
-        total = len(response_json)
+        hits = response.json()["PropertyTable"]["Properties"]
+        hits = self.filter_hits(hits)  # Selecting hits with title and InchiKey and adding other identifiers
+        # hits = self.add_other_ids(hits)
+        total = len(hits)
 
         if page > get_last_page(total, size):
             hits = empty_hits(total, page)
         else:
-            hits = [
-                self.convert_pubchem_record(hit)
-                for hit in response
-            ]
-        
-        start_pos = start_pos_api_page(page, size, total) 
-        hits = hits[start_pos : start_pos + size]
-        links = make_links(query, page, size, total, vocabulary_type="chemical")
+            hits = [self.convert_pubchem_record(hit) for hit in hits]
+
+        start_pos = start_pos_api_page(page, size, total)
+        hits = hits[start_pos: start_pos + size]
+        links = make_links(query, page, size, total, vocabulary_type="chemicals")
         return hit_dict(hits, total, links)
-    
 
-    def get_other_id(response_json):
-        
-        '''
+    @staticmethod
+    def filter_hits(hits):
+        return [hit for hit in hits if ("Title" in hit) and ("InChIKey" in hit)]
+
+    def add_other_ids(self, hits):
+        """
         Obtain all hits with a valid Title and InChIKey, and retrieve their additional identifiers.
-        '''
+        nnot the that this implementation is currently too slow
+        """
+        cids = [str(hit["CID"]) for hit in hits]
+        batch_size = 25
+        other_ids_json = []
+        for i in range(len(cids)//batch_size):
+            start_pos = i*batch_size
+            cid_batch = cids[start_pos: start_pos + batch_size]
+            url = f"{self.cid_url}/{','.join(cid_batch)}/xrefs/RegistryID,RN/JSON"
+            # Calling Pubchem API to obtain other identifiers of the compounds
+            other_ids_json += requests.get(url).json()["InformationList"]["Information"]
 
-        response = []
-        for hit in response_json["PropertyTable"]["Properties"]:
-            if 'Title' in hit and 'InchiKey' in hit:
-                cid = hit['CID']
-                ids =[f'CID: {cid}']
+        annotated_hits = []
+        for hit, other_ids in zip(hits, other_ids_json):
+            cid = hit["CID"]
+            ids = [f"cid:{cid}"]
 
-                url = f'https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/CID/{cid}/xrefs/RegistryID,RN/JSON'  # Calling Pubchem API to obtain other identifiers of the compound
-                other_ids_json = requests.get(url).json()
+            cas_ids = other_ids.get("RN", [])
+            ids += [f"cas:{cas}" for cas in cas_ids]
 
-                if 'RN' in other_ids_json:
-                    ids.append(f'cas: {cas}' for cas in other_ids_json['RN'])
+            non_cas_ids = other_ids.get("RegistryID", [])
+            ids += [f"chembl:{chembl}" for chembl in non_cas_ids if "CHEMBL" in chembl]
 
-                elif 'CHEMBL' in other_ids_json['RegistryID']:
-                    ids.append(f'chembl: {chembl}' for chembl in other_ids_json['RegistryID'] if "CHEMBL" in chembl)
-
-            hit['additional_identifiers'] = ids
-            response.append(hit)
-        
-        return response
-
+            hit["additional_identifiers"] = ids
+            annotated_hits.append(hit)
+        return annotated_hits
 
     @staticmethod
     def convert_pubchem_record(hit):
-        try:
-            formattedData = {
-                'id': f'InChiKey: {hit["InChIKey"]}',
-                'title': {'en': hit['Title']},
-                'props': {
-                    'inchikey': hit['InChIKey'],
-                    'molecular_formula': hit['MolecularFormula'],
-                    'molecular_weight': hit['MolecularWeight'],
-                    'additional_identifiers': hit['additional_identifiers']
-                }
+        formatted_data = {
+            "id": f'inchikey:{hit["InChIKey"]}',
+            "title": {"en": hit["Title"]},
+            "props": {
+                "molecular_formula": hit["MolecularFormula"],
+                "molecular_weight": {
+                    "value": float(hit["MolecularWeight"]),
+                    "unit": "g/mol"
+                },
+                "additional_identifiers": [f"cid:{hit['CID']}"]
             }
-            return formattedData
-        except KeyError:
-            pass
+        }
+        return formatted_data
 
     def get(self, item_id, **kwargs):
-        if not item_id.startswith("InChiKey:"):
-            raise KeyError(f'item_id, "{item_id}", is not a PubChem id')
-        url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/{item_id[9:]}/property/Title,MolecularFormula,MolecularWeight,InChIKey/JSON"
-        
+        if not item_id.startswith("In:"):
+            raise KeyError(f'item_id, "{item_id}", is not an InchIKey')
+        url = f"{self.cid_url}/{item_id[9:]}/property/{self.properties}/JSON"
         r = requests.get(url).json()
-        r = self.get_other_id(r)
         return self.convert_pubchem_record(r[0][0])
