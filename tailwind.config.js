@@ -6,19 +6,22 @@ module.exports = {
       colors: {
         "primary": "#E8F2F1",
         "primary-light": "#EDF5F5",
-        "secondary": "#A8CEAE",
         "dark": "#034459",
       },
 
       fontFamily: {
-        PoppinsBold: ['Poppins-Bold'],
-        PoppinsMedium: ['Poppins-Medium'],
-        PoppinsRegular: ['Poppins-Regular'],
-        PoppinsLight: ['Poppins-Light'],
+        JostLight: ['Jost-Light'],
+        JostRegular: ['Jost-Regular'],
+        JostMedium: ['Jost-Medium'],
+        JostBold: ['Jost-Bold'],
+      },
+
+      screens: {
+        '2xl': '1440px',
       },
 
       borderRadius: {
-        '30px': '30px',
+        'normal': '10px',
         '40px': '40px',
         '60px': '60px',
       },
@@ -119,6 +122,11 @@ module.exports = {
         '100px': '6.25rem',
         '140px': '8.75rem',
         '150px': '9.375rem',
+      },
+
+      gridTemplateColumns: {
+        '2': 'repeat(2, 316px);',
+        '3': 'repeat(3, 316px)',
       },
     },
   },

@@ -1,36 +1,50 @@
 {%- extends config.COVER_TEMPLATE %}
 
 {%- block page_body %}
-<div class="mbdbv-frontpage">
-  <div class="mbdbv-frontpage-illustration">
-    <img src="/static/images/mbdb-illustration.png"/>
-  </div>
-  <div class="mbdbv-max-width">
-    <div class="mbdbv-frontpage-container">
+<div class="relative overflow-hidden">
+  <div class="relative lg:max-w-[1024px] lg:m-auto xl:max-w-[1280px] 2xl:max-w-[1440px]">
+    <div class="flex flex-col text-center my-[8rem] mx-auto relative overflow-hidden lg:py-[10rem] lg:m-0">
+      <div class="absolute top-12 left-4 w-[20rem] z-[-1] hidden xl:block 2xl:left-[7rem]">
+        <img src="/static/images/proteinBlur.png"/>
+      </div>
+      <div class="absolute top-[10rem] -right-4 w-[22rem] z-[-1] hidden xl:block 2xl:right-12 2xl:w-[24rem]">
+        <img src="/static/images/proteinFrontpage.png"/>
+      </div>
       <div>
-          <div class="mbdbv-frontpage-title">
+          <div class="font-JostMedium w-[360px] m-auto relative text-44px sm:w-auto lg:text-64px">
             Molecular Biophysics Database
           </div>
-          <div class="mbdbv-frontpage-text none">
+          <div class="font-20px hidden">
             We have over xy records in our database</div>
       </div>
-      <div class="mbdbv-frontpage-search-container">
-          <form class="mbdbv-frontpage-search-form" action="mst" role="search">
-            <div class="mbdbv-frontpage-search-input-button">
-              <input class="mbdbv-frontpage-search-input" type="text" name="q" placeholder="{{ _('Search') }}">
-              <button class="mbdbv-frontpage-search-button" type="submit" aria-label="{{ _('Search') }}"><img class="mbdbv-frontpage-search-icon" src="../../../../../static/images/search.png" alt="Search icon"/></button>
+      <div class="">
+          <form class="flex flex-col items-center justify-center my-8 mx-4 sm:flex-row" action="mst" role="search">
+            <div class="flex mb-2 sm:mb-0">
+              <input 
+                class="w-[300px] h-[50px] rounded-normal bg-dark text-primary p-4 outline-primary sm:w-[375px] lg:w-[550px]"
+                type="text"
+                name="q"
+                placeholder="{{ _('Search') }}"
+              >
+              <button
+                class="w-[50px] h-[50px] bg-dark rounded-normal ml-2 hover:bg-primary transition-all sm:mx-2"
+                type="submit"
+                aria-label="{{ _('Search') }}"
+              >
+                <img class="w-5 m-auto" src="/static/images/search.png" alt="Search icon"/>
+              </button>
             </div>
-            <div class="mbdbv-frontpage-search-methods mbdbv-frontpage-dropdown">
-              <div>
+            <div class="bg-dark rounded-normal h-[50px] w-[358px] p-4 flex justify-center sm:w-[150px] md:w-[180px]">
+              <div class="text-primary">
                 Only MST
               </div>
             </div>
           </form>
       </div>
-      <div class="mbdbv-frontpage-additional-info-container mbdbv-frontpage-text">
-        <div>Example: Lysozyme, NaCI, K_D, homo sapiens, xyhds-adf3t (record id)</div>
-        <div class="mbdbv-frontpage-additional-info-advanced-search">
-          <a href="/under-development">Advanced search</a>
+      <div class="flex flex-col items-center lg:flex-row lg:justify-between lg:w-[790px] lg:m-auto lg:-mt-4">
+        <div class="text-20px">Example: Lysozyme, NaCI, K_D, homo sapiens, xyhds-adf3t (record id)</div>
+        <div>
+          <a class="text-20px border-b-[0.1px] border-b-dark" href="/under-development">Advanced search</a>
         </div>
       </div>
     </div>
