@@ -58,11 +58,20 @@ def empty_hits(total: int, page: int) -> list:
         )
 
 
-def check_reponse(response: requests.Response):
+def check_response(response: requests.Response):
     """helper function that raise an error if the response didn't return ok"""
     if not response.ok:
         msg = f"{response.status_code}: {response.content}"
         raise ConnectionError(msg)
+
+
+def fetch_json(url, params: dict = None):
+    """helper function that makes the request and returns a json dictionary"""
+    if params is None:
+        params = {}
+    response = requests.get(url=url, params=params)
+    check_response(response)
+    return response.json()
 
 
 class RORService(AuthorityService):
@@ -86,8 +95,7 @@ class RORService(AuthorityService):
             api_page = math.ceil(page * size_ratio) - offset + 1
 
             params = {"query": query, "page": api_page}
-            response = requests.get(self.base_url, params=params)
-            response_json = response.json()
+            response_json = fetch_json(self.base_url, params=params)
             total = response_json["number_of_results"]
 
             affiliations += [
@@ -109,10 +117,9 @@ class RORService(AuthorityService):
     def get(self, item_id, **kwargs):
         if not item_id.startswith("ror:"):
             raise KeyError(f'item_id, "{item_id}", is not a ROR id')
-
         url = f"{self.base_url}/{item_id[4:]}"
-        r = requests.get(url).json()
-        return self.convert_ror_record(r)
+        response_json = fetch_json(url)
+        return self.convert_ror_record(response_json)
 
     @staticmethod
     def convert_ror_record(hit):
@@ -140,9 +147,7 @@ class NCBIService(AuthorityService):
 
         # This endpoint is unstable in terms of which hits are returned
         search_url = f"{self.base_url}/taxon_suggest/{query}"
-        suggested = requests.get(search_url)
-        check_reponse(suggested)
-        suggested_json = suggested.json()
+        suggested_json = fetch_json(search_url)
 
         try:
             taxids = suggested_json["sci_name_and_ids"]
@@ -166,8 +171,8 @@ class NCBIService(AuthorityService):
             raise KeyError(f'item_id, "{item_id}", is not a NCBI tax id')
 
         taxid_url = f"{self.base_url}/taxon"
-        response = requests.get(f"{taxid_url}/{item_id[6:]}")
-        record = response.json()["taxonomy_nodes"]["taxonomy"][0]
+        response_json = fetch_json(f"{taxid_url}/{item_id[6:]}")
+        record = response_json["taxonomy_nodes"]["taxonomy"][0]
         return self.convert_ncbi_record(record)
 
     @staticmethod
@@ -193,24 +198,14 @@ class OpenAireService(AuthorityService):  # noqa
     def search(self, *, query=None, page=1, size=10, **kwargs):
         # both page and size can be specified direct to this endpoint
         params = {"keywords": query, "page": page, "size": size, "format": "json"}
-
-        response = requests.get(url=self.base_url, params=params)
-        response_json = response.json()
-        if not response.ok:
-            msg = f"{response.status_code}: {response.content}"
-            raise ConnectionError(msg)
-
-        hits = response.json()["response"]
+        hits = fetch_json(url=self.base_url, params=params)["response"]
         total = hits["header"]["total"]["$"]
 
         # make sure we don't return elements beyond the last page
         if page > get_last_page(total, size):
             hits = empty_hits(total, page)
         else:
-            hits = [
-                self.convert_oa_record(hit)
-                for hit in hits["results"]["result"]
-            ]
+            hits = [self.convert_oa_record(hit) for hit in hits["results"]["result"]]
 
         links = make_links(query, page, size, total, vocabulary_type="grants")
         return hit_dict(hits, total, links)
@@ -220,7 +215,7 @@ class OpenAireService(AuthorityService):  # noqa
             raise KeyError(f'item_id, "{item_id}", is not a OpenAire id')  # noqa
 
         params = {"openaireProjectID": item_id[3:], "format": "json"}
-        response = requests.get(self.base_url, params=params).json()
+        response = fetch_json(self.base_url, params=params)
         return self.convert_oa_record(response["response"]["results"]["result"][0])
 
     @staticmethod
@@ -243,9 +238,7 @@ class OpenAireService(AuthorityService):  # noqa
             "id": f'oa:{hit["header"]["dri:objIdentifier"]["$"]}',
             "title": {"en": title},
             "props": {
-                "grant_id": str(
-                    project["code"]["$"]
-                ),
+                "grant_id": str(project["code"]["$"]),
                 "funder_name": funder_name,
             },
         }
@@ -257,14 +250,12 @@ class PubChemService(AuthorityService):
     properties = "Title,MolecularFormula,MolecularWeight,InChIKey"
 
     def search(self, *, query=None, page=1, size=10, **kwargs):
-        # both page and size can be specified direct to this endpoint
+        # neither page nor size can be specified for this endpoint
         url = f"{self.base_url}/name/{query}/property/{self.properties}/JSON?name_type=word"
-        response = requests.get(url)
-        hits = response.json()["PropertyTable"]["Properties"]
-        hits = self.filter_hits(hits)  # Selecting hits with title and InchiKey and adding other identifiers
-        # hits = self.add_other_ids(hits)
-        total = len(hits)
+        hits = fetch_json(url)["PropertyTable"]["Properties"]
+        hits = self.filter_hits(hits)  # Selecting hits with title and InChIKey
 
+        total = len(hits)
         if page > get_last_page(total, size):
             hits = empty_hits(total, page)
         else:
@@ -275,39 +266,16 @@ class PubChemService(AuthorityService):
         links = make_links(query, page, size, total, vocabulary_type="chemicals")
         return hit_dict(hits, total, links)
 
+    def get(self, item_id, **kwargs):
+        if not item_id.startswith("In:"):
+            raise KeyError(f'item_id, "{item_id}", is not an InchIKey')
+        url = f"{self.cid_url}/{item_id[9:]}/property/{self.properties}/JSON"
+        response = fetch_json(url)
+        return self.convert_pubchem_record(response[0][0])
+
     @staticmethod
     def filter_hits(hits):
         return [hit for hit in hits if ("Title" in hit) and ("InChIKey" in hit)]
-
-    def add_other_ids(self, hits):
-        """
-        Obtain all hits with a valid Title and InChIKey, and retrieve their additional identifiers.
-        nnot the that this implementation is currently too slow
-        """
-        cids = [str(hit["CID"]) for hit in hits]
-        batch_size = 25
-        other_ids_json = []
-        for i in range(len(cids)//batch_size):
-            start_pos = i*batch_size
-            cid_batch = cids[start_pos: start_pos + batch_size]
-            url = f"{self.cid_url}/{','.join(cid_batch)}/xrefs/RegistryID,RN/JSON"
-            # Calling Pubchem API to obtain other identifiers of the compounds
-            other_ids_json += requests.get(url).json()["InformationList"]["Information"]
-
-        annotated_hits = []
-        for hit, other_ids in zip(hits, other_ids_json):
-            cid = hit["CID"]
-            ids = [f"cid:{cid}"]
-
-            cas_ids = other_ids.get("RN", [])
-            ids += [f"cas:{cas}" for cas in cas_ids]
-
-            non_cas_ids = other_ids.get("RegistryID", [])
-            ids += [f"chembl:{chembl}" for chembl in non_cas_ids if "CHEMBL" in chembl]
-
-            hit["additional_identifiers"] = ids
-            annotated_hits.append(hit)
-        return annotated_hits
 
     @staticmethod
     def convert_pubchem_record(hit):
@@ -318,16 +286,9 @@ class PubChemService(AuthorityService):
                 "molecular_formula": hit["MolecularFormula"],
                 "molecular_weight": {
                     "value": float(hit["MolecularWeight"]),
-                    "unit": "g/mol"
+                    "unit": "g/mol",
                 },
-                "additional_identifiers": [f"cid:{hit['CID']}"]
-            }
+                "additional_identifiers": [f"cid:{hit['CID']}"],
+            },
         }
         return formatted_data
-
-    def get(self, item_id, **kwargs):
-        if not item_id.startswith("In:"):
-            raise KeyError(f'item_id, "{item_id}", is not an InchIKey')
-        url = f"{self.cid_url}/{item_id[9:]}/property/{self.properties}/JSON"
-        r = requests.get(url).json()
-        return self.convert_pubchem_record(r[0][0])
