@@ -58,10 +58,26 @@ def empty_hits(total: int, page: int) -> list:
         )
 
 
-class RORService(AuthorityService):
-    def search(self, *, query=None, page=1, size=10, **kwargs):
-        url = "https://api.ror.org/organizations"
+def check_response(response: requests.Response):
+    """helper function that raise an error if the response didn't return ok"""
+    if not response.ok:
+        msg = f"{response.status_code}: {response.content}"
+        raise ConnectionError(msg)
 
+
+def fetch_json(url, params: dict = None):
+    """helper function that makes the request and returns a json dictionary"""
+    if params is None:
+        params = {}
+    response = requests.get(url=url, params=params)
+    check_response(response)
+    return response.json()
+
+
+class RORService(AuthorityService):
+    base_url = "https://api.ror.org/organizations"
+
+    def search(self, *, query=None, page=1, size=10, **kwargs):
         #  the size for this API is fixed to 20 so in the following cases we should
         #  fetch multiple pages from the api:
         #   1. size > api_size
@@ -79,8 +95,7 @@ class RORService(AuthorityService):
             api_page = math.ceil(page * size_ratio) - offset + 1
 
             params = {"query": query, "page": api_page}
-            response = requests.get(url, params=params)
-            response_json = response.json()
+            response_json = fetch_json(self.base_url, params=params)
             total = response_json["number_of_results"]
 
             affiliations += [
@@ -102,39 +117,40 @@ class RORService(AuthorityService):
     def get(self, item_id, **kwargs):
         if not item_id.startswith("ror:"):
             raise KeyError(f'item_id, "{item_id}", is not a ROR id')
-
-        url = f"https://api.ror.org/organizations/{item_id[4:]}"
-        r = requests.get(url).json()
-        return self.convert_ror_record(r)
+        url = f"{self.base_url}/{item_id[4:]}"
+        response_json = fetch_json(url)
+        return self.convert_ror_record(response_json)
 
     @staticmethod
     def convert_ror_record(hit):
-        return {
+        aff_entry = {
             "id": f"ror:{hit['id'].split('/')[-1]}",
             "title": {"en": hit["name"]},
             "props": {
                 "city": hit["addresses"][0]["city"],
-                "state": hit["addresses"][0]["state"],
                 "country": hit["country"]["country_name"],
             },
         }
+        state = hit["addresses"][0].get("state")
+        if state:
+            aff_entry["props"]["state"] = state
+        return aff_entry
 
 
 class NCBIService(AuthorityService):
+    base_url = "https://api.ncbi.nlm.nih.gov/datasets/v2alpha/taxonomy"
+
     def search(self, *, query=None, page=1, size=10, **kwargs):
         # paging and size cannot be supplied and I can't find documentation on how many results
         # can maximally be returned, however, 20 appears to be maximum
         api_size = 20
 
         # This endpoint is unstable in terms of which hits are returned
-        search_url = (
-            f"https://api.ncbi.nlm.nih.gov/datasets/v1/taxonomy/taxon_suggest/{query}"
-        )
-        suggested = requests.get(search_url)
-        suggested_json = suggested.json()
+        search_url = f"{self.base_url}/taxon_suggest/{query}"
+        suggested_json = fetch_json(search_url)
 
         try:
-            taxids = [hit["tax_id"] for hit in suggested_json["sci_name_and_ids"]]
+            taxids = suggested_json["sci_name_and_ids"]
         except KeyError:
             taxids = []
         total = len(taxids)
@@ -143,10 +159,10 @@ class NCBIService(AuthorityService):
         if page > get_last_page(total, size):
             hits = empty_hits(total, page)
         else:
-            hits = self.from_taxid(taxids)
+            hits = [self.convert_ncbi_record(hit) for hit in taxids]
 
         start_pos = start_pos_api_page(page, size, api_size)
-        hits = hits[start_pos : start_pos + size]
+        hits = hits[start_pos: start_pos + size]
         links = make_links(query, page, size, total, vocabulary_type="organisms")
         return hit_dict(hits, total, links)
 
@@ -154,58 +170,42 @@ class NCBIService(AuthorityService):
         if not item_id.startswith("taxid:"):
             raise KeyError(f'item_id, "{item_id}", is not a NCBI tax id')
 
-        return self.from_taxid([item_id[6:]])[0]
+        taxid_url = f"{self.base_url}/taxon"
+        response_json = fetch_json(f"{taxid_url}/{item_id[6:]}")
+        record = response_json["taxonomy_nodes"]["taxonomy"][0]
+        return self.convert_ncbi_record(record)
 
     @staticmethod
     def convert_ncbi_record(hit):
-        try:
-            rank = hit["rank"]
-        except KeyError:
+        rank = hit.get("rank")
+        if not rank:
             rank = "NO RANK"
+
+        title = hit.get("organism_name")
+        if not title:
+            title = hit["sci_name"]
+
         return {
             "id": f'taxid:{hit["tax_id"]}',
-            "title": {"en": hit["organism_name"]},
+            "title": {"en": title},
             "props": {"rank": rank},
         }
 
-    def from_taxid(self, taxids):
-        taxid_url = "https://api.ncbi.nlm.nih.gov/datasets/v1/taxonomy/taxon/"
-        taxid_params = {"returned_content": "TAXIDS"}  # noqa
-
-        response = requests.get(f"{taxid_url}{','.join(taxids)}", params=taxid_params)
-        organisms = []
-        for hit in response.json()["taxonomy_nodes"]:
-            hit = hit["taxonomy"]
-            organisms.append(self.convert_ncbi_record(hit))
-
-        # note that elements in organism are not in the order they were fetched in!
-        # We need to enforce they're in the same order as the taxids list,
-        # as the list is a search based ranking and pagination also becomes meaningless otherwise
-
-        order = {taxid: i for i, taxid in enumerate(taxids)}
-        organisms.sort(key=lambda x: order[x["id"][6:]])
-        return organisms
-
 
 class OpenAireService(AuthorityService):  # noqa
+    base_url = "https://api.openaire.eu/search/projects"
+
     def search(self, *, query=None, page=1, size=10, **kwargs):
         # both page and size can be specified direct to this endpoint
-        url = "https://api.openaire.eu/search/projects"
         params = {"keywords": query, "page": page, "size": size, "format": "json"}
-
-        response = requests.get(url=url, params=params)
-        response_json = response.json()
-
-        total = response_json["response"]["header"]["total"]["$"]
+        hits = fetch_json(url=self.base_url, params=params)["response"]
+        total = hits["header"]["total"]["$"]
 
         # make sure we don't return elements beyond the last page
         if page > get_last_page(total, size):
             hits = empty_hits(total, page)
         else:
-            hits = [
-                self.convert_oa_record(hit)
-                for hit in response_json["response"]["results"]["result"]
-            ]
+            hits = [self.convert_oa_record(hit) for hit in hits["results"]["result"]]
 
         links = make_links(query, page, size, total, vocabulary_type="grants")
         return hit_dict(hits, total, links)
@@ -215,13 +215,14 @@ class OpenAireService(AuthorityService):  # noqa
             raise KeyError(f'item_id, "{item_id}", is not a OpenAire id')  # noqa
 
         params = {"openaireProjectID": item_id[3:], "format": "json"}
-        url = "https://api.openaire.eu/search/projects"
-        response = requests.get(url, params=params).json()
+        response = fetch_json(self.base_url, params=params)
         return self.convert_oa_record(response["response"]["results"]["result"][0])
 
     @staticmethod
     def convert_oa_record(hit):
-        funding_tree = hit["metadata"]["oaf:entity"]["oaf:project"]["fundingtree"]
+        project = hit["metadata"]["oaf:entity"]["oaf:project"]
+
+        funding_tree = project["fundingtree"]
         if not isinstance(funding_tree, list):
             funding_tree = [funding_tree]
 
@@ -229,7 +230,7 @@ class OpenAireService(AuthorityService):  # noqa
         funder_name = " and ".join(funders)
 
         try:
-            title = hit["metadata"]["oaf:entity"]["oaf:project"]["title"]["$"]
+            title = project["title"]["$"]
         except KeyError:
             title = "NO TITLE AVAILABLE"
 
@@ -237,9 +238,57 @@ class OpenAireService(AuthorityService):  # noqa
             "id": f'oa:{hit["header"]["dri:objIdentifier"]["$"]}',
             "title": {"en": title},
             "props": {
-                "grant_id": str(
-                    hit["metadata"]["oaf:entity"]["oaf:project"]["code"]["$"]
-                ),
+                "grant_id": str(project["code"]["$"]),
                 "funder_name": funder_name,
             },
         }
+
+
+class PubChemService(AuthorityService):
+    base_url = "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound"
+    cid_url = base_url + "/CID"
+    properties = "Title,MolecularFormula,MolecularWeight,InChIKey"
+
+    def search(self, *, query=None, page=1, size=10, **kwargs):
+        # neither page nor size can be specified for this endpoint
+        url = f"{self.base_url}/name/{query}/property/{self.properties}/JSON?name_type=word"
+        hits = fetch_json(url)["PropertyTable"]["Properties"]
+        hits = self.filter_hits(hits)  # Selecting hits with title and InChIKey
+
+        total = len(hits)
+        if page > get_last_page(total, size):
+            hits = empty_hits(total, page)
+        else:
+            hits = [self.convert_pubchem_record(hit) for hit in hits]
+
+        start_pos = start_pos_api_page(page, size, total)
+        hits = hits[start_pos: start_pos + size]
+        links = make_links(query, page, size, total, vocabulary_type="chemicals")
+        return hit_dict(hits, total, links)
+
+    def get(self, item_id, **kwargs):
+        if not item_id.startswith("In:"):
+            raise KeyError(f'item_id, "{item_id}", is not an InchIKey')
+        url = f"{self.cid_url}/{item_id[9:]}/property/{self.properties}/JSON"
+        response = fetch_json(url)
+        return self.convert_pubchem_record(response[0][0])
+
+    @staticmethod
+    def filter_hits(hits):
+        return [hit for hit in hits if ("Title" in hit) and ("InChIKey" in hit)]
+
+    @staticmethod
+    def convert_pubchem_record(hit):
+        formatted_data = {
+            "id": f'inchikey:{hit["InChIKey"]}',
+            "title": {"en": hit["Title"]},
+            "props": {
+                "molecular_formula": hit["MolecularFormula"],
+                "molecular_weight": {
+                    "value": float(hit["MolecularWeight"]),
+                    "unit": "g/mol",
+                },
+                "additional_identifiers": [f"cid:{hit['CID']}"],
+            },
+        }
+        return formatted_data
