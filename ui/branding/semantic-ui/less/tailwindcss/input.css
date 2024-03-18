@@ -35,20 +35,3 @@
     font-family: Jost-Regular;
     letter-spacing: 0.04rem;
 }
-
-.sidenav {
-    transform: translateX(100%);
-    background-color: white;
-    overflow-x: hidden;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-    text-align: center;
-    padding-top: 5rem;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    z-index: 50;
-    top: 0;
-    right: 0;
-}

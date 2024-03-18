@@ -1,7 +1,7 @@
 :root {
     --mbdbv-border-radius: 10px;
 
-    --mbdbv-primary-color: rgba(0, 0, 0, 0.8);
+    --mbdbv-primary-color: #034459;
     --mbdbv-secondary-color: #B9D868;
 }
 
@@ -40,6 +40,9 @@
 //    background-color: var(--mbdbv-primary-color);
 //}
 
+a:hover {
+    color: inherit;
+}
 
 /* General styles */
 
@@ -76,16 +79,6 @@
 }
 
 /* Header */
-
-.mbdbv-header-desktop {
-    display: none;
-}
-
-.mbdbv-header-mobile {
-    display: flex;
-    justify-content: space-between;
-    margin: 2rem 1rem;
-}
 
 /* Footer */
 
@@ -261,44 +254,11 @@
 
     /* Header */
 
-    .mbdbv-header-mobile {
-        display: none;
-    }
-    
-    .mbdbv-header-desktop {
-        display: block;
-    }
-
-    .mbdbv-header-desktop-container {
-        display: flex;
-        justify-content: space-between;
-        margin: 2rem 3rem;
-        align-items: center;
-    }
-
-    .mbdbv-header-link a {
-        font-size: 1.25rem;
-        margin: 0.5rem;
-        color: var(--mbdbv-primary-color);
-    }
-
-    .mbdbv-header-button button {
-        width: 120px;
-        height: 40px;
-        font-size: 1.25rem;
-        margin-right: 1rem;
-    }
-
     .mbdbv-record-save-button {
         width: 120px;
         height: 40px;
         font-size: 1.25rem;
         margin-right: 1rem;
-    }
-
-    .mbdbv-header-orcid img {
-        width: auto;
-        height: 40px;
     }
 
     /* Footer */
@@ -321,12 +281,6 @@
     }
 
     /* Records */
-
-    .mbdbv-record-header-container {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 2rem;
-    }
 
     .mbdbv-record-title {
         margin-bottom: .2rem;

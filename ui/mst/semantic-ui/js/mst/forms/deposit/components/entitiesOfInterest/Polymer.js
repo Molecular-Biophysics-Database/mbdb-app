@@ -40,6 +40,7 @@ function Polymer( { name } ) {
                     name={name}
                     label='Polymer type'
                     fieldName='polymer_type'
+                    width='w-[14rem]'
                     options={polymerTypeOptions}
                     tooltip='The type of polymer (e.g. polypeptide(L))'
                 />
@@ -49,6 +50,7 @@ function Polymer( { name } ) {
                     name={name}
                     label='Expression source'
                     fieldName='expression_source_type'
+                    width='w-[14rem]'
                     options={expressionSourceTypeOptions}
                     tooltip='How the polymer was produced'
                 />

@@ -13,7 +13,7 @@ function OptionField({ label, name, fieldName, options, width, tooltip}) {
   return (
     <div className='flex'>
       <div className={`${width} rounded-lg relative`} sx={{ minWidth: 195 }}>
-        <FormControl fullWidth>
+        <FormControl variant="filled" fullWidth>
           <InputLabel id={nameOptionField} htmlFor={nameOptionField}>
             {label}
           </InputLabel>
