@@ -26,20 +26,6 @@
     src: url('~@less/fonts/Jost-Medium.ttf') format('truetype');
 };
 
-//button {
-//    color: var(--mbdbv-primary-color);
-//    background-color: var(--mbdbv-secondary-color);
-//    border-radius: var(--mbdbv-border-radius);
-//    border-style: none;
-//    cursor: pointer;
-//    transition: all 0.5s;
-//}
-
-//button:hover {
-//    color: var(--mbdbv-secondary-color);
-//    background-color: var(--mbdbv-primary-color);
-//}
-
 a:hover {
     color: inherit;
 }
@@ -54,109 +40,12 @@ a:hover {
     width: auto !important;
 }
 
-.mbdbv-max-width-records {
-    max-width: 1280px;
-    margin: auto;
-}
-
-.mbdbv-h2-title {
-    font-family: Jost Medium;
-    font-size: 2rem;
-}
-
-.mbdbv-h2-underline {
-    margin-top: -0.3rem;
-    width: 90px;
-    height: 3px;
-    display: block;
-    background: var(--mbdbv-secondary-color);
-    clip-path: polygon(100% 0,100% 0,100% 100%,0 100%,0 0);
-}
-
-.mbdbv-text {
-    font-size: 1.25rem;
-    margin: 1rem 0;
-}
-
-/* Header */
-
-/* Footer */
-
-.mbdbv-search-result-item-container {
-    margin: 2.5rem 1.5rem !important;
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--mbdbv-primary-color)
-}
-
-.mbdbv-search-result-item-container:first-child {
-    margin-top: 4rem !important;
-}
-
-.mbdbv-search-result-item {
-    margin: .5rem 0;
-}
-
-.mbdbv-chemical-name {
-    margin-left: .5rem;
-    display: inline;
-}
-
-.mbdbv-search-result-item-description {
-    margin-left: .5rem !important;
-}
-
 .mbdbv-chemical-name::after {
     content: ",";
 }
 
 .mbdbv-chemical-name:last-child::after {
     content: "";
-}
-
-.mbdbv-search-result-item-title {
-    font-family: Jost Medium;
-}
-
-.mbdbv-search-result-container {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
-
-.mbdbv-search-result-id-container {
-    display: flex;
-    font-size: 1.5rem;
-    font-family: Jost Medium;
-}
-
-.mbdbv-search-result-id-text {
-    color: var(--mbdbv-secondary-color);
-    margin-right: .5rem;
-}
-
-.mbdbv-affiliations-container {
-    display: flex;
-}
-
-.mbdbv-affiliations-slash {
-    margin: auto .5rem;
-}
-
-.mbdbv-search-results-keywords {
-    columns: 2;
-    margin: auto;
-}
-
-.mbdbv-search-result-keyword {
-    width: 130px;
-    height: 42px;
-    margin-bottom: .5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    background-color: var(--mbdbv-secondary-color);
-    border-radius: var(--mbdbv-border-radius);
 }
 
 /* Records */
@@ -170,28 +59,10 @@ a:hover {
     font-family: Jost Regular;
 }
 
-.mbdbv-record-title {
-    margin-bottom: .2rem;
-    font-size: 1.75rem;
-}
-
 .mbdbv-record-technique {
     font-family: Jost Regular;
     font-size: 1.25rem;
     margin-top: .75rem;
-}
-
-.mbdbv-record-buttons {
-    display: flex;
-}
-
-.mbdbv-record-download-button button {
-    font-family: Jost Medium;
-    width: 150px;
-    height: 45px;
-    font-size: 1.2rem;
-    margin-top: .75rem;
-    margin-right: .5rem;
 }
 
 .mbdbv-record-section-container {
@@ -217,102 +88,19 @@ a:hover {
     margin-bottom: .35rem;
 }
 
-.mbdbv-header {
-    font-size: 1.25rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    font-family: Jost Medium;
-}
-
 .mbdbv-record-section-container:last-child {
     margin-bottom: 0;
 }
 
-.mbdbv-search-result-item-header-container {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
-
 /*MediaQuary*/
 
-@media only screen and (min-width: 768px) {
-
-    /* Footer */
-
-    .mbdbv-search-result-item-container {
-        margin: 2.5rem 3rem !important;
-    }
-}
-
 @media only screen and (min-width: 1024px) {
-
-    .mbdbv-max-width {
-        max-width: 1024px;
-        margin: auto !important;
-    }
-
-    /* Header */
-
-    .mbdbv-record-save-button {
-        width: 120px;
-        height: 40px;
-        font-size: 1.25rem;
-        margin-right: 1rem;
-    }
-
-    /* Footer */
-
-    .mbdbv-search-result-item-header-container {
-        flex-direction: row;
-    }
-
-    .mbdbv-search-results-keywords {
-        columns: 1;
-        margin: 0;
-    }
-
-    .mbdbv-search-result-container {
-        flex-direction: row;
-    }
-
-    .mbdbv-search-result-item-container {
-        margin: 2.5rem 5rem !important;
-    }
-
-    /* Records */
-
-    .mbdbv-record-title {
-        margin-bottom: .2rem;
-        font-size: 2.5rem;
-    }
-
-    .mbdbv-record-download-button button {
-        margin-top: 0;
-        margin-right: 0;
-        margin-left: 1rem;
-    }
 
     .mbdbv-name-value-item-name {
         width: 200px;
     }
 }
 
-@media only screen and (min-width: 1280px) {
-    
 
-    .mbdbv-max-width {
-        max-width: 1280px;
-        margin: auto !important;
-    }
-
-}
-
-@media only screen and (min-width: 1440px) {
-    .mbdbv-max-width {
-        max-width: 1440px;
-        margin: auto !important;
-    }
-}
 
 @import '~@less/globals/fixups.less';

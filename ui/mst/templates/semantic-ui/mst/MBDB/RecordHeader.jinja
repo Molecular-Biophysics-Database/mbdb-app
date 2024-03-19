@@ -1,13 +1,13 @@
 {# def md, links #}
 
-<div class="mbdbv-record-header-container flex justify-between mb-8">
+<div class="flex justify-between mb-8">
   <div class="font-JostMedium text-30px lg:text-40px">
     <IValue value={ md.general_parameters.record_information.title } placeholder="(Record has no title)"/>
   </div>
   <div class="flex">
-    <div class="mbdbv-record-download-buttond mx-4">
+    <div class="mx-4">
         <a
-            class="flex justify-center w-[150px] h-[40px] text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
+            class="flex justify-center w-[160px] h-[40px] text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
             href="{{ links.edit }}"
             type="application/json"
             role="button"
@@ -17,9 +17,9 @@
           </button>
         </a>
     </div>
-    <div class="mbdbv-record-download-buttond">
+    <div>
         <a
-            class="flex justify-center w-[150px] h-[40px] text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
+            class="flex justify-center w-[160px] h-[40px] text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
             href="{{ links.self }}"
             type="application/json"
             role="button"
