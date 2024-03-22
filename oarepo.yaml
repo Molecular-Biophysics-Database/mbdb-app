@@ -1,26 +1,26 @@
 i18n:
   babel_input_translations:
-    - mst/translations
-    - spr/translations
-    - bli/translations
+  - mst/translations
+  - spr/translations
+  - bli/translations
   babel_output_translations: i18n/translations
   babel_source_paths:
-    - mst
-    - spr
-    - bli
-    - common
-    - ui
+  - mst
+  - spr
+  - bli
+  - common
+  - ui
   i18next_input_translations: []
   i18next_output_translations: i18n/semantic-ui/translations
   i18next_source_paths:
-    - ui
+  - ui
   languages:
   - en
 models:
 - api_prefix: records/mst
   base_model: &id001 empty
-  features: [&id002 tests, &id003 custom_fields, &id004 communities, &id005 requests,
-    &id006 files, &id007 drafts, &id008 relations]
+  features: [&id002 requests, &id003 relations, &id004 communities, &id005 files,
+    &id006 tests, &id007 drafts, &id008 custom_fields]
   model_description: Microscale thermophoresis
   model_name: mst
   model_package: mst
@@ -52,3 +52,18 @@ uis:
   model: mst
   name: mst
   ui_serializer_class: mst.resources.records.ui.MstUIJSONSerializer
+- api_service: null
+  endpoint: /tutorial
+  model: null
+  name: tutorial
+  ui_serializer_class: null
+- api_service: null
+  endpoint: /contact
+  model: null
+  name: contact
+  ui_serializer_class: null
+- api_service: null
+  endpoint: /under-development
+  model: null
+  name: under_development
+  ui_serializer_class: null
