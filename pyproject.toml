@@ -38,6 +38,9 @@ bli_file_draft = "bli.views.draft_files.app:create_app_blueprint"
 mst_requests = "mst.views.requests.api:create_api_blueprint"
 bli_requests = "bli.views.requests.api:create_api_blueprint"
 spr_requests = "spr.views.requests.api:create_api_blueprint"
+ui_tutorial = "ui.tutorial:create_blueprint"
+ui_contact = "ui.contact:create_blueprint"
+ui_under_development = "ui.under_development:create_blueprint"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"

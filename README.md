@@ -1,7 +1,7 @@
 # Molecular Biophysics Database
 
 Security note! Running an instance of the MBDB as described below is suitable for local development.
-**IT SHOULD NOT BE USED IN PRODUCTION**. Use a WSGI server for that.     
+**IT SHOULD NOT BE USED IN PRODUCTION**. Use a WSGI server for that.
 
 
 ## Repository layout
@@ -18,7 +18,7 @@ The repository contains the following files and directories:
 - `shared` - directory with shared code, local implementation etc.
 - `nrp` - the nrp command line tool
 
-The following files/directories are generated automatically 
+The following files/directories are generated automatically
 and should not be modified:
 
 - `<modelname>` - one or more directories containing generated code for the models
@@ -52,15 +52,15 @@ To run the repository in development mode, type:
 
 ```bash
 nrp develop --extra-library <path-to-library>
-``` 
+```
 
 This will check the prerequisites, start the docker containers,
-install the python dependencies, compile UI and start the development 
+install the python dependencies, compile UI and start the development
 server. The UI will be available at https://127.0.0.1:5000, the API
 at https://127.0.0.1:5000/api
 
 If `extra-library` parameter is given, this library will be installed
-in an editable mode to the repository's virtual environment. You can 
+in an editable mode to the repository's virtual environment. You can
 repeat this parameter multiple times to install multiple libraries.
 
 Removal of extra libraries can be done by:
@@ -77,7 +77,7 @@ nrp build
 ```
 
 This will build the repository for production. It will check that
-the python dependencies are up to date (to skip the check, run 
+the python dependencies are up to date (to skip the check, run
 `nrp build --skip-checks`). It will also clear the virtual environment
 and reinstall all the dependencies before building the repository.
 
@@ -140,7 +140,7 @@ nrp upgrade
 
 This will upgrade the dependencies of the repository to the latest
 versions (python and node dependencies). After this it will run the
-build via `nrp build --production` and `nrp test` to make sure that 
+build via `nrp build --production` and `nrp test` to make sure that
 the dependencies will build.
 
 ## Handling models
@@ -173,7 +173,7 @@ The generated sources and entrypoints are placed in the
 Alembic migrations will be generated (this requires that the containers
 are running - run `nrp develop` or `nrp check` before running this command).
 
-After the model is compiled, run `nrp develop` and check that the 
+After the model is compiled, run `nrp develop` and check that the
 model is working correctly under the `/api` endpoint.
 
 ## Handling UI
@@ -188,7 +188,7 @@ nrp ui model create --model <model-name> <ui-name>
 
 The `ui-name` is optional, if not specified, it will be the same
 as the `model-name`. The command will ask a couple of questions
-and will create jinjax templates and react pages for displaying 
+and will create jinjax templates and react pages for displaying
 a listing of the model, a detail page and a form for creating
 and editing the model.
 
@@ -216,29 +216,35 @@ react endpoint for the page and reference it from the jinjax template.
 
 ### Useful commands
 
+These should run using the invenio installation from the .venv:
+
 ```bash
-nrp invenio db destroy --yes-i-know
-nrp invenio db init
-nrp invenio db create
+source .venv/bin/activate
+```
 
-nrp invenio index destroy --yes-i-know
-nrp invenio index init
+```bash
+invenio db destroy --yes-i-know
+invenio db init
+invenio db create
 
-nrp oarepo cf init
+invenio index destroy --yes-i-know
+invenio index init
 
-nrp invenio files location create --default default s3://default
+invenio oarepo cf init
 
-nrp oarepo fixtures load
+invenio files location create --default default s3://default
 
-nrp oarepo fixtures load --no-system-fixtures ../../sample_data/mst
+invenio oarepo fixtures load
+
+invenio oarepo fixtures load --no-system-fixtures sample_data/mst
 
 # for reindexing the whole repo
-nrp oarepo index reindex
+invenio oarepo index reindex
 ```
 
 ## UI development
 
-1. run `nrp develop`
+1. run `./nrp develop`
 
 ## Installation from scratch (models etc.)
 
@@ -249,17 +255,17 @@ backup the contents of alembic directory and restore it after model compile.
 
 1. remove the containers as they might be incompatible
 2. remove .nrp, .venv
-3remove requirements.txt to get rid of cached requirements
+3. remove requirements.txt to get rid of cached requirements
 5. if you added your custom configuration to invenio.cfg, comment it out temporarily.
-6. run `nrp build` - should not fail as it will skip the not-found directories
-7. call `nrp develop`, wait for the server to start up (you might want to check that homepage can be opened)
+6. run `./nrp build` - should not fail as it will skip the not-found directories
+7. call `./nrp develop`, wait for the server to start up (you might want to check that homepage can be opened)
    and shut it down. This will create the database and initialize all the containers
 8. clone mbdb model inside the same directory where the app is
 9. copy `../mbdb-model/models/oarepo/*.yaml` to the models folder
-10. call `nrp model compile mbdb-mst`. If you've saved alembic, put it back now into the generated sources
-12. call `nrp oarepo fixtures load` to load the fixtures contained in `local/mbdb-common/mbdb_common/fixtures`
-13. call `nrp oarepo fixtures load $PWD/sample_data/mst` to import sample data for mst
-14. call `nrp develop` and have a look at `https://127.0.0.1:5000/api/mbdb-mst`
+10. call `./nrp model compile mst`. If you've saved alembic, put it back now into the generated sources
+12. call `invenio oarepo fixtures load` to load the fixtures contained in `common/fixtures`
+13. call `invenio oarepo fixtures load sample_data/mst` to import sample data for mst
+14. call `./nrp develop` and have a look at `https://127.0.0.1:5000/api/records/mst`
 
 ## Setting up ORCID authentication
 
@@ -273,20 +279,20 @@ backup the contents of alembic directory and restore it after model compile.
    ```
     export INVENIO_ORCID_APP_KEY='changeme'
     export INVENIO_ORCID_APP_SECRET='changeme'
-    ``` 
-    Change the 'changeme' to the ORCID public APIs Client ID and Client secret, respectively 
+    ```
+    Change the 'changeme' to the ORCID public APIs Client ID and Client secret, respectively
 
 # REST API
 
 ```bash
 # create user
-> ./nrp invenio users create -a -c miroslav.simek@cesnet.cz
+> invenio users create --password 123456 -a -c test.user@fake.no
 
-{'email': 'miroslav.simek@cesnet.cz', 'password': '****', 'active': True, ...}
+{'email': 'test.user@fake.no', 'password': '****', 'active': True, ...}
 
 
 # get token
-> export REPOTOKEN=$(./nrp invenio tokens create -n resttest -u miroslav.simek@cesnet.cz); echo $REPOTOKEN
+> export REPOTOKEN=$(invenio tokens create -n resttest -u test.user@fake.no); echo $REPOTOKEN
 
 BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y
 
@@ -297,7 +303,7 @@ BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y
   https://127.0.0.1:5000/api/records/mst/
 
 {"links": {
-  "draft": "https://127.0.0.1:5000/api/records/mst/zv0gv-btp27/draft", 
+  "draft": "https://127.0.0.1:5000/api/records/mst/zv0gv-btp27/draft",
   "files": "https://127.0.0.1:5000/api/records/mst/zv0gv-btp27/draft/files"
 }...
 
@@ -322,19 +328,19 @@ BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y
 {"enabled": true, "links": {"self": "zv0gv-btp27/draft/files"}, "entries": [], "default_preview": null, "order": []}
 
 
-# start creating a file - in this step, just send 
+# start creating a file - in this step, just send
 # a list of file names that will be later uploaded
 > curl -k -XPOST -H "Authorization: Bearer $REPOTOKEN" \
   -H "Content-Type: application/json" \
   -d '[{"key": "blah.txt"}]' \
   https://127.0.0.1:5000/api/records/mst/zv0gv-btp27/draft/files
 
-{"enabled": true, 
- "links": {"self": "zv0gv-btp27/draft/files"}, 
- "entries": [{"metadata": null, "status": "pending", 
-              "links": {"commit": "zv0gv-btp27/draft/files/blah.txt/commit", 
-              "content": "zv0gv-btp27/draft/files/blah.txt/content", 
-              "self": "zv0gv-btp27/draft/files/blah.txt"}, 
+{"enabled": true,
+ "links": {"self": "zv0gv-btp27/draft/files"},
+ "entries": [{"metadata": null, "status": "pending",
+              "links": {"commit": "zv0gv-btp27/draft/files/blah.txt/commit",
+              "content": "zv0gv-btp27/draft/files/blah.txt/content",
+              "self": "zv0gv-btp27/draft/files/blah.txt"},
               "key": "blah.txt"}]}
 
 # upload single file in one chunk
@@ -343,7 +349,7 @@ BtMgKKIxJl838fN25PHRQtacuTJwTan0GYvDbXDB7PXoPYSHcugjZSrXQu6Y
   -d 'txt file content' \
   https://127.0.0.1:5000/api/records/mst/zv0gv-btp27/draft/files/blah.txt/content
 
-# add the file metadata  
+# add the file metadata
 > curl -k -XPUT -H "Authorization: Bearer $REPOTOKEN" \
   -H "Content-Type: application/json" \
   -d '{"name": "blah"}' \

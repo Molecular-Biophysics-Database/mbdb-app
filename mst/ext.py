@@ -2,6 +2,7 @@ import re
 from functools import cached_property
 
 from oarepo_requests.resources.draft.config import DraftRecordRequestsResourceConfig
+from oarepo_requests.proxies import current_oarepo_requests_service
 
 from mst import config
 
@@ -52,6 +53,7 @@ class MstExt:
             draft_files_service=self.service_draft_files,
         )
 
+
     @cached_property
     def resource_records(self):
         return config.MST_RECORD_RESOURCE_CLASS(
@@ -61,7 +63,11 @@ class MstExt:
 
     @cached_property
     def service_requests(self):
-        return config.MST_REQUESTS_SERVICE_CLASS(record_service=self.service_records)
+        return config.MST_REQUESTS_SERVICE_CLASS(record_service=self.service_records,
+                                                 oarepo_requests_service=current_oarepo_requests_service)
+
+
+
 
     @cached_property
     def resource_requests(self):

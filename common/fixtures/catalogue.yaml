@@ -29,3 +29,11 @@ vocabulary-instruments:
     title:
       en: Instruments
   - source: instruments.yaml
+
+vocabulary-chemicals:
+  - writer: vocabulary
+    vocabulary: chemicals
+    pid_type: v-che
+    title:
+      en: Chemicals
+  - source: chemicals.yaml
