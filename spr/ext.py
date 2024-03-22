@@ -2,7 +2,7 @@ import re
 from functools import cached_property
 
 from oarepo_requests.resources.draft.config import DraftRecordRequestsResourceConfig
-
+from oarepo_requests.proxies import current_oarepo_requests_service
 from spr import config
 
 
@@ -61,7 +61,8 @@ class SprExt:
 
     @cached_property
     def service_requests(self):
-        return config.SPR_REQUESTS_SERVICE_CLASS(record_service=self.service_records)
+        return config.SPR_REQUESTS_SERVICE_CLASS(record_service=self.service_records,
+                                                 oarepo_requests_service=current_oarepo_requests_service)
 
     @cached_property
     def resource_requests(self):
