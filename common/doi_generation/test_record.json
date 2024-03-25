@@ -1,0 +1,382 @@
+{
+  "id": "mfjx7-z6v57",
+  "created": "2024-03-22T11:54:02.889218+00:00",
+  "updated": "2024-03-22T11:54:02.913700+00:00",
+  "links": {
+    "draft": "https://127.0.0.1:5000/api/records/mst/mfjx7-z6v57/draft",
+    "files": "https://127.0.0.1:5000/api/records/mst/mfjx7-z6v57/draft/files",
+    "latest": "https://127.0.0.1:5000/api/records/mst/mfjx7-z6v57/versions/latest",
+    "latest_html": "https://127.0.0.1:5000/mst/mfjx7-z6v57/latest",
+    "publish": "https://127.0.0.1:5000/api/records/mst/mfjx7-z6v57/draft/actions/publish",
+    "record": "https://127.0.0.1:5000/api/records/mst/mfjx7-z6v57",
+    "requests": "https://127.0.0.1:5000/api/records/mst/mfjx7-z6v57/requests",
+    "self": "https://127.0.0.1:5000/api/records/mst/mfjx7-z6v57/draft",
+    "self_html": "https://127.0.0.1:5000/mst/mfjx7-z6v57/edit",
+    "versions": "https://127.0.0.1:5000/api/records/mst/mfjx7-z6v57/versions"
+  },
+  "revision_id": 4,
+  "$schema": "local://mst-1.0.0.json",
+  "metadata": {
+    "general_parameters": {
+      "chemical_environments": [
+        {
+          "id": "chem-env-measurement-buffer",
+          "constituents": [
+            {
+              "concentration": {
+                "unit": "mM",
+                "value": 50
+              },
+              "inchikey": "QKNYBSVHEMOAJP-UHFFFAOYSA-N",
+              "molecular_weight": {
+                "unit": "Da",
+                "value": 121.136
+              },
+              "name": "Tris:HCl",
+              "type": "Chemical"
+            },
+            {
+              "concentration": {
+                "unit": "mM",
+                "value": 150
+              },
+              "inchikey": "FAPWRFPIFSIZLT-UHFFFAOYSA-M",
+              "molecular_weight": {
+                "unit": "Da",
+                "value": 58.44
+              },
+              "name": "Sodium chhhhride",
+              "type": "Chemical"
+            },
+            {
+              "concentration": {
+                "unit": "w/v %",
+                "value": 1
+              },
+              "inchikey": "DBMJMQXJHONAFJ-UHFFFAOYSA-M",
+              "molecular_weight": {
+                "unit": "Da",
+                "value": 288.372
+              },
+              "name": "SDS",
+              "type": "Chemical"
+            }
+          ],
+          "name": "Measurement buffer",
+          "ph": 7.4,
+          "solvent": [
+            {
+              "concentration": {
+                "unit": "w/w %",
+                "value": 50
+              },
+              "inchikey": "XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+              "molecular_weight": {
+                "unit": "g/mol",
+                "value": 18.02
+              },
+              "name": "Water",
+              "type": "Chemical"
+            },
+            {
+              "concentration": {
+                "unit": "v/v %",
+                "value": 50
+              },
+              "inchikey": "LFQSCWFLJHTTHZ-UHFFFAOYSA-N",
+              "molecular_weight": {
+                "unit": "Da",
+                "value": 46.069
+              },
+              "name": "Ethanol",
+              "type": "Chemical"
+            }
+          ]
+        }
+      ],
+      "collection_start_time": "2022-01-02",
+      "depositors": {
+        "contributors": [
+          {
+            "affiliations": [
+              {
+                "id": "ror:02hpadn98",
+                "@v": "db55b69e-ea6b-4f66-b3d0-2b155d71ca50::1",
+                "city": "Bielefeld",
+                "country": "Germany",
+                "state": "Nordrhein-Westfalen",
+                "title": {
+                  "en": "Bielefeld University"
+                }
+              }
+            ],
+            "family_name": "Doe",
+            "given_name": "Jane"
+          },
+          {
+            "affiliations": [
+              {
+                "id": "ror:02hpadn98",
+                "@v": "db55b69e-ea6b-4f66-b3d0-2b155d71ca50::1",
+                "city": "Bielefeld",
+                "country": "Germany",
+                "state": "Nordrhein-Westfalen",
+                "title": {
+                  "en": "Bielefeld University"
+                }
+              }
+            ],
+            "family_name": "Doe",
+            "given_name": "John"
+          }
+        ],
+        "depositor": {
+          "affiliations": [
+            {
+              "id": "ror:02hpadn98",
+              "@v": "db55b69e-ea6b-4f66-b3d0-2b155d71ca50::1",
+              "city": "Bielefeld",
+              "country": "Germany",
+              "state": "Nordrhein-Westfalen",
+              "title": {
+                "en": "Bielefeld University"
+              }
+            }
+          ],
+          "family_name": "Mustermann",
+          "given_name": "Max"
+        },
+        "principal_contact": {
+          "affiliations": [
+            {
+              "id": "ror:05gq02987",
+              "@v": "383934fa-ac1a-417e-b41f-3c30408ebff0::1",
+              "city": "Providence",
+              "country": "United States",
+              "state": "Rhode Island",
+              "title": {
+                "en": "Brown University"
+              }
+            }
+          ],
+          "family_name": "Carberry",
+          "given_name": "Josiah",
+          "identifiers": [
+            "orcid:0000-0002-1825-0097"
+          ]
+        }
+      },
+      "entities_of_interest": [
+        {
+          "additional_specifications": [
+            "Blood was drawn after 12 hours of fasting"
+          ],
+          "derived_from": "Body fluid",
+          "fluid": "Serum",
+          "health_status": "Healthy",
+          "name": "Human serum",
+          "preparation_protocol": [
+            {
+              "description": "Tubes were centrifuged for 10 min at 1,300g at 4°C within 2 hours of collection",
+              "name": "Centrifugation"
+            },
+            {
+              "description": "The supernatant was distributed among 0.5mL cryostorage tubes that were maintained at 4°C",
+              "name": "Aliquotation"
+            }
+          ],
+          "source_organism": {
+            "id": "taxid:12374",
+            "@v": "bdc9c849-53fb-4a54-a445-af7bce7a58ff::1",
+            "rank": "species",
+            "title": {
+              "en": "Lactococcus phage"
+            }
+          },
+          "storage": {
+            "storage_preparation": [
+              {
+                "description": "Aliquotes were placed in liquid nitrogen for 5 min",
+                "name": "Flash freezing in liquid nitrogen"
+              }
+            ],
+            "temperature": {
+              "unit": "°C",
+              "value": -80
+            }
+          },
+          "type": "Complex substance of biological origin"
+        },
+        {
+          "id": "eoi-human-hemoglobin",
+          "components": [
+            {
+              "copy_number": 2,
+              "expression_source_type": "Natively",
+              "external_databases": [
+                "Uniprot:P69905"
+              ],
+              "molecular_weight": {
+                "unit": "kDa",
+                "value": 16
+              },
+              "name": "Hemoglobin subunit alpha",
+              "polymer_type": "polypeptide(L)",
+              "source_organism": {
+                "id": "taxid:12374",
+                "@v": "bdc9c849-53fb-4a54-a445-af7bce7a58ff::1",
+                "rank": "species",
+                "title": {
+                  "en": "Lactococcus phage"
+                }
+              },
+              "type": "Polymer",
+              "variant": "WT"
+            },
+            {
+              "copy_number": 2,
+              "expression_source_type": "Recombinantly",
+              "external_databases": [
+                "Uniprot:P68871"
+              ],
+              "modifications": {
+                "biological_postprocessing": [
+                  {
+                    "position": "S10",
+                    "type": "Phosphorylation"
+                  }
+                ],
+                "chemical": [
+                  {
+                    "protocol": [
+                      {
+                        "description": "Addition of 10 ul 1 M bicarbonate to 90 ul protein solution",
+                        "name": "Make the solution more alkaline"
+                      },
+                      {
+                        "description": "100 % DMSO was added to make a 2 mM concentrated stock of NHS-FITC",
+                        "name": "Solubilise NHS-FITC"
+                      },
+                      {
+                        "description": "Added NHS-FITC stock to protein in a 5:1 molar ratio and incubated sample for 15 min.",
+                        "name": "Labelling reaction"
+                      },
+                      {
+                        "description": "Using a 2 ml PD10 column, the unconjugated dye was removed",
+                        "name": "Removal of unconjugated dye"
+                      }
+                    ],
+                    "type": "FITC labelling"
+                  }
+                ]
+              },
+              "molecular_weight": {
+                "unit": "kDa",
+                "value": 16
+              },
+              "name": "Hemoglobin subunit beta",
+              "polymer_type": "polypeptide(L)",
+              "sequence": "MAHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFGKEFTPPVQAAYQKVVAGVANALAHKYH",
+              "source_organism": {
+                "id": "taxid:12374",
+                "@v": "bdc9c849-53fb-4a54-a445-af7bce7a58ff::1",
+                "rank": "species",
+                "title": {
+                  "en": "Lactococcus phage"
+                }
+              },
+              "type": "Polymer",
+              "variant": "V2A"
+            }
+          ],
+          "external_databases": [
+            "pdb:2HCO"
+          ],
+          "molecular_weight": {
+            "unit": "kDa",
+            "value": 64.5
+          },
+          "name": "human Hemoglobin",
+          "quality_controls": {
+            "homogeneity": {
+              "checked": "No"
+            },
+            "purity": {
+              "checked": "Yes",
+              "method": "SDS-PAGE",
+              "purity_percentage": ">99 %"
+            }
+          },
+          "type": "Molecular assembly"
+        }
+      ],
+      "funding_references": [
+        {
+          "id": "oa:aka_________::0138cbca472312ad7dd56c2cdb8a55c2",
+          "@v": "10bd81d7-bc52-4277-819a-9c3601fc50d9::1",
+          "funder_name": "Academy of Finland",
+          "title": {
+            "en": "The atherogenic potential of phospholipid transphospholipid transfer protein, PLTP"
+          }
+        },
+        {
+          "id": "oa:aka_________::05f51e273cb679ac343eb5be8ecbd9b5",
+          "@v": "16318775-bfe4-4f5e-a28d-59f0c7da9154::1",
+          "funder_name": "Academy of Finland",
+          "title": {
+            "en": "Mechanisms of enterovirus-induced beta-cell damace: implications to prevention of IDDM"
+          }
+        }
+      ],
+      "instrument": {
+        "id": "ins:2",
+        "@v": "c567d51d-8ddc-4ff0-8a19-b341d4991b5e::1",
+        "manufacturer": "Nanotemper",
+        "title": {
+          "en": "Monolith NT.115 RED"
+        }
+      },
+      "raw_measurement_files": [
+        "https://mbdb.eu/mst/files/foo.txt"
+      ],
+      "record_information": {
+        "access_rights": "open access",
+        "date_available": "2023-01-23",
+        "deposition_date": "2022-01-23",
+        "metadata_access_rights": "open access",
+        "publisher": "MBDB",
+        "resource_type": "MST",
+        "resource_type_general": "Dataset",
+        "subject_category": "Biophysics",
+        "title": "MST measurement of hemoglobin serum elements"
+      },
+      "schema_version": "0.9.19",
+      "technique": "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)"
+    },
+    "method_specific_parameters": {
+      "excitation_led_color": "RED (ex 605-645nm, em 660-720nm)",
+      "excitation_led_power": 40,
+      "experiment_type": "Affinity",
+      "ir_mst_laser_power": 20,
+      "schema_version": "0.9.9",
+      "signal_type": "TRIC/MST"
+    }
+  },
+  "parent": {
+    "id": "jvfxa-sp113"
+  },
+  "files": {
+    "enabled": true
+  },
+  "requests": [],
+  "request_types": [
+    {
+      "type_id": "publish_draft",
+      "links": {
+        "actions": {
+          "create": "https://127.0.0.1:5000/api/records/mst/mfjx7-z6v57/draft/requests/publish_draft"
+        }
+      }
+    }
+  ]
+}
