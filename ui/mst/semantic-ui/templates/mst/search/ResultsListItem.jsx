@@ -4,7 +4,6 @@ import Overridable from "react-overridable";
 
 import _get from "lodash/get";
 
-import {Item } from "semantic-ui-react";
 import { withState, buildUID } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 

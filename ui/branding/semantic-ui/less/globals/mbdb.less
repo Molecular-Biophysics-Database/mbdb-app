@@ -94,10 +94,32 @@ a:hover {
 
 /*MediaQuary*/
 
+@media only screen and (min-width: 768px) {
+
+    .mbdbv-name-value-item-name {
+        width: 200px;
+    }
+
+    .test {
+        grid-template-columns: repeat(2, 316px);
+    }
+}
+
 @media only screen and (min-width: 1024px) {
 
     .mbdbv-name-value-item-name {
         width: 200px;
+    }
+
+    .test {
+        grid-template-columns: repeat(3, 316px);
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+
+    .test {
+        grid-template-columns: repeat(4, 316px);
     }
 }
 

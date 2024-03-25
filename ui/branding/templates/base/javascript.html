@@ -10,4 +10,55 @@
     function closeNav() {
       document.getElementById("mySidenav").style.transform = "translateX(100%)";
     }
+
+    const developers = [
+        { name: "Jan Dohnálek", organization: "IBT" },
+        { name: "Emil Dandanell Agerschou", organization: "IBT" },
+        { name: "Michal Malý", organization: "IBT" },
+        { name: "Terezie Prchalová", organization: "IBT" },
+        { name: "Jakub Svoboda", organization: "IBT" },
+        { name: "Mirek Šimek", organization: "Cesnet" },
+        { name: "Mirek Bauer", organization: "Cesnet" },
+        { name: "Kryštof Krejčí", organization: "ČVUT" },
+        { name: "Andrea Santisteban Veiga", organization: "ČVUT" }
+    ];
+
+    const contributors = [
+        { name: "Jan Stránský", organization: "IBT" },
+        { name: "Juan Sabín", organization: "IBT" },
+        { name: "Nykola Jones", organization: "IBT" },
+        { name: "Michal Strnad", organization: "Cesnet" },
+    ]
+
+    function createDeveloperElement(developer) {
+        const container = document.getElementById("developers-container");
+        const developerDiv = document.createElement("div");
+        developerDiv.className = "flex";
+        developerDiv.innerHTML = `
+            <div class="pt-12 pb-3 pl-4 border-dark border-[1px] rounded-normal w-[300px] relative mb-4">
+                <img class="w-3 h-3 absolute top-3 right-3" src="/static/images/cornerArrow.png" alt="arrow" />
+                <div class="font-JostMedium text-20px">${developer.organization}</div>
+                <div class="font-JostMedium text-20px">${developer.name}</div>
+            </div>
+        `;
+        container.appendChild(developerDiv);
+    }
+
+    developers.forEach(createDeveloperElement);
+
+    function createContributorElement(contributor) {
+        const container = document.getElementById("contributors-container");
+        const contributorDiv = document.createElement("div");
+        contributorDiv.className = "flex";
+        contributorDiv.innerHTML = `
+            <div class="pt-12 pb-3 pl-4 border-dark border-[1px] rounded-normal w-[300px] relative mb-4">
+                <img class="w-3 h-3 absolute top-3 right-3" src="/static/images/cornerArrow.png" alt="arrow" />
+                <div class="font-JostMedium text-20px">${contributor.organization}</div>
+                <div class="font-JostMedium text-20px">${contributor.name}</div>
+            </div>
+        `;
+        container.appendChild(contributorDiv);
+    }
+
+    contributors.forEach(createContributorElement);
 </script>

@@ -125,9 +125,16 @@ module.exports = {
         '150px': '9.375rem',
       },
 
+      width: {
+        '300px': '300px',
+        '350px': '350px',
+        '400px': '400px',
+      },
+
       gridTemplateColumns: {
         '2': 'repeat(2, 316px);',
         '3': 'repeat(3, 316px)',
+        '4': 'repeat(4, 316px)',
       },
     },
   },
