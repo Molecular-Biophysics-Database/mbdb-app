@@ -1,11 +1,25 @@
 {%- extends config.BASE_TEMPLATE %}
 
 {%- block page_body %}
-    <div class="mbdbv-max-width mt-4">
-        <div class="mbdbv-h2-title mb-4">
-            Contact us
-            <span class="mbdbv-h2-underline"></span>
+    <div class="lg:max-w-[1024px] mx-auto xl:max-w-[1280px] 2xl:max-w-[1440px]">
+        <div class="mx-8">
+            <div class="font-JostMedium text-32px mb-4">
+                Contact us
+            </div>
+            <div class="md:flex">
+                <div class="pt-12 pb-3 pl-4 border-dark border-[1px] rounded-normal md:w-400px relative mb-4 md:mr-4 md:mb-0">
+                    <img class="w-3 h-3 absolute top-3 right-3" src="/static/images/cornerArrow.png" alt="arrow" />
+                    <div class="font-JostMedium text-20px">Jan Dohnálek</div>
+                    <div class="font-JostMedium text-20px">phone: (+420) 325 873 758</div>
+                    <div class="font-JostMedium text-20px">email: jan.dohnalek@ibt.cas.cz</div>
+                </div>
+                <div class="pt-12 pb-3 pl-4 border-dark border-[1px] rounded-normal md:w-400px relative">
+                    <img class="w-3 h-3 absolute top-3 right-3" src="/static/images/cornerArrow.png" alt="arrow" />
+                    <div class="font-JostMedium text-20px">Emil Dandanell Agerschou</div>
+                    <div class="font-JostMedium text-20px">phone: (+420) 325 873 786</div>
+                    <div class="font-JostMedium text-20px">email: EmilDandanell.Agerschou@ibt.cas.cz</div>
+                </div>
+            </div>
         </div>
-        <p>If you have any queastions or comments let us know via email <a class="link-in-text" href="mailto:mailto:mbdb@ibt.cas.cz?subject=MBDB%20-%20 Testing%20MST%20deposition">mbdb@ibt.cas.cz</a></p>
     </div>
 {%- endblock page_body %}

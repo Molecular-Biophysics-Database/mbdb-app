@@ -13,7 +13,9 @@ theme = WebpackThemeBundle(
                 "react-searchkit": "^2.0.0",
                 "semantic-ui-less": "^2.5.0",
             },
-            "devDependencies": {},
+            "devDependencies": {
+                "tailwindcss": "^3.3.5"
+            },
             "aliases": {
                 "../../theme.config$": "less/theme.config",
                 "../../less/site": "less/site",

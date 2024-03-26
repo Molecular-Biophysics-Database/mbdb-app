@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Jost-Light';
+    font-style: Light;
+    font-weight: 300;
+    src: url('~@less/fonts/Jost-Light.ttf') format('truetype');
+};
+
+@font-face {
+    font-family: 'Jost-Regular';
+    font-style: Regular;
+    font-weight: 400;
+    src: url('~@less/fonts/Jost-Regular.ttf') format('truetype');
+};
+
+@font-face {
+    font-family: 'Jost-Medium';
+    font-style: Medium;
+    font-weight: 500;
+    src: url('~@less/fonts/Jost-Medium.ttf') format('truetype');
+};
+
+@font-face {
+    font-family: 'Jost-Bold';
+    font-style: Bold;
+    font-weight: 700;
+    src: url('~@less/fonts/Jost-Bold.ttf') format('truetype');
+};
+
+* {
+    color: #034459;
+    font-family: Jost-Regular;
+    letter-spacing: 0.04rem;
+}

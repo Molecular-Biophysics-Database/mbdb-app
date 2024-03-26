@@ -15,8 +15,7 @@ class MstResourceConfig(RecordsUIResourceConfig):
     ui_serializer_class = "mst.resources.records.ui.MstUIJSONSerializer"
     api_service = "mst"
 
-    # TODO: is MBDBEditComponent still needed?
-    components = [BabelComponent, MBDBEditComponent, FilesComponent, DepositVocabularyOptionsComponent]
+    components = [BabelComponent, FilesComponent, DepositVocabularyOptionsComponent]
 
     # TODO: is this still needed?
     edit_layout = 'edit_layout.json'

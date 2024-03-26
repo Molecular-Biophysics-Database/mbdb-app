@@ -3,9 +3,10 @@
 {%- block javascript %}
     {{ super() }}
     {{ webpack['mst_deposit_form.js'] }}
-    {{ webpack['mst_deposit_form.css'] }}
 {%- endblock %}
+
 {%- block form_main_content %}
     {{ super() }}
     <input id="files" type="hidden" name="files" value='{{extra_context.files | tojson }}' />
 {%- endblock %}
+

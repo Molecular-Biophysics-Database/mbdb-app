@@ -22,7 +22,7 @@
     {% endif %}  
     
     <div class="record-container">
-      <div class="mbdbv-record-section-container mbdbv-framed">
+      <div class="mbdbv-record-section-container bg-dark">
         <h3 class="mbdbv-record-section-title">Entities of interest</h3>
         {{ render_if2(
             (gp.chemical_information is defined) and (gp.chemical_information.entities_of_interest is defined),
@@ -32,7 +32,7 @@
         }}
       </div>
 
-      <div class="mbdbv-record-section-container mbdbv-framed">
+      <div class="mbdbv-record-section-container bg-dark">
         <h3 class="mbdbv-record-section-title">Results</h3>
         {{ render_if2(
             metadata.method_specific_parameters is defined,
@@ -43,7 +43,7 @@
         }}
       </div>
 
-      <div class="mbdbv-record-section-container mbdbv-framed">
+      <div class="mbdbv-record-section-container bg-dark">
         <h3 class="mbdbv-record-section-title">Measurements</h3>
         {{ render_if2(
             metadata.method_specific_parameters is defined,
@@ -54,7 +54,7 @@
         }}
       </div>
 
-      <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">
+      <div class="mbdbv-record-section-container bg-dark">
         <h3 class="mbdbv-record-section-title">Instrument</h3>
         {{ render_if2(
               gp.instrument is defined,
@@ -64,7 +64,7 @@
         }}
       </div>
 
-      <div class="mbdbv-record-section-container mbdbv-block mbdbv-framed">
+      <div class="mbdbv-record-section-container mbdbv-framed bg-dark">
         <h3 class="mbdbv-record-section-title">Raw measurements</h3>
         {{ render_if2(
               gp.raw_measurements is defined,

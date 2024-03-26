@@ -41,6 +41,7 @@ spr_requests = "spr.views.requests.api:create_api_blueprint"
 ui_tutorial = "ui.tutorial:create_blueprint"
 ui_contact = "ui.contact:create_blueprint"
 ui_under_development = "ui.under_development:create_blueprint"
+ui_developers_team = "ui.developers_team:create_blueprint"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"

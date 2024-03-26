@@ -19,8 +19,8 @@ i18n:
 models:
 - api_prefix: records/mst
   base_model: &id001 empty
-  features: [&id002 requests, &id003 relations, &id004 communities, &id005 files,
-    &id006 tests, &id007 drafts, &id008 custom_fields]
+  features: [&id002 custom_fields, &id003 tests, &id004 relations, &id005 files, &id006 requests,
+    &id007 drafts, &id008 communities]
   model_description: Microscale thermophoresis
   model_name: mst
   model_package: mst
@@ -66,4 +66,9 @@ uis:
   endpoint: /under-development
   model: null
   name: under_development
+  ui_serializer_class: null
+- api_service: null
+  endpoint: /developers-team
+  model: null
+  name: developers_team
   ui_serializer_class: null
