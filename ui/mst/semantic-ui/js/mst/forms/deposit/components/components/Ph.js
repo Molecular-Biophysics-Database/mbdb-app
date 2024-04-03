@@ -6,7 +6,7 @@ function Ph( { name } ) {
     return(
         <>
             <div className="bg-white p-3 rounded-lg text-dark flex">
-                <div className="m-auto mr-3">
+                <div className="my-auto mr-3">
                     pH
                 </div>
                 <div>

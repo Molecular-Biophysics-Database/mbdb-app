@@ -12,8 +12,8 @@ function OptionField({ label, name, fieldName, options, width, tooltip}) {
 
   return (
     <div className='flex'>
-      <div className={`${width} rounded-lg relative`} sx={{ minWidth: 195 }}>
-        <FormControl variant="filled" fullWidth>
+      <div className={`${width} rounded-lg relative border min-w-[178px]`}>
+        <FormControl fullWidth>
           <InputLabel id={nameOptionField} htmlFor={nameOptionField}>
             {label}
           </InputLabel>
@@ -27,10 +27,7 @@ function OptionField({ label, name, fieldName, options, width, tooltip}) {
             size="small"
             error={meta.touched && !!meta.error}
             sx= {{ 
-              //"& .MuiOutlinedInput-notchedOutline": {
-              //  borderColor: "#034459",
-              //},
-              "& .MuiInputLabel-root": {color: '#034459'}, //styles the label
+              "& .MuiButton-outlined": "background-color: #6D7575" ,
               color: '#034459',
               "&:hover": {
                 borderColor: "#034459",
@@ -45,14 +42,11 @@ function OptionField({ label, name, fieldName, options, width, tooltip}) {
           </Select>
         </FormControl>
       </div>
-      {tooltip ?
+      {tooltip &&
         <div className='ml-1 -mt-1'>
           <Tooltip title={tooltip} arrow="true">
             <div>?</div>
           </Tooltip>
-        </div>
-        :
-        <div className='w-5'>
         </div>
       }
     </div>

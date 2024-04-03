@@ -11,7 +11,7 @@ function ChemicalEnvironmentTab( { name } ) {
 
     const fieldName = 'chemical_environments'
 
-    UseDefault(values, `${name}.${fieldName}`, [{}] );
+    UseDefault(values, `${name}.${fieldName}[0].name`, "" );
 
     return (
       <>

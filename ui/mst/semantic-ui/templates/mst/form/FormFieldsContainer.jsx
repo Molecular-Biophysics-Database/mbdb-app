@@ -35,17 +35,17 @@ function FormFieldsContainer() {
     <>
         <div className='flex justify-center m-4'>
             <div className="relative top-0 left-0 mt-4 mr-3">
-            {Tabs.map(tab => (
-                <div 
-                key={tab.value} 
-                className={`text-dark p-4 mb-3 rounded-lg cursor-pointer transition-all hover:bg-primary-light ${state.selected === tab.value ? 'active bg-primary' : ''}`}
-                onClick={() => setState({ selected: tab.value })}
-                >
-                {tab.label}
-                </div>
-            ))}
+              {Tabs.map(tab => (
+                  <div 
+                  key={tab.value} 
+                  className={`text-dark p-4 mb-3 rounded-lg cursor-pointer transition-all hover:bg-primary-light ${state.selected === tab.value ? 'active bg-primary' : ''}`}
+                  onClick={() => setState({ selected: tab.value })}
+                  >
+                  {tab.label}
+                  </div>
+              ))}
             </div>
-            <div className="w-[1100px]">
+            <div className="w-[1200px]">
               {state.selected === 'raw-data-files' && (
                 <RawDataFiles name='metadata.general_parameters' />
               )}

@@ -1,6 +1,8 @@
 import React from "react";
 import ArrayField from "./ArrayField";
 import CustomField from "./CustomField";
+import { VocabularySelectField } from "@js/oarepo_vocabularies";
+import { FieldLabel } from "react-invenio-forms";
 
 function Contact( { name } ) {
 
@@ -47,11 +49,17 @@ function Contact( { name } ) {
                     fieldName='affiliations'
                     tooltip='The affiliation of the person. Note that this is based on the Research Organization Registry (ROR)'
                     renderChild={({ arrayName, index }) => (
-                        <CustomField
-                          name={`${arrayName}.${index}`}
-                          label={`affiliation ${index + 1}`}
-                          tooltip='The affiliation of the person. Note that this is based on the Research Organization Registry (ROR)'
-                        />
+                      <VocabularySelectField
+                        type="affiliations/authoritative"
+                        label={
+                          <FieldLabel
+                            htmlFor={`${arrayName}.${index}`}
+                            icon=""
+                          />
+                        }
+                        fieldPath={`${arrayName}.${index}`}
+                        placeholder="affiliation"
+                      />
                     )}
                 />
             </div>

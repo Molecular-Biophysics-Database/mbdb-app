@@ -1,10 +1,3 @@
-:root {
-    --mbdbv-border-radius: 10px;
-
-    --mbdbv-primary-color: #034459;
-    --mbdbv-secondary-color: #B9D868;
-}
-
 @font-face {
     font-family: 'Jost Light';
     font-style: Light;
@@ -25,6 +18,50 @@
     font-weight: 500;
     src: url('~@less/fonts/Jost-Medium.ttf') format('truetype');
 };
+
+.invenio-page-body {
+    max-width: 1440px;
+    margin: auto;
+}
+
+.ui.grid {
+    display: flex !important;
+    flex-direction: row;
+}
+
+#main-content {
+    order: 2;
+    width: 100% !important;
+}
+
+#control-panel {
+    order: 1;
+}
+
+.ui.form input:not([type]), .ui.form input[type="date"], .ui.form input[type="datetime-local"], .ui.form input[type="email"], .ui.form input[type="number"], .ui.form input[type="password"], .ui.form input[type="search"], .ui.form input[type="tel"], .ui.form input[type="time"], .ui.form input[type="text"], .ui.form input[type="file"], .ui.form input[type="url"] {
+    background-color: inherit;
+    height: 2.3rem;
+}
+
+.ui.form input:not([type]):hover, .ui.form input[type="date"]:hover, .ui.form input[type="datetime-local"]:hover, .ui.form input[type="email"]:hover, .ui.form input[type="number"]:hover, .ui.form input[type="password"]:hover, .ui.form input[type="search"]:hover, .ui.form input[type="tel"]:hover, .ui.form input[type="time"]:hover, .ui.form input[type="text"]:hover, .ui.form input[type="file"]:hover, .ui.form input[type="url"]:hover {
+    background-color: inherit;
+}
+
+.ui.form input:not([type]):focus, .ui.form input[type="date"]:focus, .ui.form input[type="datetime-local"]:focus, .ui.form input[type="email"]:focus, .ui.form input[type="number"]:focus, .ui.form input[type="password"]:focus, .ui.form input[type="search"]:focus, .ui.form input[type="tel"]:focus, .ui.form input[type="time"]:focus, .ui.form input[type="text"]:focus, .ui.form input[type="file"]:focus, .ui.form input[type="url"]:focus {
+    background-color: inherit;
+}
+
+.border {
+    border: 0.1px solid #034459;
+    padding: 5px 10px 0 10px;
+}
+
+.MuiButton-outlined-104, .MuiButton-root-558, .MuiButton-outlined-566, .MuiButtonBase-root-584, .MuiButtonBase-root-476, .MuiButton-root-450, .MuiButton-outlined-458, .MuiButton-outlined-140, .MuiButton-root-132, .MuiButtonBase-root-158, .MuiButton-root-414, .MuiButton-outlined-422, .MuiButtonBase-root-440, .MuiButton-outlined-342, .MuiButton-root-334, .MuiButtonBase-root-360, .MuiButton-outlined-269, .MuiButton-root-261, .MuiButtonBase-root-287 {
+    background-color: #6D7575 !important;
+    border: #6D7575 !important;
+    color: white !important;
+    font-weight: 700 !important;
+}
 
 a:hover {
     color: inherit;
@@ -78,7 +115,7 @@ a:hover {
 
 .mbdbv-name-value-item-name {
     width: 160px;
-    color: var(--mbdbv-secondary-color);
+    color: #B9D868;
     font-family: Jost Medium;
     font-size: 1rem;
     margin-bottom: .25rem;

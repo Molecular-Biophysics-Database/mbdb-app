@@ -1,23 +1,5 @@
 /* vim: set sw=4 ts=4 sts=4 expandtab : */
 
-:root {
-    --mbdbv-font-0: 12pt;
-    --mbdbv-font-p1: 14pt;
-    --mbdbv-font-p2: 16pt;
-
-    --mbdbv-hgap: 0.5rem;
-    --mbdbv-2hgap: calc(2 * var(--mbdbv-hgap));
-    --mbdbv-h2gap: calc(0.5 * var(--mbdbv-hgap));
-    --mbdbv-vgap: 0.5rem;
-    --mbdbv-2vgap: calc(2 * var(--mbdbv-vgap));
-    --mbdbv-v2gap: calc(0.5 * var(--mbdbv-vgap));
-
-    --mbdbv-border-radius: 10px;
-
-    --mbdbv-primary-color: rgba(0, 0, 0, 0.8);
-    --mbdbv-secondary-color: #B9D868;
-}
-
 .mbdbv-main-container {
     display: flex;
     justify-content: center;
@@ -46,7 +28,7 @@
 .mbdbv-framed {
     background-color: #333333;
     color: white;
-    border-radius: var(--mbdbv-border-radius);
+    border-radius: 10px;
 }
 
 
@@ -55,12 +37,12 @@
 }
 
 div[class^="mbdbv-name-value-item-value"] > div[class^="mbdbv-name-value-waterfall"] {
-    margin-left: var(--mbdbv-hgap);
+    margin-left: 0.5rem;
     padding: 0 !important;
 }
 
 div[class^="mbdbv-name-value-waterfall"] > div[class^="mbdbv-name-value-item-value"] {
-    margin-left: var(--mbdbv-hgap);
+    margin-left: 0.5rem;
     padding: 0 !important;
 }
 
@@ -84,7 +66,7 @@ div[class^="mbdbv-name-value-waterfall"] > div[class^="mbdbv-name-value-item-nam
 }
 
 .mbdbv-hoffset {
-    margin-left: var(--mbdbv-hgap);
+    margin-left: 0.5rem;
 }
 
 .mbdbv-spacer {
@@ -96,7 +78,7 @@ div[class^="mbdbv-name-value-waterfall"] > div[class^="mbdbv-name-value-item-nam
 }
 
 .mbdbv-voffset {
-    margin-top: var(--mbdbv-vgap);
+    margin-top: 0.5rem;
 }
 
 /*MediaQuary*/
