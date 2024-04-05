@@ -124,7 +124,7 @@ function Polymer( { name } ) {
                     tooltip='The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy'
                     renderChild={({ arrayName, index }) => (
                         <VocabularySelectField
-                            type="affiliations/authoritative"
+                            type="organisms/authoritative"
                             label={
                             <FieldLabel
                                 htmlFor={`${arrayName}.${index}`}
@@ -173,7 +173,7 @@ function Polymer( { name } ) {
             </div>
         </div>
         <div className="mb-3">
-            <MolecularWeight 
+            <MolecularWeight
                 name={`${name}.molecular_weight`}
                 colorSchema='light'
                 tooltipHeader='The molecular weight of the polymer'
