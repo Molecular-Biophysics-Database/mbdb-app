@@ -5,6 +5,8 @@ import FormWrapper from "../buildingBlocks/FormWrapper";
 import Protocol from "../buildingBlocks/Protocol";
 import Storage from "../buildingBlocks/Storage";
 import OptionField from "../buildingBlocks/OptionField";
+import { VocabularySelectField } from "@js/oarepo_vocabularies";
+import { FieldLabel } from "react-invenio-forms";
 
 function Virion( { name } ) {
 
@@ -76,10 +78,16 @@ function Virion( { name } ) {
                     maxItems={1}
                     tooltip='The host organism the virion was produced in. Note that information is based on the NCBI taxonomy'
                     renderChild={({ arrayName, index }) => (
-                        <CustomField
-                            name={`${arrayName}.${index}`}
-                            label='Host organism'
-                            tooltip='The host organism the virion was produced in. Note that information is based on the NCBI taxonomy'
+                        <VocabularySelectField
+                            type="organisms/authoritative"
+                            label={
+                            <FieldLabel
+                                htmlFor={`${arrayName}.${index}`}
+                                icon=""
+                            />
+                            }
+                            fieldPath={`${arrayName}.${index}`}
+                            placeholder='Host organism'
                         />
                     )}
                 />
@@ -108,10 +116,16 @@ function Virion( { name } ) {
                     maxItems={1}
                     tooltip='The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy'
                     renderChild={({ arrayName, index }) => (
-                        <CustomField
-                            name={`${arrayName}.${index}`}
-                            label='Source organism'
-                            tooltip='The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy'
+                        <VocabularySelectField
+                            type="organisms/authoritative"
+                            label={
+                            <FieldLabel
+                                htmlFor={`${arrayName}.${index}`}
+                                icon=""
+                            />
+                            }
+                            fieldPath={`${arrayName}.${index}`}
+                            placeholder='Source organism'
                         />
                     )}
                 />
