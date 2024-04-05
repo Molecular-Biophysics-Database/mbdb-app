@@ -1,16 +1,19 @@
-import click
-from pathlib import Path
 import json
-from typing import List
 from datetime import datetime
-from datacite import DataCiteRESTClient
+from pathlib import Path
+from typing import List
+
+import click
 import jsonschema
+from datacite import DataCiteRESTClient
+from flask import current_app
+
 
 ####### <creators_functions>
 def add_optional_fields_creator(field: str, person: dict, creator: dict) -> None:
     options = {
         "affiliations": ("affiliation", to_affiliation),
-        "identifiers":  ("nameIdentifiers", to_name_identifiers),
+        "identifiers": ("nameIdentifiers", to_name_identifiers),
     }
 
     if field not in options.keys():
@@ -22,23 +25,25 @@ def add_optional_fields_creator(field: str, person: dict, creator: dict) -> None
     field_name, func = options[field]
     creator.update({field_name: [func(element) for element in person[field]]})
 
+
 def to_affiliation(affiliation) -> dict:
     aff_id = affiliation["id"][4:]  # remove ror: from id
     aff_name = affiliation["title"]["en"]
     return {
-            "schemeUri": "https://ror.org/",
-            "affiliationIdentifier": f"https://ror.org/{aff_id}",
-            "affiliationIdentifierScheme": "ROR",
-            "name": f"{aff_name}",
-        }
+        "schemeUri": "https://ror.org/",
+        "affiliationIdentifier": f"https://ror.org/{aff_id}",
+        "affiliationIdentifierScheme": "ROR",
+        "name": f"{aff_name}",
+    }
+
 
 def to_name_identifiers(orcid: str) -> dict:
     orcid = orcid[6:]
     return {
-            "schemeUri": "https://orcid.org",
-            "nameIdentifier": f"https://orcid.org/{orcid}",
-            "nameIdentifierScheme": "ORCID"
-        }
+        "schemeUri": "https://orcid.org",
+        "nameIdentifier": f"https://orcid.org/{orcid}",
+        "nameIdentifierScheme": "ORCID",
+    }
 
 
 def to_creator(person: dict) -> dict:
@@ -46,10 +51,10 @@ def to_creator(person: dict) -> dict:
     family_name = person["family_name"]
 
     creator = {
-          "name": f'{family_name}, {given_name}',
-          "givenName": given_name,
-          "familyName": family_name
-        }
+        "name": f"{family_name}, {given_name}",
+        "givenName": given_name,
+        "familyName": family_name,
+    }
 
     for field in ("affiliations", "identifiers"):
         add_optional_fields_creator(field, person, creator)
@@ -69,6 +74,8 @@ def to_creators(depositors: dict) -> List[dict]:
         creators += depositors["contributors"]
 
     return [to_creator(creator) for creator in creators]
+
+
 ######## </creators_functions>
 
 
@@ -79,7 +86,7 @@ def to_titles(title: str) -> List[dict]:
 def to_types(record_info: dict) -> dict:
     return {
         "resourceTypeGeneral": record_info["resource_type_general"],
-        "resourceType": record_info["resource_type"]
+        "resourceType": record_info["resource_type"],
     }
 
 
@@ -92,13 +99,18 @@ def to_publication_year(record_info: dict) -> int:
     date = datetime.strptime(record_info["date_available"], "%Y-%m-%d")
     return date.year
 
+
 def to_subjects(record_info: dict) -> List[dict]:
     return [{"subject": record_info["subject_category"]}]
 
+
 def to_url(record: dict) -> str:
     record_id = record["id"]
-    record_type = record["metadata"]["general_parameters"]["record_information"]["resource_type"].lower()
+    record_type = record["metadata"]["general_parameters"]["record_information"][
+        "resource_type"
+    ].lower()
     return f"https://www.mbdb.org/{record_type}/{record_id}"
+
 
 def add_schema_version(datacite_version):
     return datacite_version
@@ -116,7 +128,7 @@ def get_doi_dict(record):
         ("publicationYear", to_publication_year, record_info),
         ("subjects", to_subjects, record_info),
         ("url", to_url, record),
-        ("schemaVersion", add_schema_version, "http://datacite.org/schema/kernel-4")
+        ("schemaVersion", add_schema_version, "http://datacite.org/schema/kernel-4"),
     )
 
     return {field: func(data) for field, func, data in fields}
@@ -129,6 +141,7 @@ class DOIClient(DataCiteRESTClient):
     usage:
 
     """
+
     def __init__(self, username, password, prefix, record=None, test_mode=True):
         super().__init__(username, password, prefix, test_mode)
         self.record = record
@@ -138,7 +151,7 @@ class DOIClient(DataCiteRESTClient):
     def fetch_record(self, doi):
         """Fetches the record at doi and loads it into self.record"""
         if self.record:
-            Warning("self.record was not empty but was overwritten!")
+            Warning("self.record was overwritten!")
         self.record = self.get_metadata(doi)
 
     def create_draft(self):
@@ -164,8 +177,10 @@ class DOIClient(DataCiteRESTClient):
         try:
             jsonschema.validate(instance=self.record, schema=self.schema)
         except jsonschema.ValidationError as e:
-            errmsg = f"{msg_obj} did not pass validation so it was not {msg_opr}. " \
-                     f"The validation error was due to {e} "
+            errmsg = (
+                f"{msg_obj} did not pass validation so it was not {msg_opr}. "
+                f"The validation error was due to {e} "
+            )
             raise jsonschema.ValidationError(errmsg)
 
 
@@ -176,7 +191,7 @@ class DOIClient(DataCiteRESTClient):
 @click.option("--publish", default=False)
 def main(input_file, doi, make_draft, publish):
     if not input_file or doi:
-        raise TypeError('either input_file (as argument) or --doi must be specified')
+        raise TypeError("either input_file (as argument) or --doi must be specified")
 
     doi_dict = None
     if input_file:
@@ -184,12 +199,11 @@ def main(input_file, doi, make_draft, publish):
             record = json.load(f)
         doi_dict = get_doi_dict(record)
 
-    print(doi_dict)
     dc = DOIClient(
         record=doi_dict,
-        username="",
-        password="",
-        prefix="10.82657",
+        username=current_app.config["DOI_DATACITE_USERNAME"],
+        password=current_app.config["DOI_DATACITE_PASSWORD"],
+        prefix=current_app.config["DOI_DATACITE_PREFIX"],
     )
 
     if make_draft:
