@@ -199,7 +199,7 @@ class OpenAireService(AuthorityService):  # noqa
         # both page and size can be specified direct to this endpoint
         params = {"keywords": query, "page": page, "size": size, "format": "json"}
         hits = fetch_json(url=self.base_url, params=params)["response"]
-        total = hits["header"]["total"]["$"]
+        total = int(hits["header"]["total"]["$"])
 
         # make sure we don't return elements beyond the last page
         if page > get_last_page(total, size):
@@ -222,26 +222,32 @@ class OpenAireService(AuthorityService):  # noqa
     def convert_oa_record(hit):
         project = hit["metadata"]["oaf:entity"]["oaf:project"]
 
-        funding_tree = project["fundingtree"]
-        if not isinstance(funding_tree, list):
-            funding_tree = [funding_tree]
+        try:
+            funding_tree = project["fundingtree"]
+            if not isinstance(funding_tree, list):
+                funding_tree = [funding_tree]
+            funders = set([tree["funder"]["name"]["$"] for tree in funding_tree])
+            funder_name = " and ".join(funders)
 
-        funders = set([tree["funder"]["name"]["$"] for tree in funding_tree])
-        funder_name = " and ".join(funders)
+        except KeyError:
+            funder_name = None
 
         try:
             title = project["title"]["$"]
         except KeyError:
             title = "NO TITLE AVAILABLE"
 
-        return {
+        ret = {
             "id": f'oa:{hit["header"]["dri:objIdentifier"]["$"]}',
             "title": {"en": title},
             "props": {
                 "grant_id": str(project["code"]["$"]),
-                "funder_name": funder_name,
-            },
+            }
         }
+        if funder_name is not None:
+            ret["props"].update({"funder_name": funder_name})
+
+        return ret
 
 
 class PubChemService(AuthorityService):
