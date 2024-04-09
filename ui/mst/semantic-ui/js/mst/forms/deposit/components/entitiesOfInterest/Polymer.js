@@ -4,6 +4,8 @@ import CustomField from "../buildingBlocks/CustomField";
 import MolecularWeight from "../components/MolecularWeight";
 import Modifications from "../components/Modifications";
 import OptionField from "../buildingBlocks/OptionField";
+import { VocabularySelectField } from "@js/oarepo_vocabularies";
+import { FieldLabel } from "react-invenio-forms";
 
 function Polymer( { name } ) {
 
@@ -99,10 +101,16 @@ function Polymer( { name } ) {
                     maxItems={1}
                     tooltip='The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy'
                     renderChild={({ arrayName, index }) => (
-                        <CustomField
-                            name={`${arrayName}.${index}`}
-                            label='Source organism'
-                            tooltip='The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy'
+                        <VocabularySelectField
+                            type="organisms/authoritative"
+                            label={
+                            <FieldLabel
+                                htmlFor={`${arrayName}.${index}`}
+                                icon=""
+                            />
+                            }
+                            fieldPath={`${arrayName}.${index}`}
+                            placeholder='Source organism'
                         />
                     )}
                 />
@@ -115,10 +123,16 @@ function Polymer( { name } ) {
                     maxItems={1}
                     tooltip='The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy'
                     renderChild={({ arrayName, index }) => (
-                        <CustomField
-                            name={`${arrayName}.${index}`}
-                            label='Expression organism'
-                            tooltip='The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy'
+                        <VocabularySelectField
+                            type="organisms/authoritative"
+                            label={
+                            <FieldLabel
+                                htmlFor={`${arrayName}.${index}`}
+                                icon=""
+                            />
+                            }
+                            fieldPath={`${arrayName}.${index}`}
+                            placeholder='Expression organism'
                         />
                     )}
                 />
@@ -159,7 +173,7 @@ function Polymer( { name } ) {
             </div>
         </div>
         <div className="mb-3">
-            <MolecularWeight 
+            <MolecularWeight
                 name={`${name}.molecular_weight`}
                 colorSchema='light'
                 tooltipHeader='The molecular weight of the polymer'

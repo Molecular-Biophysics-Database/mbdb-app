@@ -5,6 +5,8 @@ import FormWrapper from "../buildingBlocks/FormWrapper";
 import Protocol from "../buildingBlocks/Protocol";
 import Storage from "../buildingBlocks/Storage";
 import OptionField from "../buildingBlocks/OptionField";
+import { VocabularySelectField } from "@js/oarepo_vocabularies";
+import { FieldLabel } from "react-invenio-forms";
 
 function BodyFluid( { name } ) {
 
@@ -48,13 +50,18 @@ function BodyFluid( { name } ) {
             />
           </div>
           <div>
-            <CustomField
-                name={name}
-                label='Source organism'
-                fieldName='source_organism'
-                tooltip='Identification of the organism to the lowest taxonomic rank possible e.g. strain. Note that this is based on the NCBI taxonomy'
-            />
-          </div>
+                <VocabularySelectField
+                    type="organisms/authoritative"
+                    label={
+                        <FieldLabel
+                        htmlFor={`${name}.source_organism`}
+                        icon=""
+                        />
+                    }
+                    fieldPath={`${name}.source_organism`}
+                    placeholder='Source organism'
+                />
+            </div>
         </div>
         <div className="flex -mt-3">
             <div className="mr-3">

@@ -6,6 +6,8 @@ import Protocol from "../../buildingBlocks/Protocol";
 import Storage from "../../buildingBlocks/Storage";
 import Concentration from "../../components/Concentration";
 import OptionField from "../../buildingBlocks/OptionField";
+import { VocabularySelectField } from "@js/oarepo_vocabularies";
+import { FieldLabel } from "react-invenio-forms";
 
 function Virion( { name } ) {
 
@@ -69,20 +71,49 @@ function Virion( { name } ) {
           </div>
         </div>
         <div className="flex mb-3">
-          <div className="mr-3">
-            <CustomField name={name} label='Host organism' fieldName='host_organism' />
-          </div>
-          <div className="mr-3">
-            <CustomField
-                name={name}
-                label='Host cell type'
-                fieldName='host_cell_type'
-                tooltip='The host cell type the virion was produced in'
-            />
-          </div>
-          <div>
-            <CustomField name={name} label='Source organism' fieldName='source_organism' />
-          </div>
+            <div className="mr-3">
+                <VocabularySelectField
+                    type="organisms/authoritative"
+                    label={
+                    <FieldLabel
+                        htmlFor={`${name}.source_organism`}
+                        icon=""
+                    />
+                    }
+                    fieldPath={`${name}.source_organism`}
+                    placeholder='Source organism'
+                />
+            </div>
+            <div className="mr-3">
+                <ArrayField
+                    name={name}
+                    label='Host organism'
+                    fieldName='host_organism'
+                    maxItems={1}
+                    tooltip='The host organism the virion was produced in. Note that information is based on the NCBI taxonomy'
+                    renderChild={({ arrayName, index }) => (
+                        <VocabularySelectField
+                            type="organisms/authoritative"
+                            label={
+                            <FieldLabel
+                                htmlFor={`${arrayName}.${index}`}
+                                icon=""
+                            />
+                            }
+                            fieldPath={`${arrayName}.${index}`}
+                            placeholder='Host organism'
+                        />
+                    )}
+                />
+            </div>
+            <div className="mr-3">
+                <CustomField
+                    name={name}
+                    label='Host cell type'
+                    fieldName='host_cell_type'
+                    tooltip='The host cell type the virion was produced in'
+                />
+            </div>
         </div>
         <div>
             <Concentration

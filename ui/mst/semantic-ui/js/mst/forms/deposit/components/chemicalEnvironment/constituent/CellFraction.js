@@ -6,6 +6,8 @@ import FormWrapper from "../../buildingBlocks/FormWrapper";
 import Protocol from "../../buildingBlocks/Protocol";
 import Storage from "../../buildingBlocks/Storage";
 import Concentration from "../../components/Concentration";
+import { VocabularySelectField } from "@js/oarepo_vocabularies";
+import { FieldLabel } from "react-invenio-forms";
 
 function CellFraction( { name } ) {
 
@@ -80,10 +82,16 @@ function CellFraction( { name } ) {
                     />
                 </div>
                 <div>
-                    <CustomField
-                        name={name}
-                        label='Source organism'
-                        fieldName='source_organism'
+                    <VocabularySelectField
+                        type="organisms/authoritative"
+                        label={
+                            <FieldLabel
+                            htmlFor={`${name}.source_organism`}
+                            icon=""
+                            />
+                        }
+                        fieldPath={`${name}.source_organism`}
+                        placeholder='Source organism'
                     />
                 </div>
             </div>

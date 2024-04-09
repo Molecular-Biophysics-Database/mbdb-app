@@ -58,7 +58,7 @@ function Contact( { name } ) {
                           />
                         }
                         fieldPath={`${arrayName}.${index}`}
-                        placeholder="affiliation"
+                        placeholder={`affiliation ${index + 1}`}
                       />
                     )}
                 />
