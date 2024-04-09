@@ -47,6 +47,11 @@ COPY ./docker/development.key /development.key
 
 COPY ./docker/uwsgi.ini /opt/invenio/src/uwsgi/uwsgi.ini
 
-ENV PATH=${INVENIO_VENV}/bin:${PATH}
+ENV PATH=/invenio/venv/bin:${PATH}
+
+RUN /invenio/venv/bin/pip install --no-cache-dir uwsgi uwsgi-tools
+
+RUN ( echo "Contents of /repository"; ls -lR /repository )
+RUN ( echo "Contents of /invenio"; ls -lR /invenio )
 
 ENTRYPOINT [ "sh", "-c" ]
