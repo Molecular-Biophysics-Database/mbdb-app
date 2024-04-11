@@ -344,3 +344,8 @@ class MstSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_temperature_value": facets.metadata_method_specific_parameters_temperature_value,
         **getattr(InvenioSearchOptions, "facets", {}),
     }
+
+    params_interpreters_cls = [
+        *InvenioSearchOptions.params_interpreters_cls,
+        AdvancedSearchParamInterpreterCls
+    ]
