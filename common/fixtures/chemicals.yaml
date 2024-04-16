@@ -1,7 +1,53 @@
-# MST instruments
----
-id: 'inchikey:KDJFKDJSFDFLJS'
+id: inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N
 title:
-  en: 'BLAH CHEMICAL'
-props:
-  bob: 'lf'
+  en: Water
+molecular_weight:
+  value: 18.02
+  unit: 'g/mol'
+chemical_formula: H2O
+additional_identifiers: [cid:962]
+---
+id: inchikey:LFQSCWFLJHTTHZ-UHFFFAOYSA-N
+title:
+  en: Ethanol
+molecular_weight:
+  value: 46.069
+  unit: 'g/mol'
+chemical_formula: C2H6O
+additional_identifiers: [cid:702]
+---
+id: inchikey:QKNYBSVHEMOAJP-UHFFFAOYSA-N
+title:
+  en: Tris:HCl
+molecular_weight:
+  value: 157.59
+  unit: 'g/mol'
+chemical_formula: C4H12ClNO3
+additional_identifiers: [cid:93573]
+---
+id: inchikey:FAPWRFPIFSIZLT-UHFFFAOYSA-M
+title:
+  en: Sodium Chloride
+molecular_weight:
+  value: 58.44
+  unit: 'g/mol'
+chemical_formula: ClNa
+additional_identifiers: [cid:5234]
+---
+id: inchikey:VEXZGXHMUGYJMC-UHFFFAOYSA-N
+title:
+  en: Hydrochloric Acid
+molecular_weight:
+  value: 36.46
+  unit: 'g/mol'
+chemical_formula: HCl
+additional_identifiers: [cid:313]
+---
+id: inchikey:DBMJMQXJHONAFJ-UHFFFAOYSA-M
+title:
+  en: Sodium dodecyl sulfate
+molecular_weight:
+  value: 288.372
+  unit: 'g/mol'
+chemical_formula: C12H25NaO4S
+additional_identifiers: [cid:3423265]
