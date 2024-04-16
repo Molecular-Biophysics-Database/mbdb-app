@@ -2,7 +2,7 @@ General_parameters:
   properties:
     schema_version:
       type: keyword
-      enum: [0.9.19]
+      enum: [0.9.20]
       help.en: The schema version used to annotate the general parameters of the record
       required: true
       label.en: Schema version
@@ -438,33 +438,16 @@ Polymer_modifications:
   label.en: Polymer modifications
 Chemical:
   properties:
-    inchikey:
-      type: keyword
-      help.en: InChIKey identifier of the chemical. In case of chemical polymers please
-        specify the InChIKey of the monomer and specify the specific type in the additional
-        identifiers field (e.g. if PEG 3350 was employed, the InChiKey of ethylene
-        glycol, i.e. LYCAIKOWRPUZTN-UHFFFAOYSA-N should be specified here)
+    basic_information:
+      help.en: The basic information about the chemical. This information is pulled
+        from Pubchem, however if the information is not available it can be manually
+        filled
       required: true
-      mapping:
-        copy_to: collected_default_search_fields
-      label.en: Inchikey
-    additional_identifiers[]:
-      ^minItems: 1
-      ^help.en: Unique and persistent identifier from an external source; options
-        of sources are CAS number, ChEMBL ID, Pubchem Compound ID, and Pubchem Substance
-        ID
-      ^label.en: Additional identifiers
-      type: keyword
-    isotopic_labeling:
-      type: keyword
-      help.en: If the isotopic composition of the chemical was altered from the naturally
-        occurring abundances, it can be specified here (e.g. 15N, 13C)
-      label.en: Isotopic labeling
-    molecular_weight:
-      help.en: The molecular weight of the chemical
-      required: true
-      label.en: Molecular weight
-      use: '#/$defs/Molecular_weight'
+      label.en: Basic information
+      keys: [id, title, molecular_weight.value, molecular_weight.unit, additional_identifiers,
+        chemical_formula]
+      vocabulary-type: chemicals
+      type: vocabulary
     additional_specifications[]:
       ^minItems: 1
       ^help.en: Additional information about the chemical can be specified here (e.g.
@@ -1417,7 +1400,7 @@ Purity_base:
     checked:
       type: keyword
       enum: ["Yes", "No"]
-      help.en: Information about if and how the purity was obtained
+      help.en: Wether or not the purity was checked
       required: true
       label.en: Checked
   label.en: Purity base
@@ -1499,9 +1482,9 @@ By_sequencing:
       required: true
       label.en: Method
     coverage:
-      type: integer
-      minimum: 0
-      maximum: 100
+      type: double
+      minimum: 0.0
+      maximum: 100.0
       help.en: The amount of the total (expected) sequence that was actually observed
         by sequencing in percent
       required: true
@@ -1522,7 +1505,7 @@ Homogeneity_base:
     checked:
       type: keyword
       enum: ["Yes", "No"]
-      help.en: Whether the homogeneity was checked
+      help.en: Whether or not the homogeneity was checked
       required: true
       label.en: Checked
   label.en: Homogeneity base
@@ -1628,7 +1611,8 @@ MOLECULAR_WEIGHT_UNITS:
 SUPPORTED_TECHNIQUES:
   type: keyword
   enum: [Bio-layer interferometry (BLI), Microscale thermophoresis/Temperature related
-      intensity change (MST/TRIC), Surface plasmon resonance (SPR)]
+      intensity change (MST/TRIC), Surface plasmon resonance (SPR), Isothermal Titration
+      Calorimetry (ITC)]
   label.en: Supported techniques
 PublicationArticlePolymorphic:
   properties:
@@ -1851,7 +1835,7 @@ PurityYes_purityPolymorphic:
     checked:
       type: keyword
       enum: ["Yes", "No"]
-      help.en: Information about if and how the purity was obtained
+      help.en: Wether or not the purity was checked
       required: true
       label.en: Checked
   label.en: Yes purity
@@ -1860,7 +1844,7 @@ PurityEmpty_objectPolymorphic:
     checked:
       type: keyword
       enum: ["Yes", "No"]
-      help.en: Information about if and how the purity was obtained
+      help.en: Wether or not the purity was checked
       required: true
       label.en: Checked
   label.en: Empty object
@@ -1888,7 +1872,7 @@ HomogeneityYes_homogeneityPolymorphic:
     checked:
       type: keyword
       enum: ["Yes", "No"]
-      help.en: Whether the homogeneity was checked
+      help.en: Whether or not the homogeneity was checked
       required: true
       label.en: Checked
   label.en: Yes homogeneity
@@ -1897,39 +1881,22 @@ HomogeneityEmpty_objectPolymorphic:
     checked:
       type: keyword
       enum: ["Yes", "No"]
-      help.en: Whether the homogeneity was checked
+      help.en: Whether or not the homogeneity was checked
       required: true
       label.en: Checked
   label.en: Empty object
 EntityChemicalPolymorphic:
   properties:
-    inchikey:
-      type: keyword
-      help.en: InChIKey identifier of the chemical. In case of chemical polymers please
-        specify the InChIKey of the monomer and specify the specific type in the additional
-        identifiers field (e.g. if PEG 3350 was employed, the InChiKey of ethylene
-        glycol, i.e. LYCAIKOWRPUZTN-UHFFFAOYSA-N should be specified here)
+    basic_information:
+      help.en: The basic information about the chemical. This information is pulled
+        from Pubchem, however if the information is not available it can be manually
+        filled
       required: true
-      mapping:
-        copy_to: collected_default_search_fields
-      label.en: Inchikey
-    additional_identifiers[]:
-      ^minItems: 1
-      ^help.en: Unique and persistent identifier from an external source; options
-        of sources are CAS number, ChEMBL ID, Pubchem Compound ID, and Pubchem Substance
-        ID
-      ^label.en: Additional identifiers
-      type: keyword
-    isotopic_labeling:
-      type: keyword
-      help.en: If the isotopic composition of the chemical was altered from the naturally
-        occurring abundances, it can be specified here (e.g. 15N, 13C)
-      label.en: Isotopic labeling
-    molecular_weight:
-      help.en: The molecular weight of the chemical
-      required: true
-      label.en: Molecular weight
-      use: '#/$defs/Molecular_weight'
+      label.en: Basic information
+      keys: [id, title, molecular_weight.value, molecular_weight.unit, additional_identifiers,
+        chemical_formula]
+      vocabulary-type: chemicals
+      type: vocabulary
     additional_specifications[]:
       ^minItems: 1
       ^help.en: Additional information about the chemical can be specified here (e.g.
@@ -2146,33 +2113,16 @@ Assembly_componentPolymerPolymorphic:
   label.en: Polymer
 Assembly_componentChemicalPolymorphic:
   properties:
-    inchikey:
-      type: keyword
-      help.en: InChIKey identifier of the chemical. In case of chemical polymers please
-        specify the InChIKey of the monomer and specify the specific type in the additional
-        identifiers field (e.g. if PEG 3350 was employed, the InChiKey of ethylene
-        glycol, i.e. LYCAIKOWRPUZTN-UHFFFAOYSA-N should be specified here)
+    basic_information:
+      help.en: The basic information about the chemical. This information is pulled
+        from Pubchem, however if the information is not available it can be manually
+        filled
       required: true
-      mapping:
-        copy_to: collected_default_search_fields
-      label.en: Inchikey
-    additional_identifiers[]:
-      ^minItems: 1
-      ^help.en: Unique and persistent identifier from an external source; options
-        of sources are CAS number, ChEMBL ID, Pubchem Compound ID, and Pubchem Substance
-        ID
-      ^label.en: Additional identifiers
-      type: keyword
-    isotopic_labeling:
-      type: keyword
-      help.en: If the isotopic composition of the chemical was altered from the naturally
-        occurring abundances, it can be specified here (e.g. 15N, 13C)
-      label.en: Isotopic labeling
-    molecular_weight:
-      help.en: The molecular weight of the chemical
-      required: true
-      label.en: Molecular weight
-      use: '#/$defs/Molecular_weight'
+      label.en: Basic information
+      keys: [id, title, molecular_weight.value, molecular_weight.unit, additional_identifiers,
+        chemical_formula]
+      vocabulary-type: chemicals
+      type: vocabulary
     additional_specifications[]:
       ^minItems: 1
       ^help.en: Additional information about the chemical can be specified here (e.g.
@@ -2713,33 +2663,16 @@ EntityComplex_substance_of_industrial_originPolymorphic:
   label.en: Complex substance of industrial origin
 Chemical_constituentChemicalPolymorphic:
   properties:
-    inchikey:
-      type: keyword
-      help.en: InChIKey identifier of the chemical. In case of chemical polymers please
-        specify the InChIKey of the monomer and specify the specific type in the additional
-        identifiers field (e.g. if PEG 3350 was employed, the InChiKey of ethylene
-        glycol, i.e. LYCAIKOWRPUZTN-UHFFFAOYSA-N should be specified here)
+    basic_information:
+      help.en: The basic information about the chemical. This information is pulled
+        from Pubchem, however if the information is not available it can be manually
+        filled
       required: true
-      mapping:
-        copy_to: collected_default_search_fields
-      label.en: Inchikey
-    additional_identifiers[]:
-      ^minItems: 1
-      ^help.en: Unique and persistent identifier from an external source; options
-        of sources are CAS number, ChEMBL ID, Pubchem Compound ID, and Pubchem Substance
-        ID
-      ^label.en: Additional identifiers
-      type: keyword
-    isotopic_labeling:
-      type: keyword
-      help.en: If the isotopic composition of the chemical was altered from the naturally
-        occurring abundances, it can be specified here (e.g. 15N, 13C)
-      label.en: Isotopic labeling
-    molecular_weight:
-      help.en: The molecular weight of the chemical
-      required: true
-      label.en: Molecular weight
-      use: '#/$defs/Molecular_weight'
+      label.en: Basic information
+      keys: [id, title, molecular_weight.value, molecular_weight.unit, additional_identifiers,
+        chemical_formula]
+      vocabulary-type: chemicals
+      type: vocabulary
     additional_specifications[]:
       ^minItems: 1
       ^help.en: Additional information about the chemical can be specified here (e.g.
@@ -2878,33 +2811,16 @@ ConstituentPolymerPolymorphic:
   label.en: Polymer
 ConstituentChemicalPolymorphic:
   properties:
-    inchikey:
-      type: keyword
-      help.en: InChIKey identifier of the chemical. In case of chemical polymers please
-        specify the InChIKey of the monomer and specify the specific type in the additional
-        identifiers field (e.g. if PEG 3350 was employed, the InChiKey of ethylene
-        glycol, i.e. LYCAIKOWRPUZTN-UHFFFAOYSA-N should be specified here)
+    basic_information:
+      help.en: The basic information about the chemical. This information is pulled
+        from Pubchem, however if the information is not available it can be manually
+        filled
       required: true
-      mapping:
-        copy_to: collected_default_search_fields
-      label.en: Inchikey
-    additional_identifiers[]:
-      ^minItems: 1
-      ^help.en: Unique and persistent identifier from an external source; options
-        of sources are CAS number, ChEMBL ID, Pubchem Compound ID, and Pubchem Substance
-        ID
-      ^label.en: Additional identifiers
-      type: keyword
-    isotopic_labeling:
-      type: keyword
-      help.en: If the isotopic composition of the chemical was altered from the naturally
-        occurring abundances, it can be specified here (e.g. 15N, 13C)
-      label.en: Isotopic labeling
-    molecular_weight:
-      help.en: The molecular weight of the chemical
-      required: true
-      label.en: Molecular weight
-      use: '#/$defs/Molecular_weight'
+      label.en: Basic information
+      keys: [id, title, molecular_weight.value, molecular_weight.unit, additional_identifiers,
+        chemical_formula]
+      vocabulary-type: chemicals
+      type: vocabulary
     additional_specifications[]:
       ^minItems: 1
       ^help.en: Additional information about the chemical can be specified here (e.g.

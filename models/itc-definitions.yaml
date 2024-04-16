@@ -1,76 +1,166 @@
-SPR_specific_parameters:
+ITC_specific_parameters:
   properties:
     schema_version:
       type: keyword
-      enum: [0.9.3]
-      help.en: The schema version used to annotate the SPR method specific parameters
+      enum: [0.0.1]
+      help.en: The schema version used to annotate the ITC method specific parameters
       required: true
       label.en: Schema version
-    experiment_type:
-      type: keyword
-      enum: [Affinity, Quantification, Other]
-      help.en: Which type of parameter is sought with the measurements
-      required: true
-      label.en: Experiment type
-    sensor:
-      help.en: Sensor used for the measurements
-      required: true
-      label.en: Sensor
-      use: '#/$defs/Sensor'
-    measurement_positions[]:
-      ^minItems: 1
-      ^help.en: Information about each of the positions where data was collected including
-        reference positions
-      ^required: true
-      ^label.en: Measurement positions
-      use: '#/$defs/Measurement_position'
-    measurement_protocol[]:
-      ^minItems: 1
-      ^help.en: List of the steps in the measurement protocol
-      ^required: true
-      ^label.en: Measurement protocol
-      use: '#/$defs/Measurement_step'
     measurements[]:
       ^minItems: 1
-      ^help.en: List of measurements where the complete output from a single sensor
-        going through the measurement protocol is considered a separate measurement
+      ^help.en: List of the information about each measurement. This includes target(s),
+        ligand(s), chemical environment, and the position of the sample within the
+        instrument
       ^required: true
       ^label.en: Measurements
       use: '#/$defs/Measurement'
+    experiment_type:
+      help.en: Type of experiment conducted
+      label.en: Experiment type
+      use: '#/$defs/Experiment_type'
+    cell_temperature:
+      required: true
+      label.en: Cell temperature
+      use: '#/$defs/Temperature'
+    cell_volume:
+      required: true
+      label.en: Cell volume
+      use: '#/$defs/Volume'
+    reference_power:
+      required: true
+      label.en: Reference power
+      use: '#/$defs/Reference_power'
+    stirring_speed:
+      type: double
+      required: true
+      label.en: Stirring speed
+    feedback_mode:
+      type: keyword
+      enum: [None, Low, High]
+      help.en: Operating mode where conditions are adjusted automatically to maintain
+        constant temperature during heat measurements
+      required: true
+      label.en: Feedback mode
     data_analysis[]:
       ^minItems: 1
-      ^help.en: Details of how the data was processed and model in order to derive
-        parameters from it
+      ^help.en: The details of how data analysis was performed to obtain the result
       ^label.en: Data analysis
-      use: '#/$defs/SPR_data_analysis'
-  label.en: Spr specific parameters
-SPR_data_analysis:
+      use: '#/$defs/ITC_data_analysis'
+  label.en: Itc specific parameters
+Reference_power:
   properties:
-    result:
-      help.en: Link to a result that was defined in the general parameters
-      label.en: Result
-      type: relation
-      model: '#result'
-      keys: [id, name]
-    measurements[]:
+    value:
+      type: double
+      required: true
+      label.en: Value
+    unit:
+      required: true
+      label.en: Unit
+      use: '#/$defs/POWER_UNITS'
+  label.en: Reference power
+Volume:
+  properties:
+    value:
+      type: double
+      required: true
+      label.en: Value
+    unit:
+      help.en: Unit of the volume
+      required: true
+      label.en: Unit
+      use: '#/$defs/VOLUME_UNITS'
+  label.en: Volume
+Experiment_type:
+  help.en: Type of experiment conducted
+  label.en: Experiment type
+  schemas:
+    Single injection:
+      required: true
+      label.en: Experiment type
+      use: '#/$defs/Experiment_typeSingle_injectionPolymorphic'
+    Titration:
+      required: true
+      label.en: Experiment type
+      use: '#/$defs/Experiment_typeTitrationPolymorphic'
+  type: polymorphic
+  discriminator: type
+Experiment_type_base:
+  properties:
+    type:
+      type: keyword
+      enum: [Single injection, Titration]
+      help.en: Type of ITC experiment
+      required: true
+      mapping:
+        copy_to: collected_default_search_fields
+      label.en: Type
+  label.en: Experiment type base
+Titration:
+  properties:
+    number_injections:
+      type: double
+      required: true
+      label.en: Number injections
+    injection_parameters[]:
       ^minItems: 1
-      ^help.en: List of measurement links that was analyzed together
-      ^label.en: Measurements
-      type: relation
-      model: '#spr-measurement'
-      keys: [id, name]
+      ^help.en: Characteristics of each injection (i. e. number of ijections at a
+        specific volume of 0.2 ml)
+      ^label.en: Injection parameters
+      use: '#/$defs/Injection_parameters'
+  label.en: Titration
+Single_injection:
+  properties:
+    volume:
+      help.en: Titrant volume injected into the cell.
+      required: true
+      label.en: Volume
+      use: '#/$defs/Volume'
+  label.en: Single injection
+Injection_parameters:
+  properties:
+    n_injections:
+      type: double
+      required: true
+      label.en: N injections
+    volume:
+      required: true
+      label.en: Volume
+      use: '#/$defs/Volume'
+  label.en: Injection parameters
+ITC_data_analysis:
+  properties:
     data_processing_steps[]:
       ^minItems: 1
       ^help.en: Describe the steps in the data analysis prior to fitting (removing
-        outliers in the raw data, applying data filter, placing data at same start
-        time etc. )
+        outliers in the raw data, applying smoothing filters, etc.)
       ^label.en: Data processing steps
       use: '#/$defs/Processing_step'
     data_fitting:
       help.en: The details of how data fitting was performed to obtain the result
       label.en: Data fitting
+      use: '#/$defs/Data_fitting_base'
+  label.en: Itc data analysis
+Data_fitting_base:
+  properties:
+    type:
+      type: keyword
+      enum: [Simple model, Complex model]
+      help.en: Type of model used to obtain derived parameters
+      required: true
+      label.en: Type
+    result[]:
+      ^minItems: 1
+      ^help.en: Link to the result(s) that was obtained by the data analysis. The
+        link is to the results defined in the general parameters
+      ^label.en: Result
+      type: relation
+      model: '#result'
+      keys: [id, name]
+    data_fitting_model:
+      help.en: The details of how data fitting was performed to obtain the result
+      label.en: Data fitting model
       use: '#/$defs/Data_fitting'
-  label.en: Spr data analysis
+  label.en: Data fitting base
 Measurement:
   properties:
     id:
@@ -86,218 +176,51 @@ Measurement:
         processed data files if these are present
       required: true
       label.en: Name
-    measurement_position:
-      help.en: Name (id) of the measurement position
+    sample:
+      help.en: Information about the sample including concentrations of ligands and
+        targets, and which chemical environment the sample was composed of
       required: true
-      label.en: Measurement position
-      type: relation
-      model: '#spr-measurement-position'
-      keys: [id, name]
-    reference_measurement_position:
-      help.en: Name (id) of the measurement position
-      label.en: Reference measurement position
-      type: relation
-      model: '#spr-measurement-position'
-      keys: [id, name]
-    samples[]:
-      ^minItems: 1
-      ^help.en: List of samples that went across a measurement position during data
-        collection
-      ^required: true
-      ^label.en: Samples
+      label.en: Sample
       use: '#/$defs/Sample'
-    reference_samples[]:
-      ^minItems: 1
-      ^help.en: List of samples that went across the reference measurement position
-        during data collection
-      ^label.en: Reference samples
-      use: '#/$defs/Sample'
-  id: spr-measurement
+  id: itc-measurement
   label.en: Measurement
 Sample:
   properties:
-    measurement_step:
-      help.en: Name (id) of the measurement step in the measurement protocol where
-        the sample was measured
-      required: true
-      label.en: Measurement step
-      type: relation
-      model: '#spr-measurement-step'
-      keys: [id, name]
-    position:
-      type: keyword
-      help.en: Position of the sample within the sample holder
-      label.en: Position
-    chemical_environment:
-      help.en: Name (id) of the chemical environment of the sample (from the chemical
+    target_in_cell[]:
+      ^minItems: 1
+      ^help.en: List of names (ids), from the entities of interest defined in the
+        general parameters, of directly measured entities and entities at constant
+        concentration for a series of measurements and their concentration
+      ^required: true
+      ^label.en: Target in cell
+      use: '#/$defs/Entity_constituent'
+    target_in_syringe[]:
+      ^minItems: 1
+      ^help.en: List of names (ids) of entities (from the entities of interest defined
+        in the general parameters) that were used to alter the behavior of the target(s)
+        or entities present at varying concentrations for a series of measurements
+        and their concentration
+      ^required: true
+      ^label.en: Target in syringe
+      use: '#/$defs/Entity_constituent'
+    chemical_environment[]:
+      ^minItems: 1
+      ^help.en: Name (id) of the chemical environment of the sample (from the chemical
         environments defined in the general parameters)
-      required: true
-      label.en: Chemical environment
+      ^required: true
+      ^label.en: Chemical environment
       type: relation
       model: '#chemical-environment'
       keys: [id, name]
-    analytes[]:
-      ^minItems: 1
-      ^help.en: List of names (ids) of entities (from the entities of interest defined
-        in the general parameters) that was used to alter the behavior of the target(s)
-        or entities present at varying concentrations for a series of measurements
-      ^required: true
-      ^label.en: Analytes
-      use: '#/$defs/Entity_constituent'
-    temperature:
-      help.en: Temperature of the sample while being measured
-      label.en: Temperature
-      use: '#/$defs/Temperature'
     preparation_protocol[]:
       ^minItems: 1
-      ^help.en: List of steps taken to prepare the sample
+      ^help.en: List of steps taken to prepare the sample, ending at the point where
+        it was placed in the measurement container. Information include operations
+        like filtration and which filter material and pore-size was used should be
+        added
       ^label.en: Preparation protocol
       use: '#/$defs/Step'
   label.en: Sample
-Measurement_step:
-  properties:
-    id:
-      help.en: id to be used as a link target
-      required: true
-      label.en: Id
-      type: keyword
-    name:
-      type: keyword
-      help.en: Descriptive name (id) of the step in the measurement protocol which
-        must be unique within a record
-      required: true
-      label.en: Name
-    type:
-      type: keyword
-      enum: [Association, Baseline, Dissociation, Regeneration, Load, Wash, Activation,
-        Enhancement]
-      help.en: Which type of step in the measurement protocol this refers to
-      required: true
-      label.en: Type
-    start_time:
-      help.en: The numerical value of the start point of the measurement step relative
-        to the beginning of the measurement in the units defined in the general parameters
-      required: true
-      label.en: Start time
-      use: '#/$defs/Time_duration'
-    time_length:
-      help.en: The numerical value of the total time of the measurement step took
-        in the units defined in the general parameters
-      required: true
-      label.en: Time length
-      use: '#/$defs/Time_duration'
-    flow:
-      help.en: Information about the flow during the measurement step
-      required: true
-      label.en: Flow
-      use: '#/$defs/Flow'
-  id: spr-measurement-step
-  label.en: Measurement step
-Measurement_position:
-  properties:
-    id:
-      help.en: id to be used as a link target
-      required: true
-      label.en: Id
-      type: keyword
-    name:
-      type: keyword
-      help.en: Name of measurement spot
-      required: true
-      label.en: Name
-    flow_cell:
-      type: keyword
-      help.en: The flow cell where the measurement spot is located
-      required: true
-      label.en: Flow cell
-    position:
-      type: keyword
-      help.en: Position of the measurement spot within the flow cell
-      label.en: Position
-    ligand_information:
-      help.en: Information about the ligand and how it was immobilized
-      label.en: Ligand information
-      use: '#/$defs/Ligand_information'
-  id: spr-measurement-position
-  label.en: Measurement position
-Ligand_information:
-  properties:
-    ligand:
-      help.en: Name (id) of the ligand (entity that is immobilized, from the list
-        of entities of interest defined in the general parameters)
-      label.en: Ligand
-      type: relation
-      model: '#entity'
-      keys: [id, name]
-    ligand_immobilization_chemistry:
-      type: keyword
-      help.en: The type of chemistry on ligands and surface that allows for immobilization
-        of the ligands on the surface of the senor
-      label.en: Ligand immobilization chemistry
-    ligand_immobilization_protocol[]:
-      ^minItems: 1
-      ^help.en: List of steps for immobilizing the ligand on the surface of the sensor
-      ^label.en: Ligand immobilization protocol
-      use: '#/$defs/Step'
-  label.en: Ligand information
-Sensor:
-  properties:
-    id:
-      type: keyword
-      help.en: The id of the sensor as given by the supplier
-      label.en: Id
-    surface_properties:
-      type: keyword
-      help.en: The type surface properties the sensor has. e.g. Protein A
-      label.en: Surface properties
-    supplier:
-      help.en: Information about the supplier of the senor
-      required: true
-      label.en: Supplier
-      use: '#/$defs/Supplier'
-    sensor_initialization:
-      type: keyword
-      enum: [Air, Glycerol]
-      help.en: How the initialization of the senor was performed
-      label.en: Sensor initialization
-    previously_used:
-      type: boolean
-      help.en: Whether or not the sensor was used in previous measurements
-      label.en: Previously used
-  label.en: Sensor
-Flow:
-  properties:
-    rate:
-      type: double
-      minimum: 0.0
-      help.en: Numerical value of the flow-rate
-      required: true
-      label.en: Rate
-    unit:
-      help.en: The unit of the flow-rate
-      required: true
-      label.en: Unit
-      use: '#/$defs/FLOWRATE_UNITS'
-    direction:
-      type: keyword
-      enum: [Vertical, Horizontal]
-      help.en: Direction of the flow
-      label.en: Direction
-    path[]:
-      ^minItems: 1
-      ^help.en: list of the flow-path, in terms of measurement postitions. measurement
-        postitions that are connected by a flow running serially  though them should
-        be mentioned within the inner list, while parallel flows should be mentioned
-        in the outer list
-      ^required: true
-      ^label.en: Path
-      minItems: 1
-      items:
-        type: relation
-        model: '#spr-measurement-position'
-        keys: [id, name]
-      type: array
-  label.en: Flow
 General_parameters:
   properties:
     schema_version:
@@ -1933,23 +1856,6 @@ Storage:
       ^label.en: Storage preparation
       use: '#/$defs/Step'
   label.en: Storage
-Supplier:
-  properties:
-    name:
-      type: keyword
-      help.en: Name of the supplier
-      required: true
-      label.en: Name
-    catalog_number:
-      type: keyword
-      help.en: The catalog number or identifier of the item
-      label.en: Catalog number
-    further_information[]:
-      ^minItems: 1
-      ^help.en: Further information e.g. batch number
-      ^label.en: Further information
-      type: keyword
-  label.en: Supplier
 Coordinates:
   properties:
     latitude:
@@ -1972,10 +1878,6 @@ CONCENTRATION_UNITS:
   enum: [M, mM, µM, nM, pM, fM, aM, g/L, mg/mL, µg/mL, ng/mL, mol/kg, mmol/kg, v/v
       %, w/w %, v/w %, w/v %, U/ml, '% saturated']
   label.en: Concentration units
-FLOWRATE_UNITS:
-  type: keyword
-  enum: [mL/min, µl/s]
-  label.en: Flowrate units
 TEMPERATURE_UNITS:
   type: keyword
   enum: [K, °C, °F]
@@ -1990,6 +1892,10 @@ ENERGY_UNITS:
   type: keyword
   enum: [kcal/mol, kJ/mol]
   label.en: Energy units
+POWER_UNITS:
+  type: keyword
+  enum: [µcal/s, µJ/s]
+  label.en: Power units
 LENGTH_UNITS:
   type: keyword
   enum: [Å, nm, μm, mm, cm, m]
@@ -1998,6 +1904,10 @@ MOLECULAR_WEIGHT_UNITS:
   type: keyword
   enum: [g/mol, Da, kDa, MDa]
   label.en: Molecular weight units
+VOLUME_UNITS:
+  type: keyword
+  enum: [ml, µl]
+  label.en: Volume units
 SUPPORTED_TECHNIQUES:
   type: keyword
   enum: [Bio-layer interferometry (BLI), Microscale thermophoresis/Temperature related
@@ -4370,3 +4280,40 @@ ResultResult_hill_coeffPolymorphic:
       label.en: Value error
       use: '#/$defs/Value_error'
   label.en: Result hill coeff
+Experiment_typeSingle_injectionPolymorphic:
+  properties:
+    volume:
+      help.en: Titrant volume injected into the cell.
+      required: true
+      label.en: Volume
+      use: '#/$defs/Volume'
+    type:
+      type: keyword
+      enum: [Single injection, Titration]
+      help.en: Type of ITC experiment
+      required: true
+      mapping:
+        copy_to: collected_default_search_fields
+      label.en: Type
+  label.en: Single injection
+Experiment_typeTitrationPolymorphic:
+  properties:
+    number_injections:
+      type: double
+      required: true
+      label.en: Number injections
+    injection_parameters[]:
+      ^minItems: 1
+      ^help.en: Characteristics of each injection (i. e. number of ijections at a
+        specific volume of 0.2 ml)
+      ^label.en: Injection parameters
+      use: '#/$defs/Injection_parameters'
+    type:
+      type: keyword
+      enum: [Single injection, Titration]
+      help.en: Type of ITC experiment
+      required: true
+      mapping:
+        copy_to: collected_default_search_fields
+      label.en: Type
+  label.en: Titration
