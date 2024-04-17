@@ -444,8 +444,25 @@ Chemical:
         filled
       required: true
       label.en: Basic information
-      keys: [id, title, molecular_weight.value, molecular_weight.unit, additional_identifiers,
-        chemical_formula]
+      keys:
+        - id
+        - title
+        - key: chemical_formula
+          model:
+            type: keyword
+        - key: additional_identifiers
+          model:
+            type: array
+            items:
+              type: keyword
+        - key: molecular_weight
+          model:
+            type: object
+            properties:
+              value:
+                type: float
+              unit:
+                type: keyword
       vocabulary-type: chemicals
       type: vocabulary
     additional_specifications[]:
@@ -1893,8 +1910,25 @@ EntityChemicalPolymorphic:
         filled
       required: true
       label.en: Basic information
-      keys: [id, title, molecular_weight.value, molecular_weight.unit, additional_identifiers,
-        chemical_formula]
+      keys:
+        - id
+        - title
+        - key: chemical_formula
+          model:
+            type: keyword
+        - key: additional_identifiers
+          model:
+            type: array
+            items:
+              type: keyword
+        - key: molecular_weight
+          model:
+            type: object
+            properties:
+              value:
+                type: float
+              unit:
+                type: keyword
       vocabulary-type: chemicals
       type: vocabulary
     additional_specifications[]:
@@ -2119,8 +2153,25 @@ Assembly_componentChemicalPolymorphic:
         filled
       required: true
       label.en: Basic information
-      keys: [id, title, molecular_weight.value, molecular_weight.unit, additional_identifiers,
-        chemical_formula]
+      keys:
+        - id
+        - title
+        - key: chemical_formula
+          model:
+            type: keyword
+        - key: additional_identifiers
+          model:
+            type: array
+            items:
+              type: keyword
+        - key: molecular_weight
+          model:
+            type: object
+            properties:
+              value:
+                type: float
+              unit:
+                type: keyword
       vocabulary-type: chemicals
       type: vocabulary
     additional_specifications[]:
@@ -2669,8 +2720,25 @@ Chemical_constituentChemicalPolymorphic:
         filled
       required: true
       label.en: Basic information
-      keys: [id, title, molecular_weight.value, molecular_weight.unit, additional_identifiers,
-        chemical_formula]
+      keys:
+        - id
+        - title
+        - key: chemical_formula
+          model:
+            type: keyword
+        - key: additional_identifiers
+          model:
+            type: array
+            items:
+              type: keyword
+        - key: molecular_weight
+          model:
+            type: object
+            properties:
+              value:
+                type: float
+              unit:
+                type: keyword
       vocabulary-type: chemicals
       type: vocabulary
     additional_specifications[]:
@@ -2817,8 +2885,25 @@ ConstituentChemicalPolymorphic:
         filled
       required: true
       label.en: Basic information
-      keys: [id, title, molecular_weight.value, molecular_weight.unit, additional_identifiers,
-        chemical_formula]
+      keys:
+        - id
+        - title
+        - key: chemical_formula
+          model:
+            type: keyword
+        - key: additional_identifiers
+          model:
+            type: array
+            items:
+              type: keyword
+        - key: molecular_weight
+          model:
+            type: object
+            properties:
+              value:
+                type: float
+              unit:
+                type: keyword
       vocabulary-type: chemicals
       type: vocabulary
     additional_specifications[]:

@@ -262,7 +262,7 @@
                                                                     "type": "object",
                                                                     "properties": {
                                                                         "coverage": {
-                                                                            "type": "integer"
+                                                                            "type": "number"
                                                                         },
                                                                         "method": {
                                                                             "type": "string"
@@ -316,17 +316,39 @@
                                                 "variant": {
                                                     "type": "string"
                                                 },
-                                                "additional_identifiers": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
+                                                "basic_information": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "chemical_formula": {
+                                                            "type": "string"
+                                                        },
+                                                        "additional_identifiers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "molecular_weight": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "unit": {
+                                                                    "type": "string"
+                                                                },
+                                                                "value": {
+                                                                    "type": "number"
+                                                                }
+                                                            }
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
                                                     }
-                                                },
-                                                "inchikey": {
-                                                    "type": "string"
-                                                },
-                                                "isotopic_labeling": {
-                                                    "type": "string"
                                                 },
                                                 "chemical_modifications": {
                                                     "type": "array",
@@ -556,7 +578,7 @@
                                                                                 "type": "object",
                                                                                 "properties": {
                                                                                     "coverage": {
-                                                                                        "type": "integer"
+                                                                                        "type": "number"
                                                                                     },
                                                                                     "method": {
                                                                                         "type": "string"
@@ -610,17 +632,39 @@
                                                             "variant": {
                                                                 "type": "string"
                                                             },
-                                                            "additional_identifiers": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "string"
+                                                            "basic_information": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "title": {
+                                                                        "type": "object"
+                                                                    },
+                                                                    "chemical_formula": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "additional_identifiers": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "molecular_weight": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "unit": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "value": {
+                                                                                "type": "number"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "@v": {
+                                                                        "type": "string"
+                                                                    }
                                                                 }
-                                                            },
-                                                            "inchikey": {
-                                                                "type": "string"
-                                                            },
-                                                            "isotopic_labeling": {
-                                                                "type": "string"
                                                             }
                                                         }
                                                     }
@@ -796,36 +840,47 @@
                                         "items": {
                                             "type": "object",
                                             "properties": {
-                                                "additional_identifiers": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                },
                                                 "additional_specifications": {
                                                     "type": "array",
                                                     "items": {
                                                         "type": "string"
                                                     }
                                                 },
-                                                "concentration": {
+                                                "basic_information": {
                                                     "type": "object",
                                                     "properties": {
-                                                        "unit": {
+                                                        "id": {
                                                             "type": "string"
                                                         },
-                                                        "value": {
-                                                            "type": "number"
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "chemical_formula": {
+                                                            "type": "string"
+                                                        },
+                                                        "additional_identifiers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "molecular_weight": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "unit": {
+                                                                    "type": "string"
+                                                                },
+                                                                "value": {
+                                                                    "type": "number"
+                                                                }
+                                                            }
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
                                                         }
                                                     }
                                                 },
-                                                "inchikey": {
-                                                    "type": "string"
-                                                },
-                                                "isotopic_labeling": {
-                                                    "type": "string"
-                                                },
-                                                "molecular_weight": {
+                                                "concentration": {
                                                     "type": "object",
                                                     "properties": {
                                                         "unit": {
@@ -1189,7 +1244,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "coverage": {
-                                                                "type": "integer"
+                                                                "type": "number"
                                                             },
                                                             "method": {
                                                                 "type": "string"
@@ -1243,17 +1298,39 @@
                                     "variant": {
                                         "type": "string"
                                     },
-                                    "additional_identifiers": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string"
+                                    "basic_information": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "type": "object"
+                                            },
+                                            "chemical_formula": {
+                                                "type": "string"
+                                            },
+                                            "additional_identifiers": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "molecular_weight": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "unit": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            },
+                                            "@v": {
+                                                "type": "string"
+                                            }
                                         }
-                                    },
-                                    "inchikey": {
-                                        "type": "string"
-                                    },
-                                    "isotopic_labeling": {
-                                        "type": "string"
                                     },
                                     "chemical_modifications": {
                                         "type": "array",
@@ -1483,7 +1560,7 @@
                                                                     "type": "object",
                                                                     "properties": {
                                                                         "coverage": {
-                                                                            "type": "integer"
+                                                                            "type": "number"
                                                                         },
                                                                         "method": {
                                                                             "type": "string"
@@ -1537,17 +1614,39 @@
                                                 "variant": {
                                                     "type": "string"
                                                 },
-                                                "additional_identifiers": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
+                                                "basic_information": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "chemical_formula": {
+                                                            "type": "string"
+                                                        },
+                                                        "additional_identifiers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "molecular_weight": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "unit": {
+                                                                    "type": "string"
+                                                                },
+                                                                "value": {
+                                                                    "type": "number"
+                                                                }
+                                                            }
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
                                                     }
-                                                },
-                                                "inchikey": {
-                                                    "type": "string"
-                                                },
-                                                "isotopic_labeling": {
-                                                    "type": "string"
                                                 }
                                             }
                                         }

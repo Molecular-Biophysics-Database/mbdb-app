@@ -5,7 +5,7 @@ from oarepo_requests.resolvers.ui import (
 )
 from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
-from oarepo_runtime.records.entity_resolvers import UserResolver
+from oarepo_runtime.records.entity_resolvers import GroupResolver, UserResolver
 
 from common.requests.delete_record.types import DeleteRecordRequestType
 from common.requests.publish_draft.types import PublishDraftRequestType
@@ -48,6 +48,7 @@ REQUESTS_REGISTERED_TYPES = [
 
 REQUESTS_ENTITY_RESOLVERS = [
     UserResolver(),
+    GroupResolver(),
     MstResolver(record_cls=MstRecord, service_id="mst", type_key="mst"),
     MstDraftResolver(record_cls=MstDraft, service_id="mst", type_key="mst_draft"),
     MstFileDraftResolver(
