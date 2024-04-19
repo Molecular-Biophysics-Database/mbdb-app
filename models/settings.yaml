@@ -15,3 +15,5 @@ record:
       type: keyword
       mapping:
         copy_to: collected_default_search_fields
+  service-config:
+    components: ["{{common.services.records.components.ForeignVocabularyFetcherComponent}}"]
