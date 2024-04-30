@@ -147,7 +147,11 @@ class NCBIService(AuthorityService):
 
         # This endpoint is unstable in terms of which hits are returned
         search_url = f"{self.base_url}/taxon_suggest/{query}"
-        suggested_json = fetch_json(search_url)
+        params = {
+            "tax_rank_filter": "higher_taxon",
+            "taxon_resource_filter": "TAXON_RESOURCE_FILTER_ALL"
+        }
+        suggested_json = fetch_json(search_url, params)
 
         try:
             taxids = suggested_json["sci_name_and_ids"]
