@@ -110,6 +110,9 @@ mst = "mst.models:ui.json"
 spr = "spr.models:ui.json"
 bli = "bli.models:ui.json"
 
+[project.entry-points."invenio_requests.types"]
+mst_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
+
 [project.optional-dependencies]
 tests = [
     "pytest-invenio>=1.4.11",

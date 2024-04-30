@@ -5,13 +5,13 @@ et-xmlfile==1.1.0
 flask-babelex==0.9.4
 frozendict==2.4.2
 jinja2-simple-tags==0.6.1
-jinjax==0.34
+jinjax==0.35
 json5==0.9.25
 langcodes==3.4.0
 language-data==1.2.0
 marisa-trie==1.1.0
 oarepo-published-service==1.0.3
-oarepo-requests==1.1.15
+oarepo-requests==1.1.16
 oarepo-runtime==1.5.30
 oarepo-ui==5.1.27
 oarepo-vocabularies==2.0.87

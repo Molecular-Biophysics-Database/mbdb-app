@@ -3,11 +3,18 @@ from invenio_drafts_resources.services import (
 )
 from invenio_drafts_resources.services.records.components import DraftFilesComponent
 from invenio_drafts_resources.services.records.config import is_record
-from invenio_records_resources.services import ConditionalLink, RecordLink
+from invenio_records_resources.services import (
+    ConditionalLink,
+    RecordLink,
+    pagination_links,
+)
 from invenio_records_resources.services.records.components import DataComponent
+from oarepo_runtime.records import has_draft, is_published_record
+from oarepo_runtime.services.components import OwnersComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 from oarepo_runtime.services.files import FilesComponent
 
+from common.services.records.components import ForeignVocabularyFetcherComponent
 from mst.records.api import MstDraft, MstRecord
 from mst.services.records.permissions import MstPermissionPolicy
 from mst.services.records.results import MstRecordItem, MstRecordList
@@ -39,8 +46,10 @@ class MstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        DataComponent,
+        ForeignVocabularyFetcherComponent,
+        OwnersComponent,
         DraftFilesComponent,
+        DataComponent,
         FilesComponent,
     ]
 
@@ -52,6 +61,7 @@ class MstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
     def links_item(self):
         return {
             "draft": RecordLink("{+api}/records/mst/{id}/draft"),
+            "edit_html": RecordLink("{+ui}/mst/{id}/edit", when=has_draft),
             "files": ConditionalLink(
                 cond=is_record,
                 if_=RecordLink("{+api}/records/mst/{id}/files"),
@@ -61,16 +71,38 @@ class MstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
             "latest_html": RecordLink("{+ui}/mst/{id}/latest"),
             "publish": RecordLink("{+api}/records/mst/{id}/draft/actions/publish"),
             "record": RecordLink("{+api}/records/mst/{id}"),
-            "requests": RecordLink("{+api}/records/mst/{id}/requests"),
+            "requests": ConditionalLink(
+                cond=is_published_record,
+                if_=RecordLink("{+api}/records/mst/{id}/requests"),
+                else_=RecordLink("{+api}/records/mst/{id}/draft/requests"),
+            ),
             "self": ConditionalLink(
-                cond=is_record,
+                cond=is_published_record,
                 if_=RecordLink("{+api}/records/mst/{id}"),
                 else_=RecordLink("{+api}/records/mst/{id}/draft"),
             ),
             "self_html": ConditionalLink(
-                cond=is_record,
+                cond=is_published_record,
                 if_=RecordLink("{+ui}/mst/{id}"),
-                else_=RecordLink("{+ui}/mst/{id}/edit"),
+                else_=RecordLink("{+ui}/mst/{id}/preview"),
             ),
             "versions": RecordLink("{+api}/records/mst/{id}/versions"),
+        }
+
+    @property
+    def links_search(self):
+        return {
+            **pagination_links("{+api}/records/mst/{?args*}"),
+        }
+
+    @property
+    def links_search_drafts(self):
+        return {
+            **pagination_links("{+api}/user/records/mst/{?args*}"),
+        }
+
+    @property
+    def links_search_versions(self):
+        return {
+            **pagination_links("{+api}/records/mst/{id}/versions{?args*}"),
         }

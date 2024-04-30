@@ -18,6 +18,8 @@ from oarepo_runtime.services.schema.validation import validate_date
 class GeneratedParentSchema(InvenioParentSchema):
     """"""
 
+    owners = ma.fields.List(ma.fields.Dict(), load_only=True)
+
 
 class MstSchema(RequestsSchemaMixin, BaseRecordSchema):
     class Meta:
@@ -102,7 +104,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.19"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.20"])])
 
     technique = ma_fields.String(
         required=True,
@@ -112,6 +114,7 @@ class GeneralParametersSchema(DictOnlySchema):
                     "Bio-layer interferometry (BLI)",
                     "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
                     "Surface plasmon resonance (SPR)",
+                    "Isothermal Titration Calorimetry (ITC)",
                 ]
             )
         ],
@@ -901,6 +904,15 @@ class ResultsItemSchema(PolymorphicSchema):
     type_field = "type"
 
 
+class SolventItemSchema(PolymorphicSchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    Chemical = ma_fields.Nested(lambda: SolventItemChemicalSchema(), required=True)
+
+    type_field = "type"
+
+
 class Association_rate_kOnSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -1187,6 +1199,40 @@ class Change_in_entropy_deltaSSchema(DictOnlySchema):
     value = ma_fields.Float(required=True)
 
     value_error = ma_fields.Nested(lambda: ValueErrorSchema())
+
+
+class ChemicalSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    additional_specifications = ma_fields.List(
+        ma_fields.String(), validate=[ma.validate.Length(min=1)]
+    )
+
+    basic_information = ma_fields.Nested(
+        lambda: BasicInformationSchema(), required=True
+    )
+
+    concentration = ma_fields.Nested(lambda: ConcentrationSchema(), required=True)
+
+    name = ma_fields.String(required=True)
+
+    type = ma_fields.String(
+        required=True,
+        validate=[
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial origin",
+                ]
+            )
+        ],
+    )
 
 
 class Complex_substance_of_biological_originBody_fluidSchema(DictOnlySchema):
@@ -1486,6 +1532,25 @@ class Complex_substance_of_industrial_originSchema(DictOnlySchema):
     )
 
 
+class ComponentsItemChemicalSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    additional_specifications = ma_fields.List(
+        ma_fields.String(), validate=[ma.validate.Length(min=1)]
+    )
+
+    basic_information = ma_fields.Nested(
+        lambda: BasicInformationSchema(), required=True
+    )
+
+    copy_number = ma_fields.Float(required=True, validate=[ma.validate.Range(min=-1.0)])
+
+    name = ma_fields.String(required=True)
+
+    type = ma_fields.String(required=True, validate=[OneOf(["Polymer", "Chemical"])])
+
+
 class Constant_of_association_KASchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -1639,6 +1704,40 @@ class Dissociation_rate_kOffSchema(DictOnlySchema):
     value = ma_fields.Float(required=True)
 
     value_error = ma_fields.Nested(lambda: ValueErrorSchema())
+
+
+class EntitiesOfInterestItemChemicalSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma_fields.String(data_key="id", attribute="id")
+
+    additional_specifications = ma_fields.List(
+        ma_fields.String(), validate=[ma.validate.Length(min=1)]
+    )
+
+    basic_information = ma_fields.Nested(
+        lambda: BasicInformationSchema(), required=True
+    )
+
+    name = ma_fields.String(required=True)
+
+    type = ma_fields.String(
+        required=True,
+        validate=[
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial origin",
+                ]
+            )
+        ],
+    )
 
 
 class EntitiesOfInterestItemComplex_substance_of_environmental_originSchema(
@@ -1969,13 +2068,23 @@ class SampleSchema(DictOnlySchema):
     )
 
 
-class SolventItemSchema(PolymorphicSchema):
+class SolventItemChemicalSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    Chemical = ma_fields.Nested(lambda: SolventItemChemicalSchema(), required=True)
+    additional_specifications = ma_fields.List(
+        ma_fields.String(), validate=[ma.validate.Length(min=1)]
+    )
 
-    type_field = "type"
+    basic_information = ma_fields.Nested(
+        lambda: BasicInformationSchema(), required=True
+    )
+
+    concentration = ma_fields.Nested(lambda: ConcentrationSchema(), required=True)
+
+    name = ma_fields.String(required=True)
+
+    type = ma_fields.String(required=True, validate=[OneOf(["Chemical"])])
 
 
 class StoichiometrySchema(DictOnlySchema):
@@ -2099,6 +2208,23 @@ class AssociatedPublicationSchema(PolymorphicSchema):
     type_field = "type"
 
 
+class BasicInformationSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.INCLUDE
+
+    _id = String(data_key="id", attribute="id")
+
+    _version = String(data_key="@v", attribute="@v")
+
+    additional_identifiers = ma_fields.List(ma_fields.String())
+
+    chemical_formula = ma_fields.String()
+
+    molecular_weight = ma_fields.Nested(lambda: BasicInformationMolecularWeightSchema())
+
+    title = i18n_strings
+
+
 class BiologicalPostprocessingItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -2124,71 +2250,6 @@ class ByIntactMassSchema(DictOnlySchema):
     method = ma_fields.String(
         required=True, validate=[OneOf(["Mass spectrometry", "SDS-PAGE"])]
     )
-
-
-class ChemicalSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    additional_identifiers = ma_fields.List(
-        ma_fields.String(), validate=[ma.validate.Length(min=1)]
-    )
-
-    additional_specifications = ma_fields.List(
-        ma_fields.String(), validate=[ma.validate.Length(min=1)]
-    )
-
-    concentration = ma_fields.Nested(lambda: ConcentrationSchema(), required=True)
-
-    inchikey = ma_fields.String(required=True)
-
-    isotopic_labeling = ma_fields.String()
-
-    molecular_weight = ma_fields.Nested(lambda: MolecularWeightSchema(), required=True)
-
-    name = ma_fields.String(required=True)
-
-    type = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(
-                [
-                    "Polymer",
-                    "Chemical",
-                    "Molecular assembly",
-                    "Complex substance of biological origin",
-                    "Complex substance of environmental origin",
-                    "Complex substance of chemical origin",
-                    "Complex substance of industrial origin",
-                ]
-            )
-        ],
-    )
-
-
-class ComponentsItemChemicalSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    additional_identifiers = ma_fields.List(
-        ma_fields.String(), validate=[ma.validate.Length(min=1)]
-    )
-
-    additional_specifications = ma_fields.List(
-        ma_fields.String(), validate=[ma.validate.Length(min=1)]
-    )
-
-    copy_number = ma_fields.Float(required=True, validate=[ma.validate.Range(min=-1.0)])
-
-    inchikey = ma_fields.String(required=True)
-
-    isotopic_labeling = ma_fields.String()
-
-    molecular_weight = ma_fields.Nested(lambda: MolecularWeightSchema(), required=True)
-
-    name = ma_fields.String(required=True)
-
-    type = ma_fields.String(required=True, validate=[OneOf(["Polymer", "Chemical"])])
 
 
 class ContributorsItemSchema(DictOnlySchema):
@@ -2240,46 +2301,6 @@ class EntitiesInvolvedItemSchema(DictOnlySchema):
     entity = ma_fields.Nested(lambda: EntitySchema(), required=True)
 
 
-class EntitiesOfInterestItemChemicalSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    _id = ma_fields.String(data_key="id", attribute="id")
-
-    additional_identifiers = ma_fields.List(
-        ma_fields.String(), validate=[ma.validate.Length(min=1)]
-    )
-
-    additional_specifications = ma_fields.List(
-        ma_fields.String(), validate=[ma.validate.Length(min=1)]
-    )
-
-    inchikey = ma_fields.String(required=True)
-
-    isotopic_labeling = ma_fields.String()
-
-    molecular_weight = ma_fields.Nested(lambda: MolecularWeightSchema(), required=True)
-
-    name = ma_fields.String(required=True)
-
-    type = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(
-                [
-                    "Polymer",
-                    "Chemical",
-                    "Molecular assembly",
-                    "Complex substance of biological origin",
-                    "Complex substance of environmental origin",
-                    "Complex substance of chemical origin",
-                    "Complex substance of industrial origin",
-                ]
-            )
-        ],
-    )
-
-
 class HomogeneitySchema(PolymorphicSchema):
     class Meta:
         unknown = ma.RAISE
@@ -2309,31 +2330,6 @@ class PuritySchema(PolymorphicSchema):
     Yes = ma_fields.Nested(lambda: PurityYesSchema(), required=True)
 
     type_field = "checked"
-
-
-class SolventItemChemicalSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    additional_identifiers = ma_fields.List(
-        ma_fields.String(), validate=[ma.validate.Length(min=1)]
-    )
-
-    additional_specifications = ma_fields.List(
-        ma_fields.String(), validate=[ma.validate.Length(min=1)]
-    )
-
-    concentration = ma_fields.Nested(lambda: ConcentrationSchema(), required=True)
-
-    inchikey = ma_fields.String(required=True)
-
-    isotopic_labeling = ma_fields.String()
-
-    molecular_weight = ma_fields.Nested(lambda: MolecularWeightSchema(), required=True)
-
-    name = ma_fields.String(required=True)
-
-    type = ma_fields.String(required=True, validate=[OneOf(["Chemical"])])
 
 
 class StorageSchema(DictOnlySchema):
@@ -2382,6 +2378,15 @@ class ArticleSchema(DictOnlySchema):
     )
 
 
+class BasicInformationMolecularWeightSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    unit = ma_fields.String()
+
+    value = ma_fields.Float()
+
+
 class BookSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -2418,8 +2423,8 @@ class BySequencingSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    coverage = ma_fields.Integer(
-        required=True, validate=[ma.validate.Range(min=0, max=100)]
+    coverage = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=0.0, max=100.0)]
     )
 
     method = ma_fields.String(
