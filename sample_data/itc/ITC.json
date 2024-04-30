@@ -6,10 +6,10 @@
         "record_information": {
           "publisher": "MBDB",
           "resource_type_general": "Dataset",
-          "resource_type": "MST",
+          "resource_type": "ITC",
           "access_rights": "open access",
           "metadata_access_rights": "open access",
-          "title": "MST measurement of hemoglobin serum elements",
+          "title": "ITC measurement of hemoglobin serum elements",
           "deposition_date": "2022-01-23",
           "date_available": "2023-01-23",
           "subject_category": "Biophysics"
@@ -65,9 +65,9 @@
             "id": "oa:aka_________::05f51e273cb679ac343eb5be8ecbd9b5"
           }
         ],
-        "technique": "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
+        "technique": "Isothermal Titration Calorimetry (ITC)",
         "instrument": {
-          "id": "ins:2"
+          "id": "ins:4"
         },
         "collection_start_time": "2022-01-02",
         "chemical_environments": [
@@ -163,7 +163,8 @@
             "storage": {
               "temperature": {
                 "value": -80,
-                "unit": "°C"
+                "unit": "°C",
+                "controlled": true
               },
               "storage_preparation": [
                 {
@@ -292,51 +293,17 @@
           }
         ],
         "raw_measurement_files": [
-          "https://mbdb.eu/mst/files/foo.txt"
+          "https://mbdb.eu/itc/files/foo.txt"
         ]
       },
       "method_specific_parameters": {
-        "schema_version": "0.9.9",
-        "experiment_type": "Affinity",
-        "signal_type": "TRIC/MST",
-        "excitation_led_color": "RED (ex 605-645nm, em 660-720nm)",
-        "excitation_led_power": 40,
-        "ir_mst_laser_power": 20,
-        "data_analysis": [
-          {
-            "result": [
-              {
-                "id": "de-par-kd-hemo",
-                "name": "KD of hemoglobin to unknown component in serum"
-              }
-            ],
-            "data_fitting": {
-              "model": "1:1",
-              "software_name": "MO.Affinity Analysis Software"
-            },
-            "measurements": [
-              {
-                "id": "pos_1_rep_1",
-                "name": "1 nM hemoglobin + 10 mg/ml Human serum"
-              },
-              {
-                "id": "pos_2_rep_1",
-                "name": "1 nM hemoglobin + 20 mg/ml Human serum"
-              },
-              {
-                "id": "pos_3_rep_1",
-                "name": "1 nM hemoglobin + 40 mg/ml Human serum"
-              }
-            ]
-          }
-        ],
+        "schema_version": "0.0.1",
         "measurements": [
           {
             "id": "pos_1_rep_1",
             "name": "1 nM hemoglobin + 10 mg/ml Human serum",
-            "position": "1",
             "sample": {
-              "targets": [
+              "target_in_cell": [
                 {
                   "entity": {
                     "id": "eoi-human-hemoglobin",
@@ -348,7 +315,7 @@
                   }
                 }
               ],
-              "ligands": [
+              "target_in_syringe": [
                 {
                   "entity": {
                     "id": "eoi-human-serum",
@@ -360,19 +327,19 @@
                   }
                 }
               ],
-              "chemical_environment": {
-                "id": "chem-env-measurement-buffer",
-                "name": "Measurement buffer"
-              },
-              "measurement_container": "Monolith Standard Capillary"
+              "chemical_environment": [
+                {
+                  "id": "chem-env-measurement-buffer",
+                  "name": "Measurement buffer"
+                }
+              ]
             }
           },
           {
             "id": "pos_2_rep_1",
             "name": "1 nM hemoglobin + 20 mg/ml Human serum",
-            "position": "2",
             "sample": {
-              "targets": [
+              "target_in_cell": [
                 {
                   "entity": {
                     "id": "eoi-human-hemoglobin",
@@ -384,7 +351,7 @@
                   }
                 }
               ],
-              "ligands": [
+              "target_in_syringe": [
                 {
                   "entity": {
                     "id": "eoi-human-serum",
@@ -396,19 +363,19 @@
                   }
                 }
               ],
-              "chemical_environment": {
-                "id": "chem-env-measurement-buffer",
-                "name": "Measurement buffer"
-              },
-              "measurement_container": "Monolith Standard Capillary"
+              "chemical_environment": [
+                {
+                  "id": "chem-env-measurement-buffer",
+                  "name": "Measurement buffer"
+                }
+              ]
             }
           },
           {
             "id": "pos_3_rep_1",
             "name": "1 nM hemoglobin + 40 mg/ml Human serum",
-            "position": "3",
             "sample": {
-              "targets": [
+              "target_in_cell": [
                 {
                   "entity": {
                     "id": "eoi-human-hemoglobin",
@@ -420,7 +387,7 @@
                   }
                 }
               ],
-              "ligands": [
+              "target_in_syringe": [
                 {
                   "entity": {
                     "id": "eoi-human-serum",
@@ -432,11 +399,63 @@
                   }
                 }
               ],
-              "chemical_environment": {
-                "id": "chem-env-measurement-buffer",
-                "name": "Measurement buffer"
+              "chemical_environment": [
+                {
+                  "id": "chem-env-measurement-buffer",
+                  "name": "Measurement buffer"
+                }
+              ]
+            }
+          }
+        ],
+        "experiment_type": {
+          "type": "Titration",
+          "number_injections": 25,
+          "injection_parameters": [
+            {
+              "n_injections": 1,
+              "volume": {
+                "value": 0.4,
+                "unit": "ml"
+              }
+            },
+            {
+              "n_injections": 24,
+              "volume": {
+                "value": 0.5,
+                "unit": "ml"
+              }
+            }
+          ]
+        },
+        "cell_temperature": {
+          "value": 298,
+          "unit": "K"
+        },
+        "cell_volume": {
+          "value": 0.6,
+          "unit": "ml"
+        },
+        "reference_power": {
+          "value": 11,
+          "unit": "µcal/s"
+        },
+        "stirring_speed": 1000,
+        "feedback_mode": "Low",
+        "data_analysis": [
+          {
+            "data_fitting": {
+              "type": "Simple model",
+              "data_fitting_model": {
+                "model": "1:1",
+                "software_name": "AFFINImeter Software"
               },
-              "measurement_container": "Monolith Standard Capillary"
+              "result": [
+                {
+                  "id": "de-par-kd-hemo",
+                  "name": "KD of hemoglobin to unknown component in serum"
+                }
+              ]
             }
           }
         ]
