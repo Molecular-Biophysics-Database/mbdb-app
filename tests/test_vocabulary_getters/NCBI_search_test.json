@@ -1,0 +1,118 @@
+{
+  "sci_name_and_ids": [
+    {
+      "sci_name": "Homo sapiens",
+      "tax_id": "9606",
+      "common_name": "human",
+      "matched_term": "human",
+      "rank": "SPECIES"
+    },
+    {
+      "sci_name": "Human papillomavirus",
+      "tax_id": "10566",
+      "matched_term": "H. papillomavirus",
+      "rank": "SPECIES"
+    },
+    {
+      "sci_name": "Human immunodeficiency virus 1",
+      "tax_id": "11676",
+      "matched_term": "H. immunodeficiency virus 1",
+      "rank": "SPECIES"
+    },
+    {
+      "sci_name": "human metapneumovirus",
+      "tax_id": "162145",
+      "matched_term": "h. metapneumovirus"
+    },
+    {
+      "sci_name": "human respiratory syncytial virus",
+      "tax_id": "11250",
+      "matched_term": "h. respiratory syncytial virus"
+    },
+    {
+      "sci_name": "human gammaherpesvirus 4",
+      "tax_id": "10376",
+      "common_name": "Epstein-Barr virus",
+      "matched_term": "h. gammaherpesvirus 4"
+    },
+    {
+      "sci_name": "Human alphaherpesvirus 1",
+      "tax_id": "10298",
+      "common_name": "Herpes simplex virus type 1",
+      "matched_term": "H. alphaherpesvirus 1"
+    },
+    {
+      "sci_name": "Human coronavirus OC43",
+      "tax_id": "31631",
+      "matched_term": "H. coronavirus OC43"
+    },
+    {
+      "sci_name": "Human betaherpesvirus 5",
+      "tax_id": "10359",
+      "matched_term": "H. betaherpesvirus 5"
+    },
+    {
+      "sci_name": "Human mastadenovirus C",
+      "tax_id": "129951",
+      "matched_term": "H. mastadenovirus C",
+      "rank": "SPECIES"
+    },
+    {
+      "sci_name": "Human astrovirus",
+      "tax_id": "1868658",
+      "matched_term": "H. astrovirus",
+      "rank": "SPECIES"
+    },
+    {
+      "sci_name": "Human parvovirus B19",
+      "tax_id": "10798",
+      "matched_term": "H. parvovirus B19"
+    },
+    {
+      "sci_name": "Human respirovirus 3",
+      "tax_id": "11216",
+      "matched_term": "H. respirovirus 3"
+    },
+    {
+      "sci_name": "Enterobius vermicularis",
+      "tax_id": "51028",
+      "common_name": "human pinworm",
+      "matched_term": "human pinworm",
+      "rank": "SPECIES"
+    },
+    {
+      "sci_name": "Human mastadenovirus B",
+      "tax_id": "108098",
+      "matched_term": "H. mastadenovirus B",
+      "rank": "SPECIES"
+    },
+    {
+      "sci_name": "Human alphaherpesvirus 3",
+      "tax_id": "10335",
+      "common_name": "Varicella-zoster virus",
+      "matched_term": "H. alphaherpesvirus 3"
+    },
+    {
+      "sci_name": "Human respirovirus 1",
+      "tax_id": "12730",
+      "matched_term": "H. respirovirus 1"
+    },
+    {
+      "sci_name": "Trichuris trichiura",
+      "tax_id": "36087",
+      "common_name": "human whipworm",
+      "matched_term": "human whipworm",
+      "rank": "SPECIES"
+    },
+    {
+      "sci_name": "Human alphaherpesvirus 2",
+      "tax_id": "10310",
+      "matched_term": "H. alphaherpesvirus 2"
+    },
+    {
+      "sci_name": "Human orthorubulavirus 2",
+      "tax_id": "2560525",
+      "matched_term": "H. orthorubulavirus 2"
+    }
+  ]
+}

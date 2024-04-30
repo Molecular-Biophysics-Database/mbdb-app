@@ -1,0 +1,1937 @@
+{
+  "number_of_results": 701,
+  "time_taken": 6,
+  "items": [
+    {
+      "id": "https://ror.org/0442wxc77",
+      "name": "STMicroelectronics (United Kingdom)",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1957,
+      "types": [
+        "Company"
+      ],
+      "relationships": [
+        {
+          "label": "STMicroelectronics (Switzerland)",
+          "type": "Parent",
+          "id": "https://ror.org/00wm3b005"
+        },
+        {
+          "label": "Inmos",
+          "type": "Child",
+          "id": "https://ror.org/01p4rys65"
+        }
+      ],
+      "addresses": [
+        {
+          "lat": 51.576469,
+          "lng": -0.756535,
+          "state": "England",
+          "state_code": "GB-ENG",
+          "city": "Marlow",
+          "geonames_city": {
+            "id": 2643003,
+            "city": "Marlow",
+            "geonames_admin1": {
+              "name": "England",
+              "id": 6269131,
+              "ascii_name": "England",
+              "code": "GB.ENG"
+            },
+            "geonames_admin2": {
+              "name": "Buckinghamshire",
+              "id": 2654408,
+              "ascii_name": "Buckinghamshire",
+              "code": "GB.ENG.B9"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": "SOUTH EAST (ENGLAND)",
+              "code": "UKJ"
+            },
+            "nuts_level2": {
+              "name": "Berkshire, Buckinghamshire and Oxfordshire",
+              "code": "UKJ1"
+            },
+            "nuts_level3": {
+              "name": "Buckinghamshire CC",
+              "code": "UKJ13"
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 2635167
+        }
+      ],
+      "links": [
+        "http://www.st.com/content/st_com/en.html"
+      ],
+      "aliases": [],
+      "acronyms": [
+        "ST"
+      ],
+      "status": "active",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/STMicroelectronics",
+      "labels": [],
+      "country": {
+        "country_name": "United Kingdom",
+        "country_code": "GB"
+      },
+      "external_ids": {
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q29123666"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.421733.0",
+          "all": "grid.421733.0"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/053bqv655",
+      "name": "STMicroelectronics (Italy)",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1957,
+      "types": [
+        "Company"
+      ],
+      "relationships": [
+        {
+          "label": "STMicroelectronics (Switzerland)",
+          "type": "Parent",
+          "id": "https://ror.org/00wm3b005"
+        }
+      ],
+      "addresses": [
+        {
+          "lat": 45.498463,
+          "lng": 9.035076,
+          "state": null,
+          "state_code": null,
+          "city": "Milan",
+          "geonames_city": {
+            "id": 3173435,
+            "city": "Milan",
+            "geonames_admin1": {
+              "name": "Lombardy",
+              "id": 3174618,
+              "ascii_name": "Lombardy",
+              "code": "IT.09"
+            },
+            "geonames_admin2": {
+              "name": "Città metropolitana di Milano",
+              "id": 3173434,
+              "ascii_name": "Citta metropolitana di Milano",
+              "code": "IT.09.MI"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": "NORD-OVEST",
+              "code": "ITC"
+            },
+            "nuts_level2": {
+              "name": "Lombardia",
+              "code": "ITC4"
+            },
+            "nuts_level3": {
+              "name": "Milano",
+              "code": "ITC4C"
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 3175395
+        }
+      ],
+      "links": [
+        "http://www2.st.com/content/st_com/en.html"
+      ],
+      "aliases": [],
+      "acronyms": [
+        "ST"
+      ],
+      "status": "active",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/STMicroelectronics",
+      "labels": [],
+      "country": {
+        "country_name": "Italy",
+        "country_code": "IT"
+      },
+      "external_ids": {
+        "ISNI": {
+          "preferred": null,
+          "all": [
+            "0000 0001 2254 1092"
+          ]
+        },
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q29123661"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.5403.2",
+          "all": "grid.5403.2"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/01c74sd89",
+      "name": "STMicroelectronics (France)",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1957,
+      "types": [
+        "Company"
+      ],
+      "relationships": [
+        {
+          "label": "STMicroelectronics (Switzerland)",
+          "type": "Parent",
+          "id": "https://ror.org/00wm3b005"
+        }
+      ],
+      "addresses": [
+        {
+          "lat": 48.819927,
+          "lng": 2.324594,
+          "state": null,
+          "state_code": null,
+          "city": "Montrouge",
+          "geonames_city": {
+            "id": 2992017,
+            "city": "Montrouge",
+            "geonames_admin1": {
+              "name": "Île-de-France",
+              "id": 3012874,
+              "ascii_name": "Ile-de-France",
+              "code": "FR.11"
+            },
+            "geonames_admin2": {
+              "name": "Hauts-de-Seine",
+              "id": 3013657,
+              "ascii_name": "Hauts-de-Seine",
+              "code": "FR.11.92"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": "ÎLE DE FRANCE",
+              "code": "FR1"
+            },
+            "nuts_level2": {
+              "name": "Île de France",
+              "code": "FR10"
+            },
+            "nuts_level3": {
+              "name": "Hauts-de-Seine",
+              "code": "FR105"
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 3017382
+        }
+      ],
+      "links": [
+        "http://www.st.com/content/st_com/en.html"
+      ],
+      "aliases": [],
+      "acronyms": [
+        "ST"
+      ],
+      "status": "active",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/STMicroelectronicsce",
+      "labels": [],
+      "country": {
+        "country_name": "France",
+        "country_code": "FR"
+      },
+      "external_ids": {
+        "ISNI": {
+          "preferred": null,
+          "all": [
+            "0000 0004 0623 4115"
+          ]
+        },
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q29123664"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.6625.7",
+          "all": "grid.6625.7"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/01f8c3y78",
+      "name": "STMicroelectronics (United States)",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1957,
+      "types": [
+        "Company"
+      ],
+      "relationships": [
+        {
+          "label": "STMicroelectronics (Switzerland)",
+          "type": "Parent",
+          "id": "https://ror.org/00wm3b005"
+        }
+      ],
+      "addresses": [
+        {
+          "lat": 32.983423,
+          "lng": -97.014217,
+          "state": "Texas",
+          "state_code": "US-TX",
+          "city": "Coppell",
+          "geonames_city": {
+            "id": 4683217,
+            "city": "Coppell",
+            "geonames_admin1": {
+              "name": "Texas",
+              "id": 4736286,
+              "ascii_name": "Texas",
+              "code": "US.TX"
+            },
+            "geonames_admin2": {
+              "name": "Dallas County",
+              "id": 4684904,
+              "ascii_name": "Dallas County",
+              "code": "US.TX.113"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level2": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level3": {
+              "name": null,
+              "code": null
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 6252001
+        }
+      ],
+      "links": [
+        "http://www.st.com/"
+      ],
+      "aliases": [],
+      "acronyms": [
+        "ST"
+      ],
+      "status": "active",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/STMicroelectronics",
+      "labels": [],
+      "country": {
+        "country_name": "United States",
+        "country_code": "US"
+      },
+      "external_ids": {
+        "ISNI": {
+          "preferred": null,
+          "all": [
+            "0000 0004 0599 6556"
+          ]
+        },
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q29123646"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.471308.9",
+          "all": "grid.471308.9"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/01k46bc48",
+      "name": "Semmtech (Netherlands)",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": null,
+      "types": [
+        "Company"
+      ],
+      "relationships": [],
+      "addresses": [
+        {
+          "lat": 52.3025,
+          "lng": 4.68889,
+          "state": null,
+          "state_code": null,
+          "city": "Hoofddorp",
+          "geonames_city": {
+            "id": 2753801,
+            "city": "Hoofddorp",
+            "geonames_admin1": {
+              "name": "North Holland",
+              "id": 2749879,
+              "ascii_name": "North Holland",
+              "code": "NL.07"
+            },
+            "geonames_admin2": {
+              "name": "Haarlemermeer",
+              "id": 2754999,
+              "ascii_name": "Haarlemermeer",
+              "code": "NL.07.0394"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level2": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level3": {
+              "name": null,
+              "code": null
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 2750405
+        }
+      ],
+      "links": [
+        "https://semmtech.com"
+      ],
+      "aliases": [
+        "Semmtech",
+        "Semmtech B.V."
+      ],
+      "acronyms": [
+        "ST"
+      ],
+      "status": "active",
+      "wikipedia_url": null,
+      "labels": [],
+      "country": {
+        "country_name": "Netherlands",
+        "country_code": "NL"
+      },
+      "external_ids": {
+        "Wikidata": {
+          "preferred": "Q123696223",
+          "all": [
+            "Q123696223"
+          ]
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/00nkf9b38",
+      "name": "St. Marien- und St. Annastiftskrankenhaus",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1912,
+      "types": [
+        "Healthcare"
+      ],
+      "relationships": [],
+      "addresses": [
+        {
+          "lat": 49.457944,
+          "lng": 8.408047,
+          "state": null,
+          "state_code": null,
+          "city": "Ludwigshafen am Rhein",
+          "geonames_city": {
+            "id": 2875376,
+            "city": "Ludwigshafen am Rhein",
+            "geonames_admin1": {
+              "name": "Rheinland-Pfalz",
+              "id": 2847618,
+              "ascii_name": "Rheinland-Pfalz",
+              "code": "DE.08"
+            },
+            "geonames_admin2": {
+              "name": null,
+              "id": null,
+              "ascii_name": null,
+              "code": null
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": "RHEINLAND-PFALZ",
+              "code": "DEB"
+            },
+            "nuts_level2": {
+              "name": "Rheinhessen-Pfalz",
+              "code": "DEB3"
+            },
+            "nuts_level3": {
+              "name": "Ludwigshafen am Rhein, Kreisfreie Stadt",
+              "code": "DEB34"
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 2921044
+        }
+      ],
+      "links": [
+        "http://www.st-marienkrankenhaus.de/startseite/"
+      ],
+      "aliases": [],
+      "acronyms": [],
+      "status": "active",
+      "wikipedia_url": "",
+      "labels": [],
+      "country": {
+        "country_name": "Germany",
+        "country_code": "DE"
+      },
+      "external_ids": {
+        "GRID": {
+          "preferred": "grid.492136.b",
+          "all": "grid.492136.b"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/02wdrwh83",
+      "name": "Space Telescope European Coordinating Facility",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1984,
+      "types": [
+        "Facility"
+      ],
+      "relationships": [],
+      "addresses": [
+        {
+          "lat": 48.260279,
+          "lng": 11.670872,
+          "state": null,
+          "state_code": null,
+          "city": "Garching bei München",
+          "geonames_city": {
+            "id": 2922582,
+            "city": "Garching bei München",
+            "geonames_admin1": {
+              "name": "Bavaria",
+              "id": 2951839,
+              "ascii_name": "Bavaria",
+              "code": "DE.02"
+            },
+            "geonames_admin2": {
+              "name": "Upper Bavaria",
+              "id": 2861322,
+              "ascii_name": "Upper Bavaria",
+              "code": "DE.02.091"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": "BAYERN",
+              "code": "DE2"
+            },
+            "nuts_level2": {
+              "name": "Oberbayern",
+              "code": "DE21"
+            },
+            "nuts_level3": {
+              "name": "München, Landkreis",
+              "code": "DE21H"
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 2921044
+        }
+      ],
+      "links": [
+        "https://www.stecf.org/"
+      ],
+      "aliases": [],
+      "acronyms": [
+        "ST-ECF"
+      ],
+      "status": "active",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Space_Telescope_European_Coordinating_Facility",
+      "labels": [],
+      "country": {
+        "country_name": "Germany",
+        "country_code": "DE"
+      },
+      "external_ids": {
+        "GRID": {
+          "preferred": "grid.438037.b",
+          "all": "grid.438037.b"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/05am5g719",
+      "name": "St Mark's Hospital",
+      "email_address": "",
+      "ip_addresses": [],
+      "established": 1835,
+      "types": [
+        "Healthcare"
+      ],
+      "relationships": [
+        {
+          "label": "Imperial College London",
+          "type": "Related",
+          "id": "https://ror.org/041kmwe10"
+        },
+        {
+          "label": "London North West Healthcare NHS Trust",
+          "type": "Parent",
+          "id": "https://ror.org/04cntmc13"
+        }
+      ],
+      "addresses": [
+        {
+          "lat": 51.57582,
+          "lng": -0.320228,
+          "state": null,
+          "state_code": null,
+          "city": "London",
+          "geonames_city": {
+            "id": 2643743,
+            "city": "London",
+            "geonames_admin1": {
+              "name": "England",
+              "id": 6269131,
+              "ascii_name": "England",
+              "code": "GB.ENG"
+            },
+            "geonames_admin2": {
+              "name": "Greater London",
+              "id": 2648110,
+              "ascii_name": "Greater London",
+              "code": "GB.ENG.GLA"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": "LONDON",
+              "code": "UKI"
+            },
+            "nuts_level2": {
+              "name": "Inner London - West",
+              "code": "UKI3"
+            },
+            "nuts_level3": {
+              "name": "Westminster",
+              "code": "UKI32"
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 2635167
+        }
+      ],
+      "links": [
+        "http://www.stmarkshospital.nhs.uk/"
+      ],
+      "aliases": [
+        "St Mark's"
+      ],
+      "acronyms": [],
+      "status": "active",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/St_Mark%27s_Hospital",
+      "labels": [],
+      "country": {
+        "country_name": "United Kingdom",
+        "country_code": "GB"
+      },
+      "external_ids": {
+        "OrgRef": {
+          "preferred": null,
+          "all": [
+            "11823408"
+          ]
+        },
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q7589963"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.416510.7",
+          "all": "grid.416510.7"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/03x1f1d90",
+      "name": "St. Catherine University",
+      "email_address": "",
+      "ip_addresses": [],
+      "established": 1905,
+      "types": [
+        "Education"
+      ],
+      "relationships": [
+        {
+          "label": "Minneapolis VA Health Care System",
+          "type": "Related",
+          "id": "https://ror.org/02ry60714"
+        }
+      ],
+      "addresses": [
+        {
+          "lat": 44.924572,
+          "lng": -93.182159,
+          "state": "Minnesota",
+          "state_code": "US-MN",
+          "city": "Saint Paul",
+          "geonames_city": {
+            "id": 5045360,
+            "city": "Saint Paul",
+            "geonames_admin1": {
+              "name": "Minnesota",
+              "id": 5037779,
+              "ascii_name": "Minnesota",
+              "code": "US.MN"
+            },
+            "geonames_admin2": {
+              "name": "Ramsey County",
+              "id": 5042563,
+              "ascii_name": "Ramsey County",
+              "code": "US.MN.123"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level2": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level3": {
+              "name": null,
+              "code": null
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 6252001
+        }
+      ],
+      "links": [
+        "http://www.stkate.edu/"
+      ],
+      "aliases": [
+        "St. Kate's",
+        "College of St. Catherine"
+      ],
+      "acronyms": [],
+      "status": "active",
+      "wikipedia_url": "http://en.wikipedia.org/wiki/St._Catherine_University",
+      "labels": [
+        {
+          "label": "Université sainte-catherine",
+          "iso639": "fr"
+        }
+      ],
+      "country": {
+        "country_name": "United States",
+        "country_code": "US"
+      },
+      "external_ids": {
+        "ISNI": {
+          "preferred": null,
+          "all": [
+            "0000 0000 9340 0740"
+          ]
+        },
+        "OrgRef": {
+          "preferred": null,
+          "all": [
+            "910779"
+          ]
+        },
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q3444427"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.264041.5",
+          "all": "grid.264041.5"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/03e4a0h58",
+      "name": "St. John's School",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1946,
+      "types": [
+        "Education"
+      ],
+      "relationships": [],
+      "addresses": [
+        {
+          "lat": 29.742644,
+          "lng": -95.429873,
+          "state": "Texas",
+          "state_code": "US-TX",
+          "city": "Houston",
+          "geonames_city": {
+            "id": 4699066,
+            "city": "Houston",
+            "geonames_admin1": {
+              "name": "Texas",
+              "id": 4736286,
+              "ascii_name": "Texas",
+              "code": "US.TX"
+            },
+            "geonames_admin2": {
+              "name": "Harris County",
+              "id": 4696376,
+              "ascii_name": "Harris County",
+              "code": "US.TX.201"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level2": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level3": {
+              "name": null,
+              "code": null
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 6252001
+        }
+      ],
+      "links": [
+        "https://www.sjs.org/"
+      ],
+      "aliases": [
+        "St. John's"
+      ],
+      "acronyms": [
+        "SJS"
+      ],
+      "status": "active",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/St._John's_School_(Texas)",
+      "labels": [],
+      "country": {
+        "country_name": "United States",
+        "country_code": "US"
+      },
+      "external_ids": {
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q7588837"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.511445.0",
+          "all": "grid.511445.0"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/01etbpd39",
+      "name": "St. Scholastica's College",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1906,
+      "types": [
+        "Education"
+      ],
+      "relationships": [],
+      "addresses": [
+        {
+          "lat": 14.564132,
+          "lng": 120.996378,
+          "state": null,
+          "state_code": null,
+          "city": "Manila",
+          "geonames_city": {
+            "id": 1701668,
+            "city": "Manila",
+            "geonames_admin1": {
+              "name": "Metro Manila",
+              "id": 7521311,
+              "ascii_name": "Metro Manila",
+              "code": "PH.NCR"
+            },
+            "geonames_admin2": {
+              "name": "Capital District",
+              "id": 11395835,
+              "ascii_name": "Capital District",
+              "code": "PH.NCR.133900000"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level2": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level3": {
+              "name": null,
+              "code": null
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 1694008
+        }
+      ],
+      "links": [
+        "http://ssc.edu.ph/ssc/"
+      ],
+      "aliases": [
+        "St. Scho"
+      ],
+      "acronyms": [
+        "SSC"
+      ],
+      "status": "active",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/St._Scholastica%27s_College,_Manila",
+      "labels": [],
+      "country": {
+        "country_name": "Philippines",
+        "country_code": "PH"
+      },
+      "external_ids": {
+        "ISNI": {
+          "preferred": null,
+          "all": [
+            "0000 0001 2166 965X"
+          ]
+        },
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q3551594"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.502237.1",
+          "all": "grid.502237.1"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/04zsrq347",
+      "name": "St. Paul's Co-educational College",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1915,
+      "types": [
+        "Education"
+      ],
+      "relationships": [],
+      "addresses": [
+        {
+          "lat": 22.341062,
+          "lng": 114.140018,
+          "state": null,
+          "state_code": null,
+          "city": "Hong Kong",
+          "geonames_city": {
+            "id": 1819729,
+            "city": "Hong Kong",
+            "geonames_admin1": {
+              "name": "Central and Western",
+              "id": 7533598,
+              "ascii_name": "Central and Western",
+              "code": "HK.HCW"
+            },
+            "geonames_admin2": {
+              "name": null,
+              "id": null,
+              "ascii_name": null,
+              "code": null
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level2": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level3": {
+              "name": null,
+              "code": null
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 1814991
+        }
+      ],
+      "links": [
+        "http://www.spcc.edu.hk/"
+      ],
+      "aliases": [
+        "St. Paul's Girls' College",
+        "St. Paul's",
+        "St. Paul's Co-ed"
+      ],
+      "acronyms": [
+        "SPCC"
+      ],
+      "status": "active",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/St._Paul%27s_Co-educational_College",
+      "labels": [
+        {
+          "label": "聖保羅男女中學",
+          "iso639": "zh"
+        }
+      ],
+      "country": {
+        "country_name": "China",
+        "country_code": "CN"
+      },
+      "external_ids": {
+        "ISNI": {
+          "preferred": null,
+          "all": [
+            "0000 0004 1774 4428"
+          ]
+        },
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q7591071"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.497784.1",
+          "all": "grid.497784.1"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/05bfknj54",
+      "name": "St. Joseph Hospital",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1869,
+      "types": [
+        "Healthcare"
+      ],
+      "relationships": [],
+      "addresses": [
+        {
+          "lat": 41.078185,
+          "lng": -85.149364,
+          "state": "Indiana",
+          "state_code": "US-IN",
+          "city": "Fort Wayne",
+          "geonames_city": {
+            "id": 4920423,
+            "city": "Fort Wayne",
+            "geonames_admin1": {
+              "name": "Indiana",
+              "id": 4921868,
+              "ascii_name": "Indiana",
+              "code": "US.IN"
+            },
+            "geonames_admin2": {
+              "name": "Allen County",
+              "id": 4917555,
+              "ascii_name": "Allen County",
+              "code": "US.IN.003"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level2": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level3": {
+              "name": null,
+              "code": null
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 6252001
+        }
+      ],
+      "links": [
+        "http://www.stjoehospital.com/"
+      ],
+      "aliases": [
+        "St. Joe"
+      ],
+      "acronyms": [],
+      "status": "active",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/St._Joseph_Hospital_(Fort_Wayne,_Indiana)",
+      "labels": [],
+      "country": {
+        "country_name": "United States",
+        "country_code": "US"
+      },
+      "external_ids": {
+        "ISNI": {
+          "preferred": null,
+          "all": [
+            "0000 0004 0443 8093"
+          ]
+        },
+        "OrgRef": {
+          "preferred": null,
+          "all": [
+            "28025867"
+          ]
+        },
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q7589333"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.461553.0",
+          "all": "grid.461553.0"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/05kc32532",
+      "name": "Saint Joseph Seminary College",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1891,
+      "types": [
+        "Education"
+      ],
+      "relationships": [],
+      "addresses": [
+        {
+          "lat": 30.52708,
+          "lng": -90.113369,
+          "state": "Louisiana",
+          "state_code": "US-LA",
+          "city": "Covington",
+          "geonames_city": {
+            "id": 4321005,
+            "city": "Covington",
+            "geonames_admin1": {
+              "name": "Louisiana",
+              "id": 4331987,
+              "ascii_name": "Louisiana",
+              "code": "US.LA"
+            },
+            "geonames_admin2": {
+              "name": "Saint Tammany Parish",
+              "id": 4340579,
+              "ascii_name": "Saint Tammany Parish",
+              "code": "US.LA.103"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level2": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level3": {
+              "name": null,
+              "code": null
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 6252001
+        }
+      ],
+      "links": [
+        "http://www.sjasc.edu/"
+      ],
+      "aliases": [
+        "St. Ben"
+      ],
+      "acronyms": [],
+      "status": "active",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Saint_Joseph_Seminary_College",
+      "labels": [],
+      "country": {
+        "country_name": "United States",
+        "country_code": "US"
+      },
+      "external_ids": {
+        "OrgRef": {
+          "preferred": null,
+          "all": [
+            "5500226"
+          ]
+        },
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q7401567"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.462769.8",
+          "all": "grid.462769.8"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/057fg2a35",
+      "name": "Saint Vincent Health System",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1875,
+      "types": [
+        "Healthcare"
+      ],
+      "relationships": [
+        {
+          "label": "Saint Vincent Hospital",
+          "type": "Child",
+          "id": "https://ror.org/000f32327"
+        }
+      ],
+      "addresses": [
+        {
+          "lat": 42.111231,
+          "lng": -80.079157,
+          "state": "Pennsylvania",
+          "state_code": "US-PA",
+          "city": "Erie",
+          "geonames_city": {
+            "id": 5188843,
+            "city": "Erie",
+            "geonames_admin1": {
+              "name": "Pennsylvania",
+              "id": 6254927,
+              "ascii_name": "Pennsylvania",
+              "code": "US.PA"
+            },
+            "geonames_admin2": {
+              "name": "Erie County",
+              "id": 5188847,
+              "ascii_name": "Erie County",
+              "code": "US.PA.049"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level2": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level3": {
+              "name": null,
+              "code": null
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 6252001
+        }
+      ],
+      "links": [
+        "http://m.saintvincenthealth.com/"
+      ],
+      "aliases": [
+        "St. Vincent"
+      ],
+      "acronyms": [],
+      "status": "active",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Saint_Vincent_Health_System",
+      "labels": [],
+      "country": {
+        "country_name": "United States",
+        "country_code": "US"
+      },
+      "external_ids": {
+        "ISNI": {
+          "preferred": null,
+          "all": [
+            "0000 0004 0400 0032"
+          ]
+        },
+        "OrgRef": {
+          "preferred": null,
+          "all": [
+            "41668553"
+          ]
+        },
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q16899642"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.462780.f",
+          "all": "grid.462780.f"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/04ahnxd67",
+      "name": "St. Claraspital",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": null,
+      "types": [
+        "Healthcare"
+      ],
+      "relationships": [],
+      "addresses": [
+        {
+          "lat": 47.566568,
+          "lng": 7.614079,
+          "state": null,
+          "state_code": null,
+          "city": "Basel",
+          "geonames_city": {
+            "id": 2661604,
+            "city": "Basel",
+            "geonames_admin1": {
+              "name": "Basel-City",
+              "id": 2661602,
+              "ascii_name": "Basel-City",
+              "code": "CH.BS"
+            },
+            "geonames_admin2": {
+              "name": "Basel-Stadt",
+              "id": 6458763,
+              "ascii_name": "Basel-Stadt",
+              "code": "CH.BS.1200"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level2": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level3": {
+              "name": null,
+              "code": null
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 2658434
+        }
+      ],
+      "links": [
+        "https://www.claraspital.ch/startseite/"
+      ],
+      "aliases": [],
+      "acronyms": [],
+      "status": "active",
+      "wikipedia_url": "",
+      "labels": [],
+      "country": {
+        "country_name": "Switzerland",
+        "country_code": "CH"
+      },
+      "external_ids": {
+        "GRID": {
+          "preferred": "grid.482938.c",
+          "all": "grid.482938.c"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/004fmxv66",
+      "name": "Franche-Comté Électronique Mécanique Thermique et Optique - Sciences et Technologies",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 2004,
+      "types": [
+        "Facility"
+      ],
+      "relationships": [
+        {
+          "label": "CNRS Ingénierie",
+          "type": "Parent",
+          "id": "https://ror.org/00s19x989"
+        },
+        {
+          "label": "University of Franche-Comté",
+          "type": "Parent",
+          "id": "https://ror.org/03pcc9z86"
+        },
+        {
+          "label": "University of Technology of Belfort-Montbéliard",
+          "type": "Parent",
+          "id": "https://ror.org/05bn3m307"
+        },
+        {
+          "label": "École Nationale Supérieure de Mécanique et des Microtechniques",
+          "type": "Parent",
+          "id": "https://ror.org/05813w841"
+        }
+      ],
+      "addresses": [
+        {
+          "lat": 47.24878,
+          "lng": 6.01815,
+          "state": null,
+          "state_code": null,
+          "city": "Besançon",
+          "geonames_city": {
+            "id": 3033123,
+            "city": "Besançon",
+            "geonames_admin1": {
+              "name": "Bourgogne-Franche-Comté",
+              "id": 11071619,
+              "ascii_name": "Bourgogne-Franche-Comté",
+              "code": "FR.27"
+            },
+            "geonames_admin2": {
+              "name": "Doubs",
+              "id": 3020989,
+              "ascii_name": "Doubs",
+              "code": "FR.27.25"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level2": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level3": {
+              "name": null,
+              "code": null
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 3017382
+        }
+      ],
+      "links": [
+        "http://www.femto-st.fr/"
+      ],
+      "aliases": [],
+      "acronyms": [
+        "FEMTO-ST"
+      ],
+      "status": "active",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/FEMTO-ST_Institute",
+      "labels": [],
+      "country": {
+        "country_name": "France",
+        "country_code": "FR"
+      },
+      "external_ids": {
+        "ISNI": {
+          "preferred": null,
+          "all": [
+            "0000 0001 0286 3297"
+          ]
+        },
+        "CNRS": {
+          "preferred": null,
+          "all": [
+            "UMR6174"
+          ]
+        },
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q3081158"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.462068.e",
+          "all": "grid.462068.e"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/00ffqn037",
+      "name": "Hospital of St John & St Elizabeth",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1856,
+      "types": [
+        "Healthcare"
+      ],
+      "relationships": [],
+      "addresses": [
+        {
+          "lat": 51.532778,
+          "lng": -0.174167,
+          "state": null,
+          "state_code": null,
+          "city": "London",
+          "geonames_city": {
+            "id": 2643743,
+            "city": "London",
+            "geonames_admin1": {
+              "name": "England",
+              "id": 6269131,
+              "ascii_name": "England",
+              "code": "GB.ENG"
+            },
+            "geonames_admin2": {
+              "name": "Greater London",
+              "id": 2648110,
+              "ascii_name": "Greater London",
+              "code": "GB.ENG.GLA"
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": "LONDON",
+              "code": "UKI"
+            },
+            "nuts_level2": {
+              "name": "Inner London - West",
+              "code": "UKI3"
+            },
+            "nuts_level3": {
+              "name": "Westminster",
+              "code": "UKI32"
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 2635167
+        }
+      ],
+      "links": [
+        "https://www.hje.org.uk/"
+      ],
+      "aliases": [],
+      "acronyms": [],
+      "status": "active",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Hospital_of_St_John_and_St_Elizabeth",
+      "labels": [],
+      "country": {
+        "country_name": "United Kingdom",
+        "country_code": "GB"
+      },
+      "external_ids": {
+        "ISNI": {
+          "preferred": null,
+          "all": [
+            "0000 0004 0496 4405"
+          ]
+        },
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q30293020"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.439637.c",
+          "all": "grid.439637.c"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/01ah9ym33",
+      "name": "Krankenhaus St. Elisabeth und St. Barbara",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1891,
+      "types": [
+        "Healthcare"
+      ],
+      "relationships": [],
+      "addresses": [
+        {
+          "lat": 51.477639,
+          "lng": 11.968576,
+          "state": null,
+          "state_code": null,
+          "city": "Halle",
+          "geonames_city": {
+            "id": 2911522,
+            "city": "Halle (Saale)",
+            "geonames_admin1": {
+              "name": "Saxony-Anhalt",
+              "id": 2842565,
+              "ascii_name": "Saxony-Anhalt",
+              "code": "DE.14"
+            },
+            "geonames_admin2": {
+              "name": null,
+              "id": null,
+              "ascii_name": null,
+              "code": null
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": "SACHSEN-ANHALT",
+              "code": "DEE"
+            },
+            "nuts_level2": {
+              "name": "Sachsen-Anhalt",
+              "code": "DEE0"
+            },
+            "nuts_level3": {
+              "name": "Halle (Saale), Kreisfreie Stadt",
+              "code": "DEE02"
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 2921044
+        }
+      ],
+      "links": [
+        "http://www.krankenhaus-halle-saale.de/startseite/"
+      ],
+      "aliases": [],
+      "acronyms": [],
+      "status": "active",
+      "wikipedia_url": "",
+      "labels": [],
+      "country": {
+        "country_name": "Germany",
+        "country_code": "DE"
+      },
+      "external_ids": {
+        "GRID": {
+          "preferred": "grid.477948.1",
+          "all": "grid.477948.1"
+        }
+      }
+    },
+    {
+      "id": "https://ror.org/02wk2vx54",
+      "name": "Saints Cyril and Methodius University of Skopje",
+      "email_address": null,
+      "ip_addresses": [],
+      "established": 1943,
+      "types": [
+        "Education"
+      ],
+      "relationships": [
+        {
+          "label": "Seismological Observatory at the Faculty of Natural Sciences and Mathematics, Ss. Cyril and Methodius University, Skopje, Republic of Macedonia",
+          "type": "Child",
+          "id": "https://ror.org/04p3kp518"
+        }
+      ],
+      "addresses": [
+        {
+          "lat": 41.99646,
+          "lng": 21.43141,
+          "state": null,
+          "state_code": null,
+          "city": "Skopje",
+          "geonames_city": {
+            "id": 785842,
+            "city": "Skopje",
+            "geonames_admin1": {
+              "name": "Grad Skopje",
+              "id": 11398357,
+              "ascii_name": "Grad Skopje",
+              "code": "MK.F6"
+            },
+            "geonames_admin2": {
+              "name": null,
+              "id": null,
+              "ascii_name": null,
+              "code": null
+            },
+            "license": {
+              "attribution": "Data from geonames.org under a CC-BY 3.0 license",
+              "license": "http://creativecommons.org/licenses/by/3.0/"
+            },
+            "nuts_level1": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level2": {
+              "name": null,
+              "code": null
+            },
+            "nuts_level3": {
+              "name": null,
+              "code": null
+            }
+          },
+          "postcode": null,
+          "primary": false,
+          "line": null,
+          "country_geonames_id": 718075
+        }
+      ],
+      "links": [
+        "https://www.ukim.edu.mk"
+      ],
+      "aliases": [
+        "Ss. Cyril and Methodius University",
+        "St. Cyril and Methodius University",
+        "St. Cyril and St. Methodius University"
+      ],
+      "acronyms": [],
+      "status": "active",
+      "wikipedia_url": "http://en.wikipedia.org/wiki/Ss._Cyril_and_Methodius_University_of_Skopje",
+      "labels": [
+        {
+          "label": "Универзитет Св. Кирил и Методиј",
+          "iso639": "mk"
+        },
+        {
+          "label": "Universiteti Kiril dhe Metodij",
+          "iso639": "sq"
+        },
+        {
+          "label": "Универзитет у Скопљу",
+          "iso639": "sr"
+        }
+      ],
+      "country": {
+        "country_name": "North Macedonia",
+        "country_code": "MK"
+      },
+      "external_ids": {
+        "ISNI": {
+          "preferred": null,
+          "all": [
+            "0000 0001 0708 5391"
+          ]
+        },
+        "OrgRef": {
+          "preferred": null,
+          "all": [
+            "2091869"
+          ]
+        },
+        "Wikidata": {
+          "preferred": null,
+          "all": [
+            "Q589636"
+          ]
+        },
+        "GRID": {
+          "preferred": "grid.7858.2",
+          "all": "grid.7858.2"
+        }
+      }
+    }
+  ],
+  "meta": {
+    "types": [
+      {
+        "id": "healthcare",
+        "title": "Healthcare",
+        "count": 421
+      },
+      {
+        "id": "education",
+        "title": "Education",
+        "count": 173
+      },
+      {
+        "id": "nonprofit",
+        "title": "Nonprofit",
+        "count": 38
+      },
+      {
+        "id": "facility",
+        "title": "Facility",
+        "count": 24
+      },
+      {
+        "id": "archive",
+        "title": "Archive",
+        "count": 23
+      },
+      {
+        "id": "other",
+        "title": "Other",
+        "count": 12
+      },
+      {
+        "id": "company",
+        "title": "Company",
+        "count": 6
+      },
+      {
+        "id": "government",
+        "title": "Government",
+        "count": 5
+      }
+    ],
+    "countries": [
+      {
+        "id": "us",
+        "title": "United States",
+        "count": 307
+      },
+      {
+        "id": "gb",
+        "title": "United Kingdom",
+        "count": 92
+      },
+      {
+        "id": "de",
+        "title": "Germany",
+        "count": 44
+      },
+      {
+        "id": "ru",
+        "title": "Russia",
+        "count": 36
+      },
+      {
+        "id": "ca",
+        "title": "Canada",
+        "count": 29
+      },
+      {
+        "id": "ie",
+        "title": "Ireland",
+        "count": 17
+      },
+      {
+        "id": "au",
+        "title": "Australia",
+        "count": 16
+      },
+      {
+        "id": "ch",
+        "title": "Switzerland",
+        "count": 11
+      },
+      {
+        "id": "in",
+        "title": "India",
+        "count": 11
+      },
+      {
+        "id": "kr",
+        "title": "South Korea",
+        "count": 11
+      }
+    ],
+    "statuses": [
+      {
+        "id": "active",
+        "title": "active",
+        "count": 701
+      }
+    ]
+  }
+}
