@@ -974,7 +974,7 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: PlatesItemUISchema()), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.4"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.5"])])
 
     sensors = ma_fields.List(
         ma_fields.Nested(lambda: SensorsItemUISchema()), required=True
