@@ -42,12 +42,17 @@ ui_tutorial = "ui.tutorial:create_blueprint"
 ui_contact = "ui.contact:create_blueprint"
 ui_under_development = "ui.under_development:create_blueprint"
 ui_developers_team = "ui.developers_team:create_blueprint"
+itc = "itc.views.records.app:create_app_blueprint"
+itc_requests = "itc.views.requests.api:create_api_blueprint"
+itc_file = "itc.views.files.app:create_app_blueprint"
+itc_file_draft = "itc.views.draft_files.app:create_app_blueprint"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"
 mst = "mst"
 spr = "spr"
 bli = "bli"
+itc = "itc"
 
 [project.entry-points."invenio_db.alembic"]
 repo = "common:alembic"
@@ -59,11 +64,13 @@ mbdb-common = "common.fixtures"
 mst = "mst.ext:MstExt"
 spr = "spr.ext:SprExt"
 bli = "bli.ext:BliExt"
+itc = "itc.ext:ItcExt"
 
 [project.entry-points."invenio_base.apps"]
 mst = "mst.ext:MstExt"
 spr = "spr.ext:SprExt"
 bli = "bli.ext:BliExt"
+itc = "itc.ext:ItcExt"
 
 [project.entry-points."invenio_db.models"]
 mst = "mst.records.models"
@@ -75,6 +82,9 @@ bli_file = "bli.files.models"
 spr_file_draft = "spr.files.models"
 mst_file_draft = "mst.files.models"
 bli_file_draft = "bli.files.models"
+itc = "itc.records.models"
+itc_file = "itc.files.models"
+itc_file_draft = "itc.files.models"
 
 [project.entry-points."invenio_base.api_blueprints"]
 mst = "mst.views.records.api:create_api_blueprint"
@@ -89,31 +99,40 @@ bli_file_draft = "bli.views.draft_files.api:create_api_blueprint"
 mst_requests = "mst.views.requests.api:create_api_blueprint"
 bli_requests = "bli.views.requests.api:create_api_blueprint"
 spr_requests = "spr.views.requests.api:create_api_blueprint"
+itc = "itc.views.records.api:create_api_blueprint"
+itc_requests = "itc.views.requests.api:create_api_blueprint"
+itc_file = "itc.views.files.api:create_api_blueprint"
+itc_file_draft = "itc.views.draft_files.api:create_api_blueprint"
 
 [project.entry-points."invenio_search.mappings"]
 mst = "mst.records.mappings"
 spr = "spr.records.mappings"
 bli = "bli.records.mappings"
+itc = "itc.records.mappings"
 
 [project.entry-points."invenio_jsonschemas.schemas"]
 mst = "mst.records.jsonschemas"
 spr = "spr.records.jsonschemas"
 bli = "bli.records.jsonschemas"
+itc = "itc.records.jsonschemas"
 
 [project.entry-points."oarepo.models"]
 mst = "mst.models:records.json"
 spr = "spr.models:records.json"
 bli = "bli.models:records.json"
+itc = "itc.models:records.json"
 
 [project.entry-points."oarepo.ui"]
 mst = "mst.models:ui.json"
 spr = "spr.models:ui.json"
 bli = "bli.models:ui.json"
+itc = "itc.models:ui.json"
 
 [project.entry-points."invenio_requests.types"]
 mst_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
 bli_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
 spr_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
+itc_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
 
 [project.optional-dependencies]
 tests = [
