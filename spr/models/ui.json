@@ -625,8 +625,8 @@
                                                                     "hint": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/by_sequencing.hint",
                                                                     "children": {
                                                                         "coverage": {
-                                                                            "detail": "integer",
-                                                                            "input": "integer",
+                                                                            "detail": "double",
+                                                                            "input": "double",
                                                                             "help": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/by_sequencing/coverage.help",
                                                                             "label": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/by_sequencing/coverage.label",
                                                                             "hint": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/by_sequencing/coverage.hint",
@@ -756,36 +756,81 @@
                                                     "hint": "metadata/general_parameters/chemical_environments/constituents/variant.hint",
                                                     "facet": "metadata_general_parameters_chemical_environments_constituents_variant"
                                                 },
-                                                "additional_identifiers": {
-                                                    "detail": "array",
-                                                    "input": "array",
-                                                    "help": "metadata/general_parameters/chemical_environments/constituents/additional_identifiers.help",
-                                                    "label": "metadata/general_parameters/chemical_environments/constituents/additional_identifiers.label",
-                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/additional_identifiers.hint",
-                                                    "child": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "help": "metadata/general_parameters/chemical_environments/constituents/additional_identifiers.help",
-                                                        "label": "metadata/general_parameters/chemical_environments/constituents/additional_identifiers.label",
-                                                        "hint": "metadata/general_parameters/chemical_environments/constituents/additional_identifiers.hint",
-                                                        "facet": "metadata_general_parameters_chemical_environments_constituents_additional_identifiers"
+                                                "basic_information": {
+                                                    "detail": "vocabulary_item",
+                                                    "edit": "vocabulary_item",
+                                                    "input": "vocabulary",
+                                                    "help": "metadata/general_parameters/chemical_environments/constituents/basic_information.help",
+                                                    "label": "metadata/general_parameters/chemical_environments/constituents/basic_information.label",
+                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/basic_information.hint",
+                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_basic_information",
+                                                    "children": {
+                                                        "id": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/basic_information/id.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/basic_information/id.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/basic_information/id.hint"
+                                                        },
+                                                        "title": {
+                                                            "detail": false,
+                                                            "input": false,
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/basic_information/title.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/basic_information/title.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/basic_information/title.hint"
+                                                        },
+                                                        "chemical_formula": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/basic_information/chemical_formula.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/basic_information/chemical_formula.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/basic_information/chemical_formula.hint"
+                                                        },
+                                                        "additional_identifiers": {
+                                                            "detail": "array",
+                                                            "input": "array",
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/basic_information/additional_identifiers.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/basic_information/additional_identifiers.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/basic_information/additional_identifiers.hint",
+                                                            "child": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/general_parameters/chemical_environments/constituents/basic_information/additional_identifiers.help",
+                                                                "label": "metadata/general_parameters/chemical_environments/constituents/basic_information/additional_identifiers.label",
+                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/basic_information/additional_identifiers.hint"
+                                                            }
+                                                        },
+                                                        "molecular_weight": {
+                                                            "detail": false,
+                                                            "input": false,
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight.hint",
+                                                            "children": {
+                                                                "unit": {
+                                                                    "detail": "keyword",
+                                                                    "input": "keyword",
+                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/unit.help",
+                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/unit.label",
+                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/unit.hint"
+                                                                },
+                                                                "value": {
+                                                                    "detail": "float",
+                                                                    "input": "float",
+                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/value.help",
+                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/value.label",
+                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/value.hint"
+                                                                }
+                                                            }
+                                                        },
+                                                        "@v": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/basic_information/@v.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/basic_information/@v.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/basic_information/@v.hint"
+                                                        }
                                                     }
-                                                },
-                                                "inchikey": {
-                                                    "detail": "keyword",
-                                                    "input": "keyword",
-                                                    "help": "metadata/general_parameters/chemical_environments/constituents/inchikey.help",
-                                                    "label": "metadata/general_parameters/chemical_environments/constituents/inchikey.label",
-                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/inchikey.hint",
-                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_inchikey"
-                                                },
-                                                "isotopic_labeling": {
-                                                    "detail": "keyword",
-                                                    "input": "keyword",
-                                                    "help": "metadata/general_parameters/chemical_environments/constituents/isotopic_labeling.help",
-                                                    "label": "metadata/general_parameters/chemical_environments/constituents/isotopic_labeling.label",
-                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/isotopic_labeling.hint",
-                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_isotopic_labeling"
                                                 },
                                                 "chemical_modifications": {
                                                     "detail": "array",
@@ -1321,8 +1366,8 @@
                                                                                 "hint": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/by_sequencing.hint",
                                                                                 "children": {
                                                                                     "coverage": {
-                                                                                        "detail": "integer",
-                                                                                        "input": "integer",
+                                                                                        "detail": "double",
+                                                                                        "input": "double",
                                                                                         "help": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/by_sequencing/coverage.help",
                                                                                         "label": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/by_sequencing/coverage.label",
                                                                                         "hint": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/by_sequencing/coverage.hint",
@@ -1452,36 +1497,81 @@
                                                                 "hint": "metadata/general_parameters/chemical_environments/constituents/components/variant.hint",
                                                                 "facet": "metadata_general_parameters_chemical_environments_constituents_components_variant"
                                                             },
-                                                            "additional_identifiers": {
-                                                                "detail": "array",
-                                                                "input": "array",
-                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/additional_identifiers.help",
-                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/additional_identifiers.label",
-                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/additional_identifiers.hint",
-                                                                "child": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/components/additional_identifiers.help",
-                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/components/additional_identifiers.label",
-                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/components/additional_identifiers.hint",
-                                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_components_additional_identifiers"
+                                                            "basic_information": {
+                                                                "detail": "vocabulary_item",
+                                                                "edit": "vocabulary_item",
+                                                                "input": "vocabulary",
+                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/basic_information.help",
+                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/basic_information.label",
+                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/basic_information.hint",
+                                                                "facet": "metadata_general_parameters_chemical_environments_constituents_components_basic_information",
+                                                                "children": {
+                                                                    "id": {
+                                                                        "detail": "keyword",
+                                                                        "input": "keyword",
+                                                                        "help": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/id.help",
+                                                                        "label": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/id.label",
+                                                                        "hint": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/id.hint"
+                                                                    },
+                                                                    "title": {
+                                                                        "detail": false,
+                                                                        "input": false,
+                                                                        "help": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/title.help",
+                                                                        "label": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/title.label",
+                                                                        "hint": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/title.hint"
+                                                                    },
+                                                                    "chemical_formula": {
+                                                                        "detail": "keyword",
+                                                                        "input": "keyword",
+                                                                        "help": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/chemical_formula.help",
+                                                                        "label": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/chemical_formula.label",
+                                                                        "hint": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/chemical_formula.hint"
+                                                                    },
+                                                                    "additional_identifiers": {
+                                                                        "detail": "array",
+                                                                        "input": "array",
+                                                                        "help": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/additional_identifiers.help",
+                                                                        "label": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/additional_identifiers.label",
+                                                                        "hint": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/additional_identifiers.hint",
+                                                                        "child": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "help": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/additional_identifiers.help",
+                                                                            "label": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/additional_identifiers.label",
+                                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/additional_identifiers.hint"
+                                                                        }
+                                                                    },
+                                                                    "molecular_weight": {
+                                                                        "detail": false,
+                                                                        "input": false,
+                                                                        "help": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight.help",
+                                                                        "label": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight.label",
+                                                                        "hint": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight.hint",
+                                                                        "children": {
+                                                                            "unit": {
+                                                                                "detail": "keyword",
+                                                                                "input": "keyword",
+                                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/unit.help",
+                                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/unit.label",
+                                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/unit.hint"
+                                                                            },
+                                                                            "value": {
+                                                                                "detail": "float",
+                                                                                "input": "float",
+                                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/value.help",
+                                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/value.label",
+                                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/value.hint"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "@v": {
+                                                                        "detail": "keyword",
+                                                                        "input": "keyword",
+                                                                        "help": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/@v.help",
+                                                                        "label": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/@v.label",
+                                                                        "hint": "metadata/general_parameters/chemical_environments/constituents/components/basic_information/@v.hint"
+                                                                    }
                                                                 }
-                                                            },
-                                                            "inchikey": {
-                                                                "detail": "keyword",
-                                                                "input": "keyword",
-                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/inchikey.help",
-                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/inchikey.label",
-                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/inchikey.hint",
-                                                                "facet": "metadata_general_parameters_chemical_environments_constituents_components_inchikey"
-                                                            },
-                                                            "isotopic_labeling": {
-                                                                "detail": "keyword",
-                                                                "input": "keyword",
-                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/isotopic_labeling.help",
-                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/isotopic_labeling.label",
-                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/isotopic_labeling.hint",
-                                                                "facet": "metadata_general_parameters_chemical_environments_constituents_components_isotopic_labeling"
                                                             }
                                                         }
                                                     }
@@ -1912,21 +2002,6 @@
                                             "label": "metadata/general_parameters/chemical_environments/solvent.label",
                                             "hint": "metadata/general_parameters/chemical_environments/solvent.hint",
                                             "children": {
-                                                "additional_identifiers": {
-                                                    "detail": "array",
-                                                    "input": "array",
-                                                    "help": "metadata/general_parameters/chemical_environments/solvent/additional_identifiers.help",
-                                                    "label": "metadata/general_parameters/chemical_environments/solvent/additional_identifiers.label",
-                                                    "hint": "metadata/general_parameters/chemical_environments/solvent/additional_identifiers.hint",
-                                                    "child": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "help": "metadata/general_parameters/chemical_environments/solvent/additional_identifiers.help",
-                                                        "label": "metadata/general_parameters/chemical_environments/solvent/additional_identifiers.label",
-                                                        "hint": "metadata/general_parameters/chemical_environments/solvent/additional_identifiers.hint",
-                                                        "facet": "metadata_general_parameters_chemical_environments_solvent_additional_identifiers"
-                                                    }
-                                                },
                                                 "additional_specifications": {
                                                     "detail": "array",
                                                     "input": "array",
@@ -1940,6 +2015,82 @@
                                                         "label": "metadata/general_parameters/chemical_environments/solvent/additional_specifications.label",
                                                         "hint": "metadata/general_parameters/chemical_environments/solvent/additional_specifications.hint",
                                                         "facet": "metadata_general_parameters_chemical_environments_solvent_additional_specifications"
+                                                    }
+                                                },
+                                                "basic_information": {
+                                                    "detail": "vocabulary_item",
+                                                    "edit": "vocabulary_item",
+                                                    "input": "vocabulary",
+                                                    "help": "metadata/general_parameters/chemical_environments/solvent/basic_information.help",
+                                                    "label": "metadata/general_parameters/chemical_environments/solvent/basic_information.label",
+                                                    "hint": "metadata/general_parameters/chemical_environments/solvent/basic_information.hint",
+                                                    "facet": "metadata_general_parameters_chemical_environments_solvent_basic_information",
+                                                    "children": {
+                                                        "id": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/chemical_environments/solvent/basic_information/id.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/solvent/basic_information/id.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/solvent/basic_information/id.hint"
+                                                        },
+                                                        "title": {
+                                                            "detail": false,
+                                                            "input": false,
+                                                            "help": "metadata/general_parameters/chemical_environments/solvent/basic_information/title.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/solvent/basic_information/title.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/solvent/basic_information/title.hint"
+                                                        },
+                                                        "chemical_formula": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/chemical_environments/solvent/basic_information/chemical_formula.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/solvent/basic_information/chemical_formula.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/solvent/basic_information/chemical_formula.hint"
+                                                        },
+                                                        "additional_identifiers": {
+                                                            "detail": "array",
+                                                            "input": "array",
+                                                            "help": "metadata/general_parameters/chemical_environments/solvent/basic_information/additional_identifiers.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/solvent/basic_information/additional_identifiers.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/solvent/basic_information/additional_identifiers.hint",
+                                                            "child": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/general_parameters/chemical_environments/solvent/basic_information/additional_identifiers.help",
+                                                                "label": "metadata/general_parameters/chemical_environments/solvent/basic_information/additional_identifiers.label",
+                                                                "hint": "metadata/general_parameters/chemical_environments/solvent/basic_information/additional_identifiers.hint"
+                                                            }
+                                                        },
+                                                        "molecular_weight": {
+                                                            "detail": false,
+                                                            "input": false,
+                                                            "help": "metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight.hint",
+                                                            "children": {
+                                                                "unit": {
+                                                                    "detail": "keyword",
+                                                                    "input": "keyword",
+                                                                    "help": "metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/unit.help",
+                                                                    "label": "metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/unit.label",
+                                                                    "hint": "metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/unit.hint"
+                                                                },
+                                                                "value": {
+                                                                    "detail": "float",
+                                                                    "input": "float",
+                                                                    "help": "metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/value.help",
+                                                                    "label": "metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/value.label",
+                                                                    "hint": "metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/value.hint"
+                                                                }
+                                                            }
+                                                        },
+                                                        "@v": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/chemical_environments/solvent/basic_information/@v.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/solvent/basic_information/@v.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/solvent/basic_information/@v.hint"
+                                                        }
                                                     }
                                                 },
                                                 "concentration": {
@@ -1965,48 +2116,6 @@
                                                             "label": "metadata/general_parameters/chemical_environments/solvent/concentration/value.label",
                                                             "hint": "metadata/general_parameters/chemical_environments/solvent/concentration/value.hint",
                                                             "facet": "metadata_general_parameters_chemical_environments_solvent_concentration_value"
-                                                        }
-                                                    }
-                                                },
-                                                "inchikey": {
-                                                    "detail": "keyword",
-                                                    "input": "keyword",
-                                                    "help": "metadata/general_parameters/chemical_environments/solvent/inchikey.help",
-                                                    "label": "metadata/general_parameters/chemical_environments/solvent/inchikey.label",
-                                                    "hint": "metadata/general_parameters/chemical_environments/solvent/inchikey.hint",
-                                                    "facet": "metadata_general_parameters_chemical_environments_solvent_inchikey"
-                                                },
-                                                "isotopic_labeling": {
-                                                    "detail": "keyword",
-                                                    "input": "keyword",
-                                                    "help": "metadata/general_parameters/chemical_environments/solvent/isotopic_labeling.help",
-                                                    "label": "metadata/general_parameters/chemical_environments/solvent/isotopic_labeling.label",
-                                                    "hint": "metadata/general_parameters/chemical_environments/solvent/isotopic_labeling.hint",
-                                                    "facet": "metadata_general_parameters_chemical_environments_solvent_isotopic_labeling"
-                                                },
-                                                "molecular_weight": {
-                                                    "detail": false,
-                                                    "input": false,
-                                                    "help": "metadata/general_parameters/chemical_environments/solvent/molecular_weight.help",
-                                                    "label": "metadata/general_parameters/chemical_environments/solvent/molecular_weight.label",
-                                                    "hint": "metadata/general_parameters/chemical_environments/solvent/molecular_weight.hint",
-                                                    "children": {
-                                                        "unit": {
-                                                            "detail": "keyword",
-                                                            "input": "keyword",
-                                                            "help": "metadata/general_parameters/chemical_environments/solvent/molecular_weight/unit.help",
-                                                            "label": "metadata/general_parameters/chemical_environments/solvent/molecular_weight/unit.label",
-                                                            "hint": "metadata/general_parameters/chemical_environments/solvent/molecular_weight/unit.hint",
-                                                            "enum": "metadata/general_parameters/chemical_environments/solvent/molecular_weight/unit.enum",
-                                                            "facet": "metadata_general_parameters_chemical_environments_solvent_molecular_weight_unit"
-                                                        },
-                                                        "value": {
-                                                            "detail": "double",
-                                                            "input": "double",
-                                                            "help": "metadata/general_parameters/chemical_environments/solvent/molecular_weight/value.help",
-                                                            "label": "metadata/general_parameters/chemical_environments/solvent/molecular_weight/value.label",
-                                                            "hint": "metadata/general_parameters/chemical_environments/solvent/molecular_weight/value.hint",
-                                                            "facet": "metadata_general_parameters_chemical_environments_solvent_molecular_weight_value"
                                                         }
                                                     }
                                                 },
@@ -2827,8 +2936,8 @@
                                                         "hint": "metadata/general_parameters/entities_of_interest/quality_controls/identity/by_sequencing.hint",
                                                         "children": {
                                                             "coverage": {
-                                                                "detail": "integer",
-                                                                "input": "integer",
+                                                                "detail": "double",
+                                                                "input": "double",
                                                                 "help": "metadata/general_parameters/entities_of_interest/quality_controls/identity/by_sequencing/coverage.help",
                                                                 "label": "metadata/general_parameters/entities_of_interest/quality_controls/identity/by_sequencing/coverage.label",
                                                                 "hint": "metadata/general_parameters/entities_of_interest/quality_controls/identity/by_sequencing/coverage.hint",
@@ -2958,36 +3067,81 @@
                                         "hint": "metadata/general_parameters/entities_of_interest/variant.hint",
                                         "facet": "metadata_general_parameters_entities_of_interest_variant"
                                     },
-                                    "additional_identifiers": {
-                                        "detail": "array",
-                                        "input": "array",
-                                        "help": "metadata/general_parameters/entities_of_interest/additional_identifiers.help",
-                                        "label": "metadata/general_parameters/entities_of_interest/additional_identifiers.label",
-                                        "hint": "metadata/general_parameters/entities_of_interest/additional_identifiers.hint",
-                                        "child": {
-                                            "detail": "keyword",
-                                            "input": "keyword",
-                                            "help": "metadata/general_parameters/entities_of_interest/additional_identifiers.help",
-                                            "label": "metadata/general_parameters/entities_of_interest/additional_identifiers.label",
-                                            "hint": "metadata/general_parameters/entities_of_interest/additional_identifiers.hint",
-                                            "facet": "metadata_general_parameters_entities_of_interest_additional_identifiers"
+                                    "basic_information": {
+                                        "detail": "vocabulary_item",
+                                        "edit": "vocabulary_item",
+                                        "input": "vocabulary",
+                                        "help": "metadata/general_parameters/entities_of_interest/basic_information.help",
+                                        "label": "metadata/general_parameters/entities_of_interest/basic_information.label",
+                                        "hint": "metadata/general_parameters/entities_of_interest/basic_information.hint",
+                                        "facet": "metadata_general_parameters_entities_of_interest_basic_information",
+                                        "children": {
+                                            "id": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/general_parameters/entities_of_interest/basic_information/id.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/basic_information/id.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/basic_information/id.hint"
+                                            },
+                                            "title": {
+                                                "detail": false,
+                                                "input": false,
+                                                "help": "metadata/general_parameters/entities_of_interest/basic_information/title.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/basic_information/title.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/basic_information/title.hint"
+                                            },
+                                            "chemical_formula": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/general_parameters/entities_of_interest/basic_information/chemical_formula.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/basic_information/chemical_formula.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/basic_information/chemical_formula.hint"
+                                            },
+                                            "additional_identifiers": {
+                                                "detail": "array",
+                                                "input": "array",
+                                                "help": "metadata/general_parameters/entities_of_interest/basic_information/additional_identifiers.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/basic_information/additional_identifiers.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/basic_information/additional_identifiers.hint",
+                                                "child": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/general_parameters/entities_of_interest/basic_information/additional_identifiers.help",
+                                                    "label": "metadata/general_parameters/entities_of_interest/basic_information/additional_identifiers.label",
+                                                    "hint": "metadata/general_parameters/entities_of_interest/basic_information/additional_identifiers.hint"
+                                                }
+                                            },
+                                            "molecular_weight": {
+                                                "detail": false,
+                                                "input": false,
+                                                "help": "metadata/general_parameters/entities_of_interest/basic_information/molecular_weight.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/basic_information/molecular_weight.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/basic_information/molecular_weight.hint",
+                                                "children": {
+                                                    "unit": {
+                                                        "detail": "keyword",
+                                                        "input": "keyword",
+                                                        "help": "metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/unit.help",
+                                                        "label": "metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/unit.label",
+                                                        "hint": "metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/unit.hint"
+                                                    },
+                                                    "value": {
+                                                        "detail": "float",
+                                                        "input": "float",
+                                                        "help": "metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/value.help",
+                                                        "label": "metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/value.label",
+                                                        "hint": "metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/value.hint"
+                                                    }
+                                                }
+                                            },
+                                            "@v": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/general_parameters/entities_of_interest/basic_information/@v.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/basic_information/@v.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/basic_information/@v.hint"
+                                            }
                                         }
-                                    },
-                                    "inchikey": {
-                                        "detail": "keyword",
-                                        "input": "keyword",
-                                        "help": "metadata/general_parameters/entities_of_interest/inchikey.help",
-                                        "label": "metadata/general_parameters/entities_of_interest/inchikey.label",
-                                        "hint": "metadata/general_parameters/entities_of_interest/inchikey.hint",
-                                        "facet": "metadata_general_parameters_entities_of_interest_inchikey"
-                                    },
-                                    "isotopic_labeling": {
-                                        "detail": "keyword",
-                                        "input": "keyword",
-                                        "help": "metadata/general_parameters/entities_of_interest/isotopic_labeling.help",
-                                        "label": "metadata/general_parameters/entities_of_interest/isotopic_labeling.label",
-                                        "hint": "metadata/general_parameters/entities_of_interest/isotopic_labeling.hint",
-                                        "facet": "metadata_general_parameters_entities_of_interest_isotopic_labeling"
                                     },
                                     "chemical_modifications": {
                                         "detail": "array",
@@ -3523,8 +3677,8 @@
                                                                     "hint": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity/by_sequencing.hint",
                                                                     "children": {
                                                                         "coverage": {
-                                                                            "detail": "integer",
-                                                                            "input": "integer",
+                                                                            "detail": "double",
+                                                                            "input": "double",
                                                                             "help": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity/by_sequencing/coverage.help",
                                                                             "label": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity/by_sequencing/coverage.label",
                                                                             "hint": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity/by_sequencing/coverage.hint",
@@ -3654,36 +3808,81 @@
                                                     "hint": "metadata/general_parameters/entities_of_interest/components/variant.hint",
                                                     "facet": "metadata_general_parameters_entities_of_interest_components_variant"
                                                 },
-                                                "additional_identifiers": {
-                                                    "detail": "array",
-                                                    "input": "array",
-                                                    "help": "metadata/general_parameters/entities_of_interest/components/additional_identifiers.help",
-                                                    "label": "metadata/general_parameters/entities_of_interest/components/additional_identifiers.label",
-                                                    "hint": "metadata/general_parameters/entities_of_interest/components/additional_identifiers.hint",
-                                                    "child": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "help": "metadata/general_parameters/entities_of_interest/components/additional_identifiers.help",
-                                                        "label": "metadata/general_parameters/entities_of_interest/components/additional_identifiers.label",
-                                                        "hint": "metadata/general_parameters/entities_of_interest/components/additional_identifiers.hint",
-                                                        "facet": "metadata_general_parameters_entities_of_interest_components_additional_identifiers"
+                                                "basic_information": {
+                                                    "detail": "vocabulary_item",
+                                                    "edit": "vocabulary_item",
+                                                    "input": "vocabulary",
+                                                    "help": "metadata/general_parameters/entities_of_interest/components/basic_information.help",
+                                                    "label": "metadata/general_parameters/entities_of_interest/components/basic_information.label",
+                                                    "hint": "metadata/general_parameters/entities_of_interest/components/basic_information.hint",
+                                                    "facet": "metadata_general_parameters_entities_of_interest_components_basic_information",
+                                                    "children": {
+                                                        "id": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/entities_of_interest/components/basic_information/id.help",
+                                                            "label": "metadata/general_parameters/entities_of_interest/components/basic_information/id.label",
+                                                            "hint": "metadata/general_parameters/entities_of_interest/components/basic_information/id.hint"
+                                                        },
+                                                        "title": {
+                                                            "detail": false,
+                                                            "input": false,
+                                                            "help": "metadata/general_parameters/entities_of_interest/components/basic_information/title.help",
+                                                            "label": "metadata/general_parameters/entities_of_interest/components/basic_information/title.label",
+                                                            "hint": "metadata/general_parameters/entities_of_interest/components/basic_information/title.hint"
+                                                        },
+                                                        "chemical_formula": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/entities_of_interest/components/basic_information/chemical_formula.help",
+                                                            "label": "metadata/general_parameters/entities_of_interest/components/basic_information/chemical_formula.label",
+                                                            "hint": "metadata/general_parameters/entities_of_interest/components/basic_information/chemical_formula.hint"
+                                                        },
+                                                        "additional_identifiers": {
+                                                            "detail": "array",
+                                                            "input": "array",
+                                                            "help": "metadata/general_parameters/entities_of_interest/components/basic_information/additional_identifiers.help",
+                                                            "label": "metadata/general_parameters/entities_of_interest/components/basic_information/additional_identifiers.label",
+                                                            "hint": "metadata/general_parameters/entities_of_interest/components/basic_information/additional_identifiers.hint",
+                                                            "child": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/general_parameters/entities_of_interest/components/basic_information/additional_identifiers.help",
+                                                                "label": "metadata/general_parameters/entities_of_interest/components/basic_information/additional_identifiers.label",
+                                                                "hint": "metadata/general_parameters/entities_of_interest/components/basic_information/additional_identifiers.hint"
+                                                            }
+                                                        },
+                                                        "molecular_weight": {
+                                                            "detail": false,
+                                                            "input": false,
+                                                            "help": "metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight.help",
+                                                            "label": "metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight.label",
+                                                            "hint": "metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight.hint",
+                                                            "children": {
+                                                                "unit": {
+                                                                    "detail": "keyword",
+                                                                    "input": "keyword",
+                                                                    "help": "metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/unit.help",
+                                                                    "label": "metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/unit.label",
+                                                                    "hint": "metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/unit.hint"
+                                                                },
+                                                                "value": {
+                                                                    "detail": "float",
+                                                                    "input": "float",
+                                                                    "help": "metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/value.help",
+                                                                    "label": "metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/value.label",
+                                                                    "hint": "metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/value.hint"
+                                                                }
+                                                            }
+                                                        },
+                                                        "@v": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/entities_of_interest/components/basic_information/@v.help",
+                                                            "label": "metadata/general_parameters/entities_of_interest/components/basic_information/@v.label",
+                                                            "hint": "metadata/general_parameters/entities_of_interest/components/basic_information/@v.hint"
+                                                        }
                                                     }
-                                                },
-                                                "inchikey": {
-                                                    "detail": "keyword",
-                                                    "input": "keyword",
-                                                    "help": "metadata/general_parameters/entities_of_interest/components/inchikey.help",
-                                                    "label": "metadata/general_parameters/entities_of_interest/components/inchikey.label",
-                                                    "hint": "metadata/general_parameters/entities_of_interest/components/inchikey.hint",
-                                                    "facet": "metadata_general_parameters_entities_of_interest_components_inchikey"
-                                                },
-                                                "isotopic_labeling": {
-                                                    "detail": "keyword",
-                                                    "input": "keyword",
-                                                    "help": "metadata/general_parameters/entities_of_interest/components/isotopic_labeling.help",
-                                                    "label": "metadata/general_parameters/entities_of_interest/components/isotopic_labeling.label",
-                                                    "hint": "metadata/general_parameters/entities_of_interest/components/isotopic_labeling.hint",
-                                                    "facet": "metadata_general_parameters_entities_of_interest_components_isotopic_labeling"
                                                 }
                                             }
                                         }

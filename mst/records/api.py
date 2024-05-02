@@ -11,6 +11,7 @@ from oarepo_runtime.records.relations import (
     RelationsField,
 )
 from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
+from oarepo_runtime.records.systemfields.owner import OwnersField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
 
 from mst.files.api import MstFile, MstFileDraft
@@ -26,6 +27,8 @@ from mst.records.models import (
 class MstParentRecord(ParentRecord):
     model_cls = MstParentMetadata
 
+    owners = OwnersField()
+
 
 class MstIdProvider(DraftRecordIdProviderV2):
     pid_type = "mst"
@@ -37,7 +40,9 @@ class MstRecord(InvenioRecord):
 
     schema = ConstantField("$schema", "local://mst-1.0.0.json")
 
-    index = IndexField("mst-mst-1.0.0")
+    index = IndexField(
+        "mst-mst-1.0.0",
+    )
 
     pid = PIDField(provider=MstIdProvider, context_cls=PIDFieldContext, create=True)
 
@@ -54,6 +59,17 @@ class MstRecord(InvenioRecord):
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
+        basic_information=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.basic_information",
+            keys=[
+                "id",
+                "title",
+                "chemical_formula",
+                "additional_identifiers",
+                "molecular_weight",
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
+        ),
         Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.chemical_environments.constituents.components.expression_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
@@ -63,6 +79,17 @@ class MstRecord(InvenioRecord):
             "metadata.general_parameters.chemical_environments.constituents.components.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Chemical_basic_information=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.components.basic_information",
+            keys=[
+                "id",
+                "title",
+                "chemical_formula",
+                "additional_identifiers",
+                "molecular_weight",
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
         ),
         Body_fluid_source_organism=PIDRelation(
             "metadata.general_parameters.chemical_environments.constituents.source_organism",
@@ -93,6 +120,28 @@ class MstRecord(InvenioRecord):
             "metadata.general_parameters.chemical_environments.constituents.components.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        components_Chemical_basic_information=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.components.basic_information",
+            keys=[
+                "id",
+                "title",
+                "chemical_formula",
+                "additional_identifiers",
+                "molecular_weight",
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
+        ),
+        solvent_Chemical_basic_information=PIDRelation(
+            "metadata.general_parameters.chemical_environments.solvent.basic_information",
+            keys=[
+                "id",
+                "title",
+                "chemical_formula",
+                "additional_identifiers",
+                "molecular_weight",
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
         ),
         affiliations=PIDRelation(
             "metadata.general_parameters.depositors.contributors.affiliations",
@@ -137,6 +186,17 @@ class MstRecord(InvenioRecord):
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
+        entities_of_interest_Chemical_basic_information=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.basic_information",
+            keys=[
+                "id",
+                "title",
+                "chemical_formula",
+                "additional_identifiers",
+                "molecular_weight",
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
+        ),
         Molecular_assembly_components_Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.components.expression_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
@@ -146,6 +206,17 @@ class MstRecord(InvenioRecord):
             "metadata.general_parameters.entities_of_interest.components.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Molecular_assembly_components_Chemical_basic_information=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.components.basic_information",
+            keys=[
+                "id",
+                "title",
+                "chemical_formula",
+                "additional_identifiers",
+                "molecular_weight",
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
         ),
         Complex_substance_of_biological_origin_Body_fluid_source_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.source_organism",
@@ -176,6 +247,17 @@ class MstRecord(InvenioRecord):
             "metadata.general_parameters.entities_of_interest.components.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Lipid_assembly_components_Chemical_basic_information=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.components.basic_information",
+            keys=[
+                "id",
+                "title",
+                "chemical_formula",
+                "additional_identifiers",
+                "molecular_weight",
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
         ),
         funding_references=PIDRelation(
             "metadata.general_parameters.funding_references",
@@ -282,6 +364,9 @@ class MstRecord(InvenioRecord):
 
     parent_record_cls = MstParentRecord
     record_status = RecordStatusSystemField()
+    has_draft = HasDraftCheckField(
+        draft_cls=lambda: MstDraft, config_key="HAS_DRAFT_CUSTOM_FIELD"
+    )
 
     files = FilesField(file_cls=MstFile, store=False, create=False, delete=False)
 
@@ -295,7 +380,7 @@ class MstDraft(InvenioDraft):
 
     schema = ConstantField("$schema", "local://mst-1.0.0.json")
 
-    index = IndexField("mst-mst_draft-1.0.0")
+    index = IndexField("mst-mst_draft-1.0.0", search_alias="mst")
 
     pid = PIDField(
         provider=MstIdProvider, context_cls=PIDFieldContext, create=True, delete=False
@@ -314,6 +399,17 @@ class MstDraft(InvenioDraft):
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
+        basic_information=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.basic_information",
+            keys=[
+                "id",
+                "title",
+                "chemical_formula",
+                "additional_identifiers",
+                "molecular_weight",
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
+        ),
         Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.chemical_environments.constituents.components.expression_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
@@ -323,6 +419,17 @@ class MstDraft(InvenioDraft):
             "metadata.general_parameters.chemical_environments.constituents.components.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Chemical_basic_information=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.components.basic_information",
+            keys=[
+                "id",
+                "title",
+                "chemical_formula",
+                "additional_identifiers",
+                "molecular_weight",
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
         ),
         Body_fluid_source_organism=PIDRelation(
             "metadata.general_parameters.chemical_environments.constituents.source_organism",
@@ -353,6 +460,28 @@ class MstDraft(InvenioDraft):
             "metadata.general_parameters.chemical_environments.constituents.components.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        components_Chemical_basic_information=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.components.basic_information",
+            keys=[
+                "id",
+                "title",
+                "chemical_formula",
+                "additional_identifiers",
+                "molecular_weight",
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
+        ),
+        solvent_Chemical_basic_information=PIDRelation(
+            "metadata.general_parameters.chemical_environments.solvent.basic_information",
+            keys=[
+                "id",
+                "title",
+                "chemical_formula",
+                "additional_identifiers",
+                "molecular_weight",
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
         ),
         affiliations=PIDRelation(
             "metadata.general_parameters.depositors.contributors.affiliations",
@@ -397,6 +526,17 @@ class MstDraft(InvenioDraft):
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
         ),
+        entities_of_interest_Chemical_basic_information=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.basic_information",
+            keys=[
+                "id",
+                "title",
+                "chemical_formula",
+                "additional_identifiers",
+                "molecular_weight",
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
+        ),
         Molecular_assembly_components_Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.components.expression_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
@@ -406,6 +546,17 @@ class MstDraft(InvenioDraft):
             "metadata.general_parameters.entities_of_interest.components.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Molecular_assembly_components_Chemical_basic_information=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.components.basic_information",
+            keys=[
+                "id",
+                "title",
+                "chemical_formula",
+                "additional_identifiers",
+                "molecular_weight",
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
         ),
         Complex_substance_of_biological_origin_Body_fluid_source_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.source_organism",
@@ -436,6 +587,17 @@ class MstDraft(InvenioDraft):
             "metadata.general_parameters.entities_of_interest.components.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Lipid_assembly_components_Chemical_basic_information=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.components.basic_information",
+            keys=[
+                "id",
+                "title",
+                "chemical_formula",
+                "additional_identifiers",
+                "molecular_weight",
+            ],
+            pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
         ),
         funding_references=PIDRelation(
             "metadata.general_parameters.funding_references",
@@ -550,10 +712,6 @@ class MstDraft(InvenioDraft):
     bucket_id = ModelField(dump=False)
     bucket = ModelField(dump=False)
 
-
-MstRecord.has_draft = HasDraftCheckField(
-    draft_cls=MstDraft, config_key="HAS_DRAFT_CUSTOM_FIELD"
-)
 
 MstFile.record_cls = MstRecord
 

@@ -288,7 +288,7 @@
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "coverage": {
-                                                                        "type": "integer"
+                                                                        "type": "double"
                                                                     },
                                                                     "method": {
                                                                         "type": "keyword",
@@ -368,18 +368,53 @@
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
-                                            "additional_identifiers": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
-                                            "inchikey": {
-                                                "copy_to": "collected_default_search_fields",
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
-                                            "isotopic_labeling": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
+                                            "basic_information": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "fields": {
+                                                            "text": {
+                                                                "type": "search_as_you_type"
+                                                            }
+                                                        },
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "title": {
+                                                        "dynamic": true,
+                                                        "properties": {
+                                                            "en": {
+                                                                "type": "search_as_you_type",
+                                                                "copy_to": "title_sort"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "chemical_formula": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "additional_identifiers": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "molecular_weight": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "unit": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "value": {
+                                                                "type": "float"
+                                                            }
+                                                        }
+                                                    },
+                                                    "@v": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
                                             },
                                             "chemical_modifications": {
                                                 "type": "nested",
@@ -622,7 +657,7 @@
                                                                         "type": "object",
                                                                         "properties": {
                                                                             "coverage": {
-                                                                                "type": "integer"
+                                                                                "type": "double"
                                                                             },
                                                                             "method": {
                                                                                 "type": "keyword",
@@ -702,18 +737,53 @@
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
-                                                    "additional_identifiers": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
-                                                    "inchikey": {
-                                                        "copy_to": "collected_default_search_fields",
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
-                                                    "isotopic_labeling": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
+                                                    "basic_information": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "fields": {
+                                                                    "text": {
+                                                                        "type": "search_as_you_type"
+                                                                    }
+                                                                },
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "title": {
+                                                                "dynamic": true,
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "type": "search_as_you_type",
+                                                                        "copy_to": "title_sort"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "chemical_formula": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "additional_identifiers": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "molecular_weight": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "unit": {
+                                                                        "type": "keyword",
+                                                                        "ignore_above": 1024
+                                                                    },
+                                                                    "value": {
+                                                                        "type": "float"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "@v": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             },
@@ -923,36 +993,59 @@
                                     "solvent": {
                                         "type": "nested",
                                         "properties": {
-                                            "additional_identifiers": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
                                             "additional_specifications": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
-                                            "concentration": {
+                                            "basic_information": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "unit": {
+                                                    "id": {
+                                                        "fields": {
+                                                            "text": {
+                                                                "type": "search_as_you_type"
+                                                            }
+                                                        },
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
-                                                    "value": {
-                                                        "type": "double"
+                                                    "title": {
+                                                        "dynamic": true,
+                                                        "properties": {
+                                                            "en": {
+                                                                "type": "search_as_you_type",
+                                                                "copy_to": "title_sort"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "chemical_formula": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "additional_identifiers": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "molecular_weight": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "unit": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "value": {
+                                                                "type": "float"
+                                                            }
+                                                        }
+                                                    },
+                                                    "@v": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
                                                     }
                                                 }
                                             },
-                                            "inchikey": {
-                                                "copy_to": "collected_default_search_fields",
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
-                                            "isotopic_labeling": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
-                                            "molecular_weight": {
+                                            "concentration": {
                                                 "type": "object",
                                                 "properties": {
                                                     "unit": {
@@ -1385,7 +1478,7 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "coverage": {
-                                                                "type": "integer"
+                                                                "type": "double"
                                                             },
                                                             "method": {
                                                                 "type": "keyword",
@@ -1466,18 +1559,53 @@
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     },
-                                    "additional_identifiers": {
-                                        "type": "keyword",
-                                        "ignore_above": 1024
-                                    },
-                                    "inchikey": {
-                                        "copy_to": "collected_default_search_fields",
-                                        "type": "keyword",
-                                        "ignore_above": 1024
-                                    },
-                                    "isotopic_labeling": {
-                                        "type": "keyword",
-                                        "ignore_above": 1024
+                                    "basic_information": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "fields": {
+                                                    "text": {
+                                                        "type": "search_as_you_type"
+                                                    }
+                                                },
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "title": {
+                                                "dynamic": true,
+                                                "properties": {
+                                                    "en": {
+                                                        "type": "search_as_you_type",
+                                                        "copy_to": "title_sort"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "chemical_formula": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "additional_identifiers": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "molecular_weight": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "unit": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "value": {
+                                                        "type": "float"
+                                                    }
+                                                }
+                                            },
+                                            "@v": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            }
+                                        }
                                     },
                                     "chemical_modifications": {
                                         "type": "nested",
@@ -1720,7 +1848,7 @@
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "coverage": {
-                                                                        "type": "integer"
+                                                                        "type": "double"
                                                                     },
                                                                     "method": {
                                                                         "type": "keyword",
@@ -1800,18 +1928,53 @@
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
-                                            "additional_identifiers": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
-                                            "inchikey": {
-                                                "copy_to": "collected_default_search_fields",
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
-                                            "isotopic_labeling": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
+                                            "basic_information": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "fields": {
+                                                            "text": {
+                                                                "type": "search_as_you_type"
+                                                            }
+                                                        },
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "title": {
+                                                        "dynamic": true,
+                                                        "properties": {
+                                                            "en": {
+                                                                "type": "search_as_you_type",
+                                                                "copy_to": "title_sort"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "chemical_formula": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "additional_identifiers": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "molecular_weight": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "unit": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "value": {
+                                                                "type": "float"
+                                                            }
+                                                        }
+                                                    },
+                                                    "@v": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
                                             }
                                         }
                                     },
