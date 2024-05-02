@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-03-07T16:12:13.182047\n"
-"PO-Revision-Date: 2024-03-07T16:12:13.182048\n"
+"POT-Creation-Date: 2024-05-02T09:04:15.194226\n"
+"PO-Revision-Date: 2024-05-02T09:04:15.194228\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1269,39 +1269,111 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/additional_identifiers.help"
+"metadata/general_parameters/chemical_environments/constituents/basic_information.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/additional_identifiers.label"
+"metadata/general_parameters/chemical_environments/constituents/basic_information.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/additional_identifiers.hint"
+"metadata/general_parameters/chemical_environments/constituents/basic_information.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/inchikey.help"
+"metadata/general_parameters/chemical_environments/constituents/basic_information/id.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/inchikey.label"
+"metadata/general_parameters/chemical_environments/constituents/basic_information/id.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/inchikey.hint"
+"metadata/general_parameters/chemical_environments/constituents/basic_information/id.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/isotopic_labeling.help"
+"metadata/general_parameters/chemical_environments/constituents/basic_information/title.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/isotopic_labeling.label"
+"metadata/general_parameters/chemical_environments/constituents/basic_information/title.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/isotopic_labeling.hint"
+"metadata/general_parameters/chemical_environments/constituents/basic_information/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/chemical_formula.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/chemical_formula.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/chemical_formula.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/additional_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/additional_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/additional_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/unit.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/unit.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/unit.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/value.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/value.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/@v.hint"
 msgstr ""
 
 msgid ""
@@ -2347,39 +2419,111 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/additional_identifiers.help"
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/additional_identifiers.label"
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/additional_identifiers.hint"
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/inchikey.help"
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/id.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/inchikey.label"
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/id.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/inchikey.hint"
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/id.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/isotopic_labeling.help"
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/title.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/isotopic_labeling.label"
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/title.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/isotopic_labeling.hint"
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/chemical_formula.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/chemical_formula.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/chemical_formula.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/additional_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/additional_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/additional_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/unit.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/unit.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/unit.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/value.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/value.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/@v.hint"
 msgstr ""
 
 msgid ""
@@ -3247,18 +3391,6 @@ msgid "metadata/general_parameters/chemical_environments/solvent.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/solvent/additional_identifiers.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/additional_identifiers.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/additional_identifiers.hint"
-msgstr ""
-
-msgid ""
 "metadata/general_parameters/chemical_environments/solvent/additional_specifications.help"
 msgstr ""
 
@@ -3268,6 +3400,114 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/solvent/additional_specifications.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/id.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/id.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/id.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/title.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/title.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/chemical_formula.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/chemical_formula.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/chemical_formula.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/additional_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/additional_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/additional_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/unit.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/unit.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/unit.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/value.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/value.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/@v.hint"
 msgstr ""
 
 msgid ""
@@ -3385,82 +3625,6 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/solvent/concentration/value.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/inchikey.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/inchikey.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/inchikey.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/isotopic_labeling.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/isotopic_labeling.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/isotopic_labeling.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/molecular_weight.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/molecular_weight.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/molecular_weight.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/molecular_weight/unit.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/molecular_weight/unit.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/molecular_weight/unit.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/molecular_weight/unit.enum.g/mol"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/molecular_weight/unit.enum.Da"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/molecular_weight/unit.enum.kDa"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/molecular_weight/unit.enum.MDa"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/molecular_weight/value.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/molecular_weight/value.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/solvent/molecular_weight/value.hint"
 msgstr ""
 
 msgid "metadata/general_parameters/chemical_environments/solvent/name.help"
@@ -4823,36 +4987,111 @@ msgid "metadata/general_parameters/entities_of_interest/variant.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/additional_identifiers.help"
+"metadata/general_parameters/entities_of_interest/basic_information.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/additional_identifiers.label"
+"metadata/general_parameters/entities_of_interest/basic_information.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/additional_identifiers.hint"
-msgstr ""
-
-msgid "metadata/general_parameters/entities_of_interest/inchikey.help"
-msgstr ""
-
-msgid "metadata/general_parameters/entities_of_interest/inchikey.label"
-msgstr ""
-
-msgid "metadata/general_parameters/entities_of_interest/inchikey.hint"
+"metadata/general_parameters/entities_of_interest/basic_information.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/isotopic_labeling.help"
+"metadata/general_parameters/entities_of_interest/basic_information/id.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/isotopic_labeling.label"
+"metadata/general_parameters/entities_of_interest/basic_information/id.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/isotopic_labeling.hint"
+"metadata/general_parameters/entities_of_interest/basic_information/id.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/title.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/title.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/chemical_formula.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/chemical_formula.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/chemical_formula.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/additional_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/additional_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/additional_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/unit.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/unit.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/unit.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/value.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/value.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/@v.hint"
 msgstr ""
 
 msgid ""
@@ -5889,39 +6128,111 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/additional_identifiers.help"
+"metadata/general_parameters/entities_of_interest/components/basic_information.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/additional_identifiers.label"
+"metadata/general_parameters/entities_of_interest/components/basic_information.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/additional_identifiers.hint"
+"metadata/general_parameters/entities_of_interest/components/basic_information.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/inchikey.help"
+"metadata/general_parameters/entities_of_interest/components/basic_information/id.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/inchikey.label"
+"metadata/general_parameters/entities_of_interest/components/basic_information/id.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/inchikey.hint"
+"metadata/general_parameters/entities_of_interest/components/basic_information/id.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/isotopic_labeling.help"
+"metadata/general_parameters/entities_of_interest/components/basic_information/title.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/isotopic_labeling.label"
+"metadata/general_parameters/entities_of_interest/components/basic_information/title.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/isotopic_labeling.hint"
+"metadata/general_parameters/entities_of_interest/components/basic_information/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/chemical_formula.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/chemical_formula.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/chemical_formula.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/additional_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/additional_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/additional_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/unit.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/unit.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/unit.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/value.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/value.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/@v.hint"
 msgstr ""
 
 msgid "metadata/general_parameters/entities_of_interest/derived_from.help"
@@ -7217,7 +7528,7 @@ msgstr ""
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.9.19"
+msgid "metadata/general_parameters/schema_version.enum.0.9.20"
 msgstr ""
 
 msgid "metadata/general_parameters/technique.help"
@@ -7240,6 +7551,11 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/technique.enum.Surface plasmon resonance (SPR)"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/technique.enum.Isothermal Titration Calorimetry "
+"(ITC)"
 msgstr ""
 
 msgid "metadata/method_specific_parameters.help"

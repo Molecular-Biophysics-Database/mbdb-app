@@ -56,9 +56,7 @@ class BliSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_environments_constituents_source_organism": facets.metadata_general_parameters_chemical_environments_constituents_source_organism,
         "metadata_general_parameters_chemical_environments_constituents_type": facets.metadata_general_parameters_chemical_environments_constituents_type,
         "metadata_general_parameters_chemical_environments_constituents_variant": facets.metadata_general_parameters_chemical_environments_constituents_variant,
-        "metadata_general_parameters_chemical_environments_constituents_additional_identifiers": facets.metadata_general_parameters_chemical_environments_constituents_additional_identifiers,
-        "metadata_general_parameters_chemical_environments_constituents_inchikey": facets.metadata_general_parameters_chemical_environments_constituents_inchikey,
-        "metadata_general_parameters_chemical_environments_constituents_isotopic_labeling": facets.metadata_general_parameters_chemical_environments_constituents_isotopic_labeling,
+        "metadata_general_parameters_chemical_environments_constituents_basic_information": facets.metadata_general_parameters_chemical_environments_constituents_basic_information,
         "metadata_general_parameters_chemical_environments_constituents_chemical_modifications_position": facets.metadata_general_parameters_chemical_environments_constituents_chemical_modifications_position,
         "metadata_general_parameters_chemical_environments_constituents_chemical_modifications_protocol_description": facets.metadata_general_parameters_chemical_environments_constituents_chemical_modifications_protocol_description,
         "metadata_general_parameters_chemical_environments_constituents_chemical_modifications_protocol_name": facets.metadata_general_parameters_chemical_environments_constituents_chemical_modifications_protocol_name,
@@ -102,9 +100,7 @@ class BliSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_environments_constituents_components_source_organism": facets.metadata_general_parameters_chemical_environments_constituents_components_source_organism,
         "metadata_general_parameters_chemical_environments_constituents_components_type": facets.metadata_general_parameters_chemical_environments_constituents_components_type,
         "metadata_general_parameters_chemical_environments_constituents_components_variant": facets.metadata_general_parameters_chemical_environments_constituents_components_variant,
-        "metadata_general_parameters_chemical_environments_constituents_components_additional_identifiers": facets.metadata_general_parameters_chemical_environments_constituents_components_additional_identifiers,
-        "metadata_general_parameters_chemical_environments_constituents_components_inchikey": facets.metadata_general_parameters_chemical_environments_constituents_components_inchikey,
-        "metadata_general_parameters_chemical_environments_constituents_components_isotopic_labeling": facets.metadata_general_parameters_chemical_environments_constituents_components_isotopic_labeling,
+        "metadata_general_parameters_chemical_environments_constituents_components_basic_information": facets.metadata_general_parameters_chemical_environments_constituents_components_basic_information,
         "metadata_general_parameters_chemical_environments_constituents_derived_from": facets.metadata_general_parameters_chemical_environments_constituents_derived_from,
         "metadata_general_parameters_chemical_environments_constituents_fluid": facets.metadata_general_parameters_chemical_environments_constituents_fluid,
         "metadata_general_parameters_chemical_environments_constituents_health_status": facets.metadata_general_parameters_chemical_environments_constituents_health_status,
@@ -141,14 +137,10 @@ class BliSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_chemical_environments_id": facets.metadata_general_parameters_chemical_environments_id,
         "metadata_general_parameters_chemical_environments_name": facets.metadata_general_parameters_chemical_environments_name,
         "metadata_general_parameters_chemical_environments_ph": facets.metadata_general_parameters_chemical_environments_ph,
-        "metadata_general_parameters_chemical_environments_solvent_additional_identifiers": facets.metadata_general_parameters_chemical_environments_solvent_additional_identifiers,
         "metadata_general_parameters_chemical_environments_solvent_additional_specifications": facets.metadata_general_parameters_chemical_environments_solvent_additional_specifications,
+        "metadata_general_parameters_chemical_environments_solvent_basic_information": facets.metadata_general_parameters_chemical_environments_solvent_basic_information,
         "metadata_general_parameters_chemical_environments_solvent_concentration_unit": facets.metadata_general_parameters_chemical_environments_solvent_concentration_unit,
         "metadata_general_parameters_chemical_environments_solvent_concentration_value": facets.metadata_general_parameters_chemical_environments_solvent_concentration_value,
-        "metadata_general_parameters_chemical_environments_solvent_inchikey": facets.metadata_general_parameters_chemical_environments_solvent_inchikey,
-        "metadata_general_parameters_chemical_environments_solvent_isotopic_labeling": facets.metadata_general_parameters_chemical_environments_solvent_isotopic_labeling,
-        "metadata_general_parameters_chemical_environments_solvent_molecular_weight_unit": facets.metadata_general_parameters_chemical_environments_solvent_molecular_weight_unit,
-        "metadata_general_parameters_chemical_environments_solvent_molecular_weight_value": facets.metadata_general_parameters_chemical_environments_solvent_molecular_weight_value,
         "metadata_general_parameters_chemical_environments_solvent_name": facets.metadata_general_parameters_chemical_environments_solvent_name,
         "metadata_general_parameters_chemical_environments_solvent_type": facets.metadata_general_parameters_chemical_environments_solvent_type,
         "metadata_general_parameters_collection_start_time": facets.metadata_general_parameters_collection_start_time,
@@ -203,9 +195,7 @@ class BliSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_entities_of_interest_source_organism": facets.metadata_general_parameters_entities_of_interest_source_organism,
         "metadata_general_parameters_entities_of_interest_type": facets.metadata_general_parameters_entities_of_interest_type,
         "metadata_general_parameters_entities_of_interest_variant": facets.metadata_general_parameters_entities_of_interest_variant,
-        "metadata_general_parameters_entities_of_interest_additional_identifiers": facets.metadata_general_parameters_entities_of_interest_additional_identifiers,
-        "metadata_general_parameters_entities_of_interest_inchikey": facets.metadata_general_parameters_entities_of_interest_inchikey,
-        "metadata_general_parameters_entities_of_interest_isotopic_labeling": facets.metadata_general_parameters_entities_of_interest_isotopic_labeling,
+        "metadata_general_parameters_entities_of_interest_basic_information": facets.metadata_general_parameters_entities_of_interest_basic_information,
         "metadata_general_parameters_entities_of_interest_chemical_modifications_position": facets.metadata_general_parameters_entities_of_interest_chemical_modifications_position,
         "metadata_general_parameters_entities_of_interest_chemical_modifications_protocol_description": facets.metadata_general_parameters_entities_of_interest_chemical_modifications_protocol_description,
         "metadata_general_parameters_entities_of_interest_chemical_modifications_protocol_name": facets.metadata_general_parameters_entities_of_interest_chemical_modifications_protocol_name,
@@ -249,9 +239,7 @@ class BliSearchOptions(InvenioSearchOptions):
         "metadata_general_parameters_entities_of_interest_components_source_organism": facets.metadata_general_parameters_entities_of_interest_components_source_organism,
         "metadata_general_parameters_entities_of_interest_components_type": facets.metadata_general_parameters_entities_of_interest_components_type,
         "metadata_general_parameters_entities_of_interest_components_variant": facets.metadata_general_parameters_entities_of_interest_components_variant,
-        "metadata_general_parameters_entities_of_interest_components_additional_identifiers": facets.metadata_general_parameters_entities_of_interest_components_additional_identifiers,
-        "metadata_general_parameters_entities_of_interest_components_inchikey": facets.metadata_general_parameters_entities_of_interest_components_inchikey,
-        "metadata_general_parameters_entities_of_interest_components_isotopic_labeling": facets.metadata_general_parameters_entities_of_interest_components_isotopic_labeling,
+        "metadata_general_parameters_entities_of_interest_components_basic_information": facets.metadata_general_parameters_entities_of_interest_components_basic_information,
         "metadata_general_parameters_entities_of_interest_derived_from": facets.metadata_general_parameters_entities_of_interest_derived_from,
         "metadata_general_parameters_entities_of_interest_fluid": facets.metadata_general_parameters_entities_of_interest_fluid,
         "metadata_general_parameters_entities_of_interest_health_status": facets.metadata_general_parameters_entities_of_interest_health_status,
@@ -367,4 +355,14 @@ class BliSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_sensors_supplier_name": facets.metadata_method_specific_parameters_sensors_supplier_name,
         "metadata_method_specific_parameters_sensors_surface_properties": facets.metadata_method_specific_parameters_sensors_surface_properties,
         **getattr(InvenioSearchOptions, "facets", {}),
+    }
+
+
+class BliDraftSearchOptions(InvenioSearchOptions):
+
+    facet_groups = {}
+
+    facets = {
+        "record_status": facets.record_status,
+        "has_draft": facets.has_draft,
     }

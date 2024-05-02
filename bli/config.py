@@ -1,11 +1,13 @@
 from oarepo_requests.resolvers.ui import (
-    draft_record_entity_reference_ui_resolver,
-    record_entity_reference_ui_resolver,
-    user_entity_reference_ui_resolver,
+    FallbackEntityReferenceUIResolver,
+    GroupEntityReferenceUIResolver,
+    RecordEntityDraftReferenceUIResolver,
+    RecordEntityReferenceUIResolver,
+    UserEntityReferenceUIResolver,
 )
 from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
-from oarepo_runtime.records.entity_resolvers import UserResolver
+from oarepo_runtime.records.entity_resolvers import GroupResolver, UserResolver
 
 from bli.files.api import BliFileDraft
 from bli.files.requests.resolvers import BliFileDraftResolver
@@ -48,6 +50,7 @@ REQUESTS_REGISTERED_TYPES = [
 
 REQUESTS_ENTITY_RESOLVERS = [
     UserResolver(),
+    GroupResolver(),
     BliResolver(record_cls=BliRecord, service_id="bli", type_key="bli"),
     BliDraftResolver(record_cls=BliDraft, service_id="bli", type_key="bli_draft"),
     BliFileDraftResolver(
@@ -57,10 +60,13 @@ REQUESTS_ENTITY_RESOLVERS = [
 
 
 ENTITY_REFERENCE_UI_RESOLVERS = {
-    "user": user_entity_reference_ui_resolver,
-    "bli": record_entity_reference_ui_resolver,
-    "bli_draft": draft_record_entity_reference_ui_resolver,
+    "user": UserEntityReferenceUIResolver("user"),
+    "fallback": FallbackEntityReferenceUIResolver("fallback"),
+    "group": GroupEntityReferenceUIResolver("group"),
+    "bli": RecordEntityReferenceUIResolver("bli"),
+    "bli_draft": RecordEntityDraftReferenceUIResolver("bli_draft"),
 }
+REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = ["created_by", "receiver", "topic"]
 
 
 BLI_FILES_RESOURCE_CONFIG = BliFileResourceConfig
