@@ -113,6 +113,7 @@ bli = "bli.models:ui.json"
 [project.entry-points."invenio_requests.types"]
 mst_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
 bli_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
+spr_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
 
 [project.optional-dependencies]
 tests = [

@@ -484,33 +484,14 @@ metadata_general_parameters_chemical_environments_constituents_variant = NestedL
     ),
 )
 
-metadata_general_parameters_chemical_environments_constituents_additional_identifiers = NestedLabeledFacet(
+metadata_general_parameters_chemical_environments_constituents_basic_information = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.additional_identifiers",
+    nested_facet=VocabularyFacet(
+        field="metadata.general_parameters.chemical_environments.constituents.basic_information",
         label=_(
-            "metadata/general_parameters/chemical_environments/constituents/additional_identifiers.label"
+            "metadata/general_parameters/chemical_environments/constituents/basic_information.label"
         ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_constituents_inchikey = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.inchikey",
-        label=_(
-            "metadata/general_parameters/chemical_environments/constituents/inchikey.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_constituents_isotopic_labeling = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.isotopic_labeling",
-        label=_(
-            "metadata/general_parameters/chemical_environments/constituents/isotopic_labeling.label"
-        ),
+        vocabulary="chemicals",
     ),
 )
 
@@ -994,33 +975,14 @@ metadata_general_parameters_chemical_environments_constituents_components_varian
     ),
 )
 
-metadata_general_parameters_chemical_environments_constituents_components_additional_identifiers = NestedLabeledFacet(
+metadata_general_parameters_chemical_environments_constituents_components_basic_information = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.components.additional_identifiers",
+    nested_facet=VocabularyFacet(
+        field="metadata.general_parameters.chemical_environments.constituents.components.basic_information",
         label=_(
-            "metadata/general_parameters/chemical_environments/constituents/components/additional_identifiers.label"
+            "metadata/general_parameters/chemical_environments/constituents/components/basic_information.label"
         ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_constituents_components_inchikey = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.components.inchikey",
-        label=_(
-            "metadata/general_parameters/chemical_environments/constituents/components/inchikey.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_constituents_components_isotopic_labeling = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.components.isotopic_labeling",
-        label=_(
-            "metadata/general_parameters/chemical_environments/constituents/components/isotopic_labeling.label"
-        ),
+        vocabulary="chemicals",
     ),
 )
 
@@ -1379,16 +1341,6 @@ metadata_general_parameters_chemical_environments_ph = NestedLabeledFacet(
     ),
 )
 
-metadata_general_parameters_chemical_environments_solvent_additional_identifiers = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.solvent.additional_identifiers",
-        label=_(
-            "metadata/general_parameters/chemical_environments/solvent/additional_identifiers.label"
-        ),
-    ),
-)
-
 metadata_general_parameters_chemical_environments_solvent_additional_specifications = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_environments",
     nested_facet=TermsFacet(
@@ -1396,6 +1348,17 @@ metadata_general_parameters_chemical_environments_solvent_additional_specificati
         label=_(
             "metadata/general_parameters/chemical_environments/solvent/additional_specifications.label"
         ),
+    ),
+)
+
+metadata_general_parameters_chemical_environments_solvent_basic_information = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_environments",
+    nested_facet=VocabularyFacet(
+        field="metadata.general_parameters.chemical_environments.solvent.basic_information",
+        label=_(
+            "metadata/general_parameters/chemical_environments/solvent/basic_information.label"
+        ),
+        vocabulary="chemicals",
     ),
 )
 
@@ -1415,46 +1378,6 @@ metadata_general_parameters_chemical_environments_solvent_concentration_value = 
         field="metadata.general_parameters.chemical_environments.solvent.concentration.value",
         label=_(
             "metadata/general_parameters/chemical_environments/solvent/concentration/value.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_solvent_inchikey = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.solvent.inchikey",
-        label=_(
-            "metadata/general_parameters/chemical_environments/solvent/inchikey.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_solvent_isotopic_labeling = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.solvent.isotopic_labeling",
-        label=_(
-            "metadata/general_parameters/chemical_environments/solvent/isotopic_labeling.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_solvent_molecular_weight_unit = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.solvent.molecular_weight.unit",
-        label=_(
-            "metadata/general_parameters/chemical_environments/solvent/molecular_weight/unit.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_solvent_molecular_weight_value = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.solvent.molecular_weight.value",
-        label=_(
-            "metadata/general_parameters/chemical_environments/solvent/molecular_weight/value.label"
         ),
     ),
 )
@@ -1866,21 +1789,10 @@ metadata_general_parameters_entities_of_interest_variant = TermsFacet(
     label=_("metadata/general_parameters/entities_of_interest/variant.label"),
 )
 
-metadata_general_parameters_entities_of_interest_additional_identifiers = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.additional_identifiers",
-    label=_(
-        "metadata/general_parameters/entities_of_interest/additional_identifiers.label"
-    ),
-)
-
-metadata_general_parameters_entities_of_interest_inchikey = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.inchikey",
-    label=_("metadata/general_parameters/entities_of_interest/inchikey.label"),
-)
-
-metadata_general_parameters_entities_of_interest_isotopic_labeling = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.isotopic_labeling",
-    label=_("metadata/general_parameters/entities_of_interest/isotopic_labeling.label"),
+metadata_general_parameters_entities_of_interest_basic_information = VocabularyFacet(
+    field="metadata.general_parameters.entities_of_interest.basic_information",
+    label=_("metadata/general_parameters/entities_of_interest/basic_information.label"),
+    vocabulary="chemicals",
 )
 
 metadata_general_parameters_entities_of_interest_chemical_modifications_position = NestedLabeledFacet(
@@ -2230,25 +2142,12 @@ metadata_general_parameters_entities_of_interest_components_variant = TermsFacet
     ),
 )
 
-metadata_general_parameters_entities_of_interest_components_additional_identifiers = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.components.additional_identifiers",
+metadata_general_parameters_entities_of_interest_components_basic_information = VocabularyFacet(
+    field="metadata.general_parameters.entities_of_interest.components.basic_information",
     label=_(
-        "metadata/general_parameters/entities_of_interest/components/additional_identifiers.label"
+        "metadata/general_parameters/entities_of_interest/components/basic_information.label"
     ),
-)
-
-metadata_general_parameters_entities_of_interest_components_inchikey = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.components.inchikey",
-    label=_(
-        "metadata/general_parameters/entities_of_interest/components/inchikey.label"
-    ),
-)
-
-metadata_general_parameters_entities_of_interest_components_isotopic_labeling = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.components.isotopic_labeling",
-    label=_(
-        "metadata/general_parameters/entities_of_interest/components/isotopic_labeling.label"
-    ),
+    vocabulary="chemicals",
 )
 
 metadata_general_parameters_entities_of_interest_derived_from = TermsFacet(
@@ -2893,3 +2792,8 @@ metadata_method_specific_parameters_sensor_surface_properties = TermsFacet(
     field="metadata.method_specific_parameters.sensor.surface_properties",
     label=_("metadata/method_specific_parameters/sensor/surface_properties.label"),
 )
+
+
+record_status = TermsFacet(field="record_status", label=_("record_status"))
+
+has_draft = TermsFacet(field="has_draft", label=_("has_draft"))
