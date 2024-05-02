@@ -654,7 +654,7 @@ class MethodSpecificParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.4"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.5"])])
 
     sensors = ma_fields.List(
         ma_fields.Nested(lambda: SensorsItemSchema()),

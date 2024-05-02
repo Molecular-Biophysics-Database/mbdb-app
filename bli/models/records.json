@@ -27060,7 +27060,7 @@
                                         },
                                         "surface_modification": {
                                             "type": "object",
-                                            "help.en": "The type of sealing used to seal the top of the plate",
+                                            "help.en": "If the plate had a modified surface, the modification can specified here (e.g. Non-binding surface)",
                                             "label.en": "Surface modification",
                                             "marshmallow": {
                                                 "generate": true,
@@ -27123,7 +27123,7 @@
                                         "type": {
                                             "type": "keyword",
                                             "required": true,
-                                            "help.en": "The type of the plate",
+                                            "help.en": "The type of the plate (e.g. half-area black polystyrene)",
                                             "label.en": "Type"
                                         },
                                         "wells": {
@@ -27143,7 +27143,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.9.4"
+                                    "0.9.5"
                                 ],
                                 "help.en": "The schema version used to annotate the BLI method specific parameters",
                                 "label.en": "Schema version"
