@@ -1,0 +1,2251 @@
+{
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "collected_default_search_fields": {
+            "type": "string"
+        },
+        "created": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "id": {
+            "type": "string"
+        },
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "general_parameters": {
+                    "type": "object",
+                    "properties": {
+                        "associated_publication": {
+                            "type": "object",
+                            "properties": {
+                                "journal": {
+                                    "type": "string"
+                                },
+                                "pid": {
+                                    "type": "string"
+                                },
+                                "title": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "type": "string"
+                                },
+                                "publisher": {
+                                    "type": "string"
+                                },
+                                "degree_type": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "chemical_environments": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "additional_specifications": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "constituents": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "additional_specifications": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "concentration": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "unit": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "number"
+                                                        }
+                                                    }
+                                                },
+                                                "expression_organism": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "rank": {
+                                                            "type": "string"
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "expression_source_type": {
+                                                    "type": "string"
+                                                },
+                                                "external_databases": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "modifications": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "biological_postprocessing": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "position": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "protocol": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "description": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "name": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "type": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "chemical": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "position": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "protocol": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "description": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "name": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "type": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "synthesis": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "position": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "protocol": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "description": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "name": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "type": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "molecular_weight": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "unit": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "number"
+                                                        }
+                                                    }
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "polymer_type": {
+                                                    "type": "string"
+                                                },
+                                                "quality_controls": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "homogeneity": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "checked": {
+                                                                    "type": "string"
+                                                                },
+                                                                "expected_number_of_species": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "method": {
+                                                                    "type": "string"
+                                                                },
+                                                                "number_of_species_observed": {
+                                                                    "type": "integer"
+                                                                }
+                                                            }
+                                                        },
+                                                        "identity": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "by_fingerprinting": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "method": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "by_intact_mass": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "deviation_from_expected_mass": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "unit": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "value": {
+                                                                                    "type": "number"
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "method": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "by_sequencing": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "coverage": {
+                                                                            "type": "number"
+                                                                        },
+                                                                        "method": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "checked": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "purity": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "checked": {
+                                                                    "type": "string"
+                                                                },
+                                                                "method": {
+                                                                    "type": "string"
+                                                                },
+                                                                "purity_percentage": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "sequence": {
+                                                    "type": "string"
+                                                },
+                                                "source_organism": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "rank": {
+                                                            "type": "string"
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "type": {
+                                                    "type": "string"
+                                                },
+                                                "variant": {
+                                                    "type": "string"
+                                                },
+                                                "basic_information": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "chemical_formula": {
+                                                            "type": "string"
+                                                        },
+                                                        "additional_identifiers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "molecular_weight": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "unit": {
+                                                                    "type": "string"
+                                                                },
+                                                                "value": {
+                                                                    "type": "number"
+                                                                }
+                                                            }
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "chemical_modifications": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "position": {
+                                                                "type": "string"
+                                                            },
+                                                            "protocol": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "description": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "name": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "type": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "components": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "additional_specifications": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "copy_number": {
+                                                                "type": "number"
+                                                            },
+                                                            "expression_organism": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "title": {
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "@v": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "expression_source_type": {
+                                                                "type": "string"
+                                                            },
+                                                            "external_databases": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "modifications": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "biological_postprocessing": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "position": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "protocol": {
+                                                                                    "type": "array",
+                                                                                    "items": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "description": {
+                                                                                                "type": "string"
+                                                                                            },
+                                                                                            "name": {
+                                                                                                "type": "string"
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "type": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "chemical": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "position": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "protocol": {
+                                                                                    "type": "array",
+                                                                                    "items": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "description": {
+                                                                                                "type": "string"
+                                                                                            },
+                                                                                            "name": {
+                                                                                                "type": "string"
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "type": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "synthesis": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "position": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "protocol": {
+                                                                                    "type": "array",
+                                                                                    "items": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "description": {
+                                                                                                "type": "string"
+                                                                                            },
+                                                                                            "name": {
+                                                                                                "type": "string"
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "type": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "molecular_weight": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "unit": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "value": {
+                                                                        "type": "number"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            },
+                                                            "polymer_type": {
+                                                                "type": "string"
+                                                            },
+                                                            "quality_controls": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "homogeneity": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "checked": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "expected_number_of_species": {
+                                                                                "type": "integer"
+                                                                            },
+                                                                            "method": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "number_of_species_observed": {
+                                                                                "type": "integer"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "identity": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "by_fingerprinting": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "method": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "by_intact_mass": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "deviation_from_expected_mass": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "unit": {
+                                                                                                "type": "string"
+                                                                                            },
+                                                                                            "value": {
+                                                                                                "type": "number"
+                                                                                            }
+                                                                                        }
+                                                                                    },
+                                                                                    "method": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "by_sequencing": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "coverage": {
+                                                                                        "type": "number"
+                                                                                    },
+                                                                                    "method": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "checked": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "purity": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "checked": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "method": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "purity_percentage": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "sequence": {
+                                                                "type": "string"
+                                                            },
+                                                            "source_organism": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "title": {
+                                                                        "type": "object"
+                                                                    },
+                                                                    "rank": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "@v": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "type": {
+                                                                "type": "string"
+                                                            },
+                                                            "variant": {
+                                                                "type": "string"
+                                                            },
+                                                            "basic_information": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "title": {
+                                                                        "type": "object"
+                                                                    },
+                                                                    "chemical_formula": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "additional_identifiers": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "molecular_weight": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "unit": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "value": {
+                                                                                "type": "number"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "@v": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "derived_from": {
+                                                    "type": "string"
+                                                },
+                                                "fluid": {
+                                                    "type": "string"
+                                                },
+                                                "health_status": {
+                                                    "type": "string"
+                                                },
+                                                "preparation_protocol": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "description": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "storage": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "duration": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "unit": {
+                                                                    "type": "string"
+                                                                },
+                                                                "value": {
+                                                                    "type": "number"
+                                                                }
+                                                            }
+                                                        },
+                                                        "storage_preparation": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "description": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "temperature": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "unit": {
+                                                                    "type": "string"
+                                                                },
+                                                                "value": {
+                                                                    "type": "number"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "cell_type": {
+                                                    "type": "string"
+                                                },
+                                                "fraction": {
+                                                    "type": "string"
+                                                },
+                                                "organ": {
+                                                    "type": "string"
+                                                },
+                                                "tissue": {
+                                                    "type": "string"
+                                                },
+                                                "capsid_type": {
+                                                    "type": "string"
+                                                },
+                                                "envelope_type": {
+                                                    "type": "string"
+                                                },
+                                                "genetic_material": {
+                                                    "type": "string"
+                                                },
+                                                "host_cell_type": {
+                                                    "type": "string"
+                                                },
+                                                "host_organism": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "rank": {
+                                                            "type": "string"
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "location": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "latitude": {
+                                                            "type": "number"
+                                                        },
+                                                        "longitude": {
+                                                            "type": "number"
+                                                        }
+                                                    }
+                                                },
+                                                "source": {
+                                                    "type": "string"
+                                                },
+                                                "assembly_type": {
+                                                    "type": "string"
+                                                },
+                                                "class": {
+                                                    "type": "string"
+                                                },
+                                                "number_of_mono_layers": {
+                                                    "type": "integer"
+                                                },
+                                                "size": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "lower": {
+                                                            "type": "number"
+                                                        },
+                                                        "mean": {
+                                                            "type": "number"
+                                                        },
+                                                        "median": {
+                                                            "type": "number"
+                                                        },
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "unit": {
+                                                            "type": "string"
+                                                        },
+                                                        "upper": {
+                                                            "type": "number"
+                                                        }
+                                                    }
+                                                },
+                                                "product": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "ph": {
+                                        "type": "number"
+                                    },
+                                    "solvent": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "additional_specifications": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "basic_information": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "chemical_formula": {
+                                                            "type": "string"
+                                                        },
+                                                        "additional_identifiers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "molecular_weight": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "unit": {
+                                                                    "type": "string"
+                                                                },
+                                                                "value": {
+                                                                    "type": "number"
+                                                                }
+                                                            }
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "concentration": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "unit": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "number"
+                                                        }
+                                                    }
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "collection_start_time": {
+                            "type": "string",
+                            "format": "date"
+                        },
+                        "depositors": {
+                            "type": "object",
+                            "properties": {
+                                "contributors": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "affiliations": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "city": {
+                                                            "type": "string"
+                                                        },
+                                                        "state": {
+                                                            "type": "string"
+                                                        },
+                                                        "country": {
+                                                            "type": "string"
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "family_name": {
+                                                "type": "string"
+                                            },
+                                            "given_name": {
+                                                "type": "string"
+                                            },
+                                            "identifiers": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "depositor": {
+                                    "type": "object",
+                                    "properties": {
+                                        "affiliations": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "title": {
+                                                        "type": "object"
+                                                    },
+                                                    "city": {
+                                                        "type": "string"
+                                                    },
+                                                    "state": {
+                                                        "type": "string"
+                                                    },
+                                                    "country": {
+                                                        "type": "string"
+                                                    },
+                                                    "@v": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "family_name": {
+                                            "type": "string"
+                                        },
+                                        "given_name": {
+                                            "type": "string"
+                                        },
+                                        "identifiers": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "principal_contact": {
+                                    "type": "object",
+                                    "properties": {
+                                        "affiliations": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "title": {
+                                                        "type": "object"
+                                                    },
+                                                    "city": {
+                                                        "type": "string"
+                                                    },
+                                                    "state": {
+                                                        "type": "string"
+                                                    },
+                                                    "country": {
+                                                        "type": "string"
+                                                    },
+                                                    "@v": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "family_name": {
+                                            "type": "string"
+                                        },
+                                        "given_name": {
+                                            "type": "string"
+                                        },
+                                        "identifiers": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "entities_of_interest": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "additional_specifications": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "expression_organism": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "type": "object"
+                                            },
+                                            "rank": {
+                                                "type": "string"
+                                            },
+                                            "@v": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "expression_source_type": {
+                                        "type": "string"
+                                    },
+                                    "external_databases": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "modifications": {
+                                        "type": "object",
+                                        "properties": {
+                                            "biological_postprocessing": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "position": {
+                                                            "type": "string"
+                                                        },
+                                                        "protocol": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "description": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "chemical": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "position": {
+                                                            "type": "string"
+                                                        },
+                                                        "protocol": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "description": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "synthesis": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "position": {
+                                                            "type": "string"
+                                                        },
+                                                        "protocol": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "description": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "molecular_weight": {
+                                        "type": "object",
+                                        "properties": {
+                                            "unit": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "polymer_type": {
+                                        "type": "string"
+                                    },
+                                    "quality_controls": {
+                                        "type": "object",
+                                        "properties": {
+                                            "homogeneity": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "checked": {
+                                                        "type": "string"
+                                                    },
+                                                    "expected_number_of_species": {
+                                                        "type": "integer"
+                                                    },
+                                                    "method": {
+                                                        "type": "string"
+                                                    },
+                                                    "number_of_species_observed": {
+                                                        "type": "integer"
+                                                    }
+                                                }
+                                            },
+                                            "identity": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "by_fingerprinting": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "method": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    },
+                                                    "by_intact_mass": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "deviation_from_expected_mass": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "unit": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "value": {
+                                                                        "type": "number"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "method": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    },
+                                                    "by_sequencing": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "coverage": {
+                                                                "type": "number"
+                                                            },
+                                                            "method": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    },
+                                                    "checked": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "purity": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "checked": {
+                                                        "type": "string"
+                                                    },
+                                                    "method": {
+                                                        "type": "string"
+                                                    },
+                                                    "purity_percentage": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "sequence": {
+                                        "type": "string"
+                                    },
+                                    "source_organism": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "type": "object"
+                                            },
+                                            "rank": {
+                                                "type": "string"
+                                            },
+                                            "@v": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "variant": {
+                                        "type": "string"
+                                    },
+                                    "basic_information": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "type": "object"
+                                            },
+                                            "chemical_formula": {
+                                                "type": "string"
+                                            },
+                                            "additional_identifiers": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "molecular_weight": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "unit": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            },
+                                            "@v": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "chemical_modifications": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "position": {
+                                                    "type": "string"
+                                                },
+                                                "protocol": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "description": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "type": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "components": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "additional_specifications": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "copy_number": {
+                                                    "type": "number"
+                                                },
+                                                "expression_organism": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "rank": {
+                                                            "type": "string"
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "expression_source_type": {
+                                                    "type": "string"
+                                                },
+                                                "external_databases": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "modifications": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "biological_postprocessing": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "position": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "protocol": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "description": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "name": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "type": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "chemical": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "position": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "protocol": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "description": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "name": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "type": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "synthesis": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "position": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "protocol": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "description": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "name": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "type": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "molecular_weight": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "unit": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "number"
+                                                        }
+                                                    }
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "polymer_type": {
+                                                    "type": "string"
+                                                },
+                                                "quality_controls": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "homogeneity": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "checked": {
+                                                                    "type": "string"
+                                                                },
+                                                                "expected_number_of_species": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "method": {
+                                                                    "type": "string"
+                                                                },
+                                                                "number_of_species_observed": {
+                                                                    "type": "integer"
+                                                                }
+                                                            }
+                                                        },
+                                                        "identity": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "by_fingerprinting": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "method": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "by_intact_mass": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "deviation_from_expected_mass": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "unit": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "value": {
+                                                                                    "type": "number"
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "method": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "by_sequencing": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "coverage": {
+                                                                            "type": "number"
+                                                                        },
+                                                                        "method": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "checked": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "purity": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "checked": {
+                                                                    "type": "string"
+                                                                },
+                                                                "method": {
+                                                                    "type": "string"
+                                                                },
+                                                                "purity_percentage": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "sequence": {
+                                                    "type": "string"
+                                                },
+                                                "source_organism": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "rank": {
+                                                            "type": "string"
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "type": {
+                                                    "type": "string"
+                                                },
+                                                "variant": {
+                                                    "type": "string"
+                                                },
+                                                "basic_information": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "chemical_formula": {
+                                                            "type": "string"
+                                                        },
+                                                        "additional_identifiers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "molecular_weight": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "unit": {
+                                                                    "type": "string"
+                                                                },
+                                                                "value": {
+                                                                    "type": "number"
+                                                                }
+                                                            }
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "derived_from": {
+                                        "type": "string"
+                                    },
+                                    "fluid": {
+                                        "type": "string"
+                                    },
+                                    "health_status": {
+                                        "type": "string"
+                                    },
+                                    "preparation_protocol": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "storage": {
+                                        "type": "object",
+                                        "properties": {
+                                            "duration": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "unit": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            },
+                                            "storage_preparation": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "description": {
+                                                            "type": "string"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "temperature": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "unit": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "cell_type": {
+                                        "type": "string"
+                                    },
+                                    "fraction": {
+                                        "type": "string"
+                                    },
+                                    "organ": {
+                                        "type": "string"
+                                    },
+                                    "tissue": {
+                                        "type": "string"
+                                    },
+                                    "capsid_type": {
+                                        "type": "string"
+                                    },
+                                    "envelope_type": {
+                                        "type": "string"
+                                    },
+                                    "genetic_material": {
+                                        "type": "string"
+                                    },
+                                    "host_cell_type": {
+                                        "type": "string"
+                                    },
+                                    "host_organism": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "type": "object"
+                                            },
+                                            "rank": {
+                                                "type": "string"
+                                            },
+                                            "@v": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "location": {
+                                        "type": "object",
+                                        "properties": {
+                                            "latitude": {
+                                                "type": "number"
+                                            },
+                                            "longitude": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    },
+                                    "source": {
+                                        "type": "string"
+                                    },
+                                    "assembly_type": {
+                                        "type": "string"
+                                    },
+                                    "class": {
+                                        "type": "string"
+                                    },
+                                    "number_of_mono_layers": {
+                                        "type": "integer"
+                                    },
+                                    "size": {
+                                        "type": "object",
+                                        "properties": {
+                                            "lower": {
+                                                "type": "number"
+                                            },
+                                            "mean": {
+                                                "type": "number"
+                                            },
+                                            "median": {
+                                                "type": "number"
+                                            },
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "unit": {
+                                                "type": "string"
+                                            },
+                                            "upper": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    },
+                                    "product": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "funding_references": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "object"
+                                    },
+                                    "funder_name": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "instrument": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "title": {
+                                    "type": "object"
+                                },
+                                "manufacturer": {
+                                    "type": "string"
+                                },
+                                "@v": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "raw_measurement_files": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "record_information": {
+                            "type": "object",
+                            "properties": {
+                                "access_rights": {
+                                    "type": "string"
+                                },
+                                "date_available": {
+                                    "type": "string",
+                                    "format": "date"
+                                },
+                                "deposition_date": {
+                                    "type": "string",
+                                    "format": "date"
+                                },
+                                "external_identifier": {
+                                    "type": "string"
+                                },
+                                "metadata_access_rights": {
+                                    "type": "string"
+                                },
+                                "publisher": {
+                                    "type": "string"
+                                },
+                                "resource_type": {
+                                    "type": "string"
+                                },
+                                "resource_type_general": {
+                                    "type": "string"
+                                },
+                                "subject_category": {
+                                    "type": "string"
+                                },
+                                "title": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "results": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "entities_involved": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "copy_number": {
+                                                    "type": "number"
+                                                },
+                                                "entity": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "unit": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "number"
+                                    },
+                                    "value_error": {
+                                        "type": "object",
+                                        "properties": {
+                                            "is_relative": {
+                                                "type": "boolean"
+                                            },
+                                            "lower": {
+                                                "type": "number"
+                                            },
+                                            "upper": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "schema_version": {
+                            "type": "string"
+                        },
+                        "technique": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "method_specific_parameters": {
+                    "type": "object",
+                    "properties": {
+                        "cell_temperature": {
+                            "type": "object",
+                            "properties": {
+                                "unit": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "cell_volume": {
+                            "type": "object",
+                            "properties": {
+                                "unit": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "data_analysis": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "data_fitting": {
+                                        "type": "object",
+                                        "properties": {
+                                            "data_fitting_model": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "model": {
+                                                        "type": "string"
+                                                    },
+                                                    "quality": {
+                                                        "type": "number"
+                                                    },
+                                                    "quality_type": {
+                                                        "type": "string"
+                                                    },
+                                                    "software_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "software_version": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "result": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "type": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "data_processing_steps": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "link_to_source_code": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "software_name": {
+                                                    "type": "string"
+                                                },
+                                                "software_version": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "experiment_type": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string"
+                                },
+                                "volume": {
+                                    "type": "object",
+                                    "properties": {
+                                        "unit": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": "number"
+                                        }
+                                    }
+                                },
+                                "injection_parameters": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "n_injections": {
+                                                "type": "number"
+                                            },
+                                            "volume": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "unit": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "number_injections": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "feedback_mode": {
+                            "type": "string"
+                        },
+                        "measurements": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "sample": {
+                                        "type": "object",
+                                        "properties": {
+                                            "chemical_environment": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "preparation_protocol": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "description": {
+                                                            "type": "string"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "target_in_cell": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "concentration": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "unit": {
+                                                                    "type": "string"
+                                                                },
+                                                                "value": {
+                                                                    "type": "number"
+                                                                }
+                                                            }
+                                                        },
+                                                        "entity": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "@v": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "target_in_syringe": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "concentration": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "unit": {
+                                                                    "type": "string"
+                                                                },
+                                                                "value": {
+                                                                    "type": "number"
+                                                                }
+                                                            }
+                                                        },
+                                                        "entity": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "@v": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "reference_power": {
+                            "type": "object",
+                            "properties": {
+                                "unit": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "schema_version": {
+                            "type": "string"
+                        },
+                        "stirring_speed": {
+                            "type": "number"
+                        }
+                    }
+                }
+            }
+        },
+        "updated": {
+            "type": "string",
+            "format": "date-time"
+        }
+    }
+}

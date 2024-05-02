@@ -19,8 +19,8 @@ i18n:
 models:
 - api_prefix: records/mst
   base_model: &id001 empty
-  features: [&id002 custom_fields, &id003 tests, &id004 relations, &id005 files, &id006 requests,
-    &id007 drafts, &id008 communities]
+  features: [&id002 communities, &id003 tests, &id004 relations, &id005 custom_fields,
+    &id006 drafts, &id007 files, &id008 requests]
   model_description: Microscale thermophoresis
   model_name: mst
   model_package: mst
@@ -39,6 +39,13 @@ models:
   model_name: spr
   model_package: spr
   pid_type: spr
+- api_prefix: records/itc
+  base_model: *id001
+  features: [*id002, *id003, *id004, *id005, *id006, *id007, *id008]
+  model_description: ''
+  model_name: itc
+  model_package: itc
+  pid_type: itc
 repository:
   model_package: models
   oarepo_version: 12
