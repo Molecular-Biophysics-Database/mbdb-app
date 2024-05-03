@@ -2026,17 +2026,20 @@
                                             }
                                         }
                                     },
-                                    "result": {
-                                        "type": "object",
-                                        "properties": {
-                                            "id": {
-                                                "type": "string"
-                                            },
-                                            "name": {
-                                                "type": "string"
-                                            },
-                                            "@v": {
-                                                "type": "string"
+                                    "results": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
+                                                }
                                             }
                                         }
                                     }

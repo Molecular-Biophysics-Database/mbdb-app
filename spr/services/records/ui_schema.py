@@ -63,7 +63,7 @@ class GeneralParametersUISchema(DictOnlySchema):
 
     results = ma_fields.List(ma_fields.Nested(lambda: ResultsItemUISchema()))
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.20"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.21"])])
 
     technique = ma_fields.String(
         required=True,
@@ -974,7 +974,7 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: MeasurementsItemUISchema()), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.3"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.4"])])
 
     sensor = ma_fields.Nested(lambda: SensorUISchema(), required=True)
 
@@ -2668,7 +2668,7 @@ class DataAnalysisItemUISchema(DictOnlySchema):
 
     measurements = ma_fields.List(ma_fields.Nested(lambda: EntityUISchema()))
 
-    result = ma_fields.Nested(lambda: EntityUISchema())
+    results = ma_fields.List(ma_fields.Nested(lambda: EntityUISchema()))
 
 
 class EntitiesInvolvedItemUISchema(DictOnlySchema):
