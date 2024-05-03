@@ -104,7 +104,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.20"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.21"])])
 
     technique = ma_fields.String(
         required=True,
@@ -654,7 +654,7 @@ class MethodSpecificParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.5"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.6"])])
 
     sensors = ma_fields.List(
         ma_fields.Nested(lambda: SensorsItemSchema()),
@@ -1876,38 +1876,6 @@ class IdentitySchema(DictOnlySchema):
     checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
 
-class MeasurementProtocolItemSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    _id = ma_fields.String(required=True, data_key="id", attribute="id")
-
-    name = ma_fields.String(required=True)
-
-    shaking_speed = ma_fields.Nested(lambda: ShakingSpeedSchema(), required=True)
-
-    start_time = ma_fields.Nested(lambda: DurationSchema(), required=True)
-
-    time_length = ma_fields.Nested(lambda: DurationSchema(), required=True)
-
-    type = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(
-                [
-                    "Association",
-                    "Baseline",
-                    "Dissociation",
-                    "Regeneration",
-                    "Load",
-                    "Wash",
-                    "Activation",
-                ]
-            )
-        ],
-    )
-
-
 class ModificationsSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -2332,7 +2300,9 @@ class DataAnalysisItemSchema(DictOnlySchema):
         ma_fields.Nested(lambda: EntitySchema()), validate=[ma.validate.Length(min=1)]
     )
 
-    result = ma_fields.Nested(lambda: EntitySchema())
+    results = ma_fields.List(
+        ma_fields.Nested(lambda: EntitySchema()), validate=[ma.validate.Length(min=1)]
+    )
 
 
 class EntitiesInvolvedItemSchema(DictOnlySchema):
@@ -2369,6 +2339,38 @@ class LigandInformationSchema(DictOnlySchema):
     )
 
 
+class MeasurementProtocolItemSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma_fields.String(required=True, data_key="id", attribute="id")
+
+    name = ma_fields.String(required=True)
+
+    shaking_speed = ma_fields.Nested(lambda: ShakingSpeedSchema(), required=True)
+
+    start_time = ma_fields.Nested(lambda: DurationSchema(), required=True)
+
+    time_length = ma_fields.Nested(lambda: DurationSchema(), required=True)
+
+    type = ma_fields.String(
+        required=True,
+        validate=[
+            OneOf(
+                [
+                    "Association",
+                    "Baseline",
+                    "Dissociation",
+                    "Regeneration",
+                    "Load",
+                    "Wash",
+                    "Activation",
+                ]
+            )
+        ],
+    )
+
+
 class PuritySchema(PolymorphicSchema):
     class Meta:
         unknown = ma.RAISE
@@ -2378,17 +2380,6 @@ class PuritySchema(PolymorphicSchema):
     Yes = ma_fields.Nested(lambda: PurityYesSchema(), required=True)
 
     type_field = "checked"
-
-
-class ShakingSpeedSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    unit = ma_fields.String(required=True, validate=[OneOf(["RPM"])])
-
-    value = ma_fields.Integer(required=True, validate=[ma.validate.Range(min=0)])
-
-    value_error = ma_fields.Nested(lambda: ValueErrorSchema())
 
 
 class StorageSchema(DictOnlySchema):
@@ -2764,6 +2755,15 @@ class RecordInformationSchema(DictOnlySchema):
     subject_category = ma_fields.String(required=True, validate=[OneOf(["Biophysics"])])
 
     title = ma_fields.String(required=True)
+
+
+class ShakingSpeedSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    unit = ma_fields.String(required=True, validate=[OneOf(["RPM"])])
+
+    value = ma_fields.Integer(required=True, validate=[ma.validate.Range(min=0)])
 
 
 class SizeSchema(DictOnlySchema):

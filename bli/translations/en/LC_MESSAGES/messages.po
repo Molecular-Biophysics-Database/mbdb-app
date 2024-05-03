@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-05-02T14:19:41.587442\n"
-"PO-Revision-Date: 2024-05-02T14:19:41.587449\n"
+"POT-Creation-Date: 2024-05-03T17:21:43.789077\n"
+"PO-Revision-Date: 2024-05-03T17:21:43.789083\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7803,7 +7803,7 @@ msgstr "Schema version"
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.9.20"
+msgid "metadata/general_parameters/schema_version.enum.0.9.21"
 msgstr ""
 
 msgid "metadata/general_parameters/technique.help"
@@ -7845,7 +7845,7 @@ msgid "metadata/method_specific_parameters.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/data_analysis.help"
-msgstr "The details of how data fitting was performed to obtain the result"
+msgstr "The details of how data analysis was performed to obtain results"
 
 msgid "metadata/method_specific_parameters/data_analysis.label"
 msgstr "Data analysis"
@@ -8078,22 +8078,22 @@ msgstr ""
 msgid "metadata/method_specific_parameters/data_analysis/measurements/@v.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/data_analysis/result.help"
+msgid "metadata/method_specific_parameters/data_analysis/results.help"
 msgstr "Link to a result that was defined in the general parameters"
 
-msgid "metadata/method_specific_parameters/data_analysis/result.label"
-msgstr "Result"
+msgid "metadata/method_specific_parameters/data_analysis/results.label"
+msgstr "Results"
 
-msgid "metadata/method_specific_parameters/data_analysis/result.hint"
+msgid "metadata/method_specific_parameters/data_analysis/results.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/data_analysis/result/@v.help"
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.help"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/data_analysis/result/@v.label"
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.label"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/data_analysis/result/@v.hint"
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/experiment_type.help"
@@ -8160,9 +8160,7 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/shaking_speed/unit.help"
-msgstr ""
-"The reported error of the value of the shaking speed (e.g. standard "
-"deviation, % error)"
+msgstr "The unit of the shaking/stirring speed)"
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/shaking_speed/unit.label"
@@ -8178,9 +8176,7 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/shaking_speed/value.help"
-msgstr ""
-"The numerical value of the shaking speed of the plate during the measurement"
-" step in the units defined in the general parameters"
+msgstr "The numerical value of the shaking/stirring speed"
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/shaking_speed/value.label"
@@ -8188,66 +8184,6 @@ msgstr "Value"
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/shaking_speed/value.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error.help"
-msgstr ""
-"The reported error of the value of the shaking speed (e.g. standard "
-"deviation, % error)"
-
-msgid ""
-"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error.label"
-msgstr "Value error"
-
-msgid ""
-"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/is_relative.help"
-msgstr ""
-"True if the error values should be interpreted as relative errors "
-"(fractional uncertainty)"
-
-msgid ""
-"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/is_relative.label"
-msgstr "Is relative"
-
-msgid ""
-"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/is_relative.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/lower.help"
-msgstr ""
-"The lower error, i.e. the number that should be subtracted from the value to"
-" get the lower bound of the 95 % confidence interval. The same unit as the "
-"value being described is assumed. If relative errors are provided, please "
-"provide it in fractional form (e.g.  0.01 for 1 %)"
-
-msgid ""
-"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/lower.label"
-msgstr "Lower"
-
-msgid ""
-"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/lower.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/upper.help"
-msgstr ""
-"The upper error, i.e. the number that should be added to the value to get "
-"the upper bound of the 95 % confidence interval. The same unit as the value "
-"being described is assumed. If relative errors are provided, please provide "
-"it in fractional form (e.g.  0.01 for 1 %)"
-
-msgid ""
-"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/upper.label"
-msgstr "Upper"
-
-msgid ""
-"metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/upper.hint"
 msgstr ""
 
 msgid ""
@@ -8987,7 +8923,7 @@ msgstr "Schema version"
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.9.5"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.9.6"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/sensors.help"
