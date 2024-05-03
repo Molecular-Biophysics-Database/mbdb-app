@@ -2394,49 +2394,22 @@
                                     "data_fitting": {
                                         "type": "object",
                                         "properties": {
-                                            "data_fitting_model": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "model": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
-                                                    "quality": {
-                                                        "type": "double"
-                                                    },
-                                                    "quality_type": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
-                                                    "software_name": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
-                                                    "software_version": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    }
-                                                }
+                                            "model": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
                                             },
-                                            "result": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "id": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
-                                                    "name": {
-                                                        "copy_to": "collected_default_search_fields",
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
-                                                    "@v": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    }
-                                                }
+                                            "quality": {
+                                                "type": "double"
                                             },
-                                            "type": {
+                                            "quality_type": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "software_name": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "software_version": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             }
@@ -2466,6 +2439,45 @@
                                                 "ignore_above": 1024
                                             }
                                         }
+                                    },
+                                    "measurements": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "name": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "@v": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            }
+                                        }
+                                    },
+                                    "results": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "name": {
+                                                "copy_to": "collected_default_search_fields",
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "@v": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            }
+                                        }
+                                    },
+                                    "type": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
                                     }
                                 }
                             },
@@ -2529,7 +2541,7 @@
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     },
-                                    "sample": {
+                                    "sample_in_cell": {
                                         "type": "object",
                                         "properties": {
                                             "chemical_environment": {
@@ -2562,7 +2574,7 @@
                                                     }
                                                 }
                                             },
-                                            "target_in_cell": {
+                                            "targets": {
                                                 "type": "object",
                                                 "properties": {
                                                     "concentration": {
@@ -2596,8 +2608,43 @@
                                                         }
                                                     }
                                                 }
+                                            }
+                                        }
+                                    },
+                                    "sample_in_syringe": {
+                                        "type": "object",
+                                        "properties": {
+                                            "chemical_environment": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "name": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "@v": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
                                             },
-                                            "target_in_syringe": {
+                                            "preparation_protocol": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "description": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "name": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
+                                            },
+                                            "targets": {
                                                 "type": "object",
                                                 "properties": {
                                                     "concentration": {
@@ -2653,7 +2700,16 @@
                                 "ignore_above": 1024
                             },
                             "stirring_speed": {
-                                "type": "double"
+                                "type": "object",
+                                "properties": {
+                                    "unit": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "value": {
+                                        "type": "integer"
+                                    }
+                                }
                             }
                         }
                     }

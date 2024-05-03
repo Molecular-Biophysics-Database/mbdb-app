@@ -4716,103 +4716,46 @@
                                         "label": "metadata/method_specific_parameters/data_analysis/data_fitting.label",
                                         "hint": "metadata/method_specific_parameters/data_analysis/data_fitting.hint",
                                         "children": {
-                                            "data_fitting_model": {
-                                                "detail": false,
-                                                "input": false,
-                                                "help": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model.help",
-                                                "label": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model.label",
-                                                "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model.hint",
-                                                "children": {
-                                                    "model": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "help": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/model.help",
-                                                        "label": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/model.label",
-                                                        "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/model.hint",
-                                                        "facet": "metadata_method_specific_parameters_data_analysis_data_fitting_data_fitting_model_model"
-                                                    },
-                                                    "quality": {
-                                                        "detail": "double",
-                                                        "input": "double",
-                                                        "help": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality.help",
-                                                        "label": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality.label",
-                                                        "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality.hint",
-                                                        "facet": "metadata_method_specific_parameters_data_analysis_data_fitting_data_fitting_model_quality"
-                                                    },
-                                                    "quality_type": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "help": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.help",
-                                                        "label": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.label",
-                                                        "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.hint",
-                                                        "enum": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.enum",
-                                                        "facet": "metadata_method_specific_parameters_data_analysis_data_fitting_data_fitting_model_quality_type"
-                                                    },
-                                                    "software_name": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "help": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/software_name.help",
-                                                        "label": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/software_name.label",
-                                                        "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/software_name.hint",
-                                                        "facet": "metadata_method_specific_parameters_data_analysis_data_fitting_data_fitting_model_software_name"
-                                                    },
-                                                    "software_version": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "help": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/software_version.help",
-                                                        "label": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/software_version.label",
-                                                        "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/software_version.hint",
-                                                        "facet": "metadata_method_specific_parameters_data_analysis_data_fitting_data_fitting_model_software_version"
-                                                    }
-                                                }
-                                            },
-                                            "result": {
-                                                "detail": "array",
-                                                "input": "array",
-                                                "help": "metadata/method_specific_parameters/data_analysis/data_fitting/result.help",
-                                                "label": "metadata/method_specific_parameters/data_analysis/data_fitting/result.label",
-                                                "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/result.hint",
-                                                "child": {
-                                                    "detail": "relation",
-                                                    "input": "relation",
-                                                    "help": "metadata/method_specific_parameters/data_analysis/data_fitting/result.help",
-                                                    "label": "metadata/method_specific_parameters/data_analysis/data_fitting/result.label",
-                                                    "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/result.hint",
-                                                    "children": {
-                                                        "id": {
-                                                            "detail": "keyword",
-                                                            "input": "keyword",
-                                                            "help": "metadata/general_parameters/results/id.help",
-                                                            "label": "metadata/general_parameters/results/id.label",
-                                                            "hint": "metadata/general_parameters/results/id.hint",
-                                                            "facet": "metadata_general_parameters_results_id"
-                                                        },
-                                                        "name": {
-                                                            "detail": "keyword",
-                                                            "input": "keyword",
-                                                            "help": "metadata/general_parameters/results/name.help",
-                                                            "label": "metadata/general_parameters/results/name.label",
-                                                            "hint": "metadata/general_parameters/results/name.hint",
-                                                            "facet": "metadata_general_parameters_results_name"
-                                                        },
-                                                        "@v": {
-                                                            "detail": "keyword",
-                                                            "input": "keyword",
-                                                            "help": "metadata/method_specific_parameters/data_analysis/data_fitting/result/@v.help",
-                                                            "label": "metadata/method_specific_parameters/data_analysis/data_fitting/result/@v.label",
-                                                            "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/result/@v.hint"
-                                                        }
-                                                    }
-                                                }
-                                            },
-                                            "type": {
+                                            "model": {
                                                 "detail": "keyword",
                                                 "input": "keyword",
-                                                "help": "metadata/method_specific_parameters/data_analysis/data_fitting/type.help",
-                                                "label": "metadata/method_specific_parameters/data_analysis/data_fitting/type.label",
-                                                "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/type.hint",
-                                                "enum": "metadata/method_specific_parameters/data_analysis/data_fitting/type.enum",
-                                                "facet": "metadata_method_specific_parameters_data_analysis_data_fitting_type"
+                                                "help": "metadata/method_specific_parameters/data_analysis/data_fitting/model.help",
+                                                "label": "metadata/method_specific_parameters/data_analysis/data_fitting/model.label",
+                                                "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/model.hint",
+                                                "facet": "metadata_method_specific_parameters_data_analysis_data_fitting_model"
+                                            },
+                                            "quality": {
+                                                "detail": "double",
+                                                "input": "double",
+                                                "help": "metadata/method_specific_parameters/data_analysis/data_fitting/quality.help",
+                                                "label": "metadata/method_specific_parameters/data_analysis/data_fitting/quality.label",
+                                                "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/quality.hint",
+                                                "facet": "metadata_method_specific_parameters_data_analysis_data_fitting_quality"
+                                            },
+                                            "quality_type": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.help",
+                                                "label": "metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.label",
+                                                "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.hint",
+                                                "enum": "metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.enum",
+                                                "facet": "metadata_method_specific_parameters_data_analysis_data_fitting_quality_type"
+                                            },
+                                            "software_name": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/method_specific_parameters/data_analysis/data_fitting/software_name.help",
+                                                "label": "metadata/method_specific_parameters/data_analysis/data_fitting/software_name.label",
+                                                "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/software_name.hint",
+                                                "facet": "metadata_method_specific_parameters_data_analysis_data_fitting_software_name"
+                                            },
+                                            "software_version": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/method_specific_parameters/data_analysis/data_fitting/software_version.help",
+                                                "label": "metadata/method_specific_parameters/data_analysis/data_fitting/software_version.label",
+                                                "hint": "metadata/method_specific_parameters/data_analysis/data_fitting/software_version.hint",
+                                                "facet": "metadata_method_specific_parameters_data_analysis_data_fitting_software_version"
                                             }
                                         }
                                     },
@@ -4871,6 +4814,93 @@
                                                 }
                                             }
                                         }
+                                    },
+                                    "measurements": {
+                                        "detail": "array",
+                                        "input": "array",
+                                        "help": "metadata/method_specific_parameters/data_analysis/measurements.help",
+                                        "label": "metadata/method_specific_parameters/data_analysis/measurements.label",
+                                        "hint": "metadata/method_specific_parameters/data_analysis/measurements.hint",
+                                        "child": {
+                                            "detail": "relation",
+                                            "input": "relation",
+                                            "help": "metadata/method_specific_parameters/data_analysis/measurements.help",
+                                            "label": "metadata/method_specific_parameters/data_analysis/measurements.label",
+                                            "hint": "metadata/method_specific_parameters/data_analysis/measurements.hint",
+                                            "children": {
+                                                "id": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/method_specific_parameters/measurements/id.help",
+                                                    "label": "metadata/method_specific_parameters/measurements/id.label",
+                                                    "hint": "metadata/method_specific_parameters/measurements/id.hint",
+                                                    "facet": "metadata_method_specific_parameters_measurements_id"
+                                                },
+                                                "name": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/method_specific_parameters/measurements/name.help",
+                                                    "label": "metadata/method_specific_parameters/measurements/name.label",
+                                                    "hint": "metadata/method_specific_parameters/measurements/name.hint",
+                                                    "facet": "metadata_method_specific_parameters_measurements_name"
+                                                },
+                                                "@v": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/method_specific_parameters/data_analysis/measurements/@v.help",
+                                                    "label": "metadata/method_specific_parameters/data_analysis/measurements/@v.label",
+                                                    "hint": "metadata/method_specific_parameters/data_analysis/measurements/@v.hint"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "results": {
+                                        "detail": "array",
+                                        "input": "array",
+                                        "help": "metadata/method_specific_parameters/data_analysis/results.help",
+                                        "label": "metadata/method_specific_parameters/data_analysis/results.label",
+                                        "hint": "metadata/method_specific_parameters/data_analysis/results.hint",
+                                        "child": {
+                                            "detail": "relation",
+                                            "input": "relation",
+                                            "help": "metadata/method_specific_parameters/data_analysis/results.help",
+                                            "label": "metadata/method_specific_parameters/data_analysis/results.label",
+                                            "hint": "metadata/method_specific_parameters/data_analysis/results.hint",
+                                            "children": {
+                                                "id": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/general_parameters/results/id.help",
+                                                    "label": "metadata/general_parameters/results/id.label",
+                                                    "hint": "metadata/general_parameters/results/id.hint",
+                                                    "facet": "metadata_general_parameters_results_id"
+                                                },
+                                                "name": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/general_parameters/results/name.help",
+                                                    "label": "metadata/general_parameters/results/name.label",
+                                                    "hint": "metadata/general_parameters/results/name.hint",
+                                                    "facet": "metadata_general_parameters_results_name"
+                                                },
+                                                "@v": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/method_specific_parameters/data_analysis/results/@v.help",
+                                                    "label": "metadata/method_specific_parameters/data_analysis/results/@v.label",
+                                                    "hint": "metadata/method_specific_parameters/data_analysis/results/@v.hint"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/method_specific_parameters/data_analysis/type.help",
+                                        "label": "metadata/method_specific_parameters/data_analysis/type.label",
+                                        "hint": "metadata/method_specific_parameters/data_analysis/type.hint",
+                                        "enum": "metadata/method_specific_parameters/data_analysis/type.enum",
+                                        "facet": "metadata_method_specific_parameters_data_analysis_type"
                                     }
                                 }
                             }
@@ -5015,129 +5045,122 @@
                                         "hint": "metadata/method_specific_parameters/measurements/name.hint",
                                         "facet": "metadata_method_specific_parameters_measurements_name"
                                     },
-                                    "sample": {
+                                    "sample_in_cell": {
                                         "detail": false,
                                         "input": false,
-                                        "help": "metadata/method_specific_parameters/measurements/sample.help",
-                                        "label": "metadata/method_specific_parameters/measurements/sample.label",
-                                        "hint": "metadata/method_specific_parameters/measurements/sample.hint",
+                                        "help": "metadata/method_specific_parameters/measurements/sample_in_cell.help",
+                                        "label": "metadata/method_specific_parameters/measurements/sample_in_cell.label",
+                                        "hint": "metadata/method_specific_parameters/measurements/sample_in_cell.hint",
                                         "children": {
                                             "chemical_environment": {
-                                                "detail": "array",
-                                                "input": "array",
-                                                "help": "metadata/method_specific_parameters/measurements/sample/chemical_environment.help",
-                                                "label": "metadata/method_specific_parameters/measurements/sample/chemical_environment.label",
-                                                "hint": "metadata/method_specific_parameters/measurements/sample/chemical_environment.hint",
-                                                "child": {
-                                                    "detail": "relation",
-                                                    "input": "relation",
-                                                    "help": "metadata/method_specific_parameters/measurements/sample/chemical_environment.help",
-                                                    "label": "metadata/method_specific_parameters/measurements/sample/chemical_environment.label",
-                                                    "hint": "metadata/method_specific_parameters/measurements/sample/chemical_environment.hint",
-                                                    "children": {
-                                                        "id": {
-                                                            "detail": "keyword",
-                                                            "input": "keyword",
-                                                            "help": "metadata/general_parameters/chemical_environments/id.help",
-                                                            "label": "metadata/general_parameters/chemical_environments/id.label",
-                                                            "hint": "metadata/general_parameters/chemical_environments/id.hint",
-                                                            "facet": "metadata_general_parameters_chemical_environments_id"
-                                                        },
-                                                        "name": {
-                                                            "detail": "keyword",
-                                                            "input": "keyword",
-                                                            "help": "metadata/general_parameters/chemical_environments/name.help",
-                                                            "label": "metadata/general_parameters/chemical_environments/name.label",
-                                                            "hint": "metadata/general_parameters/chemical_environments/name.hint",
-                                                            "facet": "metadata_general_parameters_chemical_environments_name"
-                                                        },
-                                                        "@v": {
-                                                            "detail": "keyword",
-                                                            "input": "keyword",
-                                                            "help": "metadata/method_specific_parameters/measurements/sample/chemical_environment/@v.help",
-                                                            "label": "metadata/method_specific_parameters/measurements/sample/chemical_environment/@v.label",
-                                                            "hint": "metadata/method_specific_parameters/measurements/sample/chemical_environment/@v.hint"
-                                                        }
+                                                "detail": "relation",
+                                                "input": "relation",
+                                                "help": "metadata/method_specific_parameters/measurements/sample_in_cell/chemical_environment.help",
+                                                "label": "metadata/method_specific_parameters/measurements/sample_in_cell/chemical_environment.label",
+                                                "hint": "metadata/method_specific_parameters/measurements/sample_in_cell/chemical_environment.hint",
+                                                "children": {
+                                                    "id": {
+                                                        "detail": "keyword",
+                                                        "input": "keyword",
+                                                        "help": "metadata/general_parameters/chemical_environments/id.help",
+                                                        "label": "metadata/general_parameters/chemical_environments/id.label",
+                                                        "hint": "metadata/general_parameters/chemical_environments/id.hint",
+                                                        "facet": "metadata_general_parameters_chemical_environments_id"
+                                                    },
+                                                    "name": {
+                                                        "detail": "keyword",
+                                                        "input": "keyword",
+                                                        "help": "metadata/general_parameters/chemical_environments/name.help",
+                                                        "label": "metadata/general_parameters/chemical_environments/name.label",
+                                                        "hint": "metadata/general_parameters/chemical_environments/name.hint",
+                                                        "facet": "metadata_general_parameters_chemical_environments_name"
+                                                    },
+                                                    "@v": {
+                                                        "detail": "keyword",
+                                                        "input": "keyword",
+                                                        "help": "metadata/method_specific_parameters/measurements/sample_in_cell/chemical_environment/@v.help",
+                                                        "label": "metadata/method_specific_parameters/measurements/sample_in_cell/chemical_environment/@v.label",
+                                                        "hint": "metadata/method_specific_parameters/measurements/sample_in_cell/chemical_environment/@v.hint"
                                                     }
                                                 }
                                             },
                                             "preparation_protocol": {
                                                 "detail": "array",
                                                 "input": "array",
-                                                "help": "metadata/method_specific_parameters/measurements/sample/preparation_protocol.help",
-                                                "label": "metadata/method_specific_parameters/measurements/sample/preparation_protocol.label",
-                                                "hint": "metadata/method_specific_parameters/measurements/sample/preparation_protocol.hint",
+                                                "help": "metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol.help",
+                                                "label": "metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol.label",
+                                                "hint": "metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol.hint",
                                                 "child": {
                                                     "detail": false,
                                                     "input": false,
-                                                    "help": "metadata/method_specific_parameters/measurements/sample/preparation_protocol.help",
-                                                    "label": "metadata/method_specific_parameters/measurements/sample/preparation_protocol.label",
-                                                    "hint": "metadata/method_specific_parameters/measurements/sample/preparation_protocol.hint",
+                                                    "help": "metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol.help",
+                                                    "label": "metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol.label",
+                                                    "hint": "metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol.hint",
                                                     "children": {
                                                         "description": {
                                                             "detail": "keyword",
                                                             "input": "keyword",
-                                                            "help": "metadata/method_specific_parameters/measurements/sample/preparation_protocol/description.help",
-                                                            "label": "metadata/method_specific_parameters/measurements/sample/preparation_protocol/description.label",
-                                                            "hint": "metadata/method_specific_parameters/measurements/sample/preparation_protocol/description.hint",
-                                                            "facet": "metadata_method_specific_parameters_measurements_sample_preparation_protocol_description"
+                                                            "help": "metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol/description.help",
+                                                            "label": "metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol/description.label",
+                                                            "hint": "metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol/description.hint",
+                                                            "facet": "metadata_method_specific_parameters_measurements_sample_in_cell_preparation_protocol_description"
                                                         },
                                                         "name": {
                                                             "detail": "keyword",
                                                             "input": "keyword",
-                                                            "help": "metadata/method_specific_parameters/measurements/sample/preparation_protocol/name.help",
-                                                            "label": "metadata/method_specific_parameters/measurements/sample/preparation_protocol/name.label",
-                                                            "hint": "metadata/method_specific_parameters/measurements/sample/preparation_protocol/name.hint",
-                                                            "facet": "metadata_method_specific_parameters_measurements_sample_preparation_protocol_name"
+                                                            "help": "metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol/name.help",
+                                                            "label": "metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol/name.label",
+                                                            "hint": "metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol/name.hint",
+                                                            "facet": "metadata_method_specific_parameters_measurements_sample_in_cell_preparation_protocol_name"
                                                         }
                                                     }
                                                 }
                                             },
-                                            "target_in_cell": {
+                                            "targets": {
                                                 "detail": "array",
                                                 "input": "array",
-                                                "help": "metadata/method_specific_parameters/measurements/sample/target_in_cell.help",
-                                                "label": "metadata/method_specific_parameters/measurements/sample/target_in_cell.label",
-                                                "hint": "metadata/method_specific_parameters/measurements/sample/target_in_cell.hint",
+                                                "help": "metadata/method_specific_parameters/measurements/sample_in_cell/targets.help",
+                                                "label": "metadata/method_specific_parameters/measurements/sample_in_cell/targets.label",
+                                                "hint": "metadata/method_specific_parameters/measurements/sample_in_cell/targets.hint",
                                                 "child": {
-                                                    "detail": false,
-                                                    "input": false,
-                                                    "help": "metadata/method_specific_parameters/measurements/sample/target_in_cell.help",
-                                                    "label": "metadata/method_specific_parameters/measurements/sample/target_in_cell.label",
-                                                    "hint": "metadata/method_specific_parameters/measurements/sample/target_in_cell.hint",
+                                                    "detail": "target",
+                                                    "input": "target",
+                                                    "help": "metadata/method_specific_parameters/measurements/sample_in_cell/targets.help",
+                                                    "label": "metadata/method_specific_parameters/measurements/sample_in_cell/targets.label",
+                                                    "hint": "metadata/method_specific_parameters/measurements/sample_in_cell/targets.hint",
                                                     "children": {
                                                         "concentration": {
                                                             "detail": false,
                                                             "input": false,
-                                                            "help": "metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration.help",
-                                                            "label": "metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration.label",
-                                                            "hint": "metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration.hint",
+                                                            "help": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration.help",
+                                                            "label": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration.label",
+                                                            "hint": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration.hint",
                                                             "children": {
                                                                 "unit": {
                                                                     "detail": "keyword",
                                                                     "input": "keyword",
-                                                                    "help": "metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.help",
-                                                                    "label": "metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.label",
-                                                                    "hint": "metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.hint",
-                                                                    "enum": "metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum",
-                                                                    "facet": "metadata_method_specific_parameters_measurements_sample_target_in_cell_concentration_unit"
+                                                                    "help": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.help",
+                                                                    "label": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.label",
+                                                                    "hint": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.hint",
+                                                                    "enum": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum",
+                                                                    "facet": "metadata_method_specific_parameters_measurements_sample_in_cell_targets_concentration_unit"
                                                                 },
                                                                 "value": {
                                                                     "detail": "double",
                                                                     "input": "double",
-                                                                    "help": "metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/value.help",
-                                                                    "label": "metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/value.label",
-                                                                    "hint": "metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/value.hint",
-                                                                    "facet": "metadata_method_specific_parameters_measurements_sample_target_in_cell_concentration_value"
+                                                                    "help": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/value.help",
+                                                                    "label": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/value.label",
+                                                                    "hint": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/value.hint",
+                                                                    "facet": "metadata_method_specific_parameters_measurements_sample_in_cell_targets_concentration_value"
                                                                 }
                                                             }
                                                         },
                                                         "entity": {
                                                             "detail": "relation",
                                                             "input": "relation",
-                                                            "help": "metadata/method_specific_parameters/measurements/sample/target_in_cell/entity.help",
-                                                            "label": "metadata/method_specific_parameters/measurements/sample/target_in_cell/entity.label",
-                                                            "hint": "metadata/method_specific_parameters/measurements/sample/target_in_cell/entity.hint",
+                                                            "help": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/entity.help",
+                                                            "label": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/entity.label",
+                                                            "hint": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/entity.hint",
                                                             "children": {
                                                                 "id": {
                                                                     "detail": "keyword",
@@ -5158,60 +5181,133 @@
                                                                 "@v": {
                                                                     "detail": "keyword",
                                                                     "input": "keyword",
-                                                                    "help": "metadata/method_specific_parameters/measurements/sample/target_in_cell/entity/@v.help",
-                                                                    "label": "metadata/method_specific_parameters/measurements/sample/target_in_cell/entity/@v.label",
-                                                                    "hint": "metadata/method_specific_parameters/measurements/sample/target_in_cell/entity/@v.hint"
+                                                                    "help": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/entity/@v.help",
+                                                                    "label": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/entity/@v.label",
+                                                                    "hint": "metadata/method_specific_parameters/measurements/sample_in_cell/targets/entity/@v.hint"
                                                                 }
                                                             }
                                                         }
                                                     }
                                                 }
+                                            }
+                                        }
+                                    },
+                                    "sample_in_syringe": {
+                                        "detail": false,
+                                        "input": false,
+                                        "help": "metadata/method_specific_parameters/measurements/sample_in_syringe.help",
+                                        "label": "metadata/method_specific_parameters/measurements/sample_in_syringe.label",
+                                        "hint": "metadata/method_specific_parameters/measurements/sample_in_syringe.hint",
+                                        "children": {
+                                            "chemical_environment": {
+                                                "detail": "relation",
+                                                "input": "relation",
+                                                "help": "metadata/method_specific_parameters/measurements/sample_in_syringe/chemical_environment.help",
+                                                "label": "metadata/method_specific_parameters/measurements/sample_in_syringe/chemical_environment.label",
+                                                "hint": "metadata/method_specific_parameters/measurements/sample_in_syringe/chemical_environment.hint",
+                                                "children": {
+                                                    "id": {
+                                                        "detail": "keyword",
+                                                        "input": "keyword",
+                                                        "help": "metadata/general_parameters/chemical_environments/id.help",
+                                                        "label": "metadata/general_parameters/chemical_environments/id.label",
+                                                        "hint": "metadata/general_parameters/chemical_environments/id.hint",
+                                                        "facet": "metadata_general_parameters_chemical_environments_id"
+                                                    },
+                                                    "name": {
+                                                        "detail": "keyword",
+                                                        "input": "keyword",
+                                                        "help": "metadata/general_parameters/chemical_environments/name.help",
+                                                        "label": "metadata/general_parameters/chemical_environments/name.label",
+                                                        "hint": "metadata/general_parameters/chemical_environments/name.hint",
+                                                        "facet": "metadata_general_parameters_chemical_environments_name"
+                                                    },
+                                                    "@v": {
+                                                        "detail": "keyword",
+                                                        "input": "keyword",
+                                                        "help": "metadata/method_specific_parameters/measurements/sample_in_syringe/chemical_environment/@v.help",
+                                                        "label": "metadata/method_specific_parameters/measurements/sample_in_syringe/chemical_environment/@v.label",
+                                                        "hint": "metadata/method_specific_parameters/measurements/sample_in_syringe/chemical_environment/@v.hint"
+                                                    }
+                                                }
                                             },
-                                            "target_in_syringe": {
+                                            "preparation_protocol": {
                                                 "detail": "array",
                                                 "input": "array",
-                                                "help": "metadata/method_specific_parameters/measurements/sample/target_in_syringe.help",
-                                                "label": "metadata/method_specific_parameters/measurements/sample/target_in_syringe.label",
-                                                "hint": "metadata/method_specific_parameters/measurements/sample/target_in_syringe.hint",
+                                                "help": "metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol.help",
+                                                "label": "metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol.label",
+                                                "hint": "metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol.hint",
                                                 "child": {
                                                     "detail": false,
                                                     "input": false,
-                                                    "help": "metadata/method_specific_parameters/measurements/sample/target_in_syringe.help",
-                                                    "label": "metadata/method_specific_parameters/measurements/sample/target_in_syringe.label",
-                                                    "hint": "metadata/method_specific_parameters/measurements/sample/target_in_syringe.hint",
+                                                    "help": "metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol.help",
+                                                    "label": "metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol.label",
+                                                    "hint": "metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol.hint",
+                                                    "children": {
+                                                        "description": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol/description.help",
+                                                            "label": "metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol/description.label",
+                                                            "hint": "metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol/description.hint",
+                                                            "facet": "metadata_method_specific_parameters_measurements_sample_in_syringe_preparation_protocol_description"
+                                                        },
+                                                        "name": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol/name.help",
+                                                            "label": "metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol/name.label",
+                                                            "hint": "metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol/name.hint",
+                                                            "facet": "metadata_method_specific_parameters_measurements_sample_in_syringe_preparation_protocol_name"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "targets": {
+                                                "detail": "array",
+                                                "input": "array",
+                                                "help": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets.help",
+                                                "label": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets.label",
+                                                "hint": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets.hint",
+                                                "child": {
+                                                    "detail": "target",
+                                                    "input": "target",
+                                                    "help": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets.help",
+                                                    "label": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets.label",
+                                                    "hint": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets.hint",
                                                     "children": {
                                                         "concentration": {
                                                             "detail": false,
                                                             "input": false,
-                                                            "help": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration.help",
-                                                            "label": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration.label",
-                                                            "hint": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration.hint",
+                                                            "help": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration.help",
+                                                            "label": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration.label",
+                                                            "hint": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration.hint",
                                                             "children": {
                                                                 "unit": {
                                                                     "detail": "keyword",
                                                                     "input": "keyword",
-                                                                    "help": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.help",
-                                                                    "label": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.label",
-                                                                    "hint": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.hint",
-                                                                    "enum": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum",
-                                                                    "facet": "metadata_method_specific_parameters_measurements_sample_target_in_syringe_concentration_unit"
+                                                                    "help": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.help",
+                                                                    "label": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.label",
+                                                                    "hint": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.hint",
+                                                                    "enum": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum",
+                                                                    "facet": "metadata_method_specific_parameters_measurements_sample_in_syringe_targets_concentration_unit"
                                                                 },
                                                                 "value": {
                                                                     "detail": "double",
                                                                     "input": "double",
-                                                                    "help": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/value.help",
-                                                                    "label": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/value.label",
-                                                                    "hint": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/value.hint",
-                                                                    "facet": "metadata_method_specific_parameters_measurements_sample_target_in_syringe_concentration_value"
+                                                                    "help": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/value.help",
+                                                                    "label": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/value.label",
+                                                                    "hint": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/value.hint",
+                                                                    "facet": "metadata_method_specific_parameters_measurements_sample_in_syringe_targets_concentration_value"
                                                                 }
                                                             }
                                                         },
                                                         "entity": {
                                                             "detail": "relation",
                                                             "input": "relation",
-                                                            "help": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/entity.help",
-                                                            "label": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/entity.label",
-                                                            "hint": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/entity.hint",
+                                                            "help": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/entity.help",
+                                                            "label": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/entity.label",
+                                                            "hint": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/entity.hint",
                                                             "children": {
                                                                 "id": {
                                                                     "detail": "keyword",
@@ -5232,9 +5328,9 @@
                                                                 "@v": {
                                                                     "detail": "keyword",
                                                                     "input": "keyword",
-                                                                    "help": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/entity/@v.help",
-                                                                    "label": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/entity/@v.label",
-                                                                    "hint": "metadata/method_specific_parameters/measurements/sample/target_in_syringe/entity/@v.hint"
+                                                                    "help": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/entity/@v.help",
+                                                                    "label": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/entity/@v.label",
+                                                                    "hint": "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/entity/@v.hint"
                                                                 }
                                                             }
                                                         }
@@ -5282,12 +5378,30 @@
                             "facet": "metadata_method_specific_parameters_schema_version"
                         },
                         "stirring_speed": {
-                            "detail": "double",
-                            "input": "double",
+                            "detail": false,
+                            "input": false,
                             "help": "metadata/method_specific_parameters/stirring_speed.help",
                             "label": "metadata/method_specific_parameters/stirring_speed.label",
                             "hint": "metadata/method_specific_parameters/stirring_speed.hint",
-                            "facet": "metadata_method_specific_parameters_stirring_speed"
+                            "children": {
+                                "unit": {
+                                    "detail": "keyword",
+                                    "input": "keyword",
+                                    "help": "metadata/method_specific_parameters/stirring_speed/unit.help",
+                                    "label": "metadata/method_specific_parameters/stirring_speed/unit.label",
+                                    "hint": "metadata/method_specific_parameters/stirring_speed/unit.hint",
+                                    "enum": "metadata/method_specific_parameters/stirring_speed/unit.enum",
+                                    "facet": "metadata_method_specific_parameters_stirring_speed_unit"
+                                },
+                                "value": {
+                                    "detail": "integer",
+                                    "input": "integer",
+                                    "help": "metadata/method_specific_parameters/stirring_speed/value.help",
+                                    "label": "metadata/method_specific_parameters/stirring_speed/value.label",
+                                    "hint": "metadata/method_specific_parameters/stirring_speed/value.hint",
+                                    "facet": "metadata_method_specific_parameters_stirring_speed_value"
+                                }
+                            }
                         }
                     }
                 }

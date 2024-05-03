@@ -104,7 +104,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.20"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.21"])])
 
     technique = ma_fields.String(
         required=True,
@@ -638,9 +638,7 @@ class MethodSpecificParametersSchema(DictOnlySchema):
 
     experiment_type = ma_fields.Nested(lambda: ExperimentTypeSchema())
 
-    feedback_mode = ma_fields.String(
-        required=True, validate=[OneOf(["None", "Low", "High"])]
-    )
+    feedback_mode = ma_fields.String(validate=[OneOf(["None", "Low", "High"])])
 
     measurements = ma_fields.List(
         ma_fields.Nested(lambda: MeasurementsItemSchema()),
@@ -650,9 +648,9 @@ class MethodSpecificParametersSchema(DictOnlySchema):
 
     reference_power = ma_fields.Nested(lambda: ReferencePowerSchema(), required=True)
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.0.1"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.0.2"])])
 
-    stirring_speed = ma_fields.Float(required=True)
+    stirring_speed = ma_fields.Nested(lambda: StirringSpeedSchema(), required=True)
 
 
 class PolymerSchema(DictOnlySchema):
@@ -798,7 +796,9 @@ class MeasurementsItemSchema(DictOnlySchema):
 
     name = ma_fields.String(required=True)
 
-    sample = ma_fields.Nested(lambda: SampleSchema(), required=True)
+    sample_in_cell = ma_fields.Nested(lambda: SampleInCellSchema(), required=True)
+
+    sample_in_syringe = ma_fields.Nested(lambda: SampleInCellSchema(), required=True)
 
 
 class QualityControlsSchema(DictOnlySchema):
@@ -1638,18 +1638,6 @@ class Constant_of_dissociation_KDSchema(DictOnlySchema):
     value_error = ma_fields.Nested(lambda: ValueErrorSchema())
 
 
-class DataAnalysisItemSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    data_fitting = ma_fields.Nested(lambda: DataFittingSchema())
-
-    data_processing_steps = ma_fields.List(
-        ma_fields.Nested(lambda: DataProcessingStepsItemSchema()),
-        validate=[ma.validate.Length(min=1)],
-    )
-
-
 class DepositorsSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -2027,29 +2015,19 @@ class ResultsItemConcentrationSchema(DictOnlySchema):
     value_error = ma_fields.Nested(lambda: ValueErrorSchema())
 
 
-class SampleSchema(DictOnlySchema):
+class SampleInCellSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    chemical_environment = ma_fields.List(
-        ma_fields.Nested(lambda: EntitySchema()),
-        required=True,
-        validate=[ma.validate.Length(min=1)],
-    )
+    chemical_environment = ma_fields.Nested(lambda: EntitySchema(), required=True)
 
     preparation_protocol = ma_fields.List(
         ma_fields.Nested(lambda: ProtocolItemSchema()),
         validate=[ma.validate.Length(min=1)],
     )
 
-    target_in_cell = ma_fields.List(
-        ma_fields.Nested(lambda: TargetInCellItemSchema()),
-        required=True,
-        validate=[ma.validate.Length(min=1)],
-    )
-
-    target_in_syringe = ma_fields.List(
-        ma_fields.Nested(lambda: TargetInCellItemSchema()),
+    targets = ma_fields.List(
+        ma_fields.Nested(lambda: TargetsItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
@@ -2126,7 +2104,9 @@ class TitrationSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    number_injections = ma_fields.Float(required=True)
+    number_injections = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=1.0)]
+    )
 
     type = ma_fields.String(
         required=True, validate=[OneOf(["Single injection", "Titration"])]
@@ -2273,13 +2253,22 @@ class ContributorsItemSchema(DictOnlySchema):
     )
 
 
-class DataFittingSchema(DictOnlySchema):
+class DataAnalysisItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    data_fitting_model = ma_fields.Nested(lambda: DataFittingModelSchema())
+    data_fitting = ma_fields.Nested(lambda: DataFittingSchema())
 
-    result = ma_fields.List(
+    data_processing_steps = ma_fields.List(
+        ma_fields.Nested(lambda: DataProcessingStepsItemSchema()),
+        validate=[ma.validate.Length(min=1)],
+    )
+
+    measurements = ma_fields.List(
+        ma_fields.Nested(lambda: EntitySchema()), validate=[ma.validate.Length(min=1)]
+    )
+
+    results = ma_fields.List(
         ma_fields.Nested(lambda: EntitySchema()), validate=[ma.validate.Length(min=1)]
     )
 
@@ -2353,7 +2342,7 @@ class StorageSchema(DictOnlySchema):
     temperature = ma_fields.Nested(lambda: TemperatureSchema(), required=True)
 
 
-class TargetInCellItemSchema(DictOnlySchema):
+class TargetsItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2464,7 +2453,7 @@ class CellVolumeSchema(DictOnlySchema):
 
     unit = ma_fields.String(required=True, validate=[OneOf(["ml", "µl"])])
 
-    value = ma_fields.Float(required=True)
+    value = ma_fields.Float(required=True, validate=[ma.validate.Range(min=0.0)])
 
 
 class ConcentrationSchema(DictOnlySchema):
@@ -2503,7 +2492,7 @@ class ConcentrationSchema(DictOnlySchema):
     value = ma_fields.Float(required=True, validate=[ma.validate.Range(min=-1.0)])
 
 
-class DataFittingModelSchema(DictOnlySchema):
+class DataFittingSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2747,6 +2736,15 @@ class SizeSchema(DictOnlySchema):
     )
 
     upper = ma_fields.Float(validate=[ma.validate.Range(min=0.0)])
+
+
+class StirringSpeedSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    unit = ma_fields.String(required=True, validate=[OneOf(["RPM"])])
+
+    value = ma_fields.Integer(required=True, validate=[ma.validate.Range(min=0)])
 
 
 class TemperatureSchema(DictOnlySchema):

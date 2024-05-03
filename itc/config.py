@@ -1,15 +1,3 @@
-from itc.files.api import ItcFileDraft
-from itc.files.requests.resolvers import ItcFileDraftResolver
-from itc.records.api import ItcDraft, ItcRecord
-from itc.records.requests.resolvers import ItcDraftResolver, ItcResolver
-from itc.resources.files.config import ItcFileDraftResourceConfig, ItcFileResourceConfig
-from itc.resources.files.resource import ItcFileDraftResource, ItcFileResource
-from itc.resources.records.config import ItcResourceConfig
-from itc.resources.records.resource import ItcResource
-from itc.services.files.config import ItcFileDraftServiceConfig, ItcFileServiceConfig
-from itc.services.files.service import ItcFileDraftService, ItcFileService
-from itc.services.records.config import ItcServiceConfig
-from itc.services.records.service import ItcService
 from oarepo_requests.resolvers.ui import (
     FallbackEntityReferenceUIResolver,
     GroupEntityReferenceUIResolver,
@@ -23,6 +11,18 @@ from oarepo_runtime.records.entity_resolvers import GroupResolver, UserResolver
 
 from common.requests.delete_record.types import DeleteRecordRequestType
 from common.requests.publish_draft.types import PublishDraftRequestType
+from itc.files.api import ItcFileDraft
+from itc.files.requests.resolvers import ItcFileDraftResolver
+from itc.records.api import ItcDraft, ItcRecord
+from itc.records.requests.resolvers import ItcDraftResolver, ItcResolver
+from itc.resources.files.config import ItcFileDraftResourceConfig, ItcFileResourceConfig
+from itc.resources.files.resource import ItcFileDraftResource, ItcFileResource
+from itc.resources.records.config import ItcResourceConfig
+from itc.resources.records.resource import ItcResource
+from itc.services.files.config import ItcFileDraftServiceConfig, ItcFileServiceConfig
+from itc.services.files.service import ItcFileDraftService, ItcFileService
+from itc.services.records.config import ItcServiceConfig
+from itc.services.records.service import ItcService
 
 ITC_RECORD_RESOURCE_CONFIG = ItcResourceConfig
 
