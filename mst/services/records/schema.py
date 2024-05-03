@@ -104,7 +104,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.20"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.21"])])
 
     technique = ma_fields.String(
         required=True,
@@ -668,7 +668,7 @@ class MethodSpecificParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.9"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.10"])])
 
     signal_type = ma_fields.String(
         required=True,
@@ -2287,7 +2287,7 @@ class DataAnalysisItemSchema(DictOnlySchema):
         ma_fields.Nested(lambda: EntitySchema()), validate=[ma.validate.Length(min=1)]
     )
 
-    result = ma_fields.List(
+    results = ma_fields.List(
         ma_fields.Nested(lambda: EntitySchema()), validate=[ma.validate.Length(min=1)]
     )
 
