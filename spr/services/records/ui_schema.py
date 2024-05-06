@@ -974,7 +974,7 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: MeasurementsItemUISchema()), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.4"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.5"])])
 
     sensor = ma_fields.Nested(lambda: SensorUISchema(), required=True)
 
