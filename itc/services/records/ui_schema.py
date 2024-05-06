@@ -972,7 +972,7 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
 
     reference_power = ma_fields.Nested(lambda: ReferencePowerUISchema(), required=True)
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.0.2"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.0.3"])])
 
     stirring_speed = ma_fields.Nested(lambda: StirringSpeedUISchema(), required=True)
 

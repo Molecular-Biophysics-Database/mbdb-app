@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-05-03T17:25:13.718233\n"
-"PO-Revision-Date: 2024-05-03T17:25:13.718240\n"
+"POT-Creation-Date: 2024-05-06T12:40:31.262937\n"
+"PO-Revision-Date: 2024-05-06T12:40:31.262943\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7844,11 +7844,11 @@ msgstr "Method specific parameters"
 msgid "metadata/method_specific_parameters.hint"
 msgstr ""
 
+msgid "metadata/method_specific_parameters/cell_temperature.help"
+msgstr "Temperature of the cell in which the sample is measured"
+
 msgid "metadata/method_specific_parameters/cell_temperature.label"
 msgstr "Cell temperature"
-
-msgid "metadata/method_specific_parameters/cell_temperature.help"
-msgstr ""
 
 msgid "metadata/method_specific_parameters/cell_temperature.hint"
 msgstr ""
@@ -7880,11 +7880,11 @@ msgstr "Value"
 msgid "metadata/method_specific_parameters/cell_temperature/value.hint"
 msgstr ""
 
+msgid "metadata/method_specific_parameters/cell_volume.help"
+msgstr "Volume of the cell in which the sample is measured"
+
 msgid "metadata/method_specific_parameters/cell_volume.label"
 msgstr "Cell volume"
-
-msgid "metadata/method_specific_parameters/cell_volume.help"
-msgstr ""
 
 msgid "metadata/method_specific_parameters/cell_volume.hint"
 msgstr ""
@@ -8259,24 +8259,24 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/n_injections.label"
-msgstr "N injections"
+"metadata/method_specific_parameters/experiment_type/injection_parameters/n_injections.help"
+msgstr "Number of injections measured at a specific volume"
 
 msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/n_injections.help"
-msgstr ""
+"metadata/method_specific_parameters/experiment_type/injection_parameters/n_injections.label"
+msgstr "N injections"
 
 msgid ""
 "metadata/method_specific_parameters/experiment_type/injection_parameters/n_injections.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume.label"
-msgstr "Volume"
+"metadata/method_specific_parameters/experiment_type/injection_parameters/volume.help"
+msgstr "Titrant volume injected into the cell"
 
 msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume.help"
-msgstr ""
+"metadata/method_specific_parameters/experiment_type/injection_parameters/volume.label"
+msgstr "Volume"
 
 msgid ""
 "metadata/method_specific_parameters/experiment_type/injection_parameters/volume.hint"
@@ -8315,12 +8315,12 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/experiment_type/number_injections.label"
-msgstr "Number injections"
+"metadata/method_specific_parameters/experiment_type/number_injections.help"
+msgstr "Number of injections performed in the measurement"
 
 msgid ""
-"metadata/method_specific_parameters/experiment_type/number_injections.help"
-msgstr ""
+"metadata/method_specific_parameters/experiment_type/number_injections.label"
+msgstr "Number injections"
 
 msgid ""
 "metadata/method_specific_parameters/experiment_type/number_injections.hint"
@@ -8827,20 +8827,22 @@ msgid ""
 "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/entity/@v.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/reference_power.label"
-msgstr "Reference power"
-
 msgid "metadata/method_specific_parameters/reference_power.help"
 msgstr ""
+"Energy supplied to the offset header of the reference cell to equilibrate "
+"the temperatures"
+
+msgid "metadata/method_specific_parameters/reference_power.label"
+msgstr "Reference power"
 
 msgid "metadata/method_specific_parameters/reference_power.hint"
 msgstr ""
 
+msgid "metadata/method_specific_parameters/reference_power/unit.help"
+msgstr "Unit of reference power"
+
 msgid "metadata/method_specific_parameters/reference_power/unit.label"
 msgstr "Unit"
-
-msgid "metadata/method_specific_parameters/reference_power/unit.help"
-msgstr ""
 
 msgid "metadata/method_specific_parameters/reference_power/unit.hint"
 msgstr ""
@@ -8851,11 +8853,13 @@ msgstr ""
 msgid "metadata/method_specific_parameters/reference_power/unit.enum.µJ/s"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/reference_power/value.label"
-msgstr "Value"
-
 msgid "metadata/method_specific_parameters/reference_power/value.help"
 msgstr ""
+"Value of energy supplied to the offset header of the reference cell to "
+"equilibrate the temperatures"
+
+msgid "metadata/method_specific_parameters/reference_power/value.label"
+msgstr "Value"
 
 msgid "metadata/method_specific_parameters/reference_power/value.hint"
 msgstr ""
@@ -8870,14 +8874,14 @@ msgstr "Schema version"
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.0.2"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.0.3"
 msgstr ""
+
+msgid "metadata/method_specific_parameters/stirring_speed.help"
+msgstr "Sample cell stirring speed in RPM"
 
 msgid "metadata/method_specific_parameters/stirring_speed.label"
 msgstr "Stirring speed"
-
-msgid "metadata/method_specific_parameters/stirring_speed.help"
-msgstr ""
 
 msgid "metadata/method_specific_parameters/stirring_speed.hint"
 msgstr ""
