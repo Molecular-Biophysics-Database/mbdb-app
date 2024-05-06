@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-05-02T09:00:56.579284\n"
-"PO-Revision-Date: 2024-05-02T09:00:56.579285\n"
+"POT-Creation-Date: 2024-05-03T17:20:25.848927\n"
+"PO-Revision-Date: 2024-05-03T17:20:25.848928\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7528,7 +7528,7 @@ msgstr ""
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.9.20"
+msgid "metadata/general_parameters/schema_version.enum.0.9.21"
 msgstr ""
 
 msgid "metadata/general_parameters/technique.help"
@@ -7892,22 +7892,22 @@ msgstr ""
 msgid "metadata/method_specific_parameters/data_analysis/measurements/@v.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/data_analysis/result.help"
+msgid "metadata/method_specific_parameters/data_analysis/results.help"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/data_analysis/result.label"
+msgid "metadata/method_specific_parameters/data_analysis/results.label"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/data_analysis/result.hint"
+msgid "metadata/method_specific_parameters/data_analysis/results.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/data_analysis/result/@v.help"
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.help"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/data_analysis/result/@v.label"
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.label"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/data_analysis/result/@v.hint"
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/excitation_led_color.help"
@@ -8451,7 +8451,7 @@ msgstr ""
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.9.9"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.9.10"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/signal_type.help"

@@ -2454,7 +2454,7 @@
                                             }
                                         }
                                     },
-                                    "result": {
+                                    "results": {
                                         "type": "object",
                                         "properties": {
                                             "id": {

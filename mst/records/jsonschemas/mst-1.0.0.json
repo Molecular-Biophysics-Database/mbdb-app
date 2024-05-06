@@ -2046,7 +2046,7 @@
                                             }
                                         }
                                     },
-                                    "result": {
+                                    "results": {
                                         "type": "array",
                                         "items": {
                                             "type": "object",

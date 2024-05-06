@@ -1,8 +1,9 @@
 from flask import g
 from flask_resources import BaseListSchema
 from flask_resources.serializers import JSONSerializer
-from itc.services.records.ui_schema import ItcUISchema
 from oarepo_runtime.resources import LocalizedUIJSONSerializer
+
+from itc.services.records.ui_schema import ItcUISchema
 
 
 class ItcUIJSONSerializer(LocalizedUIJSONSerializer):

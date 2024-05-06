@@ -4852,18 +4852,18 @@
                                             }
                                         }
                                     },
-                                    "result": {
+                                    "results": {
                                         "detail": "array",
                                         "input": "array",
-                                        "help": "metadata/method_specific_parameters/data_analysis/result.help",
-                                        "label": "metadata/method_specific_parameters/data_analysis/result.label",
-                                        "hint": "metadata/method_specific_parameters/data_analysis/result.hint",
+                                        "help": "metadata/method_specific_parameters/data_analysis/results.help",
+                                        "label": "metadata/method_specific_parameters/data_analysis/results.label",
+                                        "hint": "metadata/method_specific_parameters/data_analysis/results.hint",
                                         "child": {
                                             "detail": "relation",
                                             "input": "relation",
-                                            "help": "metadata/method_specific_parameters/data_analysis/result.help",
-                                            "label": "metadata/method_specific_parameters/data_analysis/result.label",
-                                            "hint": "metadata/method_specific_parameters/data_analysis/result.hint",
+                                            "help": "metadata/method_specific_parameters/data_analysis/results.help",
+                                            "label": "metadata/method_specific_parameters/data_analysis/results.label",
+                                            "hint": "metadata/method_specific_parameters/data_analysis/results.hint",
                                             "children": {
                                                 "id": {
                                                     "detail": "keyword",
@@ -4884,9 +4884,9 @@
                                                 "@v": {
                                                     "detail": "keyword",
                                                     "input": "keyword",
-                                                    "help": "metadata/method_specific_parameters/data_analysis/result/@v.help",
-                                                    "label": "metadata/method_specific_parameters/data_analysis/result/@v.label",
-                                                    "hint": "metadata/method_specific_parameters/data_analysis/result/@v.hint"
+                                                    "help": "metadata/method_specific_parameters/data_analysis/results/@v.help",
+                                                    "label": "metadata/method_specific_parameters/data_analysis/results/@v.label",
+                                                    "hint": "metadata/method_specific_parameters/data_analysis/results/@v.hint"
                                                 }
                                             }
                                         }

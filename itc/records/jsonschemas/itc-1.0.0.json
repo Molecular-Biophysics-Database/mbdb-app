@@ -1991,44 +1991,19 @@
                                     "data_fitting": {
                                         "type": "object",
                                         "properties": {
-                                            "data_fitting_model": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "model": {
-                                                        "type": "string"
-                                                    },
-                                                    "quality": {
-                                                        "type": "number"
-                                                    },
-                                                    "quality_type": {
-                                                        "type": "string"
-                                                    },
-                                                    "software_name": {
-                                                        "type": "string"
-                                                    },
-                                                    "software_version": {
-                                                        "type": "string"
-                                                    }
-                                                }
+                                            "model": {
+                                                "type": "string"
                                             },
-                                            "result": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "id": {
-                                                            "type": "string"
-                                                        },
-                                                        "name": {
-                                                            "type": "string"
-                                                        },
-                                                        "@v": {
-                                                            "type": "string"
-                                                        }
-                                                    }
-                                                }
+                                            "quality": {
+                                                "type": "number"
                                             },
-                                            "type": {
+                                            "quality_type": {
+                                                "type": "string"
+                                            },
+                                            "software_name": {
+                                                "type": "string"
+                                            },
+                                            "software_version": {
                                                 "type": "string"
                                             }
                                         }
@@ -2055,6 +2030,43 @@
                                                 }
                                             }
                                         }
+                                    },
+                                    "measurements": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "results": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": {
+                                        "type": "string"
                                     }
                                 }
                             }
@@ -2117,23 +2129,20 @@
                                     "name": {
                                         "type": "string"
                                     },
-                                    "sample": {
+                                    "sample_in_cell": {
                                         "type": "object",
                                         "properties": {
                                             "chemical_environment": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "id": {
-                                                            "type": "string"
-                                                        },
-                                                        "name": {
-                                                            "type": "string"
-                                                        },
-                                                        "@v": {
-                                                            "type": "string"
-                                                        }
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "@v": {
+                                                        "type": "string"
                                                     }
                                                 }
                                             },
@@ -2151,7 +2160,7 @@
                                                     }
                                                 }
                                             },
-                                            "target_in_cell": {
+                                            "targets": {
                                                 "type": "array",
                                                 "items": {
                                                     "type": "object",
@@ -2183,8 +2192,41 @@
                                                         }
                                                     }
                                                 }
+                                            }
+                                        }
+                                    },
+                                    "sample_in_syringe": {
+                                        "type": "object",
+                                        "properties": {
+                                            "chemical_environment": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "@v": {
+                                                        "type": "string"
+                                                    }
+                                                }
                                             },
-                                            "target_in_syringe": {
+                                            "preparation_protocol": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "description": {
+                                                            "type": "string"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "targets": {
                                                 "type": "array",
                                                 "items": {
                                                     "type": "object",
@@ -2237,7 +2279,15 @@
                             "type": "string"
                         },
                         "stirring_speed": {
-                            "type": "number"
+                            "type": "object",
+                            "properties": {
+                                "unit": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "integer"
+                                }
+                            }
                         }
                     }
                 }

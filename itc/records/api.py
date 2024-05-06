@@ -5,14 +5,6 @@ from invenio_records.systemfields import ConstantField, ModelField
 from invenio_records_resources.records.systemfields import FilesField, IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
 from invenio_vocabularies.records.api import Vocabulary
-from itc.files.api import ItcFile, ItcFileDraft
-from itc.records.dumpers.dumper import ItcDraftDumper, ItcDumper
-from itc.records.models import (
-    ItcDraftMetadata,
-    ItcMetadata,
-    ItcParentMetadata,
-    ItcParentState,
-)
 from oarepo_runtime.records.relations import (
     InternalRelation,
     PIDRelation,
@@ -21,6 +13,15 @@ from oarepo_runtime.records.relations import (
 from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.records.systemfields.owner import OwnersField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
+
+from itc.files.api import ItcFile, ItcFileDraft
+from itc.records.dumpers.dumper import ItcDraftDumper, ItcDumper
+from itc.records.models import (
+    ItcDraftMetadata,
+    ItcMetadata,
+    ItcParentMetadata,
+    ItcParentState,
+)
 
 
 class ItcParentRecord(ParentRecord):
@@ -332,23 +333,33 @@ class ItcRecord(InvenioRecord):
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
         ),
-        result=InternalRelation(
-            "metadata.method_specific_parameters.data_analysis.data_fitting.result",
+        measurements=InternalRelation(
+            "metadata.method_specific_parameters.data_analysis.measurements",
+            keys=["id", "name"],
+            related_part="metadata.method_specific_parameters.measurements",
+        ),
+        results=InternalRelation(
+            "metadata.method_specific_parameters.data_analysis.results",
             keys=["id", "name"],
             related_part="metadata.general_parameters.results",
         ),
         chemical_environment=InternalRelation(
-            "metadata.method_specific_parameters.measurements.sample.chemical_environment",
+            "metadata.method_specific_parameters.measurements.sample_in_cell.chemical_environment",
             keys=["id", "name"],
             related_part="metadata.general_parameters.chemical_environments",
         ),
-        target_in_cell_entity=InternalRelation(
-            "metadata.method_specific_parameters.measurements.sample.target_in_cell.entity",
+        targets_entity=InternalRelation(
+            "metadata.method_specific_parameters.measurements.sample_in_cell.targets.entity",
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
         ),
-        target_in_syringe_entity=InternalRelation(
-            "metadata.method_specific_parameters.measurements.sample.target_in_syringe.entity",
+        sample_in_syringe_chemical_environment=InternalRelation(
+            "metadata.method_specific_parameters.measurements.sample_in_syringe.chemical_environment",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.chemical_environments",
+        ),
+        sample_in_syringe_targets_entity=InternalRelation(
+            "metadata.method_specific_parameters.measurements.sample_in_syringe.targets.entity",
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
         ),
@@ -667,23 +678,33 @@ class ItcDraft(InvenioDraft):
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
         ),
-        result=InternalRelation(
-            "metadata.method_specific_parameters.data_analysis.data_fitting.result",
+        measurements=InternalRelation(
+            "metadata.method_specific_parameters.data_analysis.measurements",
+            keys=["id", "name"],
+            related_part="metadata.method_specific_parameters.measurements",
+        ),
+        results=InternalRelation(
+            "metadata.method_specific_parameters.data_analysis.results",
             keys=["id", "name"],
             related_part="metadata.general_parameters.results",
         ),
         chemical_environment=InternalRelation(
-            "metadata.method_specific_parameters.measurements.sample.chemical_environment",
+            "metadata.method_specific_parameters.measurements.sample_in_cell.chemical_environment",
             keys=["id", "name"],
             related_part="metadata.general_parameters.chemical_environments",
         ),
-        target_in_cell_entity=InternalRelation(
-            "metadata.method_specific_parameters.measurements.sample.target_in_cell.entity",
+        targets_entity=InternalRelation(
+            "metadata.method_specific_parameters.measurements.sample_in_cell.targets.entity",
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
         ),
-        target_in_syringe_entity=InternalRelation(
-            "metadata.method_specific_parameters.measurements.sample.target_in_syringe.entity",
+        sample_in_syringe_chemical_environment=InternalRelation(
+            "metadata.method_specific_parameters.measurements.sample_in_syringe.chemical_environment",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.chemical_environments",
+        ),
+        sample_in_syringe_targets_entity=InternalRelation(
+            "metadata.method_specific_parameters.measurements.sample_in_syringe.targets.entity",
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
         ),

@@ -4802,35 +4802,42 @@
                                             }
                                         }
                                     },
-                                    "result": {
-                                        "detail": "relation",
-                                        "input": "relation",
-                                        "help": "metadata/method_specific_parameters/data_analysis/result.help",
-                                        "label": "metadata/method_specific_parameters/data_analysis/result.label",
-                                        "hint": "metadata/method_specific_parameters/data_analysis/result.hint",
-                                        "children": {
-                                            "id": {
-                                                "detail": "keyword",
-                                                "input": "keyword",
-                                                "help": "metadata/general_parameters/results/id.help",
-                                                "label": "metadata/general_parameters/results/id.label",
-                                                "hint": "metadata/general_parameters/results/id.hint",
-                                                "facet": "metadata_general_parameters_results_id"
-                                            },
-                                            "name": {
-                                                "detail": "keyword",
-                                                "input": "keyword",
-                                                "help": "metadata/general_parameters/results/name.help",
-                                                "label": "metadata/general_parameters/results/name.label",
-                                                "hint": "metadata/general_parameters/results/name.hint",
-                                                "facet": "metadata_general_parameters_results_name"
-                                            },
-                                            "@v": {
-                                                "detail": "keyword",
-                                                "input": "keyword",
-                                                "help": "metadata/method_specific_parameters/data_analysis/result/@v.help",
-                                                "label": "metadata/method_specific_parameters/data_analysis/result/@v.label",
-                                                "hint": "metadata/method_specific_parameters/data_analysis/result/@v.hint"
+                                    "results": {
+                                        "detail": "array",
+                                        "input": "array",
+                                        "help": "metadata/method_specific_parameters/data_analysis/results.help",
+                                        "label": "metadata/method_specific_parameters/data_analysis/results.label",
+                                        "hint": "metadata/method_specific_parameters/data_analysis/results.hint",
+                                        "child": {
+                                            "detail": "relation",
+                                            "input": "relation",
+                                            "help": "metadata/method_specific_parameters/data_analysis/results.help",
+                                            "label": "metadata/method_specific_parameters/data_analysis/results.label",
+                                            "hint": "metadata/method_specific_parameters/data_analysis/results.hint",
+                                            "children": {
+                                                "id": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/general_parameters/results/id.help",
+                                                    "label": "metadata/general_parameters/results/id.label",
+                                                    "hint": "metadata/general_parameters/results/id.hint",
+                                                    "facet": "metadata_general_parameters_results_id"
+                                                },
+                                                "name": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/general_parameters/results/name.help",
+                                                    "label": "metadata/general_parameters/results/name.label",
+                                                    "hint": "metadata/general_parameters/results/name.hint",
+                                                    "facet": "metadata_general_parameters_results_name"
+                                                },
+                                                "@v": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/method_specific_parameters/data_analysis/results/@v.help",
+                                                    "label": "metadata/method_specific_parameters/data_analysis/results/@v.label",
+                                                    "hint": "metadata/method_specific_parameters/data_analysis/results/@v.hint"
+                                                }
                                             }
                                         }
                                     }

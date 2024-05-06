@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-05-02T09:34:58.462017\n"
-"PO-Revision-Date: 2024-05-02T09:34:58.462018\n"
+"POT-Creation-Date: 2024-05-03T17:25:13.718266\n"
+"PO-Revision-Date: 2024-05-03T17:25:13.718267\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7528,7 +7528,7 @@ msgstr ""
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.9.20"
+msgid "metadata/general_parameters/schema_version.enum.0.9.21"
 msgstr ""
 
 msgid "metadata/general_parameters/technique.help"
@@ -7655,154 +7655,96 @@ msgid "metadata/method_specific_parameters/data_analysis/data_fitting.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model.help"
+"metadata/method_specific_parameters/data_analysis/data_fitting/model.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model.label"
+"metadata/method_specific_parameters/data_analysis/data_fitting/model.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model.hint"
+"metadata/method_specific_parameters/data_analysis/data_fitting/model.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/model.help"
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/model.label"
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/model.hint"
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality.help"
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality.label"
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality.hint"
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.help"
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.enum.R^2"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.label"
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.enum.SEM"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.enum.R^2"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.enum.SEM"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.enum.red."
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.enum.red."
 " Chi^2"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.enum.1sigma"
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.enum.1sigma"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.enum.2sigma"
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.enum.2sigma"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.enum.3sigma"
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.enum.3sigma"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.enum.5sigma"
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.enum.5sigma"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.enum.Skewness"
+"metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.enum.Skewness"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/software_name.help"
+"metadata/method_specific_parameters/data_analysis/data_fitting/software_name.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/software_name.label"
+"metadata/method_specific_parameters/data_analysis/data_fitting/software_name.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/software_name.hint"
+"metadata/method_specific_parameters/data_analysis/data_fitting/software_name.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/software_version.help"
+"metadata/method_specific_parameters/data_analysis/data_fitting/software_version.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/software_version.label"
+"metadata/method_specific_parameters/data_analysis/data_fitting/software_version.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/software_version.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/result.help"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/result.label"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/result.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/result/@v.help"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/result/@v.label"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/result/@v.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/type.help"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/type.label"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/type.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/type.enum.Simple"
-" model"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_fitting/type.enum.Complex"
-" model"
+"metadata/method_specific_parameters/data_analysis/data_fitting/software_version.hint"
 msgstr ""
 
 msgid ""
@@ -7875,6 +7817,78 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/data_analysis/data_processing_steps/software_version.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/measurements.help"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/measurements.label"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/measurements.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/measurements/id.help"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/measurements/id.label"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/measurements/id.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/measurements/name.help"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/measurements/name.label"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/measurements/name.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/measurements/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/data_analysis/measurements/@v.label"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/measurements/@v.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/results.help"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/results.label"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/results.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.help"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.label"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/type.help"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/type.label"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/type.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/data_analysis/type.enum.Simple model"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/data_analysis/type.enum.Complex model"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/experiment_type.help"
@@ -8046,397 +8060,451 @@ msgstr ""
 msgid "metadata/method_specific_parameters/measurements.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/measurements/id.help"
+msgid "metadata/method_specific_parameters/measurements/sample_in_cell.help"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/measurements/id.label"
+msgid "metadata/method_specific_parameters/measurements/sample_in_cell.label"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/measurements/id.hint"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/measurements/name.help"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/measurements/name.label"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/measurements/name.hint"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/measurements/sample.help"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/measurements/sample.label"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/measurements/sample.hint"
+msgid "metadata/method_specific_parameters/measurements/sample_in_cell.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/chemical_environment.help"
+"metadata/method_specific_parameters/measurements/sample_in_cell/chemical_environment.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/chemical_environment.label"
+"metadata/method_specific_parameters/measurements/sample_in_cell/chemical_environment.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/chemical_environment.hint"
+"metadata/method_specific_parameters/measurements/sample_in_cell/chemical_environment.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/chemical_environment/@v.help"
+"metadata/method_specific_parameters/measurements/sample_in_cell/chemical_environment/@v.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/chemical_environment/@v.label"
+"metadata/method_specific_parameters/measurements/sample_in_cell/chemical_environment/@v.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/chemical_environment/@v.hint"
+"metadata/method_specific_parameters/measurements/sample_in_cell/chemical_environment/@v.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/preparation_protocol.help"
+"metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/preparation_protocol.label"
+"metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/preparation_protocol.hint"
+"metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/preparation_protocol/description.help"
+"metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol/description.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/preparation_protocol/description.label"
+"metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol/description.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/preparation_protocol/description.hint"
+"metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol/description.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/preparation_protocol/name.help"
+"metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol/name.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/preparation_protocol/name.label"
+"metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol/name.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/preparation_protocol/name.hint"
+"metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol/name.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell.help"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell.label"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell.hint"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration.help"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration.label"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration.hint"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.help"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.label"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.hint"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.M"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.M"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.mM"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.mM"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.µM"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.µM"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.nM"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.nM"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.pM"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.pM"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.fM"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.fM"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.aM"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.aM"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.g/L"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.g/L"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.mg/mL"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.mg/mL"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.µg/mL"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.µg/mL"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.ng/mL"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.ng/mL"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.mol/kg"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.mol/kg"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.mmol/kg"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.mmol/kg"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.v/v"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.v/v"
 " %"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.w/w"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.w/w"
 " %"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.v/w"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.v/w"
 " %"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.w/v"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.w/v"
 " %"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.U/ml"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.U/ml"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.enum.%"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.enum.%"
 " saturated"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/value.help"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/value.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/value.label"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/value.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/value.hint"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/value.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/entity.help"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/entity.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/entity.label"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/entity.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/entity.hint"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/entity.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/entity/@v.help"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/entity/@v.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/entity/@v.label"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/entity/@v.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_cell/entity/@v.hint"
+"metadata/method_specific_parameters/measurements/sample_in_cell/targets/entity/@v.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe.help"
+"metadata/method_specific_parameters/measurements/sample_in_syringe.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe.label"
+"metadata/method_specific_parameters/measurements/sample_in_syringe.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe.hint"
+"metadata/method_specific_parameters/measurements/sample_in_syringe.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration.help"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/chemical_environment.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration.label"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/chemical_environment.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration.hint"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/chemical_environment.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.help"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/chemical_environment/@v.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.label"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/chemical_environment/@v.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.hint"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/chemical_environment/@v.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.M"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.mM"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.µM"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.nM"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol/description.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.pM"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol/description.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.fM"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol/description.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.aM"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol/name.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.g/L"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol/name.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.mg/mL"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol/name.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.µg/mL"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.ng/mL"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.mol/kg"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.mmol/kg"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.v/v"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration.label"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.help"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.label"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.M"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.mM"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.µM"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.nM"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.pM"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.fM"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.aM"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.g/L"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.mg/mL"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.µg/mL"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.ng/mL"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.mol/kg"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.mmol/kg"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.v/v"
 " %"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.w/w"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.w/w"
 " %"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.v/w"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.v/w"
 " %"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.w/v"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.w/v"
 " %"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.U/ml"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.U/ml"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.enum.%"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.enum.%"
 " saturated"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/value.help"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/value.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/value.label"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/value.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/value.hint"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/value.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/entity.help"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/entity.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/entity.label"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/entity.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/entity.hint"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/entity.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/entity/@v.help"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/entity/@v.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/entity/@v.label"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/entity/@v.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurements/sample/target_in_syringe/entity/@v.hint"
+"metadata/method_specific_parameters/measurements/sample_in_syringe/targets/entity/@v.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/reference_power.label"
@@ -8481,7 +8549,7 @@ msgstr ""
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.0.1"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.0.2"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/stirring_speed.label"
@@ -8491,6 +8559,27 @@ msgid "metadata/method_specific_parameters/stirring_speed.help"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/stirring_speed.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/stirring_speed/unit.help"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/stirring_speed/unit.label"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/stirring_speed/unit.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/stirring_speed/unit.enum.RPM"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/stirring_speed/value.help"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/stirring_speed/value.label"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/stirring_speed/value.hint"
 msgstr ""
 
 msgid "updated.help"

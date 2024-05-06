@@ -25966,7 +25966,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.9.20"
+                                    "0.9.21"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"
@@ -26063,14 +26063,20 @@
                                     "value": {
                                         "type": "double",
                                         "required": true,
-                                        "label.en": "Value"
+                                        "minimum": 0.0,
+                                        "label.en": "Value",
+                                        "marshmallow": {
+                                            "validators": [
+                                                "ma.validate.Range(min=0.0)"
+                                            ]
+                                        }
                                     }
                                 }
                             },
                             "data_analysis": {
                                 "type": "array",
                                 "minItems": 1,
-                                "help.en": "The details of how data analysis was performed to obtain the result",
+                                "help.en": "The details of how data analysis was performed to obtain results",
                                 "label.en": "Data analysis",
                                 "marshmallow": {
                                     "validators": [
@@ -26106,130 +26112,41 @@
                                                 }
                                             },
                                             "properties": {
-                                                "data_fitting_model": {
-                                                    "type": "object",
-                                                    "help.en": "The details of how data fitting was performed to obtain the result",
-                                                    "label.en": "Data fitting model",
-                                                    "marshmallow": {
-                                                        "generate": true,
-                                                        "class": "itc.services.records.schema.DataFittingModelSchema"
-                                                    },
-                                                    "ui": {
-                                                        "marshmallow": {
-                                                            "generate": true,
-                                                            "class": "itc.services.records.ui_schema.DataFittingModelUISchema"
-                                                        }
-                                                    },
-                                                    "properties": {
-                                                        "model": {
-                                                            "type": "keyword",
-                                                            "required": true,
-                                                            "help.en": "Description of the model (e.g. 1:1 binding)",
-                                                            "label.en": "Model"
-                                                        },
-                                                        "quality": {
-                                                            "type": "double",
-                                                            "help.en": "Numerical value representing the quality estimate of the result",
-                                                            "label.en": "Quality"
-                                                        },
-                                                        "quality_type": {
-                                                            "type": "keyword",
-                                                            "enum": [
-                                                                "R^2",
-                                                                "SEM",
-                                                                "red. Chi^2",
-                                                                "1sigma",
-                                                                "2sigma",
-                                                                "3sigma",
-                                                                "5sigma",
-                                                                "Skewness"
-                                                            ],
-                                                            "help.en": "Type of the quality estimate",
-                                                            "label.en": "Quality type"
-                                                        },
-                                                        "software_name": {
-                                                            "type": "keyword",
-                                                            "help.en": "The name of the software that was used for doing the data fitting (e.g. Excel)",
-                                                            "label.en": "Software name"
-                                                        },
-                                                        "software_version": {
-                                                            "type": "keyword",
-                                                            "help.en": "The version of the software that was used for the step",
-                                                            "label.en": "Software version"
-                                                        }
-                                                    }
-                                                },
-                                                "result": {
-                                                    "type": "array",
-                                                    "minItems": 1,
-                                                    "help.en": "Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters",
-                                                    "label.en": "Result",
-                                                    "marshmallow": {
-                                                        "validators": [
-                                                            "ma.validate.Length(min=1)"
-                                                        ]
-                                                    },
-                                                    "items": {
-                                                        "type": "relation",
-                                                        "model": "#result",
-                                                        "keys": [
-                                                            "id",
-                                                            "name"
-                                                        ],
-                                                        "marshmallow": {
-                                                            "unknown": "INCLUDE",
-                                                            "generate": false,
-                                                            "class": "itc.services.records.schema.EntitySchema"
-                                                        },
-                                                        "ui": {
-                                                            "marshmallow": {
-                                                                "unknown": "INCLUDE",
-                                                                "generate": false,
-                                                                "class": "itc.services.records.ui_schema.EntityUISchema"
-                                                            }
-                                                        },
-                                                        "properties": {
-                                                            "id": {
-                                                                "type": "keyword",
-                                                                "label.en": "Id"
-                                                            },
-                                                            "name": {
-                                                                "type": "keyword",
-                                                                "required": true,
-                                                                "mapping": {
-                                                                    "copy_to": "collected_default_search_fields"
-                                                                },
-                                                                "help.en": "Descriptive name (id) of the result (e.g. Kd of Lysozyme and VHH2). Must be unique within a record",
-                                                                "label.en": "Name"
-                                                            },
-                                                            "@v": {
-                                                                "type": "keyword",
-                                                                "marshmallow": {
-                                                                    "field-name": "_version",
-                                                                    "field-class": "marshmallow.fields.String"
-                                                                },
-                                                                "ui": {
-                                                                    "marshmallow": {
-                                                                        "field-name": "_version",
-                                                                        "field-class": "marshmallow.fields.String"
-                                                                    }
-                                                                },
-                                                                "facets": {
-                                                                    "facet": false
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                "type": {
+                                                "model": {
                                                     "type": "keyword",
                                                     "required": true,
+                                                    "help.en": "Description of the model (e.g. 1:1 binding)",
+                                                    "label.en": "Model"
+                                                },
+                                                "quality": {
+                                                    "type": "double",
+                                                    "help.en": "Numerical value representing the quality estimate of the result",
+                                                    "label.en": "Quality"
+                                                },
+                                                "quality_type": {
+                                                    "type": "keyword",
                                                     "enum": [
-                                                        "Simple model",
-                                                        "Complex model"
+                                                        "R^2",
+                                                        "SEM",
+                                                        "red. Chi^2",
+                                                        "1sigma",
+                                                        "2sigma",
+                                                        "3sigma",
+                                                        "5sigma",
+                                                        "Skewness"
                                                     ],
-                                                    "help.en": "Type of model used to obtain derived parameters",
-                                                    "label.en": "Type"
+                                                    "help.en": "Type of the quality estimate",
+                                                    "label.en": "Quality type"
+                                                },
+                                                "software_name": {
+                                                    "type": "keyword",
+                                                    "help.en": "The name of the software that was used for doing the data fitting (e.g. Excel)",
+                                                    "label.en": "Software name"
+                                                },
+                                                "software_version": {
+                                                    "type": "keyword",
+                                                    "help.en": "The version of the software that was used for the step",
+                                                    "label.en": "Software version"
                                                 }
                                             }
                                         },
@@ -26286,6 +26203,139 @@
                                                     }
                                                 }
                                             }
+                                        },
+                                        "measurements": {
+                                            "type": "array",
+                                            "minItems": 1,
+                                            "help.en": "List of the measurements that was analyzed together for a specific parameter",
+                                            "label.en": "Measurements",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Length(min=1)"
+                                                ]
+                                            },
+                                            "items": {
+                                                "type": "relation",
+                                                "model": "#itc-measurement",
+                                                "keys": [
+                                                    "id",
+                                                    "name"
+                                                ],
+                                                "marshmallow": {
+                                                    "unknown": "INCLUDE",
+                                                    "generate": false,
+                                                    "class": "itc.services.records.schema.EntitySchema"
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "unknown": "INCLUDE",
+                                                        "generate": false,
+                                                        "class": "itc.services.records.ui_schema.EntityUISchema"
+                                                    }
+                                                },
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "keyword",
+                                                        "required": true,
+                                                        "help.en": "Unique ID to be used as a link target",
+                                                        "label.en": "Id"
+                                                    },
+                                                    "name": {
+                                                        "type": "keyword",
+                                                        "required": true,
+                                                        "help.en": "Name (id) of the measurement which must be unique within a record (i.e. triplicates must be named individually in the raw data file). The name must allow location of the measurement data within the raw data file as well as processed data files if these are present",
+                                                        "label.en": "Name"
+                                                    },
+                                                    "@v": {
+                                                        "type": "keyword",
+                                                        "marshmallow": {
+                                                            "field-name": "_version",
+                                                            "field-class": "marshmallow.fields.String"
+                                                        },
+                                                        "ui": {
+                                                            "marshmallow": {
+                                                                "field-name": "_version",
+                                                                "field-class": "marshmallow.fields.String"
+                                                            }
+                                                        },
+                                                        "facets": {
+                                                            "facet": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "results": {
+                                            "type": "array",
+                                            "minItems": 1,
+                                            "help.en": "Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters",
+                                            "label.en": "Results",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Length(min=1)"
+                                                ]
+                                            },
+                                            "items": {
+                                                "type": "relation",
+                                                "model": "#result",
+                                                "keys": [
+                                                    "id",
+                                                    "name"
+                                                ],
+                                                "marshmallow": {
+                                                    "unknown": "INCLUDE",
+                                                    "generate": false,
+                                                    "class": "itc.services.records.schema.EntitySchema"
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "unknown": "INCLUDE",
+                                                        "generate": false,
+                                                        "class": "itc.services.records.ui_schema.EntityUISchema"
+                                                    }
+                                                },
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "keyword",
+                                                        "label.en": "Id"
+                                                    },
+                                                    "name": {
+                                                        "type": "keyword",
+                                                        "required": true,
+                                                        "mapping": {
+                                                            "copy_to": "collected_default_search_fields"
+                                                        },
+                                                        "help.en": "Descriptive name (id) of the result (e.g. Kd of Lysozyme and VHH2). Must be unique within a record",
+                                                        "label.en": "Name"
+                                                    },
+                                                    "@v": {
+                                                        "type": "keyword",
+                                                        "marshmallow": {
+                                                            "field-name": "_version",
+                                                            "field-class": "marshmallow.fields.String"
+                                                        },
+                                                        "ui": {
+                                                            "marshmallow": {
+                                                                "field-name": "_version",
+                                                                "field-class": "marshmallow.fields.String"
+                                                            }
+                                                        },
+                                                        "facets": {
+                                                            "facet": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "type": {
+                                            "type": "keyword",
+                                            "required": true,
+                                            "enum": [
+                                                "Simple model",
+                                                "Complex model"
+                                            ],
+                                            "help.en": "Type of model used to obtain derived parameters",
+                                            "label.en": "Type"
                                         }
                                     }
                                 }
@@ -26304,7 +26354,13 @@
                                                     "value": {
                                                         "type": "double",
                                                         "required": true,
-                                                        "label.en": "Value"
+                                                        "minimum": 0.0,
+                                                        "label.en": "Value",
+                                                        "marshmallow": {
+                                                            "validators": [
+                                                                "ma.validate.Range(min=0.0)"
+                                                            ]
+                                                        }
                                                     },
                                                     "unit": {
                                                         "type": "keyword",
@@ -26317,7 +26373,7 @@
                                                         "label.en": "Unit"
                                                     }
                                                 },
-                                                "help.en": "Titrant volume injected into the cell.",
+                                                "help.en": "Titrant volume injected into the cell",
                                                 "label.en": "Volume",
                                                 "marshmallow": {
                                                     "generate": false,
@@ -26363,7 +26419,13 @@
                                             "number_injections": {
                                                 "type": "double",
                                                 "required": true,
-                                                "label.en": "Number injections"
+                                                "minimum": 1.0,
+                                                "label.en": "Number injections",
+                                                "marshmallow": {
+                                                    "validators": [
+                                                        "ma.validate.Range(min=1.0)"
+                                                    ]
+                                                }
                                             },
                                             "injection_parameters": {
                                                 "type": "array",
@@ -26382,7 +26444,13 @@
                                                                 "value": {
                                                                     "type": "double",
                                                                     "required": true,
-                                                                    "label.en": "Value"
+                                                                    "minimum": 0.0,
+                                                                    "label.en": "Value",
+                                                                    "marshmallow": {
+                                                                        "validators": [
+                                                                            "ma.validate.Range(min=0.0)"
+                                                                        ]
+                                                                    }
                                                                 },
                                                                 "unit": {
                                                                     "type": "keyword",
@@ -26421,7 +26489,7 @@
                                                     }
                                                 },
                                                 "minItems": 1,
-                                                "help.en": "Characteristics of each injection (i. e. number of ijections at a specific volume of 0.2 ml)",
+                                                "help.en": "Characteristics of each injection (i. e. number of injections at a specific volume of 0.2 ml)",
                                                 "label.en": "Injection parameters",
                                                 "marshmallow": {
                                                     "validators": [
@@ -26486,7 +26554,7 @@
                                     "volume": {
                                         "type": "object",
                                         "required": true,
-                                        "help.en": "Titrant volume injected into the cell.",
+                                        "help.en": "Titrant volume injected into the cell",
                                         "label.en": "Volume",
                                         "marshmallow": {
                                             "generate": false,
@@ -26512,14 +26580,20 @@
                                             "value": {
                                                 "type": "double",
                                                 "required": true,
-                                                "label.en": "Value"
+                                                "minimum": 0.0,
+                                                "label.en": "Value",
+                                                "marshmallow": {
+                                                    "validators": [
+                                                        "ma.validate.Range(min=0.0)"
+                                                    ]
+                                                }
                                             }
                                         }
                                     },
                                     "injection_parameters": {
                                         "type": "array",
                                         "minItems": 1,
-                                        "help.en": "Characteristics of each injection (i. e. number of ijections at a specific volume of 0.2 ml)",
+                                        "help.en": "Characteristics of each injection (i. e. number of injections at a specific volume of 0.2 ml)",
                                         "label.en": "Injection parameters",
                                         "marshmallow": {
                                             "validators": [
@@ -26573,7 +26647,13 @@
                                                         "value": {
                                                             "type": "double",
                                                             "required": true,
-                                                            "label.en": "Value"
+                                                            "minimum": 0.0,
+                                                            "label.en": "Value",
+                                                            "marshmallow": {
+                                                                "validators": [
+                                                                    "ma.validate.Range(min=0.0)"
+                                                                ]
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -26583,13 +26663,18 @@
                                     "number_injections": {
                                         "type": "double",
                                         "required": true,
-                                        "label.en": "Number injections"
+                                        "minimum": 1.0,
+                                        "label.en": "Number injections",
+                                        "marshmallow": {
+                                            "validators": [
+                                                "ma.validate.Range(min=1.0)"
+                                            ]
+                                        }
                                     }
                                 }
                             },
                             "feedback_mode": {
                                 "type": "keyword",
-                                "required": true,
                                 "enum": [
                                     "None",
                                     "Low",
@@ -26636,80 +26721,71 @@
                                             "help.en": "Name (id) of the measurement which must be unique within a record (i.e. triplicates must be named individually in the raw data file). The name must allow location of the measurement data within the raw data file as well as processed data files if these are present",
                                             "label.en": "Name"
                                         },
-                                        "sample": {
+                                        "sample_in_cell": {
                                             "type": "object",
                                             "required": true,
-                                            "help.en": "Information about the sample including concentrations of ligands and targets, and which chemical environment the sample was composed of",
-                                            "label.en": "Sample",
+                                            "help.en": "Composition of the solution in the cell including targets and chemical environment",
+                                            "label.en": "Sample in cell",
                                             "marshmallow": {
                                                 "generate": true,
-                                                "class": "itc.services.records.schema.SampleSchema"
+                                                "class": "itc.services.records.schema.SampleInCellSchema"
                                             },
                                             "ui": {
                                                 "marshmallow": {
                                                     "generate": true,
-                                                    "class": "itc.services.records.ui_schema.SampleUISchema"
+                                                    "class": "itc.services.records.ui_schema.SampleInCellUISchema"
                                                 }
                                             },
                                             "properties": {
                                                 "chemical_environment": {
-                                                    "type": "array",
+                                                    "type": "relation",
                                                     "required": true,
-                                                    "minItems": 1,
+                                                    "model": "#chemical-environment",
+                                                    "keys": [
+                                                        "id",
+                                                        "name"
+                                                    ],
                                                     "help.en": "Name (id) of the chemical environment of the sample (from the chemical environments defined in the general parameters)",
                                                     "label.en": "Chemical environment",
                                                     "marshmallow": {
-                                                        "validators": [
-                                                            "ma.validate.Length(min=1)"
-                                                        ]
+                                                        "unknown": "INCLUDE",
+                                                        "generate": false,
+                                                        "class": "itc.services.records.schema.EntitySchema"
                                                     },
-                                                    "items": {
-                                                        "type": "relation",
-                                                        "model": "#chemical-environment",
-                                                        "keys": [
-                                                            "id",
-                                                            "name"
-                                                        ],
+                                                    "ui": {
                                                         "marshmallow": {
                                                             "unknown": "INCLUDE",
                                                             "generate": false,
-                                                            "class": "itc.services.records.schema.EntitySchema"
+                                                            "class": "itc.services.records.ui_schema.EntityUISchema"
+                                                        }
+                                                    },
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "keyword",
+                                                            "required": true,
+                                                            "help.en": "Unique ID for the chemical environment to be used as a link",
+                                                            "label.en": "Id"
                                                         },
-                                                        "ui": {
+                                                        "name": {
+                                                            "type": "keyword",
+                                                            "required": true,
+                                                            "help.en": "Name of the chemical environment (e.g. Measurement Buffer). The name must be unique within a record as it will be referred to the in method specific section in when describing the composition of the individual samples or measurement steps",
+                                                            "label.en": "Name"
+                                                        },
+                                                        "@v": {
+                                                            "type": "keyword",
                                                             "marshmallow": {
-                                                                "unknown": "INCLUDE",
-                                                                "generate": false,
-                                                                "class": "itc.services.records.ui_schema.EntityUISchema"
-                                                            }
-                                                        },
-                                                        "properties": {
-                                                            "id": {
-                                                                "type": "keyword",
-                                                                "required": true,
-                                                                "help.en": "Unique ID for the chemical environment to be used as a link",
-                                                                "label.en": "Id"
+                                                                "field-name": "_version",
+                                                                "field-class": "marshmallow.fields.String"
                                                             },
-                                                            "name": {
-                                                                "type": "keyword",
-                                                                "required": true,
-                                                                "help.en": "Name of the chemical environment (e.g. Measurement Buffer). The name must be unique within a record as it will be referred to the in method specific section in when describing the composition of the individual samples or measurement steps",
-                                                                "label.en": "Name"
-                                                            },
-                                                            "@v": {
-                                                                "type": "keyword",
+                                                            "ui": {
                                                                 "marshmallow": {
                                                                     "field-name": "_version",
                                                                     "field-class": "marshmallow.fields.String"
-                                                                },
-                                                                "ui": {
-                                                                    "marshmallow": {
-                                                                        "field-name": "_version",
-                                                                        "field-class": "marshmallow.fields.String"
-                                                                    }
-                                                                },
-                                                                "facets": {
-                                                                    "facet": false
                                                                 }
+                                                            },
+                                                            "facets": {
+                                                                "facet": false
                                                             }
                                                         }
                                                     }
@@ -26753,12 +26829,12 @@
                                                         }
                                                     }
                                                 },
-                                                "target_in_cell": {
+                                                "targets": {
                                                     "type": "array",
                                                     "required": true,
                                                     "minItems": 1,
-                                                    "help.en": "List of names (ids), from the entities of interest defined in the general parameters, of directly measured entities and entities at constant concentration for a series of measurements and their concentration",
-                                                    "label.en": "Target in cell",
+                                                    "help.en": "List of names (ids), from the entities of interest defined in the general parameters, of directly measured entities",
+                                                    "label.en": "Targets",
                                                     "marshmallow": {
                                                         "validators": [
                                                             "ma.validate.Length(min=1)"
@@ -26769,12 +26845,12 @@
                                                         "label.en": "Entity constituent",
                                                         "marshmallow": {
                                                             "generate": true,
-                                                            "class": "itc.services.records.schema.TargetInCellItemSchema"
+                                                            "class": "itc.services.records.schema.TargetsItemSchema"
                                                         },
                                                         "ui": {
                                                             "marshmallow": {
                                                                 "generate": true,
-                                                                "class": "itc.services.records.ui_schema.TargetInCellItemUISchema"
+                                                                "class": "itc.services.records.ui_schema.TargetsItemUISchema"
                                                             }
                                                         },
                                                         "properties": {
@@ -26891,13 +26967,123 @@
                                                             }
                                                         }
                                                     }
+                                                }
+                                            }
+                                        },
+                                        "sample_in_syringe": {
+                                            "type": "object",
+                                            "required": true,
+                                            "help.en": "Composition of the solution in the syringe including targets and chemical environment",
+                                            "label.en": "Sample in syringe",
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "itc.services.records.schema.SampleInCellSchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": false,
+                                                    "class": "itc.services.records.ui_schema.SampleInCellUISchema"
+                                                }
+                                            },
+                                            "properties": {
+                                                "chemical_environment": {
+                                                    "type": "relation",
+                                                    "required": true,
+                                                    "model": "#chemical-environment",
+                                                    "keys": [
+                                                        "id",
+                                                        "name"
+                                                    ],
+                                                    "help.en": "Name (id) of the chemical environment of the sample (from the chemical environments defined in the general parameters)",
+                                                    "label.en": "Chemical environment",
+                                                    "marshmallow": {
+                                                        "unknown": "INCLUDE",
+                                                        "generate": false,
+                                                        "class": "itc.services.records.schema.EntitySchema"
+                                                    },
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "unknown": "INCLUDE",
+                                                            "generate": false,
+                                                            "class": "itc.services.records.ui_schema.EntityUISchema"
+                                                        }
+                                                    },
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "keyword",
+                                                            "required": true,
+                                                            "help.en": "Unique ID for the chemical environment to be used as a link",
+                                                            "label.en": "Id"
+                                                        },
+                                                        "name": {
+                                                            "type": "keyword",
+                                                            "required": true,
+                                                            "help.en": "Name of the chemical environment (e.g. Measurement Buffer). The name must be unique within a record as it will be referred to the in method specific section in when describing the composition of the individual samples or measurement steps",
+                                                            "label.en": "Name"
+                                                        },
+                                                        "@v": {
+                                                            "type": "keyword",
+                                                            "marshmallow": {
+                                                                "field-name": "_version",
+                                                                "field-class": "marshmallow.fields.String"
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "field-name": "_version",
+                                                                    "field-class": "marshmallow.fields.String"
+                                                                }
+                                                            },
+                                                            "facets": {
+                                                                "facet": false
+                                                            }
+                                                        }
+                                                    }
                                                 },
-                                                "target_in_syringe": {
+                                                "preparation_protocol": {
+                                                    "type": "array",
+                                                    "minItems": 1,
+                                                    "help.en": "List of steps taken to prepare the sample, ending at the point where it was placed in the measurement container. Information include operations like filtration and which filter material and pore-size was used should be added",
+                                                    "label.en": "Preparation protocol",
+                                                    "marshmallow": {
+                                                        "validators": [
+                                                            "ma.validate.Length(min=1)"
+                                                        ]
+                                                    },
+                                                    "items": {
+                                                        "type": "object",
+                                                        "label.en": "Step",
+                                                        "marshmallow": {
+                                                            "generate": false,
+                                                            "class": "itc.services.records.schema.ProtocolItemSchema"
+                                                        },
+                                                        "ui": {
+                                                            "marshmallow": {
+                                                                "generate": false,
+                                                                "class": "itc.services.records.ui_schema.ProtocolItemUISchema"
+                                                            }
+                                                        },
+                                                        "properties": {
+                                                            "description": {
+                                                                "type": "keyword",
+                                                                "required": true,
+                                                                "help.en": "Short description of the step",
+                                                                "label.en": "Description"
+                                                            },
+                                                            "name": {
+                                                                "type": "keyword",
+                                                                "required": true,
+                                                                "help.en": "Descriptive name of the step",
+                                                                "label.en": "Name"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "targets": {
                                                     "type": "array",
                                                     "required": true,
                                                     "minItems": 1,
-                                                    "help.en": "List of names (ids) of entities (from the entities of interest defined in the general parameters) that were used to alter the behavior of the target(s) or entities present at varying concentrations for a series of measurements and their concentration",
-                                                    "label.en": "Target in syringe",
+                                                    "help.en": "List of names (ids), from the entities of interest defined in the general parameters, of directly measured entities",
+                                                    "label.en": "Targets",
                                                     "marshmallow": {
                                                         "validators": [
                                                             "ma.validate.Length(min=1)"
@@ -26908,12 +27094,12 @@
                                                         "label.en": "Entity constituent",
                                                         "marshmallow": {
                                                             "generate": false,
-                                                            "class": "itc.services.records.schema.TargetInCellItemSchema"
+                                                            "class": "itc.services.records.schema.TargetsItemSchema"
                                                         },
                                                         "ui": {
                                                             "marshmallow": {
                                                                 "generate": false,
-                                                                "class": "itc.services.records.ui_schema.TargetInCellItemUISchema"
+                                                                "class": "itc.services.records.ui_schema.TargetsItemUISchema"
                                                             }
                                                         },
                                                         "properties": {
@@ -27071,15 +27257,48 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.0.1"
+                                    "0.0.2"
                                 ],
                                 "help.en": "The schema version used to annotate the ITC method specific parameters",
                                 "label.en": "Schema version"
                             },
                             "stirring_speed": {
-                                "type": "double",
+                                "type": "object",
                                 "required": true,
-                                "label.en": "Stirring speed"
+                                "label.en": "Stirring speed",
+                                "marshmallow": {
+                                    "generate": true,
+                                    "class": "itc.services.records.schema.StirringSpeedSchema"
+                                },
+                                "ui": {
+                                    "marshmallow": {
+                                        "generate": true,
+                                        "class": "itc.services.records.ui_schema.StirringSpeedUISchema"
+                                    }
+                                },
+                                "properties": {
+                                    "unit": {
+                                        "type": "keyword",
+                                        "required": true,
+                                        "enum": [
+                                            "RPM"
+                                        ],
+                                        "help.en": "The unit of the shaking/stirring speed)",
+                                        "label.en": "Unit"
+                                    },
+                                    "value": {
+                                        "type": "integer",
+                                        "required": true,
+                                        "minimum": 0,
+                                        "help.en": "The numerical value of the shaking/stirring speed",
+                                        "label.en": "Value",
+                                        "marshmallow": {
+                                            "validators": [
+                                                "ma.validate.Range(min=0)"
+                                            ]
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

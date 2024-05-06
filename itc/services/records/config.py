@@ -9,17 +9,17 @@ from invenio_records_resources.services import (
     pagination_links,
 )
 from invenio_records_resources.services.records.components import DataComponent
-from itc.records.api import ItcDraft, ItcRecord
-from itc.services.records.permissions import ItcPermissionPolicy
-from itc.services.records.results import ItcRecordItem, ItcRecordList
-from itc.services.records.schema import ItcSchema
-from itc.services.records.search import ItcSearchOptions
 from oarepo_runtime.records import has_draft, is_published_record
 from oarepo_runtime.services.components import OwnersComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 from oarepo_runtime.services.files import FilesComponent
 
 from common.services.records.components import ForeignVocabularyFetcherComponent
+from itc.records.api import ItcDraft, ItcRecord
+from itc.services.records.permissions import ItcPermissionPolicy
+from itc.services.records.results import ItcRecordItem, ItcRecordList
+from itc.services.records.schema import ItcSchema
+from itc.services.records.search import ItcSearchOptions
 
 
 class ItcServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsServiceConfig):

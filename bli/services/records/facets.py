@@ -2576,27 +2576,6 @@ metadata_method_specific_parameters_measurement_protocol_shaking_speed_value = T
     ),
 )
 
-metadata_method_specific_parameters_measurement_protocol_shaking_speed_value_error_is_relative = TermsFacet(
-    field="metadata.method_specific_parameters.measurement_protocol.shaking_speed.value_error.is_relative",
-    label=_(
-        "metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/is_relative.label"
-    ),
-)
-
-metadata_method_specific_parameters_measurement_protocol_shaking_speed_value_error_lower = TermsFacet(
-    field="metadata.method_specific_parameters.measurement_protocol.shaking_speed.value_error.lower",
-    label=_(
-        "metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/lower.label"
-    ),
-)
-
-metadata_method_specific_parameters_measurement_protocol_shaking_speed_value_error_upper = TermsFacet(
-    field="metadata.method_specific_parameters.measurement_protocol.shaking_speed.value_error.upper",
-    label=_(
-        "metadata/method_specific_parameters/measurement_protocol/shaking_speed/value_error/upper.label"
-    ),
-)
-
 metadata_method_specific_parameters_measurement_protocol_start_time_unit = TermsFacet(
     field="metadata.method_specific_parameters.measurement_protocol.start_time.unit",
     label=_(

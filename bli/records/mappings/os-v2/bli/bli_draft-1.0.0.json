@@ -2433,7 +2433,7 @@
                                             }
                                         }
                                     },
-                                    "result": {
+                                    "results": {
                                         "type": "object",
                                         "properties": {
                                             "id": {
@@ -2477,20 +2477,6 @@
                                             },
                                             "value": {
                                                 "type": "integer"
-                                            },
-                                            "value_error": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "is_relative": {
-                                                        "type": "boolean"
-                                                    },
-                                                    "lower": {
-                                                        "type": "double"
-                                                    },
-                                                    "upper": {
-                                                        "type": "double"
-                                                    }
-                                                }
                                             }
                                         }
                                     },

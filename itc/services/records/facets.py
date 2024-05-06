@@ -2487,45 +2487,38 @@ metadata_method_specific_parameters_cell_volume_value = TermsFacet(
     label=_("metadata/method_specific_parameters/cell_volume/value.label"),
 )
 
-metadata_method_specific_parameters_data_analysis_data_fitting_data_fitting_model_model = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_fitting.data_fitting_model.model",
+metadata_method_specific_parameters_data_analysis_data_fitting_model = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_fitting.model",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/model.label"
+        "metadata/method_specific_parameters/data_analysis/data_fitting/model.label"
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_data_fitting_data_fitting_model_quality = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_fitting.data_fitting_model.quality",
+metadata_method_specific_parameters_data_analysis_data_fitting_quality = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_fitting.quality",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality.label"
+        "metadata/method_specific_parameters/data_analysis/data_fitting/quality.label"
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_data_fitting_data_fitting_model_quality_type = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_fitting.data_fitting_model.quality_type",
+metadata_method_specific_parameters_data_analysis_data_fitting_quality_type = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_fitting.quality_type",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/quality_type.label"
+        "metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.label"
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_data_fitting_data_fitting_model_software_name = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_fitting.data_fitting_model.software_name",
+metadata_method_specific_parameters_data_analysis_data_fitting_software_name = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_fitting.software_name",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/software_name.label"
+        "metadata/method_specific_parameters/data_analysis/data_fitting/software_name.label"
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_data_fitting_data_fitting_model_software_version = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_fitting.data_fitting_model.software_version",
+metadata_method_specific_parameters_data_analysis_data_fitting_software_version = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_fitting.software_version",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_fitting/data_fitting_model/software_version.label"
-    ),
-)
-
-metadata_method_specific_parameters_data_analysis_data_fitting_type = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_fitting.type",
-    label=_(
-        "metadata/method_specific_parameters/data_analysis/data_fitting/type.label"
+        "metadata/method_specific_parameters/data_analysis/data_fitting/software_version.label"
     ),
 )
 
@@ -2562,6 +2555,21 @@ metadata_method_specific_parameters_data_analysis_data_processing_steps_software
     label=_(
         "metadata/method_specific_parameters/data_analysis/data_processing_steps/software_version.label"
     ),
+)
+
+metadata_method_specific_parameters_measurements_id = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.id",
+    label=_("metadata/method_specific_parameters/measurements/id.label"),
+)
+
+metadata_method_specific_parameters_measurements_name = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.name",
+    label=_("metadata/method_specific_parameters/measurements/name.label"),
+)
+
+metadata_method_specific_parameters_data_analysis_type = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.type",
+    label=_("metadata/method_specific_parameters/data_analysis/type.label"),
 )
 
 metadata_method_specific_parameters_experiment_type_type = TermsFacet(
@@ -2612,55 +2620,59 @@ metadata_method_specific_parameters_feedback_mode = TermsFacet(
     label=_("metadata/method_specific_parameters/feedback_mode.label"),
 )
 
-metadata_method_specific_parameters_measurements_id = TermsFacet(
-    field="metadata.method_specific_parameters.measurements.id",
-    label=_("metadata/method_specific_parameters/measurements/id.label"),
-)
-
-metadata_method_specific_parameters_measurements_name = TermsFacet(
-    field="metadata.method_specific_parameters.measurements.name",
-    label=_("metadata/method_specific_parameters/measurements/name.label"),
-)
-
-metadata_method_specific_parameters_measurements_sample_preparation_protocol_description = TermsFacet(
-    field="metadata.method_specific_parameters.measurements.sample.preparation_protocol.description",
+metadata_method_specific_parameters_measurements_sample_in_cell_preparation_protocol_description = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.sample_in_cell.preparation_protocol.description",
     label=_(
-        "metadata/method_specific_parameters/measurements/sample/preparation_protocol/description.label"
+        "metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol/description.label"
     ),
 )
 
-metadata_method_specific_parameters_measurements_sample_preparation_protocol_name = TermsFacet(
-    field="metadata.method_specific_parameters.measurements.sample.preparation_protocol.name",
+metadata_method_specific_parameters_measurements_sample_in_cell_preparation_protocol_name = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.sample_in_cell.preparation_protocol.name",
     label=_(
-        "metadata/method_specific_parameters/measurements/sample/preparation_protocol/name.label"
+        "metadata/method_specific_parameters/measurements/sample_in_cell/preparation_protocol/name.label"
     ),
 )
 
-metadata_method_specific_parameters_measurements_sample_target_in_cell_concentration_unit = TermsFacet(
-    field="metadata.method_specific_parameters.measurements.sample.target_in_cell.concentration.unit",
+metadata_method_specific_parameters_measurements_sample_in_cell_targets_concentration_unit = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.sample_in_cell.targets.concentration.unit",
     label=_(
-        "metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/unit.label"
+        "metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/unit.label"
     ),
 )
 
-metadata_method_specific_parameters_measurements_sample_target_in_cell_concentration_value = TermsFacet(
-    field="metadata.method_specific_parameters.measurements.sample.target_in_cell.concentration.value",
+metadata_method_specific_parameters_measurements_sample_in_cell_targets_concentration_value = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.sample_in_cell.targets.concentration.value",
     label=_(
-        "metadata/method_specific_parameters/measurements/sample/target_in_cell/concentration/value.label"
+        "metadata/method_specific_parameters/measurements/sample_in_cell/targets/concentration/value.label"
     ),
 )
 
-metadata_method_specific_parameters_measurements_sample_target_in_syringe_concentration_unit = TermsFacet(
-    field="metadata.method_specific_parameters.measurements.sample.target_in_syringe.concentration.unit",
+metadata_method_specific_parameters_measurements_sample_in_syringe_preparation_protocol_description = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.sample_in_syringe.preparation_protocol.description",
     label=_(
-        "metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/unit.label"
+        "metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol/description.label"
     ),
 )
 
-metadata_method_specific_parameters_measurements_sample_target_in_syringe_concentration_value = TermsFacet(
-    field="metadata.method_specific_parameters.measurements.sample.target_in_syringe.concentration.value",
+metadata_method_specific_parameters_measurements_sample_in_syringe_preparation_protocol_name = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.sample_in_syringe.preparation_protocol.name",
     label=_(
-        "metadata/method_specific_parameters/measurements/sample/target_in_syringe/concentration/value.label"
+        "metadata/method_specific_parameters/measurements/sample_in_syringe/preparation_protocol/name.label"
+    ),
+)
+
+metadata_method_specific_parameters_measurements_sample_in_syringe_targets_concentration_unit = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.sample_in_syringe.targets.concentration.unit",
+    label=_(
+        "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/unit.label"
+    ),
+)
+
+metadata_method_specific_parameters_measurements_sample_in_syringe_targets_concentration_value = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.sample_in_syringe.targets.concentration.value",
+    label=_(
+        "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/concentration/value.label"
     ),
 )
 
@@ -2679,9 +2691,14 @@ metadata_method_specific_parameters_schema_version = TermsFacet(
     label=_("metadata/method_specific_parameters/schema_version.label"),
 )
 
-metadata_method_specific_parameters_stirring_speed = TermsFacet(
-    field="metadata.method_specific_parameters.stirring_speed",
-    label=_("metadata/method_specific_parameters/stirring_speed.label"),
+metadata_method_specific_parameters_stirring_speed_unit = TermsFacet(
+    field="metadata.method_specific_parameters.stirring_speed.unit",
+    label=_("metadata/method_specific_parameters/stirring_speed/unit.label"),
+)
+
+metadata_method_specific_parameters_stirring_speed_value = TermsFacet(
+    field="metadata.method_specific_parameters.stirring_speed.value",
+    label=_("metadata/method_specific_parameters/stirring_speed/value.label"),
 )
 
 

@@ -1,5 +1,6 @@
 from invenio_records_resources.records.api import FileRecord
 from invenio_records_resources.records.systemfields import IndexField
+
 from itc.files.models import ItcFileDraftMetadata, ItcFileMetadata
 
 

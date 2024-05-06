@@ -3192,7 +3192,7 @@ files = [
 
 [[package]]
 name = "oarepo-ui"
-version = "5.1.27"
+version = "5.1.28"
 requires_python = ">=3.10"
 summary = "UI module for invenio 3.5+"
 groups = ["default"]
@@ -3204,8 +3204,8 @@ dependencies = [
     "oarepo-runtime",
 ]
 files = [
-    {file = "oarepo_ui-5.1.27-py2.py3-none-any.whl", hash = "sha256:ade1e9122fbd4cf85687c3e0ebce49ef2d4c549ea391173471f463dfcf030d96"},
-    {file = "oarepo_ui-5.1.27.tar.gz", hash = "sha256:c8eef9d02a4c0fab51dab9bda77ec201125e699f8e3baf4db2abd5aa6dc9b0b5"},
+    {file = "oarepo_ui-5.1.28-py2.py3-none-any.whl", hash = "sha256:a89f2536f9e3efbaf724827360718cc2bae0fa12db94328b3b1fb4eae0616a21"},
+    {file = "oarepo_ui-5.1.28.tar.gz", hash = "sha256:32ae0aa6e3bb955d8e1da8225b18e3f44b8b1b511b3d332f1fd0a39885c37aed"},
 ]
 
 [[package]]
@@ -4096,7 +4096,7 @@ files = [
 
 [[package]]
 name = "tqdm"
-version = "4.66.2"
+version = "4.66.4"
 requires_python = ">=3.7"
 summary = "Fast, Extensible Progress Meter"
 groups = ["default"]
@@ -4104,8 +4104,8 @@ dependencies = [
     "colorama; platform_system == \"Windows\"",
 ]
 files = [
-    {file = "tqdm-4.66.2-py3-none-any.whl", hash = "sha256:1ee4f8a893eb9bef51c6e35730cebf234d5d0b6bd112b0271e10ed7c24a02bd9"},
-    {file = "tqdm-4.66.2.tar.gz", hash = "sha256:6cd52cdf0fef0e0f543299cfc96fec90d7b8a7e88745f411ec33eb44d5ed3531"},
+    {file = "tqdm-4.66.4-py3-none-any.whl", hash = "sha256:b75ca56b413b030bc3f00af51fd2c1a1a5eac6a0c1cca83cbb37a5c52abce644"},
+    {file = "tqdm-4.66.4.tar.gz", hash = "sha256:e4d936c9de8727928f3be6079590e97d9abfe8d39a590be678eb5919ffc186bb"},
 ]
 
 [[package]]

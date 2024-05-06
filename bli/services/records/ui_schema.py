@@ -63,7 +63,7 @@ class GeneralParametersUISchema(DictOnlySchema):
 
     results = ma_fields.List(ma_fields.Nested(lambda: ResultsItemUISchema()))
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.20"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.21"])])
 
     technique = ma_fields.String(
         required=True,
@@ -974,7 +974,7 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: PlatesItemUISchema()), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.5"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.6"])])
 
     sensors = ma_fields.List(
         ma_fields.Nested(lambda: SensorsItemUISchema()), required=True
@@ -2174,38 +2174,6 @@ class IdentityUISchema(DictOnlySchema):
     checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
 
-class MeasurementProtocolItemUISchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    _id = ma_fields.String(required=True, data_key="id", attribute="id")
-
-    name = ma_fields.String(required=True)
-
-    shaking_speed = ma_fields.Nested(lambda: ShakingSpeedUISchema(), required=True)
-
-    start_time = ma_fields.Nested(lambda: DurationUISchema(), required=True)
-
-    time_length = ma_fields.Nested(lambda: DurationUISchema(), required=True)
-
-    type = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(
-                [
-                    "Association",
-                    "Baseline",
-                    "Dissociation",
-                    "Regeneration",
-                    "Load",
-                    "Wash",
-                    "Activation",
-                ]
-            )
-        ],
-    )
-
-
 class ModificationsUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -2688,7 +2656,7 @@ class DataAnalysisItemUISchema(DictOnlySchema):
 
     measurements = ma_fields.List(ma_fields.Nested(lambda: EntityUISchema()))
 
-    result = ma_fields.Nested(lambda: EntityUISchema())
+    results = ma_fields.List(ma_fields.Nested(lambda: EntityUISchema()))
 
 
 class EntitiesInvolvedItemUISchema(DictOnlySchema):
@@ -2713,15 +2681,36 @@ class LigandInformationUISchema(DictOnlySchema):
     )
 
 
-class ShakingSpeedUISchema(DictOnlySchema):
+class MeasurementProtocolItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    unit = ma_fields.String(required=True, validate=[OneOf(["RPM"])])
+    _id = ma_fields.String(required=True, data_key="id", attribute="id")
 
-    value = ma_fields.Integer(required=True)
+    name = ma_fields.String(required=True)
 
-    value_error = ma_fields.Nested(lambda: ValueErrorUISchema())
+    shaking_speed = ma_fields.Nested(lambda: ShakingSpeedUISchema(), required=True)
+
+    start_time = ma_fields.Nested(lambda: DurationUISchema(), required=True)
+
+    time_length = ma_fields.Nested(lambda: DurationUISchema(), required=True)
+
+    type = ma_fields.String(
+        required=True,
+        validate=[
+            OneOf(
+                [
+                    "Association",
+                    "Baseline",
+                    "Dissociation",
+                    "Regeneration",
+                    "Load",
+                    "Wash",
+                    "Activation",
+                ]
+            )
+        ],
+    )
 
 
 class StorageUISchema(DictOnlySchema):
@@ -3177,6 +3166,15 @@ class RecordInformationUISchema(DictOnlySchema):
     subject_category = ma_fields.String(required=True, validate=[OneOf(["Biophysics"])])
 
     title = ma_fields.String(required=True)
+
+
+class ShakingSpeedUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    unit = ma_fields.String(required=True, validate=[OneOf(["RPM"])])
+
+    value = ma_fields.Integer(required=True)
 
 
 class SizeUISchema(DictOnlySchema):

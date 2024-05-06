@@ -25966,7 +25966,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.9.20"
+                                    "0.9.21"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"
@@ -26004,7 +26004,7 @@
                             "data_analysis": {
                                 "type": "array",
                                 "minItems": 1,
-                                "help.en": "Details of how the data was processed and model in order to derive parameters from it",
+                                "help.en": "The details of how data analysis was performed to obtain results",
                                 "label.en": "Data analysis",
                                 "marshmallow": {
                                     "validators": [
@@ -26193,55 +26193,64 @@
                                                 }
                                             }
                                         },
-                                        "result": {
-                                            "type": "relation",
-                                            "model": "#result",
-                                            "keys": [
-                                                "id",
-                                                "name"
-                                            ],
+                                        "results": {
+                                            "type": "array",
+                                            "minItems": 1,
                                             "help.en": "Link to a result that was defined in the general parameters",
-                                            "label.en": "Result",
+                                            "label.en": "Results",
                                             "marshmallow": {
-                                                "unknown": "INCLUDE",
-                                                "generate": false,
-                                                "class": "spr.services.records.schema.EntitySchema"
+                                                "validators": [
+                                                    "ma.validate.Length(min=1)"
+                                                ]
                                             },
-                                            "ui": {
+                                            "items": {
+                                                "type": "relation",
+                                                "model": "#result",
+                                                "keys": [
+                                                    "id",
+                                                    "name"
+                                                ],
                                                 "marshmallow": {
                                                     "unknown": "INCLUDE",
                                                     "generate": false,
-                                                    "class": "spr.services.records.ui_schema.EntityUISchema"
-                                                }
-                                            },
-                                            "properties": {
-                                                "id": {
-                                                    "type": "keyword",
-                                                    "label.en": "Id"
+                                                    "class": "spr.services.records.schema.EntitySchema"
                                                 },
-                                                "name": {
-                                                    "type": "keyword",
-                                                    "required": true,
-                                                    "mapping": {
-                                                        "copy_to": "collected_default_search_fields"
-                                                    },
-                                                    "help.en": "Descriptive name (id) of the result (e.g. Kd of Lysozyme and VHH2). Must be unique within a record",
-                                                    "label.en": "Name"
-                                                },
-                                                "@v": {
-                                                    "type": "keyword",
+                                                "ui": {
                                                     "marshmallow": {
-                                                        "field-name": "_version",
-                                                        "field-class": "marshmallow.fields.String"
+                                                        "unknown": "INCLUDE",
+                                                        "generate": false,
+                                                        "class": "spr.services.records.ui_schema.EntityUISchema"
+                                                    }
+                                                },
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "keyword",
+                                                        "label.en": "Id"
                                                     },
-                                                    "ui": {
+                                                    "name": {
+                                                        "type": "keyword",
+                                                        "required": true,
+                                                        "mapping": {
+                                                            "copy_to": "collected_default_search_fields"
+                                                        },
+                                                        "help.en": "Descriptive name (id) of the result (e.g. Kd of Lysozyme and VHH2). Must be unique within a record",
+                                                        "label.en": "Name"
+                                                    },
+                                                    "@v": {
+                                                        "type": "keyword",
                                                         "marshmallow": {
                                                             "field-name": "_version",
                                                             "field-class": "marshmallow.fields.String"
+                                                        },
+                                                        "ui": {
+                                                            "marshmallow": {
+                                                                "field-name": "_version",
+                                                                "field-class": "marshmallow.fields.String"
+                                                            }
+                                                        },
+                                                        "facets": {
+                                                            "facet": false
                                                         }
-                                                    },
-                                                    "facets": {
-                                                        "facet": false
                                                     }
                                                 }
                                             }
@@ -27548,7 +27557,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.9.3"
+                                    "0.9.4"
                                 ],
                                 "help.en": "The schema version used to annotate the SPR method specific parameters",
                                 "label.en": "Schema version"

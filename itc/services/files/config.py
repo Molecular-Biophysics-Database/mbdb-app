@@ -1,9 +1,10 @@
 from invenio_records_resources.services import FileLink, FileServiceConfig, RecordLink
 from invenio_records_resources.services.records.components import DataComponent
+from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
+
 from itc.records.api import ItcDraft, ItcRecord
 from itc.services.files.schema import ItcFileSchema
 from itc.services.records.permissions import ItcPermissionPolicy
-from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 
 
 class ItcFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):

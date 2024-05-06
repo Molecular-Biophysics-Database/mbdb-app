@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-05-02T09:00:56.579252\n"
-"PO-Revision-Date: 2024-05-02T09:00:56.579257\n"
+"POT-Creation-Date: 2024-05-03T17:20:25.848889\n"
+"PO-Revision-Date: 2024-05-03T17:20:25.848895\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7803,7 +7803,7 @@ msgstr "Schema version"
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.9.20"
+msgid "metadata/general_parameters/schema_version.enum.0.9.21"
 msgstr ""
 
 msgid "metadata/general_parameters/technique.help"
@@ -7846,7 +7846,7 @@ msgid "metadata/method_specific_parameters.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/data_analysis.help"
-msgstr "The details of how data analysis was performed to obtain the result"
+msgstr "The details of how data analysis was performed to obtain results"
 
 msgid "metadata/method_specific_parameters/data_analysis.label"
 msgstr "Data analysis"
@@ -8193,24 +8193,24 @@ msgstr ""
 msgid "metadata/method_specific_parameters/data_analysis/measurements/@v.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/data_analysis/result.help"
+msgid "metadata/method_specific_parameters/data_analysis/results.help"
 msgstr ""
 "Link to the result(s) that was obtained by the data analysis. The link is to"
 " the results defined in the general parameters"
 
-msgid "metadata/method_specific_parameters/data_analysis/result.label"
-msgstr "Result"
+msgid "metadata/method_specific_parameters/data_analysis/results.label"
+msgstr "Results"
 
-msgid "metadata/method_specific_parameters/data_analysis/result.hint"
+msgid "metadata/method_specific_parameters/data_analysis/results.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/data_analysis/result/@v.help"
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.help"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/data_analysis/result/@v.label"
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.label"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/data_analysis/result/@v.hint"
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/excitation_led_color.help"
@@ -8784,7 +8784,7 @@ msgstr "Schema version"
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.9.9"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.9.10"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/signal_type.help"
