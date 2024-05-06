@@ -26004,6 +26004,7 @@
                             "cell_temperature": {
                                 "type": "object",
                                 "required": true,
+                                "help.en": "Temperature of the cell in which the sample is measured",
                                 "label.en": "Cell temperature",
                                 "marshmallow": {
                                     "generate": false,
@@ -26038,6 +26039,7 @@
                             "cell_volume": {
                                 "type": "object",
                                 "required": true,
+                                "help.en": "Volume of the cell in which the sample is measured",
                                 "label.en": "Cell volume",
                                 "marshmallow": {
                                     "generate": true,
@@ -26420,6 +26422,7 @@
                                                 "type": "double",
                                                 "required": true,
                                                 "minimum": 1.0,
+                                                "help.en": "Number of injections performed in the measurement",
                                                 "label.en": "Number injections",
                                                 "marshmallow": {
                                                     "validators": [
@@ -26435,6 +26438,7 @@
                                                         "n_injections": {
                                                             "type": "double",
                                                             "required": true,
+                                                            "help.en": "Number of injections measured at a specific volume",
                                                             "label.en": "N injections"
                                                         },
                                                         "volume": {
@@ -26463,6 +26467,7 @@
                                                                     "label.en": "Unit"
                                                                 }
                                                             },
+                                                            "help.en": "Titrant volume injected into the cell",
                                                             "label.en": "Volume",
                                                             "marshmallow": {
                                                                 "generate": false,
@@ -26617,11 +26622,13 @@
                                                 "n_injections": {
                                                     "type": "double",
                                                     "required": true,
+                                                    "help.en": "Number of injections measured at a specific volume",
                                                     "label.en": "N injections"
                                                 },
                                                 "volume": {
                                                     "type": "object",
                                                     "required": true,
+                                                    "help.en": "Titrant volume injected into the cell",
                                                     "label.en": "Volume",
                                                     "marshmallow": {
                                                         "generate": false,
@@ -26664,6 +26671,7 @@
                                         "type": "double",
                                         "required": true,
                                         "minimum": 1.0,
+                                        "help.en": "Number of injections performed in the measurement",
                                         "label.en": "Number injections",
                                         "marshmallow": {
                                             "validators": [
@@ -27225,6 +27233,7 @@
                             "reference_power": {
                                 "type": "object",
                                 "required": true,
+                                "help.en": "Energy supplied to the offset header of the reference cell to equilibrate the temperatures",
                                 "label.en": "Reference power",
                                 "marshmallow": {
                                     "generate": true,
@@ -27244,11 +27253,13 @@
                                             "µcal/s",
                                             "µJ/s"
                                         ],
+                                        "help.en": "Unit of reference power",
                                         "label.en": "Unit"
                                     },
                                     "value": {
                                         "type": "double",
                                         "required": true,
+                                        "help.en": "Value of energy supplied to the offset header of the reference cell to equilibrate the temperatures",
                                         "label.en": "Value"
                                     }
                                 }
@@ -27257,7 +27268,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.0.2"
+                                    "0.0.3"
                                 ],
                                 "help.en": "The schema version used to annotate the ITC method specific parameters",
                                 "label.en": "Schema version"
@@ -27265,6 +27276,7 @@
                             "stirring_speed": {
                                 "type": "object",
                                 "required": true,
+                                "help.en": "Sample cell stirring speed in RPM",
                                 "label.en": "Stirring speed",
                                 "marshmallow": {
                                     "generate": true,

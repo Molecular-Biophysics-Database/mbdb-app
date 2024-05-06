@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-05-03T17:25:13.718266\n"
-"PO-Revision-Date: 2024-05-03T17:25:13.718267\n"
+"POT-Creation-Date: 2024-05-06T12:40:31.262968\n"
+"PO-Revision-Date: 2024-05-06T12:40:31.262969\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7567,10 +7567,10 @@ msgstr ""
 msgid "metadata/method_specific_parameters.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/cell_temperature.label"
+msgid "metadata/method_specific_parameters/cell_temperature.help"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/cell_temperature.help"
+msgid "metadata/method_specific_parameters/cell_temperature.label"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/cell_temperature.hint"
@@ -7603,10 +7603,10 @@ msgstr ""
 msgid "metadata/method_specific_parameters/cell_temperature/value.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/cell_volume.label"
+msgid "metadata/method_specific_parameters/cell_volume.help"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/cell_volume.help"
+msgid "metadata/method_specific_parameters/cell_volume.label"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/cell_volume.hint"
@@ -7966,11 +7966,11 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/n_injections.label"
+"metadata/method_specific_parameters/experiment_type/injection_parameters/n_injections.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/n_injections.help"
+"metadata/method_specific_parameters/experiment_type/injection_parameters/n_injections.label"
 msgstr ""
 
 msgid ""
@@ -7978,11 +7978,11 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume.label"
+"metadata/method_specific_parameters/experiment_type/injection_parameters/volume.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume.help"
+"metadata/method_specific_parameters/experiment_type/injection_parameters/volume.label"
 msgstr ""
 
 msgid ""
@@ -8022,11 +8022,11 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/experiment_type/number_injections.label"
+"metadata/method_specific_parameters/experiment_type/number_injections.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/experiment_type/number_injections.help"
+"metadata/method_specific_parameters/experiment_type/number_injections.label"
 msgstr ""
 
 msgid ""
@@ -8507,19 +8507,19 @@ msgid ""
 "metadata/method_specific_parameters/measurements/sample_in_syringe/targets/entity/@v.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/reference_power.label"
+msgid "metadata/method_specific_parameters/reference_power.help"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/reference_power.help"
+msgid "metadata/method_specific_parameters/reference_power.label"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/reference_power.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/reference_power/unit.label"
+msgid "metadata/method_specific_parameters/reference_power/unit.help"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/reference_power/unit.help"
+msgid "metadata/method_specific_parameters/reference_power/unit.label"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/reference_power/unit.hint"
@@ -8531,10 +8531,10 @@ msgstr ""
 msgid "metadata/method_specific_parameters/reference_power/unit.enum.µJ/s"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/reference_power/value.label"
+msgid "metadata/method_specific_parameters/reference_power/value.help"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/reference_power/value.help"
+msgid "metadata/method_specific_parameters/reference_power/value.label"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/reference_power/value.hint"
@@ -8549,13 +8549,13 @@ msgstr ""
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.0.2"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/stirring_speed.label"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.0.3"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/stirring_speed.help"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/stirring_speed.label"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/stirring_speed.hint"
