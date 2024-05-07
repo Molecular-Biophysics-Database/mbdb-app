@@ -331,3 +331,80 @@ props:
   manufacturer: 'Nicoya'
   technique: "SPR"
 # ITC instruments
+id: 'ins:48'
+title:
+  en: 'MicroCal VP-ITC'
+props:
+  manufacturer: 'Malvern Panalytical'
+  technique: "ITC"
+---
+id: 'ins:49'
+title:
+  en: 'MicroCal ITC200'
+props:
+  manufacturer: 'Malvern Panalytical'
+  technique: "ITC"
+---
+id: 'ins:50'
+title:
+  en: 'MicroCal ITC2000'
+props:
+  manufacturer: 'Malvern Panalytical'
+  technique: "ITC"
+---
+id: 'ins:51'
+title:
+  en: 'MicroCal ITC201'
+props:
+  manufacturer: 'Malvern Panalytical'
+  technique: "ITC"
+---
+id: 'ins:52'
+title:
+  en: 'MicroCal PEAQ-ITC'
+props:
+  manufacturer: 'Malvern Panalytical'
+  technique: "ITC"
+---
+id: 'ins:53'
+title: 'MicroCal Auto-ITC200'
+  en:
+props:
+  manufacturer: 'Malvern Panalytical'
+  technique: "ITC"
+---
+id: 'ins:54'
+title: 'MicroCal Auto-ITC2000'
+  en:
+props:
+  manufacturer: 'Malvern Panalytical'
+  technique: "ITC"
+---
+id: 'ins:55'
+title: 'MicroCal Auto-ITC201'
+  en:
+props:
+  manufacturer: 'Malvern Panalytical'
+  technique: "ITC"
+---
+id: 'ins:56'
+title: 'MicroCal PEAQ-ITC Automated'
+  en:
+props:
+  manufacturer: 'Malvern Panalytical'
+  technique: "ITC"
+---
+id: 'ins:57'
+title: 'Nano ITC'
+  en:
+props:
+  manufacturer: 'TA Instruments'
+  technique: "ITC"
+---
+id: 'ins:58'
+title: 'Affinity ITC'
+  en:
+props:
+  manufacturer: 'TA Instruments'
+  technique: "ITC"
+---
