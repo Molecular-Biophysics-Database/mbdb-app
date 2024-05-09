@@ -5,7 +5,6 @@ from oarepo_runtime.utils.path import PathTraversal
 from invenio_pidstore.errors import PIDDoesNotExistError
 from invenio_records_resources.services.records.components.base import ServiceComponent
 from typing import (
-    List,
     Tuple,
 )
 
@@ -40,7 +39,9 @@ class ForeignVocabularyFetcherComponent(ServiceComponent):
         record["type"] = vocabulary_type
         result = vocabulary_service.create(system_identity, record)
         if result.errors:
-            raise ValueError(f"Could not create vocabulary with id {vocabulary_id}:{result.errors=}")
+            raise ValueError(
+                f"Could not create vocabulary with id {vocabulary_id}:{result.errors=}"
+            )
         vocabulary_service.indexer.refresh()
 
     @staticmethod
@@ -52,24 +53,19 @@ class ForeignVocabularyFetcherComponent(ServiceComponent):
             return False
 
     @staticmethod
-    def make_path(*args: str):
-        return "/".join(args)
-
-    @staticmethod
     def make_paths(*paths: Tuple[str, ...]):
         return PathTraversal(["/".join(path) for path in paths])
 
-
     def vocabulary_paths(self):
         gp = "metadata/general_parameters"
-        depositors = self.make_path(gp, "depositors")
-        entities = self.make_path(gp, "entities_of_interest")
+        depositors = gp + "/depositors"
+        entities = gp + "/entities_of_interest"
         return {
             "affiliations": self.make_paths(
                 (depositors, "depositor", "affiliations"),
                 (depositors, "principal_contact", "affiliations"),
-                (depositors, "contributors", "affiliations")
-        ),
+                (depositors, "contributors", "affiliations"),
+            ),
             "grants": self.make_paths((gp, "funding_references")),
             "organisms": self.make_paths(
                 (entities, "source_organism"),
@@ -79,8 +75,5 @@ class ForeignVocabularyFetcherComponent(ServiceComponent):
                 # molecular assembly -> polymer
                 (entities, "components", "source_organism"),
                 (entities, "components", "expression_organism"),
-            )
-
-
+            ),
         }
-
