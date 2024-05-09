@@ -2,3 +2,4 @@
 import "../less/globals/mbdb-common.less"
 import "../less/globals/mbdb.less"
 import "../less/tailwindcss/output.css"
+import "./deposit/index.js"

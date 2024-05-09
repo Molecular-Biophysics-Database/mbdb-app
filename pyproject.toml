@@ -15,12 +15,13 @@ dependencies = [
     "oarepo==12.*",
     "python-dotenv",
 ]
-requires-python = ">=3.9,<3.11"
+requires-python = ">=3.10,<3.11"
 
 [project.entry-points."invenio_assets.webpack"]
 branding = "ui.branding.webpack:theme"
 i18n = "i18n.webpack:theme"
 mst_ui = "ui.mst.webpack:theme"
+mbdb_components = "ui.components.webpack:theme"
 
 [project.entry-points."invenio_base.blueprints"]
 branding = "ui.branding:create_blueprint"
@@ -42,6 +43,8 @@ ui_tutorial = "ui.tutorial:create_blueprint"
 ui_contact = "ui.contact:create_blueprint"
 ui_under_development = "ui.under_development:create_blueprint"
 ui_developers_team = "ui.developers_team:create_blueprint"
+ui_supported_techniques = "ui.supported_techniques:create_blueprint"
+ui_choose_method = "ui.choose_method:create_blueprint"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"
