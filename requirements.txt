@@ -1,11 +1,11 @@
-oarepo==12.0.16
+oarepo==12.0.18
 cachetools==5.3.3
 deepmerge==1.1.1
 et-xmlfile==1.1.0
 flask-babelex==0.9.4
-frozendict==2.4.3
+frozendict==2.4.4
 jinja2-simple-tags==0.6.1
-jinjax==0.35
+jinjax==0.36
 json5==0.9.25
 langcodes==3.4.0
 language-data==1.2.0
