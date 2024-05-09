@@ -21,6 +21,7 @@ requires-python = ">=3.10,<3.11"
 branding = "ui.branding.webpack:theme"
 i18n = "i18n.webpack:theme"
 mst_ui = "ui.mst.webpack:theme"
+mbdb_components = "ui.components.webpack:theme"
 
 [project.entry-points."invenio_base.blueprints"]
 branding = "ui.branding:create_blueprint"

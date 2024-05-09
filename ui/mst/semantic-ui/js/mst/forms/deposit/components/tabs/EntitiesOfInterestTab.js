@@ -8,7 +8,7 @@ import MolecularAssembly from "../entitiesOfInterest/MolecularAssembly";
 import ComplexSubstanceOfIndustrialOrigin from "../entitiesOfInterest/ComplexSubstanceOfIndustrialOrigin";
 import ComplexSubstanceOfEnvironmentalOrigin from "../entitiesOfInterest/ComplexSubstanceOfEnvironmentalOrigin";
 import ComplexSubstanceOfChemicalOrigin from "../entitiesOfInterest/ComplexSubstanceOfChemicalOrigin";
-import ArrayField from "../buildingBlocks/ArrayField";
+import ArrayField from "@mbdb_deposit/buildingBlocks/ArrayField";
 import { getIn, useFormikContext } from "formik";
 import OptionField from "../buildingBlocks/OptionField";
 

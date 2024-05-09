@@ -1,0 +1,185 @@
+{%- extends config.BASE_TEMPLATE %}
+
+{%- block page_body %}
+    <div class="flex justify-center lg:justify-start lg:max-w-[1024px] mx-auto xl:max-w-[1280px] 2xl:max-w-[1440px]">
+        <div class="lg:mx-8">
+            <div class="font-JostMedium text-dark text-32px mb-4">
+                Supported techniques
+            </div>
+
+            <div class="p-20 border-dark border-[1px] rounded-normal relative mb-3">
+                <div>
+                    <h2 class="font-JostMedium text-20px">MST - Micro Scale Thermophoresis</h2>
+                </div>
+                <div>
+                    <div>
+                        Micro Scale Thermophoresis is used to measure binding affinities in solution in capillaries, using only a small amount of sample. The applications range from small-molecule binding events to protein-protein interactions and interactions within complex macromolecular assemblies. MST can be performed both with extrinsic fluorescent labels (Monolith NT.115, NanoTemper) or intrinsic fluorescence (Monolith NT.LabelFree instrument, NanoTemper).
+                    </div>
+    
+                    <div>
+                        What are the sample requirements?
+                    </div>
+                    <div>
+                        <li>
+                            Pure samples are required and concentrations should be determined accurately.
+                        </li>
+                        <li>
+                            Purity is critical for covalent amine labelling since all primary amines will be labelled including those present in any contaminants. Whenever possible, non-covalent labelling of His tags is preferred.
+                        </li>
+                        <li>
+                            Approx. 200 µL of the labelled target (at a concentration allowing a sufficient fluorescence signal to be measured) is needed per titration.
+                        </li>
+                        <li>
+                            20-50 µL of the unlabelled ligand molecule is required per titration, at a concentration 20-100 fold above the expected Kd.
+                        </li>
+                    </div>
+                    <div>
+                        What other specific considerations are relevant?
+                    </div>
+                    <div>
+                        <li>
+                            MST optimized buffer: 50 mM Tris pH 7.4, 150 mM NaCl, 10 mM MgCl2, 0.05 % Tween-20 or 0.1 % Pluronic F 127. Alternatively PBS with 0.05 % Tween-20.
+                        </li>
+                        <li>
+                            For the protein labelling, commercially available labelling kits are used (amine, Cys or His-tag reactive).
+                        </li>
+                        <li>
+                            For information about the types of capillaries and labelling kits available, please check with the TNA site.
+                        </li>
+                        <li>
+                            Concentration of unlabelled protein to use with a labelling kit: 100 μl of 200 nM (His-tag dye), 100 μl of 2–20 µM (amino-reactive and maleimide-reactive dyes).
+                        </li>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-20 border-dark border-[1px] rounded-normal relative mb-3">
+                <div>
+                    <h2 class="font-JostMedium text-20px">BLI - Bio-layer interferometry</h2>
+                </div>
+                <div>
+                    <div>
+                        Biolayer interferometry is a method for measuring the affinity and kinetics of macromolecular interactions, involving proteins, nucleic acids, oligosaccharides, lipids… but also in some cases small ligands. One of the interaction partners has to be attached, either covalently or non-covalently, to the surface of a glass sensor, which is then dipped into a microplate well containing the other interaction partner. The association and dissociation between the interaction partners are monitored in real time at the surface, by following the variations of the optical depth of the surface layer by interferometry.
+                    </div>
+                    <div>
+                        What are the sample requirements?
+                    </div>
+                    <div>
+                        <li>
+                            Crude samples (such as culture supernatants or cell lysates) can be readily used to detect interaction and for comparison
+                        </li>
+                        <li>
+                            Sample concentrations are typically 1 and 50 µg/ml and volumes of 100-200 µl per sensor for the immobilized component.
+                        </li>
+                        <li>
+                            For interaction measurement, 100-200 µl of the interaction partners in solution are required at concentrations ranging from 1/10 to 10x the Kd. If the Kd range is unknown, optimization experiments need to be performed first to estimate the useful concentration range, before embarking into more precise studies to determine accurately the Kd and the association (kon) and dissociation (koff) rates.
+                        </li>
+                        <li>
+                            As for any biomolecular interaction analysis technique, optimisation and negative controls will require additional sample
+                        </li>
+                    </div>
+                    <div>
+                        What other specific considerations are relevant?
+                    </div>
+                    <div>
+                        <li>
+                            The attachment of one of the macromolecules to a functionalized surface is required. A variety of immobilization procedures can be considered: covalent (via amide bonds) or non-covalent (via His6, GST or Fc tags, biotin moieties, …). BLI instruments are non-microfluidic systems which do not clog and are therefore well suited for the study interactions in crude samples such are cell lysates or culture supernatants.
+                        </li>
+                        <li>
+                            Octet instruments have multiple sensors, can measure 8 to 96 interactions simultaneously, depending on the model used, and as such are well suited for medium-scale screening studies.
+                        </li>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-20 border-dark border-[1px] rounded-normal relative mb-3">
+                <div>
+                    <h2 class="font-JostMedium text-20px">SPR - Surface plasmon resonance</h2>
+                </div>
+                <div>
+                    <div>
+                        Surface Plasmon Resonance (SPR) is used for the real-time monitoring and quantification of the interaction between target biomolecules and putative binding partners. The target (referred to as the ligand) is immobilized on a functionalized surface, the so-called sensor chip. SPR measures the effect on reflected light from the plasmon resonance wave propagating along the sensor chip. Intensity changes, or deviations in the reflection angle, induced by subtle changes in the refractive index of the sensor chip surface is monitored. This property is extremely sensitive to changes to the surface density, such as that caused by the binding of an analyte to the immobilized ligand. Both the association (ka or kon) and dissociation (kd or koff) rates can be measured yielding the equilibrium dissociation constant KD. Typical measurable KDs range from (less than) nM to mM.
+                    </div>
+                    <div>
+                        What are the sample requirements?
+                    </div>
+                    <div>
+                        <li>
+                            Pure and homogeneous analytes are required. Concerning the ligands, purity is absolutely critical if they are going to be covalently immobilized using the amine-coupling method.
+                        </li>
+                        <li>
+                            About 10-50 ug in 200 ul, i.e. 50-250 ug/ml, of a protein is needed for ligand immobilization on the sensor chip.
+                        </li>
+                        <li>
+                            About 200-300 ul of the analyte is needed at 10x expected Kd.
+                        </li>
+                        <li>
+                            For best results a 100-fold range of analyte concentrations should be attempted from 0.1–10 x Kd
+                        </li>
+                    </div>
+                    <div>
+                        What other specific considerations are relevant?
+                    </div>
+                    <div>
+                        <li>
+                            Analytes should be thoroughly centrifuged to eliminate potential soluble aggregates, and their concentration needs to be determined accurately.
+                        </li>
+                        <li>
+                            Running buffers: a wide variety of buffers can be used, but the most commonly used ones are HBS, TBS and PBS.
+                        </li>
+                        <li>
+                            Immobilization buffer: acetate buffers (pH 4.0, 4.5, 5.0, or 5.5) are often used to dilute ligands at the moment of immobilization. Running buffer and analyte buffers should be matched
+                        </li>
+                        <li>
+                            Analytes need to be larger than 150 Da
+                        </li>
+                    </div>
+                </div>
+            </div>
+                        <div class="p-20 border-dark border-[1px] rounded-normal relative mb-3">
+                <div>
+                    <h2 class="font-JostMedium text-20px">ITC - Isothermal titration calorimetry</h2>
+                </div>
+                <div>
+                    <div>
+                        Isothermal titration calorimetry (ITC) is a technique that can quantitatively measure the interaction between molecules, often proteins, in terms of binding affinity (KD), change in enthalpy (ΔH) and reaction stoichiometry (n). This is done by measuring the heat either released or absorbed when titrating a ligand into the sample solution. Titration is made stepwise in small aliquots of the ligand, and the corresponding heat is measured for each step. The instruments are very sensitive; heats below 1 microcalorie can be detected. The direct output is the thermal power applied by a feedback system in order to keep the temperatures of both cells (sample and reference) as close as possible, despite any perturbation (e.g., complex formation) taking place upon each ligand addition, giving rise to the thermogram. For each step in the titration sequence the molar ratio (ratio of reactant concentrations within the sample cell) of the ligand and sample changes until the sample approaches saturation. The resulting curve of the heat (typically kcal/mol ligand) vs the ligand:sample molar ratio is called the binding isotherm. The affinity (KD), enthalpy change (ΔH), and the stoichiometry (n) are estimated by non-linear regression using an appropriate binding model
+                    </div>
+                    <div>
+                        What are the sample requirements?
+                    </div>
+                    <div>
+                        <li>
+                            Sample volume needed depends on instrument, ranging from about 300 μL up to 2 mL
+                        </li>
+                        <li>
+                            Likewise, ligand volume needed ranges from 60 μL to 500 μL
+                        </li>
+                        <li>
+                            Sample concentration is in the range 10-100 µM and the ligand concentration is typically 10x higher
+                        </li>
+                        <li>
+                            The measurable binding affinity range also depends on instrument and is in the order of nM to mM
+                        </li>
+                    </div>
+                    <div>
+                        What other specific considerations are relevant?
+                    </div>
+                    <div>
+                        <li>
+                            Protein aggregates will interfere with ITC:  Centrifuge or filter samples before use
+                        </li>
+                        <li>
+                            The two binding partners must be in identical buffers to minimize the background injection heats that can mask heats of binding
+                        </li>
+                        <li>
+                            Avoid large concentration of solubilizing agents (e.g., glycerol, DMSO) and reducing agents (e.g., DTT, TCEP)
+                        </li>
+                        <li>
+                            For more instruments specific sample requirements, see the “Sample requirements and further technical details” page for the prospective TNA site linked from the bottom of each TNA partner page
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{%- endblock page_body %}
