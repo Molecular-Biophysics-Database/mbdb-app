@@ -15,7 +15,8 @@ class PublishDraftRequestType(BasePublishDraftRequestType):
     allowed_topic_ref_types = [
         "bli_draft",
         "mst_draft",
-        "spr_draft"
+        "spr_draft",
+        "itc_draft",
     ]
 
     @classmethod

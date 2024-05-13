@@ -12,9 +12,10 @@ class DeleteRecordRequestType(BaseDeleteRecordRequestType):
     }
 
     allowed_topic_ref_types = [
-        "bli"
+        "bli",
         "mst",
-        "spr"
+        "spr",
+        "itc",
     ]
 
     @classmethod
