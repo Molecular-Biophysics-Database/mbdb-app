@@ -330,6 +330,7 @@ title:
 props:
   manufacturer: 'Nicoya'
   technique: "SPR"
+---
 # ITC instruments
 id: 'ins:48'
 title:
@@ -367,44 +368,43 @@ props:
   technique: "ITC"
 ---
 id: 'ins:53'
-title: 'MicroCal Auto-ITC200'
-  en:
+title:
+  en: 'MicroCal Auto-ITC200'
 props:
   manufacturer: 'Malvern Panalytical'
   technique: "ITC"
 ---
 id: 'ins:54'
-title: 'MicroCal Auto-ITC2000'
-  en:
+title:
+  en: 'MicroCal Auto-ITC2000'
 props:
   manufacturer: 'Malvern Panalytical'
   technique: "ITC"
 ---
 id: 'ins:55'
-title: 'MicroCal Auto-ITC201'
-  en:
+title:
+  en: 'MicroCal Auto-ITC201'
 props:
   manufacturer: 'Malvern Panalytical'
   technique: "ITC"
 ---
 id: 'ins:56'
-title: 'MicroCal PEAQ-ITC Automated'
-  en:
+title:
+  en: 'MicroCal PEAQ-ITC Automated'
 props:
   manufacturer: 'Malvern Panalytical'
   technique: "ITC"
 ---
 id: 'ins:57'
-title: 'Nano ITC'
-  en:
+title:
+  en: 'Nano ITC'
 props:
   manufacturer: 'TA Instruments'
   technique: "ITC"
 ---
 id: 'ins:58'
-title: 'Affinity ITC'
-  en:
+title:
+  en: 'Affinity ITC'
 props:
   manufacturer: 'TA Instruments'
   technique: "ITC"
----
