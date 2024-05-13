@@ -648,6 +648,14 @@ video {
   top: 10rem;
 }
 
+.bottom-3 {
+  bottom: 0.75rem;
+}
+
+.left-3 {
+  left: 0.75rem;
+}
+
 .z-50 {
   z-index: 50;
 }
@@ -809,6 +817,14 @@ video {
   margin-top: 1.5rem;
 }
 
+.mb-\[60px\] {
+  margin-bottom: 60px;
+}
+
+.mb-\[50px\] {
+  margin-bottom: 50px;
+}
+
 .block {
   display: block;
 }
@@ -881,6 +897,10 @@ video {
   width: 14rem;
 }
 
+.w-\[150px\] {
+  width: 150px;
+}
+
 .w-\[15rem\] {
   width: 15rem;
 }
@@ -943,6 +963,10 @@ video {
 
 .w-\[37rem\] {
   width: 37rem;
+}
+
+.w-\[400px\] {
+  width: 400px;
 }
 
 .w-\[44\.5rem\] {
@@ -1292,22 +1316,6 @@ video {
   color: rgb(3 68 89 / var(--tw-text-opacity));
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8,0,1,1);
-  }
-
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0,0,0.2,1);
-  }
-}
-
-.group:hover .group-hover\:animate-bounce {
-  animation: bounce 1s infinite;
-}
-
 @media (min-width: 640px) {
   .sm\:mx-2 {
     margin-left: 0.5rem;
@@ -1386,7 +1394,15 @@ video {
   }
 
   .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-2col {
     grid-template-columns: repeat(2, 316px);;
+  }
+
+  .md\:grid-cols-2colMethod {
+    grid-template-columns: repeat(2, 410px);;
   }
 
   .md\:flex-row {
@@ -1443,10 +1459,6 @@ video {
     display: block;
   }
 
-  .lg\:grid {
-    display: grid;
-  }
-
   .lg\:hidden {
     display: none;
   }
@@ -1459,20 +1471,16 @@ video {
     width: 790px;
   }
 
-  .lg\:w-full {
-    width: 100%;
-  }
-
   .lg\:max-w-\[1024px\] {
     max-width: 1024px;
   }
 
-  .lg\:grid-cols-2 {
-    grid-template-columns: repeat(2, 316px);;
+  .lg\:grid-cols-3col {
+    grid-template-columns: repeat(3, 316px);
   }
 
-  .lg\:grid-cols-3 {
-    grid-template-columns: repeat(3, 316px);
+  .lg\:grid-cols-3colMethod {
+    grid-template-columns: repeat(3, 410px);
   }
 
   .lg\:flex-row {
@@ -1538,7 +1546,7 @@ video {
   }
 
   .xl\:grid-cols-4 {
-    grid-template-columns: repeat(4, 316px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 

@@ -132,9 +132,11 @@ module.exports = {
       },
 
       gridTemplateColumns: {
-        '2': 'repeat(2, 316px);',
-        '3': 'repeat(3, 316px)',
-        '4': 'repeat(4, 316px)',
+        '2col': 'repeat(2, 316px);',
+        '3col': 'repeat(3, 316px)',
+        '4col': 'repeat(4, 316px)',
+        '2colMethod': 'repeat(2, 410px);',
+        '3colMethod': 'repeat(3, 410px)',
       },
     },
   },
