@@ -50,6 +50,7 @@ function Contact( { name } ) {
                     tooltip='The affiliation of the person. Note that this is based on the Research Organization Registry (ROR)'
                     renderChild={({ arrayName, index }) => (
                       <VocabularySelectField
+                        search={(options) => options}
                         type="affiliations/authoritative"
                         label={
                           <FieldLabel

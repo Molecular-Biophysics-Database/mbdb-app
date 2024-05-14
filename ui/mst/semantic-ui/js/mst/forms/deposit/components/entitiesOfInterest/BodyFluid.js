@@ -51,6 +51,7 @@ function BodyFluid( { name } ) {
           </div>
           <div>
                 <VocabularySelectField
+                    search={(options) => options}
                     type="organisms/authoritative"
                     label={
                         <FieldLabel

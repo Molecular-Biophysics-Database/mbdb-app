@@ -10,7 +10,8 @@ function Instrument( {name} ) {
         <FormWrapper headline='Instrument' tooltipHeader='Information about the instrument being used to collect (measure) the raw data annotated by this record'>
             <div className='flex'>
                 <div>
-                    <VocabularySelectField
+                    VocabularySelectField
+
                         type="instruments"
                         label={
                           <FieldLabel
