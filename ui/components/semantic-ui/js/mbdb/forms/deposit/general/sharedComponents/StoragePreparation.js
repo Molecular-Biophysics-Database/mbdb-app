@@ -1,4 +1,4 @@
-import CustomField from "../buildingBlocks/CustomField";
+import CustomField from "../../buildingBlocks/CustomField";
 
 function StoragePreparation( { name } ) {
 

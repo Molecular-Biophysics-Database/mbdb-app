@@ -1,14 +1,14 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import { useLocation } from 'react-router-dom';
-import RawDataFiles from "@mst_deposit/tabs/RawDataFiles";
-import EntitiesOfInterestTab from "@mst_deposit/tabs/EntitiesOfInterestTab";
-import InstrumentTab from "@mst_deposit/tabs/InstrumentTab";
-import ChemicalEnvironmentTab from '@mst_deposit/tabs/ChemicalEnvironmentTab'
-import ResultTab from "@mst_deposit/tabs/ResultTab";
-import DataAnalysisTab from "@mst_deposit/tabs/DataAnalysisTab";
-import ProjectInformationTab from "@mst_deposit/tabs/ProjectInformationTab";
-import MeasurementTab from "@mst_deposit/tabs/MeasurementTAb";
+import RawDataFiles from "@mbdb_deposit/general/generalTabs/RawDataFilesTab";
+import EntitiesOfInterestTab from "@mbdb_deposit/general/generalTabs/EntitiesOfInterestTab";
+import InstrumentTab from "@mst_deposit/mstTabs/InstrumentTab";
+import ChemicalEnvironmentTab from '@mbdb_deposit/general/generalTabs/ChemicalEnvironmentTab'
+import ResultTab from "@mbdb_deposit/general/generalTabs/ResultTab";
+import DataAnalysisTab from "@mst_deposit/mstTabs/DataAnalysisTab";
+import ProjectInformationTab from "@mbdb_deposit/general/generalTabs/ProjectInformationTab";
+import MeasurementTab from "@mst_deposit/mstTabs/MeasurementTab";
 
 function FormFieldsContainer() {
 

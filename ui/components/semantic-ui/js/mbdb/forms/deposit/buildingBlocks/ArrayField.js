@@ -2,6 +2,7 @@ import React from 'react';
 import { FieldArray, getIn, useFormikContext } from 'formik';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
+import { Typography } from '@material-ui/core';
 
 function ArrayField({ name, fieldName, label, renderChild, initialValue, required, maxItems, tooltip }) {
 
@@ -16,7 +17,7 @@ function ArrayField({ name, fieldName, label, renderChild, initialValue, require
         name={arrayName}
         render={({ push, remove }) => ( 
           <>
-            {Array.isArray(value) && (
+            {value && (
               value.map((item, index) => (
                 <div key={index} className='flex mt-3'>
                   <div className='mr-3'>
@@ -40,7 +41,7 @@ function ArrayField({ name, fieldName, label, renderChild, initialValue, require
                       }}
                     >
                       <div>
-                        &#8212;
+                        -
                       </div>
                     </Button>
                   }
@@ -49,11 +50,12 @@ function ArrayField({ name, fieldName, label, renderChild, initialValue, require
             )}
             {(!maxItems || (!value || value.length < maxItems)) &&
                 <div className='mt-3'>
-                  <Tooltip title={tooltip} arrow="true">
+                  <Tooltip title={<Typography fontSize={13}>{tooltip}</Typography>} arrow>
                     <Button
-                      className='text-dark'
                       variant="outlined"
-                      onClick={() => push(initialValue !== undefined ? { ...initialValue } : '')}
+                      onClick={() => {
+                          push(initialValue !== undefined ? { ...initialValue } : '')
+                      }}
                       sx= {{ 
                           borderColor: '#6D7575',
                           backgroundColor: '#6D7575',

@@ -1,16 +1,12 @@
-import TextField from '@mui/material/TextField';
+import TextField from '@material-ui/core/TextField';
 import { useField } from 'formik';
-import Tooltip from '@mui/material/Tooltip';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import InputAdornment from '@mui/material/InputAdornment';
+import Tooltip from '@material-ui/core/Tooltip';
+import { Typography } from '@material-ui/core';
 
-function CustomField( {label, name, fieldName, type, index, tooltip, width, multiline, unit}) {
-
-  const nameTextField = index !== undefined
-  ? (fieldName !== undefined ? `${name}.${fieldName}[${index}]` : `${name}[${index}]`)
-  : (fieldName !== undefined ? `${name}.${fieldName}` : `${name}`);
+function CustomField( { label, name, fieldName, type, tooltip, width, multiline }) {
   
-    const [field, meta] = useField(nameTextField);
+  const nameCustomField = fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
+  const [field, meta] = useField(nameCustomField);
 
   return (
     <>
@@ -30,15 +26,10 @@ function CustomField( {label, name, fieldName, type, index, tooltip, width, mult
                   borderColor: '#666666',
                 },
               }}
-              id={nameTextField}
               label={label}
-              name={nameTextField}
               type={type}
               value={field.value || ''}
               disabled={false}
-              InputProps={{
-                endAdornment: <InputAdornment position="end">{unit}</InputAdornment>
-              }}
               variant="outlined"
               {...(multiline && { multiline: true })}
               size="small"
@@ -47,8 +38,8 @@ function CustomField( {label, name, fieldName, type, index, tooltip, width, mult
         </div>
         {tooltip &&
           <div className='ml-1 -mt-1'>
-            <Tooltip title={tooltip} arrow>
-              <HelpOutlineIcon fontSize="smaller"/>
+            <Tooltip title={<Typography fontSize={13}>{tooltip}</Typography>} arrow>
+              ?
             </Tooltip>
           </div>
         }

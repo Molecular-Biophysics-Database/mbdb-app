@@ -1,8 +1,9 @@
-import Temperature from '../sharedComponents/Temperature';
-import Duration from './Duration'
-import ArrayField from "./ArrayField";
-import FormWrapper from "./FormWrapper";
+import Temperature from '../../sharedComponents/Temperature';
+import Duration from '../../sharedComponents/Duration'
+import ArrayField from "../../buildingBlocks/ArrayField";
+import FormWrapper from "../../buildingBlocks/FormWrapper";
 import StoragePreparation from "./StoragePreparation";
+import OptionalField from '../../buildingBlocks/OptionalField';
 
 function Storage( { name, colorSchema } ) {
 
@@ -11,22 +12,21 @@ function Storage( { name, colorSchema } ) {
         <div>
             <Temperature
                 name={`${name}.temperature`}
-                tooltipHeader='The temperature the sample was stored at'
+                tooltip='The temperature the sample was stored at'
                 colorSchema={colorSchema}
             />
         </div>
         <div>
-            <ArrayField
+            <OptionalField
                 name={name}
                 label='Duration'
                 fieldName='duration'
-                maxItems={1}
                 tooltip='Length of time the sample was stored before being measured'
-                renderChild={({ arrayName, index }) => (
+                renderChild={({ optionalFieldName }) => (
                     <Duration
-                        name={`${arrayName}.${index}`}
+                        name={optionalFieldName}
                         colorSchema={colorSchema}
-                        tooltipHeader='Length of time the sample was stored before being measured'
+                        tooltip='Length of time the sample was stored before being measured'
                     />
                 )}
             />
@@ -41,7 +41,7 @@ function Storage( { name, colorSchema } ) {
                     <FormWrapper 
                         headline={`Storage preparation ${index + 1}`} 
                         colorSchema={colorSchema}
-                        tooltipHeader='The specific steps that were taken to prepare the samples for storage (e.g. flash freezing in liquid nitrogen), if applicable'
+                        tooltip='The specific steps that were taken to prepare the samples for storage (e.g. flash freezing in liquid nitrogen), if applicable'
                     >
                         <StoragePreparation
                             name={`${arrayName}.${index}`}

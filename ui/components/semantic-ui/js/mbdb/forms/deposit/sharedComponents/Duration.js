@@ -1,7 +1,7 @@
-import ValueUnit from './ValueUnit';
-import FormWrapper from './FormWrapper';
+import ValueUnit from '../buildingBlocks/ValueUnit';
+import FormWrapper from '../buildingBlocks/FormWrapper';
 
-function Duration( {name, tooltipHeader, colorSchema } ) {
+function Duration( {name, tooltip, colorSchema } ) {
 
     const unitOptions = [
         { value: 'miliseconds', label: 'miliseconds' },
@@ -15,7 +15,7 @@ function Duration( {name, tooltipHeader, colorSchema } ) {
 
   return (
     <>
-        <FormWrapper colorSchema={colorSchema} headline='Duration' tooltipHeader={tooltipHeader}>
+        <FormWrapper colorSchema={colorSchema} headline='Duration' tooltip={tooltip}>
             <ValueUnit
               options={unitOptions}
               name={name}

@@ -1,29 +1,26 @@
 import React from 'react';
 import { useField } from 'formik';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import { Tooltip } from '@mui/material';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import { Tooltip } from '@material-ui/core/Tooltip';
+import { Typography } from '@material-ui/core';
 
 function OptionField({ label, name, fieldName, options, width, tooltip}) {
-  const nameOptionField = `${name}.${fieldName}`;
+
+  const nameOptionField = fieldName !== undefined ? `${name}.${fieldName}` : `${name}`
   const [field, meta] = useField(nameOptionField);
 
   return (
     <div className='flex'>
-      <Box className={`${width} rounded-lg relative`} sx={{ minWidth: 195 }}>
+      <div className={`${width} rounded-lg relative`} sx={{ minWidth: 195 }}>
         <FormControl fullWidth>
-          <InputLabel id={nameOptionField} htmlFor={nameOptionField}>
+          <InputLabel>
             {label}
           </InputLabel>
           <Select
             {...field}
-            labelId={nameOptionField}
-            id={nameOptionField}
-            name={nameOptionField}
             value={field.value || ''}
             label={label}
             size="small"
@@ -46,15 +43,12 @@ function OptionField({ label, name, fieldName, options, width, tooltip}) {
             ))}
           </Select>
         </FormControl>
-      </Box>
-      {tooltip ?
+      </div>
+      {tooltip &&
         <div className='ml-1 -mt-1'>
-          <Tooltip title={tooltip} arrow>
-            <HelpOutlineIcon fontSize="smaller"/>
+          <Tooltip title={<Typography fontSize={13}>{tooltip}</Typography>} arrow>
+            ?
           </Tooltip>
-        </div>
-        :
-        <div className='w-5'>
         </div>
       }
     </div>

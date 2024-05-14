@@ -1,9 +1,9 @@
 import { getIn, useFormikContext } from "formik";
 import { useEffect } from "react";
 
-function UseDefault(values, name, content) {
+function UseDefault(name, content) {
 
-    const { setFieldValue } = useFormikContext()
+    const { setFieldValue, values } = useFormikContext()
 
     useEffect(() => {
         const existingValue = getIn(values, name);

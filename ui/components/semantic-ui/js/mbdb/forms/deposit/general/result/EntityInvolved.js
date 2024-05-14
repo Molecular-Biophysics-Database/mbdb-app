@@ -1,23 +1,14 @@
-import CustomField from './CustomField';
-import OptionField from './OptionField';
+import CustomField from '../../buildingBlocks/CustomField';
+import OptionField from '../../buildingBlocks/OptionField';
 import { useFormikContext, getIn } from 'formik';
+import CreateOptions from '../../buildingBlocks/CreateOptions';
 
 function EntityInvolved( { name } ) {
 
-      const { values } = useFormikContext();
-      
-      const entitiesValue = getIn(values, `metadata.general_parameters.entities_of_interest`)
+    const { values } = useFormikContext();
 
-      let entityOptions = [];
-
-      if (entitiesValue && entitiesValue.length > 0) {
-            entityOptions = entitiesValue.map(entity => ({
-                value: entity.name,
-                label: entity.name,
-            }));
-        } else {
-            entityOptions = [{ label: 'Select Entity, if applicable' }];
-        }
+    const entitiesValue = getIn(values, `metadata.general_parameters.entities_of_interest`);
+    const entityOptions = CreateOptions(entitiesValue, 'Select Entity, if applicable');
 
   return (
     <>
@@ -28,9 +19,10 @@ function EntityInvolved( { name } ) {
                     options={entityOptions}
                     fieldName='entity'
                     label='Entity'
+                    tooltip='Name (ids) of the entity (from the entities of interest defined in the general parameters'
                 />
             </div>
-            <div >
+            <div>
                 <CustomField
                     name={name}
                     fieldName='copy_number'
