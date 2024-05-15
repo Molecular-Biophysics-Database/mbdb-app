@@ -15,7 +15,7 @@ theme = WebpackThemeBundle(
             },
             devDependencies={},
             aliases={
-                "@mst_deposit": "js/mst/forms/deposit/components"
+                "@mst_deposit": "js/mst/forms/deposit"
             },
         )
     },

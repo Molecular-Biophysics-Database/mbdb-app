@@ -2,11 +2,35 @@ from oarepo_ui.resources import BabelComponent
 from oarepo_ui.resources.components import FilesComponent
 from oarepo_ui.resources.config import RecordsUIResourceConfig
 from oarepo_ui.resources.resource import RecordsUIResource
+from datetime import date
+from oarepo_ui.resources.components import UIResourceComponent
+from typing import Dict
 
 from common.ui.components import MBDBEditComponent
 
 from oarepo_vocabularies.ui.resources.components import DepositVocabularyOptionsComponent
 
+class MstInitialValuesComponent(UIResourceComponent):
+    def empty_record(self, *, resource_requestctx, empty_data: Dict, **kwargs):
+        empty_data.update({
+          "metadata": {
+            "general_parameters": {
+              "schema_version": "0.9.19",
+              "technique": "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
+              "record_information": {
+                "publisher": "MBDB",
+                "resource_type_general": "Dataset",
+                "resource_type": "MST",
+                "deposition_date": date.today().isoformat(),
+                "date_available": date.today().isoformat(),
+                "subject_category": "Biophysics",
+              },
+            },
+            "method_specific_parameters": {
+              "schema_version": "0.9.9"
+            }
+          }
+        })
 
 class MstResourceConfig(RecordsUIResourceConfig):
     template_folder = "templates"
@@ -15,7 +39,7 @@ class MstResourceConfig(RecordsUIResourceConfig):
     ui_serializer_class = "mst.resources.records.ui.MstUIJSONSerializer"
     api_service = "mst"
 
-    components = [BabelComponent, FilesComponent, DepositVocabularyOptionsComponent]
+    components = [BabelComponent, FilesComponent, DepositVocabularyOptionsComponent, MstInitialValuesComponent]
 
     # TODO: is this still needed?
     edit_layout = 'edit_layout.json'

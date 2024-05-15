@@ -13,7 +13,7 @@ marisa-trie==1.1.1
 oarepo-published-service==1.0.3
 oarepo-requests==1.1.16
 oarepo-runtime==1.5.30
-oarepo-ui==5.1.28
+oarepo-ui==5.1.29
 oarepo-vocabularies==2.0.87
 openpyxl==3.1.2
 python-dotenv==1.0.1
