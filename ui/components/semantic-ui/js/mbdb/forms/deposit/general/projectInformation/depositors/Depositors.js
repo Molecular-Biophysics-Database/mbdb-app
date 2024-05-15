@@ -1,3 +1,4 @@
+import React from "react";
 import ArrayField from "../../../buildingBlocks/ArrayField";
 import FormWrapper from "../../../buildingBlocks/FormWrapper";
 import Contact from "./Contact";
@@ -15,7 +16,7 @@ function Depositors( { name } ) {
             </FormWrapper>
         </div>
         <div className="mb-3">
-            <FormWrapper 
+            <FormWrapper
                 headline='Principal contact'
                 tooltip='The person responsible for the record and the one to contact for inquiries, would typically be the principle investigator group leader, or laboratory head'
             >

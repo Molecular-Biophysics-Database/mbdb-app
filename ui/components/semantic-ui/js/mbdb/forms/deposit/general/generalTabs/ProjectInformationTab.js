@@ -1,3 +1,4 @@
+import React from "react";
 import RecordInformation from "../projectInformation/RecordInformation";
 import Depositors from "../projectInformation/depositors/Depositors";
 import ArrayField from "../../buildingBlocks/ArrayField";

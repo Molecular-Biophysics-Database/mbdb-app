@@ -1,10 +1,11 @@
+import React from "react";
 import TextField from '@material-ui/core/TextField';
 import { useField } from 'formik';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Typography } from '@material-ui/core';
 
 function CustomField( { label, name, fieldName, type, tooltip, width, multiline }) {
-  
+
   const nameCustomField = fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const [field, meta] = useField(nameCustomField);
 
@@ -15,7 +16,7 @@ function CustomField( { label, name, fieldName, type, tooltip, width, multiline 
             <TextField
               {...field}
               className={`rounded-lg p-2 text-16px ${width}`}
-              sx= {{ 
+              sx= {{
                 "& .MuiInputLabel-root": {color: '#034459'}, //styles the label
                 "& .MuiOutlinedInput-root": {
                   "& > fieldset": {color: '#034459'},
