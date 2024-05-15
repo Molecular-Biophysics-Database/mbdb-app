@@ -108,6 +108,7 @@ function ComponentsPolymer( { name, molecularWeightColorSchema, colorSchemaWrapp
                     tooltip='The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy'
                     renderChild={({ arrayName, index }) => (
                         <VocabularySelectField
+                            search={(options) => options}
                             type="organisms/authoritative"
                             label={
                             <FieldLabel
@@ -130,6 +131,7 @@ function ComponentsPolymer( { name, molecularWeightColorSchema, colorSchemaWrapp
                     tooltip='The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy'
                     renderChild={({ arrayName, index }) => (
                         <VocabularySelectField
+                            search={(options) => options}
                             type="organisms/authoritative"
                             label={
                             <FieldLabel

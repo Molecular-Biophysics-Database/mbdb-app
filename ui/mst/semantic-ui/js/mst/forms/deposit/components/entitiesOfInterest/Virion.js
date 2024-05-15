@@ -79,6 +79,7 @@ function Virion( { name } ) {
                     tooltip='The host organism the virion was produced in. Note that information is based on the NCBI taxonomy'
                     renderChild={({ arrayName, index }) => (
                         <VocabularySelectField
+                            search={(options) => options}
                             type="organisms/authoritative"
                             label={
                             <FieldLabel
@@ -117,6 +118,7 @@ function Virion( { name } ) {
                     tooltip='The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy'
                     renderChild={({ arrayName, index }) => (
                         <VocabularySelectField
+                            search={(options) => options}
                             type="organisms/authoritative"
                             label={
                             <FieldLabel

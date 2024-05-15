@@ -73,6 +73,7 @@ function Virion( { name } ) {
         <div className="flex mb-3">
             <div className="mr-3">
                 <VocabularySelectField
+                    search={(options) => options}
                     type="organisms/authoritative"
                     label={
                     <FieldLabel
@@ -93,6 +94,7 @@ function Virion( { name } ) {
                     tooltip='The host organism the virion was produced in. Note that information is based on the NCBI taxonomy'
                     renderChild={({ arrayName, index }) => (
                         <VocabularySelectField
+                            search={(options) => options}
                             type="organisms/authoritative"
                             label={
                             <FieldLabel
