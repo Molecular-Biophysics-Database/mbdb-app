@@ -1,4 +1,4 @@
-import { Tooltip } from "@material-ui/core/Tooltip";
+import { Tooltip } from "@material-ui/core";
 import CustomField from "@mbdb_deposit/buildingBlocks/CustomField";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import Instrument from "@mbdb_deposit/sharedComponents/Instrument";
@@ -41,5 +41,5 @@ function InstrumentTab( { name } ) {
       </>
     );
   }
-  
+
   export default InstrumentTab;

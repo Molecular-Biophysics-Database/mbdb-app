@@ -4,7 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { Tooltip } from '@material-ui/core/Tooltip';
+import { Tooltip } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 
 function OptionField({ label, name, fieldName, options, width, tooltip}) {
@@ -25,7 +25,7 @@ function OptionField({ label, name, fieldName, options, width, tooltip}) {
             label={label}
             size="small"
             error={meta.touched && !!meta.error}
-            sx= {{ 
+            sx= {{
               //"& .MuiOutlinedInput-notchedOutline": {
               //  borderColor: "#034459",
               //},

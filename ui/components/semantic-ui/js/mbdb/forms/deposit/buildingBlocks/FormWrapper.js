@@ -1,10 +1,10 @@
-import { Tooltip } from '@material-ui/core/Tooltip';
+import { Tooltip } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 
 function FormWrapper( { headline, children, colorSchema, tooltip } ) {
 
 return (
-  <>                    
+  <>
       <div className={`${colorSchema === 'light' ? 'bg-white' : 'bg-primary' } p-3 rounded-lg text-dark`}>
         {headline &&
           <div className="flex">
@@ -21,7 +21,7 @@ return (
           </div>
         }
           {children}
-      </div>  
+      </div>
   </>
 );
 }
