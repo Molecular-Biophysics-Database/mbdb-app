@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import ArrayField from "../../buildingBlocks/ArrayField";
 import RawDataFile from "../rawDataFiles/RawDataFile";
@@ -29,5 +30,5 @@ function RawDataFilesTab( { name } ) {
       </>
     );
   }
-  
+
   export default RawDataFilesTab;

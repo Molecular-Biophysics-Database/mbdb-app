@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import Chemical from "../entitiesOfInterest/Chemical";
 import Polymer from "../entitiesOfInterest/Polymer";
@@ -16,7 +17,7 @@ function EntitiesOfInterestTab( { name } ) {
     const { values } = useFormikContext();
 
     const componentName = `${name}.entities_of_interest[0].type`;
-   
+
     UseDefault(componentName, 'Polymer');
 
     const entitiesOfInterestTabOptions = [
@@ -43,8 +44,8 @@ function EntitiesOfInterestTab( { name } ) {
                     const actualValue = getIn(values, `${arrayName}.${index}`)
                     if (!actualValue) {return null}
                     return (
-                    <FormWrapper 
-                        headline={`Entity of interest ${index + 1}`} 
+                    <FormWrapper
+                        headline={`Entity of interest ${index + 1}`}
                         tooltip='List of the entities that are being directly measured, as well as the entities that are being used as a variable to influence the behavior of the directly measured entities (e.g. lysozyme, NAG3,NaCl). IMPORTANT! If the pH was varied by individually prepared chemical environments these should be specified individually in chemical environments'
                     >
                         <div className="mb-3">
@@ -115,5 +116,5 @@ function EntitiesOfInterestTab( { name } ) {
       </>
     );
   }
-  
+
   export default EntitiesOfInterestTab;

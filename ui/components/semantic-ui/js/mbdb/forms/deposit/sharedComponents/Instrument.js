@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from '../buildingBlocks/FormWrapper';
 import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";

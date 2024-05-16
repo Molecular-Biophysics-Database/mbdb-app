@@ -1,3 +1,4 @@
+import React from "react";
 import { getIn, useFormikContext } from "formik";
 import UseDefault from "../../buildingBlocks/UseDefault";
 import BodyFluid from "./BodyFluid";
@@ -10,7 +11,7 @@ function ComplexSubstanceOfBiologicalOrigin( { name } ) {
     const { values } = useFormikContext();
 
     const componentName = `${name}.derived_from`;
-   
+
     UseDefault(componentName, 'Body fluid');
 
     const actualValue = getIn(values, componentName);

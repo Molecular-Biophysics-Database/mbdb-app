@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from '../../../buildingBlocks/FormWrapper';
 import Homogeneity from './homogeneity/Homogeneity';
 import Identity from './identity/Identity';

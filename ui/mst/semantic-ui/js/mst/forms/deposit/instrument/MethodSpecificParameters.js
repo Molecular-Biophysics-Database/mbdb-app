@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from '@mbdb_deposit/buildingBlocks/FormWrapper';
 import OptionField from '@mbdb_deposit/buildingBlocks/OptionField';
 import CustomField from '@mbdb_deposit/buildingBlocks/CustomField';
@@ -90,7 +91,7 @@ function MethodSpecificParameters( { name } ) {
                     tooltip='The temperature of the sample chamber while the measurement was performed'
                     renderChild={({ optionalFieldName }) => (
                         <div>
-                            <Temperature 
+                            <Temperature
                                 name={optionalFieldName}
                                 colorSchema='light'
                                 tooltip='The temperature of the sample chamber while the measurement was performed'

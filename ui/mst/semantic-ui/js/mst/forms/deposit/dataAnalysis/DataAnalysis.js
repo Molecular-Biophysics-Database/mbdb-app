@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import DataFitting from "@mbdb_deposit/sharedComponents/DataFitting";
 import FColdAndHot from "./FColdAndHot";
@@ -11,7 +12,7 @@ import CreateOptions from "@mbdb_deposit/buildingBlocks/CreateOptions";
 function DataAnalysis( { name } ) {
 
     const { values } = useFormikContext();
-      
+
     const resultsValue = getIn(values, `metadata.general_parameters.results`);
     const resultOptions = CreateOptions(resultsValue, 'Select Result, if applicable');
 

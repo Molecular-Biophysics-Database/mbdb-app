@@ -1,3 +1,4 @@
+import React from "react";
 import Tooltip from "@material-ui/core/Tooltip";
 import CustomField from "@mbdb_deposit/buildingBlocks/CustomField";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";

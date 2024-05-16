@@ -1,3 +1,4 @@
+import React from "react";
 import ArrayField from "../buildingBlocks/ArrayField";
 import OptionField from "../buildingBlocks/OptionField";
 import { getIn, useFormikContext } from "formik";
@@ -13,7 +14,7 @@ function DataAnalysis( { name } ) {
 
     const resultValue = getIn(values, 'metadata.general_parameters.results');
     const resultOptions = CreateOptions(resultValue, 'Select Result, if applicable');
-    
+
     const measurementValue = getIn(values, 'metadata.method_specific_parameters.measurements');
     const measurementOptions = CreateOptions(measurementValue, 'Select Measurement, if applicable');
 

@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import ArrayField from "../../buildingBlocks/ArrayField";
 import ChemicalEnvironment from "../chemicalEnvironment/ChemicalEnvironment";
@@ -35,5 +36,5 @@ function ChemicalEnvironmentTab( { name } ) {
       </>
     );
   }
-  
+
   export default ChemicalEnvironmentTab;

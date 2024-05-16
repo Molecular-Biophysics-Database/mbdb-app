@@ -1,3 +1,4 @@
+import React from "react";
 import ArrayField from "../../buildingBlocks/ArrayField";
 import CustomField from "../../buildingBlocks/CustomField";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
@@ -72,8 +73,8 @@ function BodyFluid( { name } ) {
                     fieldName='preparation_protocol'
                     tooltip='List of the steps performed during the preparation of the complex substance'
                     renderChild={({ arrayName, index }) => (
-                        <FormWrapper 
-                            colorSchema='light' 
+                        <FormWrapper
+                            colorSchema='light'
                             headline={`Preparation protocol ${index + 1}`}
                             tooltip='List of the steps performed during the preparation of the complex substance'
                         >

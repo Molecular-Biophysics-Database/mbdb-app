@@ -1,3 +1,4 @@
+import React from "react";
 import Temperature from '../../sharedComponents/Temperature';
 import Duration from '../../sharedComponents/Duration'
 import ArrayField from "../../buildingBlocks/ArrayField";
@@ -38,8 +39,8 @@ function Storage( { name, colorSchema } ) {
                 fieldName='storage_preparation'
                 tooltip='The specific steps that were taken to prepare the samples for storage (e.g. flash freezing in liquid nitrogen), if applicable'
                 renderChild={({ arrayName, index }) => (
-                    <FormWrapper 
-                        headline={`Storage preparation ${index + 1}`} 
+                    <FormWrapper
+                        headline={`Storage preparation ${index + 1}`}
                         colorSchema={colorSchema}
                         tooltip='The specific steps that were taken to prepare the samples for storage (e.g. flash freezing in liquid nitrogen), if applicable'
                     >

@@ -1,3 +1,4 @@
+import React from "react";
 import CustomField from "@mbdb_deposit/buildingBlocks/CustomField";
 import OptionField from "@mbdb_deposit/buildingBlocks/OptionField";
 
@@ -44,7 +45,7 @@ function FColdAndHot( { name } ) {
                     type='number'
                     tooltip='Numerical value of the end-point of time interval used to establish the initial fluorescence, F_cold'
                 />
-            </div>                
+            </div>
         </div>
         <div className="flex">
             <div className="mr-3">
@@ -64,7 +65,7 @@ function FColdAndHot( { name } ) {
                     type='number'
                     tooltip='Numerical value of the end-point of time interval used to establish the fluorescence temperature induced change in fluorescence, F_hot'
                 />
-            </div>                
+            </div>
         </div>
     </>
   );

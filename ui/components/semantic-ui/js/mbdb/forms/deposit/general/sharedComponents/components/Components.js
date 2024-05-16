@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from "../../../buildingBlocks/FormWrapper";
 import UseDefault from "../../../buildingBlocks/UseDefault";
 import Polymer from "./Polymer";
@@ -11,7 +12,7 @@ function Components( { name, colorSchema, tooltip } ) {
     const { values } = useFormikContext();
 
     const componentName = `${name}.components[0].type`;
-   
+
     UseDefault(componentName, 'Polymer');
 
     const componentOptions = [
@@ -71,5 +72,5 @@ function Components( { name, colorSchema, tooltip } ) {
       </>
     );
   }
-  
+
   export default Components;

@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import ArrayField from "../../buildingBlocks/ArrayField";
 import Concentration from "../result/Concentration";
@@ -37,7 +38,7 @@ function ResultTab( { name } ) {
     return (
       <>
         <div className="-mt-3">
-            <ArrayField 
+            <ArrayField
                 name={name}
                 label="Result"
                 fieldName='results'
@@ -154,5 +155,5 @@ function ResultTab( { name } ) {
       </>
     );
   }
-  
+
   export default ResultTab;

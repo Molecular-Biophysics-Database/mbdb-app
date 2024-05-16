@@ -1,3 +1,4 @@
+import React from "react";
 import ArrayField from "../../../buildingBlocks/ArrayField";
 import Modification from "./Modification";
 import FormWrapper from "../../../buildingBlocks/FormWrapper";

@@ -1,3 +1,4 @@
+import React from "react";
 import CustomField from "../../buildingBlocks/CustomField";
 import ValueUnit from "../../buildingBlocks/ValueUnit";
 import ValueError from "../../buildingBlocks/ValueError";

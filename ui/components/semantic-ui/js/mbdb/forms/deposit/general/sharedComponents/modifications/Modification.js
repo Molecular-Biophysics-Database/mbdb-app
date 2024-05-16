@@ -1,3 +1,4 @@
+import React from "react";
 import CustomField from "../../../buildingBlocks/CustomField";
 import Protocol from "../../../sharedComponents/Protocol";
 import ArrayField from "../../../buildingBlocks/ArrayField";
