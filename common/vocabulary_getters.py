@@ -194,7 +194,7 @@ class NCBIService(AuthorityService):
             raise KeyError(f'item_id, "{item_id}", is not a NCBI tax id')
 
         response_json = fetch_json(f"{self.get_url}{item_id[6:]}")
-        record = response_json["taxonomy_nodes"]["taxonomy"][0]
+        record = response_json["taxonomy_nodes"][0]["taxonomy"]
         return self.convert_ncbi_record(record)
 
     @staticmethod
