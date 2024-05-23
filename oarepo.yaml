@@ -64,6 +64,11 @@ uis:
   model: bli
   name: bli
   ui_serializer_class: bli.resources.records.ui.BliUIJSONSerializer
+- api_service: spr
+  endpoint: /spr/
+  model: spr
+  name: spr
+  ui_serializer_class: spr.resources.records.ui.SprUIJSONSerializer
 - api_service: null
   endpoint: /tutorial
   model: null
