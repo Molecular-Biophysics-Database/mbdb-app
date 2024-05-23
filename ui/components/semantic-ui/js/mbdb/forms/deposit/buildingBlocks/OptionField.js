@@ -14,7 +14,7 @@ function OptionField({ label, name, fieldName, options, width, tooltip }) {
 
   return (
     <div className="flex">
-      <div className={`${width} rounded-lg relative`} sx={{ minWidth: 195 }}>
+      <div className={`${width} rounded-lg relative border min-w-[178px]`}>
         <FormControl fullWidth>
           <InputLabel>{label}</InputLabel>
           <Select
@@ -23,16 +23,6 @@ function OptionField({ label, name, fieldName, options, width, tooltip }) {
             label={label}
             size="small"
             error={meta.touched && !!meta.error}
-            sx={{
-              //"& .MuiOutlinedInput-notchedOutline": {
-              //  borderColor: "#034459",
-              //},
-              "& .MuiInputLabel-root": { color: "#034459" }, //styles the label
-              color: "#034459",
-              "&:hover": {
-                borderColor: "#034459",
-              },
-            }}
           >
             {options.map((option) => (
               <MenuItem key={option.value} value={option.value}>

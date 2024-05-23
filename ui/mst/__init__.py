@@ -15,7 +15,7 @@ class MstInitialValuesComponent(UIResourceComponent):
         empty_data.update({
           "metadata": {
             "general_parameters": {
-              "schema_version": "0.9.19",
+              "schema_version": "0.9.21",
               "technique": "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
               "record_information": {
                 "publisher": "MBDB",
@@ -27,7 +27,7 @@ class MstInitialValuesComponent(UIResourceComponent):
               },
             },
             "method_specific_parameters": {
-              "schema_version": "0.9.9"
+              "schema_version": "0.9.10"
             }
           }
         })

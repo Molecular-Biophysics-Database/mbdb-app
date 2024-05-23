@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 function UseDefault(name, content) {
 
-    const { setFieldValue, values } = useFormikContext()
+    const { setFieldValue, values } = useFormikContext();
 
     useEffect(() => {
         const existingValue = getIn(values, name);

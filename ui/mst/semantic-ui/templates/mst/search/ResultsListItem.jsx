@@ -20,7 +20,7 @@ const ItemHeader = ({ title, searchUrl, selfLink, id, releasedDate, givenName, f
           <a href={viewLink}>{title}</a>
         </div>
         <div className="flex text-24px font-JostMedium">
-          <div className="mr-3 text-orange">
+          <div className="mr-3 font-bold">
             ID
           </div>
           <div>
