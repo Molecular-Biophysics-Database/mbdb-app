@@ -59,6 +59,11 @@ uis:
   model: mst
   name: mst
   ui_serializer_class: mst.resources.records.ui.MstUIJSONSerializer
+- api_service: bli
+  endpoint: /bli/
+  model: bli
+  name: bli
+  ui_serializer_class: bli.resources.records.ui.BliUIJSONSerializer
 - api_service: null
   endpoint: /tutorial
   model: null
