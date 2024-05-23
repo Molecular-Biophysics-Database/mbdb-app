@@ -1,0 +1,9 @@
+{# def gp, msp #}
+
+<IValueList>
+    {%- for dp in array(gp.results) %}
+        <IField label={ dp.name } >
+            <MeasuredValue value={dp} />
+        </IField>
+    {% endfor %}
+</IValueList>
