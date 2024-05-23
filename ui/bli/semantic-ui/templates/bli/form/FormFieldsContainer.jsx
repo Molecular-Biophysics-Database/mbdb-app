@@ -6,21 +6,27 @@ import EntitiesOfInterestTab from "@mbdb_deposit/general/generalTabs/EntitiesOfI
 import InstrumentTab from "@bli_deposit/bliTabs/InstrumentTab";
 import ChemicalEnvironmentTab from '@mbdb_deposit/general/generalTabs/ChemicalEnvironmentTab'
 import ResultTab from "@mbdb_deposit/general/generalTabs/ResultTab";
-import DataAnalysisTab from "@bli_deposit/bliTabs/DataAnalysisTab";
 import ProjectInformationTab from "@mbdb_deposit/general/generalTabs/ProjectInformationTab";
-import MeasurementTab from "@bli_deposit/bliTabs/MeasurementTab";
+import PlatesTab from "@bli_deposit/bliTabs/PlatesTab";
+import SensorsTab from "@bli_deposit/bliTabs/SensorsTab";
+import MeasurementProtocolStepTab from "@bli_deposit/bliTabs/MeasurementProtocolStepTab";
+import MeasurementsTab from "@bli_deposit/bliTabs/MeasurementsTab";
+import DataAnalysisTab from "@bli_deposit/bliTabs/DataAnalysisTab";
 
 function FormFieldsContainer() {
 
     const Tabs = [
-        { value: 'raw-data-files', label: 'Raw data files' },
-        { value: 'project-information', label: 'Project information' },
-        { value: 'entities-of-interest', label: 'Entities of interest' },
-        { value: 'chemical-environment', label: 'Chemical environments' },
-        { value: 'result', label: 'Results' },
-        { value: 'instrument', label: 'Instrument' },
-        { value: 'measurement', label: 'Measurements' },
-        { value: 'data-analysis', label: 'Data analysis' },
+      { value: 'raw-data-files', label: 'Raw data files' },
+      { value: 'project-information', label: 'Project information' },
+      { value: 'entities-of-interest', label: 'Entities of interest' },
+      { value: 'chemical-environment', label: 'Chemical environments' },
+      { value: 'result', label: 'Results' },
+      { value: 'instrument', label: 'Instrument' },
+      { value: 'plates', label: 'Plates' },
+      { value: 'sensors', label: 'Sensors' },
+      { value: 'measurement-protocol', label: 'Measurement protocol' },
+      { value: 'measurements', label: 'Measurements' },
+      { value: 'data-analysis', label: 'Data analysis' },
     ];
 
     const location = useLocation();
@@ -68,8 +74,17 @@ function FormFieldsContainer() {
             {state.selected === 'instrument' && (
               <InstrumentTab name='metadata.general_parameters' />
             )}
-            {state.selected === 'measurement' && (
-              <MeasurementTab name='metadata.method_specific_parameters' />
+            {state.selected === 'plates' && (
+              <PlatesTab name='metadata.method_specific_parameters' />
+            )}
+            {state.selected === 'sensors' && (
+              <SensorsTab name='metadata.method_specific_parameters' />
+            )}
+            {state.selected === 'measurement-protocol' && (
+              <MeasurementProtocolStepTab name='metadata.method_specific_parameters' />
+            )}
+            {state.selected === 'measurements' && (
+              <MeasurementsTab name='metadata.method_specific_parameters' />
             )}
             {state.selected === 'data-analysis' && (
               <DataAnalysisTab name='metadata.method_specific_parameters' />
