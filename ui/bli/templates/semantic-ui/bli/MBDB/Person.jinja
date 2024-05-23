@@ -1,0 +1,7 @@
+{# def person #}
+
+{%- set identifiers = person.identifiers|ijoin(', ') -%}
+
+<span class="mbdb-person-name" title="{{ identifiers }}">
+    {{ person.given_name ~ " " ~ person.family_name }}
+</span>
