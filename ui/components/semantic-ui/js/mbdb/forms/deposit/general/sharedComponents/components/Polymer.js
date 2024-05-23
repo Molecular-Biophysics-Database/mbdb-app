@@ -1,3 +1,4 @@
+import React from "react";
 import ArrayField from "../../../buildingBlocks/ArrayField";
 import CustomField from "../../../buildingBlocks/CustomField";
 import MolecularWeight from "../MolecularWeight";
@@ -178,7 +179,7 @@ function Polymer( { name, colorSchema } ) {
             </div>
         </div>
         <div className="mb-3">
-            <MolecularWeight 
+            <MolecularWeight
                 name={`${name}.molecular_weight`}
                 tooltip='The molecular weight of the polymer'
                 colorSchema={colorSchema}

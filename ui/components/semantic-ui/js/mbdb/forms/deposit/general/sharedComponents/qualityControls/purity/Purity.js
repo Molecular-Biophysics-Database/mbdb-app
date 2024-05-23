@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from '../../../../buildingBlocks/FormWrapper';
 import OptionField from '../../../../buildingBlocks/OptionField';
 import { getIn, useFormikContext } from 'formik';
@@ -23,7 +24,7 @@ function Purity( { name, colorSchema } ) {
             tooltip='Information about if and how the purity was obtained'
             renderChild={({ optionalFieldName }) => {
                 const actualValue = getIn(values, optionalFieldName)
-                if (!actualValue) {return null}        
+                if (!actualValue) {return null}
                 return(
                 <FormWrapper
                     headline='Purity'

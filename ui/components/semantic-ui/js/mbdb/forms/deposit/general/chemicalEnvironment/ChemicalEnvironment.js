@@ -1,3 +1,4 @@
+import React from "react";
 import Constituent from "./Constituent";
 import Solvent from "./Solvent";
 import CustomField from "../../buildingBlocks/CustomField";

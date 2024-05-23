@@ -1,0 +1,12 @@
+{#def record, form_config, data, extra_context, ui_links #}
+{% extends "oarepo_ui/form.html" %}
+{%- block javascript %}
+    {{ super() }}
+    {{ webpack['bli_deposit_form.js'] }}
+{%- endblock %}
+
+{%- block form_main_content %}
+    {{ super() }}
+    <input id="files" type="hidden" name="files" value='{{extra_context.files | tojson }}' />
+{%- endblock %}
+

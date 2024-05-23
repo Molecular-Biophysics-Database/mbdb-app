@@ -21,7 +21,7 @@ function ChemicalEnvironment( { name } ) {
         <div className="flex mb-3">
             <div className="mr-3">
                 <Ph
-                    name={`${name}.pH`}
+                    name={`${name}.ph`}
                 />
             </div>
             <div className="-mt-3">

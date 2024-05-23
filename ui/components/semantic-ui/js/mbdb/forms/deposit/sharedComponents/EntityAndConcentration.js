@@ -1,3 +1,4 @@
+import React from "react";
 import OptionField from "../buildingBlocks/OptionField";
 import Concentration from "./Concentration";
 import { useFormikContext, getIn } from 'formik';
@@ -6,7 +7,7 @@ import CreateOptions from "../buildingBlocks/CreateOptions";
 function EntityAndConcentration( { name } ) {
 
   const { values } = useFormikContext()
-      
+
   const entitiesValue = getIn(values, `metadata.general_parameters.entities_of_interest`);
   const entityOptions = CreateOptions(entitiesValue, 'Select Entity, if applicable');
 

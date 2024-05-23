@@ -1,3 +1,4 @@
+import React from "react";
 import ArrayField from "../../../buildingBlocks/ArrayField";
 import CustomField from "../../../buildingBlocks/CustomField";
 import OptionField from "../../../buildingBlocks/OptionField";
@@ -108,7 +109,7 @@ function CellFraction( { name } ) {
                 label='Preparation protocol'
                 fieldName='preparation_protocol'
                 renderChild={({ arrayName, index }) => (
-                    <FormWrapper 
+                    <FormWrapper
                         headline={`Preparation protocol ${index + 1}`}
                         tooltip='List of the steps performed during the preparation of the complex substance'
                     >

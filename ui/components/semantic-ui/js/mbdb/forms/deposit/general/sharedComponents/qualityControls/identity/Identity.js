@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from '../../../../buildingBlocks/FormWrapper';
 import OptionField from '../../../../buildingBlocks/OptionField';
 import ByIntactMass from './ByIntactMass';

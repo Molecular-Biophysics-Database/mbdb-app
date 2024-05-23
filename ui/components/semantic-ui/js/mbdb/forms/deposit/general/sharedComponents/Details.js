@@ -1,3 +1,4 @@
+import React from "react";
 import CustomField from "../../buildingBlocks/CustomField";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import ArrayField from "../../buildingBlocks/ArrayField";
@@ -28,7 +29,7 @@ function Details({ name, colorSchema }) {
               />
           </div>
           <div>
-              <CustomField 
+              <CustomField
                   name={name}
                   fieldName='number_of_mono_layers'
                   label='Number of mono layers'

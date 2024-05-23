@@ -1,0 +1,80 @@
+{% from "bli/Common/NoValue.jinja" import no_value %}
+{% from "bli/Common/RenderIf.jinja" import render_if2 %}
+{% from "bli/MBDB/EntitiesOfInterest.jinja" import entities_of_interest %}
+{% from "bli/MBDB/Depositors.jinja" import depositors %}
+{% from "bli/MBDB/Instrument.jinja" import instrument %}
+{% from "bli/MBDB/RecordHeader.jinja" import record_header %}
+{% from "bli/BLI/Measurements.jinja" import measurements %}
+{% from "bli/BLI/Results.jinja" import results %}
+{% from "bli/MBDB/RawMeasurements.jinja" import raw_measurements %}
+  
+{%- macro simple(metadata, ui, files) %}
+  {% set gp = metadata.general_parameters %}
+
+  <div class=" mbdbv-record-container">
+    {#
+    {{ record_header(metadata | maybe_get("general_parameters.record_information.title"), ui) }}
+    #}
+    <div class="mbdbv-record-technique">Technique: {{ gp.technique }}</div>
+    <div class="mbdbv-record-technique">Depositors: {{ depositors(gp) }}</div>
+    {% if gp.associated_publications is defined and gp.associated_publications.main is defined %}
+      <div class="mbdbv-record-technique">Main Publication: {{ gp.associated_publications.main.title }}</div>
+    {% endif %}  
+    
+    <div class="record-container">
+      <div class="mbdbv-record-section-container bg-dark">
+        <h3 class="mbdbv-record-section-title">Entities of interest</h3>
+        {{ render_if2(
+            (gp.chemical_information is defined) and (gp.chemical_information.entities_of_interest is defined),
+            entities_of_interest,
+            no_value(),
+            entities=gp.get("chemical_information", {}).get("entities_of_interest"))
+        }}
+      </div>
+
+      <div class="mbdbv-record-section-container bg-dark">
+        <h3 class="mbdbv-record-section-title">Results</h3>
+        {{ render_if2(
+            metadata.method_specific_parameters is defined,
+            results,
+            no_value(),
+            gp=gp,
+            msp=metadata.get("method_specific_parameters"))
+        }}
+      </div>
+
+      <div class="mbdbv-record-section-container bg-dark">
+        <h3 class="mbdbv-record-section-title">Measurements</h3>
+        {{ render_if2(
+            metadata.method_specific_parameters is defined,
+            measurements,
+            no_value(),
+            gp=gp,
+            msp=metadata.get("method_specific_parameters"))
+        }}
+      </div>
+
+      <div class="mbdbv-record-section-container bg-dark">
+        <h3 class="mbdbv-record-section-title">Instrument</h3>
+        {{ render_if2(
+              gp.instrument is defined,
+              instrument,
+              no_value(),
+              imt=gp.get("instrument"))
+        }}
+      </div>
+
+      <div class="mbdbv-record-section-container mbdbv-framed bg-dark">
+        <h3 class="mbdbv-record-section-title">Raw measurements</h3>
+        {{ render_if2(
+              gp.raw_measurements is defined,
+              raw_measurements,
+              no_value(),
+              raw_measurements=gp.get("raw_measurements"),
+              files = files
+              )
+        }}
+      </div>
+    </div>
+  </div>
+{%- endmacro %}

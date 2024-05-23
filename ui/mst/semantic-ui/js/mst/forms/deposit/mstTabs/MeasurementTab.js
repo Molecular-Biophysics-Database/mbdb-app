@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import ArrayField from "@mbdb_deposit/buildingBlocks/ArrayField";
 import Measurement from "../measurement/Measurement";
@@ -35,5 +36,5 @@ function MeasurementTab( { name } ) {
       </>
     );
   }
-  
+
   export default MeasurementTab;

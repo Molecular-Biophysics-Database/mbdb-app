@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from "../../../buildingBlocks/FormWrapper";
 import OptionField from "../../../buildingBlocks/OptionField";
 import Article from "./Article";
@@ -7,7 +8,7 @@ import { getIn, useFormikContext } from "formik";
 import OptionalField from "../../../buildingBlocks/OptionalField";
 
 function AssociatedPublication( { name } ) {
-    
+
     const { values } = useFormikContext();
 
     const associatedPublicationOptions = [

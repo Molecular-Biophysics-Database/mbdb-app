@@ -1,0 +1,26 @@
+{% from "bli/Common/NoValue.jinja" import no_value %}
+
+{%- macro render_if(condition, _content, default=no_value()) %}
+  {%- if condition == True %}
+    {{ _content }}
+  {%- else %}
+    {{ default }}
+  {%- endif %}
+{%- endmacro %}
+
+{%- macro render_if2(condition, _content, default=no_value()) %}
+  {%- if condition == True %}
+    {{ _content(**kwargs) }}
+  {%- else %}
+    {{ default }}
+  {%- endif %}
+{%- endmacro %}
+
+
+{%- macro render_if_exists(_content, default=no_value()) %}
+  {%- if _content is defined and _content | length %}
+    {{ _content }}
+  {%- else %}
+    {{ default }}
+  {%- endif %}
+{%- endmacro %}

@@ -1,3 +1,4 @@
+import React from "react";
 import CustomField from "./CustomField";
 import OptionField from "./OptionField";
 
@@ -7,7 +8,7 @@ function ValueUnit({ options, name, width, tooltipValue, tooltipUnit }) {
     <>
         <div className="flex">
             <div className="mr-3">
-              <CustomField 
+              <CustomField
                 name={name}
                 fieldName='value'
                 type='number'

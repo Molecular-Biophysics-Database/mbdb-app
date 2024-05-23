@@ -1,3 +1,4 @@
+import React from "react";
 import CustomField from "@mbdb_deposit/buildingBlocks/CustomField";
 import Sample from "./Sample";
 

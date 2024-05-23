@@ -1,3 +1,4 @@
+import React from "react";
 import OptionField from '../../../../buildingBlocks/OptionField';
 
 function PurityYes( { name } ) {
@@ -27,7 +28,7 @@ function PurityYes( { name } ) {
                     tooltip='The method that was used to determine the purity'
                 />
             </div>
-            <div>                
+            <div>
                 <OptionField
                     name={name}
                     fieldName='purity_percentage'

@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import OptionField from "../../buildingBlocks/OptionField";
 import UseDefault from "../../buildingBlocks/UseDefault";
@@ -10,7 +11,7 @@ function Solvent( { name } ) {
     const { values } = useFormikContext();
 
     const componentName = `${name}.solvent[0].type`;
-   
+
     UseDefault(componentName, 'Chemical');
 
     const entitiesOfInterestTabOptions = [
@@ -33,7 +34,7 @@ function Solvent( { name } ) {
                         if (!actualValue) {return null}
                         return (
                             <div>
-                                <FormWrapper 
+                                <FormWrapper
                                     headline={`Solvent ${index + 1}`}
                                     colorSchema='light'
                                     tooltip='Information about the solvent component(s) of the chemical environment (e.g. water, D2O, DMSO, EtOH) can be specified here'
@@ -66,5 +67,5 @@ function Solvent( { name } ) {
       </>
     );
   }
-  
+
   export default Solvent;

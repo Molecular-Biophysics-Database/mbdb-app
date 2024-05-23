@@ -1,3 +1,4 @@
+import React from "react";
 import CustomField from "./CustomField";
 import FormWrapper from "./FormWrapper";
 import OptionField from "./OptionField";
@@ -10,9 +11,9 @@ function ValueError( {colorSchema, name} ) {
     ];
 
   return (
-    <>    
+    <>
         <div className='flex'>
-            <FormWrapper 
+            <FormWrapper
                 headline='Value error'
                 tooltip='The expected error of the result in terms of a 95 % confidence interval'
                 colorSchema={colorSchema}

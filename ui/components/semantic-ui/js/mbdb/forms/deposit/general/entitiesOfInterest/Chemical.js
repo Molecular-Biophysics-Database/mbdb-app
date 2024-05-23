@@ -1,5 +1,8 @@
+import React from "react";
 import ArrayField from "../../buildingBlocks/ArrayField";
 import CustomField from "../../buildingBlocks/CustomField";
+import { VocabularySelectField } from "@js/oarepo_vocabularies";
+import { FieldLabel } from "react-invenio-forms";
 
 function Chemical( { name } ) {
 
@@ -7,11 +10,17 @@ function Chemical( { name } ) {
     <>
       <div className='flex'>
           <div className='mr-3'>
-            <CustomField
-              name={name}
-              label='Basic information'
-              fieldName='basic_information'
-              tooltip='The basic information about the chemical. This information is pulled from Pubchem, however if the information is not available it can be manually filled'
+            <VocabularySelectField
+              search={(options) => options}
+              type="chemicals/authoritative"
+              label={
+                  <FieldLabel
+                  htmlFor={`${name}.basic_information`}
+                  icon=""
+                  />
+              }
+              fieldPath={`${name}.basic_information`}
+              placeholder='Basic information'
             />
           </div>
           <div className="-mt-3 mr-5">

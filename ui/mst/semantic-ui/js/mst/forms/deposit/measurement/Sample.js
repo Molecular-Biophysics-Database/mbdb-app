@@ -1,3 +1,4 @@
+import React from "react";
 import ArrayField from '@mbdb_deposit/buildingBlocks/ArrayField';
 import FormWrapper from '@mbdb_deposit/buildingBlocks/FormWrapper';
 import Ligand from './Ligand';

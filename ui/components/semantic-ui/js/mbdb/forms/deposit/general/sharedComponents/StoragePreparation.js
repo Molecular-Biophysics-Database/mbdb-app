@@ -1,3 +1,4 @@
+import React from "react";
 import CustomField from "../../buildingBlocks/CustomField";
 
 function StoragePreparation( { name } ) {

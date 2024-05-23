@@ -1,3 +1,4 @@
+import React from "react";
 import CustomField from "../buildingBlocks/CustomField";
 import FormWrapper from "../buildingBlocks/FormWrapper";
 import OptionField from "../buildingBlocks/OptionField";
@@ -28,14 +29,14 @@ function Concentration({ name, tooltip, colorSchema }) {
 
   return (
     <>
-      <FormWrapper 
+      <FormWrapper
         colorSchema={colorSchema}
         headline='Concentration'
         tooltip={tooltip}
       >
         <div className="flex">
           <div className="mr-3">
-              <CustomField 
+              <CustomField
                   name={name}
                   fieldName='value'
                   label='Value'

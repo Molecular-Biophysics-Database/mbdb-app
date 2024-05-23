@@ -1,3 +1,4 @@
+import React from "react";
 import CustomField from "../../buildingBlocks/CustomField";
 import ArrayField from "../../buildingBlocks/ArrayField";
 import MolecularWeight from "../sharedComponents/MolecularWeight";
@@ -80,7 +81,7 @@ function MolecularAssembly( { name } ) {
         </div>
         <div>
             <Components
-                name={name} 
+                name={name}
                 colorSchema='light'
                 tooltip='Description of the individual components (e.g. polypeptide, heme, lipids, metal ions etc.) the molecular assembly is composed of (e.g. Hemoglobin alpha) and how many copies of each component were present'
             />

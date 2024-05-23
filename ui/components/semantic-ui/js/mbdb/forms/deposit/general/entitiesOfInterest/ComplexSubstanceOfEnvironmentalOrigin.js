@@ -1,3 +1,4 @@
+import React from "react";
 import CustomField from "../../buildingBlocks/CustomField";
 import Location from "../sharedComponents/Location";
 import ArrayField from "../../buildingBlocks/ArrayField";
@@ -32,9 +33,9 @@ function ComplexSubstanceOfEnvironmentalOrigin( { name } ) {
             </div>
             <div>
                 <OptionField
-                    name={name} 
-                    options={sourceOptions} 
-                    label='Source' 
+                    name={name}
+                    options={sourceOptions}
+                    label='Source'
                     fieldName='source'
                     tooltip='The environmental source where the complex substance was derived from'
                 />

@@ -1,3 +1,4 @@
+import React from "react";
 import CustomField from "../../buildingBlocks/CustomField";
 import ArrayField from "../../buildingBlocks/ArrayField";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
@@ -33,9 +34,9 @@ function ComplexSubstanceOfIndustrialOrigin( { name } ) {
             </div>
             <div>
                 <OptionField
-                    name={name} 
-                    options={productOptions} 
-                    label='Product' 
+                    name={name}
+                    options={productOptions}
+                    label='Product'
                     fieldName='product'
                     tooltip='The type of product, byproduct, or waste product the complex substance was derived from'
                 />

@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import Chemical from "./constituent/Chemical";
 import Polymer from "./constituent/Polymer";
@@ -111,5 +112,5 @@ function Constituent( { name } ) {
       </>
     );
   }
-  
+
   export default Constituent;

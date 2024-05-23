@@ -1,3 +1,4 @@
+import React from "react";
 import CustomField from "../../../buildingBlocks/CustomField";
 import ArrayField from "../../../buildingBlocks/ArrayField";
 import MolecularWeight from "../../sharedComponents/MolecularWeight";
@@ -87,8 +88,8 @@ function MolecularAssembly( { name } ) {
             />
         </div>
         <div>
-            <Components 
-                name={name} 
+            <Components
+                name={name}
                 colorSchemaHeadline='light'
                 colorSchemaProtocol='light'
                 molecularWeightColorSchema='light'

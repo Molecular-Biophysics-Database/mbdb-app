@@ -1,3 +1,4 @@
+import React from "react";
 import OptionField from "@mbdb_deposit/buildingBlocks/OptionField";
 import Concentration from "@mbdb_deposit/sharedComponents/Concentration";
 import { useFormikContext, getIn } from 'formik';
@@ -6,7 +7,7 @@ import CreateOptions from "@mbdb_deposit/buildingBlocks/CreateOptions";
 function Target( { name } ) {
 
   const { values } = useFormikContext();
-    
+
   const entitiesValue = getIn(values, `metadata.general_parameters.entities_of_interest`);
   const entityOptions = CreateOptions(entitiesValue, 'Select Entity, if applicable');
 

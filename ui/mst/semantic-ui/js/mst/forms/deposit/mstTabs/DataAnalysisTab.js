@@ -1,3 +1,4 @@
+import React from "react";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import ArrayField from "@mbdb_deposit/buildingBlocks/ArrayField";
 import DataAnalysis from "../dataAnalysis/DataAnalysis";
@@ -29,5 +30,5 @@ function DataAnalysisTab( { name } ) {
       </>
     );
   }
-  
+
   export default DataAnalysisTab;
