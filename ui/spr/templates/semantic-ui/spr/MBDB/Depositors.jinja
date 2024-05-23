@@ -1,0 +1,8 @@
+{# def d #}
+
+{%- for depositor in array(d) -%}
+    {%- for person in array(depositor.principal_contact, depositor.depositor, depositor.contributors)  -%}
+        {%- if not loop.first %}, {% endif -%}
+        <Person person={person} ></Person>
+    {%- endfor -%}
+{%- endfor -%}
