@@ -1,0 +1,70 @@
+{% from "mst/Common/NoValue.jinja" import no_value %}
+
+{%- macro list_open(name, content) %}
+  <div class="mbdbv-name-value-list">
+{%- endmacro %}
+
+{%- macro list_close(name, content) %}
+  </div>
+{%- endmacro %}
+
+{%- macro inset_open() %}
+  <div class="mbdbv-name-value-inset">
+{%- endmacro %}
+
+{%- macro inset_close() %}
+  </div>
+{%- endmacro %}
+
+{%- macro item(name, content) %}
+  <div class="mbdbv-name-value-item-name">{{ name }}</div>
+  <div class="mbdbv-name-value-item-value">
+    {%- if content is defined and content|string|length %}
+      {{ content }}
+    {%- else %}
+      {{ no_value() }}
+    {%- endif %}
+  </div>
+{%- endmacro %}
+
+{%- macro item_collapsible(name, content) %}
+  <div class="mbdbv-name-value-item-name title active">
+    <i class="dropdown icon"></i>
+    {{ name }}
+  </div>
+  <div class="mbdbv-name-value-item-value content active">
+    {%- if content is defined and content|length %}
+      {{ content }}
+    {%- else %}
+      {{ no_value() }}
+    {%- endif %}
+  </div>
+{%- endmacro %}
+
+{%- macro single(name, content) %}
+  {{ list_open() }}
+    {{ item(name, content) }}
+  {{ list_close() }}
+{%- endmacro %}
+
+{%- macro spacer() %}
+  {{ inset_open() }}
+    <div class="mbdbv-spacer"></div>
+  {{ inset_close() }}
+{%- endmacro %}
+
+{%- macro waterfall(content) %}
+  <div class="mbdbv-name-value-waterfall">
+    {{ content }}
+  </div>
+{%- endmacro %}
+
+{%- macro waterfall_collapsible(htmlId, content) %}
+  {%- if htmlId | length %}
+  <div class="mbdbv-name-value-waterfall ui accordion" id={{ htmlId }}>
+  {%- else %}
+  <div class="mbdbv-name-value-waterfall ui accordion">
+  {%- endif %}
+    {{ content }}
+  </div>
+{%- endmacro %}
