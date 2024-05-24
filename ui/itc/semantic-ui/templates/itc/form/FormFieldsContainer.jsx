@@ -34,7 +34,7 @@ function FormFieldsContainer() {
   return (
     <>
       <div className="flex text-dark text-24px font-bold justify-center mt-4">
-        You are depositing ITC
+        You are depositing ITC data
       </div>
       <div className='flex justify-center m-4'>
         <div className="mr-3">
