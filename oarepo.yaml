@@ -69,6 +69,11 @@ uis:
   model: spr
   name: spr
   ui_serializer_class: spr.resources.records.ui.SprUIJSONSerializer
+- api_service: itc
+  endpoint: /itc/
+  model: itc
+  name: itc
+  ui_serializer_class: itc.resources.records.ui.ItcUIJSONSerializer
 - api_service: null
   endpoint: /tutorial
   model: null
