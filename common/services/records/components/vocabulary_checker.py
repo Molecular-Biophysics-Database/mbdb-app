@@ -63,7 +63,15 @@ class ForeignVocabularyFetcherComponent(ServiceComponent):
         gp = "metadata/general_parameters"
         depositors = gp + "/depositors"
         entities = gp + "/entities_of_interest"
+        chem_env = gp + "/chemical_environments"
         return {
+            "chemicals":  self.make_paths(
+                (entities, "basic_information"),
+                (entities, "components", "basic_information"),
+                (chem_env, "constituents", "basic_information"),
+                (chem_env, "solvent", "basic_information"),
+
+            ),
             "affiliations": self.make_paths(
                 (depositors, "depositor", "affiliations"),
                 (depositors, "principal_contact", "affiliations"),
