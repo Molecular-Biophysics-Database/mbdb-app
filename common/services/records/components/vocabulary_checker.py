@@ -22,6 +22,9 @@ class ForeignVocabularyFetcherComponent(ServiceComponent):
     def update(self, identity, data=None, **kwargs):
         self._load_if_missing(data)
 
+    def update_draft(self, identity, data=None, **kwargs):
+        self._load_if_missing(data)
+    
     def _load_if_missing(self, data):
         for vocabulary_type, paths in self.paths.items():
             for path in paths.iter(data):
