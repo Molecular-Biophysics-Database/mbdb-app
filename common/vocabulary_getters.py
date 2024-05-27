@@ -277,7 +277,7 @@ class OpenAireService(AuthorityService):  # noqa
 class PubChemService(AuthorityService):
     base_url = "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound"
     search_url = f"{base_url}/name/"
-    get_url = f"{base_url}/CID/"
+    get_url = f"{base_url}/InChIKey/"
     properties = "Title,MolecularFormula,MolecularWeight,InChIKey"
 
     def search(self, *, query=None, page=1, size=10, **kwargs):
@@ -298,11 +298,12 @@ class PubChemService(AuthorityService):
         return hit_dict(hits, total, links)
 
     def get(self, item_id, **kwargs):
-        if not item_id.startswith("In:"):
+        if not item_id.startswith("inchikey:"):
             raise KeyError(f'item_id, "{item_id}", is not an InchIKey')
+
         url = f"{self.get_url}{item_id[9:]}/property/{self.properties}/JSON"
         response = fetch_json(url)
-        return self.convert_pubchem_record(response[0][0])
+        return self.convert_pubchem_record(response["PropertyTable"]["Properties"][0])
 
     @staticmethod
     def filter_hits(hits):
@@ -313,13 +314,11 @@ class PubChemService(AuthorityService):
         formatted_data = {
             "id": f'inchikey:{hit["InChIKey"]}',
             "title": {"en": hit["Title"]},
-            "props": {
-                "molecular_formula": hit["MolecularFormula"],
-                "molecular_weight": {
+            "chemical_formula": hit["MolecularFormula"],
+            "molecular_weight": {
                     "value": float(hit["MolecularWeight"]),
                     "unit": "g/mol",
-                },
-                "additional_identifiers": [f"cid:{hit['CID']}"],
             },
-        }
+            "additional_identifiers": [f"cid:{hit['CID']}"],
+            }
         return formatted_data
