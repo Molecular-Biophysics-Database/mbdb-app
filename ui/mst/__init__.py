@@ -44,6 +44,7 @@ class MstResourceConfig(RecordsUIResourceConfig):
     # TODO: is this still needed?
     edit_layout = 'edit_layout.json'
 
+    search_component = "mst/search/ResultsListItem.jsx"
 
     application_id = "mst"
 
