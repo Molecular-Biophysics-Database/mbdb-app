@@ -7,6 +7,7 @@ authors = []
 dependencies = [
     "invenio-drafts-resources>=1.0.4",
     "json5",
+    "oarepo-global-search",
     "oarepo-published-service>=1.0.0",
     "oarepo-requests>=1.0.2",
     "oarepo-runtime",
