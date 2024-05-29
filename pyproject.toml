@@ -12,7 +12,7 @@ dependencies = [
     "oarepo-runtime",
     "oarepo-ui",
     "oarepo-vocabularies",
-    "oarepo==12.*",
+    "oarepo[s3]==12.*",
     "python-dotenv",
 ]
 requires-python = ">=3.10,<3.11"
