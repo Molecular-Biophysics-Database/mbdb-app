@@ -1,0 +1,7 @@
+POST https://127.0.0.1:5000/api/user/search/
+Content-Type: application/json
+Authorization: Bearer 2BnGHD43jZNRL2cRCwXqAD96hqDtkfWXV7UUhV8yBhP0wKPjtDH8zrYJDcqK
+
+{
+  "a": 1
+}

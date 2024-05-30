@@ -88,7 +88,7 @@
         </a>
       </div>
       <div>
-        <a class="flex" href="{{url_for('invenio_oauthclient.login', remote_app='orcid')}}">
+        <a class="flex" href="{{url_for('invenio_oauthclient.login', remote_app='orcid')}}?next=/me/records/">
           <div class="text-20px my-auto mr-1">Sign in with</div>
           <img class="w-10" src="/static/images/orcid-logo.png" alt="Orcid logo" />
         </a>
@@ -146,7 +146,7 @@
         </button>
       </a>
       <div>
-        <a class="flex" href="{{url_for('invenio_oauthclient.login', remote_app='orcid')}}">
+        <a class="flex" href="{{url_for('invenio_oauthclient.login', remote_app='orcid')}}?next=/me/records/">
           <div class="my-auto mr-1">sign in with</div>
           <img class="h-[40px] w-auto" src="/static/images/orcid-logo.png" alt="Orcid logo" />
         </a>
