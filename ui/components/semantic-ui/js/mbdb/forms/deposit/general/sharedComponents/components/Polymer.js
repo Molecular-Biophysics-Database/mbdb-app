@@ -29,20 +29,23 @@ function Polymer( { name, colorSchema } ) {
 
   return (
     <>
-        <div className='flex mb-3'>
-          <div className='mr-3'>
+        <div className='mb-3'>
             <CustomField
                 name={name}
                 label='Name'
                 fieldName='name'
+                required={true}
+                width='w-full'
                 tooltip='Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample'
             />
-          </div>
+        </div>
+        <div className='flex mb-3'>
           <div className="mr-3">
             <OptionField
                 name={name}
                 label='Polymer type'
                 fieldName='polymer_type'
+                required={true}
                 options={polymerTypeOptions}
                 tooltip='The type of polymer (e.g. polypeptide(L))'
             />
@@ -52,6 +55,7 @@ function Polymer( { name, colorSchema } ) {
                 name={name}
                 label='Expression source'
                 fieldName='expression_source_type'
+                required={true}
                 options={expressionSourceTypeOptions}
                 tooltip='How the polymer was produced'
             />
@@ -61,6 +65,7 @@ function Polymer( { name, colorSchema } ) {
                 name={name}
                 label='Copy number'
                 fieldName='copy_number'
+                required={true}
                 type='number'
                 tooltip='Number of molecules of the component within the assembly, -1 if unknown'
             />

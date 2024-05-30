@@ -26,6 +26,7 @@ function MeasurementProtocol( { name } ) {
                     name={name}
                     fieldName='name'
                     label='Name'
+                    required={true}
                     tooltip='Descriptive name (id) of the a step in the measurement protocol which must be unique within a record'
                     width='w-[29rem]'
                 />
@@ -35,6 +36,7 @@ function MeasurementProtocol( { name } ) {
                     name={name}
                     label='Type'
                     fieldName='type'
+                    required={true}
                     options={typeOptions}
                     tooltip='Which type of step in the measurement protocol this refers to'
                 />

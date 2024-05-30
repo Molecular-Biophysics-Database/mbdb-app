@@ -7,8 +7,11 @@ import Protocol from "../../sharedComponents/Protocol";
 import Storage from "../sharedComponents/Storage";
 import OptionField from "../../buildingBlocks/OptionField";
 import OptionalField from "../../buildingBlocks/OptionalField";
+import CreateUuid from "../../buildingBlocks/CreateUuid";
 
 function ComplexSubstanceOfEnvironmentalOrigin( { name } ) {
+
+    CreateUuid(name);
 
     const sourceOptions = [
         { value: 'Fresh water', label: 'Fresh water' },
@@ -27,6 +30,7 @@ function ComplexSubstanceOfEnvironmentalOrigin( { name } ) {
                     name={name}
                     label='Name'
                     fieldName='name'
+                    required={true}
                     width='w-[22rem]'
                     tooltip='Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample'
                 />
@@ -37,6 +41,7 @@ function ComplexSubstanceOfEnvironmentalOrigin( { name } ) {
                     options={sourceOptions}
                     label='Source'
                     fieldName='source'
+                    required={true}
                     tooltip='The environmental source where the complex substance was derived from'
                 />
             </div>

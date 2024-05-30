@@ -16,7 +16,7 @@ class BliInitialValuesComponent(UIResourceComponent):
           "metadata": {
             "general_parameters": {
               "schema_version": "0.9.21",
-              "technique": "BLI measurement of hemoglobin serum elements",
+              "technique": "Bio-layer interferometry (BLI)",
               "record_information": {
                 "publisher": "MBDB",
                 "resource_type_general": "Dataset",

@@ -21,6 +21,7 @@ function MethodSpecificParameters( { name } ) {
                 options={experimentTypeOptions}
                 label='Experiment type'
                 fieldName='experiment_type'
+                required={true}
                 tooltip='Which type of parameter is sought with the measurements'
             />
         </FormWrapper>

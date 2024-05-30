@@ -43,6 +43,7 @@ function MethodSpecificParameters( { name } ) {
                         options={experimentTypeOptions}
                         label='Experiment type'
                         fieldName='experiment_type'
+                        required={true}
                         tooltip='The type of physical parameter that was sought'
                     />
                 </div>
@@ -52,6 +53,7 @@ function MethodSpecificParameters( { name } ) {
                         options={signalTypeOptions}
                         label='Signal type'
                         fieldName='signal_type'
+                        required={true}
                         tooltip='The type of signal that was being measured'
                     />
                 </div>
@@ -61,6 +63,7 @@ function MethodSpecificParameters( { name } ) {
                         options={excitationLedColorOptions}
                         label='Excitation LED color'
                         fieldName='excitation_led_color'
+                        required={true}
                         tooltip='The color of the excitation LED used for the experiment. NOTE that colors are specific to the combination in which it occurs, e.g. the GREEN in a BLUE/GREEN instrument, is not the same as the GREEN in a GREEN/RED instrument'
                     />
                 </div>
@@ -71,6 +74,7 @@ function MethodSpecificParameters( { name } ) {
                         name={name}
                         label='Excitation LED power'
                         fieldName='excitation_led_power'
+                        required={true}
                         tooltip='The power, in percentage, of the excitation LED used in experiment'
                     />
                 </div>
@@ -79,6 +83,7 @@ function MethodSpecificParameters( { name } ) {
                         name={name}
                         label='IR MST laser power'
                         fieldName='ir_mst_laser_power'
+                        required={true}
                         tooltip="The power of the infrared LASER used in the experiment in percentages. Even though a change in nomenclature occurred in Nanotemper's control software, the underlying data is still stored in percentages. Use the following conversion; Low = 20, Medium = 40, High = 60"
                     />
                 </div>

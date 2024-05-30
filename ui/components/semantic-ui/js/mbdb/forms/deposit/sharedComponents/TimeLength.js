@@ -27,6 +27,8 @@ function TimeLength( { colorSchema, name } ) {
             name={name}
             tooltipValue='The numerical value of the time point or duration'
             tooltipUnit='The unit of the time duration'
+            valueRequired={true}
+            unitRequired={true}
           />
       </FormWrapper>
     </>

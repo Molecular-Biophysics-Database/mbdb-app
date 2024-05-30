@@ -1,7 +1,6 @@
 import React from "react";
-import CustomField from "../buildingBlocks/CustomField";
 import FormWrapper from "../buildingBlocks/FormWrapper";
-import OptionField from "../buildingBlocks/OptionField";
+import ValueUnit from "../buildingBlocks/ValueUnit";
 
 function Concentration({ name, tooltip, colorSchema }) {
 
@@ -34,26 +33,14 @@ function Concentration({ name, tooltip, colorSchema }) {
         headline='Concentration'
         tooltip={tooltip}
       >
-        <div className="flex">
-          <div className="mr-3">
-              <CustomField
-                  name={name}
-                  fieldName='value'
-                  label='Value'
-                  type='number'
-                  tooltip='The numerical value of the concentration, -1 if unknown'
-              />
-          </div>
-          <div>
-              <OptionField
-                  name={name}
-                  options={unitOptions}
-                  fieldName='unit'
-                  label='Unit'
-                  tooltip='The unit of the concentration'
-              />
-          </div>
-        </div>
+        <ValueUnit
+          name={name}
+          options={unitOptions}
+          tooltipValue='The numerical value of the concentration, -1 if unknown'
+          tooltipUnit='The unit of the concentration'
+          valueRequired={true}
+          unitRequired={true}
+        />
       </FormWrapper>
     </>
   );

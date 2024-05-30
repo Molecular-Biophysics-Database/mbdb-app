@@ -7,8 +7,11 @@ import EntityInvolved from "./EntityInvolved";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import UseDefault from "../../buildingBlocks/UseDefault";
 import OptionalField from "../../buildingBlocks/OptionalField";
+import CreateUuid from "../../buildingBlocks/CreateUuid";
 
 function AssociationRateKOn( { name } ) {
+
+    CreateUuid(name);
 
     const unitOptions = [
         { value: 'M^-1 s^-1', label: 'M^-1 s^-1' },

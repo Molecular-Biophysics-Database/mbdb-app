@@ -4,8 +4,11 @@ import OptionField from "@mbdb_deposit/buildingBlocks/OptionField";
 import Supplier from "../sharedComponents/Supplier";
 import SurfaceModification from "./SurfaceModification";
 import OptionalField from "@mbdb_deposit/buildingBlocks/OptionalField";
+import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 
 function Plates( { name } ) {
+
+    CreateUuid(name);
 
     const wellsOptions = [
         { value: '96', label: '96' },
@@ -19,6 +22,7 @@ function Plates( { name } ) {
                 name={name}
                 fieldName='name'
                 label='Name'
+                required={true}
                 tooltip='Name (id) of the plate which must be unique within a record'
                 width='w-full'
             />
@@ -30,6 +34,7 @@ function Plates( { name } ) {
                     label='Wells'
                     fieldName='wells'
                     options={wellsOptions}
+                    required={true}
                     tooltip='Number of wells in the plate'
                 />
             </div>
@@ -38,6 +43,7 @@ function Plates( { name } ) {
                     name={name}
                     fieldName='type'
                     label='Type'
+                    required={true}
                     tooltip='The type of the plate (e.g. half-area black polystyrene)'
                 />
             </div>

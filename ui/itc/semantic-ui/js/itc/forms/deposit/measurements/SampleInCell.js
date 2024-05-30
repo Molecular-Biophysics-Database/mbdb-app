@@ -30,6 +30,7 @@ function SampleInCell( { name, colorSchema } ) {
                         name={name}
                         label='Chemical environment'
                         fieldName='chemical_environment'
+                        required={true}
                         options={chemicalEnvironmentsOptions}
                         tooltip='Name (id) of the chemical environment of the sample (from the chemical environments defined in the general parameters'
                     />

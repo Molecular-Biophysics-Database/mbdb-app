@@ -20,6 +20,8 @@ function CellVolume( { colorSchema, name } ) {
             name={name}
             tooltipValue='Volume of the sample'
             tooltipUnit='Unit of the volume'
+            valueRequired={true}
+            unitRequired={true}
           />
       </FormWrapper>
     </>

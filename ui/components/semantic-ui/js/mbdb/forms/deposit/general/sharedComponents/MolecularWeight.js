@@ -19,6 +19,8 @@ function MolecularWeight( { colorSchema, name, tooltip } ) {
             name={name}
             tooltipValue='The numerical value of the molecular weight'
             tooltipUnit='The unit of the molecular weight'
+            valueRequired={true}
+            unitRequired={true}
           />
       </FormWrapper>
     </>

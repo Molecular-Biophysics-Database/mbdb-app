@@ -3,8 +3,11 @@ import ArrayField from "../../buildingBlocks/ArrayField";
 import CustomField from "../../buildingBlocks/CustomField";
 import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
+import CreateUuid from "../../buildingBlocks/CreateUuid";
 
 function Chemical( { name } ) {
+
+  CreateUuid(name);
 
   return (
     <>

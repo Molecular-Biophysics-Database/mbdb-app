@@ -5,8 +5,11 @@ import Supplier from "../sharedComponents/Supplier";
 import HydrationTime from "./HydrationTime";
 import LigandInformation from "@mbdb_deposit/sharedComponents/LigandInformation";
 import OptionalField from "@mbdb_deposit/buildingBlocks/OptionalField";
+import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 
 function Sensors( { name } ) {
+
+    CreateUuid(name);
 
     const previouslyUsedOptions = [
         { value: 'Yes', label: 'Yes' },
@@ -20,6 +23,7 @@ function Sensors( { name } ) {
                 name={name}
                 fieldName='name'
                 label='Name'
+                required={true}
                 tooltip='Descriptive name of the sensor'
                 width='w-full'
             />

@@ -42,6 +42,7 @@ function Components( { name, colorSchema, tooltip } ) {
                                         options={componentOptions}
                                         label='type'
                                         fieldName='type'
+                                        required={true}
                                         width='w-full'
                                         tooltip='The type of component, options are
                                         (biological) Polymer and Chemical'
