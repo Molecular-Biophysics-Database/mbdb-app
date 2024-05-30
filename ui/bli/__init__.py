@@ -8,29 +8,33 @@ from typing import Dict
 
 from common.ui.components import MBDBEditComponent
 
-from oarepo_vocabularies.ui.resources.components import DepositVocabularyOptionsComponent
+from oarepo_vocabularies.ui.resources.components import (
+    DepositVocabularyOptionsComponent,
+)
+
 
 class BliInitialValuesComponent(UIResourceComponent):
     def empty_record(self, *, resource_requestctx, empty_data: Dict, **kwargs):
-        empty_data.update({
-          "metadata": {
-            "general_parameters": {
-              "schema_version": "0.9.21",
-              "technique": "BLI measurement of hemoglobin serum elements",
-              "record_information": {
-                "publisher": "MBDB",
-                "resource_type_general": "Dataset",
-                "resource_type": "BLI",
-                "deposition_date": date.today().isoformat(),
-                "date_available": date.today().isoformat(),
-                "subject_category": "Biophysics",
-              },
-            },
-            "method_specific_parameters": {
-              "schema_version": "0.9.6"
+        empty_data.update(
+            {
+                "metadata": {
+                    "general_parameters": {
+                        "schema_version": "0.9.21",
+                        "technique": "BLI measurement of hemoglobin serum elements",
+                        "record_information": {
+                            "publisher": "MBDB",
+                            "resource_type_general": "Dataset",
+                            "resource_type": "BLI",
+                            "deposition_date": date.today().isoformat(),
+                            "date_available": date.today().isoformat(),
+                            "subject_category": "Biophysics",
+                        },
+                    },
+                    "method_specific_parameters": {"schema_version": "0.9.6"},
+                }
             }
-          }
-        })
+        )
+
 
 class BliResourceConfig(RecordsUIResourceConfig):
     template_folder = "templates"
@@ -39,13 +43,17 @@ class BliResourceConfig(RecordsUIResourceConfig):
     ui_serializer_class = "bli.resources.records.ui.BliUIJSONSerializer"
     api_service = "bli"
 
-    components = [BabelComponent, FilesComponent, DepositVocabularyOptionsComponent, BliInitialValuesComponent]
+    components = [
+        BabelComponent,
+        FilesComponent,
+        DepositVocabularyOptionsComponent,
+        BliInitialValuesComponent,
+    ]
 
     # TODO: is this still needed?
-    edit_layout = 'edit_layout.json'
+    edit_layout = "edit_layout.json"
 
-    search_component = "bli/search/ResultsListItem.jsx"
-
+    search_component = "bli/search/ResultsListItem"
 
     application_id = "bli"
 
@@ -59,8 +67,12 @@ class BliResourceConfig(RecordsUIResourceConfig):
     # TODO: will be removed when user dashboard gets implemented
     def search_app_config(self, identity, api_config, overrides=None, **kwargs):
         return super().search_app_config(
-            identity, api_config,
-            overrides=overrides or {}, endpoint='/api/user/records/bli/', **kwargs)
+            identity,
+            api_config,
+            overrides=overrides or {},
+            endpoint="/api/user/records/bli/",
+            **kwargs,
+        )
 
 
 class BliResource(RecordsUIResource):

@@ -8,29 +8,33 @@ from typing import Dict
 
 from common.ui.components import MBDBEditComponent
 
-from oarepo_vocabularies.ui.resources.components import DepositVocabularyOptionsComponent
+from oarepo_vocabularies.ui.resources.components import (
+    DepositVocabularyOptionsComponent,
+)
+
 
 class MstInitialValuesComponent(UIResourceComponent):
     def empty_record(self, *, resource_requestctx, empty_data: Dict, **kwargs):
-        empty_data.update({
-          "metadata": {
-            "general_parameters": {
-              "schema_version": "0.9.21",
-              "technique": "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
-              "record_information": {
-                "publisher": "MBDB",
-                "resource_type_general": "Dataset",
-                "resource_type": "MST",
-                "deposition_date": date.today().isoformat(),
-                "date_available": date.today().isoformat(),
-                "subject_category": "Biophysics",
-              },
-            },
-            "method_specific_parameters": {
-              "schema_version": "0.9.10"
+        empty_data.update(
+            {
+                "metadata": {
+                    "general_parameters": {
+                        "schema_version": "0.9.21",
+                        "technique": "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
+                        "record_information": {
+                            "publisher": "MBDB",
+                            "resource_type_general": "Dataset",
+                            "resource_type": "MST",
+                            "deposition_date": date.today().isoformat(),
+                            "date_available": date.today().isoformat(),
+                            "subject_category": "Biophysics",
+                        },
+                    },
+                    "method_specific_parameters": {"schema_version": "0.9.10"},
+                }
             }
-          }
-        })
+        )
+
 
 class MstResourceConfig(RecordsUIResourceConfig):
     template_folder = "templates"
@@ -39,12 +43,17 @@ class MstResourceConfig(RecordsUIResourceConfig):
     ui_serializer_class = "mst.resources.records.ui.MstUIJSONSerializer"
     api_service = "mst"
 
-    components = [BabelComponent, FilesComponent, DepositVocabularyOptionsComponent, MstInitialValuesComponent]
+    components = [
+        BabelComponent,
+        FilesComponent,
+        DepositVocabularyOptionsComponent,
+        MstInitialValuesComponent,
+    ]
 
     # TODO: is this still needed?
-    edit_layout = 'edit_layout.json'
+    edit_layout = "edit_layout.json"
 
-    search_component = "mst/search/ResultsListItem.jsx"
+    search_component = "mst/search/ResultsListItem"
 
     application_id = "mst"
 
@@ -58,8 +67,12 @@ class MstResourceConfig(RecordsUIResourceConfig):
     # TODO: will be removed when user dashboard gets implemented
     def search_app_config(self, identity, api_config, overrides=None, **kwargs):
         return super().search_app_config(
-            identity, api_config,
-            overrides=overrides or {}, endpoint='/api/user/records/mst/', **kwargs)
+            identity,
+            api_config,
+            overrides=overrides or {},
+            endpoint="/api/user/records/mst/",
+            **kwargs,
+        )
 
 
 class MstResource(RecordsUIResource):
