@@ -11,20 +11,20 @@ export default function ChooseSearchMethodDropdown() {
 
   return (
     <>
-      <form class="flex flex-col items-center justify-center my-8 mx-4 sm:flex-row" action={`${method}`} role="search">
-        <div class="flex mb-2 sm:mb-0">
+      <form className="flex flex-col items-center justify-center my-8 mx-4 sm:flex-row" action={`${method}`} role="search">
+        <div className="flex mb-2 sm:mb-0">
           <input 
-            class="w-[300px] h-[50px] rounded-normal bg-dark text-primary p-4 outline-primary sm:w-[375px] lg:w-[590px]"
+            className="w-[300px] h-[50px] rounded-normal bg-dark text-primary p-4 outline-primary sm:w-[375px] lg:w-[590px]"
             type="text"
             name="q"
             placeholder="Search"
           />
           <button
-            class="w-[50px] h-[50px] bg-dark rounded-normal ml-2 hover:bg-secondary transition-all sm:mx-2"
+            className="w-[50px] h-[50px] bg-dark rounded-normal ml-2 hover:bg-secondary transition-all sm:mx-2"
             type="submit"
             aria-label="{{ _('Search') }}"
           >
-            <img class="w-5 m-auto" src="/static/images/search.png" alt="Search icon"/>
+            <img className="w-5 m-auto" src="/static/images/search.png" alt="Search icon"/>
           </button>
         </div>
         <select
