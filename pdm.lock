@@ -109,6 +109,21 @@ files = [
 ]
 
 [[package]]
+name = "autoflake"
+version = "2.3.1"
+requires_python = ">=3.8"
+summary = "Removes unused imports and unused variables"
+groups = ["default"]
+dependencies = [
+    "pyflakes>=3.0.0",
+    "tomli>=2.0.1; python_version < \"3.11\"",
+]
+files = [
+    {file = "autoflake-2.3.1-py3-none-any.whl", hash = "sha256:3ae7495db9084b7b32818b4140e6dc4fc280b712fb414f5b8fe57b0a8e85a840"},
+    {file = "autoflake-2.3.1.tar.gz", hash = "sha256:c98b75dc5b0a86459c4f01a1d32ac7eb4338ec4317a4469515ff1e687ecd909e"},
+]
+
+[[package]]
 name = "babel"
 version = "2.15.0"
 requires_python = ">=3.8"
@@ -169,6 +184,30 @@ groups = ["default"]
 files = [
     {file = "billiard-4.2.0-py3-none-any.whl", hash = "sha256:07aa978b308f334ff8282bd4a746e681b3513db5c9a514cbdd810cbbdc19714d"},
     {file = "billiard-4.2.0.tar.gz", hash = "sha256:9a3c3184cb275aa17a732f93f65b20c525d3d9f253722d26a82194803ade5a2c"},
+]
+
+[[package]]
+name = "black"
+version = "24.4.2"
+requires_python = ">=3.8"
+summary = "The uncompromising code formatter."
+groups = ["default"]
+dependencies = [
+    "click>=8.0.0",
+    "mypy-extensions>=0.4.3",
+    "packaging>=22.0",
+    "pathspec>=0.9.0",
+    "platformdirs>=2",
+    "tomli>=1.1.0; python_version < \"3.11\"",
+    "typing-extensions>=4.0.1; python_version < \"3.11\"",
+]
+files = [
+    {file = "black-24.4.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:dd1b5a14e417189db4c7b64a6540f31730713d173f0b63e55fabd52d61d8fdce"},
+    {file = "black-24.4.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:8e537d281831ad0e71007dcdcbe50a71470b978c453fa41ce77186bbe0ed6021"},
+    {file = "black-24.4.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:eaea3008c281f1038edb473c1aa8ed8143a5535ff18f978a318f10302b254063"},
+    {file = "black-24.4.2-cp310-cp310-win_amd64.whl", hash = "sha256:7768a0dbf16a39aa5e9a3ded568bb545c8c2727396d063bbaf847df05b08cd96"},
+    {file = "black-24.4.2-py3-none-any.whl", hash = "sha256:d36ed1124bb81b32f8614555b34cc4259c3fbc7eec17870e8ff8ded335b58d8c"},
+    {file = "black-24.4.2.tar.gz", hash = "sha256:c872b53057f000085da66a19c55d68f6f8ddcac2642392ad3a355878406fbd4d"},
 ]
 
 [[package]]
@@ -487,6 +526,17 @@ files = [
 ]
 
 [[package]]
+name = "configupdater"
+version = "3.2"
+requires_python = ">=3.6"
+summary = "Parser like ConfigParser but for updating configuration files"
+groups = ["default"]
+files = [
+    {file = "ConfigUpdater-3.2-py2.py3-none-any.whl", hash = "sha256:0f65a041627d7693840b4dd743581db4c441c97195298a29d075f91b79539df2"},
+    {file = "ConfigUpdater-3.2.tar.gz", hash = "sha256:9fdac53831c1b062929bf398b649b87ca30e7f1a735f3fbf482072804106306b"},
+]
+
+[[package]]
 name = "counter-robots"
 version = "2018.6"
 summary = "Library for COUNTER-compliant detection of machines and robots."
@@ -593,6 +643,20 @@ groups = ["default"]
 files = [
     {file = "decorator-5.1.1-py3-none-any.whl", hash = "sha256:b8c3f85900b9dc423225913c5aace94729fe1fa9763b38939a95226f02d37186"},
     {file = "decorator-5.1.1.tar.gz", hash = "sha256:637996211036b6385ef91435e4fae22989472f9d571faba8927ba8253acbc330"},
+]
+
+[[package]]
+name = "deepdiff"
+version = "5.8.1"
+requires_python = ">=3.6"
+summary = "Deep Difference and Search of any Python object/data."
+groups = ["default"]
+dependencies = [
+    "ordered-set<4.2.0,>=4.1.0",
+]
+files = [
+    {file = "deepdiff-5.8.1-py3-none-any.whl", hash = "sha256:e9aea49733f34fab9a0897038d8f26f9d94a97db1790f1b814cced89e9e0d2b7"},
+    {file = "deepdiff-5.8.1.tar.gz", hash = "sha256:8d4eb2c4e6cbc80b811266419cb71dd95a157094a3947ccf937a94d44943c7b8"},
 ]
 
 [[package]]
@@ -1174,17 +1238,6 @@ dependencies = [
 files = [
     {file = "fs-2.4.16-py2.py3-none-any.whl", hash = "sha256:660064febbccda264ae0b6bace80a8d1be9e089e0a5eb2427b7d517f9a91545c"},
     {file = "fs-2.4.16.tar.gz", hash = "sha256:ae97c7d51213f4b70b6a958292530289090de3a7e15841e108fbe144f069d313"},
-]
-
-[[package]]
-name = "fsspec"
-version = "2024.5.0"
-requires_python = ">=3.8"
-summary = "File-system specification"
-groups = ["default"]
-files = [
-    {file = "fsspec-2024.5.0-py3-none-any.whl", hash = "sha256:e0fdbc446d67e182f49a70b82cf7889028a63588fde6b222521f10937b2b670c"},
-    {file = "fsspec-2024.5.0.tar.gz", hash = "sha256:1d021b0b0f933e3b3029ed808eb400c08ba101ca2de4b3483fbc9ca23fcee94a"},
 ]
 
 [[package]]
@@ -2116,21 +2169,6 @@ files = [
 ]
 
 [[package]]
-name = "invenio-s3"
-version = "1.0.6"
-summary = "S3 file storage support for Invenio. "
-groups = ["default"]
-dependencies = [
-    "boto3>=1.9.91",
-    "invenio-files-rest>=1.3.0",
-    "s3fs>=0.3.0",
-]
-files = [
-    {file = "invenio-s3-1.0.6.tar.gz", hash = "sha256:81646647ad1a9fe1678921c6b7c6f4777f2fcdcf23bcaaf6043460d114663cdc"},
-    {file = "invenio_s3-1.0.6-py2.py3-none-any.whl", hash = "sha256:e8021c21e32f0101934edb959e9f353019a90eb1cbeba4b7da3a9a1b1ed68fdc"},
-]
-
-[[package]]
 name = "invenio-search"
 version = "2.3.1"
 requires_python = ">=3.7"
@@ -2303,6 +2341,17 @@ files = [
 ]
 
 [[package]]
+name = "isort"
+version = "5.13.2"
+requires_python = ">=3.8.0"
+summary = "A Python utility / library to sort Python imports."
+groups = ["default"]
+files = [
+    {file = "isort-5.13.2-py3-none-any.whl", hash = "sha256:8ca5e72a8d85860d5a3fa69b8745237f2939afe12dbf656afbcb47fe72d947a6"},
+    {file = "isort-5.13.2.tar.gz", hash = "sha256:48fdfcb9face5d58a4f6dde2e72a1fb8dcaf8ab26f95ab49fab84c2ddefb0109"},
+]
+
+[[package]]
 name = "itsdangerous"
 version = "2.0.1"
 requires_python = ">=3.6"
@@ -2357,7 +2406,7 @@ files = [
 
 [[package]]
 name = "jinjax"
-version = "0.36"
+version = "0.37"
 requires_python = "<4.0,>=3.9"
 summary = "Replace your HTML templates with Python server-Side components"
 groups = ["default"]
@@ -2367,19 +2416,8 @@ dependencies = [
     "whitenoise>=5.3",
 ]
 files = [
-    {file = "jinjax-0.36-py3-none-any.whl", hash = "sha256:d5880a05962aae1c9863d91290d259055301bf586c7dc9fe9574d4edaaa91316"},
-    {file = "jinjax-0.36.tar.gz", hash = "sha256:ee406e5a85d36094f7223d518268d6d550809df47c582c7fd9b0d993d39fbb80"},
-]
-
-[[package]]
-name = "jmespath"
-version = "1.0.1"
-requires_python = ">=3.7"
-summary = "JSON Matching Expressions"
-groups = ["default"]
-files = [
-    {file = "jmespath-1.0.1-py3-none-any.whl", hash = "sha256:02e2e4cc71b5bcab88332eebf907519190dd9e6e82107fa7f83b1003a6252980"},
-    {file = "jmespath-1.0.1.tar.gz", hash = "sha256:90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"},
+    {file = "jinjax-0.37-py3-none-any.whl", hash = "sha256:c45a7a495e617f4c582ea19c831a19239b427b813ff23b819e7ba041edc5f11d"},
+    {file = "jinjax-0.37.tar.gz", hash = "sha256:0ec87e61a0b5e1b77381299828d563b06b6402c38d4c990c8228bca901d5c77d"},
 ]
 
 [[package]]
@@ -2569,6 +2607,43 @@ dependencies = [
 files = [
     {file = "language_data-1.2.0-py3-none-any.whl", hash = "sha256:77d5cab917f91ee0b2f1aa7018443e911cf8985ef734ca2ba3940770f6a3816b"},
     {file = "language_data-1.2.0.tar.gz", hash = "sha256:82a86050bbd677bfde87d97885b17566cfe75dad3ac4f5ce44b52c28f752e773"},
+]
+
+[[package]]
+name = "lazy-object-proxy"
+version = "1.10.0"
+requires_python = ">=3.8"
+summary = "A fast and thorough lazy object proxy."
+groups = ["default"]
+files = [
+    {file = "lazy-object-proxy-1.10.0.tar.gz", hash = "sha256:78247b6d45f43a52ef35c25b5581459e85117225408a4128a3daf8bf9648ac69"},
+    {file = "lazy_object_proxy-1.10.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:855e068b0358ab916454464a884779c7ffa312b8925c6f7401e952dcf3b89977"},
+    {file = "lazy_object_proxy-1.10.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:7ab7004cf2e59f7c2e4345604a3e6ea0d92ac44e1c2375527d56492014e690c3"},
+    {file = "lazy_object_proxy-1.10.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:dc0d2fc424e54c70c4bc06787e4072c4f3b1aa2f897dfdc34ce1013cf3ceef05"},
+    {file = "lazy_object_proxy-1.10.0-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:e2adb09778797da09d2b5ebdbceebf7dd32e2c96f79da9052b2e87b6ea495895"},
+    {file = "lazy_object_proxy-1.10.0-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:b1f711e2c6dcd4edd372cf5dec5c5a30d23bba06ee012093267b3376c079ec83"},
+    {file = "lazy_object_proxy-1.10.0-cp310-cp310-win32.whl", hash = "sha256:76a095cfe6045c7d0ca77db9934e8f7b71b14645f0094ffcd842349ada5c5fb9"},
+    {file = "lazy_object_proxy-1.10.0-cp310-cp310-win_amd64.whl", hash = "sha256:b4f87d4ed9064b2628da63830986c3d2dca7501e6018347798313fcf028e2fd4"},
+    {file = "lazy_object_proxy-1.10.0-pp310.pp311.pp312.pp38.pp39-none-any.whl", hash = "sha256:80fa48bd89c8f2f456fc0765c11c23bf5af827febacd2f523ca5bc1893fcc09d"},
+]
+
+[[package]]
+name = "libcst"
+version = "1.4.0"
+requires_python = ">=3.9"
+summary = "A concrete syntax tree with AST-like properties for Python 3.0 through 3.12 programs."
+groups = ["default"]
+dependencies = [
+    "pyyaml>=5.2",
+]
+files = [
+    {file = "libcst-1.4.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:279b54568ea1f25add50ea4ba3d76d4f5835500c82f24d54daae4c5095b986aa"},
+    {file = "libcst-1.4.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:3401dae41fe24565387a65baee3887e31a44e3e58066b0250bc3f3ccf85b1b5a"},
+    {file = "libcst-1.4.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d1989fa12d3cd79118ebd29ebe2a6976d23d509b1a4226bc3d66fcb7cb50bd5d"},
+    {file = "libcst-1.4.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:addc6d585141a7677591868886f6bda0577529401a59d210aa8112114340e129"},
+    {file = "libcst-1.4.0-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:17d71001cb25e94cfe8c3d997095741a8c4aa7a6d234c0f972bc42818c88dfaf"},
+    {file = "libcst-1.4.0-cp310-cp310-win_amd64.whl", hash = "sha256:2d47de16d105e7dd5f4e01a428d9f4dc1e71efd74f79766daf54528ce37f23c3"},
+    {file = "libcst-1.4.0.tar.gz", hash = "sha256:449e0b16604f054fa7f27c3ffe86ea7ef6c409836fe68fe4e752a1894175db00"},
 ]
 
 [[package]]
@@ -2900,6 +2975,17 @@ files = [
 ]
 
 [[package]]
+name = "mypy-extensions"
+version = "1.0.0"
+requires_python = ">=3.5"
+summary = "Type system extensions for programs checked with the mypy type checker."
+groups = ["default"]
+files = [
+    {file = "mypy_extensions-1.0.0-py3-none-any.whl", hash = "sha256:4392f6c0eb8a5668a69e23d168ffa70f0be9ccfd32b5cc2d26a34ae5b844552d"},
+    {file = "mypy_extensions-1.0.0.tar.gz", hash = "sha256:75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782"},
+]
+
+[[package]]
 name = "nameparser"
 version = "1.1.3"
 summary = "A simple Python module for parsing human names into their individual components."
@@ -3224,6 +3310,69 @@ files = [
 ]
 
 [[package]]
+name = "oarepo-dashboard"
+version = "1.0.5"
+summary = "Support for user dashboard (records, communities, requests)"
+groups = ["default"]
+dependencies = [
+    "cachetools",
+    "oarepo-runtime>=1.4.44",
+    "oarepo-ui>=5.0.91",
+    "openpyxl",
+]
+files = [
+    {file = "oarepo_dashboard-1.0.5-py3-none-any.whl", hash = "sha256:96607319d8f4ce956100772359cec6a1e229417503cf2035e129e0446779eb8c"},
+    {file = "oarepo_dashboard-1.0.5.tar.gz", hash = "sha256:6d88c4a72d04ffdae1e4ba270372e521ca8ff4c3fa7e1e3555bd0f9901360f43"},
+]
+
+[[package]]
+name = "oarepo-global-search"
+version = "1.0.10"
+requires_python = ">=3.10"
+summary = "\"A model builder plugin for global search\""
+groups = ["default"]
+dependencies = [
+    "invenio-records-resources>=0.21.4",
+    "oarepo-model-builder>=4.0.0",
+    "oarepo-ui",
+]
+files = [
+    {file = "oarepo_global_search-1.0.10-py2.py3-none-any.whl", hash = "sha256:54ec1b6ac9a2514e739f9db0dfcc693caedf95b300c1f80440a43ecf25c0733d"},
+    {file = "oarepo_global_search-1.0.10.tar.gz", hash = "sha256:a8ece44ea76585125d9632714c21e568a6b1d0a246244ba5a1a0f93b0d9441c1"},
+]
+
+[[package]]
+name = "oarepo-model-builder"
+version = "4.0.84"
+summary = "A utility library that generates OARepo required data model files from a JSON specification file"
+groups = ["default"]
+dependencies = [
+    "ConfigUpdater<4.0.0,>=3.1.1",
+    "Faker>11.3.0",
+    "Jinja2<4.0.0,>=3.0.3",
+    "PyYAML<7.0,>=6.0",
+    "autoflake",
+    "black>23",
+    "click>=7.1",
+    "deepdiff<6.0.0,>=5.6.0",
+    "frozendict",
+    "importlib-metadata>=4.0.0",
+    "isort<6.0.0,>=5.10.1",
+    "json5<0.10.0,>=0.9.6",
+    "jsonpointer<3.0,>=2.2",
+    "lazy-object-proxy<2.0.0,>=1.7.1",
+    "libcst>=0.3.19",
+    "marshmallow",
+    "marshmallow-oneofschema",
+    "marshmallow-union",
+    "tomlkit>=0.7.2",
+]
+files = [
+    {file = "oarepo_model_builder-4.0.84-py3-none-any.whl", hash = "sha256:7e9c1962b78f8e47291a341c78843b61aa1259ae38b6a5b9653a7f11c180ba6b"},
+    {file = "oarepo_model_builder-4.0.84.tar.gz", hash = "sha256:b9c291a558e86183931cc45decfa38b808d86ccf4e4dd9a1b2ff3ae4bc1be939"},
+]
+
+[[package]]
 name = "oarepo-published-service"
 version = "1.0.3"
 requires_python = ">=3.9"
@@ -3236,7 +3385,7 @@ files = [
 
 [[package]]
 name = "oarepo-requests"
-version = "1.1.16"
+version = "1.1.17"
 summary = ""
 groups = ["default"]
 dependencies = [
@@ -3244,13 +3393,13 @@ dependencies = [
     "oarepo-runtime",
 ]
 files = [
-    {file = "oarepo_requests-1.1.16-py3-none-any.whl", hash = "sha256:627b7a38a6e68d49b93e950612ffab040a3d6c54f98c98d128f1038990ed5f7e"},
-    {file = "oarepo_requests-1.1.16.tar.gz", hash = "sha256:e976ebc29218e0004c49ec53361b0a1eadcb4781f8d4b97fc9b5e2daba3995fe"},
+    {file = "oarepo_requests-1.1.17-py3-none-any.whl", hash = "sha256:eb8dd56252a614c7e289453e25bd1760e096642a29ff9ac8a1ea2f218beb4f57"},
+    {file = "oarepo_requests-1.1.17.tar.gz", hash = "sha256:bc26887a294fba4222a2b3ef209ec3f020b5e3a7dfa85d8d97035d77e8a1f4e7"},
 ]
 
 [[package]]
 name = "oarepo-runtime"
-version = "1.5.30"
+version = "1.5.31"
 summary = "A set of runtime extensions of Invenio repository"
 groups = ["default"]
 dependencies = [
@@ -3263,13 +3412,13 @@ dependencies = [
     "tqdm",
 ]
 files = [
-    {file = "oarepo-runtime-1.5.30.tar.gz", hash = "sha256:98c6d5c85603db23fbd6402f627385e6da3060c692bf7e196bc9506db12bab91"},
-    {file = "oarepo_runtime-1.5.30-py3-none-any.whl", hash = "sha256:27326c4c7a03112835b1600760b6abc812e5d61c538e9cb2073c146adeea567d"},
+    {file = "oarepo_runtime-1.5.31-py3-none-any.whl", hash = "sha256:b9f4e81126c4e29e67801a8c333a256f9cb394e200a3e5d6dcac588c6c35c0d0"},
+    {file = "oarepo_runtime-1.5.31.tar.gz", hash = "sha256:f78aefe972aec563ba326ec0358fe635533ce4d119b6eb2b3da16c63889ec70c"},
 ]
 
 [[package]]
 name = "oarepo-ui"
-version = "5.1.31"
+version = "5.1.32"
 requires_python = ">=3.10"
 summary = "UI module for invenio 3.5+"
 groups = ["default"]
@@ -3281,8 +3430,8 @@ dependencies = [
     "oarepo-runtime",
 ]
 files = [
-    {file = "oarepo_ui-5.1.31-py2.py3-none-any.whl", hash = "sha256:69de8f7063a28bbd3ab54f193ada8d65106ffa9aaf85f95c574e303ded8463f9"},
-    {file = "oarepo_ui-5.1.31.tar.gz", hash = "sha256:0aa90d4be60fe4d5f9ed5f8a44d352fe653704252f48f973d6a26f8c34b5cf98"},
+    {file = "oarepo_ui-5.1.32-py2.py3-none-any.whl", hash = "sha256:031ddcc8fa6441bfb132166b4b742f258419eb2fdf3cc1bf204e0b5cddfc9486"},
+    {file = "oarepo_ui-5.1.32.tar.gz", hash = "sha256:4a4bd317d5af6ecc04b898540b078b243c472b126b32f060c1818b77b942b8fc"},
 ]
 
 [[package]]
@@ -3303,28 +3452,6 @@ files = [
 ]
 
 [[package]]
-name = "oarepo"
-version = "12.0.19"
-extras = ["s3"]
-requires_python = ">=3.10"
-summary = "CESNET, UCT Prague and NTK wrapper around Invenio v3."
-groups = ["default"]
-dependencies = [
-    "boto3==1.34.108",
-    "botocore==1.34.108",
-    "fsspec==2024.5.0",
-    "invenio-s3==1.0.6",
-    "jmespath==1.0.1",
-    "oarepo==12.0.19",
-    "s3fs==0.4.2",
-    "s3transfer==0.10.1",
-]
-files = [
-    {file = "oarepo-12.0.19-py3-none-any.whl", hash = "sha256:a1465c79d21b33f9b849e9cbfbdfb2ab9419ccffc7941b752a67cf97d370dd73"},
-    {file = "oarepo-12.0.19.tar.gz", hash = "sha256:734cb2923361cd85f9cadd9d314a1f3193a38bcb260e9be79a1115e2466b766c"},
-]
-
-[[package]]
 name = "oauthlib"
 version = "2.1.0"
 summary = "A generic, spec-compliant, thorough implementation of the OAuth request-signing logic"
@@ -3336,7 +3463,7 @@ files = [
 
 [[package]]
 name = "openpyxl"
-version = "3.1.2"
+version = "3.1.3"
 requires_python = ">=3.6"
 summary = "A Python library to read/write Excel 2010 xlsx/xlsm files"
 groups = ["default"]
@@ -3344,8 +3471,8 @@ dependencies = [
     "et-xmlfile",
 ]
 files = [
-    {file = "openpyxl-3.1.2-py2.py3-none-any.whl", hash = "sha256:f91456ead12ab3c6c2e9491cf33ba6d08357d802192379bb482f1033ade496f5"},
-    {file = "openpyxl-3.1.2.tar.gz", hash = "sha256:a6f5977418eff3b2d5500d54d9db50c8277a368436f4e4f8ddb1be3422870184"},
+    {file = "openpyxl-3.1.3-py2.py3-none-any.whl", hash = "sha256:25071b558db709de9e8782c3d3e058af3b23ffb2fc6f40c8f0c45a154eced2c3"},
+    {file = "openpyxl-3.1.3.tar.gz", hash = "sha256:8dd482e5350125b2388070bb2477927be2e8ebc27df61178709bc8c8751da2f9"},
 ]
 
 [[package]]
@@ -3434,6 +3561,17 @@ groups = ["default"]
 files = [
     {file = "passlib-1.7.4-py2.py3-none-any.whl", hash = "sha256:aa6bca462b8d8bda89c70b382f0c298a20b5560af6cbfa2dce410c0a2fb669f1"},
     {file = "passlib-1.7.4.tar.gz", hash = "sha256:defd50f72b65c5402ab2c573830a6978e5f202ad0d984793c8dde2c4152ebe04"},
+]
+
+[[package]]
+name = "pathspec"
+version = "0.12.1"
+requires_python = ">=3.8"
+summary = "Utility library for gitignore style pattern matching of file paths."
+groups = ["default"]
+files = [
+    {file = "pathspec-0.12.1-py3-none-any.whl", hash = "sha256:a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08"},
+    {file = "pathspec-0.12.1.tar.gz", hash = "sha256:a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"},
 ]
 
 [[package]]
@@ -3605,6 +3743,17 @@ groups = ["default"]
 files = [
     {file = "pydash-6.0.2-py3-none-any.whl", hash = "sha256:6d3ce5cbbc8ca3533c12782ac201c2ec756d1e1703ec3efc88f2b95d1ed2bb31"},
     {file = "pydash-6.0.2.tar.gz", hash = "sha256:35caa588e01d293713655e0870544d25128cd414c5e19477a0d63adc2b2ca03e"},
+]
+
+[[package]]
+name = "pyflakes"
+version = "3.2.0"
+requires_python = ">=3.8"
+summary = "passive checker of Python programs"
+groups = ["default"]
+files = [
+    {file = "pyflakes-3.2.0-py2.py3-none-any.whl", hash = "sha256:84b5be138a2dfbb40689ca07e2152deb896a65c3a3e24c251c5c62489568074a"},
+    {file = "pyflakes-3.2.0.tar.gz", hash = "sha256:1c61603ff154621fb2a9172037d84dca3500def8c8b630657d1701f026f8af3f"},
 ]
 
 [[package]]
@@ -3958,35 +4107,6 @@ files = [
 ]
 
 [[package]]
-name = "s3fs"
-version = "0.4.2"
-requires_python = ">= 3.5"
-summary = "Convenient Filesystem interface over S3"
-groups = ["default"]
-dependencies = [
-    "botocore>=1.12.91",
-    "fsspec>=0.6.0",
-]
-files = [
-    {file = "s3fs-0.4.2-py3-none-any.whl", hash = "sha256:91c1dfb45e5217bd441a7a560946fe865ced6225ff7eb0fb459fe6e601a95ed3"},
-    {file = "s3fs-0.4.2.tar.gz", hash = "sha256:2ca5de8dc18ad7ad350c0bd01aef0406aa5d0fff78a561f0f710f9d9858abdd0"},
-]
-
-[[package]]
-name = "s3transfer"
-version = "0.10.1"
-requires_python = ">= 3.8"
-summary = "An Amazon S3 Transfer Manager"
-groups = ["default"]
-dependencies = [
-    "botocore<2.0a.0,>=1.33.2",
-]
-files = [
-    {file = "s3transfer-0.10.1-py3-none-any.whl", hash = "sha256:ceb252b11bcf87080fb7850a224fb6e05c8a776bab8f2b64b7f25b969464839d"},
-    {file = "s3transfer-0.10.1.tar.gz", hash = "sha256:5683916b4c724f799e600f41dd9e10a9ff19871bf87623cc8f491cb4f5fa0a19"},
-]
-
-[[package]]
 name = "sentry-sdk"
 version = "1.45.0"
 summary = "Python client for Sentry (https://sentry.io)"
@@ -4200,6 +4320,29 @@ dependencies = [
 files = [
     {file = "tinycss2-1.3.0-py3-none-any.whl", hash = "sha256:54a8dbdffb334d536851be0226030e9505965bb2f30f21a4a82c55fb2a80fae7"},
     {file = "tinycss2-1.3.0.tar.gz", hash = "sha256:152f9acabd296a8375fbca5b84c961ff95971fcfc32e79550c8df8e29118c54d"},
+]
+
+[[package]]
+name = "tomli"
+version = "2.0.1"
+requires_python = ">=3.7"
+summary = "A lil' TOML parser"
+groups = ["default"]
+marker = "python_version < \"3.11\""
+files = [
+    {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
+    {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
+]
+
+[[package]]
+name = "tomlkit"
+version = "0.12.5"
+requires_python = ">=3.7"
+summary = "Style preserving TOML library"
+groups = ["default"]
+files = [
+    {file = "tomlkit-0.12.5-py3-none-any.whl", hash = "sha256:af914f5a9c59ed9d0762c7b64d3b5d5df007448eb9cd2edc8a46b1eafead172f"},
+    {file = "tomlkit-0.12.5.tar.gz", hash = "sha256:eef34fba39834d4d6b73c9ba7f3e4d1c417a4e56f89a7e96e090dd0d24b8fb3c"},
 ]
 
 [[package]]

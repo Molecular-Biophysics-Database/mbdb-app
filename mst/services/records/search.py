@@ -1,9 +1,8 @@
-from invenio_records_resources.services import SearchOptions as InvenioSearchOptions
-
+from common.services.records.search_options import RecordSearchOptions
 from . import facets
 
 
-class MstSearchOptions(InvenioSearchOptions):
+class MstSearchOptions(RecordSearchOptions):
     """MstRecord search options."""
 
     facet_groups = {}
@@ -330,11 +329,11 @@ class MstSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_signal_type": facets.metadata_method_specific_parameters_signal_type,
         "metadata_method_specific_parameters_temperature_unit": facets.metadata_method_specific_parameters_temperature_unit,
         "metadata_method_specific_parameters_temperature_value": facets.metadata_method_specific_parameters_temperature_value,
-        **getattr(InvenioSearchOptions, "facets", {}),
+        **getattr(RecordSearchOptions, "facets", {}),
     }
 
 
-class MstDraftSearchOptions(InvenioSearchOptions):
+class MstDraftSearchOptions(RecordSearchOptions):
 
     facet_groups = {}
 

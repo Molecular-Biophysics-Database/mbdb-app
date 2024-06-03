@@ -6,11 +6,10 @@ theme = WebpackThemeBundle(
     default="semantic-ui",
     themes={
         "semantic-ui": dict(
-            entry={
-            },
+            entry={"components": "./js/mbdb/index.js"},
             dependencies={
                 "@material-ui/core": "^3.9.4",
-                "uuid": "^9.0.1"
+                "uuid": "^9.0.1",
             },
             devDependencies={},
             aliases={
