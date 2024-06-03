@@ -8,8 +8,11 @@ import UseDefault from '@mbdb_deposit/buildingBlocks/UseDefault';
 import { getIn, useFormikContext } from 'formik';
 import OptionField from '@mbdb_deposit/buildingBlocks/OptionField';
 import CreateOptions from '@mbdb_deposit/buildingBlocks/CreateOptions';
+import CreateUuid from '@mbdb_deposit/buildingBlocks/CreateUuid';
 
 function Sample( { name, tooltip, colorSchema } ) {
+
+    CreateUuid(`${name}.chemical_environment`);
 
     const { values } = useFormikContext();
 
@@ -45,11 +48,13 @@ function Sample( { name, tooltip, colorSchema } ) {
             <div className='flex mb-3'>
                 <div className='mr-3'>
                     <OptionField
-                        name={name}
-                        fieldName='chemical_environment'
+                        name={`${name}.chemical_environment`}
+                        fieldName='name'
                         label='Chemical environment'
                         options={chemicalEnvironmentOptions}
+                        required={true}
                         tooltip='Name (id) of the chemical environment of the sample (from the chemical environments defined in the general parameters'
+                        width='w-[14rem]'
                     />
                 </div>
                 <div>
@@ -58,7 +63,9 @@ function Sample( { name, tooltip, colorSchema } ) {
                         fieldName='measurement_container'
                         options={measurementContainerOptions}
                         label='Measurement container'
+                        required={true}
                         tooltip='The container the sample was in during the measurement'
+                        width='w-[14rem]'
                     />
                 </div>
             </div>

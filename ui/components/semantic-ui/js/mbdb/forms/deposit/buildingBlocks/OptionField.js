@@ -7,7 +7,16 @@ import Select from "@material-ui/core/Select";
 import Tooltip from "@material-ui/core/Tooltip";
 import { Typography } from "@material-ui/core";
 
-function OptionField({ label, name, fieldName, options, width, tooltip }) {
+function OptionField({
+  label,
+  name,
+  fieldName,
+  options,
+  width,
+  tooltip,
+  required
+}) {
+  
   const nameOptionField =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const [field, meta] = useField(nameOptionField);
@@ -32,6 +41,13 @@ function OptionField({ label, name, fieldName, options, width, tooltip }) {
           </Select>
         </FormControl>
       </div>
+      {required &&
+        <div className='ml-1 text-accent'>
+          <Tooltip title={<Typography fontSize={13}>This field is required and cannot be left blank or unset</Typography>} arrow>
+            <span>*</span>
+          </Tooltip>
+        </div>
+      }
       {tooltip && (
         <div className="ml-1 -mt-1">
           <Tooltip

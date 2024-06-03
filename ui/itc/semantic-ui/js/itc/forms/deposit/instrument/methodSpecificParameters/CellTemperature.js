@@ -21,6 +21,8 @@ function CellTemperature( { colorSchema, name } ) {
             name={name}
             tooltipValue='The numerical value of the temperature'
             tooltipUnit='The unit of the temperature'
+            valueRequired={true}
+            unitRequired={true}
           />
       </FormWrapper>
     </>

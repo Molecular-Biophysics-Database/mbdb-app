@@ -4,8 +4,11 @@ import Solvent from "./Solvent";
 import CustomField from "../../buildingBlocks/CustomField";
 import ArrayField from "../../buildingBlocks/ArrayField";
 import Ph from "./Ph";
+import CreateUuid from "../../buildingBlocks/CreateUuid";
 
 function ChemicalEnvironment( { name } ) {
+
+    CreateUuid(name);
 
   return (
     <>
@@ -14,6 +17,7 @@ function ChemicalEnvironment( { name } ) {
                 name={name}
                 fieldName='name'
                 label='Name'
+                required={true}
                 tooltip='Name of the chemical environment (e.g. Measurement Buffer). The name must be unique within a record as it will be referred to the in method specific section in when describing the composition of the individual samples or measurement steps'
                 width='w-full'
             />
@@ -21,7 +25,7 @@ function ChemicalEnvironment( { name } ) {
         <div className="flex mb-3">
             <div className="mr-3">
                 <Ph
-                    name={`${name}.pH`}
+                    name={`${name}.ph`}
                 />
             </div>
             <div className="-mt-3">

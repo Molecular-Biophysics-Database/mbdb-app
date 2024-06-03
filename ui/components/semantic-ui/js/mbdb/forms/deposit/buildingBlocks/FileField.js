@@ -6,9 +6,8 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { useEffect } from "react";
 import { Typography } from "@material-ui/core";
 
-function FileField({ name, fieldName, tooltip, width }) {
-  const nameCustomField =
-    fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
+function FileField({ name, fieldName, tooltip, width, required }) {
+  const nameCustomField = fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const [field, meta, helpers] = useField(nameCustomField);
   const [selectedFile, setSelectedFile] = useState(null);
 
@@ -35,6 +34,13 @@ function FileField({ name, fieldName, tooltip, width }) {
             error={meta.touched && !!meta.error}
           />
         </div>
+        {required &&
+          <div className='text-accent ml-1'>
+            <Tooltip title={<Typography fontSize={13}>This field is required and cannot be left blank or unset</Typography>} arrow>
+              <span>*</span>
+            </Tooltip>
+          </div>
+        }
         {tooltip && (
           <div className="ml-1 -mt-1">
             <Tooltip

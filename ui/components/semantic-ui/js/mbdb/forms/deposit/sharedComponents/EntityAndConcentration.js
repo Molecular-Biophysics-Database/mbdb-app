@@ -20,6 +20,7 @@ function EntityAndConcentration( { name } ) {
                 options={entityOptions}
                 label='Entity'
                 fieldName='entity'
+                required={true}
                 tooltip='Name (id) of the entity (from the entities of interest defined in the general parameters'
             />
           </div>

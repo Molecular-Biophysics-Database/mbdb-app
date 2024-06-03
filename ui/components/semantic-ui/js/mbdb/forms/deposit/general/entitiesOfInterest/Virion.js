@@ -8,8 +8,11 @@ import OptionField from "../../buildingBlocks/OptionField";
 import OptionalField from "../../buildingBlocks/OptionalField";
 import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
+import CreateUuid from "../../buildingBlocks/CreateUuid";
 
 function Virion( { name } ) {
+
+    CreateUuid(name);
 
     const geneticMaterialOptions = [
         { value: 'No genetic material', label: 'No genetic material' },
@@ -33,21 +36,24 @@ function Virion( { name } ) {
 
   return (
     <>
-        <div className='flex mb-3'>
-          <div className='mr-3'>
+        <div className='mb-3'>
             <CustomField
                 name={name}
                 label='Name'
                 fieldName='name'
+                width='w-full'
+                required={true}
                 tooltip='Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample'
             />
-          </div>
+        </div>
+        <div className='flex mb-3'>
           <div className="mr-3">
             <OptionField
                 name={name}
                 options={geneticMaterialOptions}
                 label='Genetic Material'
                 fieldName='genetic_material'
+                required={true}
                 tooltip='The genetic material carried by the virions (None, virus genome, synthetic)'
             />
           </div>
@@ -57,6 +63,7 @@ function Virion( { name } ) {
                 options={capsidTypeOptions}
                 label='Capsid type'
                 fieldName='capsid_type'
+                required={true}
                 tooltip='The type of virion capsid (e.g. genetically engineered, None'
             />
           </div>
@@ -68,6 +75,7 @@ function Virion( { name } ) {
                 options={envelopeOptions}
                 label='Envelope type'
                 fieldName='envelope_type'
+                required={true}
                 tooltip='The type of virion envelope (e.g. genetically engineered, None'
             />
           </div>

@@ -8,8 +8,11 @@ import Details from "../sharedComponents/Details";
 import OptionField from "../../buildingBlocks/OptionField";
 import UseDefault from "../../buildingBlocks/UseDefault";
 import OptionalField from "../../buildingBlocks/OptionalField";
+import CreateUuid from "../../buildingBlocks/CreateUuid";
 
 function ComplexSubstanceOfChemicalOrigin( { name } ) {
+
+    CreateUuid(name);
 
     const classOptions = [
         { value: 'Lipid assembly', label: 'Lipid assembly' },
@@ -27,6 +30,7 @@ function ComplexSubstanceOfChemicalOrigin( { name } ) {
                     name={name}
                     label='Name'
                     fieldName='name'
+                    required={true}
                     width='w-[44.5rem]'
                     tooltip='Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample'
                 />
@@ -37,6 +41,7 @@ function ComplexSubstanceOfChemicalOrigin( { name } ) {
                     options={classOptions}
                     label='Class'
                     fieldName='class'
+                    required={true}
                     tooltip='The chemical origin where the complex substance was derived from'
                 />
             </div>

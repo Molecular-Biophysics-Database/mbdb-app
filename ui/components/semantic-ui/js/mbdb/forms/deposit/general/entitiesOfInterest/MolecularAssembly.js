@@ -5,8 +5,11 @@ import MolecularWeight from "../sharedComponents/MolecularWeight";
 import Modification from "../sharedComponents/modifications/Modification";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import Components from "../sharedComponents/components/Components";
+import CreateUuid from "../../buildingBlocks/CreateUuid";
 
 function MolecularAssembly( { name } ) {
+
+    CreateUuid(name);
 
   return (
     <>
@@ -15,6 +18,7 @@ function MolecularAssembly( { name } ) {
                 name={name}
                 label='Name'
                 fieldName='name'
+                required={true}
                 width='w-full'
                 tooltip='Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample'
             />

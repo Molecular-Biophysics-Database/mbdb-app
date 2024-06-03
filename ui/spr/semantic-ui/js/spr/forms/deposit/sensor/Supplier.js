@@ -19,6 +19,7 @@ function Supplier( { name, colorSchema, tooltip } ) {
                         name={name}
                         label='Name'
                         fieldName='name'
+                        required={true}
                         tooltip='Name of the supplier'
                     />
                 </div>

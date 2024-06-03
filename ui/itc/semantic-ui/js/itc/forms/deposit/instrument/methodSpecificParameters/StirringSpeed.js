@@ -19,6 +19,8 @@ function StirringSpeed( { colorSchema, name } ) {
             name={name}
             tooltipValue='The numerical value of the stirring speed'
             tooltipUnit='The unit of the stirring speed'
+            valueRequired={true}
+            unitRequired={true}
           />
       </FormWrapper>
     </>

@@ -1,31 +1,21 @@
 import React from "react";
-import { Card, Grid } from "semantic-ui-react";
-import { SaveButton, PublishButton, PreviewButton, ValidateButton, DeleteButton } from "@js/oarepo_ui";
-
+import { DeleteButton } from "@js/oarepo_ui";
+import SaveButton from "./SaveButton";
+import PublishButton from "./PublishButton";
 
 export const FormActionsContainer = ({ record }) => {
   return (
-    <Card fluid>
-      <Card.Content>
-        <Grid>
-          <Grid.Column computer={8} mobile={16} className="left-btn-col">
-            <SaveButton fluid />
-          </Grid.Column>
-          <Grid.Column computer={8} mobile={16} className="right-btn-col">
-            <PreviewButton fluid />
-          </Grid.Column>
-          <Grid.Column width={16} className="pt-10">
-            <PublishButton />
-          </Grid.Column>
-          <Grid.Column width={16} className="pt-10">
-            <ValidateButton />
-          </Grid.Column>
-          <Grid.Column width={16} className="pt-10">
-          <DeleteButton redirectUrl="/mst/" />
-        </Grid.Column>
-        </Grid>
-      </Card.Content>
-    </Card>
+    <div className="flex ml-3">
+      <div className="mr-3">
+        <SaveButton/>
+      </div>
+      <div>
+        <PublishButton />
+      </div>
+      <div>
+        <DeleteButton redirectUrl="/mst/" />
+      </div>
+    </div>
   );
 };
 

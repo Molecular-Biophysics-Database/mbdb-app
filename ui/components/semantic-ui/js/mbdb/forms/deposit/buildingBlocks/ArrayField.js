@@ -3,12 +3,28 @@ import { FieldArray, getIn, useFormikContext } from 'formik';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Typography } from '@material-ui/core';
+import { v4 as uuidv4 } from 'uuid';
 
-function ArrayField({ name, fieldName, label, renderChild, initialValue, required, maxItems, tooltip }) {
+function ArrayField({
+  name,
+  fieldName,
+  label,
+  renderChild,
+  initialValue,
+  required,
+  maxItems,
+  tooltip,
+  uuid
+}) {
 
   const { values } = useFormikContext();
 
-  const arrayName = `${name}.${fieldName}`;
+  const handlePush = (push) => {
+    const newItem = initialValue !== undefined ? { ...initialValue } : uuid ? { id: uuidv4() } : undefined;
+    push(newItem);
+  };
+
+  const arrayName = fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const value = getIn(values, arrayName);
 
   return (
@@ -30,12 +46,12 @@ function ArrayField({ name, fieldName, label, renderChild, initialValue, require
                       variant="outlined"
                       onClick={() => remove(index)}
                       sx= {{ 
-                        borderColor: '#6D7575',
-                        backgroundColor: '#6D7575',
+                        borderColor: '#023850',
+                        backgroundColor: '#023850',
                         color: '#fff',
                         "&:hover": {
-                          borderColor: "#939E9D",
-                          backgroundColor: '#939E9D',
+                          borderColor: "#023850",
+                          backgroundColor: '#023850',
                           color: '#fff',
                         },
                       }}
@@ -53,16 +69,14 @@ function ArrayField({ name, fieldName, label, renderChild, initialValue, require
                   <Tooltip title={<Typography fontSize={13}>{tooltip}</Typography>} arrow>
                     <Button
                       variant="outlined"
-                      onClick={() => {
-                          push(initialValue !== undefined ? { ...initialValue } : '')
-                      }}
+                      onClick={() => handlePush(push)}
                       sx= {{ 
-                          borderColor: '#6D7575',
-                          backgroundColor: '#6D7575',
+                          borderColor: '#023850',
+                          backgroundColor: '#023850',
                           color: '#fff',
                           "&:hover": {
-                            borderColor: "#939E9D",
-                            backgroundColor: '#939E9D',
+                            borderColor: "#023850",
+                            backgroundColor: '#023850',
                             color: '#fff',
                           },
                       }}

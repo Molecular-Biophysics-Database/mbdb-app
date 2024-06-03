@@ -22,6 +22,7 @@ function Measurements( { name } ) {
                 name={name}
                 fieldName='name'
                 label='Name'
+                required={true}
                 tooltip='Name (id) of the measurement which must be unique within a record (i.e. triplicates must be named individually in the raw data file). The name must allow location of the measurement data within the raw data file as well as processed data files if these are present'
                 width='w-full'
             />
@@ -32,6 +33,7 @@ function Measurements( { name } ) {
                     name={name}
                     label='Sensor'
                     fieldName='sensor'
+                    required={true}
                     options={sensorOptions}
                     tooltip='Link to the sensor used for the measurement'
                 />
@@ -41,8 +43,10 @@ function Measurements( { name } ) {
                     name={name}
                     label='Measurement protocol step'
                     fieldName='measurement_protocol_step'
+                    required={true}
                     options={measurementProtocolStepOptions}
                     tooltip='Link to one of the measurement steps'
+                    width='w-[17rem]'
                 />
             </div>
         </div>

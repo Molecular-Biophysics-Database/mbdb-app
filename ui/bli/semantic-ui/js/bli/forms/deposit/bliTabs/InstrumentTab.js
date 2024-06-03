@@ -31,6 +31,7 @@ function InstrumentTab( { name } ) {
                             name={name}
                             type='date'
                             fieldName='collection_start_time'
+                            required={true}
                         />
                     </div>
                 </div>

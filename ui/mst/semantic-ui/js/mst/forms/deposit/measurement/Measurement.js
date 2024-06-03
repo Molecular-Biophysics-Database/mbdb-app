@@ -12,6 +12,7 @@ function Measurement( { name } ) {
                 name={name}
                 label='Name'
                 fieldName='name'
+                required={true}
                 tooltip='Name (id) of the measurement which must be unique within a record (i.e. triplicates must be named individually in the raw data file). The name must allow location of the measurement data within the raw data file as well as processed data files if these are present'
             />
           </div>
@@ -20,6 +21,7 @@ function Measurement( { name } ) {
                 name={name}
                 label='Positon'
                 fieldName='position'
+                required={true}
                 tooltip='Position where the container (capillary) of the measured sample within the instrument (e.g. 1, 2, 3)'
             />
           </div>

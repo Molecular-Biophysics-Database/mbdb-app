@@ -25,6 +25,7 @@ function MethodSpecificParameters( { name } ) {
                     name={name}
                     fieldName='feedback_mode'
                     label='Feedback mode'
+                    required={true}
                     options={feedbackModeOptions}
                     tooltip='Operating mode where conditions are adjusted automatically to maintain constant temperature during heat measurements'
                 />

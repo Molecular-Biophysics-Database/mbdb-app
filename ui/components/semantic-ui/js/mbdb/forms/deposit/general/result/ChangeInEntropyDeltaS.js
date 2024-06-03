@@ -7,8 +7,11 @@ import EntityInvolved from "./EntityInvolved";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import UseDefault from "../../buildingBlocks/UseDefault";
 import OptionalField from "../../buildingBlocks/OptionalField";
+import CreateUuid from "../../buildingBlocks/CreateUuid";
 
 function ChangeInEntropyDeltaS( { name } ) {
+
+    CreateUuid(name);
 
     const unitOptions = [
         { value: 'kcal/molK', label: 'kcal/molK' },

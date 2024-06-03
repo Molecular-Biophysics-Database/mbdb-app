@@ -7,8 +7,11 @@ import Storage from "../sharedComponents/Storage";
 import OptionField from "../../buildingBlocks/OptionField";
 import UseDefault from "../../buildingBlocks/UseDefault";
 import OptionalField from "../../buildingBlocks/OptionalField";
+import CreateUuid from "../../buildingBlocks/CreateUuid";
 
 function ComplexSubstanceOfIndustrialOrigin( { name } ) {
+
+    CreateUuid(name);
 
     const productOptions = [
         { value: 'Beer', label: 'Beer' },
@@ -28,6 +31,7 @@ function ComplexSubstanceOfIndustrialOrigin( { name } ) {
                     name={name}
                     label='Name'
                     fieldName='name'
+                    required={true}
                     width='w-[31.5rem]'
                     tooltip='Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample'
                 />
@@ -38,6 +42,7 @@ function ComplexSubstanceOfIndustrialOrigin( { name } ) {
                     options={productOptions}
                     label='Product'
                     fieldName='product'
+                    required={true}
                     tooltip='The type of product, byproduct, or waste product the complex substance was derived from'
                 />
             </div>

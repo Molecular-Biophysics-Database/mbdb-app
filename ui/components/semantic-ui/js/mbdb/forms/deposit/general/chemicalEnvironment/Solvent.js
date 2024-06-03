@@ -45,6 +45,7 @@ function Solvent( { name } ) {
                                             options={entitiesOfInterestTabOptions}
                                             label='type'
                                             fieldName='type'
+                                            required={true}
                                             tooltip='The type of the constituent, options are Chemical'
                                             width='w-full'
                                         />

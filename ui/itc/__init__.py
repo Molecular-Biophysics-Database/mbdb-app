@@ -16,7 +16,7 @@ class ItcInitialValuesComponent(UIResourceComponent):
           "metadata": {
             "general_parameters": {
               "schema_version": "0.9.21",
-              "technique": "ITC measurement of hemoglobin serum elements",
+              "technique": "Isothermal Titration Calorimetry (ITC)",
               "record_information": {
                 "publisher": "MBDB",
                 "resource_type_general": "Dataset",

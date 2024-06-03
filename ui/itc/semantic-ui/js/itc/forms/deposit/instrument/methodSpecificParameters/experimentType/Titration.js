@@ -14,6 +14,7 @@ function Titration( { name } ) {
                     name={name}
                     fieldName='number_injections'
                     label='Number of injections'
+                    require={true}
                     tooltip='Number of injections performed in the measurement'
                     type='number'
                 />

@@ -20,6 +20,8 @@ function ReferencePower( { colorSchema, name } ) {
             name={name}
             tooltipValue='Value of energy supplied to the offset header of the reference cell to equilibrate the temperatures'
             tooltipUnit='Unit of reference power'
+            valueRequired={true}
+            unitRequired={true}
           />
       </FormWrapper>
     </>

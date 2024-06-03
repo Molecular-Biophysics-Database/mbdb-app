@@ -7,8 +7,11 @@ import EntityInvolved from "./EntityInvolved";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import UseDefault from "../../buildingBlocks/UseDefault";
 import OptionalField from "../../buildingBlocks/OptionalField";
+import CreateUuid from "../../buildingBlocks/CreateUuid";
 
 function MolecularWeightMW( { name } ) {
+
+    CreateUuid(name);
 
     const unitOptions = [
         { value: 'g/mol', label: 'g/mol' },

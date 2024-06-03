@@ -16,7 +16,7 @@ class SprInitialValuesComponent(UIResourceComponent):
           "metadata": {
             "general_parameters": {
               "schema_version": "0.9.21",
-              "technique": "SPR measurement of hemoglobin serum elements",
+              "technique": "Surface plasmon resonance (SPR)",
               "record_information": {
                 "publisher": "MBDB",
                 "resource_type_general": "Dataset",
@@ -27,7 +27,7 @@ class SprInitialValuesComponent(UIResourceComponent):
               },
             },
             "method_specific_parameters": {
-              "schema_version": "0.9.6"
+              "schema_version": "0.9.5"
             }
           }
         })
