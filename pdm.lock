@@ -3459,7 +3459,7 @@ files = [
 
 [[package]]
 name = "oarepo-runtime"
-version = "1.5.31"
+version = "1.5.32"
 summary = "A set of runtime extensions of Invenio repository"
 groups = ["default"]
 dependencies = [
@@ -3472,8 +3472,8 @@ dependencies = [
     "tqdm",
 ]
 files = [
-    {file = "oarepo_runtime-1.5.31-py3-none-any.whl", hash = "sha256:b9f4e81126c4e29e67801a8c333a256f9cb394e200a3e5d6dcac588c6c35c0d0"},
-    {file = "oarepo_runtime-1.5.31.tar.gz", hash = "sha256:f78aefe972aec563ba326ec0358fe635533ce4d119b6eb2b3da16c63889ec70c"},
+    {file = "oarepo_runtime-1.5.32-py3-none-any.whl", hash = "sha256:1775284be8d68353fcb170bdc5f2e67e37ab206fc810421c4ba79d43f665c365"},
+    {file = "oarepo_runtime-1.5.32.tar.gz", hash = "sha256:f13958d427ded99c83c92c9d33ec38882e6d065ecab24fa615c02c26b3048119"},
 ]
 
 [[package]]
