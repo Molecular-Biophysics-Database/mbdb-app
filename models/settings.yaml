@@ -17,3 +17,5 @@ record:
         copy_to: collected_default_search_fields
   service-config:
     components: ["{{common.services.records.components.ForeignVocabularyFetcherComponent}}"]
+  search-options:
+    base-classes: ["{{common.services.records.search_options.RecordSearchOptions}}"]

@@ -17,6 +17,8 @@ class MstUISchema(UIRequestsSerializationMixin, InvenioUISchema):
 
     metadata = ma_fields.Nested(lambda: MstMetadataUISchema())
 
+    schema = ma_fields.Str(attribute="$schema", data_key="$schema")
+
 
 class MstMetadataUISchema(Schema):
     class Meta:
