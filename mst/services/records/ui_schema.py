@@ -16,8 +16,7 @@ class MstUISchema(UIRequestsSerializationMixin, InvenioUISchema):
     collected_default_search_fields = ma_fields.String()
 
     metadata = ma_fields.Nested(lambda: MstMetadataUISchema())
-
-    schema = ma_fields.Str(attribute="$schema", data_key="$schema")
+    
 
 
 class MstMetadataUISchema(Schema):
