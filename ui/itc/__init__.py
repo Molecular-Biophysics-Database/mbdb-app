@@ -44,6 +44,7 @@ class ItcResourceConfig(RecordsUIResourceConfig):
     # TODO: is this still needed?
     edit_layout = 'edit_layout.json'
 
+    search_component = "itc/search/ResultsListItem"
 
     application_id = "itc"
 
