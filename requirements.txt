@@ -19,7 +19,7 @@ libcst==1.4.0
 marisa-trie==1.1.1
 marshmallow-union==0.1.15.post1
 mypy-extensions==1.0.0
-oarepo-dashboard==1.0.5
+oarepo-dashboard==1.0.6
 oarepo-global-search==1.0.10
 oarepo-model-builder==4.0.84
 oarepo-published-service==1.0.3
