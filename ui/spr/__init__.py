@@ -44,6 +44,7 @@ class SprResourceConfig(RecordsUIResourceConfig):
     # TODO: is this still needed?
     edit_layout = 'edit_layout.json'
 
+    search_component = "spr/search/ResultsListItem"
 
     application_id = "spr"
 
