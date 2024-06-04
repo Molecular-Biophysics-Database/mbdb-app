@@ -3371,7 +3371,7 @@ files = [
 
 [[package]]
 name = "oarepo-dashboard"
-version = "1.0.5"
+version = "1.0.6"
 summary = "Support for user dashboard (records, communities, requests)"
 groups = ["default"]
 dependencies = [
@@ -3381,8 +3381,8 @@ dependencies = [
     "openpyxl",
 ]
 files = [
-    {file = "oarepo_dashboard-1.0.5-py3-none-any.whl", hash = "sha256:96607319d8f4ce956100772359cec6a1e229417503cf2035e129e0446779eb8c"},
-    {file = "oarepo_dashboard-1.0.5.tar.gz", hash = "sha256:6d88c4a72d04ffdae1e4ba270372e521ca8ff4c3fa7e1e3555bd0f9901360f43"},
+    {file = "oarepo_dashboard-1.0.6-py3-none-any.whl", hash = "sha256:0923c7ddb056c4fc78b6e1410a42291567145ef5c7c2d9ab8d61ae41bb6ae171"},
+    {file = "oarepo_dashboard-1.0.6.tar.gz", hash = "sha256:3861e92b813b116318aefc50b9cf42c8fa59591f5971ab6cb77e639e7ea8cc88"},
 ]
 
 [[package]]
