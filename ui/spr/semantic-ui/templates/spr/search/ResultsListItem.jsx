@@ -8,16 +8,11 @@ import { withState, buildUID } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 
 const ItemHeader = ({ title, searchUrl, selfLink, id, releasedDate, givenName, familyName, affiliationsTitle, technique, entitiesOfInterest, results}) => {
-  const viewLink = new URL(
-    selfLink,
-    new URL(searchUrl, window.location.origin)
-  );
-
   return (
     <div className="lg:max-w-[1024px] lg:m-auto xl:max-w-[1280px] 2xl:max-w-[1440px] !my-10 !mx-6 pb-10 border-b-dark border-b-[1px] first:!mt-16 md:!mx-12">
       <div className="flex justify-between flex-col lg:flex-row">
         <div className="font-JostMedium text-32px">
-          <a href={viewLink}>{title}</a>
+          <a href={selfLink}>{title}</a>
         </div>
         <div className="flex text-24px font-JostMedium">
           <div className="mr-3 font-bold">
@@ -89,7 +84,7 @@ export const ResultsListItemComponent = ({
           <ItemHeader
             title={title}
             searchUrl={searchAppConfig.ui_endpoint}
-            selfLink={result.id}
+            selfLink={result.links.self_html}
             releasedDate={releasedDate}
             technique={technique}
             id={id}
