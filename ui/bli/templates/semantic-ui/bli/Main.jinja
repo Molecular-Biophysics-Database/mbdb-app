@@ -4,7 +4,7 @@
 {% set gp=md.general_parameters %}
 {% set msp=md.method_specific_parameters %}
 
-<RecordHeader md={md} links={d.links} />
+<bli.MBDB.RecordHeader md={md} links={d.links} />
 
 {#
     note: if you do not specify label for IField, it is taken directly from the model
@@ -14,7 +14,7 @@
 <IValueList>
     <IField d={gp.technique} field_class="mbdbv-record-technique" />
     <IField d={gp.depositors} field_class="mbdbv-record-technique">
-        <Depositors d={gp.depositors} />
+        <bli.MBDB.Depositors depositors={gp.depositors} />
     </IField>
 </IValueList>
 
@@ -27,25 +27,25 @@
 
 <div class="mbdbv-record-container">
 
-    <Section title={gp.entities_of_interest._ui_label}>
-        <EntitiesOfInterest entities={gp.entities_of_interest} />
-    </Section>
+    <bli.Common.Section title="Entities of interest"}>
+        <bli.MBDB.EntitiesOfInterest entities={gp.entities_of_interest} />
+    </bli.Common.Section>
 
-    <Section title={gp.results._ui_label}>
-        <Results gp={gp} msp={msp} />
-    </Section>
+    <bli.Common.Section title="Results">
+        <bli.BLI.Results gp={gp} msp={msp} />
+    </bli.Common.Section>
 
-    <Section title="Measurements">
-        <Measurements gp={gp} msp={msp} />
-    </Section>
+    <bli.Common.Section title="Measurements">
+        <bli.BLI.Measurements gp={gp} msp={msp} />
+    </bli.Common.Section>
 
-    <Section title="Instrument">
-        <Instrument instrument={gp.instrument} />
-    </Section>
+    <bli.Common.Section title="Instrument">
+        <bli.MBDB.Instrument instrument={gp.instrument} />
+    </bli.Common.Section>
 
-    <Section title="Raw measurements" >
-        <RawMeasurements raw_measurements={gp.raw_measurements} files={extra_context.files} />
-    </Section>
+    <bli.Common.Section title="Raw measurements" >
+        <bli.MBDB.RawMeasurements raw_measurements={gp.raw_measurements} files={extra_context.files} />
+    </bli.Common.Section>
 
 </div>
 

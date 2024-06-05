@@ -1,8 +1,8 @@
-{# def d #}
+{# def depositors #}
 
-{%- for depositor in array(d) -%}
-    {%- for person in array(depositor.principal_contact, depositor.depositor, depositor.contributors)  -%}
-        {%- if not loop.first %}, {% endif -%}
-        <Person person={person} ></Person>
+{%- for depositor in array(depositors) -%}
+    {%- for person in array(depositor.principal_contact, depositor.depositor, depositor.contributors) -%}
+        {%- if not loop.first %}, {%- endif -%}
+        <bli.MBDB.Person person={person}/>
     {%- endfor -%}
 {%- endfor -%}

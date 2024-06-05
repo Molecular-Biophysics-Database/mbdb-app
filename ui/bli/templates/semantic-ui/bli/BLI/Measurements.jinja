@@ -1,21 +1,21 @@
 {# def msp, gp #}
 
 <div>
-    <SubSection title="Experimental setup">
+    <bli.Common.SubSection title="Experimental setup">
         <IField label="Experiment type" d={ msp.experiment_type }/>
         <IField label="Excitation LED" d={ msp.excitation_led_power }>
-            <ExcitationLed power={ msp.excitation_led_power } color={ msp.excitation_led_color }/>
+            <bli.BLI.ExcitationLed power={ msp.excitation_led_power } color={ msp.excitation_led_color }/>
         </IField>
         <IField label="Laser power" d={ msp.ir_mst_laser_power }/>
-    </SubSection>
+    </bli.Common.SubSection>
 
     {% for measurement in array(msp.measurements) %}
         {% set title='Measurement ' ~ loop.index %}
-        <SubSection title={ title }>
+        <bli.Common.SubSection title={ title }>
             <IField label="Name" d={ measurement.name }/>
             <IField label="Position" d={ measurement.position }/>
 
             <Sample gp={gp} sample={ measurement.sample }/>
-        </SubSection>
+        </bli.Common.SubSection>
     {% endfor %}
 </div>
