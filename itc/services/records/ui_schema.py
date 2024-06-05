@@ -63,7 +63,7 @@ class GeneralParametersUISchema(DictOnlySchema):
 
     results = ma_fields.List(ma_fields.Nested(lambda: ResultsItemUISchema()))
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.21"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.22"])])
 
     technique = ma_fields.String(
         required=True,
@@ -2949,6 +2949,8 @@ class FundingReferencesItemUISchema(DictOnlySchema):
     _version = String(data_key="@v", attribute="@v")
 
     funder_name = ma_fields.String()
+
+    grant_id = ma_fields.String()
 
     title = VocabularyI18nStrUIField()
 

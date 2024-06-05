@@ -42,6 +42,7 @@ class MstFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
         return {
             "commit": FileLink("{+api}/records/mst/{id}/files/{key}/commit"),
             "content": FileLink("{+api}/records/mst/{id}/files/{key}/content"),
+            "preview": FileLink("{+ui}/mst/files/{key}/preview"),
             "self": FileLink("{+api}/records/mst/{id}/files/{key}"),
         }
 

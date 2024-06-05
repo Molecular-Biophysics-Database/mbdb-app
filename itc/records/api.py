@@ -261,7 +261,12 @@ class ItcRecord(InvenioRecord):
         ),
         funding_references=PIDRelation(
             "metadata.general_parameters.funding_references",
-            keys=["id", "title", {"key": "props.funder_name", "target": "funder_name"}],
+            keys=[
+                "id",
+                "title",
+                {"key": "props.funder_name", "target": "funder_name"},
+                {"key": "props.grant_id", "target": "grant_id"},
+            ],
             pid_field=Vocabulary.pid.with_type_ctx("grants"),
         ),
         instrument=PIDRelation(
@@ -606,7 +611,12 @@ class ItcDraft(InvenioDraft):
         ),
         funding_references=PIDRelation(
             "metadata.general_parameters.funding_references",
-            keys=["id", "title", {"key": "props.funder_name", "target": "funder_name"}],
+            keys=[
+                "id",
+                "title",
+                {"key": "props.funder_name", "target": "funder_name"},
+                {"key": "props.grant_id", "target": "grant_id"},
+            ],
             pid_field=Vocabulary.pid.with_type_ctx("grants"),
         ),
         instrument=PIDRelation(

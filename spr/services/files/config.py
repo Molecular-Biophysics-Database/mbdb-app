@@ -42,6 +42,7 @@ class SprFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
         return {
             "commit": FileLink("{+api}/records/spr/{id}/files/{key}/commit"),
             "content": FileLink("{+api}/records/spr/{id}/files/{key}/content"),
+            "preview": FileLink("{+ui}/spr/files/{key}/preview"),
             "self": FileLink("{+api}/records/spr/{id}/files/{key}"),
         }
 

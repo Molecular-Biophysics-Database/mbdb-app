@@ -42,6 +42,7 @@ class ItcFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
         return {
             "commit": FileLink("{+api}/records/itc/{id}/files/{key}/commit"),
             "content": FileLink("{+api}/records/itc/{id}/files/{key}/content"),
+            "preview": FileLink("{+ui}/itc/files/{key}/preview"),
             "self": FileLink("{+api}/records/itc/{id}/files/{key}"),
         }
 

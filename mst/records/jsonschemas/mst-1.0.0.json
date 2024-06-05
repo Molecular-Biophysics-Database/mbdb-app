@@ -1822,6 +1822,9 @@
                                     "funder_name": {
                                         "type": "string"
                                     },
+                                    "grant_id": {
+                                        "type": "string"
+                                    },
                                     "@v": {
                                         "type": "string"
                                     }

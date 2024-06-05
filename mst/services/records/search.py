@@ -1,4 +1,6 @@
+
 from common.services.records.search_options import RecordSearchOptions
+
 from . import facets
 
 
@@ -330,14 +332,6 @@ class MstSearchOptions(RecordSearchOptions):
         "metadata_method_specific_parameters_temperature_unit": facets.metadata_method_specific_parameters_temperature_unit,
         "metadata_method_specific_parameters_temperature_value": facets.metadata_method_specific_parameters_temperature_value,
         **getattr(RecordSearchOptions, "facets", {}),
-    }
-
-
-class MstDraftSearchOptions(RecordSearchOptions):
-
-    facet_groups = {}
-
-    facets = {
         "record_status": facets.record_status,
         "has_draft": facets.has_draft,
     }

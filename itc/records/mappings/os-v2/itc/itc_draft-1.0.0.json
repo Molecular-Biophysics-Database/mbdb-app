@@ -2197,6 +2197,10 @@
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     },
+                                    "grant_id": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
                                     "@v": {
                                         "type": "keyword",
                                         "ignore_above": 1024
