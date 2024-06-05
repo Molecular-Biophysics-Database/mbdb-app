@@ -32,6 +32,7 @@ export default function ChooseSearchMethodDropdown() {
           value={method}
           onChange={handleChange}
         >
+          <option value="search/">All records</option>
           <option value="mst">Only MST</option>
           <option value="bli">Only BLI</option>
           <option value="spr">Only SPR</option>

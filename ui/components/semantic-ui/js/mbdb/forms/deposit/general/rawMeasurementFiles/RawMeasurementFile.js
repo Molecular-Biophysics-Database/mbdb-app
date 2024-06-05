@@ -7,7 +7,7 @@ import FormWrapper from "../../buildingBlocks/FormWrapper";
 import OptionalField from "../../buildingBlocks/OptionalField";
 import FileField from "../../buildingBlocks/FileField";
 
-function RawMeasurementFile( { name } ) {
+function RawMeasurementFile( { name, index } ) {
 
   const originatesFromOptions = [
     { value: 'Instrument software', label: 'Instrument software' },
@@ -32,8 +32,8 @@ function RawMeasurementFile( { name } ) {
         <div className="mb-3">
           <FileField
             name={name}
-            type='file'
             fieldName='file'
+            index={index}
             width='w-[25rem]'
           />
         </div>

@@ -27,6 +27,7 @@ function RawMeasurementFilesTab( { name } ) {
                         <div>
                             <RawMeasurementFile
                                 name={`${arrayName}.${index}`}
+                                index={index}
                             />
                         </div>
                     </FormWrapper>
