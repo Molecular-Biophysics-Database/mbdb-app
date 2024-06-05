@@ -104,7 +104,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.21"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.22"])])
 
     technique = ma_fields.String(
         required=True,
@@ -2645,6 +2645,8 @@ class FundingReferencesItemSchema(DictOnlySchema):
     _version = String(data_key="@v", attribute="@v")
 
     funder_name = ma_fields.String()
+
+    grant_id = ma_fields.String()
 
     title = i18n_strings
 

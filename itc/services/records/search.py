@@ -1,9 +1,10 @@
-from invenio_records_resources.services import SearchOptions as InvenioSearchOptions
+
+from common.services.records.search_options import RecordSearchOptions
 
 from . import facets
 
 
-class ItcSearchOptions(InvenioSearchOptions):
+class ItcSearchOptions(RecordSearchOptions):
     """ItcRecord search options."""
 
     facet_groups = {}
@@ -335,15 +336,7 @@ class ItcSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_schema_version": facets.metadata_method_specific_parameters_schema_version,
         "metadata_method_specific_parameters_stirring_speed_unit": facets.metadata_method_specific_parameters_stirring_speed_unit,
         "metadata_method_specific_parameters_stirring_speed_value": facets.metadata_method_specific_parameters_stirring_speed_value,
-        **getattr(InvenioSearchOptions, "facets", {}),
-    }
-
-
-class ItcDraftSearchOptions(InvenioSearchOptions):
-
-    facet_groups = {}
-
-    facets = {
+        **getattr(RecordSearchOptions, "facets", {}),
         "record_status": facets.record_status,
         "has_draft": facets.has_draft,
     }

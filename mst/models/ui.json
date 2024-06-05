@@ -4312,6 +4312,13 @@
                                         "label": "metadata/general_parameters/funding_references/funder_name.label",
                                         "hint": "metadata/general_parameters/funding_references/funder_name.hint"
                                     },
+                                    "grant_id": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/general_parameters/funding_references/grant_id.help",
+                                        "label": "metadata/general_parameters/funding_references/grant_id.label",
+                                        "hint": "metadata/general_parameters/funding_references/grant_id.hint"
+                                    },
                                     "@v": {
                                         "detail": "keyword",
                                         "input": "keyword",

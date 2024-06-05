@@ -1,9 +1,10 @@
-from invenio_records_resources.services import SearchOptions as InvenioSearchOptions
+
+from common.services.records.search_options import RecordSearchOptions
 
 from . import facets
 
 
-class SprSearchOptions(InvenioSearchOptions):
+class SprSearchOptions(RecordSearchOptions):
     """SprRecord search options."""
 
     facet_groups = {}
@@ -349,15 +350,7 @@ class SprSearchOptions(InvenioSearchOptions):
         "metadata_method_specific_parameters_sensor_supplier_further_information": facets.metadata_method_specific_parameters_sensor_supplier_further_information,
         "metadata_method_specific_parameters_sensor_supplier_name": facets.metadata_method_specific_parameters_sensor_supplier_name,
         "metadata_method_specific_parameters_sensor_surface_properties": facets.metadata_method_specific_parameters_sensor_surface_properties,
-        **getattr(InvenioSearchOptions, "facets", {}),
-    }
-
-
-class SprDraftSearchOptions(InvenioSearchOptions):
-
-    facet_groups = {}
-
-    facets = {
+        **getattr(RecordSearchOptions, "facets", {}),
         "record_status": facets.record_status,
         "has_draft": facets.has_draft,
     }

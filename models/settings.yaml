@@ -18,4 +18,4 @@ record:
   service-config:
     components: ["{{common.services.records.components.ForeignVocabularyFetcherComponent}}"]
   search-options:
-    base-classes: ["{{common.services.records.search_options.RecordSearchOptions}}"]
+    base-classes: [common.services.records.search_options.RecordSearchOptions]

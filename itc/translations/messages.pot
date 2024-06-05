@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-05-09T14:19:46.419516\n"
-"PO-Revision-Date: 2024-05-09T14:19:46.419517\n"
+"POT-Creation-Date: 2024-06-05T12:53:57.664989\n"
+"PO-Revision-Date: 2024-06-05T12:53:57.664991\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6987,6 +6987,15 @@ msgstr ""
 msgid "metadata/general_parameters/funding_references/funder_name.hint"
 msgstr ""
 
+msgid "metadata/general_parameters/funding_references/grant_id.help"
+msgstr ""
+
+msgid "metadata/general_parameters/funding_references/grant_id.label"
+msgstr ""
+
+msgid "metadata/general_parameters/funding_references/grant_id.hint"
+msgstr ""
+
 msgid "metadata/general_parameters/funding_references/@v.help"
 msgstr ""
 
@@ -7528,7 +7537,7 @@ msgstr ""
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.9.21"
+msgid "metadata/general_parameters/schema_version.enum.0.9.22"
 msgstr ""
 
 msgid "metadata/general_parameters/technique.help"

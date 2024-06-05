@@ -42,6 +42,7 @@ class BliFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
         return {
             "commit": FileLink("{+api}/records/bli/{id}/files/{key}/commit"),
             "content": FileLink("{+api}/records/bli/{id}/files/{key}/content"),
+            "preview": FileLink("{+ui}/bli/files/{key}/preview"),
             "self": FileLink("{+api}/records/bli/{id}/files/{key}"),
         }
 

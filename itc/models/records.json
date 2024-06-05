@@ -78,7 +78,6 @@
                 "\"topic\""
             ]
         },
-        "searchable": true,
         "permissions": {
             "presets": [
                 "authenticated"
@@ -103,13 +102,30 @@
             "class": "itc.services.records.schema.ItcSchema",
             "extra-code": ""
         },
+        "searchable": true,
+        "ui": {
+            "marshmallow": {
+                "imports": [],
+                "base-classes": [
+                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
+                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
+                ],
+                "generate": true,
+                "module": "itc.services.records.ui_schema",
+                "class": "itc.services.records.ui_schema.ItcUISchema",
+                "extra-code": ""
+            },
+            "module": "itc.models",
+            "file": "itc/models/ui.json",
+            "alias": "itc"
+        },
         "service-config": {
             "components": [
                 "{{common.services.records.components.ForeignVocabularyFetcherComponent}}",
                 "{{oarepo_runtime.services.components.OwnersComponent}}",
+                "{{oarepo_runtime.services.files.FilesComponent}}",
                 "{{invenio_drafts_resources.services.records.components.DraftFilesComponent}}",
-                "{{invenio_records_resources.services.records.components.DataComponent}}",
-                "{{oarepo_runtime.services.files.FilesComponent}}"
+                "{{invenio_records_resources.services.records.components.DataComponent}}"
             ],
             "base-classes": [
                 "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
@@ -146,21 +162,17 @@
             ],
             "extra-code": ""
         },
-        "ui": {
-            "marshmallow": {
-                "imports": [],
-                "base-classes": [
-                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
-                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
-                ],
-                "generate": true,
-                "module": "itc.services.records.ui_schema",
-                "class": "itc.services.records.ui_schema.ItcUISchema",
-                "extra-code": ""
-            },
-            "module": "itc.models",
-            "file": "itc/models/ui.json",
-            "alias": "itc"
+        "search-options": {
+            "base-classes": [
+                "common.services.records.search_options.RecordSearchOptions"
+            ],
+            "module": "itc.services.records.search",
+            "class": "itc.services.records.search.ItcSearchOptions",
+            "generate": true,
+            "extra-code": "",
+            "imports": [],
+            "fields": {},
+            "sort-options-field": "sort_options"
         },
         "resource-config": {
             "base-url": "/records/itc/",
@@ -190,6 +202,39 @@
             "suffix": "itc",
             "suffix-upper": "ITC",
             "suffix-snake": "itc"
+        },
+        "draft-files": {
+            "type": "draft-file",
+            "properties": {},
+            "searchable": true,
+            "resource": {
+                "base-classes": [
+                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
+                ]
+            },
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
+        },
+        "draft": {
+            "type": "draft_record",
+            "properties": {},
+            "requests": {
+                "types": {
+                    "publish-draft": {
+                        "class": "common.requests.publish_draft.types.PublishDraftRequestType",
+                        "generate": false
+                    }
+                }
+            },
+            "searchable": true,
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
         },
         "files": {
             "type": "file",
@@ -355,7 +400,6 @@
                     }
                 }
             },
-            "searchable": true,
             "marshmallow": {
                 "imports": [
                     {
@@ -367,6 +411,7 @@
                     "InvenioFileSchema"
                 ]
             },
+            "searchable": true,
             "resource": {
                 "base-classes": [
                     "oarepo_ui.resources.file_resource.S3RedirectFileResource"
@@ -379,43 +424,10 @@
             },
             "label.en": ""
         },
-        "draft": {
-            "type": "draft_record",
-            "properties": {},
-            "requests": {
-                "types": {
-                    "publish-draft": {
-                        "class": "common.requests.publish_draft.types.PublishDraftRequestType",
-                        "generate": false
-                    }
-                }
-            },
-            "searchable": true,
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            }
-        },
         "tests": {
             "extra-fixtures": [],
             "extra-code": "",
             "module": "tests"
-        },
-        "draft-files": {
-            "type": "draft-file",
-            "properties": {},
-            "searchable": true,
-            "resource": {
-                "base-classes": [
-                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
-                ]
-            },
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            }
         },
         "sample": {
             "file": "data/sample_data.yaml"
@@ -425,17 +437,29 @@
             "skip": false
         },
         "model-name": "Itc",
-        "search-options": {
-            "generate": true,
-            "module": "itc.services.records.search",
-            "extra-code": "",
-            "class": "itc.services.records.search.ItcSearchOptions",
+        "record": {
             "base-classes": [
-                "invenio_records_resources.services.SearchOptions{InvenioSearchOptions}"
+                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
             ],
+            "generate": true,
+            "module": "itc.records.api",
+            "class": "itc.records.api.ItcRecord",
             "imports": [],
-            "fields": {},
-            "sort-options-field": "sort_options"
+            "extra-code": "",
+            "fields": {}
+        },
+        "resource": {
+            "base-classes": [
+                "invenio_drafts_resources.resources.RecordResource"
+            ],
+            "generate": true,
+            "config-key": "ITC_RECORD_RESOURCE_CLASS",
+            "module": "itc.resources.records.resource",
+            "class": "itc.resources.records.resource.ItcResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
         },
         "config": {
             "generate": true,
@@ -483,53 +507,14 @@
             "module": "itc.proxies",
             "generate": true
         },
-        "record": {
-            "base-classes": [
-                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
+        "files-field": {
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "itc.records.api.ItcRecord",
+            "field-args": [
+                "store=False"
             ],
-            "generate": true,
-            "module": "itc.records.api",
-            "class": "itc.records.api.ItcRecord",
-            "imports": [],
-            "extra-code": "",
-            "fields": {}
-        },
-        "resource": {
-            "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
-            ],
-            "generate": true,
-            "config-key": "ITC_RECORD_RESOURCE_CLASS",
-            "module": "itc.resources.records.resource",
-            "class": "itc.resources.records.resource.ItcResource",
-            "proxy": "current_resource",
-            "extra-code": "",
-            "imports": [],
-            "additional-args": []
-        },
-        "json-schema-settings": {
-            "generate": true,
-            "alias": "itc",
-            "version": "1.0.0",
-            "module": "itc.records.jsonschemas",
-            "name": "itc-1.0.0.json",
-            "file": "itc/records/jsonschemas/itc-1.0.0.json"
-        },
-        "json-serializer": {
-            "module": "itc.resources.records.ui",
-            "class": "itc.resources.records.ui.ItcUIJSONSerializer",
-            "base-classes": [
-                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
-            ],
-            "imports": [],
-            "extra-code": "",
-            "generate": true,
-            "list_schema_cls": "flask_resources.BaseListSchema",
-            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
-            "schema-context-args": {
-                "\"object_key\"": "\"ui\"",
-                "\"identity\"": "{{ flask.g{g.identity} }}"
-            }
+            "imports": []
         },
         "record-metadata": {
             "generate": true,
@@ -577,54 +562,33 @@
             ],
             "imports": []
         },
+        "json-schema-settings": {
+            "generate": true,
+            "alias": "itc",
+            "version": "1.0.0",
+            "module": "itc.records.jsonschemas",
+            "name": "itc-1.0.0.json",
+            "file": "itc/records/jsonschemas/itc-1.0.0.json"
+        },
+        "json-serializer": {
+            "module": "itc.resources.records.ui",
+            "class": "itc.resources.records.ui.ItcUIJSONSerializer",
+            "base-classes": [
+                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
+            ],
+            "imports": [],
+            "extra-code": "",
+            "generate": true,
+            "list_schema_cls": "flask_resources.BaseListSchema",
+            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
+            "schema-context-args": {
+                "\"object_key\"": "\"ui\"",
+                "\"identity\"": "{{ flask.g{g.identity} }}"
+            }
+        },
         "translations": {
             "module": "itc.translations",
             "alias": "itc"
-        },
-        "files-field": {
-            "generate": true,
-            "field-class": "invenio_records_resources.records.systemfields.FilesField",
-            "file-class": "itc.records.api.ItcRecord",
-            "field-args": [
-                "store=False"
-            ],
-            "imports": []
-        },
-        "edtf-interval-dumper": {
-            "generate": true,
-            "module": "itc.records.dumpers.edtf",
-            "class": "itc.records.dumpers.edtf.ItcEDTFIntervalDumperExt",
-            "base-classes": [
-                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
-            ],
-            "extra-code": "",
-            "extensions": [],
-            "imports": []
-        },
-        "record-list": {
-            "generate": true,
-            "module": "itc.services.records.results",
-            "class": "itc.services.records.results.ItcRecordList",
-            "extra-code": "",
-            "base-classes": [
-                "oarepo_runtime.services.results.RecordList"
-            ],
-            "components": [],
-            "imports": []
-        },
-        "record-item": {
-            "generate": true,
-            "module": "itc.services.records.results",
-            "class": "itc.services.records.results.ItcRecordItem",
-            "extra-code": "",
-            "base-classes": [
-                "oarepo_runtime.services.results.RecordItem"
-            ],
-            "components": [
-                "{{oarepo_requests.services.results.RequestsComponent}}()",
-                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
-            ],
-            "imports": []
         },
         "draft-parent-record": {
             "class": "itc.records.api.ItcParentRecord",
@@ -687,6 +651,42 @@
             "extra-code": "",
             "base-classes": [
                 "oarepo_published_service.services.service.PublishedService"
+            ],
+            "imports": []
+        },
+        "edtf-interval-dumper": {
+            "generate": true,
+            "module": "itc.records.dumpers.edtf",
+            "class": "itc.records.dumpers.edtf.ItcEDTFIntervalDumperExt",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
+            ],
+            "extra-code": "",
+            "extensions": [],
+            "imports": []
+        },
+        "record-list": {
+            "generate": true,
+            "module": "itc.services.records.results",
+            "class": "itc.services.records.results.ItcRecordList",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordList"
+            ],
+            "components": [],
+            "imports": []
+        },
+        "record-item": {
+            "generate": true,
+            "module": "itc.services.records.results",
+            "class": "itc.services.records.results.ItcRecordItem",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordItem"
+            ],
+            "components": [
+                "{{oarepo_requests.services.results.RequestsComponent}}()",
+                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
             ],
             "imports": []
         },
@@ -23322,6 +23322,13 @@
                                                 "type": "keyword"
                                             },
                                             "target": "funder_name"
+                                        },
+                                        {
+                                            "key": "props.grant_id",
+                                            "model": {
+                                                "type": "keyword"
+                                            },
+                                            "target": "grant_id"
                                         }
                                     ],
                                     "extras": {
@@ -23426,6 +23433,9 @@
                                             }
                                         },
                                         "funder_name": {
+                                            "type": "keyword"
+                                        },
+                                        "grant_id": {
                                             "type": "keyword"
                                         },
                                         "@v": {
@@ -25966,7 +25976,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.9.21"
+                                    "0.9.22"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"

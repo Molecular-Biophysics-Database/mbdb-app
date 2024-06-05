@@ -2,7 +2,6 @@ from invenio_drafts_resources.services import (
     RecordServiceConfig as InvenioRecordDraftsServiceConfig,
 )
 from invenio_drafts_resources.services.records.components import DraftFilesComponent
-from invenio_drafts_resources.services.records.config import is_record
 from invenio_records_resources.services import (
     ConditionalLink,
     RecordLink,
@@ -48,9 +47,9 @@ class BliServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
         *InvenioRecordDraftsServiceConfig.components,
         ForeignVocabularyFetcherComponent,
         OwnersComponent,
+        FilesComponent,
         DraftFilesComponent,
         DataComponent,
-        FilesComponent,
     ]
 
     model = "bli"
@@ -63,7 +62,7 @@ class BliServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
             "draft": RecordLink("{+api}/records/bli/{id}/draft"),
             "edit_html": RecordLink("{+ui}/bli/{id}/edit", when=has_draft),
             "files": ConditionalLink(
-                cond=is_record,
+                cond=is_published_record,
                 if_=RecordLink("{+api}/records/bli/{id}/files"),
                 else_=RecordLink("{+api}/records/bli/{id}/draft/files"),
             ),
