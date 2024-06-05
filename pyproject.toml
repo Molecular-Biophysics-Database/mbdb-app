@@ -7,8 +7,8 @@ authors = []
 dependencies = [
     "invenio-drafts-resources>=1.0.4",
     "json5",
-    "oarepo-global-search", 
     "oarepo-dashboard",
+    "oarepo-global-search",
     "oarepo-published-service>=1.0.0",
     "oarepo-requests>=1.0.2",
     "oarepo-runtime",
@@ -144,6 +144,10 @@ mst_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType
 bli_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
 spr_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
 itc_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
+mst_publish_draft = "common.requests.publish_draft.types:PublishDraftRequestType"
+bli_publish_draft = "common.requests.publish_draft.types:PublishDraftRequestType"
+spr_publish_draft = "common.requests.publish_draft.types:PublishDraftRequestType"
+itc_publish_draft = "common.requests.publish_draft.types:PublishDraftRequestType"
 
 [project.optional-dependencies]
 tests = [
