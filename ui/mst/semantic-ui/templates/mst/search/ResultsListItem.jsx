@@ -8,7 +8,6 @@ import { withState, buildUID } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 
 const ItemHeader = ({ title, searchUrl, selfLink, id, releasedDate, givenName, familyName, affiliationsTitle, technique, entitiesOfInterest, results}) => {
-
   return (
     <div className="lg:max-w-[1024px] lg:m-auto xl:max-w-[1280px] 2xl:max-w-[1440px] !my-10 !mx-6 pb-10 border-b-dark border-b-[1px] first:!mt-16 md:!mx-12">
       <div className="flex justify-between flex-col lg:flex-row">
