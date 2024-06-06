@@ -29,7 +29,7 @@ async function SubmitFile(values, file, index) {
   resp = await fetch(response.entries[index].links.content, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/stream-octet'
+        'Content-Type': 'application/octet-stream'
       },
       body: file
   });
@@ -80,7 +80,7 @@ function FileField({ name, fieldName, tooltip, width, required, index }) {
     <>
       <div className='flex'>
         <div className={`${width}`}>
-          
+
           <input
             type='file'
             className={`rounded-lg p-2 text-16px ${width}`}
@@ -100,7 +100,7 @@ function FileField({ name, fieldName, tooltip, width, required, index }) {
         {tooltip &&
           <div className='ml-1 -mt-1'>
             <Tooltip title={<Typography fontSize={13}>{tooltip}</Typography>} arrow>
-              <span>?</span> 
+              <span>?</span>
             </Tooltip>
           </div>
         }
