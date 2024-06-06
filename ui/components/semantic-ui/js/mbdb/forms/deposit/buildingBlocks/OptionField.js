@@ -19,7 +19,9 @@ function OptionField({
   
   const nameOptionField =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
-  const [field, meta] = useField(nameOptionField);
+  const [field, meta, helpers] = useField(nameOptionField);
+
+  const currentValue = typeof field.value === 'object' ? field.value.name : field.value || '';
 
   return (
     <div className="flex">
@@ -28,13 +30,21 @@ function OptionField({
           <InputLabel>{label}</InputLabel>
           <Select
             {...field}
-            value={field.value || ""}
+            value={currentValue}
+            onChange={(event) => {
+              const selectedOption = options.find(option => option.value === event.target.value);
+              helpers.setValue(selectedOption.id !== undefined ? { name: selectedOption.value, id: selectedOption.id } : selectedOption.value);
+            }}
             label={label}
             size="small"
             error={meta.touched && !!meta.error}
           >
             {options.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
+              <MenuItem 
+                key={option.value}
+                value={option.value}
+                id={option.id}
+              >
                 {option.label}
               </MenuItem>
             ))}

@@ -28,6 +28,9 @@ async function SubmitFile(values, file, index) {
   // Upload the file content
   resp = await fetch(response.entries[index].links.content, {
       method: 'PUT',
+      headers: {
+        'Content-Type': 'application/stream-octet'
+      },
       body: file
   });
 

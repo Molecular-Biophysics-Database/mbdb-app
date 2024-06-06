@@ -3,11 +3,8 @@ import OptionField from "@mbdb_deposit/buildingBlocks/OptionField";
 import Concentration from "@mbdb_deposit/sharedComponents/Concentration";
 import { useFormikContext, getIn } from 'formik';
 import CreateOptions from "@mbdb_deposit/buildingBlocks/CreateOptions";
-import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 
 function Target( { name } ) {
-
-  CreateUuid(`${name}.entity`);
 
   const { values } = useFormikContext();
 
@@ -19,10 +16,10 @@ function Target( { name } ) {
       <div className="flex">
         <div className="mr-3">
           <OptionField
-              name={`${name}.entity`}
+              name={name}
               options={entityOptions}
               label='Entity'
-              fieldName='name'
+              fieldName='entity'
               required={true}
               tooltip='List of names (ids), from the entities of interest defined in the general parameters, of directly measured entities'
           />
