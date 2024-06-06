@@ -10,18 +10,18 @@
     </IField>
 
     {%- if field_value(entity.type) == "Chemical" %}
-        <Chemical entity={ entity } />
+        <spr.MBDB.Entities.Chemical entity={ entity } />
     {%- elif field_value(entity.type) == "Complex substance of biological origin" %}
-        <BiologicalOrigin entity={ entity } />
+        <spr.MBDB.Entities.BiologicalOrigin entity={ entity } />
     {%- elif field_value(entity.type) == "Complex substance of chemical origin" %}
-        <ChemicalOrigin entity={ entity } />
+        <spr.MBDB.Entities.ChemicalOrigin entity={ entity } />
     {%- elif field_value(entity.type) == "Complex substance of environmental origin" %}
-        <EnvironmentalOrigin entity={ entity } />
+        <spr.MBDB.Entities.EnvironmentalOrigin entity={ entity } />
     {%- elif field_value(entity.type) == "Complex substance of industrial production origin" %}
-        <IndustrialOrigin entity={ entity } />
+        <spr.MBDB.Entities.IndustrialOrigin entity={ entity } />
     {%- elif field_value(entity.type) == "Molecular assembly" %}
-        <MolecularAssembly entity={ entity } />
+        <spr.MBDB.Entities.MolecularAssembly entity={ entity } />
     {%- elif field_value(entity.type) == "Polymer" %}
-        <Polymer entity={ entity } />
+        <spr.MBDB.Entities.Polymer entity={ entity } />
     {%- endif %}
 </div>

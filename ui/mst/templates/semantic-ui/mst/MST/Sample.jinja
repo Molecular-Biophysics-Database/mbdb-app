@@ -5,7 +5,7 @@
 <IField label="Buffer (chemical environment)" d={chemical_environment.name} />
 <IField label="Buffer Constituents" d={chemical_environment.constituents} >
     {% for constituent in array(chemical_environment.constituents) %}
-        <ConstituentInfo constituent={constituent} />
+        <mst.MST.ConstituentInfo constituent={constituent} />
     {% endfor %}
 </IField>
 

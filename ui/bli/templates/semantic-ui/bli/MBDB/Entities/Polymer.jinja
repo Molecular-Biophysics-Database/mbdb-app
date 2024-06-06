@@ -1,7 +1,7 @@
 {# def entity #}
 
-<OrganismField label="Source organism" organism={entity.source_organism} />
+<bli.MBDB.Fields.OrganismField label="Source organism" value={entity.source_organism} />
 <IField label="Sequence" d={entity.sequence} />
 <IField label="Modifications" d={entity.modifications} >
-    <PolymerModifications modifications={entity.modifications} />
+    <bli.MBDB.Entities.PolymerModifications modifications={entity.modifications} />
 </IField>
