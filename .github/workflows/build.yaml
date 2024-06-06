@@ -75,7 +75,7 @@ jobs:
 
       - name: Run tests
         run: |
-          ./common/run_test.sh
+          ./tests/build_test.sh
 
       - name: Freeze packages
         run: |

@@ -23,7 +23,13 @@ invenio index init
 invenio oarepo cf init
 invenio oarepo fixtures load
 invenio files location create --default default file:////tmp/data
-invenio oarepo fixtures load --no-system-fixtures sample_data/mst
+
+MODELS=(bli mst itc spr)
+for model in ${MODELS[@]}
+do
+    invenio oarepo fixtures load --no-system-fixtures sample_data/$model
+done
+
 
 invenio users create --password 123456 -a -c test@test.com
 TOKEN=$(invenio tokens create -n test -u test@test.com)
