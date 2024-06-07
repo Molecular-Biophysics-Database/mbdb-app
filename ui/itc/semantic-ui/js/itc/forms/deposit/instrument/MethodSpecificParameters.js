@@ -33,7 +33,7 @@ function MethodSpecificParameters( { name } ) {
             <div className="flex mb-3">
                 <div>
                     <ExperimentType
-                        name={`${name}.experiment_type_base`}
+                        name={`${name}.experiment_type`}
                         colorSchema='light'
                     />
                 </div>

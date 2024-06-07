@@ -3,11 +3,8 @@ import CustomField from '../../buildingBlocks/CustomField';
 import OptionField from '../../buildingBlocks/OptionField';
 import { useFormikContext, getIn } from 'formik';
 import CreateOptions from '../../buildingBlocks/CreateOptions';
-import CreateUuid from "../../buildingBlocks/CreateUuid";
 
 function EntityInvolved( { name } ) {
-
-    CreateUuid(`${name}.entity`);
 
     const { values } = useFormikContext();
 
@@ -19,9 +16,9 @@ function EntityInvolved( { name } ) {
         <div className='flex'>
             <div className="mr-3">
                 <OptionField
-                    name={`${name}.entity`}
+                    name={name}
                     options={entityOptions}
-                    fieldName='name'
+                    fieldName='entity'
                     label='Entity'
                     tooltip='Name (ids) of the entity (from the entities of interest defined in the general parameters'
                 />
