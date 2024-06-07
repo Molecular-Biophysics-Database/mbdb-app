@@ -6,11 +6,8 @@ import OptionField from "../buildingBlocks/OptionField";
 import ArrayField from "../buildingBlocks/ArrayField";
 import Protocol from "./Protocol";
 import CreateOptions from "../buildingBlocks/CreateOptions";
-import CreateUuid from "../buildingBlocks/CreateUuid";
 
 function LigandInformation( { name, colorSchema } ) {
-
-    CreateUuid(`${name}.ligand`);
 
     const { values } = useFormikContext();
 
@@ -26,10 +23,10 @@ function LigandInformation( { name, colorSchema } ) {
                 <div className="flex">
                     <div className="mr-3">
                         <OptionField
-                            name={`${name}.ligand`}
+                            name={name}
                             options={ligandOptions}
                             label='Ligand'
-                            fieldName='name'
+                            fieldName='ligand'
                             tooltip='Name (id) of the ligand (entity that is immobilized, from the list of entities of interest defined in the general parameters'
                         />
                     </div>

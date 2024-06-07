@@ -27,11 +27,10 @@ function DataAnalysis( { name } ) {
                     name={name}
                     label='Measurement'
                     fieldName='measurements'
-                    uuid={true}
                     tooltip='List of the measurements that was analyzed together for a specific parameter'
                     renderChild={({ arrayName, index }) => (
                         <OptionField
-                            name={`${arrayName}.${index}.name`}
+                            name={`${arrayName}.${index}`}
                             label={`Measurement ${index + 1}`}
                             options={measurementOptions}
                             tooltip='List of the measurements that was analyzed together for a specific parameter'
@@ -44,11 +43,10 @@ function DataAnalysis( { name } ) {
                     name={name}
                     label='Result'
                     fieldName='results'
-                    uuid={true}
                     tooltip='Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters'
                     renderChild={({ arrayName, index }) => (
                         <OptionField
-                            name={`${arrayName}.${index}.name`}
+                            name={`${arrayName}.${index}`}
                             options={resultOptions}
                             label={`Result ${index + 1}`}
                             tooltip='Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters'

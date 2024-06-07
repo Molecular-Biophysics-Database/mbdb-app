@@ -4,8 +4,11 @@ import CustomField from "@mbdb_deposit/buildingBlocks/CustomField";
 import OptionField from "@mbdb_deposit/buildingBlocks/OptionField";
 import Sample from "./Sample";
 import CreateOptions from "@mbdb_deposit/buildingBlocks/CreateOptions";
+import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 
-function Measurements( { name } ) {
+function Measurements( {name} ) {
+
+    CreateUuid(name);
 
     const { values } = useFormikContext();
 
