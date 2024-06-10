@@ -8,6 +8,16 @@ function Chemical( { name } ) {
 
   return (
     <>
+      <div className="mb-3">
+        <CustomField
+          name={name}
+          label='Name'
+          fieldName='name'
+          required={true}
+          tooltip='Name of the chemical'
+          width='w-full'
+        />
+      </div>
       <div className='flex'>
           <div className='mr-3'>
             <VocabularySelectField
@@ -23,7 +33,7 @@ function Chemical( { name } ) {
                 placeholder='Basic information'
             />
           </div>
-          <div className="-mt-3 mr-5">
+          <div className="-mt-3 mr-8">
               <ArrayField
                   name={name}
                   label='Additional specification'
