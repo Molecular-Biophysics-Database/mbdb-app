@@ -3,7 +3,7 @@
 <IValueList>
     {%- for dp in array(gp.results) %}
         <IField label={ dp.name } >
-            <mst.MBDB.MeasuredValue value={dp} />
+            <MeasuredValue value={dp} />
         </IField>
         <IField label="Result type" d={dp.type} />
     {% endfor %}
