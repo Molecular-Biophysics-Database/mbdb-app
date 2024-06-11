@@ -1,4 +1,6 @@
 import jinja2
+
+from math import ceil
 from oarepo_ui.resources.templating.data import FieldData, EMPTY_FIELD_DATA
 from oarepo_ui.resources.templating.filters import ichain
 
@@ -25,6 +27,7 @@ NICE_NAME_OVERRIDES = {
     'ph': 'pH',
     'inchi key': 'InChI key',
 }
+
 def nice_name(name):
     """filter: nice_name"""
     name = str(name)
@@ -44,3 +47,17 @@ def find_reference(parts, part_id):
             return part
 
     return EMPTY_FIELD_DATA
+
+
+def _partition(sequence, size):
+    n_iter = ceil(len(sequence) / size)
+    return [sequence[i * size : (i + 1) * size] for i in range(n_iter)]
+
+
+def format_sequence(sequence, chunk_size, chunks_per_line):
+    """filter: format_sequence"""
+    sequence = str(sequence)
+    line_size = chunk_size * chunks_per_line
+    lines = _partition(sequence, line_size)
+    lines = [" ".join(_partition(line, chunk_size)) for line in lines]
+    return "\n".join(lines)
