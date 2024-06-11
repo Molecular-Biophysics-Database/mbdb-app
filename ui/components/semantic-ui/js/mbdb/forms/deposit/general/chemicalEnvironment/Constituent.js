@@ -33,7 +33,7 @@ function Constituent( { name } ) {
                     name={name}
                     label="Constituent"
                     fieldName='constituents'
-                    initialValue={{type: 'Polymer'}}
+                    initialValue={{type: 'Chemical'}}
                     tooltip='List of the constituents, excluding solvent components, that made up the chemical environment (i.e. buffer system, salts, surfactants, crowding agents, serum, etc.)'
                     renderChild={({ arrayName, index }) => {
                         const actualValue = getIn(values, `${arrayName}.${index}`)

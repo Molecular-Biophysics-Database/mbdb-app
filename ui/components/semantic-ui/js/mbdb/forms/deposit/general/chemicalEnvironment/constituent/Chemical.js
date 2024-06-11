@@ -3,6 +3,7 @@ import ArrayField from "../../../buildingBlocks/ArrayField";
 import CustomField from "../../../buildingBlocks/CustomField";
 import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
+import Concentration from "../../../sharedComponents/Concentration"
 
 function Chemical( { name } ) {
 
@@ -16,6 +17,12 @@ function Chemical( { name } ) {
           required={true}
           tooltip='Name of the chemical'
           width='w-full'
+        />
+      </div>
+      <div className="mb-3">
+        <Concentration
+          name={`${name}.concentration`}
+          tooltip='Concentration of the constituent including its relative concentration related to the collected sample or absolute concentration of the constituent'
         />
       </div>
       <div className='flex'>
@@ -33,7 +40,7 @@ function Chemical( { name } ) {
                 placeholder='Basic information'
             />
           </div>
-          <div className="-mt-3 mr-8">
+          <div className="-mt-3">
               <ArrayField
                   name={name}
                   label='Additional specification'
