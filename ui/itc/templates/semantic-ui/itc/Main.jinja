@@ -4,7 +4,7 @@
 {% set gp=md.general_parameters %}
 {% set msp=md.method_specific_parameters %}
 
-<itc.MBDB.RecordHeader md={md} links={d.links} />
+<RecordHeader md={md} links={d.links} />
 
 {#
     note: if you do not specify label for IField, it is taken directly from the model
@@ -15,7 +15,7 @@
     <IField d={d.id} label="Record ID"  field_class="mbdbv-record-technique" />
     <IField d={gp.technique} field_class="mbdbv-record-technique" />
     <IField d={gp.depositors} field_class="mbdbv-record-technique">
-        <itc.MBDB.Depositors depositors={gp.depositors} />
+        <Depositors depositors={gp.depositors} />
     </IField>
 </IValueList>
 
@@ -28,24 +28,24 @@
 
 <div class="mbdbv-record-container">
 
-    <itc.Common.Section title="Entities of interest"}>
-        <itc.MBDB.EntitiesOfInterest entities={gp.entities_of_interest} />
-    </itc.Common.Section>
+    <Section title="Entities of interest"}>
+        <EntitiesOfInterest entities={gp.entities_of_interest} />
+    </Section>
 
-    <itc.Common.Section title="Results">
+    <Section title="Results">
         <itc.ITC.Results gp={gp} />
-    </itc.Common.Section>
+    </Section>
 
-    <itc.Common.Section title="Measurements">
+    <Section title="Measurements">
         <itc.ITC.Measurements gp={gp} msp={msp} />
-    </itc.Common.Section>
+    </Section>
 
-    <itc.Common.Section title="Instrument">
-        <itc.MBDB.Instrument instrument={gp.instrument} />
-    </itc.Common.Section>
+    <Section title="Instrument">
+        <Instrument instrument={gp.instrument} />
+    </Section>
 
-    <itc.Common.Section title="Raw measurements" >
-        <itc.MBDB.RawMeasurements raw_measurements={gp.raw_measurements} files={extra_context.files} />
-    </itc.Common.Section>
+    <Section title="Raw measurements" >
+        <RawMeasurements raw_measurements={gp.raw_measurements} files={extra_context.files} />
+    </Section>
 
 </div>
