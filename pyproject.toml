@@ -30,6 +30,7 @@ mbdb_components = "ui.components.webpack:theme"
 
 [project.entry-points."invenio_base.blueprints"]
 branding = "ui.branding:create_blueprint"
+components = "ui.components:create_blueprint"
 pages = "ui.pages:create_blueprint"
 mst_ui = "ui.mst:create_blueprint"
 mst = "mst.views.records.app:create_app_blueprint"

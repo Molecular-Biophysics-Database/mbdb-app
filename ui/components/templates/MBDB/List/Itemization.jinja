@@ -1,0 +1,15 @@
+{% macro default_renderer(item) %}
+  {{ item }}
+{% endmacro %}
+
+{%- macro list(items, renderer=None) %}
+  <ul style="list-style-type: {{ bullet }};">
+    {% set _renderer = default_renderer if renderer == None else renderer %}
+
+    {% for item in items %}
+      <li>
+        {{ _renderer(item) }}
+      </li>
+    {% endfor %}
+  </ul>
+{%- endmacro %}
