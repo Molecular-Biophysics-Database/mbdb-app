@@ -1,7 +1,7 @@
 {# def entity #}
 
 <mst.MBDB.Fields.OrganismField label="Source organism" value={entity.source_organism} />
-<IField label="Sequence" d={entity.sequence} />
+<mst.MBDB.Entities.PolymerSequence sequence={entity.sequence} />
 <IField label="Modifications" d={entity.modifications} >
     <mst.MBDB.Entities.PolymerModifications modifications={entity.modifications} />
 </IField>
