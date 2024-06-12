@@ -122,46 +122,47 @@ async function fetchMetadata(file) {
 
 function RawMeasurementFilesTab({ name, save, recordMetadata }) {
   const { values, setFieldValue } = useFormikContext();
-
-  const files = getIn(values, files);
+  const files = getIn(values, name);
 
   const submitFiles = async () => {
-    console.log(files, "Files");
-    const filesList = files.files;
+    const filesList = files;
     const filesStatus = [];
-    filesList.forEach(async (file, index) => {
-      if (!file.file_id) {
+    const serverFilesState = await fetch(recordMetadata?.links?.files).then(
+      (response) => response.json()
+    );
+    console.log(serverFilesState);
+    const uploadedFilesKeys = serverFilesState?.entries.map((file) => file.key);
+    console.log(uploadedFilesKeys);
+    for (const file of filesList) {
+      // Add your condition to skip processing for certain items
+      if (!file?.key) {
+        continue;
+      }
+      if (!uploadedFilesKeys.includes(file.key)) {
         const response = await SubmitFile(file, recordMetadata);
         filesStatus.push(response);
-        setFieldValue("files", filesStatus);
+      } else if (
+        uploadedFilesKeys.includes(file.key) &&
+        !_isEqual(
+          file.metadata,
+          serverFilesState.entries.find((f) => f.key === file.key).metadata
+        )
+      ) {
+        const modifiedFile = await replaceMetadata(file);
+        filesStatus.push(modifiedFile);
       } else {
-        const metadataObject = await fetchMetadata(file);
-        const initialMetadata = metadataObject.metadata;
-        console.log(initialMetadata, "Initial metadata");
-        console.log(file.metadata, "File metasatjfdklsjfkldsjklfs");
-        //const initialValue = initialValues.files.find(f => (f.key === file.key));
-        if (!_isEqual(initialMetadata, file.metadata)) {
-          const modifiedFile = await replaceMetadata(file);
-          filesStatus.push(modifiedFile);
-          console.log(filesStatus, "Fileejksjfkdlsjfkldsjk");
-          setFieldValue("files", filesStatus);
-        } else {
-          filesStatus.push(file);
-          setFieldValue("files", filesStatus);
-        }
+        filesStatus.push(file);
       }
-      console.log(filesStatus, "Files status");
-    });
+    }
+
+    setFieldValue("files", filesStatus);
   };
 
   const handleDeleteFile = async (file) => {
-    console.log(file, "Filee");
     try {
       const response = await deleteFile(file);
-      console.log(response, "Response deleted file");
       if (response.status === 204) {
         const newFiles = values.files.filter((f) => f.key !== file.key);
-        console.log(newFiles, "NewFiles");
         if (newFiles.length === 0) {
           setFieldValue("files", [{}]);
         } else {

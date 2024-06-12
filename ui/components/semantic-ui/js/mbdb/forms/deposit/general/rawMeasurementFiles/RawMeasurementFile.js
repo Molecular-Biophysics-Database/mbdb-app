@@ -56,7 +56,6 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
           name={name}
           options={originatesFromOptions}
           label="Originates from"
-          disabled={isFileEditable}
           fieldName="metadata.originates_from"
           width="w-[25rem]"
           tooltip="What is the source of the file"
@@ -68,7 +67,6 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
           name={name}
           fieldName="metadata.context"
           label="Context"
-          disabled={isFileEditable}
           tooltip="The context the file should be understood within (e.g. raw measurement data)"
           options={contextOptions}
           width="w-[25rem]"
@@ -80,7 +78,6 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
           name={name}
           fieldName="metadata.content_type"
           label="Content type"
-          disabled={isFileEditable}
           options={contentTypeOptions}
           tooltip="Type of the file content in terms of how it can be read (text, binary, etc.)"
           width="w-[25rem]"
@@ -98,7 +95,6 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
               name={`${optionalFieldName}`}
               label="description"
               width="w-[25rem]"
-              disabled={isFileEditable}
               tooltip="Short description of what the file contains"
             />
           )}
@@ -115,7 +111,6 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
               name={optionalFieldName}
               label="Recommended software"
               width="w-[25rem]"
-              disabled={isFileEditable}
               tooltip="The name of the software recommended for opening and working with the file"
             />
           )}

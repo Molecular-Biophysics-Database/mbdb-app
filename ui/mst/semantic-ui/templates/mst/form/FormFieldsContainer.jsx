@@ -42,16 +42,18 @@ function FormFieldsContainer() {
   const filesInitialState = {
     files:
       recordFiles?.entries?.length > 0
-        ? recordFiles?.entries?.map((file) => (
-            file
-          ))
+        ? recordFiles?.entries?.map((file) => file)
         : [{}],
   };
   return (
     <>
       <div className="flex justify-center">
         <div className="bg-primary border-dark border-solid border-[.1px] rounded-normal">
-          <div className="flex justify-center w-fit h-[90vh]">
+          <div
+            className="flex justify-center w-fit h-[90vh]"
+            // Please remove later I have issue with height being cut off
+            style={{ height: "100%" }}
+          >
             <div className="bg-dark rounded-tl-normal rounded-bl-normal">
               {Tabs.map((tab) => (
                 <div
@@ -78,9 +80,7 @@ function FormFieldsContainer() {
                       state.selected === "raw-measurement-files" ? "" : "hidden"
                     }`}
                   >
-                    <Formik
-                      initialValues={filesInitialState}
-                    >
+                    <Formik initialValues={filesInitialState}>
                       <React.Fragment>
                         <RawMeasurementFilesTab
                           name="files"
@@ -124,9 +124,8 @@ function FormFieldsContainer() {
           </div>
         </div>
       </div>
-    
-      <FormikStateLogger />
-      
+
+      {/* <FormikStateLogger /> */}
     </>
   );
 }

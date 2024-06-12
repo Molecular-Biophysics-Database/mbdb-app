@@ -28,11 +28,9 @@ function ArrayField({
     push(newItem);
   };
 
-
   const arrayName =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const value = getIn(values, arrayName);
-  console.log(arrayName);
   return (
     <div>
       <FieldArray
@@ -47,7 +45,7 @@ function ArrayField({
                   </div>
                   {(!required || index > 0) && (
                     <Button
-                      style={{ backgroundColor: '#023850', color: 'white' }}
+                      style={{ backgroundColor: "#023850", color: "white" }}
                       onClick={() => remove(index)}
                     >
                       -
@@ -62,7 +60,7 @@ function ArrayField({
                   arrow
                 >
                   <Button
-                    style={{ backgroundColor: '#023850', color: 'white' }}
+                    style={{ backgroundColor: "#023850", color: "white" }}
                     onClick={() => handlePush(push)}
                   >
                     + {`${label}`}

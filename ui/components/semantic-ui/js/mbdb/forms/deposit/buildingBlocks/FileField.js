@@ -18,22 +18,11 @@ function FileField({
   setIsFileEditable,
   isFileEditable,
 }) {
+  console.log(name);
   const nameCustomField =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const [meta] = useField(nameCustomField);
   const { values, setFieldValue } = useFormikContext();
-  const { files: recordFiles } = useFormConfig();
-  const [fileName, setFileName] = useState("");
-
-  console.log(values, "Formik values");
-  console.log(recordFiles, "RecordFiles");
-
-  useEffect(() => {
-    const fileNameFromValues = getIn(values, `${name}.${fieldName}`);
-    if (fileNameFromValues) {
-      setFileName(fileNameFromValues);
-    }
-  }, [values, name, fieldName]);
 
   const handleOnClick = () => {
     if (!values.id) {
@@ -44,9 +33,10 @@ function FileField({
   const handleChange = (e) => {
     let file = e.target.files[0];
     if (file) {
+      console.log(name);
+      console.log(fieldName);
       setFieldValue(`${name}.metadata.size`, file.size);
       setFieldValue(`${name}.${fieldName}`, file.name);
-      setFileName(file.name);
     }
   };
 
@@ -68,87 +58,66 @@ function FileField({
   };
 
   return (
-    <>
-      <div className="flex">
-        <div className={`${width}`}>
-          {file?.key ? (
-            <div className="flex items-center">
-              <span className="rounded-lg bg-dark text-white p-2 text-16px">
-                {fileName}
-              </span>
-              <button
-                type="button"
-                className="ml-2 p-2 bg-accent text-white rounded-lg"
-                onClick={handleClear}
-              >
-                Remove file
-              </button>
-              {file?.file_id && (
-                <>
-                  {isFileEditable ? (
-                    <button
-                      className="ml-2 p-2 bg-secondary text-dark rounded-lg"
-                      onClick={() => setIsFileEditable(false)}
-                    >
-                      Edit file
-                    </button>
-                  ) : (
-                    <button
-                      className="ml-2 p-2 bg-secondary text-dark rounded-lg"
-                      onClick={() => setIsFileEditable(true)}
-                    >
-                      Save file
-                    </button>
-                  )}
-                </>
-              )}
-            </div>
-          ) : (
-            <>
-              <label
-                htmlFor="upload-file"
-                className={`rounded-lg bg-dark text-white p-2 text-16px ${width}`}
-              >
-                Choose file
-              </label>
-              <input
-                id="upload-file"
-                type="file"
-                className="hidden"
-                onChange={(e) => handleChange(e)}
-                onClick={handleOnClick}
-                size="small"
-                error={meta.touched && !!meta.error}
-              />
-            </>
-          )}
-        </div>
-        {required && (
-          <div className="text-accent ml-1">
-            <Tooltip
-              title={
-                <Typography fontSize={13}>
-                  This field is required and cannot be left blank or unset
-                </Typography>
-              }
-              arrow
+    <div className="flex">
+      <div className={`${width}`}>
+        {file?.key ? (
+          <div className="flex items-center">
+            <span className="rounded-lg bg-dark text-white p-2 text-16px">
+              {file?.key}
+            </span>
+            <button
+              type="button"
+              className="ml-2 p-2 bg-accent text-white rounded-lg"
+              onClick={handleClear}
             >
-              <span>*</span>
-            </Tooltip>
+              Remove file
+            </button>
           </div>
-        )}
-        {tooltip && (
-          <div className="ml-1 -mt-1">
-            <Tooltip
-              title={<Typography fontSize={13}>{tooltip}</Typography>}
-              arrow
+        ) : (
+          <>
+            <label
+              htmlFor="upload-file"
+              className={`rounded-lg bg-dark text-white p-2 text-16px ${width}`}
             >
-              <span>?</span>
-            </Tooltip>
-          </div>
+              Choose file
+            </label>
+            <input
+              id="upload-file"
+              type="file"
+              className="hidden"
+              onChange={(e) => handleChange(e)}
+              onClick={handleOnClick}
+              size="small"
+              error={meta.touched && !!meta.error}
+            />
+          </>
         )}
       </div>
-    </>
+      {required && (
+        <div className="text-accent ml-1">
+          <Tooltip
+            title={
+              <Typography fontSize={13}>
+                This field is required and cannot be left blank or unset
+              </Typography>
+            }
+            arrow
+          >
+            <span>*</span>
+          </Tooltip>
+        </div>
+      )}
+      {tooltip && (
+        <div className="ml-1 -mt-1">
+          <Tooltip
+            title={<Typography fontSize={13}>{tooltip}</Typography>}
+            arrow
+          >
+            <span>?</span>
+          </Tooltip>
+        </div>
+      )}
+    </div>
   );
 }
 
