@@ -38,7 +38,7 @@ function FormFieldsContainer() {
           <div className='flex justify-center w-fit h-[90vh]'>
             <div className="bg-dark rounded-tl-normal rounded-bl-normal">
               {Tabs.map(tab => (
-                  <div 
+                  <div
                     key={tab.value} 
                     className={`py-5 px-6 font-JostBold cursor-pointer rounded-tl-normal rounded-bl-normal hover:bg-primary hover:text-dark ${state.selected === tab.value ? 'bg-primary text-dark' : 'text-white'}`}
                     onClick={() => setState({ selected: tab.value })}

@@ -2,9 +2,9 @@ import React from "react";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import ArrayField from "../../buildingBlocks/ArrayField";
 import RawMeasurementFile from "../rawMeasurementFiles/RawMeasurementFile";
-import UseDefault from "../../buildingBlocks/UseDefault";
 import { useFormikContext, getIn } from "formik";
 import { Button } from "semantic-ui-react";
+import _isEqual from "lodash/isEqual";
 
 // There are completely separate end points for submitting record's metadata and for submitting files
 // therefore it will not be possible to just send file related things as part of record's metadata
@@ -68,27 +68,119 @@ async function SubmitFile(file, recordMetadata) {
     };
   }
 
-  return void 0;
+  const res = await resp.json();
+
+  return res;
+}
+
+async function deleteFile(file) {
+  const response = await fetch(file.links.self, {
+    method: "DELETE",
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to delete file: ${response.statusText}`);
+  }
+
+  return response;
+}
+
+async function replaceMetadata(file) {
+  const response = await fetch(file.links.self, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      metadata: file.metadata,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to replace file: ${response.statusText}`);
+  }
+  const res = await response.json();
+
+  return res;
+}
+
+async function fetchMetadata(file) {
+  const response = await fetch(file.links.self, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to replace file: ${response.statusText}`);
+  }
+  const res = await response.json();
+
+  return res;
 }
 
 function RawMeasurementFilesTab({ name, save, recordMetadata }) {
-  const fieldName = "raw_measurement_files";
+  const { values, setFieldValue } = useFormikContext();
 
-  UseDefault(name, [{}]);
-  const { values } = useFormikContext();
   const files = getIn(values, files);
+
   const submitFiles = async () => {
-    console.log(files);
+    console.log(files, "Files");
     const filesList = files.files;
+    const filesStatus = [];
     filesList.forEach(async (file, index) => {
-      const response = await SubmitFile(file, recordMetadata);
+      if (!file.file_id) {
+        const response = await SubmitFile(file, recordMetadata);
+        filesStatus.push(response);
+        setFieldValue("files", filesStatus);
+      } else {
+        const metadataObject = await fetchMetadata(file);
+        const initialMetadata = metadataObject.metadata;
+        console.log(initialMetadata, "Initial metadata");
+        console.log(file.metadata, "File metasatjfdklsjfkldsjklfs");
+        //const initialValue = initialValues.files.find(f => (f.key === file.key));
+        if (!_isEqual(initialMetadata, file.metadata)) {
+          const modifiedFile = await replaceMetadata(file);
+          filesStatus.push(modifiedFile);
+          console.log(filesStatus, "Fileejksjfkdlsjfkldsjk");
+          setFieldValue("files", filesStatus);
+        } else {
+          filesStatus.push(file);
+          setFieldValue("files", filesStatus);
+        }
+      }
+      console.log(filesStatus, "Files status");
     });
+  };
+
+  const handleDeleteFile = async (file) => {
+    console.log(file, "Filee");
+    try {
+      const response = await deleteFile(file);
+      console.log(response, "Response deleted file");
+      if (response.status === 204) {
+        const newFiles = values.files.filter((f) => f.key !== file.key);
+        console.log(newFiles, "NewFiles");
+        if (newFiles.length === 0) {
+          setFieldValue("files", [{}]);
+        } else {
+          setFieldValue("files", newFiles);
+        }
+      }
+    } catch (error) {
+      console.error("Error deleting file:", error);
+    }
   };
 
   return (
     <>
       {/* just for testing purposes */}
-      <Button primary onClick={() => submitFiles()}>
+      <Button
+        primary
+        style={{ backgroundColor: "grey", color: "white" }}
+        onClick={() => submitFiles()}
+      >
         Submit files
       </Button>
       <div className="-mt-3">
@@ -96,18 +188,20 @@ function RawMeasurementFilesTab({ name, save, recordMetadata }) {
           name={name}
           label="Raw measurement file"
           required={true}
-          //   fieldName={fieldName}
+          //  fieldName={fieldName}
           tooltip="List of file(s) containing the raw measurements"
-          renderChild={({ arrayName, index }) => (
+          renderChild={({ arrayName, index, item: file }) => (
             <FormWrapper
               headline={`Raw measurement file ${index + 1}`}
               tooltip="List of file(s) containing the raw measurements"
             >
               <div>
                 <RawMeasurementFile
+                  file={file}
                   name={`${arrayName}.${index}`}
                   index={index}
                   save={save}
+                  onDeleteFile={handleDeleteFile}
                 />
               </div>
             </FormWrapper>

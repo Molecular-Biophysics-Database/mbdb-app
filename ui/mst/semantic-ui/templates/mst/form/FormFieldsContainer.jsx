@@ -42,10 +42,9 @@ function FormFieldsContainer() {
   const filesInitialState = {
     files:
       recordFiles?.entries?.length > 0
-        ? recordFiles?.entries?.map((file) => ({
-            key: file.key,
-            metadata: file.metadata,
-          }))
+        ? recordFiles?.entries?.map((file) => (
+            file
+          ))
         : [{}],
   };
   return (
@@ -81,7 +80,6 @@ function FormFieldsContainer() {
                   >
                     <Formik
                       initialValues={filesInitialState}
-                      enableReinitialize
                     >
                       <React.Fragment>
                         <RawMeasurementFilesTab
@@ -126,7 +124,9 @@ function FormFieldsContainer() {
           </div>
         </div>
       </div>
+    
       <FormikStateLogger />
+      
     </>
   );
 }

@@ -1,80 +1,39 @@
 import React from "react";
 import Tooltip from "@material-ui/core/Tooltip";
 import { Typography } from "@material-ui/core";
-import { useFormikContext, useField } from "formik";
-import { useDepositApiClient } from "@js/oarepo_ui";
+import { useFormikContext, useField, getIn } from "formik";
 import { useFormConfig } from "@js/oarepo_ui";
+import { useState, useEffect } from "react";
 
-async function SubmitFile(values, file, index) {
-  if (!file) return { code: 400, errors: ["No file selected."] };
-
-  const fileName = file.name;
-
-  // Submit the file name
-  let resp = await fetch(values?.links?.files, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify([{ key: fileName, metadata: { fileNote: "Blabla" } }]),
-  });
-
-  if (!resp.ok) {
-    return {
-      code: resp.status,
-      errors: [`Failed to submit file "${fileName}": ${resp.statusText}`],
-    };
-  }
-
-  const response = await resp.json();
-
-  // Upload the file content
-  resp = await fetch(response.entries[index].links.content, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/octet-stream",
-    },
-    body: file,
-  });
-
-  if (!resp.ok) {
-    return {
-      code: resp.status,
-      errors: [
-        `Failed to upload content of file "${fileName}": ${resp.statusText}`,
-      ],
-    };
-  }
-
-  // Commit the result
-  resp = await fetch(response.entries[index].links.commit, {
-    method: "POST",
-    // body: JSON.stringify([{ metadata: { fileNote: "Blabla" } }]),
-  });
-
-  if (!resp.ok) {
-    return {
-      code: resp.status,
-      errors: [
-        `Failed to commit uploaded file "${fileName}": ${resp.statusText}`,
-      ],
-    };
-  }
-
-  return void 0;
-}
-
-function FileField({ name, fieldName, tooltip, width, required, index, save }) {
+function FileField({
+  name,
+  fieldName,
+  tooltip,
+  width,
+  required,
+  index,
+  save,
+  onDeleteFile,
+  file,
+  setIsFileEditable,
+  isFileEditable,
+}) {
   const nameCustomField =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
-  const [field, meta, helpers] = useField(nameCustomField);
+  const [meta] = useField(nameCustomField);
   const { values, setFieldValue } = useFormikContext();
-  // const { save } = useDepositApiClient();
   const { files: recordFiles } = useFormConfig();
+  const [fileName, setFileName] = useState("");
 
   console.log(values, "Formik values");
-
   console.log(recordFiles, "RecordFiles");
+
+  useEffect(() => {
+    const fileNameFromValues = getIn(values, `${name}.${fieldName}`);
+    if (fileNameFromValues) {
+      setFileName(fileNameFromValues);
+    }
+  }, [values, name, fieldName]);
 
   const handleOnClick = () => {
     if (!values.id) {
@@ -82,16 +41,29 @@ function FileField({ name, fieldName, tooltip, width, required, index, save }) {
     }
   };
 
-  const handleChange = (e, index) => {
-    const file = e.target.files[0];
-    // console.log(file, "File");
-    // console.log(e.target);
-    // console.log(e.target.files);
-    // console.log(nameCustomField, "NameCustomField");
-    // SubmitFile(values, file, index);
+  const handleChange = (e) => {
+    let file = e.target.files[0];
     if (file) {
-      console.log("File found");
-      setFieldValue(`${name}.key`, file.name);
+      setFieldValue(`${name}.metadata.size`, file.size);
+      setFieldValue(`${name}.${fieldName}`, file.name);
+      setFileName(file.name);
+    }
+  };
+
+  const handleClear = async () => {
+    if (file.file_id) {
+      try {
+        await onDeleteFile(file);
+      } catch (error) {
+        console.error("Error deleting file:", error);
+      }
+    } else {
+      const newFiles = values.files.filter((f) => f.key !== file.key);
+      if (newFiles.length === 0) {
+        setFieldValue("files", [{}]);
+      } else {
+        setFieldValue("files", newFiles);
+      }
     }
   };
 
@@ -99,14 +71,57 @@ function FileField({ name, fieldName, tooltip, width, required, index, save }) {
     <>
       <div className="flex">
         <div className={`${width}`}>
-          <input
-            type="file"
-            className={`rounded-lg p-2 text-16px ${width}`}
-            onChange={(e) => handleChange(e, index)}
-            onClick={handleOnClick}
-            size="small"
-            error={meta.touched && !!meta.error}
-          />
+          {file?.key ? (
+            <div className="flex items-center">
+              <span className="rounded-lg bg-dark text-white p-2 text-16px">
+                {fileName}
+              </span>
+              <button
+                type="button"
+                className="ml-2 p-2 bg-accent text-white rounded-lg"
+                onClick={handleClear}
+              >
+                Remove file
+              </button>
+              {file?.file_id && (
+                <>
+                  {isFileEditable ? (
+                    <button
+                      className="ml-2 p-2 bg-secondary text-dark rounded-lg"
+                      onClick={() => setIsFileEditable(false)}
+                    >
+                      Edit file
+                    </button>
+                  ) : (
+                    <button
+                      className="ml-2 p-2 bg-secondary text-dark rounded-lg"
+                      onClick={() => setIsFileEditable(true)}
+                    >
+                      Save file
+                    </button>
+                  )}
+                </>
+              )}
+            </div>
+          ) : (
+            <>
+              <label
+                htmlFor="upload-file"
+                className={`rounded-lg bg-dark text-white p-2 text-16px ${width}`}
+              >
+                Choose file
+              </label>
+              <input
+                id="upload-file"
+                type="file"
+                className="hidden"
+                onChange={(e) => handleChange(e)}
+                onClick={handleOnClick}
+                size="small"
+                error={meta.touched && !!meta.error}
+              />
+            </>
+          )}
         </div>
         {required && (
           <div className="text-accent ml-1">

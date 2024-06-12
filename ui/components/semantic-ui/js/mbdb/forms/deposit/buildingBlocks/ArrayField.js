@@ -1,6 +1,6 @@
 import React from "react";
 import { FieldArray, getIn, useFormikContext } from "formik";
-import Button from "@material-ui/core/Button";
+import { Button } from "semantic-ui-react";
 import Tooltip from "@material-ui/core/Tooltip";
 import { Typography } from "@material-ui/core";
 import { v4 as uuidv4 } from "uuid";
@@ -28,7 +28,7 @@ function ArrayField({
     push(newItem);
   };
 
-  console.log(values);
+
   const arrayName =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const value = getIn(values, arrayName);
@@ -43,26 +43,14 @@ function ArrayField({
               value.map((item, index) => (
                 <div key={index} className="flex mt-3">
                   <div className="mr-3">
-                    {renderChild({ arrayName, name, index })}
+                    {renderChild({ arrayName, name, index, item })}
                   </div>
                   {(!required || index > 0) && (
                     <Button
-                      type="button"
-                      className="text-dark"
-                      variant="outlined"
+                      style={{ backgroundColor: '#023850', color: 'white' }}
                       onClick={() => remove(index)}
-                      sx={{
-                        borderColor: "#023850",
-                        backgroundColor: "#023850",
-                        color: "#fff",
-                        "&:hover": {
-                          borderColor: "#023850",
-                          backgroundColor: "#023850",
-                          color: "#fff",
-                        },
-                      }}
                     >
-                      <div>-</div>
+                      -
                     </Button>
                   )}
                 </div>
@@ -74,18 +62,8 @@ function ArrayField({
                   arrow
                 >
                   <Button
-                    variant="outlined"
+                    style={{ backgroundColor: '#023850', color: 'white' }}
                     onClick={() => handlePush(push)}
-                    sx={{
-                      borderColor: "#023850",
-                      backgroundColor: "#023850",
-                      color: "#fff",
-                      "&:hover": {
-                        borderColor: "#023850",
-                        backgroundColor: "#023850",
-                        color: "#fff",
-                      },
-                    }}
                   >
                     + {`${label}`}
                   </Button>
