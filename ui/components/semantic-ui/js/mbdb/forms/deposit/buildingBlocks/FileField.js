@@ -18,12 +18,11 @@ function FileField({
   setIsFileEditable,
   isFileEditable,
 }) {
-  console.log(name);
   const nameCustomField =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const [meta] = useField(nameCustomField);
   const { values, setFieldValue } = useFormikContext();
-
+  console.log(index);
   const handleOnClick = () => {
     if (!values.id) {
       save(true);
@@ -33,8 +32,6 @@ function FileField({
   const handleChange = (e) => {
     let file = e.target.files[0];
     if (file) {
-      console.log(name);
-      console.log(fieldName);
       setFieldValue(`${name}.metadata.size`, file.size);
       setFieldValue(`${name}.${fieldName}`, file.name);
     }
@@ -76,16 +73,18 @@ function FileField({
         ) : (
           <>
             <label
-              htmlFor="upload-file"
+              htmlFor={`${name}.file-upload`}
               className={`rounded-lg bg-dark text-white p-2 text-16px ${width}`}
             >
               Choose file
             </label>
             <input
-              id="upload-file"
+              // very important must not hard code an id for element in an array. There must
+              // not be duplicate ids in the DOM, it causes weird bugs
+              id={`${name}.file-upload`}
               type="file"
               className="hidden"
-              onChange={(e) => handleChange(e)}
+              onChange={(e) => handleChange(e, index)}
               onClick={handleOnClick}
               size="small"
               error={meta.touched && !!meta.error}

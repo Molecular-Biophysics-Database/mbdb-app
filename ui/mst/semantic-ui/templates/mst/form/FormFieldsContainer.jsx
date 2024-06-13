@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import RawMeasurementFilesTab from "@mbdb_deposit/general/generalTabs/RawMeasurementFilesTab";
@@ -11,6 +11,7 @@ import ProjectInformationTab from "@mbdb_deposit/general/generalTabs/ProjectInfo
 import MeasurementTab from "@mst_deposit/mstTabs/MeasurementTab";
 import { useFormikContext, Formik } from "formik";
 import { useFormConfig, useDepositApiClient } from "@js/oarepo_ui";
+import { Button } from "semantic-ui-react";
 
 // for testing only
 const FormikStateLogger = () => {
@@ -45,8 +46,25 @@ function FormFieldsContainer() {
         ? recordFiles?.entries?.map((file) => file)
         : [{}],
   };
+
+  const fileUploaderRef = useRef(null);
+
+  const handleUpload = async () => {
+    console.log(fileUploaderRef);
+    if (fileUploaderRef.current) {
+      await fileUploaderRef.current.submitFiles();
+    }
+  };
+  // just for testing purposes top level handler that submits both record's files and metadata
+  const handleSaveMetadataAndFiles = async () => {
+    save();
+    handleUpload();
+  };
   return (
     <>
+      <Button onClick={() => handleSaveMetadataAndFiles()}>
+        Submit metadata and files
+      </Button>
       <div className="flex justify-center">
         <div className="bg-primary border-dark border-solid border-[.1px] rounded-normal">
           <div
@@ -83,6 +101,7 @@ function FormFieldsContainer() {
                     <Formik initialValues={filesInitialState}>
                       <React.Fragment>
                         <RawMeasurementFilesTab
+                          ref={fileUploaderRef}
                           name="files"
                           save={save}
                           recordMetadata={recordMetadata}

@@ -39,6 +39,7 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
     <>
       <div className="mb-3">
         <FileField
+          key={index}
           name={name}
           fieldName="key"
           index={index}
