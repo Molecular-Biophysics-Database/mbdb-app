@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import RawMeasurementFilesTab from "@mbdb_deposit/general/generalTabs/RawMeasurementFilesTab";
@@ -12,6 +12,9 @@ import SensorsTab from "@bli_deposit/bliTabs/SensorsTab";
 import MeasurementProtocolStepTab from "@bli_deposit/bliTabs/MeasurementProtocolStepTab";
 import MeasurementsTab from "@bli_deposit/bliTabs/MeasurementsTab";
 import DataAnalysisTab from "@bli_deposit/bliTabs/DataAnalysisTab";
+import { Formik } from "formik";
+import { useFormConfig, useDepositApiClient } from "@js/oarepo_ui";
+import { Button } from "semantic-ui-react";
 
 function FormFieldsContainer() {
   const Tabs = [
@@ -30,20 +33,47 @@ function FormFieldsContainer() {
 
   const location = useLocation();
   const [state, setState] = useState({ selected: "project-information" });
+  const { save, values: recordMetadata } = useDepositApiClient();
 
   useEffect(() => {
     const selectedTab = location?.state?.selectedTab || "project-information";
     setState({ selected: selectedTab });
   }, [location]);
+  const { files: recordFiles } = useFormConfig();
+  const filesInitialState = {
+    files:
+      recordFiles?.entries?.length > 0
+        ? recordFiles?.entries?.map((file) => file)
+        : [{}],
+  };
+
+  const fileUploaderRef = useRef(null);
+
+  const handleUpload = async () => {
+    console.log(fileUploaderRef);
+    if (fileUploaderRef.current) {
+      await fileUploaderRef.current.submitFiles();
+    }
+  };
+
+  const handleSaveMetadataAndFiles = async () => {
+    save(true);
+    handleUpload();
+  };
 
   return (
     <>
+      <div className="mb-4 ml-3">
+        <Button style={{ backgroundColor: "#023850", color: "white" }} onClick={() => handleSaveMetadataAndFiles()}>
+          Submit metadata and files
+        </Button>
+      </div>
       <div className="flex justify-center">
         <div className="bg-primary border-dark border-solid border-[.1px] rounded-normal">
           <div className="flex justify-center w-fit h-[90vh]">
-            <div className="bg-dark rounded-tl-normal rounded-bl-normal">
+            <div className="bg-dark flex flex-col rounded-tl-normal rounded-bl-normal">
               {Tabs.map((tab) => (
-                <div
+                <button
                   key={tab.value}
                   className={`py-5 px-6 font-JostBold cursor-pointer rounded-tl-normal rounded-bl-normal hover:bg-primary hover:text-dark ${
                     state.selected === tab.value
@@ -53,7 +83,7 @@ function FormFieldsContainer() {
                   onClick={() => setState({ selected: tab.value })}
                 >
                   {tab.label}
-                </div>
+                </button>
               ))}
             </div>
             <div className="overflow-y-scroll overflow-x-hidden">
@@ -67,7 +97,16 @@ function FormFieldsContainer() {
                       state.selected === "raw-measurement-files" ? "" : "hidden"
                     }`}
                   >
-                    <RawMeasurementFilesTab name="metadata.general_parameters" />
+                    <Formik initialValues={filesInitialState}>
+                      <React.Fragment>
+                        <RawMeasurementFilesTab
+                          ref={fileUploaderRef}
+                          name="files"
+                          save={save}
+                          recordMetadata={recordMetadata}
+                        />
+                      </React.Fragment>
+                    </Formik>
                   </div>
                   <div
                     className={

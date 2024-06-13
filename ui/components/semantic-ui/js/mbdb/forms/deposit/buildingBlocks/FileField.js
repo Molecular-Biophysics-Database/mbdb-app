@@ -1,28 +1,23 @@
 import React from "react";
 import Tooltip from "@material-ui/core/Tooltip";
 import { Typography } from "@material-ui/core";
-import { useFormikContext, useField, getIn } from "formik";
-import { useFormConfig } from "@js/oarepo_ui";
-import { useState, useEffect } from "react";
+import { useFormikContext, useField } from "formik";
 
 function FileField({
   name,
   fieldName,
   tooltip,
-  width,
   required,
   index,
   save,
   onDeleteFile,
   file,
-  setIsFileEditable,
-  isFileEditable,
 }) {
   const nameCustomField =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const [meta] = useField(nameCustomField);
   const { values, setFieldValue } = useFormikContext();
-  console.log(index);
+  //console.log(index);
   const handleOnClick = () => {
     if (!values.id) {
       save(true);
@@ -33,6 +28,7 @@ function FileField({
     let file = e.target.files[0];
     if (file) {
       setFieldValue(`${name}.metadata.size`, file.size);
+      setFieldValue(`${name}.metadata.name`, file.name);
       setFieldValue(`${name}.${fieldName}`, file.name);
     }
   };
@@ -56,25 +52,25 @@ function FileField({
 
   return (
     <div className="flex">
-      <div className={`${width}`}>
+      <div>
         {file?.key ? (
           <div className="flex items-center">
-            <span className="rounded-lg bg-dark text-white p-2 text-16px">
+            <span className="rounded-normal font-JostMedium bg-dark text-white p-3 text-16px">
               {file?.key}
             </span>
             <button
               type="button"
-              className="ml-2 p-2 bg-accent text-white rounded-lg"
+              className="ml-2 p-3 bg-accent font-JostMedium text-white rounded-normal"
               onClick={handleClear}
             >
               Remove file
             </button>
           </div>
         ) : (
-          <>
+          <div className="flex">
             <label
               htmlFor={`${name}.file-upload`}
-              className={`rounded-lg bg-dark text-white p-2 text-16px ${width}`}
+              className="rounded-normal font-JostMedium bg-dark text-white p-3 text-16px"
             >
               Choose file
             </label>
@@ -89,7 +85,7 @@ function FileField({
               size="small"
               error={meta.touched && !!meta.error}
             />
-          </>
+          </div>
         )}
       </div>
       {required && (

@@ -3,7 +3,6 @@ import FormWrapper from "../../buildingBlocks/FormWrapper";
 import ArrayField from "../../buildingBlocks/ArrayField";
 import RawMeasurementFile from "../rawMeasurementFiles/RawMeasurementFile";
 import { useFormikContext, getIn } from "formik";
-import { Button } from "semantic-ui-react";
 import _isEqual from "lodash/isEqual";
 
 // There are completely separate end points for submitting record's metadata and for submitting files
@@ -172,21 +171,21 @@ const RawMeasurementFilesTab = forwardRef(
 
     return (
       <>
-        {/* just for testing purposes */}
-        <Button
-          primary
-          style={{ backgroundColor: "grey", color: "white" }}
-          onClick={() => submitFiles()}
-        >
-          Submit files
-        </Button>
+        {/* just for testing purposes 
+          <Button
+            primary
+            style={{ backgroundColor: "#023850", color: "white" }}
+            onClick={() => submitFiles()}
+          >
+            Submit files
+          </Button>
+        */}
         <div className="-mt-3">
           <ArrayField
             name={name}
             label="Raw measurement file"
             required={true}
             initialValue={{ key: "" }}
-            //  fieldName={fieldName}
             tooltip="List of file(s) containing the raw measurements"
             renderChild={({ arrayName, index, item: file }) => (
               <FormWrapper

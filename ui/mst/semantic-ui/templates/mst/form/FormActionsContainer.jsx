@@ -5,8 +5,8 @@ import PublishButton from "./PublishButton";
 
 export const FormActionsContainer = ({ record }) => {
   return (
-    <div className="flex ml-3">
-      <div className="mr-3">
+    <div className="flex ml-3 -mb-3">
+      <div className="mr-4">
         <SaveButton/>
       </div>
       <div>

@@ -9,15 +9,17 @@ import ResultTab from "@mbdb_deposit/general/generalTabs/ResultTab";
 import DataAnalysisTab from "@mst_deposit/mstTabs/DataAnalysisTab";
 import ProjectInformationTab from "@mbdb_deposit/general/generalTabs/ProjectInformationTab";
 import MeasurementTab from "@mst_deposit/mstTabs/MeasurementTab";
-import { useFormikContext, Formik } from "formik";
+import { Formik } from "formik";
 import { useFormConfig, useDepositApiClient } from "@js/oarepo_ui";
 import { Button } from "semantic-ui-react";
 
+/**
 // for testing only
 const FormikStateLogger = () => {
   const state = useFormikContext();
   return <pre>{JSON.stringify(state, null, 2)}</pre>;
 };
+**/
 
 function FormFieldsContainer() {
   const Tabs = [
@@ -57,26 +59,27 @@ function FormFieldsContainer() {
   };
   // just for testing purposes top level handler that submits both record's files and metadata
   const handleSaveMetadataAndFiles = async () => {
-    save();
+    save(true);
     handleUpload();
   };
   return (
     <>
-      <Button onClick={() => handleSaveMetadataAndFiles()}>
-        Submit metadata and files
-      </Button>
+      <div className="mb-4 ml-3">
+        <Button
+          style={{ backgroundColor: "#023850", color: "white" }} 
+          onClick={() => handleSaveMetadataAndFiles()}
+        >
+          Submit metadata and files
+        </Button>
+      </div>
       <div className="flex justify-center">
         <div className="bg-primary border-dark border-solid border-[.1px] rounded-normal">
-          <div
-            className="flex justify-center w-fit h-[90vh]"
-            // Please remove later I have issue with height being cut off
-            style={{ height: "100%" }}
-          >
-            <div className="bg-dark rounded-tl-normal rounded-bl-normal">
+          <div className="flex justify-center w-fit h-[90vh]">
+            <div className="bg-dark flex flex-col rounded-tl-normal rounded-bl-normal">
               {Tabs.map((tab) => (
-                <div
+                <button
                   key={tab.value}
-                  className={`py-5 px-6 font-JostBold cursor-pointer rounded-tl-normal rounded-bl-normal hover:bg-primary hover:text-dark ${
+                  className={`py-5 px-6 font-JostBold cursor-pointer rounded-tl-normal text-left rounded-bl-normal hover:bg-primary hover:text-dark ${
                     state.selected === tab.value
                       ? "bg-primary text-dark"
                       : "text-white"
@@ -84,7 +87,7 @@ function FormFieldsContainer() {
                   onClick={() => setState({ selected: tab.value })}
                 >
                   {tab.label}
-                </div>
+                </button>
               ))}
             </div>
             <div className="overflow-y-scroll overflow-x-hidden">
@@ -106,7 +109,7 @@ function FormFieldsContainer() {
                           save={save}
                           recordMetadata={recordMetadata}
                         />
-                        <FormikStateLogger />
+                        {/* <FormikStateLogger /> */}
                       </React.Fragment>
                     </Formik>
                   </div>
@@ -143,7 +146,6 @@ function FormFieldsContainer() {
           </div>
         </div>
       </div>
-
       {/* <FormikStateLogger /> */}
     </>
   );

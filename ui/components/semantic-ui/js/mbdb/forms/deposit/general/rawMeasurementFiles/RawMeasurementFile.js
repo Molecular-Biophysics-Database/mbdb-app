@@ -6,17 +6,8 @@ import DataProcessingStep from "../../sharedComponents/DataProcessingStep";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import OptionalField from "../../buildingBlocks/OptionalField";
 import FileField from "../../buildingBlocks/FileField";
-import { useState } from "react";
 
 function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
-  const [isFileEditable, setIsFileEditable] = useState(() => {
-    if (file?.file_id === undefined) {
-      return false;
-    } else {
-      return file.file_id === undefined ? true : !!file.file_id;
-    }
-  });
-
   const originatesFromOptions = [
     { value: "Instrument software", label: "Instrument software" },
     { value: "User", label: "User" },
@@ -43,12 +34,9 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
           name={name}
           fieldName="key"
           index={index}
-          width="w-[25rem]"
           save={save}
           required={true}
           file={file}
-          setIsFileEditable={setIsFileEditable}
-          isFileEditable={isFileEditable}
           onDeleteFile={onDeleteFile}
         />
       </div>
