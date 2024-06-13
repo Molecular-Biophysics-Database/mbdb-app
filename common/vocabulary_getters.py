@@ -1,7 +1,24 @@
 import requests
 import math
-
 from oarepo_vocabularies.authorities.providers import AuthorityProvider
+
+
+class ApiGet:
+    def __init__(self, url, params: dict = None):
+        self.url = url
+        self.params = params or {}
+        self.response: requests.Response = requests.get(url, params=params)
+        self.err_msg = None
+
+    @property
+    def json(self):
+        if not self.response.ok:
+            self.err_msg = f"{self.response.status_code}: {self.response.content}"
+            return {}
+        return self.response.json()
+
+    def __repr__(self):
+        return f"<ApiGet(status_code={self.response.status_code})>)"
 
 
 def start_pos_api_page(page: int, size: int, api_size: int) -> int:
@@ -20,22 +37,6 @@ def exceeds_page(page: int, size: int, api_size: int) -> bool:
     return remaining_elements_on_api_page < 0
 
 
-def check_response(response: requests.Response):
-    """helper function that raise an error if the response didn't return ok"""
-    if not response.ok:
-        msg = f"{response.status_code}: {response.content}"
-        raise ConnectionError(msg)
-
-
-def fetch_json(url, params: dict = None):
-    """helper function that makes the request and returns a json dictionary"""
-    if params is None:
-        params = {}
-    response = requests.get(url=url, params=params)
-    check_response(response)
-    return response.json()
-
-
 class RORService(AuthorityProvider):
     search_url = "https://api.ror.org/organizations"
     get_url = f"{search_url}/"
@@ -45,12 +46,11 @@ class RORService(AuthorityProvider):
         #  fetch multiple pages from the api:
         #   1. size > api_size
         #   2. when size > remaining element on the api_page where the page begins
-        query = params.get("q", "")
         page = params.get("page", 1)
         size = params.get("size", 10)
 
         api_size = 20
-        size_ratio = params.get(api_size) / api_size
+        size_ratio = size / api_size
         n_api_pages = math.ceil(size_ratio) + int(exceeds_page(page, size, api_size))
         affiliations = []
         total = 0
@@ -60,13 +60,11 @@ class RORService(AuthorityProvider):
             # i.e. we fetch api_page e.g. 2, 3, 4 as offset is decreases with each iteration
             api_page = math.ceil(page * size_ratio) - offset + 1
 
-            q_params = {"query": query, "page": api_page}
-            response_json = fetch_json(self.search_url, params=q_params)
-            total = response_json["number_of_results"]
+            q_params = {"query": params.get("q", ""), "page": api_page}
+            json = ApiGet(url=self.search_url, params=q_params).json
+            total = json["number_of_results"]
 
-            affiliations += [
-                self.convert_ror_record(hit) for hit in response_json["items"]
-            ]
+            affiliations += [self.convert_ror_record(aff) for aff in json["items"]]
 
         # construct the return object
         start_pos = start_pos_api_page(page, size, api_size)
@@ -75,20 +73,20 @@ class RORService(AuthorityProvider):
     def get(self, identity, item_id, *, uow, value, **kwargs):
         if not item_id.startswith("ror:"):
             raise KeyError(f'item_id, "{item_id}", is not a ROR id')
-        response_json = fetch_json(f"{self.get_url}{item_id[4:]}")
-        return self.convert_ror_record(response_json)
+        json = ApiGet(url=f"{self.get_url}{item_id[4:]}").json
+        return self.convert_ror_record(json)
 
     @staticmethod
-    def convert_ror_record(hit):
+    def convert_ror_record(affiliation):
         aff_entry = {
-            "id": f"ror:{hit['id'].split('/')[-1]}",
-            "title": {"en": hit["name"]},
+            "id": f"ror:{affiliation['id'].split('/')[-1]}",
+            "title": {"en": affiliation["name"]},
             "props": {
-                "city": hit["addresses"][0]["city"],
-                "country": hit["country"]["country_name"],
+                "city": affiliation["addresses"][0]["city"],
+                "country": affiliation["country"]["country_name"],
             },
         }
-        state = hit["addresses"][0].get("state")
+        state = affiliation["addresses"][0].get("state")
         if state:
             aff_entry["props"]["state"] = state
         return aff_entry
@@ -102,24 +100,21 @@ class NCBIService(AuthorityProvider):
     def search(self, identity, params, **kwargs):
         # paging and size cannot be supplied and I can't find documentation on how many results
         # can maximally be returned, however, 20 appears to be maximum
-        query = params.get("q", "")
-        page = params.get("page", 1)
         size = params.get("size", 10)
+        query = params.get("q", "")
         api_size = 20
 
         q_params = {
             "tax_rank_filter": "higher_taxon",
             "taxon_resource_filter": "TAXON_RESOURCE_FILTER_ALL",
         }
-        suggested_json = fetch_json(f"{self.search_url}{query}", q_params)
 
-        try:
-            taxids = suggested_json["sci_name_and_ids"]
-        except KeyError:
-            taxids = []
-        total = len(taxids)
-        organisms = [self.convert_ncbi_record(hit) for hit in taxids]
-        start_pos = start_pos_api_page(page, size, api_size)
+        hits = ApiGet(f"{self.search_url}{query}", q_params).json
+
+        organisms = hits.get("sci_name_and_ids", [])
+        total = len(organisms)
+        organisms = [self.convert_ncbi_record(org) for org in organisms]
+        start_pos = start_pos_api_page(params.get("page", 1), size, api_size)
 
         return organisms[start_pos : start_pos + size], total, size
 
@@ -127,22 +122,22 @@ class NCBIService(AuthorityProvider):
         if not item_id.startswith("taxid:"):
             raise KeyError(f'item_id, "{item_id}", is not a NCBI tax id')
 
-        response_json = fetch_json(f"{self.get_url}{item_id[6:]}")
+        response_json = ApiGet(f"{self.get_url}{item_id[6:]}").json
         record = response_json["taxonomy_nodes"][0]["taxonomy"]
         return self.convert_ncbi_record(record)
 
     @staticmethod
-    def convert_ncbi_record(hit):
-        rank = hit.get("rank")
+    def convert_ncbi_record(organism):
+        rank = organism.get("rank")
         if not rank:
             rank = "NO RANK"
 
-        title = hit.get("organism_name")
+        title = organism.get("organism_name")
         if not title:
-            title = hit["sci_name"]
+            title = organism["sci_name"]
 
         return {
-            "id": f'taxid:{hit["tax_id"]}',
+            "id": f'taxid:{organism["tax_id"]}',
             "title": {"en": title},
             "props": {"rank": rank},
         }
@@ -154,12 +149,15 @@ class OpenAireService(AuthorityProvider):  # noqa
 
     def search(self, identity, params, **kwargs):
         # both page and size can be specified directly to this endpoint
-        query = params.get("q", "")
-        page = params.get("page", 1)
         size = params.get("size", 10)
 
-        q_params = {"keywords": query, "page": page, "size": size, "format": "json"}
-        hits = fetch_json(url=self.search_url, params=q_params)["response"]
+        q_params = {
+            "keywords": params.get("q", ""),
+            "page": params.get("page", 1),
+            "size": size,
+            "format": "json",
+        }
+        hits = ApiGet(url=self.search_url, params=q_params).json["response"]
         total = int(hits["header"]["total"]["$"])
 
         grants = [self.convert_oa_record(hit) for hit in hits["results"]["result"]]
@@ -171,7 +169,7 @@ class OpenAireService(AuthorityProvider):  # noqa
             raise KeyError(f'item_id, "{item_id}", is not a OpenAire id')  # noqa
 
         params = {"openaireProjectID": item_id[3:], "format": "json"}
-        response = fetch_json(self.get_url, params=params)
+        response = ApiGet(self.get_url, params=params).json
         return self.convert_oa_record(response["response"]["results"]["result"][0])
 
     @staticmethod
@@ -200,7 +198,7 @@ class OpenAireService(AuthorityProvider):  # noqa
                 "grant_id": str(project["code"]["$"]),
             },
         }
-        if funder_name is not None:
+        if funder_name:
             ret["props"].update({"funder_name": funder_name})
 
         return ret
@@ -214,17 +212,16 @@ class PubChemService(AuthorityProvider):
 
     def search(self, identity, params, **kwargs):
         # neither page nor size can be specified for this endpoint
-        query = params.get("q", "")
-        page = params.get("page", 1)
         size = params.get("size", 10)
+        query = params.get("q", "")
 
         url = f"{self.search_url}{query}/property/{self.properties}/JSON?name_type=word"
-        hits = fetch_json(url)["PropertyTable"]["Properties"]
-        hits = self.filter_hits(hits)  # Selecting hits with title and InChIKey
+        chemicals = ApiGet(url).json["PropertyTable"]["Properties"]
+        chemicals = self.filter_hits(chemicals)
 
-        total = len(hits)
-        chemicals = [self.convert_pubchem_record(hit) for hit in hits]
-        start_pos = start_pos_api_page(page, size, total)
+        total = len(chemicals)
+        chemicals = [self.convert_pubchem_record(chem) for chem in chemicals]
+        start_pos = start_pos_api_page(params.get("page", 1), size, total)
         return chemicals[start_pos : start_pos + size], total, size
 
     def get(self, identity, item_id, *, uow, value, **kwargs):
@@ -232,7 +229,7 @@ class PubChemService(AuthorityProvider):
             raise KeyError(f'item_id, "{item_id}", is not an InchIKey')
 
         url = f"{self.get_url}{item_id[9:]}/property/{self.properties}/JSON"
-        response = fetch_json(url)
+        response = ApiGet(url).json
         return self.convert_pubchem_record(response["PropertyTable"]["Properties"][0])
 
     @staticmethod
@@ -240,15 +237,14 @@ class PubChemService(AuthorityProvider):
         return [hit for hit in hits if ("Title" in hit) and ("InChIKey" in hit)]
 
     @staticmethod
-    def convert_pubchem_record(hit):
-        formatted_data = {
-            "id": f'inchikey:{hit["InChIKey"]}',
-            "title": {"en": hit["Title"]},
-            "chemical_formula": hit["MolecularFormula"],
+    def convert_pubchem_record(chemical):
+        return {
+            "id": f'inchikey:{chemical["InChIKey"]}',
+            "title": {"en": chemical["Title"]},
+            "chemical_formula": chemical["MolecularFormula"],
             "molecular_weight": {
-                "value": float(hit["MolecularWeight"]),
+                "value": float(chemical["MolecularWeight"]),
                 "unit": "g/mol",
             },
-            "additional_identifiers": [f"cid:{hit['CID']}"],
+            "additional_identifiers": [f"cid:{chemical['CID']}"],
         }
-        return formatted_data
