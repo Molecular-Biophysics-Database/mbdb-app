@@ -1,0 +1,7 @@
+{# def gp, eoi_refs #}
+
+{% for eoi_ref in array(eoi_refs) %}
+    {% set eoi=find_reference(gp.entities_of_interest, eoi_ref.entity.id) %}
+    <mst.MST.ConstituentInfo constituent={eoi} />
+{% endfor %}
+

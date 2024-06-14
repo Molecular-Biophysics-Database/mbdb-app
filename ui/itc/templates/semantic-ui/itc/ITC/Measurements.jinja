@@ -2,19 +2,15 @@
 
 <div>
     <SubSection title="Experimental setup">
-        <IField label="Experiment type" d={ msp.experiment_type }/>
-        <IField label="Excitation LED" d={ msp.excitation_led_power }>
-            <itc.ITC.ExcitationLed power={ msp.excitation_led_power } color={ msp.excitation_led_color }/>
+        <IField label="Experiment" d={ msp.experiment_type }/>
+            <itc.ITC.Experiment experiment_type={ msp.experiment_type }/>
         </IField>
-        <IField label="Laser power" d={ msp.ir_mst_laser_power }/>
     </SubSection>
 
     {% for measurement in array(msp.measurements) %}
         {% set title='Measurement ' ~ loop.index %}
         <SubSection title={ title }>
             <IField label="Name" d={ measurement.name }/>
-            <IField label="Position" d={ measurement.position }/>
-
             <Sample gp={gp} sample={ measurement.sample }/>
         </SubSection>
     {% endfor %}
