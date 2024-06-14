@@ -1,16 +1,10 @@
 from oarepo_requests.resolvers.ui import (
-    FallbackEntityReferenceUIResolver,
-    GroupEntityReferenceUIResolver,
     RecordEntityDraftReferenceUIResolver,
     RecordEntityReferenceUIResolver,
-    UserEntityReferenceUIResolver,
 )
 from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
-from oarepo_runtime.records.entity_resolvers import GroupResolver, UserResolver
 
-from common.requests.delete_record.types import DeleteRecordRequestType
-from common.requests.publish_draft.types import PublishDraftRequestType
 from mst.files.api import MstFileDraft
 from mst.files.requests.resolvers import MstFileDraftResolver
 from mst.records.api import MstDraft, MstRecord
@@ -42,15 +36,7 @@ MST_REQUESTS_RESOURCE_CLASS = DraftRecordRequestsResource
 MST_REQUESTS_SERVICE_CLASS = DraftRecordRequestsService
 
 
-REQUESTS_REGISTERED_TYPES = [
-    DeleteRecordRequestType(),
-    PublishDraftRequestType(),
-]
-
-
 REQUESTS_ENTITY_RESOLVERS = [
-    UserResolver(),
-    GroupResolver(),
     MstResolver(record_cls=MstRecord, service_id="mst", type_key="mst"),
     MstDraftResolver(record_cls=MstDraft, service_id="mst", type_key="mst_draft"),
     MstFileDraftResolver(
@@ -60,13 +46,10 @@ REQUESTS_ENTITY_RESOLVERS = [
 
 
 ENTITY_REFERENCE_UI_RESOLVERS = {
-    "user": UserEntityReferenceUIResolver("user"),
-    "fallback": FallbackEntityReferenceUIResolver("fallback"),
-    "group": GroupEntityReferenceUIResolver("group"),
     "mst": RecordEntityReferenceUIResolver("mst"),
     "mst_draft": RecordEntityDraftReferenceUIResolver("mst_draft"),
 }
-REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = ["created_by", "receiver", "topic"]
+REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = []
 
 
 MST_FILES_RESOURCE_CONFIG = MstFileResourceConfig

@@ -3371,7 +3371,7 @@ files = [
 
 [[package]]
 name = "oarepo-dashboard"
-version = "1.0.6"
+version = "1.0.7"
 summary = "Support for user dashboard (records, communities, requests)"
 groups = ["default"]
 dependencies = [
@@ -3381,8 +3381,8 @@ dependencies = [
     "openpyxl",
 ]
 files = [
-    {file = "oarepo_dashboard-1.0.6-py3-none-any.whl", hash = "sha256:0923c7ddb056c4fc78b6e1410a42291567145ef5c7c2d9ab8d61ae41bb6ae171"},
-    {file = "oarepo_dashboard-1.0.6.tar.gz", hash = "sha256:3861e92b813b116318aefc50b9cf42c8fa59591f5971ab6cb77e639e7ea8cc88"},
+    {file = "oarepo_dashboard-1.0.7-py3-none-any.whl", hash = "sha256:5a72a69215bb9740a41faf7d3f624b50fbbf338aab39f0c070b59fc008bc3b18"},
+    {file = "oarepo_dashboard-1.0.7.tar.gz", hash = "sha256:d1d18bbc885ae727ffa1a722877effb94195df2315acdb1171ecc4f4fc9da761"},
 ]
 
 [[package]]
@@ -3403,7 +3403,7 @@ files = [
 
 [[package]]
 name = "oarepo-model-builder"
-version = "4.0.84"
+version = "4.0.85"
 summary = "A utility library that generates OARepo required data model files from a JSON specification file"
 groups = ["default"]
 dependencies = [
@@ -3428,8 +3428,8 @@ dependencies = [
     "tomlkit>=0.7.2",
 ]
 files = [
-    {file = "oarepo_model_builder-4.0.84-py3-none-any.whl", hash = "sha256:7e9c1962b78f8e47291a341c78843b61aa1259ae38b6a5b9653a7f11c180ba6b"},
-    {file = "oarepo_model_builder-4.0.84.tar.gz", hash = "sha256:b9c291a558e86183931cc45decfa38b808d86ccf4e4dd9a1b2ff3ae4bc1be939"},
+    {file = "oarepo_model_builder-4.0.85-py3-none-any.whl", hash = "sha256:96e13b2939e2eb3513cb5ee91c0a8acf56e6941c0019986a5ccc1d3a82c9e8a9"},
+    {file = "oarepo_model_builder-4.0.85.tar.gz", hash = "sha256:bd99b89569b0066e7963f8bf6f10aa92d199c232bdfcf91df574537fdaca5be7"},
 ]
 
 [[package]]
@@ -3445,7 +3445,7 @@ files = [
 
 [[package]]
 name = "oarepo-requests"
-version = "1.1.18"
+version = "1.2.1"
 summary = ""
 groups = ["default"]
 dependencies = [
@@ -3453,13 +3453,13 @@ dependencies = [
     "oarepo-runtime",
 ]
 files = [
-    {file = "oarepo_requests-1.1.18-py3-none-any.whl", hash = "sha256:6511af9219b90f5b725285cbd25655dd1b6c237526e210f554fc28fbac79d223"},
-    {file = "oarepo_requests-1.1.18.tar.gz", hash = "sha256:262f3b79c34a9577095b57beafacefb01b8e1128176f12757142a9b1ac41b5b3"},
+    {file = "oarepo_requests-1.2.1-py3-none-any.whl", hash = "sha256:09790c91211a8f66fd2092de59ef2de802580a2b3d7487740da1d6bbc438caa9"},
+    {file = "oarepo_requests-1.2.1.tar.gz", hash = "sha256:da55f06f487f168b51e233fa19baef58987294051efbce01e6acb39eab2f2abe"},
 ]
 
 [[package]]
 name = "oarepo-runtime"
-version = "1.5.34"
+version = "1.5.36"
 summary = "A set of runtime extensions of Invenio repository"
 groups = ["default"]
 dependencies = [
@@ -3472,8 +3472,8 @@ dependencies = [
     "tqdm",
 ]
 files = [
-    {file = "oarepo_runtime-1.5.34-py3-none-any.whl", hash = "sha256:2ebab1488853912ee08fc86fc58f8c4f816f69ab45b246348e15b7e1839eee4d"},
-    {file = "oarepo_runtime-1.5.34.tar.gz", hash = "sha256:9c87fb1f16185d59e1f39d09a74f4d22caff19ea0c6a2b3d0e53b7ad5d3555c2"},
+    {file = "oarepo_runtime-1.5.36-py3-none-any.whl", hash = "sha256:171a1d76a78ce03ddf441cb6e9ac87e1d41763a6f8a3a2025b6392d40056f8d9"},
+    {file = "oarepo_runtime-1.5.36.tar.gz", hash = "sha256:676c7c80e370453e02acb7bf9405da6bcac9af2b0299bb4816c87ef0e71c3799"},
 ]
 
 [[package]]
@@ -3496,7 +3496,7 @@ files = [
 
 [[package]]
 name = "oarepo-vocabularies"
-version = "2.0.88"
+version = "2.0.89"
 summary = "Support for custom fields and hierarchy on Invenio vocabularies"
 groups = ["default"]
 dependencies = [
@@ -3507,8 +3507,8 @@ dependencies = [
     "openpyxl",
 ]
 files = [
-    {file = "oarepo_vocabularies-2.0.88-py3-none-any.whl", hash = "sha256:1376b5639d7fe52a029a54148be4b0da641c4ce2d557aa3984e82f5569a5a564"},
-    {file = "oarepo_vocabularies-2.0.88.tar.gz", hash = "sha256:0d98e320259fae09d3cbff71bd5e46ba6dd628efc9e81496f6b4c15c2211403d"},
+    {file = "oarepo_vocabularies-2.0.89-py3-none-any.whl", hash = "sha256:344aa4892242baf8b63957eba65f0a2e886e6f2ddd23d81311ee07efd0b520fe"},
+    {file = "oarepo_vocabularies-2.0.89.tar.gz", hash = "sha256:40d657cd5da202c62fb28047ab6e2c9a3f25b951f95911986c71db247f881680"},
 ]
 
 [[package]]
@@ -3545,16 +3545,16 @@ files = [
 
 [[package]]
 name = "openpyxl"
-version = "3.1.3"
-requires_python = ">=3.6"
+version = "3.1.4"
+requires_python = ">=3.8"
 summary = "A Python library to read/write Excel 2010 xlsx/xlsm files"
 groups = ["default"]
 dependencies = [
     "et-xmlfile",
 ]
 files = [
-    {file = "openpyxl-3.1.3-py2.py3-none-any.whl", hash = "sha256:25071b558db709de9e8782c3d3e058af3b23ffb2fc6f40c8f0c45a154eced2c3"},
-    {file = "openpyxl-3.1.3.tar.gz", hash = "sha256:8dd482e5350125b2388070bb2477927be2e8ebc27df61178709bc8c8751da2f9"},
+    {file = "openpyxl-3.1.4-py2.py3-none-any.whl", hash = "sha256:ec17f6483f2b8f7c88c57e5e5d3b0de0e3fb9ac70edc084d28e864f5b33bbefd"},
+    {file = "openpyxl-3.1.4.tar.gz", hash = "sha256:8d2c8adf5d20d6ce8f9bca381df86b534835e974ed0156dacefa76f68c1d69fb"},
 ]
 
 [[package]]

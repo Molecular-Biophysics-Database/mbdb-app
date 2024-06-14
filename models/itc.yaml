@@ -22,7 +22,7 @@ profiles:
 - files
 - draft_files
 record:
-  use: ["invenio", "./requests.yaml"]
+  use: ["invenio"]
   draft: {}
   draft-files:
     resource:
