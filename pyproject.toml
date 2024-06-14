@@ -140,16 +140,6 @@ spr = "spr.models:ui.json"
 bli = "bli.models:ui.json"
 itc = "itc.models:ui.json"
 
-[project.entry-points."invenio_requests.types"]
-mst_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
-bli_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
-spr_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
-itc_delete_record = "common.requests.delete_record.types:DeleteRecordRequestType"
-mst_publish_draft = "common.requests.publish_draft.types:PublishDraftRequestType"
-bli_publish_draft = "common.requests.publish_draft.types:PublishDraftRequestType"
-spr_publish_draft = "common.requests.publish_draft.types:PublishDraftRequestType"
-itc_publish_draft = "common.requests.publish_draft.types:PublishDraftRequestType"
-
 [project.optional-dependencies]
 tests = [
     "pytest-invenio>=1.4.11",
