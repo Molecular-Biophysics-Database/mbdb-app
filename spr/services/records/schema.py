@@ -9,7 +9,6 @@ from marshmallow.fields import String
 from marshmallow.utils import get_value
 from marshmallow.validate import OneOf
 from marshmallow_utils.fields import SanitizedUnicode
-from oarepo_requests.services.schema import RequestsSchemaMixin
 from oarepo_runtime.services.schema.marshmallow import BaseRecordSchema, DictOnlySchema
 from oarepo_runtime.services.schema.polymorphic import PolymorphicSchema
 from oarepo_runtime.services.schema.validation import validate_date
@@ -21,7 +20,7 @@ class GeneratedParentSchema(InvenioParentSchema):
     owners = ma.fields.List(ma.fields.Dict(), load_only=True)
 
 
-class SprSchema(RequestsSchemaMixin, BaseRecordSchema):
+class SprSchema(BaseRecordSchema):
     class Meta:
         unknown = ma.RAISE
 

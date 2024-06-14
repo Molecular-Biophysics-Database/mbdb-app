@@ -1,16 +1,10 @@
 from oarepo_requests.resolvers.ui import (
-    FallbackEntityReferenceUIResolver,
-    GroupEntityReferenceUIResolver,
     RecordEntityDraftReferenceUIResolver,
     RecordEntityReferenceUIResolver,
-    UserEntityReferenceUIResolver,
 )
 from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
-from oarepo_runtime.records.entity_resolvers import GroupResolver, UserResolver
 
-from common.requests.delete_record.types import DeleteRecordRequestType
-from common.requests.publish_draft.types import PublishDraftRequestType
 from itc.files.api import ItcFileDraft
 from itc.files.requests.resolvers import ItcFileDraftResolver
 from itc.records.api import ItcDraft, ItcRecord
@@ -42,15 +36,7 @@ ITC_REQUESTS_RESOURCE_CLASS = DraftRecordRequestsResource
 ITC_REQUESTS_SERVICE_CLASS = DraftRecordRequestsService
 
 
-REQUESTS_REGISTERED_TYPES = [
-    DeleteRecordRequestType(),
-    PublishDraftRequestType(),
-]
-
-
 REQUESTS_ENTITY_RESOLVERS = [
-    UserResolver(),
-    GroupResolver(),
     ItcResolver(record_cls=ItcRecord, service_id="itc", type_key="itc"),
     ItcDraftResolver(record_cls=ItcDraft, service_id="itc", type_key="itc_draft"),
     ItcFileDraftResolver(
@@ -60,13 +46,10 @@ REQUESTS_ENTITY_RESOLVERS = [
 
 
 ENTITY_REFERENCE_UI_RESOLVERS = {
-    "user": UserEntityReferenceUIResolver("user"),
-    "fallback": FallbackEntityReferenceUIResolver("fallback"),
-    "group": GroupEntityReferenceUIResolver("group"),
     "itc": RecordEntityReferenceUIResolver("itc"),
     "itc_draft": RecordEntityDraftReferenceUIResolver("itc_draft"),
 }
-REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = ["created_by", "receiver", "topic"]
+REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = []
 
 
 ITC_FILES_RESOURCE_CONFIG = ItcFileResourceConfig

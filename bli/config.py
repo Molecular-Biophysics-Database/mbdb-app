@@ -1,13 +1,9 @@
 from oarepo_requests.resolvers.ui import (
-    FallbackEntityReferenceUIResolver,
-    GroupEntityReferenceUIResolver,
     RecordEntityDraftReferenceUIResolver,
     RecordEntityReferenceUIResolver,
-    UserEntityReferenceUIResolver,
 )
 from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
-from oarepo_runtime.records.entity_resolvers import GroupResolver, UserResolver
 
 from bli.files.api import BliFileDraft
 from bli.files.requests.resolvers import BliFileDraftResolver
@@ -21,8 +17,6 @@ from bli.services.files.config import BliFileDraftServiceConfig, BliFileServiceC
 from bli.services.files.service import BliFileDraftService, BliFileService
 from bli.services.records.config import BliServiceConfig
 from bli.services.records.service import BliService
-from common.requests.delete_record.types import DeleteRecordRequestType
-from common.requests.publish_draft.types import PublishDraftRequestType
 
 BLI_RECORD_RESOURCE_CONFIG = BliResourceConfig
 
@@ -42,15 +36,7 @@ BLI_REQUESTS_RESOURCE_CLASS = DraftRecordRequestsResource
 BLI_REQUESTS_SERVICE_CLASS = DraftRecordRequestsService
 
 
-REQUESTS_REGISTERED_TYPES = [
-    DeleteRecordRequestType(),
-    PublishDraftRequestType(),
-]
-
-
 REQUESTS_ENTITY_RESOLVERS = [
-    UserResolver(),
-    GroupResolver(),
     BliResolver(record_cls=BliRecord, service_id="bli", type_key="bli"),
     BliDraftResolver(record_cls=BliDraft, service_id="bli", type_key="bli_draft"),
     BliFileDraftResolver(
@@ -60,13 +46,10 @@ REQUESTS_ENTITY_RESOLVERS = [
 
 
 ENTITY_REFERENCE_UI_RESOLVERS = {
-    "user": UserEntityReferenceUIResolver("user"),
-    "fallback": FallbackEntityReferenceUIResolver("fallback"),
-    "group": GroupEntityReferenceUIResolver("group"),
     "bli": RecordEntityReferenceUIResolver("bli"),
     "bli_draft": RecordEntityDraftReferenceUIResolver("bli_draft"),
 }
-REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = ["created_by", "receiver", "topic"]
+REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = []
 
 
 BLI_FILES_RESOURCE_CONFIG = BliFileResourceConfig
