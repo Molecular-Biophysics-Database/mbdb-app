@@ -54,7 +54,8 @@ function BodyFluid( { name } ) {
           <div>
             <VocabularySelectField
                 search={(options) => options}
-                type="organisms/authoritative"
+                type="organisms"
+                externalAuthority={true}
                 label={
                     <FieldLabel
                     htmlFor={`${name}.source_organism`}
