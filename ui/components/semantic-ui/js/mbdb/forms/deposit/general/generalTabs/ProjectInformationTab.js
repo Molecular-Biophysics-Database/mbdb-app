@@ -28,7 +28,8 @@ function ProjectInformationTab( { name } ) {
                 renderChild={({ arrayName, index }) => (
                     <VocabularySelectField
                         search={(options) => options}
-                        type="grants/authoritative"
+                        type="grants"
+                        externalAuthority={true}
                         label={
                             <FieldLabel
                                 htmlFor={`${arrayName}.${index}`}

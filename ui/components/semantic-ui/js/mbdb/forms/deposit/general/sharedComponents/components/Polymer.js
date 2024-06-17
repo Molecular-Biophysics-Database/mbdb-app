@@ -113,7 +113,8 @@ function Polymer( { name, colorSchema } ) {
                     renderChild={({ optionalFieldName }) => (
                         <VocabularySelectField
                             search={(options) => options}
-                            type="organisms/authoritative"
+                            type="organisms"
+                            externalAuthority={true}
                             label={
                             <FieldLabel
                                 htmlFor={optionalFieldName}
@@ -135,7 +136,8 @@ function Polymer( { name, colorSchema } ) {
                     renderChild={({ optionalFieldName }) => (
                         <VocabularySelectField
                             search={(options) => options}
-                            type="organisms/authoritative"
+                            type="organisms"
+                            externalAuthority={true}
                             label={
                             <FieldLabel
                                 htmlFor={optionalFieldName}

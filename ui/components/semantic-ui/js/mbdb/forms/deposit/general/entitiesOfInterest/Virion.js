@@ -90,7 +90,8 @@ function Virion( { name } ) {
                 renderChild={({ arrayName, index }) => (
                     <VocabularySelectField
                         search={(options) => options}
-                        type="organisms/authoritative"
+                        type="organisms"
+                        externalAuthority={true}
                         label={
                         <FieldLabel
                             htmlFor={`${arrayName}.${index}`}
@@ -114,7 +115,8 @@ function Virion( { name } ) {
                     renderChild={({ optionalFieldName }) => (
                         <VocabularySelectField
                             search={(options) => options}
-                            type="organisms/authoritative"
+                            type="organisms"
+                            externalAuthority={true}
                             label={
                             <FieldLabel
                                 htmlFor={optionalFieldName}

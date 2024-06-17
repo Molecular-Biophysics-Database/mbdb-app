@@ -101,7 +101,8 @@ function Polymer( { name } ) {
                     renderChild={({ optionalFieldName }) => (
                         <VocabularySelectField
                             search={(options) => options}
-                            type="organisms/authoritative"
+                            type="organisms"
+                            externalAuthority={true}
                             label={
                             <FieldLabel
                                 htmlFor={optionalFieldName}
@@ -122,7 +123,8 @@ function Polymer( { name } ) {
                     tooltip='The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy'
                     renderChild={({ optionalFieldName }) => (
                         <VocabularySelectField
-                            type="organisms/authoritative"
+                            type="organisms"
+                            externalAuthority={true}
                             label={
                             <FieldLabel
                                 htmlFor={optionalFieldName}

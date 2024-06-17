@@ -17,26 +17,27 @@ class ForeignVocabularyFetcherComponent(ServiceComponent):
             self.paths = self.vocabulary_paths()
 
     def create(self, identity, data=None, **kwargs):
-        self._load_if_missing(data)
+        self._load_if_missing(data, identity)
 
     def update(self, identity, data=None, **kwargs):
-        self._load_if_missing(data)
+        self._load_if_missing(data, identity)
 
     def update_draft(self, identity, data=None, **kwargs):
-        self._load_if_missing(data)
-    
-    def _load_if_missing(self, data):
+        self._load_if_missing(data, identity)
+
+    def _load_if_missing(self, data, identity):
         for vocabulary_type, paths in self.paths.items():
             for path in paths.iter(data):
                 vocab_record = path[-1].current
                 vocabulary_id = vocab_record["id"]
                 if not self._stored_locally(vocabulary_id, vocabulary_type):
-                    self._create(vocabulary_id, vocabulary_type)
+                    self._create(vocabulary_id, vocabulary_type, identity)
 
-    @staticmethod
-    def _create(vocabulary_id, vocabulary_type):
+    def _create(self, vocabulary_id, vocabulary_type, identity):
         authority_service = authorities.get_authority_api(vocabulary_type)
-        record = authority_service.get(vocabulary_id)
+        record = authority_service.get(
+            item_id=vocabulary_id, identity=identity, uow=self.uow, value={}
+        )
         if not record:
             raise ValueError(f"A record with id: {vocabulary_id} was not found")
         record["type"] = vocabulary_type
@@ -65,12 +66,11 @@ class ForeignVocabularyFetcherComponent(ServiceComponent):
         entities = gp + "/entities_of_interest"
         chem_env = gp + "/chemical_environments"
         return {
-            "chemicals":  self.make_paths(
+            "chemicals": self.make_paths(
                 (entities, "basic_information"),
                 (entities, "components", "basic_information"),
                 (chem_env, "constituents", "basic_information"),
                 (chem_env, "solvent", "basic_information"),
-
             ),
             "affiliations": self.make_paths(
                 (depositors, "depositor", "affiliations"),

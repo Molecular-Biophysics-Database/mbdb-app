@@ -53,7 +53,8 @@ function Contact( { name } ) {
                 renderChild={({ arrayName, index }) => (
                   <VocabularySelectField
                     search={(options) => options}
-                    type="affiliations/authoritative"
+                    type="affiliations"
+                    externalAuthority={true}
                     label={
                       <FieldLabel
                         htmlFor={`${arrayName}.${index}`}

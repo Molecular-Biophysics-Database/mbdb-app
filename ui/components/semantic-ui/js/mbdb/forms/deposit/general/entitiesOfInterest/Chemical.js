@@ -25,7 +25,8 @@ function Chemical( { name } ) {
           <div className='mr-3'>
             <VocabularySelectField
               search={(options) => options}
-              type="chemicals/authoritative"
+              type="chemicals"
+              externalAuthority={true}
               label={
                   <FieldLabel
                   htmlFor={`${name}.basic_information`}
