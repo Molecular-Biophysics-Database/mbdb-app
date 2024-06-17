@@ -69,7 +69,7 @@ function FormFieldsContainer() {
           style={{ backgroundColor: "#023850", color: "white" }} 
           onClick={() => handleSaveMetadataAndFiles()}
         >
-          Submit metadata and files
+          Save
         </Button>
       </div>
       <div className="flex justify-center">

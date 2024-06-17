@@ -66,7 +66,7 @@ function FormFieldsContainer() {
     <>
       <div className="mb-4 ml-3">
         <Button style={{ backgroundColor: "#023850", color: "white" }} onClick={() => handleSaveMetadataAndFiles()}>
-          Submit metadata and files
+          Save
         </Button>
       </div>
       <div className='flex justify-center'>
