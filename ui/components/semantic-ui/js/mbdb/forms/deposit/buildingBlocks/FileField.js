@@ -27,29 +27,11 @@ function FileField({
   const handleChange = (e) => {
     let file = e.target.files[0];
     if (file) {
+      setFieldValue(`${name}.fileContent`, file);
       setFieldValue(`${name}.metadata.size`, file.size);
       setFieldValue(`${name}.metadata.name`, file.name);
       setFieldValue(`${name}.${fieldName}`, file.name);
-      handleFileContent(file);
     }
-  };
-
-  const handleFileContent = async (file) => {
-    // Use FileReader API to read the file content
-    const reader = new FileReader();
-
-    reader.onload = (e) => {
-      const fileContent = e.target.result;
-
-      // Now you can save or process `fileContent` as needed
-      console.log(fileContent); // Example: log file content to console
-      // You can save `fileContent` in Formik state, pass it to another function, or use it directly
-
-      // Example: Setting file content in Formik state
-      setFieldValue(`${name}.fileContent`, fileContent);
-    };
-
-    reader.readAsDataURL(file); // Use readAsArrayBuffer or other methods as per your requirement
   };
 
   const handleClear = async () => {
