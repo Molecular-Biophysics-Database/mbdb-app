@@ -1,21 +1,22 @@
 import React from "react";
 import { i18next } from "@translations/oarepo_ui/i18next";
 import { useDepositApiClient } from "@js/oarepo_ui";
+import { Button } from "semantic-ui-react";
 
 export const SaveButton = React.memo(({ ...uiProps }) => {
   const { isSubmitting, save } = useDepositApiClient();
   return (
     <div>
-        <button
+        <Button
           name="save"
-          class="flex justify-center w-[120px] py-2 text-20px bg-dark rounded-normal text-white hover:bg-secondary hover:text-dark transition-all"
+          style={{ backgroundColor: "#023850", color: "white" }}
           disabled={isSubmitting}
           loading={isSubmitting}
           onClick={() => save()}
           content={i18next.t("Save")}
           type="submit"
           {...uiProps}
-        >Save</button>
+        >Save</Button>
     </div>
   );
 });

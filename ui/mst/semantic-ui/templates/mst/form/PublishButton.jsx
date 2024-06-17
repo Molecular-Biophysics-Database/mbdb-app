@@ -6,6 +6,7 @@ import {
   ConfirmationModal,
 } from "@js/oarepo_ui";
 import PropTypes from "prop-types";
+import { Button } from "semantic-ui-react";
 
 export const PublishButton = React.memo(
   ({ modalMessage, modalHeader, additionalInputs }) => {
@@ -24,14 +25,14 @@ export const PublishButton = React.memo(
         isOpen={isModalOpen}
         close={closeModal}
         trigger={
-          <button
-            className="flex justify-center w-[120px] py-2 text-20px bg-dark rounded-normal text-white hover:bg-secondary hover:text-dark transition-all"
+          <Button
+          style={{ backgroundColor: "#023850", color: "white" }}
             onClick={openModal}
             content={i18next.t("Publish")}
             type="button"
             disabled={isSubmitting}
             loading={isSubmitting}
-          >Deposit</button>
+          >Deposit</Button>
         }
         actions={
           <>
