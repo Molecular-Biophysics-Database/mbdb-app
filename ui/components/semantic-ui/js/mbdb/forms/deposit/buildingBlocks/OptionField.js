@@ -14,9 +14,9 @@ function OptionField({
   options,
   width,
   tooltip,
-  required
+  required,
+  disabled,
 }) {
-  
   const nameOptionField =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const [field, meta, helpers] = useField(nameOptionField);
@@ -37,6 +37,7 @@ function OptionField({
             }}
             label={label}
             size="small"
+            disabled={disabled}
             error={meta.touched && !!meta.error}
           >
             {options.map((option) => (
@@ -51,13 +52,20 @@ function OptionField({
           </Select>
         </FormControl>
       </div>
-      {required &&
-        <div className='ml-1 text-accent'>
-          <Tooltip title={<Typography fontSize={13}>This field is required and cannot be left blank or unset</Typography>} arrow>
+      {required && (
+        <div className="ml-1 text-accent">
+          <Tooltip
+            title={
+              <Typography fontSize={13}>
+                This field is required and cannot be left blank or unset
+              </Typography>
+            }
+            arrow
+          >
             <span>*</span>
           </Tooltip>
         </div>
-      }
+      )}
       {tooltip && (
         <div className="ml-1 -mt-1">
           <Tooltip

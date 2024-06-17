@@ -1,8 +1,8 @@
 import React from 'react';
 import { getIn, useFormikContext } from 'formik';
-import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Typography } from '@material-ui/core';
+import { Button } from "semantic-ui-react";
 
 function OptionalField({ name, fieldName, label, renderChild, initialValue, tooltip }) {
 
@@ -30,24 +30,10 @@ function OptionalField({ name, fieldName, label, renderChild, initialValue, tool
                     {renderChild({ optionalFieldName })}
                 </div>
                 <Button
-                    type='button'
-                    className='text-dark'
-                    variant="outlined"
+                    style={{ backgroundColor: '#023850', color: 'white' }}
                     onClick={() => remove()}
-                    sx= {{ 
-                        borderColor: '#023850',
-                        backgroundColor: '#023850',
-                        color: '#fff',
-                        "&:hover": {
-                        borderColor: "#023850",
-                        backgroundColor: '#023850',
-                        color: '#fff',
-                        },
-                    }}
-                    >
-                    <div>
-                        -
-                    </div>
+                >
+                    -
                 </Button>
             
             </div>
@@ -56,18 +42,8 @@ function OptionalField({ name, fieldName, label, renderChild, initialValue, tool
             <div className='mt-3'>
                 <Tooltip title={<Typography fontSize={13}>{tooltip}</Typography>} arrow>
                     <Button
-                        variant="outlined"
+                        style={{ backgroundColor: '#023850', color: 'white' }}
                         onClick={() => add()}
-                        sx= {{ 
-                            borderColor: '#023850',
-                            backgroundColor: '#023850',
-                            color: '#fff',
-                            "&:hover": {
-                                borderColor: "#023850",
-                                backgroundColor: '#023850',
-                                color: '#fff',
-                            },
-                        }}
                     >
                         + {`${label}`}
                     </Button>
