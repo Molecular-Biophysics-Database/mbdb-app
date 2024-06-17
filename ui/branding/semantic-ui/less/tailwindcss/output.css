@@ -1066,14 +1066,6 @@ video {
   border-radius: 0.28571429rem;
 }
 
-.rounded-sm {
-  border-radius: 0.125rem;
-}
-
-.rounded-md {
-  border-radius: 0.375rem;
-}
-
 .rounded-bl-normal {
   border-bottom-left-radius: 0.28571429rem;
 }

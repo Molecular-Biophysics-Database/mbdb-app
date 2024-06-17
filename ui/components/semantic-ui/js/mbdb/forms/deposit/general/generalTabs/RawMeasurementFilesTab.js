@@ -35,13 +35,14 @@ async function SubmitFile(file, recordMetadata) {
 
   const response = await resp.json();
   const fileObject = response.entries.find((f) => f.key === file.key);
+
   // Upload the file content
   resp = await fetch(fileObject.links.content, {
     method: "PUT",
     headers: {
       "Content-Type": "application/octet-stream",
     },
-    body: file,
+    body: file.fileContent,
   });
 
   if (!resp.ok) {
