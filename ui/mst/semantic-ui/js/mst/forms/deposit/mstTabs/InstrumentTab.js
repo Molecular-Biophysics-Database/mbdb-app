@@ -22,7 +22,7 @@ function InstrumentTab({ name }) {
               <div className="-mt-1 -ml-2 mr-3">
                 <Tooltip
                   title={
-                    <Typography fontSize={13}>
+                    <Typography style={{ color: "white", fontSize: 13 }}>
                       The date when collection of the raw data began
                     </Typography>
                   }

@@ -16,7 +16,11 @@ function FormWrapper({ headline, children, colorSchema, tooltip }) {
             {tooltip && (
               <div className="ml-1 -mt-1">
                 <Tooltip
-                  title={<Typography fontSize={13}>{tooltip}</Typography>}
+                  title={
+                    <Typography style={{ color: "white", fontSize: 13 }}>
+                      {tooltip}
+                    </Typography>
+                  }
                   arrow
                 >
                   <span>?</span>

@@ -58,7 +58,11 @@ function ArrayField({
             {(!maxItems || !value || value.length < maxItems) && (
               <div className="mt-3">
                 <Tooltip
-                  title={<Typography fontSize={13}>{tooltip}</Typography>}
+                  title={
+                    <Typography style={{ color: "white", fontSize: 13 }}>
+                      {tooltip}
+                    </Typography>
+                  }
                   arrow
                 >
                   <Button
