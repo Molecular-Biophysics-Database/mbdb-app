@@ -12,8 +12,8 @@ from oarepo_runtime.records import has_draft, is_published_record
 from oarepo_runtime.services.components import OwnersComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 from oarepo_runtime.services.files import FilesComponent
+from oarepo_vocabularies.authorities.components import AuthorityComponent
 
-from common.services.records.components import ForeignVocabularyFetcherComponent
 from spr.records.api import SprDraft, SprRecord
 from spr.services.records.permissions import SprPermissionPolicy
 from spr.services.records.results import SprRecordItem, SprRecordList
@@ -45,7 +45,7 @@ class SprServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        ForeignVocabularyFetcherComponent,
+        AuthorityComponent,
         OwnersComponent,
         FilesComponent,
         DraftFilesComponent,

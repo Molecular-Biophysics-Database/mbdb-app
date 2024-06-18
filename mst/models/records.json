@@ -58,7 +58,7 @@
         },
         "service-config": {
             "components": [
-                "{{common.services.records.components.ForeignVocabularyFetcherComponent}}",
+                "{{oarepo_vocabularies.authorities.components.AuthorityComponent}}",
                 "{{oarepo_runtime.services.components.OwnersComponent}}",
                 "{{oarepo_runtime.services.files.FilesComponent}}",
                 "{{invenio_drafts_resources.services.records.components.DraftFilesComponent}}",
@@ -139,11 +139,6 @@
             "suffix": "mst",
             "suffix-upper": "MST",
             "suffix-snake": "mst"
-        },
-        "tests": {
-            "extra-fixtures": [],
-            "extra-code": "",
-            "module": "tests"
         },
         "draft-files": {
             "type": "draft-file",
@@ -358,6 +353,11 @@
             },
             "label.en": ""
         },
+        "tests": {
+            "extra-fixtures": [],
+            "extra-code": "",
+            "module": "tests"
+        },
         "sample": {
             "file": "data/sample_data.yaml"
         },
@@ -505,10 +505,6 @@
             ],
             "imports": []
         },
-        "translations": {
-            "module": "mst.translations",
-            "alias": "mst"
-        },
         "json-schema-settings": {
             "generate": true,
             "alias": "mst",
@@ -532,6 +528,10 @@
                 "\"object_key\"": "\"ui\"",
                 "\"identity\"": "{{ flask.g{g.identity} }}"
             }
+        },
+        "translations": {
+            "module": "mst.translations",
+            "alias": "mst"
         },
         "draft-parent-record": {
             "class": "mst.records.api.MstParentRecord",

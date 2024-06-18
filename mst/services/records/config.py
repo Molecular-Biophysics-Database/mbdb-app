@@ -12,8 +12,8 @@ from oarepo_runtime.records import has_draft, is_published_record
 from oarepo_runtime.services.components import OwnersComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 from oarepo_runtime.services.files import FilesComponent
+from oarepo_vocabularies.authorities.components import AuthorityComponent
 
-from common.services.records.components import ForeignVocabularyFetcherComponent
 from mst.records.api import MstDraft, MstRecord
 from mst.services.records.permissions import MstPermissionPolicy
 from mst.services.records.results import MstRecordItem, MstRecordList
@@ -45,7 +45,7 @@ class MstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        ForeignVocabularyFetcherComponent,
+        AuthorityComponent,
         OwnersComponent,
         FilesComponent,
         DraftFilesComponent,

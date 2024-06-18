@@ -12,13 +12,13 @@ from oarepo_runtime.records import has_draft, is_published_record
 from oarepo_runtime.services.components import OwnersComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 from oarepo_runtime.services.files import FilesComponent
+from oarepo_vocabularies.authorities.components import AuthorityComponent
 
 from bli.records.api import BliDraft, BliRecord
 from bli.services.records.permissions import BliPermissionPolicy
 from bli.services.records.results import BliRecordItem, BliRecordList
 from bli.services.records.schema import BliSchema
 from bli.services.records.search import BliSearchOptions
-from common.services.records.components import ForeignVocabularyFetcherComponent
 
 
 class BliServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsServiceConfig):
@@ -45,7 +45,7 @@ class BliServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
-        ForeignVocabularyFetcherComponent,
+        AuthorityComponent,
         OwnersComponent,
         FilesComponent,
         DraftFilesComponent,
