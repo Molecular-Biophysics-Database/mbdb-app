@@ -16,6 +16,6 @@ record:
       mapping:
         copy_to: collected_default_search_fields
   service-config:
-    components: ["{{common.services.records.components.ForeignVocabularyFetcherComponent}}"]
+    components: ["{{oarepo_vocabularies.authorities.components.AuthorityComponent}}"]
   search-options:
     base-classes: [common.services.records.search_options.RecordSearchOptions]
