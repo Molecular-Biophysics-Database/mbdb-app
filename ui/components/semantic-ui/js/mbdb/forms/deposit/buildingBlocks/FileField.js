@@ -93,7 +93,7 @@ function FileField({
         <div className="text-accent ml-1">
           <Tooltip
             title={
-              <Typography fontSize={13}>
+              <Typography style={{ color: "white", fontSize: 13 }}>
                 This field is required and cannot be left blank or unset
               </Typography>
             }
@@ -106,7 +106,11 @@ function FileField({
       {tooltip && (
         <div className="ml-1 -mt-1">
           <Tooltip
-            title={<Typography fontSize={13}>{tooltip}</Typography>}
+            title={
+              <Typography style={{ color: "white", fontSize: 13 }}>
+                {tooltip}
+              </Typography>
+            }
             arrow
           >
             <span>?</span>

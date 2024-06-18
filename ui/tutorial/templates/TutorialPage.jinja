@@ -1,97 +1,73 @@
 {%- extends config.BASE_TEMPLATE %}
 
 {%- block page_body %}
-<div>
-  <div class="text-center mb-8">
-    <h1>MBDB - Testing MST depositon</h1>
+<div class="text-dark text-18px m-4 lg:max-w-[1024px] lg:m-auto xl:max-w-[1280px] 2xl:max-w-[1440px]">
+  <div class="text-center mb-8 mt-16">
+    <h1 class="font-JostBold text-20px">Testing MST depositon</h1>
     <p>June 2024 - August 2024</p>
   </div>
-  <div class="mb-8">
-    <div class="mbdbv-h2-title mb-4">
-      What should I do?
-      <span class="mbdbv-h2-underline"></span>
+  <div class="mb-8 flex flex-col justify-center">
+    <div class="font-JostBold text-20px text-center max-w-[60rem] m-auto mb-10">We want to make MBDB as useful as
+      possible for
+      you
+      and your lab
+      colleagues! Your feedback is incredibly valuable and will help us create a resource that truly meets your needs.
     </div>
-    <p>Make one or more depositions of an MST dataset and report back if you find any shortcomings or bugs related to:
+    <div class="font-JostBold text-22px m-auto">
+      Thank you for helping us improve MBDB!
+    </div>
+  </div>
+  <div class="mb-8">
+    <p class="text-center">Please make one or more depositions of an MST dataset and report back if you find any
+      shortcomings or bugs</p>
+  </div>
+  <div class="mb-8">
+    <p class="text-center">
+      You'll only need a valid email address and an ORCID account to make a deposition. If you don't have an ORCID
+      account, you can create one <a class="underline" href="https://orcid.org/" target="_blank">here</a>
     </p>
   </div>
-  <div class="mb-8">
-    <div class="mbdbv-h2-title mb-4">
-      Why should I do it?
-      <span class="mbdbv-h2-underline"></span>
+  <div class="mb-8 text-center">
+    <div class="mb-4 text-20px font-JostMedium">
+      How to deposit a dataset?
     </div>
-    <p>
-      We want MBDB to be useful. Towards this end,
-      we would appreciate your input. Asking for changes will save
-      yourself and your lab colleagues from future annoyance, and make MBDB a much more useful
-      resource!
-    </p>
-  </div>
-  <div class="mb-8">
-    <div class="mbdbv-h2-title mb-4">
-      What do I need ?
-      <span class="mbdbv-h2-underline"></span>
-    </div>
-      <ol>
-        <li>
-          A Valid email address
-        </li>
-        <li>
-          You will need an ORCID account to make a deposition,
-          so please make one
-          <a class="link-in-text" href="https://orcid.org/">here</a>
-          if you don't have one.
-        </li>
-      </ol>
-  </div>
-  <div class="mb-8">
-    <div class="mbdbv-h2-title mb-4">
-      How should I do it?
-      <span class="mbdbv-h2-underline"></span>
-    </div>
-    <ol>
-      <li>Click the deposit button </li>
-      <li>Choose MST</li>
-      <li>
-        Complete the form (it is not recommended to use
+    <div>
+      <div class="mb-3"><span class="font-JostBold">1.</span> Click the <span
+          class="bg-dark text-white py-2 px-4 rounded-normal hover:bg-secondary hover:text-dark transition-all cursor-pointer">Deposit</span>
+        button in
+        the
+        top right corner</div>
+      <div><span class="font-JostBold">2.</span> Choose MST method</div>
+      <div>
+        <span class="font-JostBold">3.</span> Fill the form (We don't recommend to use
         a mobile device for this)
-      </li>
-    </ol>
+      </div>
+    </div>
     <p>
-      Note You can save your unfinished deposition at any time by
-      pressing the save button, and come back to it later</p>
+      (You can save your unfinished deposition at any time by
+      pressing the save button, and come back to it later)</p>
   </div>
-  <div class="mb-8">
-    <div class="mbdbv-h2-title mb-4">
-      Known shortcomings (that we're working on)
-      <span class="mbdbv-h2-underline"></span>
+  <div class="lg:flex">
+    <div class="border-dark border-[1px] rounded-normal p-4 mb-4 lg:mr-2 lg:mb-0">
+      <h2 class="text-20px font-JostBold mb-2">Things that we know about are working on</h2>
+      <div>
+        <div>- Metadata is currently not extracted from the measurement files</div>
+        <div>Collections of records (Projects and Measurement Groups)
+          aren't implemented yet</div>
+        <div>- DOIs are currently generated using DataCite's test API
+          and are therefore only resolveable via DataCite</div>
+      </div>
     </div>
-    <ul>
-      <li>Metadata is currently not extracted from the measurement files</li>
-      <li>
-        Collections of records (Projects and Measurement Groups)
-        aren't implemented yet.
-      </li>
-      <li>
-        DOIs are currently generated using DataCite's test API
-        and are therefore only resolveable via DataCite
-      </li>
-    </ul>
-  </div>
-  <div class="mb-8">
-    <div class="mbdbv-h2-title mb-4">
-      Extras information
-      <span class="mbdbv-h2-underline"></span>
+    <div class="border-dark border-[1px] rounded-normal p-4 lg:ml-2">
+      <h2 class="text-20px font-JostBold mb-2">Additional information</h2>
+      <div>
+        <div>- To see the listing of all the records currently deposited, press the search icon with an empty search
+          field
+        </div>
+        <div>- By pressing the title, you can access a simplified view of the record</div>
+      </div>
     </div>
-    <ul>
-      <li>
-        If you want to see the listing of all the records currently deposited,
-        press the search icon with an empty search field
-      </li>
-      <li>
-        Pressing the title of a listing result gives you a simplified view
-        of the record
-      </li>
-    </ul>
   </div>
+</div>
 </div>
 {%- endblock page_body %}
