@@ -41,11 +41,8 @@ def nice_name(name):
 
 
 def find_reference(parts, part_id):
-    if isinstance(part_id, FieldData):
-        part_id = part_id.value
-
     for part in ichain(parts):
-        if part.id.value == part_id:
+        if part.id == part_id:
             return part
 
     return EMPTY_FIELD_DATA
