@@ -3,10 +3,6 @@
 <div>
     <SubSection title="Experimental setup">
         <IField label="Experiment type" d={ msp.experiment_type }/>
-        <IField label="Excitation LED" d={ msp.excitation_led_power }>
-            <spr.SPR.ExcitationLed power={ msp.excitation_led_power } color={ msp.excitation_led_color }/>
-        </IField>
-        <IField label="Laser power" d={ msp.ir_mst_laser_power }/>
     </SubSection>
 
     {% for measurement in array(msp.measurements) %}

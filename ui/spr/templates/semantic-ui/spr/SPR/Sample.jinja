@@ -2,13 +2,5 @@
 
 {% set chemical_environment=find_reference(gp.chemical_environments, sample.chemical_environment.id) %}
 
-<IField label="Buffer (chemical environment)" d={chemical_environment.name} />
-<IField label="Buffer Constituents" d={chemical_environment.constituents} >
-    {% for constituent in array(chemical_environment.constituents) %}
-        <spr.SPR.ConstituentInfo constituent={constituent} />
-    {% endfor %}
-</IField>
+<ChemicalEnvironment chemical_environment={chemical_environment} />
 
-<IField label="pH (Buffer)" d={chemical_environment.ph} />
-
-<IField label="Sample container" d={sample.container} />
