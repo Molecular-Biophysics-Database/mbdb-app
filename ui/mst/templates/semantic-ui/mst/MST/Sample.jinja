@@ -1,23 +1,15 @@
 {# def gp, sample #}
 
 <IField label="Targets" d={sample.targets} >
-    <mst.MST.EoiInfo eoi_refs={sample.targets} gp={gp} />
+    <EoiInfo eoi_refs={sample.targets} gp={gp} />
 </IField>
 
 <IField label="Ligands" d={sample.ligands} >
-    <mst.MST.EoiInfo eoi_refs={sample.ligands} gp={gp} />
+    <EoiInfo eoi_refs={sample.ligands} gp={gp} />
 </IField>
 
 {% set chemical_environment=find_reference(gp.chemical_environments, sample.chemical_environment.id) %}
-
-<IField label="Buffer (chemical environment)" d={chemical_environment.name} />
-<IField label="Buffer Constituents" d={chemical_environment.constituents} >
-    {% for constituent in array(chemical_environment.constituents) %}
-        <mst.MST.ConstituentInfo constituent={constituent} />
-    {% endfor %}
-</IField>
-
-<IField label="pH (Buffer)" d={chemical_environment.ph} />
+<ChemicalEnvironment chemical_environment={chemical_environment} />
 
 <IField label="Sample container" d={sample.container} />
 
