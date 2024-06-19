@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:c6280c0289048e451dca79f38b1e06de622d5dd28656e04251eb3c97b608b74c"
+content_hash = "sha256:be7790987539523c295a75ee6d62ec7a3ce26f0bbe61ca118ca11284e1ee00ff"
 
 [[package]]
 name = "alembic"
@@ -292,7 +292,7 @@ files = [
 
 [[package]]
 name = "cairocffi"
-version = "1.7.0"
+version = "1.7.1"
 requires_python = ">=3.8"
 summary = "cffi-based cairo bindings for Python"
 groups = ["default"]
@@ -300,8 +300,8 @@ dependencies = [
     "cffi>=1.1.0",
 ]
 files = [
-    {file = "cairocffi-1.7.0-py3-none-any.whl", hash = "sha256:1f29a8d41dbda4090c0aa33bcdea64f3b493e95f74a43ea107c4a8a7b7f632ef"},
-    {file = "cairocffi-1.7.0.tar.gz", hash = "sha256:7761863603894305f3160eca68452f373433ca8745ab7dd445bd2c6ce50dcab7"},
+    {file = "cairocffi-1.7.1-py3-none-any.whl", hash = "sha256:9803a0e11f6c962f3b0ae2ec8ba6ae45e957a146a004697a1ac1bbf16b073b3f"},
+    {file = "cairocffi-1.7.1.tar.gz", hash = "sha256:2e48ee864884ec4a3a34bfa8c9ab9999f688286eb714a15a43ec9d068c36557b"},
 ]
 
 [[package]]
@@ -3371,7 +3371,7 @@ files = [
 
 [[package]]
 name = "oarepo-dashboard"
-version = "1.0.7"
+version = "1.0.8"
 summary = "Support for user dashboard (records, communities, requests)"
 groups = ["default"]
 dependencies = [
@@ -3381,8 +3381,8 @@ dependencies = [
     "openpyxl",
 ]
 files = [
-    {file = "oarepo_dashboard-1.0.7-py3-none-any.whl", hash = "sha256:5a72a69215bb9740a41faf7d3f624b50fbbf338aab39f0c070b59fc008bc3b18"},
-    {file = "oarepo_dashboard-1.0.7.tar.gz", hash = "sha256:d1d18bbc885ae727ffa1a722877effb94195df2315acdb1171ecc4f4fc9da761"},
+    {file = "oarepo_dashboard-1.0.8-py3-none-any.whl", hash = "sha256:09da37eba204b67a0113462f639cf41ad405c166b825fd9603c1473ddb7d7bc8"},
+    {file = "oarepo_dashboard-1.0.8.tar.gz", hash = "sha256:b4df97fc886914eb6a7f3fa354e46e5a56c40f02ee6f000ff21838d878d2bb74"},
 ]
 
 [[package]]
@@ -3478,7 +3478,7 @@ files = [
 
 [[package]]
 name = "oarepo-ui"
-version = "5.1.34"
+version = "5.1.35"
 requires_python = ">=3.10"
 summary = "UI module for invenio 3.5+"
 groups = ["default"]
@@ -3490,8 +3490,8 @@ dependencies = [
     "oarepo-runtime",
 ]
 files = [
-    {file = "oarepo_ui-5.1.34-py2.py3-none-any.whl", hash = "sha256:1f62796d31a9b341f64c4aafa3327b8078cddcf28fe1cc02957c2632c9e66ccd"},
-    {file = "oarepo_ui-5.1.34.tar.gz", hash = "sha256:8efe4eb52f9ddd3a12364555e52037456ccd1d73b7ebf41a41dfc08ae2be5b16"},
+    {file = "oarepo_ui-5.1.35-py2.py3-none-any.whl", hash = "sha256:c45b9ae822d9616652f7f23c343301c1c537a7d55206facc12ccda73ba5450a6"},
+    {file = "oarepo_ui-5.1.35.tar.gz", hash = "sha256:92eca8308b0ef79799ba67797d11a600f2190bcb0ee3d28f491f42257d0be9de"},
 ]
 
 [[package]]
