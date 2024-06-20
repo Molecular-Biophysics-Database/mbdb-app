@@ -1,0 +1,12 @@
+{# def chemical_environments #}
+
+{% for chemical_environment in array(chemical_environments) %}
+    <IField label="Name" d={chemical_environment.name} />
+    <IField label="Constituents" d={chemical_environment.constituents} >
+        {% for constituent in array(chemical_environment.constituents) %}
+            <ConstituentInfo constituent={constituent} />
+        {% endfor %}
+    </IField>
+
+    <IField label="pH" d={chemical_environment.ph} />
+{% endfor  %}

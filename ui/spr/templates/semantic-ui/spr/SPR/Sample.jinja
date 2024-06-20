@@ -1,6 +1,17 @@
 {# def gp, sample #}
 
-{% set chemical_environment=find_reference(gp.chemical_environments, sample.chemical_environment.id) %}
 
-<ChemicalEnvironment chemical_environment={chemical_environment} />
+<IField label="Targets" d={sample.targets} >
+    <EoiInfo eoi_refs={sample.targets} gp={gp} />
+</IField>
+
+<IField label="Ligands" d={sample.ligands} >
+    <EoiInfo eoi_refs={sample.ligands} gp={gp} />
+</IField>
+
+{% set chemical_environment=find_reference(gp.chemical_environments, sample.chemical_environment.id) %}
+<IField label="Chemical environment" d={chemical_environment.name} >
+    {{ chemical_environment.name }}
+</IField>
+
 

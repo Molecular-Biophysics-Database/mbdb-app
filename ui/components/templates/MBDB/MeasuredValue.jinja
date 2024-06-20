@@ -12,4 +12,4 @@
     {% set error_type = " %" if value.value_error.errors_are_relative == True else "" %}
     (+ {{ value.value_error.upper_error }}
      - {{ value.value_error.lower_error }}) {{ error_type }}
-{% endif %}
+{% endif %}`
