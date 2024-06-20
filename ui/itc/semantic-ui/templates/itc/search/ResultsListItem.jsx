@@ -9,13 +9,13 @@ import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 
 const ItemHeader = ({ title, searchUrl, selfLink, id, releasedDate, givenName, familyName, affiliationsTitle, technique, entitiesOfInterest, results}) => {
   return (
-    <div className="lg:max-w-[1024px] lg:m-auto xl:max-w-[1280px] 2xl:max-w-[1440px] !my-10 !mx-6 pb-10 border-b-dark border-b-[1px] first:!mt-16 md:!mx-12">
+    <div className="lg:max-w-[1024px] lg:m-auto xl:max-w-[1280px] 2xl:max-w-[1440px] !my-10 !mx-6 pb-10 text-dark border-b-dark border-b-[.1px] first:!mt-16 md:!mx-12">
       <div className="flex justify-between flex-col lg:flex-row">
         <div className="font-JostMedium text-32px">
           <a href={selfLink}>{title}</a>
         </div>
         <div className="flex text-24px font-JostMedium">
-          <div className="mr-3 font-bold">
+          <div className="mr-3 font-bold text-accent-secondary">
             ID
           </div>
           <div>
@@ -32,15 +32,15 @@ const ItemHeader = ({ title, searchUrl, selfLink, id, releasedDate, givenName, f
             <div className="my-2">{affiliationsTitle}</div>
           </div>
           <div className="flex">
-            <div className="my-2 font-JostMedium">Technique:</div>
+            <div className="my-2 font-JostMedium text-accent-secondary">Technique:</div>
             <div className="my-2 !ml-2">{technique}</div>
           </div>
           <div className="flex">
-            <div className="my-2 font-JostMedium">Results:</div>
+            <div className="my-2 font-JostMedium text-accent-secondary">Results:</div>
             <div className="my-2 flex">{results}</div>
           </div>
           <div className="flex">
-            <div className="my-2 font-JostMedium">Entities of interest:</div>
+            <div className="my-2 font-JostMedium text-accent-secondary">Entities of interest:</div>
             <div className="my-2">{entitiesOfInterest}</div>
           </div>
         </div>

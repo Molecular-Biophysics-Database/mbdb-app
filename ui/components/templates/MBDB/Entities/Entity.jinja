@@ -10,18 +10,18 @@
     </IField>
 
     {%- if field_value(entity.type) == "Chemical" %}
-        <Chemical entity={ entity } />
+    <Chemical entity={ entity } />
     {%- elif field_value(entity.type) == "Complex substance of biological origin" %}
-        <BiologicalOrigin entity={ entity } />
+    <BiologicalOrigin entity={ entity } />
     {%- elif field_value(entity.type) == "Complex substance of chemical origin" %}
-        <ChemicalOrigin entity={ entity } />
+    <ChemicalOrigin entity={ entity } />
     {%- elif field_value(entity.type) == "Complex substance of environmental origin" %}
-        <EnvironmentalOrigin entity={ entity } />
+    <EnvironmentalOrigin entity={ entity } />
     {%- elif field_value(entity.type) == "Complex substance of industrial production origin" %}
-        <IndustrialOrigin entity={ entity } />
+    <IndustrialOrigin entity={ entity } />
     {%- elif field_value(entity.type) == "Molecular assembly" %}
-        <MolecularAssembly entity={ entity } />
+    <MolecularAssembly entity={ entity } />
     {%- elif field_value(entity.type) == "Polymer" %}
-        <Polymer entity={ entity } />
+    <Polymer entity={ entity } />
     {%- endif %}
 </div>

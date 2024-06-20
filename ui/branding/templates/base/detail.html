@@ -1,16 +1,13 @@
-{% extends config.BASE_TEMPLATE %}
-{%- block bypasslinks %}
-{%- endblock bypasslinks %}
-{%- block page_body %}
+{% extends config.BASE_TEMPLATE %} {%- block bypasslinks %} {%- endblock
+bypasslinks %} {%- block page_body %}
 
 <div class="mbdbv-main-container text-dark">
   <div class="">
     {# Main content #}
     <article
-      class="lg:max-w-[1024px] lg:m-auto xl:max-w-[1280px] 2xl:max-w-[1440px]"
+      class="lg:max-w-[900px] lg:m-auto xl:max-w-[1000px] 2xl:max-w-[1280px]"
     >
-      {% block record_main_content %}
-      {% endblock %}
+      {% block record_main_content %} {% endblock %}
     </article>
 
     {# Sidebar #}
@@ -18,8 +15,7 @@
       class="sixteen wide tablet four wide computer column sidebar"
       aria-label="{{ _('Record details') }}"
     >
-      {% block record_sidebar %}
-      {% endblock record_sidebar %}
+      {% block record_sidebar %} {% endblock record_sidebar %}
     </aside>
   </div>
 

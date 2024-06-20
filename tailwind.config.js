@@ -9,6 +9,7 @@ module.exports = {
         secondary: "#FCC802",
         dark: "#023850",
         accent: "#E04541",
+        "accent-secondary": "#62A9D9",
       },
 
       fontFamily: {
