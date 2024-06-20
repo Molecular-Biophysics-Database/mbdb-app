@@ -1,28 +1,28 @@
 {# def modifications #}
 
 <INonEmpty d={modifications.synthesis}>
-    <span class="mbdbv-strong">Synthesis</span>
-    <div class="mbdbv-hoffset">
-        {%- for mod in array(modifications.synthesis) %}
-          <SubstanceModification mod={mod} />
-        {%- endfor %}
-    </div>
+  <div class="font-JostBold mb-2">Synthesis</div>
+  <div class="mbdbv-hoffset ml-4">
+    {%- for mod in array(modifications.synthesis) %}
+    <SubstanceModification mod={mod} />
+    {%- endfor %}
+  </div>
 </INonEmpty>
 
 <INonEmpty d={modifications.biological_postprocessing}>
-    <span class="mbdbv-strong">Biolog. postprocessing</span>
-    <div class="mbdbv-hoffset">
-        {%- for mod in array(modifications.biological_preparation) %}
-          <SubstanceModification mod={mod} />
-        {%- endfor %}
-    </div>
+  <div class="font-JostBold mb-2">Biolog. postprocessing</div>
+  <div class="mbdbv-hoffset ml-4">
+    {%- for mod in array(modifications.biological_preparation) %}
+    <SubstanceModification mod={mod} />
+    {%- endfor %}
+  </div>
 </INonEmpty>
 
 <INonEmpty d={modifications.chemical}>
-    <span class="mbdbv-strong">Chemical</span>
-    <div class="mbdbv-hoffset">
-        {%- for mod in array(modifications.chemical) %}
-          <SubstanceModification mod={mod} />
-        {%- endfor %}
-    </div>
+  <div class="font-JostBold mb-2">Chemical</div>
+  <div class="mbdbv-hoffset ml-4">
+    {%- for mod in array(modifications.chemical) %}
+    <SubstanceModification mod={mod} />
+    {%- endfor %}
+  </div>
 </INonEmpty>

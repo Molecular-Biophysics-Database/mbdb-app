@@ -75,7 +75,7 @@ function FormFieldsContainer() {
               {Tabs.map((tab) => (
                 <button
                   key={tab.value}
-                  className={`py-5 px-6 font-JostBold cursor-pointer rounded-tl-normal rounded-bl-normal hover:bg-primary hover:text-dark ${
+                  className={`py-5 px-6 font-JostBold text-left cursor-pointer rounded-tl-normal rounded-bl-normal hover:bg-primary hover:text-dark ${
                     state.selected === tab.value
                       ? "bg-primary text-dark"
                       : "text-white"

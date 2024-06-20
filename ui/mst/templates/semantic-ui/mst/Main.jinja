@@ -7,26 +7,26 @@
 <RecordHeader md={md} links={d.links} />
 
 {#
-    note: if you do not specify label for IField, it is taken directly from the model
-    (and translated to the current language) and thus is consistent with facets
+note: if you do not specify label for IField, it is taken directly from the model
+(and translated to the current language) and thus is consistent with facets
 #}
 
 <IValueList>
-    <IField d={d.id} label="Record ID"  field_class="mbdbv-record-technique" />
+    <IField d={d.id} label="Record ID" field_class="mbdbv-record-technique" />
     <IField d={gp.technique} field_class="mbdbv-record-technique" />
     <IField d={gp.depositors} field_class="mbdbv-record-technique">
         <Depositors depositors={gp.depositors} />
     </IField>
 </IValueList>
 
-{#        <IField label="Main Publication:" #}
-{#                d={gp.associated_publication}#}
-{#                field_class="mbdbv-record-technique">#}
-{#            <AssociatedPublication d={gp.associated_publication} />#}
-{#        </IField>#}
+{# <IField label="Main Publication:" #} {# d={gp.associated_publication}#} {# field_class="mbdbv-record-technique">#}
+    {#
+    <AssociatedPublication d={gp.associated_publication} />#}
+    {#
+</IField>#}
 
 
-<div class="mbdbv-record-container">
+<div class="mbdbv-record-container mt-8">
 
     <Section title="Entities of interest">
         <EntitiesOfInterest entities={gp.entities_of_interest} />
@@ -48,7 +48,7 @@
         <Instrument instrument={gp.instrument} />
     </Section>
 
-    <Section title="Raw measurement files" >
+    <Section title="Raw measurement files">
         <RawMeasurements raw_measurements={gp.raw_measurements} files={extra_context.files} />
     </Section>
 
