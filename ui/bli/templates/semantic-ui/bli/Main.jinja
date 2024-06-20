@@ -28,12 +28,16 @@
 
 <div class="mbdbv-record-container">
 
-    <Section title="Entities of interest"}>
+    <Section title="Entities of interest">
         <EntitiesOfInterest entities={gp.entities_of_interest} />
     </Section>
 
     <Section title="Results">
         <bli.BLI.Results gp={gp} />
+    </Section>
+
+    <Section title="Chemical environments (buffers)">
+        <ChemicalEnvironments chemical_environments={gp.chemical_environments} />
     </Section>
 
     <Section title="Measurements">

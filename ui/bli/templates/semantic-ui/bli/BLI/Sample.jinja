@@ -1,7 +1,7 @@
 {# def gp, sample, msp #}
 
 <IField label="Targets" d={sample.targets} >
-    <EoiInfo eoi_refs={sample.targets} gp={gp} />
+    <EoiInfo eoi_refs={sample.analytes} gp={gp} />
 </IField>
 
 <IField label="Ligands" d={sample.ligands} >
@@ -9,7 +9,9 @@
 </IField>
 
 {% set chemical_environment=find_reference(gp.chemical_environments, sample.chemical_environment.id) %}
-<ChemicalEnvironment chemical_environment={chemical_environment} />
+<IField label="Chemical environment" d={chemical_environment.name} >
+    {{ chemical_environment.name }}
+</IField>
 
 <IField label="Sample container" d={sample.container} />
 
