@@ -1,17 +1,21 @@
 {# def msp, gp #}
 
 <div>
-    <SubSection title="Experimental setup">
-        <IField label="Experiment" d={ msp.experiment_type }/>
-            <itc.ITC.Experiment experiment_type={ msp.experiment_type }/>
-        </IField>
-    </SubSection>
+    <div class="mb-4 pb-8 border-b-[.1px] border-b-dark">
+        <SubSection title="Experimental setup">
+            <IField label="Experiment" d={ msp.experiment_type } />
+            <itc.ITC.Experiment experiment_type={ msp.experiment_type } />
+            </IField>
+        </SubSection>
+    </div>
 
     {% for measurement in array(msp.measurements) %}
-        {% set title='Measurement ' ~ loop.index %}
+    {% set title='Measurement ' ~ loop.index %}
+    <div class="mb-4 pb-8 border-b-[.1px] border-b-dark last:border-b-0 last:mb-0">
         <SubSection title={ title }>
-            <IField label="Name" d={ measurement.name }/>
-            <Sample gp={gp} sample={ measurement.sample }/>
+            <IField label="Name" d={ measurement.name } />
+            <Sample gp={gp} sample={ measurement.sample } />
         </SubSection>
+    </div>
     {% endfor %}
 </div>

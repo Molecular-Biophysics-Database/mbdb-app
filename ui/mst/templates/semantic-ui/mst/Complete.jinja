@@ -1,45 +1,45 @@
 {% import "mst/MBDB/NameValue/Index.jinja" as nv %}
-{% from   "mst/MBDB/RecordHeader.jinja" import record_header %}
+{% from "mst/MBDB/RecordHeader.jinja" import record_header %}
 
 {%- macro _render_dict_items(d) %}
-  {%- for key, value in d.items() %}
-    {{ nv.item(key | nice_name, _render_item(value)) }}
-  {%- endfor %}
+{%- for key, value in d.items() %}
+{{ nv.item(key | nice_name, _render_item(value)) }}
+{%- endfor %}
 {%- endmacro %}
 
 {%- macro _render_item(item) %}
-  {%- if item is mapping %}
-    {{ _walk_dictionary(item) }}
-  {%- elif item is sequence and item is not string %}
-    {{ _walk_sequence(item) }}
-  {%- else %}
-    {{ item }}
-  {%- endif %}
+{%- if item is mapping %}
+{{ _walk_dictionary(item) }}
+{%- elif item is sequence and item is not string %}
+{{ _walk_sequence(item) }}
+{%- else %}
+{{ item }}
+{%- endif %}
 {%- endmacro %}
 
 {%- macro _render_root(metadata) %}
-  {{ nv.item("General parameters", _walk_dictionary(metadata.general_parameters)) }}
-  {%- if metadata.method_specific_parameters is defined %}
-    {{ nv.item("General parameters", _walk_dictionary(metadata.method_specific_parameters)) }}
-  {% endif %}
+{{ nv.item("General parameters", _walk_dictionary(metadata.general_parameters)) }}
+{%- if metadata.method_specific_parameters is defined %}
+{{ nv.item("General parameters", _walk_dictionary(metadata.method_specific_parameters)) }}
+{% endif %}
 {%- endmacro %}
 
 {%- macro _walk_dictionary(d) %}
-  {{ nv.waterfall(_render_dict_items(d)) }}
+{{ nv.waterfall(_render_dict_items(d)) }}
 {%- endmacro %}
 
 {%- macro _walk_sequence(s) %}
-  {%- for item in s %}
-    {{ _render_item(item) }}
-  {%- endfor %}
+{%- for item in s %}
+{{ _render_item(item) }}
+{%- endfor %}
 {%- endmacro %}
 
 {%- macro complete(metadata, ui) %}
-  <div class="ui container">
-    {{ record_header(metadata | maybe_get("general_parameters.record_information.title"), ui) }}
+<div class="ui container">
+  {{ record_header(metadata | maybe_get("general_parameters.record_information.title"), ui) }}
 
-    <div>
-      {{ nv.waterfall(_render_root(metadata)) }}
-    </div>
+  <div>
+    {{ nv.waterfall(_render_root(metadata)) }}
   </div>
+</div>
 {%- endmacro %}
