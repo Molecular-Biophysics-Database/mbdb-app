@@ -9,9 +9,7 @@
 </IField>
 
 {% set chemical_environment=find_reference(gp.chemical_environments, sample.chemical_environment.id) %}
-<ChemicalEnvironment chemical_environment={chemical_environment} />
-
+<IField label="Chemical environment" d={chemical_environment}>
+    {{ chemical_environment.name }}
+</IField>
 <IField label="Sample container" d={sample.container} />
-
-
-
