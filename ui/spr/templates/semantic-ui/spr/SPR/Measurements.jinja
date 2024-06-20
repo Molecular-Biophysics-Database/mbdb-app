@@ -3,6 +3,9 @@
 <div>
     <SubSection title="Experimental setup">
         <IField label="Experiment type" d={ msp.experiment_type }/>
+        <IField label="Measurement Protocol" d={msp.measurement_protocol}>
+            <MeasurementProtocol measurement_protocol={msp.measurement_protocol} />
+        </IField>
     </SubSection>
 
     {% for measurement in array(msp.measurements) %}
@@ -10,7 +13,6 @@
         <SubSection title={ title }>
             <IField label="Name" d={ measurement.name }/>
             <IField label="Position" d={ measurement.position }/>
-
             <Sample gp={gp} sample={ measurement.sample }/>
         </SubSection>
     {% endfor %}
