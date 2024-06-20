@@ -1,27 +1,25 @@
 {# def entity #}
 
-<div class="mbdb-entity">
-    <IField label="Name" d={entity.name}>
-        {{ entity.name }}
-    </IField>
+<IField label="Name" d={entity.name}>
+    {{ entity.name }}
+</IField>
 
-    <IField label="Type" d={field_value(entity.type)}>
-        {{ entity.type }}
-    </IField>
+<IField label="Type" d={field_value(entity.type)}>
+    {{ entity.type }}
+</IField>
 
-    {%- if field_value(entity.type) == "Chemical" %}
-        <Chemical entity={ entity } />
-    {%- elif field_value(entity.type) == "Complex substance of biological origin" %}
-        <BiologicalOrigin entity={ entity } />
-    {%- elif field_value(entity.type) == "Complex substance of chemical origin" %}
-        <ChemicalOrigin entity={ entity } />
-    {%- elif field_value(entity.type) == "Complex substance of environmental origin" %}
-        <EnvironmentalOrigin entity={ entity } />
-    {%- elif field_value(entity.type) == "Complex substance of industrial production origin" %}
-        <IndustrialOrigin entity={ entity } />
-    {%- elif field_value(entity.type) == "Molecular assembly" %}
-        <MolecularAssembly entity={ entity } />
-    {%- elif field_value(entity.type) == "Polymer" %}
-        <Polymer entity={ entity } />
-    {%- endif %}
-</div>
+{%- if field_value(entity.type) == "Chemical" %}
+    <Chemical entity={ entity } />
+{%- elif field_value(entity.type) == "Complex substance of biological origin" %}
+    <BiologicalOrigin entity={ entity } />
+{%- elif field_value(entity.type) == "Complex substance of chemical origin" %}
+    <ChemicalOrigin entity={ entity } />
+{%- elif field_value(entity.type) == "Complex substance of environmental origin" %}
+    <EnvironmentalOrigin entity={ entity } />
+{%- elif field_value(entity.type) == "Complex substance of industrial production origin" %}
+    <IndustrialOrigin entity={ entity } />
+{%- elif field_value(entity.type) == "Molecular assembly" %}
+    <MolecularAssembly entity={ entity } />
+{%- elif field_value(entity.type) == "Polymer" %}
+    <Polymer entity={ entity } />
+{%- endif %}

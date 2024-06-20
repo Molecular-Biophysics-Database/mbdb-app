@@ -2,6 +2,9 @@
 
 {% for eoi_ref in array(eoi_refs) %}
     {% set eoi=find_reference(gp.entities_of_interest, eoi_ref.entity.id) %}
-    <ConstituentInfo constituent={eoi} />
+    <div>
+        {{ eoi.name }}
+        <ValueUnit value={eoi_ref.concentration} />
+    </div>
 {% endfor %}
 
