@@ -1,4 +1,14 @@
 {# def entity #}
 
-<MeasuredValueField label="Mw" value={entity.molecular_weight} />
-<YesNoField label="Is chemically modified" value={entity.chemical_modifications} />
+<LabelledValueUnit label="Molecular Weight" obj={entity.molecular_weight} />
+
+{% for component in array(entity.components) %}
+{% set title='Component ' ~ loop.index %}
+    <SubSection title={ title }>
+        <Entity entity={component} />
+        <IField label="Copy Number" d={component.copy_number} />
+    </SubSection>
+{% endfor %}
+
+
+
