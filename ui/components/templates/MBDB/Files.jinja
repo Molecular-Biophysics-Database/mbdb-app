@@ -1,0 +1,11 @@
+{# def files #}
+
+{% for file in files.entries %}
+
+   <a class="flex justify-center w-fit py-2 px-4 text-18px bg-dark rounded-normal text-white hover:bg-secondary hover:text-dark transition-all"
+    href="{{file.links.content}}" target="_blank">Download {{ file.key }}</a>
+
+    {{file.metadata.context }}
+    {{file.metadata.description | truncate(length=100) }}
+
+{% endfor %}
