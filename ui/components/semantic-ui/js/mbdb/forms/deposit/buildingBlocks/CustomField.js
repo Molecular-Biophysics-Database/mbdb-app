@@ -39,7 +39,7 @@ function CustomField({
             }}
             label={label}
             type={type}
-            value={field.value || ""}
+            value={field.value !== undefined ? field.value : ""}
             disabled={disabled}
             variant="outlined"
             {...(multiline && { multiline: true })}
