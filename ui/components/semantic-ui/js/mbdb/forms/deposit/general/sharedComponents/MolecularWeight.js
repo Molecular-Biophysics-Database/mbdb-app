@@ -5,7 +5,7 @@ import ValueUnit from '../../buildingBlocks/ValueUnit';
 function MolecularWeight( { colorSchema, name, tooltip } ) {
 
     const unitOptions = [
-      { value: 'g / mol', label: 'g / mol' },
+      { value: 'g/mol', label: 'g/mol' },
       { value: 'Da', label: 'Da' },
       { value: 'kDa', label: 'kDa' },
       { value: 'MDa', label: 'MDa' },
