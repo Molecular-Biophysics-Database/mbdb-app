@@ -1,10 +1,14 @@
 import React from "react";
 import CustomField from "@mbdb_deposit/buildingBlocks/CustomField";
+import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
+
 import Sample from "./Sample";
 
 function Measurement( { name } ) {
 
-  return (
+    CreateUuid(name);
+
+    return (
     <>
         <div className='flex mb-3'>
           <div className="mr-3">

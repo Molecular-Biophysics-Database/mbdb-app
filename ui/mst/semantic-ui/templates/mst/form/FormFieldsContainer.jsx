@@ -34,11 +34,11 @@ function FormFieldsContainer() {
   ];
 
   const location = useLocation();
-  const [state, setState] = useState({ selected: "project-information" });
+  const [state, setState] = useState({ selected: "raw-measurement-files" });
   const { save, values: recordMetadata } = useDepositApiClient();
 
   useEffect(() => {
-    const selectedTab = location?.state?.selectedTab || "project-information";
+    const selectedTab = location?.state?.selectedTab || "raw-measurement-files";
     setState({ selected: selectedTab });
   }, [location]);
   const { files: recordFiles } = useFormConfig();
@@ -66,7 +66,7 @@ function FormFieldsContainer() {
     <>
       <div className="mb-4 ml-3">
         <Button
-          style={{ backgroundColor: "#023850", color: "white" }} 
+          style={{ backgroundColor: "#023850", color: "white" }}
           onClick={() => handleSaveMetadataAndFiles()}
         >
           Save
