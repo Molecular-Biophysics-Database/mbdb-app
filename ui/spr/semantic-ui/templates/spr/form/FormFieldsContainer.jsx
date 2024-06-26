@@ -33,11 +33,11 @@ function FormFieldsContainer() {
     ];
 
     const location = useLocation();
-    const [state, setState] = useState({ selected: 'project-information' });
+    const [state, setState] = useState({ selected: 'raw-measurement-files' });
     const { save, values: recordMetadata } = useDepositApiClient();
-  
+
     useEffect(() => {
-      const selectedTab = location?.state?.selectedTab || 'project-information';
+      const selectedTab = location?.state?.selectedTab || 'raw-measurement-files';
       setState({ selected: selectedTab });
     }, [location]);
     const { files: recordFiles } = useFormConfig();
@@ -75,7 +75,7 @@ function FormFieldsContainer() {
             <div className="bg-dark flex flex-col rounded-tl-normal rounded-bl-normal">
               {Tabs.map(tab => (
                   <button
-                    key={tab.value} 
+                    key={tab.value}
                     className={`py-5 px-6 font-JostBold cursor-pointer text-left rounded-tl-normal rounded-bl-normal hover:bg-primary hover:text-dark ${state.selected === tab.value ? 'bg-primary text-dark' : 'text-white'}`}
                     onClick={() => setState({ selected: tab.value })}
                   >

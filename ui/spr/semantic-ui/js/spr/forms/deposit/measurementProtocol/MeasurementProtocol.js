@@ -4,6 +4,7 @@ import OptionField from "@mbdb_deposit/buildingBlocks/OptionField";
 import StartTime from "@mbdb_deposit/sharedComponents/StartTime";
 import TimeLength from "@mbdb_deposit/sharedComponents/TimeLength";
 import Flow from "./Flow";
+import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 
 function MeasurementProtocol( { name } ) {
 
@@ -17,6 +18,8 @@ function MeasurementProtocol( { name } ) {
         { value: 'Activation', label: 'Activation' },
         { value: 'Enhancement', label: 'Enhancement' },
     ];
+
+    CreateUuid(name);
 
   return (
     <>

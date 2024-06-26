@@ -2,8 +2,11 @@ import React from "react";
 import CustomField from "@mbdb_deposit/buildingBlocks/CustomField";
 import LigandInformation from "@mbdb_deposit/sharedComponents/LigandInformation";
 import OptionalField from "@mbdb_deposit/buildingBlocks/OptionalField";
+import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 
 function MeasurementPositions( { name } ) {
+
+  CreateUuid(name);
 
   return (
     <>
