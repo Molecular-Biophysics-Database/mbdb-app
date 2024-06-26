@@ -1,4 +1,4 @@
-oarepo==12.0.20
+oarepo[s3]==12.0.21
 autoflake==2.3.1
 black==24.4.2
 cachetools==5.3.3
@@ -20,13 +20,13 @@ marisa-trie==1.2.0
 marshmallow-union==0.1.15.post1
 mypy-extensions==1.0.0
 oarepo-dashboard==1.0.8
-oarepo-global-search==1.0.12
+oarepo-global-search==1.0.13
 oarepo-model-builder==4.0.85
 oarepo-published-service==1.0.3
 oarepo-requests==1.2.2
-oarepo-runtime==1.5.36
-oarepo-ui==5.1.35
-oarepo-vocabularies==2.0.89
+oarepo-runtime==1.5.37
+oarepo-ui==5.1.36
+oarepo-vocabularies==2.0.90
 openpyxl==3.1.4
 pathspec==0.12.1
 pyflakes==3.2.0
@@ -34,4 +34,4 @@ python-dotenv==1.0.1
 tomli==2.0.1; python_version < "3.11"
 tomlkit==0.12.5
 tqdm==4.66.4
-whitenoise==6.6.0
+whitenoise==6.7.0
