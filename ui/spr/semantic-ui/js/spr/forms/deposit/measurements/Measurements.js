@@ -8,6 +8,7 @@ import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
 import OptionalField from "@mbdb_deposit/buildingBlocks/OptionalField";
 import CreateOptions from "@mbdb_deposit/buildingBlocks/CreateOptions";
+import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 
 function Measurements( { name } ) {
 
@@ -17,6 +18,8 @@ function Measurements( { name } ) {
 
     const measurementPotionValue = getIn(values, `metadata.method_specific_parameters.measurement_positions`);
     const measurementPotionOptions = CreateOptions(measurementPotionValue, 'Select Measurement position, if applicable');
+
+    CreateUuid(name);
 
   return (
     <>
@@ -58,8 +61,8 @@ function Measurements( { name } ) {
         <div>
             <ArrayField
                 name={name}
-                fieldName='sample'
-                label='Sample'
+                fieldName='samples'
+                label='Samples'
                 required={true}
                 renderChild={({ arrayName, index }) => (
                     <FormWrapper

@@ -2,8 +2,11 @@ import React from "react";
 import CustomField from "@mbdb_deposit/buildingBlocks/CustomField";
 import SampleInCell from "./SampleInCell";
 import SampleInSyringe from "./SampleInSyringe";
+import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 
 function Measurements( { name } ) {
+
+  CreateUuid(name);
 
   return (
     <>

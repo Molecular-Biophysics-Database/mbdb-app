@@ -12,7 +12,7 @@ function Flow( { colorSchema, name } ) {
         { value: 'mL/min', label: 'mL/min' },
         { value: 'µl/s', label: 'µl/s' },
       ];
-    
+
     const directionOptions = [
         { value: 'Vertical', label: 'Vertical' },
         { value: 'Horizontal', label: 'Horizontal' },
