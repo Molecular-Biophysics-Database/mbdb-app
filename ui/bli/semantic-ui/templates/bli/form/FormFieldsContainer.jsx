@@ -32,11 +32,11 @@ function FormFieldsContainer() {
   ];
 
   const location = useLocation();
-  const [state, setState] = useState({ selected: "project-information" });
+  const [state, setState] = useState({ selected: "raw-measurement-files" });
   const { save, values: recordMetadata } = useDepositApiClient();
 
   useEffect(() => {
-    const selectedTab = location?.state?.selectedTab || "project-information";
+    const selectedTab = location?.state?.selectedTab || "raw-measurement-files";
     setState({ selected: selectedTab });
   }, [location]);
   const { files: recordFiles } = useFormConfig();
