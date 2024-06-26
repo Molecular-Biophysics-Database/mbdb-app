@@ -8,7 +8,7 @@ dependencies = [
     "invenio-drafts-resources>=1.0.4",
     "json5",
     "oarepo-dashboard",
-    "oarepo-global-search",
+    "oarepo-global-search>=1.0.13",
     "oarepo-published-service>=1.0.0",
     "oarepo-requests>=1.0.2",
     "oarepo-runtime",
