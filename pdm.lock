@@ -3387,7 +3387,7 @@ files = [
 
 [[package]]
 name = "oarepo-global-search"
-version = "1.0.13"
+version = "1.0.14"
 requires_python = ">=3.10"
 summary = "\"A model builder plugin for global search\""
 groups = ["default"]
@@ -3396,8 +3396,8 @@ dependencies = [
     "oarepo-ui",
 ]
 files = [
-    {file = "oarepo_global_search-1.0.13-py2.py3-none-any.whl", hash = "sha256:e77f0c393c343fe041c3701271794e30ecd761cc600ace4cb12ef034f381e97d"},
-    {file = "oarepo_global_search-1.0.13.tar.gz", hash = "sha256:63303a69192843810efdd3cf1433ba522cf0fd6fa7994f9f12dcb489ef3707ac"},
+    {file = "oarepo_global_search-1.0.14-py2.py3-none-any.whl", hash = "sha256:faec1c2ef9d820c1ce522aba0e68af33e892ed7d970d5eb5b33162a2a2079a38"},
+    {file = "oarepo_global_search-1.0.14.tar.gz", hash = "sha256:c2a5618a77900ce8dfa7d65e61555e1f4b00e535bf404ff34077cffbcb1c1ac8"},
 ]
 
 [[package]]
@@ -3458,7 +3458,7 @@ files = [
 
 [[package]]
 name = "oarepo-runtime"
-version = "1.5.37"
+version = "1.5.39"
 summary = "A set of runtime extensions of Invenio repository"
 groups = ["default"]
 dependencies = [
@@ -3471,8 +3471,8 @@ dependencies = [
     "tqdm",
 ]
 files = [
-    {file = "oarepo_runtime-1.5.37-py3-none-any.whl", hash = "sha256:72c772314347798672c366b0f7823868772a71ced1eb62e3c21f73b6daa95ed8"},
-    {file = "oarepo_runtime-1.5.37.tar.gz", hash = "sha256:d13085923546becd332bef03e994f87cadbe99158e18c38d1dd61d8ac474388e"},
+    {file = "oarepo_runtime-1.5.39-py3-none-any.whl", hash = "sha256:6ea864d9ce3e8403603d46c8878a06206542f43a71797ee6ec8d98a8ec056f45"},
+    {file = "oarepo_runtime-1.5.39.tar.gz", hash = "sha256:c5f82e082103eaf4b2e01d35405b8c6c098f2363d8157e25b153c8e77ee4cdef"},
 ]
 
 [[package]]
@@ -3544,7 +3544,7 @@ files = [
 
 [[package]]
 name = "openpyxl"
-version = "3.1.4"
+version = "3.1.5"
 requires_python = ">=3.8"
 summary = "A Python library to read/write Excel 2010 xlsx/xlsm files"
 groups = ["default"]
@@ -3552,8 +3552,8 @@ dependencies = [
     "et-xmlfile",
 ]
 files = [
-    {file = "openpyxl-3.1.4-py2.py3-none-any.whl", hash = "sha256:ec17f6483f2b8f7c88c57e5e5d3b0de0e3fb9ac70edc084d28e864f5b33bbefd"},
-    {file = "openpyxl-3.1.4.tar.gz", hash = "sha256:8d2c8adf5d20d6ce8f9bca381df86b534835e974ed0156dacefa76f68c1d69fb"},
+    {file = "openpyxl-3.1.5-py2.py3-none-any.whl", hash = "sha256:5282c12b107bffeef825f4617dc029afaf41d0ea60823bbb665ef3079dc79de2"},
+    {file = "openpyxl-3.1.5.tar.gz", hash = "sha256:cf0e3cf56142039133628b5acffe8ef0c12bc902d2aadd3e0fe5878dc08d1050"},
 ]
 
 [[package]]
