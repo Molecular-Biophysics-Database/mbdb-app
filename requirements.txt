@@ -20,14 +20,14 @@ marisa-trie==1.2.0
 marshmallow-union==0.1.15.post1
 mypy-extensions==1.0.0
 oarepo-dashboard==1.0.8
-oarepo-global-search==1.0.13
+oarepo-global-search==1.0.14
 oarepo-model-builder==4.0.85
 oarepo-published-service==1.0.3
 oarepo-requests==1.2.2
-oarepo-runtime==1.5.37
+oarepo-runtime==1.5.39
 oarepo-ui==5.1.36
 oarepo-vocabularies==2.0.90
-openpyxl==3.1.4
+openpyxl==3.1.5
 pathspec==0.12.1
 pyflakes==3.2.0
 python-dotenv==1.0.1
