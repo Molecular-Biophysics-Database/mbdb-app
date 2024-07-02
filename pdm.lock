@@ -3458,7 +3458,7 @@ files = [
 
 [[package]]
 name = "oarepo-runtime"
-version = "1.5.39"
+version = "1.5.40"
 summary = "A set of runtime extensions of Invenio repository"
 groups = ["default"]
 dependencies = [
@@ -3471,13 +3471,13 @@ dependencies = [
     "tqdm",
 ]
 files = [
-    {file = "oarepo_runtime-1.5.39-py3-none-any.whl", hash = "sha256:6ea864d9ce3e8403603d46c8878a06206542f43a71797ee6ec8d98a8ec056f45"},
-    {file = "oarepo_runtime-1.5.39.tar.gz", hash = "sha256:c5f82e082103eaf4b2e01d35405b8c6c098f2363d8157e25b153c8e77ee4cdef"},
+    {file = "oarepo_runtime-1.5.40-py3-none-any.whl", hash = "sha256:15b99408791db665abe7858e733ec17b2256e3b35ffab241947beb30d65d48d5"},
+    {file = "oarepo_runtime-1.5.40.tar.gz", hash = "sha256:d1f29f27cfd7391f0528e255e3eea827c75aa8a425b1ae992365e5f6626de815"},
 ]
 
 [[package]]
 name = "oarepo-ui"
-version = "5.1.36"
+version = "5.1.37"
 requires_python = ">=3.10"
 summary = "UI module for invenio 3.5+"
 groups = ["default"]
@@ -3489,13 +3489,13 @@ dependencies = [
     "oarepo-runtime",
 ]
 files = [
-    {file = "oarepo_ui-5.1.36-py2.py3-none-any.whl", hash = "sha256:035960fed4163b3a80b5a5883ff2b662b2d453a58ed66a09db509067a833f60f"},
-    {file = "oarepo_ui-5.1.36.tar.gz", hash = "sha256:220f012cd2b02c51d808776eb61b8b1e128edb82a387eca833995b751b41fcbc"},
+    {file = "oarepo_ui-5.1.37-py2.py3-none-any.whl", hash = "sha256:8ebf1b1480f4593f1de17d2b1494a76c5260a48049ac21e6504cc781eb5f5bec"},
+    {file = "oarepo_ui-5.1.37.tar.gz", hash = "sha256:06233754e2b3934c4162d462261d86ad3a983c53ed5bef3c6466f0f771016dc7"},
 ]
 
 [[package]]
 name = "oarepo-vocabularies"
-version = "2.0.90"
+version = "2.0.92"
 summary = "Support for custom fields and hierarchy on Invenio vocabularies"
 groups = ["default"]
 dependencies = [
@@ -3506,8 +3506,8 @@ dependencies = [
     "openpyxl",
 ]
 files = [
-    {file = "oarepo_vocabularies-2.0.90-py3-none-any.whl", hash = "sha256:1961bb9d87604e0db2fd873152a5909f54daa59b68b28a5b5cbb31f3a92cdee2"},
-    {file = "oarepo_vocabularies-2.0.90.tar.gz", hash = "sha256:97cfc5e7f56c6145149feca0e553471291e0b50b08416581e65668c79802d658"},
+    {file = "oarepo_vocabularies-2.0.92-py3-none-any.whl", hash = "sha256:aa7b0929a13fe3cad10e75cc12d4a443a9bca7b67f9ece0ba1c2faaebac3dfb9"},
+    {file = "oarepo_vocabularies-2.0.92.tar.gz", hash = "sha256:a7f3caa18f83eb1278178330ca71684a67a27aa2218ca2884e5fda33f3adc53a"},
 ]
 
 [[package]]
@@ -4252,13 +4252,13 @@ files = [
 
 [[package]]
 name = "setuptools"
-version = "70.1.1"
+version = "70.2.0"
 requires_python = ">=3.8"
 summary = "Easily download, build, install, upgrade, and uninstall Python packages"
 groups = ["default"]
 files = [
-    {file = "setuptools-70.1.1-py3-none-any.whl", hash = "sha256:a58a8fde0541dab0419750bcc521fbdf8585f6e5cb41909df3a472ef7b81ca95"},
-    {file = "setuptools-70.1.1.tar.gz", hash = "sha256:937a48c7cdb7a21eb53cd7f9b59e525503aa8abaf3584c730dc5f7a5bec3a650"},
+    {file = "setuptools-70.2.0-py3-none-any.whl", hash = "sha256:b8b8060bb426838fbe942479c90296ce976249451118ef566a5a0b7d8b78fb05"},
+    {file = "setuptools-70.2.0.tar.gz", hash = "sha256:bd63e505105011b25c3c11f753f7e3b8465ea739efddaccef8f0efac2137bac1"},
 ]
 
 [[package]]
