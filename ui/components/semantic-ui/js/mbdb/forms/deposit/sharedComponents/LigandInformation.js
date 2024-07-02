@@ -11,7 +11,7 @@ function LigandInformation( { name, colorSchema } ) {
 
     const { values } = useFormikContext();
 
-    const ligandValue = getIn(values, `metadata.general_parameters.chemical_environments`);
+    const ligandValue = getIn(values, `metadata.general_parameters.entities_of_interest`);
     const ligandOptions = CreateOptions(ligandValue, 'Select Ligand, if applicable');
 
   return (
