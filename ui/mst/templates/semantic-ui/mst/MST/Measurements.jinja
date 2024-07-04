@@ -2,23 +2,23 @@
 
 <div>
     <div class="mb-4 pb-8 border-b-[.1px] border-b-dark last:border-b-0 last:mb-0">
-        <SubSection title="Experimental setup">
-            <IField label="Experiment type" d={ msp.experiment_type } />
-            <IField label="Excitation LED" d={ msp.excitation_led_power }>
-                <mst.MST.ExcitationLed power={ msp.excitation_led_power } color={ msp.excitation_led_color } />
+        <SubSection :title="'Experimental setup'">
+            <IField :label="'Experiment type'" :d="msp.experiment_type" />
+            <IField :label="'Excitation LED'" :d="msp.excitation_led_power" >
+                <mst.MST.ExcitationLed :power="msp.excitation_led_power" :color="msp.excitation_led_color" />
             </IField>
-            <IField label="Laser power" d={ msp.ir_mst_laser_power } />
+            <IField :label="'Laser power'" :d="msp.ir_mst_laser_power" />
         </SubSection>
     </div>
 
     {% for measurement in array(msp.measurements) %}
     {% set title='Measurement ' ~ loop.index %}
     <div class="mb-4 pb-8 border-b-[.1px] border-b-dark last:border-b-0 last:mb-0">
-        <SubSection title={ title }>
-            <IField label="Name" d={ measurement.name } />
-            <IField label="Position" d={ measurement.position } />
+        <SubSection :title="title">
+            <IField :label="'Name'" :d="measurement.name" />
+            <IField :label="'Position'" :d="measurement.position" />
 
-            <mst.MST.Sample gp={gp} sample={ measurement.sample } />
+            <mst.MST.Sample :gp="gp" :sample="measurement.sample" />
         </SubSection>
     </div>
     {% endfor %}

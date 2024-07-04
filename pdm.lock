@@ -2441,8 +2441,8 @@ files = [
 
 [[package]]
 name = "jinjax"
-version = "0.37"
-requires_python = "<4.0,>=3.9"
+version = "0.40"
+requires_python = "<4.0,>=3.10"
 summary = "Replace your HTML templates with Python server-Side components"
 groups = ["default"]
 dependencies = [
@@ -2451,8 +2451,8 @@ dependencies = [
     "whitenoise>=5.3",
 ]
 files = [
-    {file = "jinjax-0.37-py3-none-any.whl", hash = "sha256:c45a7a495e617f4c582ea19c831a19239b427b813ff23b819e7ba041edc5f11d"},
-    {file = "jinjax-0.37.tar.gz", hash = "sha256:0ec87e61a0b5e1b77381299828d563b06b6402c38d4c990c8228bca901d5c77d"},
+    {file = "jinjax-0.40-py3-none-any.whl", hash = "sha256:d69dbe00c180f73db2570a62ff538fe93bd8d5a45bcfb795c5cd33ad49575a5d"},
+    {file = "jinjax-0.40.tar.gz", hash = "sha256:f68b5717f3db2c3169399cde27e0d86211a654f5f7a1d7ff524f01a437ecb319"},
 ]
 
 [[package]]
@@ -3477,7 +3477,7 @@ files = [
 
 [[package]]
 name = "oarepo-ui"
-version = "5.1.37"
+version = "5.1.39"
 requires_python = ">=3.10"
 summary = "UI module for invenio 3.5+"
 groups = ["default"]
@@ -3489,8 +3489,8 @@ dependencies = [
     "oarepo-runtime",
 ]
 files = [
-    {file = "oarepo_ui-5.1.37-py2.py3-none-any.whl", hash = "sha256:8ebf1b1480f4593f1de17d2b1494a76c5260a48049ac21e6504cc781eb5f5bec"},
-    {file = "oarepo_ui-5.1.37.tar.gz", hash = "sha256:06233754e2b3934c4162d462261d86ad3a983c53ed5bef3c6466f0f771016dc7"},
+    {file = "oarepo_ui-5.1.39-py2.py3-none-any.whl", hash = "sha256:cc1ac2a869d969b131d6a9ac5a0deceb0efaba78353c7cc6b3d862b0abaa38fe"},
+    {file = "oarepo_ui-5.1.39.tar.gz", hash = "sha256:58362b9298ff7b70ec132e823f8a067ced136fe66f82557f0106ab9d76d56cab"},
 ]
 
 [[package]]

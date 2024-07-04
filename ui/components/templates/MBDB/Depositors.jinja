@@ -3,5 +3,5 @@
 {% set people=array(depositors.principal_contact, depositors.depositor, depositors.contributors, remove_empty=True) %}
 {%- for person in people -%}
         {%- if not loop.first %}, {%- endif -%}
-        <Person person={person}/>
+        <Person :person="person"/>
 {%- endfor -%}

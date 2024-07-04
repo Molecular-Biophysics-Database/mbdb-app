@@ -6,9 +6,9 @@
 {%- endblock %}
 
 {% block record_main_content %}
-    <mst.Main metadata={metadata} ui={ui} extra_context={extra_context} record={record} d={d} context={context}/>
+    <mst.Main :metadata="metadata" :ui="ui" :extra_context="extra_context" :record="record" :d="d" :context="context"/>
 {% endblock %}
 
 {% block record_sidebar %}
-    <mst.Sidebar metadata={metadata} ui={ui} extra_context={extra_context} record={record} d={d}/>
+    <mst.Sidebar :metadata="metadata" :ui="ui" :extra_context="extra_context" :record="record" :d="d"/>
 {% endblock record_sidebar %}

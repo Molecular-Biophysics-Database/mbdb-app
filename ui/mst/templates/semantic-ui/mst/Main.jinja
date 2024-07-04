@@ -4,7 +4,7 @@
 {% set gp=md.general_parameters %}
 {% set msp=md.method_specific_parameters %}
 
-<RecordHeader md={md} links={d.links} />
+<RecordHeader :md="md" :links="d.links" />
 
 {#
 note: if you do not specify label for IField, it is taken directly from the model
@@ -12,44 +12,44 @@ note: if you do not specify label for IField, it is taken directly from the mode
 #}
 
 <IValueList>
-    <IField d={d.id} label="Record ID" field_class="mbdbv-record-technique" />
-    <IField d={gp.technique} field_class="mbdbv-record-technique" />
-    <IField d={gp.depositors} field_class="mbdbv-record-technique">
-        <Depositors depositors={gp.depositors} />
+    <IField :d="d.id" :label="'Record ID'" :field_class="'mbdbv-record-technique'" />
+    <IField :d="gp.technique" :field_class="'mbdbv-record-technique'" />
+    <IField :d="gp.depositors" :field_class="'mbdbv-record-technique'">
+        <Depositors :depositors="gp.depositors" />
     </IField>
 </IValueList>
 
-{# <IField label="Main Publication:" #} {# d={gp.associated_publication}#} {# field_class="mbdbv-record-technique">#}
+{# <IField :label="Main Publication:" #} {# :d={gp.associated_publication}#} {# field_class="mbdbv-record-technique">#}
     {#
-    <AssociatedPublication d={gp.associated_publication} />#}
+    <AssociatedPublication :d={gp.associated_publication} />#}
     {#
 </IField>#}
 
 
 <div class="mbdbv-record-container mt-8">
 
-    <Section title="Entities of interest">
-        <EntitiesOfInterest entities={gp.entities_of_interest} />
+    <Section :title="'Entities of interest'">
+        <EntitiesOfInterest :entities="gp.entities_of_interest" />
     </Section>
 
-    <Section title="Results">
-        <Results gp={gp} `/>
+    <Section :title="'Results'">
+        <Results :gp="gp" />
     </Section>
 
-    <Section title="Chemical environments (buffers)">
-        <ChemicalEnvironments chemical_environments={gp.chemical_environments} />
+    <Section :title="'Chemical environments (buffers)'">
+        <ChemicalEnvironments :chemical_environments="gp.chemical_environments" />
     </Section>
 
-    <Section title="Measurements">
-        <mst.MST.Measurements gp={gp} msp={msp} />
+    <Section :title="'Measurements'">
+        <mst.MST.Measurements :gp="gp" :msp="msp" />
     </Section>
 
-    <Section title="Instrument">
-        <Instrument instrument={gp.instrument} />
+    <Section :title="'Instrument'">
+        <Instrument :instrument="gp.instrument" />
     </Section>
 
-    <Section title="Files">
-        <Files  files={extra_context.files} />
+    <Section :title="'Files'">
+        <Files :files="extra_context.files" />
     </Section>
 
 </div>

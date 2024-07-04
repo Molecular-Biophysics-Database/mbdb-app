@@ -10,7 +10,7 @@ flask-babelex==0.9.4
 frozendict==2.4.4
 isort==5.13.2
 jinja2-simple-tags==0.6.1
-jinjax==0.37
+jinjax==0.40
 json5==0.9.25
 langcodes==3.4.0
 language-data==1.2.0
@@ -25,7 +25,7 @@ oarepo-model-builder==4.0.85
 oarepo-published-service==1.0.3
 oarepo-requests==1.2.2
 oarepo-runtime==1.5.40
-oarepo-ui==5.1.37
+oarepo-ui==5.1.39
 oarepo-vocabularies==2.0.92
 openpyxl==3.1.5
 pathspec==0.12.1

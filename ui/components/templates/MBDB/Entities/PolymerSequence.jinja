@@ -1,6 +1,6 @@
 {# def sequence #}
 
-<IField label="Sequence" d={sequence} >
+<IField :label="'Sequence'" d="sequence" >
     {{ sequence | format_sequence(chunk_size=10, chunks_per_line=5) }}
 </IField>
 

@@ -1,15 +1,15 @@
 {# def gp, sample #}
 
-<IField label="Targets" d={sample.targets} >
-    <EoiInfo eoi_refs={sample.targets} gp={gp} />
+<IField :label="'Targets'" :d="sample.targets" >
+    <EoiInfo :eoi_refs="sample.targets" :gp="gp" />
 </IField>
 
-<IField label="Ligands" d={sample.ligands} >
-    <EoiInfo eoi_refs={sample.ligands} gp={gp} />
+<IField :label="'Ligands'" :d="sample.ligands" >
+    <EoiInfo :eoi_refs="sample.ligands" :gp="gp" />
 </IField>
 
 {% set chemical_environment=find_reference(gp.chemical_environments, sample.chemical_environment.id) %}
-<IField label="Chemical environment" d={chemical_environment}>
+<IField :label="'Chemical environment'" :d="chemical_environment">
     {{ chemical_environment.name }}
 </IField>
-<IField label="Sample container" d={sample.container} />
+<IField :label="'Sample container'" :d="sample.container" />
