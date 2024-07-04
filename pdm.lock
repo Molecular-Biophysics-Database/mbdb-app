@@ -3477,7 +3477,7 @@ files = [
 
 [[package]]
 name = "oarepo-ui"
-version = "5.1.37"
+version = "5.1.40"
 requires_python = ">=3.10"
 summary = "UI module for invenio 3.5+"
 groups = ["default"]
@@ -3485,12 +3485,12 @@ dependencies = [
     "frozendict",
     "importlib-metadata>=4.11.4",
     "jinja2-simple-tags",
-    "jinjax",
+    "jinjax==0.37",
     "oarepo-runtime",
 ]
 files = [
-    {file = "oarepo_ui-5.1.37-py2.py3-none-any.whl", hash = "sha256:8ebf1b1480f4593f1de17d2b1494a76c5260a48049ac21e6504cc781eb5f5bec"},
-    {file = "oarepo_ui-5.1.37.tar.gz", hash = "sha256:06233754e2b3934c4162d462261d86ad3a983c53ed5bef3c6466f0f771016dc7"},
+    {file = "oarepo_ui-5.1.40-py2.py3-none-any.whl", hash = "sha256:37c6ce052d3c6f4012e52bf09e9abaaa513ec18936d9a0b829922226e0a526b4"},
+    {file = "oarepo_ui-5.1.40.tar.gz", hash = "sha256:7a184530781d1e7d455f906cddd8ea0146d4f0415d5d0f7b5e63fab0818ef460"},
 ]
 
 [[package]]
