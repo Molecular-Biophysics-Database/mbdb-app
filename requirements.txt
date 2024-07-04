@@ -24,9 +24,9 @@ oarepo-global-search==1.0.14
 oarepo-model-builder==4.0.85
 oarepo-published-service==1.0.3
 oarepo-requests==1.2.2
-oarepo-runtime==1.5.39
-oarepo-ui==5.1.36
-oarepo-vocabularies==2.0.90
+oarepo-runtime==1.5.40
+oarepo-ui==5.1.37
+oarepo-vocabularies==2.0.92
 openpyxl==3.1.5
 pathspec==0.12.1
 pyflakes==3.2.0
