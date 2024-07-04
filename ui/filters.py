@@ -2,7 +2,7 @@ import jinja2
 from markupsafe import Markup, escape
 
 from math import ceil
-from oarepo_ui.resources.templating.data import FieldData, EMPTY_FIELD_DATA
+from oarepo_ui.resources.templating.data import EMPTY_FIELD_DATA
 from oarepo_ui.resources.templating.filters import ichain
 
 

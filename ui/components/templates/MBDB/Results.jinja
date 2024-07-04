@@ -1,0 +1,20 @@
+{# def gp #}
+
+<IValueList>
+    {%- for result in array(gp.results) %}
+    {% set title='Result ' ~ loop.index %}
+    <div class="mb-4 pb-8 border-b-[.1px] border-b-dark last:border-b-0 last:mb-0">
+        <SubSection title={ title }>
+            <IField label={ result.name }>
+                {% if result.unit._is_empty %}
+                    {{ result.value }}
+                {% else %}
+                    {{ result.value ~ " " ~ result.unit }}
+                {% endif %}
+                <ValueError value_error={result.value_error} />
+            </IField>
+            <IField label="Result type" d={result.type} />
+        </SubSection>
+    </div>
+    {% endfor %}
+</IValueList>

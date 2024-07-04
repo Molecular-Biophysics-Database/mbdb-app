@@ -1,0 +1,7 @@
+{# def value_error #}
+
+{% if not value_error._is_empty %}
+    {% set error_type = " %" if value_error.is_relative else "" %}
+    (+ {{ value_error.upper }}
+     - {{ value_error.lower }}) {{ error_type }}
+{% endif %}
