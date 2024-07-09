@@ -3402,7 +3402,7 @@ files = [
 
 [[package]]
 name = "oarepo-model-builder"
-version = "4.0.85"
+version = "4.0.86"
 summary = "A utility library that generates OARepo required data model files from a JSON specification file"
 groups = ["default"]
 dependencies = [
@@ -3427,8 +3427,8 @@ dependencies = [
     "tomlkit>=0.7.2",
 ]
 files = [
-    {file = "oarepo_model_builder-4.0.85-py3-none-any.whl", hash = "sha256:96e13b2939e2eb3513cb5ee91c0a8acf56e6941c0019986a5ccc1d3a82c9e8a9"},
-    {file = "oarepo_model_builder-4.0.85.tar.gz", hash = "sha256:bd99b89569b0066e7963f8bf6f10aa92d199c232bdfcf91df574537fdaca5be7"},
+    {file = "oarepo_model_builder-4.0.86-py3-none-any.whl", hash = "sha256:0f5d44fe64ec53a8ef8e09a793c9efb881c743fd197ca4abeb36e550f2753e1c"},
+    {file = "oarepo_model_builder-4.0.86.tar.gz", hash = "sha256:cbf505746e1967b6fc4835c22bbbb8c85ce40a5ba2fdcdf83ca50588b8d6bdd8"},
 ]
 
 [[package]]
@@ -3458,7 +3458,7 @@ files = [
 
 [[package]]
 name = "oarepo-runtime"
-version = "1.5.40"
+version = "1.5.41"
 summary = "A set of runtime extensions of Invenio repository"
 groups = ["default"]
 dependencies = [
@@ -3471,8 +3471,8 @@ dependencies = [
     "tqdm",
 ]
 files = [
-    {file = "oarepo_runtime-1.5.40-py3-none-any.whl", hash = "sha256:15b99408791db665abe7858e733ec17b2256e3b35ffab241947beb30d65d48d5"},
-    {file = "oarepo_runtime-1.5.40.tar.gz", hash = "sha256:d1f29f27cfd7391f0528e255e3eea827c75aa8a425b1ae992365e5f6626de815"},
+    {file = "oarepo_runtime-1.5.41-py3-none-any.whl", hash = "sha256:1b6f5732abecd5ee9afa08922cbd058f76934272b9df8b5fc2961e2808fbeb8b"},
+    {file = "oarepo_runtime-1.5.41.tar.gz", hash = "sha256:77de8be2bbc5faecd179b71d4be389e4d78d1e3babf19ef9f1076615ba98c8cb"},
 ]
 
 [[package]]
