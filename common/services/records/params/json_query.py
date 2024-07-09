@@ -1,4 +1,12 @@
 from invenio_records_resources.services.records.params import ParamInterpreter
+from invenio_search import current_search_client
+from invenio_search.engine import dsl
+from invenio_search.utils import build_alias_name
+from bli.records.api import BliRecord
+from itc.records.api import ItcRecord
+from mst.records.api import MstRecord
+from spr.records.api import SprRecord
+from functools import lru_cache
 
 from luqum.tree import (
     SearchField,
@@ -18,10 +26,12 @@ class JsonQueryParamInterpreter(ParamInterpreter):
         """
         Applies the constructed query to the search object.
         """
-        # Params["advanced_query_json"] contains the search JSON as a dictionary
-        if params.get("advanced_query_json"):
-            json_criteria = params["advanced_query_json"]
-            schema = params.get("schema")
+        json_criteria = params.get("advanced_query_json")
+        if json_criteria:
+            # TODO: find a way of passing InvenioRecord objects
+            #       to get_schema instead of index names
+
+            schema = self.get_schema(search._index[0])
 
             # Parse the JSON criteria to construct the Luqum tree
             luqum_tree = self.construct_luqum_tree(json_criteria)
@@ -34,7 +44,7 @@ class JsonQueryParamInterpreter(ParamInterpreter):
             es_query = es_builder(luqum_tree)
 
             # Apply the constructed query to the search object
-            search = search.query({"match_all": {es_query}})
+            search = search.query(es_query)
 
         return search
 
@@ -108,3 +118,29 @@ class JsonQueryParamInterpreter(ParamInterpreter):
                     base = op(last_base, grouped) if last_base else grouped
 
         return base
+
+    @staticmethod
+    @lru_cache(maxsize=10)
+    def get_schema(index_name):
+        """returns the mapping schema associated with a given index name."""
+
+        records = {
+            "mbdb_app-bli-bli-1.0.0": BliRecord,
+            "mbdb_app-itc-itc-1.0.0": ItcRecord,
+            "mbdb_app-mst-mst-1.0.0": MstRecord,
+            "mbdb_app-spr-spr-1.0.0": SprRecord,
+        }
+
+        record_cls = records[index_name]
+
+        record_index = dsl.Index(
+            build_alias_name(
+                record_cls.index._name,
+            ),
+            using=current_search_client,
+        )
+
+        mapping = record_index.get_mapping()
+        for key in mapping:
+            if index_name in key:
+                return mapping[key]
