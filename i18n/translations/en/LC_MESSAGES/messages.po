@@ -71,7 +71,7 @@ msgstr "Value"
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:83
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/expression_organism.label"
-msgstr ""
+msgstr "Expression organism"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:94
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:94
@@ -310,7 +310,7 @@ msgstr "Sequence"
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:460
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/source_organism.label"
-msgstr ""
+msgstr "Source organism"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:471
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:471
@@ -394,7 +394,7 @@ msgstr "Copy number"
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:593
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/expression_organism.label"
-msgstr ""
+msgstr "Expression organism"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:604
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:604
@@ -633,7 +633,7 @@ msgstr "Sequence"
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:970
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/source_organism.label"
-msgstr ""
+msgstr "Source organism"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:981
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:981
@@ -808,7 +808,7 @@ msgstr "Host cell type"
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:1221
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/host_organism.label"
-msgstr ""
+msgstr "Host organism"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:1232
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:1232
@@ -905,7 +905,7 @@ msgstr "Product"
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:1362
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:1362
 msgid "metadata/general_parameters/chemical_environments/id.label"
-msgstr ""
+msgstr "Id"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:1370
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:1370
@@ -1081,7 +1081,7 @@ msgstr "Additional specifications"
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:1581
 msgid ""
 "metadata/general_parameters/entities_of_interest/expression_organism.label"
-msgstr ""
+msgstr "Expression organism"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:1589
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:1589
@@ -1322,7 +1322,7 @@ msgstr "Sequence"
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:1855
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:1855
 msgid "metadata/general_parameters/entities_of_interest/source_organism.label"
-msgstr ""
+msgstr "Source organism"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:1861
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:1861
@@ -1403,7 +1403,7 @@ msgstr "Copy number"
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:1942
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/expression_organism.label"
-msgstr ""
+msgstr "Expression organism"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:1950
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:1950
@@ -1641,7 +1641,7 @@ msgstr "Sequence"
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:2215
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/source_organism.label"
-msgstr ""
+msgstr "Source organism"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:2223
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:2223
@@ -1804,7 +1804,7 @@ msgstr "Host cell type"
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:2367
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:2367
 msgid "metadata/general_parameters/entities_of_interest/host_organism.label"
-msgstr ""
+msgstr "Host organism"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:2373
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:2373
@@ -1895,7 +1895,7 @@ msgstr "Funding references"
 
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:2448
 msgid "metadata/general_parameters/instrument.label"
-msgstr ""
+msgstr "Instrument"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:2458
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:2454
@@ -2132,7 +2132,7 @@ msgstr "Time unit"
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:2678
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:2647
 msgid "metadata/method_specific_parameters/measurements/id.label"
-msgstr ""
+msgstr "Id"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:2652
 #: /home/emil/bin/mbdb-app/mst/services/records/facets.py:2683
@@ -2234,7 +2234,7 @@ msgstr "Flow cell"
 
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:2669
 msgid "metadata/method_specific_parameters/measurement_positions/id.label"
-msgstr ""
+msgstr "Id"
 
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:2674
 msgid ""
@@ -2278,7 +2278,7 @@ msgstr "Unit"
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:2662
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:2722
 msgid "metadata/method_specific_parameters/measurement_protocol/id.label"
-msgstr ""
+msgstr "Id"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:2667
 #: /home/emil/bin/mbdb-app/spr/services/records/facets.py:2727
@@ -2451,7 +2451,7 @@ msgstr "Value"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:2754
 msgid "metadata/method_specific_parameters/plates/id.label"
-msgstr ""
+msgstr "Id"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:2759
 msgid "metadata/method_specific_parameters/plates/name.label"
@@ -2474,7 +2474,7 @@ msgstr "Well position"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:2799
 msgid "metadata/method_specific_parameters/sensors/id.label"
-msgstr ""
+msgstr "Id"
 
 #: /home/emil/bin/mbdb-app/bli/services/records/facets.py:2804
 msgid "metadata/method_specific_parameters/sensors/name.label"
@@ -2856,6 +2856,8 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/expression_organism.help"
 msgstr ""
+"The biological species that was used to express (produce) the polymer. Note "
+"that this is based on the NCBI taxonomy"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/expression_organism.hint"
@@ -3250,7 +3252,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/checked.help"
-msgstr "Whether the homogeneity was checked"
+msgstr "Whether or not the homogeneity was checked"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/checked.hint"
@@ -3508,7 +3510,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/checked.help"
-msgstr "Information about if and how the purity was obtained"
+msgstr "Wether or not the purity was checked"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/checked.hint"
@@ -3587,6 +3589,8 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/source_organism.help"
 msgstr ""
+"The biological species where the polymer naturally occurs. Note that this is"
+" based on the NCBI taxonomy"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/source_organism.hint"
@@ -3818,6 +3822,8 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/expression_organism.help"
 msgstr ""
+"The biological species that was used to express (produce) the polymer. Note "
+"that this is based on the NCBI taxonomy"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/expression_organism.hint"
@@ -4212,7 +4218,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/checked.help"
-msgstr "Whether the homogeneity was checked"
+msgstr "Whether or not the homogeneity was checked"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/checked.hint"
@@ -4470,7 +4476,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/checked.help"
-msgstr "Information about if and how the purity was obtained"
+msgstr "Wether or not the purity was checked"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/checked.hint"
@@ -4549,6 +4555,8 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/source_organism.help"
 msgstr ""
+"The biological species where the polymer naturally occurs. Note that this is"
+" based on the NCBI taxonomy"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/source_organism.hint"
@@ -5087,6 +5095,8 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/host_organism.help"
 msgstr ""
+"The host organism the virion was produced in. Note that information is based"
+" on the NCBI taxonomy"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/host_organism.hint"
@@ -5370,7 +5380,7 @@ msgid ""
 msgstr ""
 
 msgid "metadata/general_parameters/chemical_environments/id.help"
-msgstr ""
+msgstr "Unique ID for the chemical environment to be used as a link"
 
 msgid "metadata/general_parameters/chemical_environments/id.hint"
 msgstr ""
@@ -5985,6 +5995,8 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/entities_of_interest/expression_organism.help"
 msgstr ""
+"The biological species that was used to express (produce) the polymer. Note "
+"that this is based on the NCBI taxonomy"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/expression_organism.hint"
@@ -6375,7 +6387,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/checked.help"
-msgstr "Whether the homogeneity was checked"
+msgstr "Whether or not the homogeneity was checked"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/checked.hint"
@@ -6633,7 +6645,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/quality_controls/purity/checked.help"
-msgstr "Information about if and how the purity was obtained"
+msgstr "Wether or not the purity was checked"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/quality_controls/purity/checked.hint"
@@ -6709,6 +6721,8 @@ msgstr ""
 
 msgid "metadata/general_parameters/entities_of_interest/source_organism.help"
 msgstr ""
+"The biological species where the polymer naturally occurs. Note that this is"
+" based on the NCBI taxonomy"
 
 msgid "metadata/general_parameters/entities_of_interest/source_organism.hint"
 msgstr ""
@@ -6933,6 +6947,8 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/expression_organism.help"
 msgstr ""
+"The biological species that was used to express (produce) the polymer. Note "
+"that this is based on the NCBI taxonomy"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/expression_organism.hint"
@@ -7325,7 +7341,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/checked.help"
-msgstr "Whether the homogeneity was checked"
+msgstr "Whether or not the homogeneity was checked"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/checked.hint"
@@ -7583,7 +7599,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/quality_controls/purity/checked.help"
-msgstr "Information about if and how the purity was obtained"
+msgstr "Wether or not the purity was checked"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/quality_controls/purity/checked.hint"
@@ -7662,6 +7678,8 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/source_organism.help"
 msgstr ""
+"The biological species where the polymer naturally occurs. Note that this is"
+" based on the NCBI taxonomy"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/source_organism.hint"
@@ -8157,6 +8175,8 @@ msgstr ""
 
 msgid "metadata/general_parameters/entities_of_interest/host_organism.help"
 msgstr ""
+"The host organism the virion was produced in. Note that information is based"
+" on the NCBI taxonomy"
 
 msgid "metadata/general_parameters/entities_of_interest/host_organism.hint"
 msgstr ""
@@ -8654,9 +8674,11 @@ msgstr ""
 
 msgid "metadata/general_parameters/results/entities_involved/entity.help"
 msgstr ""
+"Name (ids) of the entity (from the entities of interest defined in the "
+"general parameters)"
 
 msgid "metadata/general_parameters/results/entities_involved/entity.label"
-msgstr ""
+msgstr "Entity"
 
 msgid "metadata/general_parameters/results/entities_involved/entity.hint"
 msgstr ""
@@ -8822,10 +8844,10 @@ msgstr ""
 
 msgid "metadata/general_parameters/results/value_error/lower.help"
 msgstr ""
-"The lower error, i.e. the number that should be added to the value to get "
-"the upper bound of the 95 % confidence interval. The same unit as the value "
-"being described is assumed. If relative errors are provided, please provide "
-"it in fractional form (e.g.  0.01 for 1 %)"
+"The lower error, i.e. the number that should be subtracted from the value to"
+" get the lower bound of the 95 % confidence interval. The same unit as the "
+"value being described is assumed. If relative errors are provided, please "
+"provide it in fractional form (e.g.  0.01 for 1 %)"
 
 msgid "metadata/general_parameters/results/value_error/lower.hint"
 msgstr ""
@@ -8974,7 +8996,7 @@ msgid "metadata/method_specific_parameters.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/data_analysis.help"
-msgstr "The details of how data fitting was performed to obtain the result"
+msgstr "The details of how data analysis was performed to obtain results"
 
 msgid "metadata/method_specific_parameters/data_analysis.label"
 msgstr "Data analysis"
@@ -9232,7 +9254,7 @@ msgid "metadata/method_specific_parameters/data_analysis/measurements.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/measurements/id.help"
-msgstr ""
+msgstr "Unique ID to be used as a link target"
 
 msgid "metadata/method_specific_parameters/measurements/id.hint"
 msgstr ""
@@ -9388,10 +9410,12 @@ msgstr ""
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/chemical_environment.help"
 msgstr ""
+"Name (id) of the chemical environment of the sample (from the chemical "
+"environments defined in the general parameters)"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/chemical_environment.label"
-msgstr ""
+msgstr "Chemical environment"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/chemical_environment.hint"
@@ -9533,10 +9557,12 @@ msgstr ""
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/ligands/entity.help"
 msgstr ""
+"Name (id) of the entity (from the entities of interest defined in the "
+"general parameters)"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/ligands/entity.label"
-msgstr ""
+msgstr "Entity"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/ligands/entity.hint"
@@ -9762,10 +9788,12 @@ msgstr ""
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/targets/entity.help"
 msgstr ""
+"Name (id) of the entity (from the entities of interest defined in the "
+"general parameters)"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/targets/entity.label"
-msgstr ""
+msgstr "Entity"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/targets/entity.hint"
@@ -9916,7 +9944,7 @@ msgid ""
 msgstr ""
 
 msgid "metadata/method_specific_parameters/measurement_positions/id.help"
-msgstr ""
+msgstr "id to be used as a link target"
 
 msgid "metadata/method_specific_parameters/measurement_positions/id.hint"
 msgstr ""
@@ -10020,7 +10048,7 @@ msgid "metadata/method_specific_parameters/measurement_protocol.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/measurement_protocol/flow.help"
-msgstr "Information about the flow during the measurement step"
+msgstr "Information about the liquid flow during the measurement step"
 
 msgid "metadata/method_specific_parameters/measurement_protocol/flow.label"
 msgstr "Flow"
@@ -10047,10 +10075,10 @@ msgstr ""
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/flow/path.help"
 msgstr ""
-"list of the flow-path, in terms of measurement postitions. measurement "
-"postitions that are connected by a flow running serially  though them should"
-" be mentioned within the inner list, while parallel flows should be "
-"mentioned in the outer list"
+"list of the flow-path, in terms of measurement positions. Measurement "
+"positions that are connected by a flow running serially through them should "
+"be mentioned within the inner list, while parallel flows should be mentioned"
+" in the outer list"
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/flow/path.label"
@@ -10097,7 +10125,7 @@ msgid ""
 msgstr ""
 
 msgid "metadata/method_specific_parameters/measurement_protocol/id.help"
-msgstr ""
+msgstr "id to be used for internal links"
 
 msgid "metadata/method_specific_parameters/measurement_protocol/id.hint"
 msgstr ""
@@ -10283,11 +10311,11 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurements/measurement_position.help"
-msgstr ""
+msgstr "Name (id) of the measurement position"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/measurement_position.label"
-msgstr ""
+msgstr "Measurement position"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/measurement_position.hint"
@@ -10307,11 +10335,11 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_measurement_position.help"
-msgstr ""
+msgstr "Name (id) of the measurement position"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_measurement_position.label"
-msgstr ""
+msgstr "Reference measurement position"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_measurement_position.hint"
@@ -10470,10 +10498,12 @@ msgstr ""
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/analytes/entity.help"
 msgstr ""
+"Name (id) of the entity (from the entities of interest defined in the "
+"general parameters)"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/analytes/entity.label"
-msgstr ""
+msgstr "Entity"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/analytes/entity.hint"
@@ -10494,10 +10524,12 @@ msgstr ""
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/chemical_environment.help"
 msgstr ""
+"Name (id) of the chemical environment of the sample (from the chemical "
+"environments defined in the general parameters)"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/chemical_environment.label"
-msgstr ""
+msgstr "Chemical environment"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/chemical_environment.hint"
@@ -10518,10 +10550,12 @@ msgstr ""
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/measurement_step.help"
 msgstr ""
+"Name (id) of the measurement step in the measurement protocol where the "
+"sample was measured"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/measurement_step.label"
-msgstr ""
+msgstr "Measurement step"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/measurement_step.hint"
@@ -10751,10 +10785,12 @@ msgstr ""
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/analytes/entity.help"
 msgstr ""
+"Name (id) of the entity (from the entities of interest defined in the "
+"general parameters)"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/analytes/entity.label"
-msgstr ""
+msgstr "Entity"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/analytes/entity.hint"
@@ -10775,10 +10811,12 @@ msgstr ""
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/chemical_environment.help"
 msgstr ""
+"Name (id) of the chemical environment of the sample (from the chemical "
+"environments defined in the general parameters)"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/chemical_environment.label"
-msgstr ""
+msgstr "Chemical environment"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/chemical_environment.hint"
@@ -10799,10 +10837,12 @@ msgstr ""
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/measurement_step.help"
 msgstr ""
+"Name (id) of the measurement step in the measurement protocol where the "
+"sample was measured"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/measurement_step.label"
-msgstr ""
+msgstr "Measurement step"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/measurement_step.hint"
@@ -10919,7 +10959,7 @@ msgid "metadata/method_specific_parameters/sensor/previously_used.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/sensor/sensor_initialization.help"
-msgstr "How the initialization of the senor was performed"
+msgstr "How the initialization of the sensor was performed"
 
 msgid "metadata/method_specific_parameters/sensor/sensor_initialization.hint"
 msgstr ""
@@ -10933,7 +10973,7 @@ msgid ""
 msgstr ""
 
 msgid "metadata/method_specific_parameters/sensor/supplier.help"
-msgstr "Information about the supplier of the senor"
+msgstr "Information about the supplier of the sensor"
 
 msgid "metadata/method_specific_parameters/sensor/supplier.label"
 msgstr "Supplier"
@@ -10985,9 +11025,7 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/shaking_speed/unit.help"
-msgstr ""
-"The reported error of the value of the shaking speed (e.g. standard "
-"deviation, % error)"
+msgstr "The unit of the shaking/stirring speed)"
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/shaking_speed/unit.hint"
@@ -10999,9 +11037,7 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/shaking_speed/value.help"
-msgstr ""
-"The numerical value of the shaking speed of the plate during the measurement"
-" step in the units defined in the general parameters"
+msgstr "The numerical value of the shaking/stirring speed"
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/shaking_speed/value.hint"
@@ -11057,11 +11093,11 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurements/measurement_protocol_step.help"
-msgstr ""
+msgstr "link to one of the measurement steps"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/measurement_protocol_step.label"
-msgstr ""
+msgstr "Measurement protocol step"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/measurement_protocol_step.hint"
@@ -11204,10 +11240,12 @@ msgstr ""
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/analytes/entity.help"
 msgstr ""
+"Name (id) of the entity (from the entities of interest defined in the "
+"general parameters)"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/analytes/entity.label"
-msgstr ""
+msgstr "Entity"
 
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/analytes/entity.hint"
@@ -11226,16 +11264,16 @@ msgid ""
 msgstr ""
 
 msgid "metadata/method_specific_parameters/measurements/sample/plate.help"
-msgstr ""
+msgstr "link to one of the plates"
 
 msgid "metadata/method_specific_parameters/measurements/sample/plate.label"
-msgstr ""
+msgstr "Plate"
 
 msgid "metadata/method_specific_parameters/measurements/sample/plate.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/plates/id.help"
-msgstr ""
+msgstr "id to be used for internal links"
 
 msgid "metadata/method_specific_parameters/plates/id.hint"
 msgstr ""
@@ -11306,16 +11344,16 @@ msgid ""
 msgstr ""
 
 msgid "metadata/method_specific_parameters/measurements/sensor.help"
-msgstr ""
+msgstr "link to the sensor used for the measurement"
 
 msgid "metadata/method_specific_parameters/measurements/sensor.label"
-msgstr ""
+msgstr "Sensor"
 
 msgid "metadata/method_specific_parameters/measurements/sensor.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/sensors/id.help"
-msgstr ""
+msgstr "id to be used for internal links"
 
 msgid "metadata/method_specific_parameters/sensors/id.hint"
 msgstr ""
@@ -11382,7 +11420,9 @@ msgid "metadata/method_specific_parameters/plates/supplier/name.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/plates/surface_modification.help"
-msgstr "The type of sealing used to seal the top of the plate"
+msgstr ""
+"If the plate had a modified surface, the modification can specified here "
+"(e.g. Non-binding surface)"
 
 msgid "metadata/method_specific_parameters/plates/surface_modification.label"
 msgstr "Surface modification"
@@ -11429,7 +11469,7 @@ msgid ""
 msgstr ""
 
 msgid "metadata/method_specific_parameters/plates/type.help"
-msgstr "The type of the plate"
+msgstr "The type of the plate (e.g. half-area black polystyrene)"
 
 msgid "metadata/method_specific_parameters/plates/type.hint"
 msgstr ""
@@ -11451,7 +11491,7 @@ msgstr ""
 
 msgid "metadata/method_specific_parameters/sensors.help"
 msgstr ""
-"List of the senors used for the measurements, reference sensors included"
+"List of the sensors used for the measurements, reference sensors included"
 
 msgid "metadata/method_specific_parameters/sensors.label"
 msgstr "Sensors"
@@ -11601,7 +11641,7 @@ msgid "metadata/method_specific_parameters/sensors/sensor_id.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/sensors/supplier.help"
-msgstr "Information about the supplier of the senor"
+msgstr "Information about the supplier of the sensor"
 
 msgid "metadata/method_specific_parameters/sensors/supplier.label"
 msgstr "Supplier"
@@ -11656,4 +11696,1044 @@ msgstr ""
 #: /home/emil/bin/mbdb-app/ui/pages/templates/TitlePage.jinja:20
 #: /home/emil/bin/mbdb-app/ui/pages/templates/TitlePage.jinja:21
 msgid "Search"
+msgstr ""
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:320
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:320
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:320
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/expected_number_of_species.label"
+msgstr "Expected number of species"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:491
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:491
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:491
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information.label"
+msgstr "Basic information"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:811
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:811
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:811
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/expected_number_of_species.label"
+msgstr "Expected number of species"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:982
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:982
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:982
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information.label"
+msgstr "Basic information"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:1358
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:1358
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:1358
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information.label"
+msgstr "Basic information"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:1682
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:1682
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:1682
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/expected_number_of_species.label"
+msgstr "Expected number of species"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:1794
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:1794
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:1794
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information.label"
+msgstr "Basic information"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:2029
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:2029
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:2029
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/expected_number_of_species.label"
+msgstr "Expected number of species"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:2147
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:2147
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:2147
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information.label"
+msgstr "Basic information"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:2502
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:2502
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:2502
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/description.label"
+msgstr "Description"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:2509
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:2509
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:2509
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/link_to_source_code.label"
+msgstr "Link to source code"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:2516
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:2516
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:2516
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/name.label"
+msgstr "Name"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:2523
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:2523
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:2523
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/software_name.label"
+msgstr "Software name"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:2530
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:2530
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:2530
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/software_version.label"
+msgstr "Software version"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:2800
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:2675
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:2792
+msgid "record_status"
+msgstr ""
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:2802
+#: /home/emil/bin/mbdb-orga/mbdb-app/mst/services/records/facets.py:2677
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:2794
+msgid "has_draft"
+msgstr ""
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:2564
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/immobilization_chemistry.label"
+msgstr "Immobilization chemistry"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:2571
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/immobilization_protocol/description.label"
+msgstr "Description"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/spr/services/records/facets.py:2578
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/immobilization_protocol/name.label"
+msgstr "Name"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:2746
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand/immobilization_chemistry.label"
+msgstr "Immobilization chemistry"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:2753
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand/immobilization_protocol/description.label"
+msgstr "Description"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/bli/services/records/facets.py:2760
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand/immobilization_protocol/name.label"
+msgstr "Name"
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/ui/bli/templates/semantic-ui/bli/Search.jinja:3
+msgid "bli"
+msgstr ""
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/ui/branding/templates/base/header.html:187
+#: /home/emil/bin/mbdb-orga/mbdb-app/ui/branding/templates/base/header.html:341
+msgid "My account"
+msgstr ""
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/ui/branding/templates/base/header.html:228
+#: /home/emil/bin/mbdb-orga/mbdb-app/ui/branding/templates/base/header.html:382
+msgid "Log out"
+msgstr ""
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/ui/itc/templates/semantic-ui/itc/Search.jinja:3
+msgid "itc"
+msgstr ""
+
+#: /home/emil/bin/mbdb-orga/mbdb-app/ui/spr/templates/semantic-ui/spr/Search.jinja:3
+msgid "spr"
+msgstr ""
+
+msgid "Publish"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Are you sure you wish to publish this draft?"
+msgstr ""
+
+msgid ""
+"Once the record is published you will no longer be able to change record's "
+"files! However, you will still be able to update the record's metadata "
+"later."
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/expected_number_of_species.help"
+msgstr "The number of species that were expected to be present"
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/expected_number_of_species.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information.help"
+msgstr ""
+"The basic information about the chemical. This information is pulled from "
+"Pubchem, however if the information is not available it can be manually "
+"filled"
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/id.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/id.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/id.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/title.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/title.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/chemical_formula.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/chemical_formula.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/chemical_formula.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/additional_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/additional_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/additional_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/unit.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/unit.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/unit.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/value.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/value.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/molecular_weight/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/basic_information/@v.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/expected_number_of_species.help"
+msgstr "The number of species that were expected to be present"
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/expected_number_of_species.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information.help"
+msgstr ""
+"The basic information about the chemical. This information is pulled from "
+"Pubchem, however if the information is not available it can be manually "
+"filled"
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/id.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/id.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/id.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/title.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/title.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/chemical_formula.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/chemical_formula.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/chemical_formula.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/additional_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/additional_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/additional_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/unit.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/unit.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/unit.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/value.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/value.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/molecular_weight/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/basic_information/@v.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information.help"
+msgstr ""
+"The basic information about the chemical. This information is pulled from "
+"Pubchem, however if the information is not available it can be manually "
+"filled"
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/id.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/id.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/id.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/title.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/title.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/chemical_formula.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/chemical_formula.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/chemical_formula.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/additional_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/additional_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/additional_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/unit.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/unit.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/unit.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/value.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/value.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/molecular_weight/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/solvent/basic_information/@v.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/expected_number_of_species.help"
+msgstr "The number of species that were expected to be present"
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/expected_number_of_species.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information.help"
+msgstr ""
+"The basic information about the chemical. This information is pulled from "
+"Pubchem, however if the information is not available it can be manually "
+"filled"
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/id.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/id.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/id.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/title.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/title.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/chemical_formula.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/chemical_formula.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/chemical_formula.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/additional_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/additional_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/additional_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/unit.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/unit.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/unit.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/value.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/value.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/molecular_weight/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/basic_information/@v.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/expected_number_of_species.help"
+msgstr "The number of species that were expected to be present"
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/expected_number_of_species.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information.help"
+msgstr ""
+"The basic information about the chemical. This information is pulled from "
+"Pubchem, however if the information is not available it can be manually "
+"filled"
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/id.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/id.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/id.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/title.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/title.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/chemical_formula.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/chemical_formula.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/chemical_formula.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/additional_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/additional_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/additional_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/unit.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/unit.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/unit.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/value.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/value.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/molecular_weight/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/basic_information/@v.hint"
+msgstr ""
+
+msgid "metadata/general_parameters/funding_references/grant_id.help"
+msgstr ""
+
+msgid "metadata/general_parameters/funding_references/grant_id.label"
+msgstr ""
+
+msgid "metadata/general_parameters/funding_references/grant_id.hint"
+msgstr ""
+
+msgid "metadata/general_parameters/schema_version.enum.0.9.23"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/technique.enum.Isothermal Titration Calorimetry "
+"(ITC)"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/data_processing.help"
+msgstr ""
+"Describe the steps in the data analysis prior to fitting (removing outliers "
+"in the raw data, applying data filter, placing data at same start time etc. "
+")"
+
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing.label"
+msgstr "Data processing"
+
+msgid "metadata/method_specific_parameters/data_analysis/data_processing.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/description.help"
+msgstr "Description of what the processing step was"
+
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/description.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/link_to_source_code.help"
+msgstr ""
+"If processing was performed with software where the source code is freely "
+"available a link can be specified here (e.g. self-written python script in a"
+" GitHub repository"
+
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/link_to_source_code.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/name.help"
+msgstr "Short descriptive name of the processing step"
+
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/name.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/software_name.help"
+msgstr "The name of the software that was used for the step (e.g. Excel)"
+
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/software_name.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/software_version.help"
+msgstr "The version of the software that was used for the step"
+
+msgid ""
+"metadata/method_specific_parameters/data_analysis/data_processing/software_version.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/results.help"
+msgstr "Link to a result that was defined in the general parameters"
+
+msgid "metadata/method_specific_parameters/data_analysis/results.label"
+msgstr "Results"
+
+msgid "metadata/method_specific_parameters/data_analysis/results.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.help"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.label"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/data_analysis/results/@v.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/schema_version.enum.0.9.10"
+msgstr ""
+
+msgid "pid.help"
+msgstr ""
+
+msgid "pid.label"
+msgstr ""
+
+msgid "pid.hint"
+msgstr ""
+
+msgid "pid/obj_type.help"
+msgstr ""
+
+msgid "pid/obj_type.label"
+msgstr ""
+
+msgid "pid/obj_type.hint"
+msgstr ""
+
+msgid "pid/pid_type.help"
+msgstr ""
+
+msgid "pid/pid_type.label"
+msgstr ""
+
+msgid "pid/pid_type.hint"
+msgstr ""
+
+msgid "pid/pk.help"
+msgstr ""
+
+msgid "pid/pk.label"
+msgstr ""
+
+msgid "pid/pk.hint"
+msgstr ""
+
+msgid "pid/status.help"
+msgstr ""
+
+msgid "pid/status.label"
+msgstr ""
+
+msgid "pid/status.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/measurement_positions/ligand.help"
+msgstr "Information about the ligand and how it was immobilized"
+
+msgid "metadata/method_specific_parameters/measurement_positions/ligand.label"
+msgstr "Ligand"
+
+msgid "metadata/method_specific_parameters/measurement_positions/ligand.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/entity.help"
+msgstr ""
+"Name (id) of the ligand (entity that is immobilized, from the list of "
+"entities of interest defined in the general parameters)"
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/entity.label"
+msgstr "Entity"
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/entity.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/entity/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/entity/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/entity/@v.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/immobilization_chemistry.help"
+msgstr ""
+"The type of chemistry on the ligands that allows for immobilization on the "
+"sensor"
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/immobilization_chemistry.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/immobilization_protocol.help"
+msgstr ""
+"List of steps for immobilizing the ligand on the surface of the sensor"
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/immobilization_protocol.label"
+msgstr "Immobilization protocol"
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/immobilization_protocol.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/immobilization_protocol/description.help"
+msgstr "Short description of the step"
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/immobilization_protocol/description.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/immobilization_protocol/name.help"
+msgstr "Descriptive name of the step"
+
+msgid ""
+"metadata/method_specific_parameters/measurement_positions/ligand/immobilization_protocol/name.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/schema_version.enum.0.9.6"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/schema_version.enum.0.9.7"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/sensors/ligand.help"
+msgstr "Information about the ligand and how it was immobilized"
+
+msgid "metadata/method_specific_parameters/sensors/ligand.label"
+msgstr "Ligand"
+
+msgid "metadata/method_specific_parameters/sensors/ligand.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/sensors/ligand/entity.help"
+msgstr ""
+"Name (id) of the ligand (entity that is immobilized, from the list of "
+"entities of interest defined in the general parameters)"
+
+msgid "metadata/method_specific_parameters/sensors/ligand/entity.label"
+msgstr "Entity"
+
+msgid "metadata/method_specific_parameters/sensors/ligand/entity.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/sensors/ligand/entity/@v.help"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/sensors/ligand/entity/@v.label"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/sensors/ligand/entity/@v.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand/immobilization_chemistry.help"
+msgstr ""
+"The type of chemistry on the ligands that allows for immobilization on the "
+"sensor"
+
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand/immobilization_chemistry.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand/immobilization_protocol.help"
+msgstr ""
+"List of steps for immobilizing the ligand on the surface of the sensor"
+
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand/immobilization_protocol.label"
+msgstr "Immobilization protocol"
+
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand/immobilization_protocol.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand/immobilization_protocol/description.help"
+msgstr "Short description of the step"
+
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand/immobilization_protocol/description.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand/immobilization_protocol/name.help"
+msgstr "Descriptive name of the step"
+
+msgid ""
+"metadata/method_specific_parameters/sensors/ligand/immobilization_protocol/name.hint"
 msgstr ""
