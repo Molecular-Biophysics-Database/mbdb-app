@@ -93,8 +93,8 @@ function Sensors( { name } ) {
         <div className="mb-3">
             <OptionalField
                 name={name}
-                label='Ligand information'
-                fieldName='ligand_information'
+                label='Ligand'
+                fieldName='ligand'
                 tooltip='Information about the ligand and how it was immobilized'
                 renderChild={({ optionalFieldName }) => (
                     <LigandInformation
@@ -108,7 +108,7 @@ function Sensors( { name } ) {
             <Supplier
                 name={`${name}.supplier`}
                 colorSchema='light'
-                tooltip='Information about the supplier of the senor'
+                tooltip='Information about the supplier of the sensor'
             />
         </div>
     </>

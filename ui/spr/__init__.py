@@ -15,7 +15,7 @@ class SprInitialValuesComponent(UIResourceComponent):
         empty_data.update({
           "metadata": {
             "general_parameters": {
-              "schema_version": "0.9.22",
+              "schema_version": "0.9.23",
               "technique": "Surface plasmon resonance (SPR)",
               "record_information": {
                 "publisher": "MBDB",
@@ -27,7 +27,7 @@ class SprInitialValuesComponent(UIResourceComponent):
               },
             },
             "method_specific_parameters": {
-              "schema_version": "0.9.5"
+              "schema_version": "0.9.6"
             }
           }
         })
