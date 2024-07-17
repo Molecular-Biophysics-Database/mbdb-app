@@ -55,15 +55,13 @@ class GeneralParametersUISchema(DictOnlySchema):
 
     instrument = ma_fields.Nested(lambda: InstrumentUISchema(), required=True)
 
-    raw_measurement_files = ma_fields.List(ma_fields.String())
-
     record_information = ma_fields.Nested(
         lambda: RecordInformationUISchema(), required=True
     )
 
     results = ma_fields.List(ma_fields.Nested(lambda: ResultsItemUISchema()))
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.22"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.23"])])
 
     technique = ma_fields.String(
         required=True,
@@ -2634,8 +2632,8 @@ class DataAnalysisItemUISchema(DictOnlySchema):
 
     data_fitting = ma_fields.Nested(lambda: DataFittingUISchema())
 
-    data_processing_steps = ma_fields.List(
-        ma_fields.Nested(lambda: DataProcessingStepsItemUISchema())
+    data_processing = ma_fields.List(
+        ma_fields.Nested(lambda: DataProcessingItemUISchema())
     )
 
     f_cold_and_hot = ma_fields.Nested(lambda: FColdAndHotUISchema())
@@ -2857,7 +2855,7 @@ class DataFittingUISchema(DictOnlySchema):
     software_version = ma_fields.String()
 
 
-class DataProcessingStepsItemUISchema(DictOnlySchema):
+class DataProcessingItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 

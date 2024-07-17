@@ -1848,12 +1848,6 @@
                                 }
                             }
                         },
-                        "raw_measurement_files": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
                         "record_information": {
                             "type": "object",
                             "properties": {
@@ -1989,7 +1983,7 @@
                                             }
                                         }
                                     },
-                                    "data_processing_steps": {
+                                    "data_processing": {
                                         "type": "array",
                                         "items": {
                                             "type": "object",
@@ -2063,10 +2057,10 @@
                                     "id": {
                                         "type": "string"
                                     },
-                                    "ligand_information": {
+                                    "ligand": {
                                         "type": "object",
                                         "properties": {
-                                            "ligand": {
+                                            "entity": {
                                                 "type": "object",
                                                 "properties": {
                                                     "id": {
@@ -2080,10 +2074,10 @@
                                                     }
                                                 }
                                             },
-                                            "ligand_immobilization_chemistry": {
+                                            "immobilization_chemistry": {
                                                 "type": "string"
                                             },
-                                            "ligand_immobilization_protocol": {
+                                            "immobilization_protocol": {
                                                 "type": "array",
                                                 "items": {
                                                     "type": "object",
@@ -2455,6 +2449,23 @@
                             }
                         }
                     }
+                }
+            }
+        },
+        "pid": {
+            "type": "object",
+            "properties": {
+                "obj_type": {
+                    "type": "string"
+                },
+                "pid_type": {
+                    "type": "string"
+                },
+                "pk": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
                 }
             }
         },

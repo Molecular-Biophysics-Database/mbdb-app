@@ -90,10 +90,6 @@ class GeneralParametersSchema(DictOnlySchema):
 
     instrument = ma_fields.Nested(lambda: InstrumentSchema(), required=True)
 
-    raw_measurement_files = ma_fields.List(
-        ma_fields.String(), validate=[ma.validate.Length(min=1)]
-    )
-
     record_information = ma_fields.Nested(
         lambda: RecordInformationSchema(), required=True
     )
@@ -103,7 +99,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.22"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.23"])])
 
     technique = ma_fields.String(
         required=True,
@@ -653,7 +649,7 @@ class MethodSpecificParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.5"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.6"])])
 
     sensor = ma_fields.Nested(lambda: SensorSchema(), required=True)
 
@@ -1888,7 +1884,7 @@ class MeasurementPositionsItemSchema(DictOnlySchema):
 
     flow_cell = ma_fields.String(required=True)
 
-    ligand_information = ma_fields.Nested(lambda: LigandInformationSchema())
+    ligand = ma_fields.Nested(lambda: LigandSchema())
 
     name = ma_fields.String(required=True)
 
@@ -2304,8 +2300,8 @@ class DataAnalysisItemSchema(DictOnlySchema):
 
     data_fitting = ma_fields.Nested(lambda: DataFittingSchema())
 
-    data_processing_steps = ma_fields.List(
-        ma_fields.Nested(lambda: DataProcessingStepsItemSchema()),
+    data_processing = ma_fields.List(
+        ma_fields.Nested(lambda: DataProcessingItemSchema()),
         validate=[ma.validate.Length(min=1)],
     )
 
@@ -2358,15 +2354,15 @@ class HomogeneitySchema(PolymorphicSchema):
     type_field = "checked"
 
 
-class LigandInformationSchema(DictOnlySchema):
+class LigandSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    ligand = ma_fields.Nested(lambda: EntitySchema())
+    entity = ma_fields.Nested(lambda: EntitySchema())
 
-    ligand_immobilization_chemistry = ma_fields.String()
+    immobilization_chemistry = ma_fields.String()
 
-    ligand_immobilization_protocol = ma_fields.List(
+    immobilization_protocol = ma_fields.List(
         ma_fields.Nested(lambda: ProtocolItemSchema()),
         validate=[ma.validate.Length(min=1)],
     )
@@ -2574,7 +2570,7 @@ class DataFittingSchema(DictOnlySchema):
     software_version = ma_fields.String()
 
 
-class DataProcessingStepsItemSchema(DictOnlySchema):
+class DataProcessingItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 

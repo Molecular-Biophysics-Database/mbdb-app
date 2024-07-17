@@ -16,6 +16,7 @@
             "file": "itc/records/mappings/os-v2/itc/itc-1.0.0.json",
             "index-field-args": []
         },
+        "searchable": true,
         "permissions": {
             "presets": [
                 "authenticated"
@@ -39,30 +40,13 @@
             "class": "itc.services.records.schema.ItcSchema",
             "extra-code": ""
         },
-        "searchable": true,
-        "ui": {
-            "marshmallow": {
-                "imports": [],
-                "base-classes": [
-                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
-                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
-                ],
-                "generate": true,
-                "module": "itc.services.records.ui_schema",
-                "class": "itc.services.records.ui_schema.ItcUISchema",
-                "extra-code": ""
-            },
-            "module": "itc.models",
-            "file": "itc/models/ui.json",
-            "alias": "itc"
-        },
         "service-config": {
             "components": [
                 "{{oarepo_vocabularies.authorities.components.AuthorityComponent}}",
                 "{{oarepo_runtime.services.components.OwnersComponent}}",
-                "{{oarepo_runtime.services.files.FilesComponent}}",
                 "{{invenio_drafts_resources.services.records.components.DraftFilesComponent}}",
-                "{{invenio_records_resources.services.records.components.DataComponent}}"
+                "{{invenio_records_resources.services.records.components.DataComponent}}",
+                "{{oarepo_runtime.services.files.FilesComponent}}"
             ],
             "base-classes": [
                 "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
@@ -98,6 +82,22 @@
                 "create=True"
             ],
             "extra-code": ""
+        },
+        "ui": {
+            "marshmallow": {
+                "imports": [],
+                "base-classes": [
+                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
+                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
+                ],
+                "generate": true,
+                "module": "itc.services.records.ui_schema",
+                "class": "itc.services.records.ui_schema.ItcUISchema",
+                "extra-code": ""
+            },
+            "module": "itc.models",
+            "file": "itc/models/ui.json",
+            "alias": "itc"
         },
         "search-options": {
             "base-classes": [
@@ -140,40 +140,9 @@
             "suffix-upper": "ITC",
             "suffix-snake": "itc"
         },
-        "draft-files": {
-            "type": "draft-file",
-            "properties": {},
-            "searchable": true,
-            "resource": {
-                "base-classes": [
-                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
-                ]
-            },
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            }
-        },
-        "draft": {
-            "type": "draft_record",
-            "properties": {},
-            "searchable": true,
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            }
-        },
         "files": {
             "type": "file",
             "properties": {
-                "name": {
-                    "type": "keyword",
-                    "required": true,
-                    "help.en": "Name of the file",
-                    "label.en": "Name"
-                },
                 "content_type": {
                     "type": "keyword",
                     "required": true,
@@ -206,13 +175,6 @@
                     ],
                     "help.en": "What is the source of the file",
                     "label.en": "Originates from"
-                },
-                "size": {
-                    "type": "integer",
-                    "required": true,
-                    "minimum": 0,
-                    "help.en": "Size of the file in bytes",
-                    "label.en": "Size"
                 },
                 "description": {
                     "type": "keyword",
@@ -329,6 +291,7 @@
                     }
                 }
             },
+            "searchable": true,
             "marshmallow": {
                 "imports": [
                     {
@@ -340,7 +303,6 @@
                     "InvenioFileSchema"
                 ]
             },
-            "searchable": true,
             "resource": {
                 "base-classes": [
                     "oarepo_ui.resources.file_resource.S3RedirectFileResource"
@@ -353,10 +315,35 @@
             },
             "label.en": ""
         },
+        "draft-files": {
+            "type": "draft-file",
+            "properties": {},
+            "searchable": true,
+            "resource": {
+                "base-classes": [
+                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
+                ]
+            },
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
+        },
         "tests": {
             "extra-fixtures": [],
             "extra-code": "",
             "module": "tests"
+        },
+        "draft": {
+            "type": "draft_record",
+            "properties": {},
+            "searchable": true,
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
         },
         "sample": {
             "file": "data/sample_data.yaml"
@@ -366,44 +353,6 @@
             "skip": false
         },
         "model-name": "Itc",
-        "record-resolver": {
-            "generate": true,
-            "module": "itc.records.requests.resolvers",
-            "class": "itc.records.requests.resolvers.ItcResolver",
-            "base-classes": [
-                "oarepo_runtime.records.entity_resolvers.RecordResolver"
-            ],
-            "imports": [],
-            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
-        },
-        "ui-record-resolver": {
-            "generate": true,
-            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
-        },
-        "record": {
-            "base-classes": [
-                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
-            ],
-            "generate": true,
-            "module": "itc.records.api",
-            "class": "itc.records.api.ItcRecord",
-            "imports": [],
-            "extra-code": "",
-            "fields": {}
-        },
-        "resource": {
-            "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
-            ],
-            "generate": true,
-            "config-key": "ITC_RECORD_RESOURCE_CLASS",
-            "module": "itc.resources.records.resource",
-            "class": "itc.resources.records.resource.ItcResource",
-            "proxy": "current_resource",
-            "extra-code": "",
-            "imports": [],
-            "additional-args": []
-        },
         "config": {
             "generate": true,
             "module": "itc.config",
@@ -450,14 +399,67 @@
             "module": "itc.proxies",
             "generate": true
         },
-        "files-field": {
+        "record-resolver": {
             "generate": true,
-            "field-class": "invenio_records_resources.records.systemfields.FilesField",
-            "file-class": "itc.records.api.ItcRecord",
-            "field-args": [
-                "store=False"
+            "module": "itc.records.requests.resolvers",
+            "class": "itc.records.requests.resolvers.ItcResolver",
+            "base-classes": [
+                "oarepo_runtime.records.entity_resolvers.RecordResolver"
             ],
-            "imports": []
+            "imports": [],
+            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
+        },
+        "ui-record-resolver": {
+            "generate": true,
+            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
+        },
+        "record": {
+            "base-classes": [
+                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
+            ],
+            "generate": true,
+            "module": "itc.records.api",
+            "class": "itc.records.api.ItcRecord",
+            "imports": [],
+            "extra-code": "",
+            "fields": {}
+        },
+        "resource": {
+            "base-classes": [
+                "invenio_drafts_resources.resources.RecordResource"
+            ],
+            "generate": true,
+            "config-key": "ITC_RECORD_RESOURCE_CLASS",
+            "module": "itc.resources.records.resource",
+            "class": "itc.resources.records.resource.ItcResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
+        },
+        "json-schema-settings": {
+            "generate": true,
+            "alias": "itc",
+            "version": "1.0.0",
+            "module": "itc.records.jsonschemas",
+            "name": "itc-1.0.0.json",
+            "file": "itc/records/jsonschemas/itc-1.0.0.json"
+        },
+        "json-serializer": {
+            "module": "itc.resources.records.ui",
+            "class": "itc.resources.records.ui.ItcUIJSONSerializer",
+            "base-classes": [
+                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
+            ],
+            "imports": [],
+            "extra-code": "",
+            "generate": true,
+            "list_schema_cls": "flask_resources.BaseListSchema",
+            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
+            "schema-context-args": {
+                "\"object_key\"": "\"ui\"",
+                "\"identity\"": "{{ flask.g{g.identity} }}"
+            }
         },
         "record-metadata": {
             "generate": true,
@@ -505,33 +507,54 @@
             ],
             "imports": []
         },
-        "json-schema-settings": {
-            "generate": true,
-            "alias": "itc",
-            "version": "1.0.0",
-            "module": "itc.records.jsonschemas",
-            "name": "itc-1.0.0.json",
-            "file": "itc/records/jsonschemas/itc-1.0.0.json"
-        },
-        "json-serializer": {
-            "module": "itc.resources.records.ui",
-            "class": "itc.resources.records.ui.ItcUIJSONSerializer",
-            "base-classes": [
-                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
-            ],
-            "imports": [],
-            "extra-code": "",
-            "generate": true,
-            "list_schema_cls": "flask_resources.BaseListSchema",
-            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
-            "schema-context-args": {
-                "\"object_key\"": "\"ui\"",
-                "\"identity\"": "{{ flask.g{g.identity} }}"
-            }
-        },
         "translations": {
             "module": "itc.translations",
             "alias": "itc"
+        },
+        "files-field": {
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "itc.records.api.ItcRecord",
+            "field-args": [
+                "store=False"
+            ],
+            "imports": []
+        },
+        "edtf-interval-dumper": {
+            "generate": true,
+            "module": "itc.records.dumpers.edtf",
+            "class": "itc.records.dumpers.edtf.ItcEDTFIntervalDumperExt",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
+            ],
+            "extra-code": "",
+            "extensions": [],
+            "imports": []
+        },
+        "record-list": {
+            "generate": true,
+            "module": "itc.services.records.results",
+            "class": "itc.services.records.results.ItcRecordList",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordList"
+            ],
+            "components": [],
+            "imports": []
+        },
+        "record-item": {
+            "generate": true,
+            "module": "itc.services.records.results",
+            "class": "itc.services.records.results.ItcRecordItem",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordItem"
+            ],
+            "components": [
+                "{{oarepo_requests.services.results.RequestsComponent}}()",
+                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
+            ],
+            "imports": []
         },
         "draft-parent-record": {
             "class": "itc.records.api.ItcParentRecord",
@@ -539,6 +562,7 @@
                 "invenio_drafts_resources.records.api.ParentRecord"
             ],
             "imports": [],
+            "fields": {},
             "module": "itc.records.api",
             "generate": true
         },
@@ -594,42 +618,6 @@
             "extra-code": "",
             "base-classes": [
                 "oarepo_published_service.services.service.PublishedService"
-            ],
-            "imports": []
-        },
-        "edtf-interval-dumper": {
-            "generate": true,
-            "module": "itc.records.dumpers.edtf",
-            "class": "itc.records.dumpers.edtf.ItcEDTFIntervalDumperExt",
-            "base-classes": [
-                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
-            ],
-            "extra-code": "",
-            "extensions": [],
-            "imports": []
-        },
-        "record-list": {
-            "generate": true,
-            "module": "itc.services.records.results",
-            "class": "itc.services.records.results.ItcRecordList",
-            "extra-code": "",
-            "base-classes": [
-                "oarepo_runtime.services.results.RecordList"
-            ],
-            "components": [],
-            "imports": []
-        },
-        "record-item": {
-            "generate": true,
-            "module": "itc.services.records.results",
-            "class": "itc.services.records.results.ItcRecordItem",
-            "extra-code": "",
-            "base-classes": [
-                "oarepo_runtime.services.results.RecordItem"
-            ],
-            "components": [
-                "{{oarepo_requests.services.results.RequestsComponent}}()",
-                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
             ],
             "imports": []
         },
@@ -23548,20 +23536,6 @@
                                     }
                                 }
                             },
-                            "raw_measurement_files": {
-                                "type": "array",
-                                "minItems": 1,
-                                "help.en": "List of file(s) containing the raw measurements",
-                                "label.en": "Raw measurement files",
-                                "marshmallow": {
-                                    "validators": [
-                                        "ma.validate.Length(min=1)"
-                                    ]
-                                },
-                                "items": {
-                                    "type": "url"
-                                }
-                            },
                             "record_information": {
                                 "type": "object",
                                 "required": true,
@@ -25946,7 +25920,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.9.22"
+                                    "0.9.23"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"
@@ -26132,11 +26106,11 @@
                                                 }
                                             }
                                         },
-                                        "data_processing_steps": {
+                                        "data_processing": {
                                             "type": "array",
                                             "minItems": 1,
                                             "help.en": "Describe the steps in the data analysis prior to fitting (removing outliers in the raw data, applying smoothing filters, etc.)",
-                                            "label.en": "Data processing steps",
+                                            "label.en": "Data processing",
                                             "marshmallow": {
                                                 "validators": [
                                                     "ma.validate.Length(min=1)"
@@ -26147,12 +26121,12 @@
                                                 "label.en": "Processing step",
                                                 "marshmallow": {
                                                     "generate": true,
-                                                    "class": "itc.services.records.schema.DataProcessingStepsItemSchema"
+                                                    "class": "itc.services.records.schema.DataProcessingItemSchema"
                                                 },
                                                 "ui": {
                                                     "marshmallow": {
                                                         "generate": true,
-                                                        "class": "itc.services.records.ui_schema.DataProcessingStepsItemUISchema"
+                                                        "class": "itc.services.records.ui_schema.DataProcessingItemUISchema"
                                                     }
                                                 },
                                                 "properties": {
@@ -26322,7 +26296,17 @@
                                     }
                                 }
                             },
-                            "experiment_type": {
+                            "feedback_mode": {
+                                "type": "keyword",
+                                "enum": [
+                                    "None",
+                                    "Low",
+                                    "High"
+                                ],
+                                "help.en": "The operating mode where conditions are adjusted automatically to maintain constant temperature during heat measurements",
+                                "label.en": "Feedback mode"
+                            },
+                            "injection_mode": {
                                 "type": "polymorphic",
                                 "schemas": {
                                     "Single injection": {
@@ -26382,7 +26366,7 @@
                                                 "label.en": "Type"
                                             }
                                         },
-                                        "label.en": "Experiment type",
+                                        "label.en": "Injection mode",
                                         "marshmallow": {
                                             "generate": true,
                                             "class": "itc.services.records.schema.Single_injectionSchema"
@@ -26496,7 +26480,7 @@
                                                 "label.en": "Type"
                                             }
                                         },
-                                        "label.en": "Experiment type",
+                                        "label.en": "Injection mode",
                                         "marshmallow": {
                                             "generate": true,
                                             "class": "itc.services.records.schema.TitrationSchema"
@@ -26510,16 +26494,16 @@
                                     }
                                 },
                                 "discriminator": "type",
-                                "help.en": "Type of experiment conducted",
-                                "label.en": "Experiment type",
+                                "help.en": "Details of how the experiment was conducted in terms of injection (e.g. titration)",
+                                "label.en": "Injection mode",
                                 "marshmallow": {
                                     "generate": true,
-                                    "class": "itc.services.records.schema.ExperimentTypeSchema"
+                                    "class": "itc.services.records.schema.InjectionModeSchema"
                                 },
                                 "ui": {
                                     "marshmallow": {
                                         "generate": true,
-                                        "class": "itc.services.records.ui_schema.ExperimentTypeUISchema"
+                                        "class": "itc.services.records.ui_schema.InjectionModeUISchema"
                                     }
                                 },
                                 "properties": {
@@ -26660,16 +26644,6 @@
                                         }
                                     }
                                 }
-                            },
-                            "feedback_mode": {
-                                "type": "keyword",
-                                "enum": [
-                                    "None",
-                                    "Low",
-                                    "High"
-                                ],
-                                "help.en": "Operating mode where conditions are adjusted automatically to maintain constant temperature during heat measurements",
-                                "label.en": "Feedback mode"
                             },
                             "measurements": {
                                 "type": "array",
@@ -27248,7 +27222,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.0.3"
+                                    "0.1.0"
                                 ],
                                 "help.en": "The schema version used to annotate the ITC method specific parameters",
                                 "label.en": "Schema version"
@@ -27292,6 +27266,62 @@
                                     }
                                 }
                             }
+                        }
+                    }
+                }
+            },
+            "pid": {
+                "type": "object",
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "generate": false,
+                        "class": "itc.services.records.ui_schema.FakeUIPIDSchema",
+                        "skip": true,
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "generate": false,
+                    "class": "itc.services.records.schema.FakePIDSchema",
+                    "skip": true,
+                    "read": false,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                },
+                "properties": {
+                    "obj_type": {
+                        "type": "keyword",
+                        "facets": {
+                            "searchable": true,
+                            "facet": false
+                        }
+                    },
+                    "pid_type": {
+                        "type": "keyword",
+                        "facets": {
+                            "searchable": true,
+                            "facet": false
+                        }
+                    },
+                    "pk": {
+                        "type": "integer",
+                        "facets": {
+                            "searchable": true,
+                            "facet": false
+                        }
+                    },
+                    "status": {
+                        "type": "keyword",
+                        "facets": {
+                            "searchable": true,
+                            "facet": false
                         }
                     }
                 }

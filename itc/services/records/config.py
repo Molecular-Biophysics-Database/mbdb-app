@@ -47,9 +47,9 @@ class ItcServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
         *InvenioRecordDraftsServiceConfig.components,
         AuthorityComponent,
         OwnersComponent,
-        FilesComponent,
         DraftFilesComponent,
         DataComponent,
+        FilesComponent,
     ]
 
     model = "itc"

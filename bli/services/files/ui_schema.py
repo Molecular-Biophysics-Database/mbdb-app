@@ -28,8 +28,6 @@ class BliFileUISchema(InvenioUISchema):
 
     description = ma_fields.String()
 
-    name = ma_fields.String(required=True)
-
     originates_from = ma_fields.String(
         required=True, validate=[OneOf(["Instrument software", "User", "MBDB"])]
     )
@@ -39,8 +37,6 @@ class BliFileUISchema(InvenioUISchema):
     )
 
     recommended_software = ma_fields.String()
-
-    size = ma_fields.Integer(required=True)
 
 
 class ProcessingStepsItemUISchema(DictOnlySchema):

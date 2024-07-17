@@ -90,10 +90,6 @@ class GeneralParametersSchema(DictOnlySchema):
 
     instrument = ma_fields.Nested(lambda: InstrumentSchema(), required=True)
 
-    raw_measurement_files = ma_fields.List(
-        ma_fields.String(), validate=[ma.validate.Length(min=1)]
-    )
-
     record_information = ma_fields.Nested(
         lambda: RecordInformationSchema(), required=True
     )
@@ -103,7 +99,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.22"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.23"])])
 
     technique = ma_fields.String(
         required=True,
@@ -2275,8 +2271,8 @@ class DataAnalysisItemSchema(DictOnlySchema):
 
     data_fitting = ma_fields.Nested(lambda: DataFittingSchema())
 
-    data_processing_steps = ma_fields.List(
-        ma_fields.Nested(lambda: DataProcessingStepsItemSchema()),
+    data_processing = ma_fields.List(
+        ma_fields.Nested(lambda: DataProcessingItemSchema()),
         validate=[ma.validate.Length(min=1)],
     )
 
@@ -2507,7 +2503,7 @@ class DataFittingSchema(DictOnlySchema):
     software_version = ma_fields.String()
 
 
-class DataProcessingStepsItemSchema(DictOnlySchema):
+class DataProcessingItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 

@@ -29,6 +29,8 @@ class ItcFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
     ]
 
     model = "itc"
+    allowed_mimetypes = []
+    allowed_extensions = []
     allow_upload = False
 
     @property
@@ -42,7 +44,7 @@ class ItcFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
         return {
             "commit": FileLink("{+api}/records/itc/{id}/files/{key}/commit"),
             "content": FileLink("{+api}/records/itc/{id}/files/{key}/content"),
-            "preview": FileLink("{+ui}/itc/files/{key}/preview"),
+            "preview": FileLink("{+ui}/itc/{id}/files/{key}/preview"),
             "self": FileLink("{+api}/records/itc/{id}/files/{key}"),
         }
 
@@ -79,5 +81,6 @@ class ItcFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
         return {
             "commit": FileLink("{+api}/records/itc/{id}/draft/files/{key}/commit"),
             "content": FileLink("{+api}/records/itc/{id}/draft/files/{key}/content"),
+            "preview": FileLink("{+ui}/itc/{id}/files/{key}/preview"),
             "self": FileLink("{+api}/records/itc/{id}/draft/files/{key}"),
         }
