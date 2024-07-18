@@ -28,8 +28,6 @@ function FileField({
     let file = e.target.files[0];
     if (file) {
       setFieldValue(`${name}.fileContent`, file);
-      setFieldValue(`${name}.metadata.size`, file.size);
-      setFieldValue(`${name}.metadata.name`, file.name);
       setFieldValue(`${name}.${fieldName}`, file.name);
     }
   };

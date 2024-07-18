@@ -96,8 +96,8 @@ function DataAnalysis( { name } ) {
         <div>
             <ArrayField
                 name={name}
-                label='Data processing step'
-                fieldName='data_processing_step'
+                label='Data processing'
+                fieldName='data_processing'
                 tooltip='Describe the steps in the data analysis prior to fitting (removing outliers in the raw data, applying smoothing filters, etc.)'
                 renderChild={({ arrayName, index }) => (
                     <FormWrapper

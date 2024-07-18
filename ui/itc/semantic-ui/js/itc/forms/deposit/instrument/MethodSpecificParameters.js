@@ -3,13 +3,14 @@ import FormWrapper from '@mbdb_deposit/buildingBlocks/FormWrapper';
 import OptionField from '@mbdb_deposit/buildingBlocks/OptionField';
 import CellTemperature from './methodSpecificParameters/CellTemperature';
 import CellVolume from './methodSpecificParameters/CellVolume';
-import ExperimentType from './methodSpecificParameters/experimentType/ExperimentType';
+import InjectionMode from './methodSpecificParameters/injectionMode/InjectionMode';
 import ReferencePower from './methodSpecificParameters/ReferencePower';
 import StirringSpeed from './methodSpecificParameters/StirringSpeed';
 
 function MethodSpecificParameters( { name } ) {
 
     const feedbackModeOptions = [
+        { value: 'None', label: 'None' },
         { value: 'Low', label: 'Low' },
         { value: 'High', label: 'High' }
     ];
@@ -27,13 +28,13 @@ function MethodSpecificParameters( { name } ) {
                     label='Feedback mode'
                     required={true}
                     options={feedbackModeOptions}
-                    tooltip='Operating mode where conditions are adjusted automatically to maintain constant temperature during heat measurements'
+                    tooltip='The operating mode where conditions are adjusted automatically to maintain constant temperature during heat measurements'
                 />
             </div>
             <div className="flex mb-3">
                 <div>
-                    <ExperimentType
-                        name={`${name}.experiment_type`}
+                    <InjectionMode
+                        name={`${name}.injection_mode`}
                         colorSchema='light'
                     />
                 </div>

@@ -6,14 +6,14 @@ import SingleInjection from "./SingleInjection";
 import Titration from "./Titration";
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
 
-function ExperimentType( { name, colorSchema } ) {
+function InjectionMode({ name, colorSchema } ) {
 
     const { values } = useFormikContext();
     
     const fieldName = `${name}.type`;
     UseDefault(fieldName, 'Single injection');
 
-    const associatedPublicationOptions = [
+    const injectionOptions = [
         { value: 'Single injection', label: 'Single injection' },
         { value: 'Titration', label: 'Titration' },
     ];
@@ -31,11 +31,11 @@ function ExperimentType( { name, colorSchema } ) {
                 <div className="mr-3">
                     <OptionField
                         name={fieldName}
-                        options={associatedPublicationOptions}
+                        options={injectionOptions}
                         label='type'
                         required={true}
                         width='w-full'
-                        tooltip='The type of the publication'
+                        tooltip='The type of the injection'
                     />
                 </div>
                 <div>
@@ -56,4 +56,4 @@ function ExperimentType( { name, colorSchema } ) {
   );
 }
 
-export default ExperimentType;
+export default InjectionMode;

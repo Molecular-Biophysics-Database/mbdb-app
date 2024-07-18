@@ -29,6 +29,8 @@ class BliFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
     ]
 
     model = "bli"
+    allowed_mimetypes = []
+    allowed_extensions = []
     allow_upload = False
 
     @property
@@ -42,7 +44,7 @@ class BliFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
         return {
             "commit": FileLink("{+api}/records/bli/{id}/files/{key}/commit"),
             "content": FileLink("{+api}/records/bli/{id}/files/{key}/content"),
-            "preview": FileLink("{+ui}/bli/files/{key}/preview"),
+            "preview": FileLink("{+ui}/bli/{id}/files/{key}/preview"),
             "self": FileLink("{+api}/records/bli/{id}/files/{key}"),
         }
 
@@ -79,5 +81,6 @@ class BliFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
         return {
             "commit": FileLink("{+api}/records/bli/{id}/draft/files/{key}/commit"),
             "content": FileLink("{+api}/records/bli/{id}/draft/files/{key}/content"),
+            "preview": FileLink("{+ui}/bli/{id}/files/{key}/preview"),
             "self": FileLink("{+api}/records/bli/{id}/draft/files/{key}"),
         }

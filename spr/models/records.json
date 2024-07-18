@@ -16,6 +16,7 @@
             "file": "spr/records/mappings/os-v2/spr/spr-1.0.0.json",
             "index-field-args": []
         },
+        "searchable": true,
         "permissions": {
             "presets": [
                 "authenticated"
@@ -39,30 +40,13 @@
             "class": "spr.services.records.schema.SprSchema",
             "extra-code": ""
         },
-        "searchable": true,
-        "ui": {
-            "marshmallow": {
-                "imports": [],
-                "base-classes": [
-                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
-                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
-                ],
-                "generate": true,
-                "module": "spr.services.records.ui_schema",
-                "class": "spr.services.records.ui_schema.SprUISchema",
-                "extra-code": ""
-            },
-            "module": "spr.models",
-            "file": "spr/models/ui.json",
-            "alias": "spr"
-        },
         "service-config": {
             "components": [
                 "{{oarepo_vocabularies.authorities.components.AuthorityComponent}}",
                 "{{oarepo_runtime.services.components.OwnersComponent}}",
-                "{{oarepo_runtime.services.files.FilesComponent}}",
                 "{{invenio_drafts_resources.services.records.components.DraftFilesComponent}}",
-                "{{invenio_records_resources.services.records.components.DataComponent}}"
+                "{{invenio_records_resources.services.records.components.DataComponent}}",
+                "{{oarepo_runtime.services.files.FilesComponent}}"
             ],
             "base-classes": [
                 "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
@@ -98,6 +82,22 @@
                 "create=True"
             ],
             "extra-code": ""
+        },
+        "ui": {
+            "marshmallow": {
+                "imports": [],
+                "base-classes": [
+                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
+                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
+                ],
+                "generate": true,
+                "module": "spr.services.records.ui_schema",
+                "class": "spr.services.records.ui_schema.SprUISchema",
+                "extra-code": ""
+            },
+            "module": "spr.models",
+            "file": "spr/models/ui.json",
+            "alias": "spr"
         },
         "search-options": {
             "base-classes": [
@@ -140,40 +140,9 @@
             "suffix-upper": "SPR",
             "suffix-snake": "spr"
         },
-        "draft-files": {
-            "type": "draft-file",
-            "properties": {},
-            "searchable": true,
-            "resource": {
-                "base-classes": [
-                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
-                ]
-            },
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            }
-        },
-        "draft": {
-            "type": "draft_record",
-            "properties": {},
-            "searchable": true,
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            }
-        },
         "files": {
             "type": "file",
             "properties": {
-                "name": {
-                    "type": "keyword",
-                    "required": true,
-                    "help.en": "Name of the file",
-                    "label.en": "Name"
-                },
                 "content_type": {
                     "type": "keyword",
                     "required": true,
@@ -206,13 +175,6 @@
                     ],
                     "help.en": "What is the source of the file",
                     "label.en": "Originates from"
-                },
-                "size": {
-                    "type": "integer",
-                    "required": true,
-                    "minimum": 0,
-                    "help.en": "Size of the file in bytes",
-                    "label.en": "Size"
                 },
                 "description": {
                     "type": "keyword",
@@ -329,6 +291,7 @@
                     }
                 }
             },
+            "searchable": true,
             "marshmallow": {
                 "imports": [
                     {
@@ -340,7 +303,6 @@
                     "InvenioFileSchema"
                 ]
             },
-            "searchable": true,
             "resource": {
                 "base-classes": [
                     "oarepo_ui.resources.file_resource.S3RedirectFileResource"
@@ -353,10 +315,35 @@
             },
             "label.en": ""
         },
+        "draft-files": {
+            "type": "draft-file",
+            "properties": {},
+            "searchable": true,
+            "resource": {
+                "base-classes": [
+                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
+                ]
+            },
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
+        },
         "tests": {
             "extra-fixtures": [],
             "extra-code": "",
             "module": "tests"
+        },
+        "draft": {
+            "type": "draft_record",
+            "properties": {},
+            "searchable": true,
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
         },
         "sample": {
             "file": "data/sample_data.yaml"
@@ -366,44 +353,6 @@
             "skip": false
         },
         "model-name": "Spr",
-        "record-resolver": {
-            "generate": true,
-            "module": "spr.records.requests.resolvers",
-            "class": "spr.records.requests.resolvers.SprResolver",
-            "base-classes": [
-                "oarepo_runtime.records.entity_resolvers.RecordResolver"
-            ],
-            "imports": [],
-            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
-        },
-        "ui-record-resolver": {
-            "generate": true,
-            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
-        },
-        "record": {
-            "base-classes": [
-                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
-            ],
-            "generate": true,
-            "module": "spr.records.api",
-            "class": "spr.records.api.SprRecord",
-            "imports": [],
-            "extra-code": "",
-            "fields": {}
-        },
-        "resource": {
-            "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
-            ],
-            "generate": true,
-            "config-key": "SPR_RECORD_RESOURCE_CLASS",
-            "module": "spr.resources.records.resource",
-            "class": "spr.resources.records.resource.SprResource",
-            "proxy": "current_resource",
-            "extra-code": "",
-            "imports": [],
-            "additional-args": []
-        },
         "config": {
             "generate": true,
             "module": "spr.config",
@@ -450,14 +399,67 @@
             "module": "spr.proxies",
             "generate": true
         },
-        "files-field": {
+        "record-resolver": {
             "generate": true,
-            "field-class": "invenio_records_resources.records.systemfields.FilesField",
-            "file-class": "spr.records.api.SprRecord",
-            "field-args": [
-                "store=False"
+            "module": "spr.records.requests.resolvers",
+            "class": "spr.records.requests.resolvers.SprResolver",
+            "base-classes": [
+                "oarepo_runtime.records.entity_resolvers.RecordResolver"
             ],
-            "imports": []
+            "imports": [],
+            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
+        },
+        "ui-record-resolver": {
+            "generate": true,
+            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
+        },
+        "record": {
+            "base-classes": [
+                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
+            ],
+            "generate": true,
+            "module": "spr.records.api",
+            "class": "spr.records.api.SprRecord",
+            "imports": [],
+            "extra-code": "",
+            "fields": {}
+        },
+        "resource": {
+            "base-classes": [
+                "invenio_drafts_resources.resources.RecordResource"
+            ],
+            "generate": true,
+            "config-key": "SPR_RECORD_RESOURCE_CLASS",
+            "module": "spr.resources.records.resource",
+            "class": "spr.resources.records.resource.SprResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
+        },
+        "json-schema-settings": {
+            "generate": true,
+            "alias": "spr",
+            "version": "1.0.0",
+            "module": "spr.records.jsonschemas",
+            "name": "spr-1.0.0.json",
+            "file": "spr/records/jsonschemas/spr-1.0.0.json"
+        },
+        "json-serializer": {
+            "module": "spr.resources.records.ui",
+            "class": "spr.resources.records.ui.SprUIJSONSerializer",
+            "base-classes": [
+                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
+            ],
+            "imports": [],
+            "extra-code": "",
+            "generate": true,
+            "list_schema_cls": "flask_resources.BaseListSchema",
+            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
+            "schema-context-args": {
+                "\"object_key\"": "\"ui\"",
+                "\"identity\"": "{{ flask.g{g.identity} }}"
+            }
         },
         "record-metadata": {
             "generate": true,
@@ -505,33 +507,54 @@
             ],
             "imports": []
         },
-        "json-schema-settings": {
-            "generate": true,
-            "alias": "spr",
-            "version": "1.0.0",
-            "module": "spr.records.jsonschemas",
-            "name": "spr-1.0.0.json",
-            "file": "spr/records/jsonschemas/spr-1.0.0.json"
-        },
-        "json-serializer": {
-            "module": "spr.resources.records.ui",
-            "class": "spr.resources.records.ui.SprUIJSONSerializer",
-            "base-classes": [
-                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
-            ],
-            "imports": [],
-            "extra-code": "",
-            "generate": true,
-            "list_schema_cls": "flask_resources.BaseListSchema",
-            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
-            "schema-context-args": {
-                "\"object_key\"": "\"ui\"",
-                "\"identity\"": "{{ flask.g{g.identity} }}"
-            }
-        },
         "translations": {
             "module": "spr.translations",
             "alias": "spr"
+        },
+        "files-field": {
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "spr.records.api.SprRecord",
+            "field-args": [
+                "store=False"
+            ],
+            "imports": []
+        },
+        "edtf-interval-dumper": {
+            "generate": true,
+            "module": "spr.records.dumpers.edtf",
+            "class": "spr.records.dumpers.edtf.SprEDTFIntervalDumperExt",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
+            ],
+            "extra-code": "",
+            "extensions": [],
+            "imports": []
+        },
+        "record-list": {
+            "generate": true,
+            "module": "spr.services.records.results",
+            "class": "spr.services.records.results.SprRecordList",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordList"
+            ],
+            "components": [],
+            "imports": []
+        },
+        "record-item": {
+            "generate": true,
+            "module": "spr.services.records.results",
+            "class": "spr.services.records.results.SprRecordItem",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordItem"
+            ],
+            "components": [
+                "{{oarepo_requests.services.results.RequestsComponent}}()",
+                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
+            ],
+            "imports": []
         },
         "draft-parent-record": {
             "class": "spr.records.api.SprParentRecord",
@@ -539,6 +562,7 @@
                 "invenio_drafts_resources.records.api.ParentRecord"
             ],
             "imports": [],
+            "fields": {},
             "module": "spr.records.api",
             "generate": true
         },
@@ -594,42 +618,6 @@
             "extra-code": "",
             "base-classes": [
                 "oarepo_published_service.services.service.PublishedService"
-            ],
-            "imports": []
-        },
-        "edtf-interval-dumper": {
-            "generate": true,
-            "module": "spr.records.dumpers.edtf",
-            "class": "spr.records.dumpers.edtf.SprEDTFIntervalDumperExt",
-            "base-classes": [
-                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
-            ],
-            "extra-code": "",
-            "extensions": [],
-            "imports": []
-        },
-        "record-list": {
-            "generate": true,
-            "module": "spr.services.records.results",
-            "class": "spr.services.records.results.SprRecordList",
-            "extra-code": "",
-            "base-classes": [
-                "oarepo_runtime.services.results.RecordList"
-            ],
-            "components": [],
-            "imports": []
-        },
-        "record-item": {
-            "generate": true,
-            "module": "spr.services.records.results",
-            "class": "spr.services.records.results.SprRecordItem",
-            "extra-code": "",
-            "base-classes": [
-                "oarepo_runtime.services.results.RecordItem"
-            ],
-            "components": [
-                "{{oarepo_requests.services.results.RequestsComponent}}()",
-                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
             ],
             "imports": []
         },
@@ -23548,20 +23536,6 @@
                                     }
                                 }
                             },
-                            "raw_measurement_files": {
-                                "type": "array",
-                                "minItems": 1,
-                                "help.en": "List of file(s) containing the raw measurements",
-                                "label.en": "Raw measurement files",
-                                "marshmallow": {
-                                    "validators": [
-                                        "ma.validate.Length(min=1)"
-                                    ]
-                                },
-                                "items": {
-                                    "type": "url"
-                                }
-                            },
                             "record_information": {
                                 "type": "object",
                                 "required": true,
@@ -25946,7 +25920,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.9.22"
+                                    "0.9.23"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"
@@ -26058,11 +26032,11 @@
                                                 }
                                             }
                                         },
-                                        "data_processing_steps": {
+                                        "data_processing": {
                                             "type": "array",
                                             "minItems": 1,
                                             "help.en": "Describe the steps in the data analysis prior to fitting (removing outliers in the raw data, applying data filter, placing data at same start time etc. )",
-                                            "label.en": "Data processing steps",
+                                            "label.en": "Data processing",
                                             "marshmallow": {
                                                 "validators": [
                                                     "ma.validate.Length(min=1)"
@@ -26073,12 +26047,12 @@
                                                 "label.en": "Processing step",
                                                 "marshmallow": {
                                                     "generate": true,
-                                                    "class": "spr.services.records.schema.DataProcessingStepsItemSchema"
+                                                    "class": "spr.services.records.schema.DataProcessingItemSchema"
                                                 },
                                                 "ui": {
                                                     "marshmallow": {
                                                         "generate": true,
-                                                        "class": "spr.services.records.ui_schema.DataProcessingStepsItemUISchema"
+                                                        "class": "spr.services.records.ui_schema.DataProcessingItemUISchema"
                                                     }
                                                 },
                                                 "properties": {
@@ -26287,22 +26261,22 @@
                                             "help.en": "id to be used as a link target",
                                             "label.en": "Id"
                                         },
-                                        "ligand_information": {
+                                        "ligand": {
                                             "type": "object",
                                             "help.en": "Information about the ligand and how it was immobilized",
-                                            "label.en": "Ligand information",
+                                            "label.en": "Ligand",
                                             "marshmallow": {
                                                 "generate": true,
-                                                "class": "spr.services.records.schema.LigandInformationSchema"
+                                                "class": "spr.services.records.schema.LigandSchema"
                                             },
                                             "ui": {
                                                 "marshmallow": {
                                                     "generate": true,
-                                                    "class": "spr.services.records.ui_schema.LigandInformationUISchema"
+                                                    "class": "spr.services.records.ui_schema.LigandUISchema"
                                                 }
                                             },
                                             "properties": {
-                                                "ligand": {
+                                                "entity": {
                                                     "type": "relation",
                                                     "model": "#entity",
                                                     "keys": [
@@ -26310,7 +26284,7 @@
                                                         "name"
                                                     ],
                                                     "help.en": "Name (id) of the ligand (entity that is immobilized, from the list of entities of interest defined in the general parameters)",
-                                                    "label.en": "Ligand",
+                                                    "label.en": "Entity",
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
                                                         "generate": false,
@@ -26355,16 +26329,16 @@
                                                         }
                                                     }
                                                 },
-                                                "ligand_immobilization_chemistry": {
+                                                "immobilization_chemistry": {
                                                     "type": "keyword",
-                                                    "help.en": "The type of chemistry on ligands and surface that allows for immobilization of the ligands on the surface of the senor",
-                                                    "label.en": "Ligand immobilization chemistry"
+                                                    "help.en": "The type of chemistry on the ligands that allows for immobilization on the sensor",
+                                                    "label.en": "Immobilization chemistry"
                                                 },
-                                                "ligand_immobilization_protocol": {
+                                                "immobilization_protocol": {
                                                     "type": "array",
                                                     "minItems": 1,
                                                     "help.en": "List of steps for immobilizing the ligand on the surface of the sensor",
-                                                    "label.en": "Ligand immobilization protocol",
+                                                    "label.en": "Immobilization protocol",
                                                     "marshmallow": {
                                                         "validators": [
                                                             "ma.validate.Length(min=1)"
@@ -26444,7 +26418,7 @@
                                         "flow": {
                                             "type": "object",
                                             "required": true,
-                                            "help.en": "Information about the flow during the measurement step",
+                                            "help.en": "Information about the liquid flow during the measurement step",
                                             "label.en": "Flow",
                                             "marshmallow": {
                                                 "generate": true,
@@ -27537,7 +27511,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.9.5"
+                                    "0.9.6"
                                 ],
                                 "help.en": "The schema version used to annotate the SPR method specific parameters",
                                 "label.en": "Schema version"
@@ -27574,13 +27548,13 @@
                                             "Air",
                                             "Glycerol"
                                         ],
-                                        "help.en": "How the initialization of the senor was performed",
+                                        "help.en": "How the initialization of the sensor was performed",
                                         "label.en": "Sensor initialization"
                                     },
                                     "supplier": {
                                         "type": "object",
                                         "required": true,
-                                        "help.en": "Information about the supplier of the senor",
+                                        "help.en": "Information about the supplier of the sensor",
                                         "label.en": "Supplier",
                                         "marshmallow": {
                                             "generate": true,
@@ -27627,6 +27601,62 @@
                                     }
                                 }
                             }
+                        }
+                    }
+                }
+            },
+            "pid": {
+                "type": "object",
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "generate": false,
+                        "class": "spr.services.records.ui_schema.FakeUIPIDSchema",
+                        "skip": true,
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "generate": false,
+                    "class": "spr.services.records.schema.FakePIDSchema",
+                    "skip": true,
+                    "read": false,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                },
+                "properties": {
+                    "obj_type": {
+                        "type": "keyword",
+                        "facets": {
+                            "searchable": true,
+                            "facet": false
+                        }
+                    },
+                    "pid_type": {
+                        "type": "keyword",
+                        "facets": {
+                            "searchable": true,
+                            "facet": false
+                        }
+                    },
+                    "pk": {
+                        "type": "integer",
+                        "facets": {
+                            "searchable": true,
+                            "facet": false
+                        }
+                    },
+                    "status": {
+                        "type": "keyword",
+                        "facets": {
+                            "searchable": true,
+                            "facet": false
                         }
                     }
                 }

@@ -15,7 +15,7 @@ class ItcInitialValuesComponent(UIResourceComponent):
         empty_data.update({
           "metadata": {
             "general_parameters": {
-              "schema_version": "0.9.22",
+              "schema_version": "0.9.23",
               "technique": "Isothermal Titration Calorimetry (ITC)",
               "record_information": {
                 "publisher": "MBDB",
@@ -27,7 +27,7 @@ class ItcInitialValuesComponent(UIResourceComponent):
               },
             },
             "method_specific_parameters": {
-              "schema_version": "0.0.3"
+              "schema_version": "0.1.0"
             }
           }
         })

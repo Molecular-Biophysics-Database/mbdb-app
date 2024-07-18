@@ -2348,11 +2348,6 @@ metadata_general_parameters_instrument = VocabularyFacet(
     vocabulary="instruments",
 )
 
-metadata_general_parameters_raw_measurement_files = TermsFacet(
-    field="metadata.general_parameters.raw_measurement_files",
-    label=_("metadata/general_parameters/raw_measurement_files.label"),
-)
-
 metadata_general_parameters_record_information_access_rights = TermsFacet(
     field="metadata.general_parameters.record_information.access_rights",
     label=_("metadata/general_parameters/record_information/access_rights.label"),
@@ -2502,38 +2497,38 @@ metadata_method_specific_parameters_data_analysis_data_fitting_software_version 
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_data_processing_steps_description = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_processing_steps.description",
+metadata_method_specific_parameters_data_analysis_data_processing_description = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_processing.description",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_processing_steps/description.label"
+        "metadata/method_specific_parameters/data_analysis/data_processing/description.label"
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_data_processing_steps_link_to_source_code = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_processing_steps.link_to_source_code",
+metadata_method_specific_parameters_data_analysis_data_processing_link_to_source_code = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_processing.link_to_source_code",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_processing_steps/link_to_source_code.label"
+        "metadata/method_specific_parameters/data_analysis/data_processing/link_to_source_code.label"
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_data_processing_steps_name = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_processing_steps.name",
+metadata_method_specific_parameters_data_analysis_data_processing_name = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_processing.name",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_processing_steps/name.label"
+        "metadata/method_specific_parameters/data_analysis/data_processing/name.label"
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_data_processing_steps_software_name = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_processing_steps.software_name",
+metadata_method_specific_parameters_data_analysis_data_processing_software_name = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_processing.software_name",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_processing_steps/software_name.label"
+        "metadata/method_specific_parameters/data_analysis/data_processing/software_name.label"
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_data_processing_steps_software_version = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_processing_steps.software_version",
+metadata_method_specific_parameters_data_analysis_data_processing_software_version = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_processing.software_version",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_processing_steps/software_version.label"
+        "metadata/method_specific_parameters/data_analysis/data_processing/software_version.label"
     ),
 )
 
@@ -2564,24 +2559,24 @@ metadata_method_specific_parameters_measurement_positions_id = TermsFacet(
     label=_("metadata/method_specific_parameters/measurement_positions/id.label"),
 )
 
-metadata_method_specific_parameters_measurement_positions_ligand_information_ligand_immobilization_chemistry = TermsFacet(
-    field="metadata.method_specific_parameters.measurement_positions.ligand_information.ligand_immobilization_chemistry",
+metadata_method_specific_parameters_measurement_positions_ligand_immobilization_chemistry = TermsFacet(
+    field="metadata.method_specific_parameters.measurement_positions.ligand.immobilization_chemistry",
     label=_(
-        "metadata/method_specific_parameters/measurement_positions/ligand_information/ligand_immobilization_chemistry.label"
+        "metadata/method_specific_parameters/measurement_positions/ligand/immobilization_chemistry.label"
     ),
 )
 
-metadata_method_specific_parameters_measurement_positions_ligand_information_ligand_immobilization_protocol_description = TermsFacet(
-    field="metadata.method_specific_parameters.measurement_positions.ligand_information.ligand_immobilization_protocol.description",
+metadata_method_specific_parameters_measurement_positions_ligand_immobilization_protocol_description = TermsFacet(
+    field="metadata.method_specific_parameters.measurement_positions.ligand.immobilization_protocol.description",
     label=_(
-        "metadata/method_specific_parameters/measurement_positions/ligand_information/ligand_immobilization_protocol/description.label"
+        "metadata/method_specific_parameters/measurement_positions/ligand/immobilization_protocol/description.label"
     ),
 )
 
-metadata_method_specific_parameters_measurement_positions_ligand_information_ligand_immobilization_protocol_name = TermsFacet(
-    field="metadata.method_specific_parameters.measurement_positions.ligand_information.ligand_immobilization_protocol.name",
+metadata_method_specific_parameters_measurement_positions_ligand_immobilization_protocol_name = TermsFacet(
+    field="metadata.method_specific_parameters.measurement_positions.ligand.immobilization_protocol.name",
     label=_(
-        "metadata/method_specific_parameters/measurement_positions/ligand_information/ligand_immobilization_protocol/name.label"
+        "metadata/method_specific_parameters/measurement_positions/ligand/immobilization_protocol/name.label"
     ),
 )
 

@@ -2348,11 +2348,6 @@ metadata_general_parameters_instrument = VocabularyFacet(
     vocabulary="instruments",
 )
 
-metadata_general_parameters_raw_measurement_files = TermsFacet(
-    field="metadata.general_parameters.raw_measurement_files",
-    label=_("metadata/general_parameters/raw_measurement_files.label"),
-)
-
 metadata_general_parameters_record_information_access_rights = TermsFacet(
     field="metadata.general_parameters.record_information.access_rights",
     label=_("metadata/general_parameters/record_information/access_rights.label"),
@@ -2522,38 +2517,38 @@ metadata_method_specific_parameters_data_analysis_data_fitting_software_version 
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_data_processing_steps_description = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_processing_steps.description",
+metadata_method_specific_parameters_data_analysis_data_processing_description = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_processing.description",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_processing_steps/description.label"
+        "metadata/method_specific_parameters/data_analysis/data_processing/description.label"
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_data_processing_steps_link_to_source_code = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_processing_steps.link_to_source_code",
+metadata_method_specific_parameters_data_analysis_data_processing_link_to_source_code = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_processing.link_to_source_code",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_processing_steps/link_to_source_code.label"
+        "metadata/method_specific_parameters/data_analysis/data_processing/link_to_source_code.label"
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_data_processing_steps_name = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_processing_steps.name",
+metadata_method_specific_parameters_data_analysis_data_processing_name = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_processing.name",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_processing_steps/name.label"
+        "metadata/method_specific_parameters/data_analysis/data_processing/name.label"
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_data_processing_steps_software_name = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_processing_steps.software_name",
+metadata_method_specific_parameters_data_analysis_data_processing_software_name = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_processing.software_name",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_processing_steps/software_name.label"
+        "metadata/method_specific_parameters/data_analysis/data_processing/software_name.label"
     ),
 )
 
-metadata_method_specific_parameters_data_analysis_data_processing_steps_software_version = TermsFacet(
-    field="metadata.method_specific_parameters.data_analysis.data_processing_steps.software_version",
+metadata_method_specific_parameters_data_analysis_data_processing_software_version = TermsFacet(
+    field="metadata.method_specific_parameters.data_analysis.data_processing.software_version",
     label=_(
-        "metadata/method_specific_parameters/data_analysis/data_processing_steps/software_version.label"
+        "metadata/method_specific_parameters/data_analysis/data_processing/software_version.label"
     ),
 )
 
@@ -2572,52 +2567,52 @@ metadata_method_specific_parameters_data_analysis_type = TermsFacet(
     label=_("metadata/method_specific_parameters/data_analysis/type.label"),
 )
 
-metadata_method_specific_parameters_experiment_type_type = TermsFacet(
-    field="metadata.method_specific_parameters.experiment_type.type",
-    label=_("metadata/method_specific_parameters/experiment_type/type.label"),
-)
-
-metadata_method_specific_parameters_experiment_type_volume_unit = TermsFacet(
-    field="metadata.method_specific_parameters.experiment_type.volume.unit",
-    label=_("metadata/method_specific_parameters/experiment_type/volume/unit.label"),
-)
-
-metadata_method_specific_parameters_experiment_type_volume_value = TermsFacet(
-    field="metadata.method_specific_parameters.experiment_type.volume.value",
-    label=_("metadata/method_specific_parameters/experiment_type/volume/value.label"),
-)
-
-metadata_method_specific_parameters_experiment_type_injection_parameters_n_injections = TermsFacet(
-    field="metadata.method_specific_parameters.experiment_type.injection_parameters.n_injections",
-    label=_(
-        "metadata/method_specific_parameters/experiment_type/injection_parameters/n_injections.label"
-    ),
-)
-
-metadata_method_specific_parameters_experiment_type_injection_parameters_volume_unit = TermsFacet(
-    field="metadata.method_specific_parameters.experiment_type.injection_parameters.volume.unit",
-    label=_(
-        "metadata/method_specific_parameters/experiment_type/injection_parameters/volume/unit.label"
-    ),
-)
-
-metadata_method_specific_parameters_experiment_type_injection_parameters_volume_value = TermsFacet(
-    field="metadata.method_specific_parameters.experiment_type.injection_parameters.volume.value",
-    label=_(
-        "metadata/method_specific_parameters/experiment_type/injection_parameters/volume/value.label"
-    ),
-)
-
-metadata_method_specific_parameters_experiment_type_number_injections = TermsFacet(
-    field="metadata.method_specific_parameters.experiment_type.number_injections",
-    label=_(
-        "metadata/method_specific_parameters/experiment_type/number_injections.label"
-    ),
-)
-
 metadata_method_specific_parameters_feedback_mode = TermsFacet(
     field="metadata.method_specific_parameters.feedback_mode",
     label=_("metadata/method_specific_parameters/feedback_mode.label"),
+)
+
+metadata_method_specific_parameters_injection_mode_type = TermsFacet(
+    field="metadata.method_specific_parameters.injection_mode.type",
+    label=_("metadata/method_specific_parameters/injection_mode/type.label"),
+)
+
+metadata_method_specific_parameters_injection_mode_volume_unit = TermsFacet(
+    field="metadata.method_specific_parameters.injection_mode.volume.unit",
+    label=_("metadata/method_specific_parameters/injection_mode/volume/unit.label"),
+)
+
+metadata_method_specific_parameters_injection_mode_volume_value = TermsFacet(
+    field="metadata.method_specific_parameters.injection_mode.volume.value",
+    label=_("metadata/method_specific_parameters/injection_mode/volume/value.label"),
+)
+
+metadata_method_specific_parameters_injection_mode_injection_parameters_n_injections = TermsFacet(
+    field="metadata.method_specific_parameters.injection_mode.injection_parameters.n_injections",
+    label=_(
+        "metadata/method_specific_parameters/injection_mode/injection_parameters/n_injections.label"
+    ),
+)
+
+metadata_method_specific_parameters_injection_mode_injection_parameters_volume_unit = TermsFacet(
+    field="metadata.method_specific_parameters.injection_mode.injection_parameters.volume.unit",
+    label=_(
+        "metadata/method_specific_parameters/injection_mode/injection_parameters/volume/unit.label"
+    ),
+)
+
+metadata_method_specific_parameters_injection_mode_injection_parameters_volume_value = TermsFacet(
+    field="metadata.method_specific_parameters.injection_mode.injection_parameters.volume.value",
+    label=_(
+        "metadata/method_specific_parameters/injection_mode/injection_parameters/volume/value.label"
+    ),
+)
+
+metadata_method_specific_parameters_injection_mode_number_injections = TermsFacet(
+    field="metadata.method_specific_parameters.injection_mode.number_injections",
+    label=_(
+        "metadata/method_specific_parameters/injection_mode/number_injections.label"
+    ),
 )
 
 metadata_method_specific_parameters_measurements_sample_in_cell_preparation_protocol_description = TermsFacet(

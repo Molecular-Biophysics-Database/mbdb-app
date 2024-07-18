@@ -19,7 +19,7 @@ class MstInitialValuesComponent(UIResourceComponent):
             {
                 "metadata": {
                     "general_parameters": {
-                        "schema_version": "0.9.22",
+                        "schema_version": "0.9.23",
                         "technique": "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
                         "record_information": {
                             "publisher": "MBDB",

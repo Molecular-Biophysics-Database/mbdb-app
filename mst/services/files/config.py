@@ -29,6 +29,8 @@ class MstFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
     ]
 
     model = "mst"
+    allowed_mimetypes = []
+    allowed_extensions = []
     allow_upload = False
 
     @property
@@ -42,7 +44,7 @@ class MstFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
         return {
             "commit": FileLink("{+api}/records/mst/{id}/files/{key}/commit"),
             "content": FileLink("{+api}/records/mst/{id}/files/{key}/content"),
-            "preview": FileLink("{+ui}/mst/files/{key}/preview"),
+            "preview": FileLink("{+ui}/mst/{id}/files/{key}/preview"),
             "self": FileLink("{+api}/records/mst/{id}/files/{key}"),
         }
 
@@ -79,5 +81,6 @@ class MstFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
         return {
             "commit": FileLink("{+api}/records/mst/{id}/draft/files/{key}/commit"),
             "content": FileLink("{+api}/records/mst/{id}/draft/files/{key}/content"),
+            "preview": FileLink("{+ui}/mst/{id}/files/{key}/preview"),
             "self": FileLink("{+api}/records/mst/{id}/draft/files/{key}"),
         }

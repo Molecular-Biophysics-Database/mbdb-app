@@ -49,8 +49,8 @@ function MeasurementPositions( { name } ) {
         <div>
             <OptionalField
                 name={name}
-                label='Ligand information'
-                fieldName='ligand_information'
+                label='Ligand'
+                fieldName='ligand'
                 tooltip='Information about the ligand and how it was immobilized'
                 renderChild={({ optionalFieldName }) => (
                     <LigandInformation

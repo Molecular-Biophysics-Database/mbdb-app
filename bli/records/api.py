@@ -373,8 +373,8 @@ class BliRecord(InvenioRecord):
             keys=["id", "name"],
             related_part="metadata.method_specific_parameters.sensors",
         ),
-        ligand=InternalRelation(
-            "metadata.method_specific_parameters.sensors.ligand_information.ligand",
+        ligand_entity=InternalRelation(
+            "metadata.method_specific_parameters.sensors.ligand.entity",
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
         ),
@@ -733,8 +733,8 @@ class BliDraft(InvenioDraft):
             keys=["id", "name"],
             related_part="metadata.method_specific_parameters.sensors",
         ),
-        ligand=InternalRelation(
-            "metadata.method_specific_parameters.sensors.ligand_information.ligand",
+        ligand_entity=InternalRelation(
+            "metadata.method_specific_parameters.sensors.ligand.entity",
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
         ),

@@ -1848,12 +1848,6 @@
                                 }
                             }
                         },
-                        "raw_measurement_files": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
                         "record_information": {
                             "type": "object",
                             "properties": {
@@ -2011,7 +2005,7 @@
                                             }
                                         }
                                     },
-                                    "data_processing_steps": {
+                                    "data_processing": {
                                         "type": "array",
                                         "items": {
                                             "type": "object",
@@ -2074,7 +2068,10 @@
                                 }
                             }
                         },
-                        "experiment_type": {
+                        "feedback_mode": {
+                            "type": "string"
+                        },
+                        "injection_mode": {
                             "type": "object",
                             "properties": {
                                 "type": {
@@ -2117,9 +2114,6 @@
                                     "type": "number"
                                 }
                             }
-                        },
-                        "feedback_mode": {
-                            "type": "string"
                         },
                         "measurements": {
                             "type": "array",
@@ -2293,6 +2287,23 @@
                             }
                         }
                     }
+                }
+            }
+        },
+        "pid": {
+            "type": "object",
+            "properties": {
+                "obj_type": {
+                    "type": "string"
+                },
+                "pid_type": {
+                    "type": "string"
+                },
+                "pk": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
                 }
             }
         },

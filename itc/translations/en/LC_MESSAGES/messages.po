@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-06-18T10:32:08.294936\n"
-"PO-Revision-Date: 2024-06-18T10:32:08.294943\n"
+"POT-Creation-Date: 2024-07-17T16:16:08.016025\n"
+"PO-Revision-Date: 2024-07-17T16:16:08.016032\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7279,15 +7279,6 @@ msgstr ""
 msgid "metadata/general_parameters/instrument/@v.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/raw_measurement_files.help"
-msgstr "List of file(s) containing the raw measurements"
-
-msgid "metadata/general_parameters/raw_measurement_files.label"
-msgstr "Raw measurement files"
-
-msgid "metadata/general_parameters/raw_measurement_files.hint"
-msgstr ""
-
 msgid "metadata/general_parameters/record_information.help"
 msgstr ""
 "Information about the record itself, including whether this particular "
@@ -7812,7 +7803,7 @@ msgstr "Schema version"
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.9.22"
+msgid "metadata/general_parameters/schema_version.enum.0.9.23"
 msgstr ""
 
 msgid "metadata/general_parameters/technique.help"
@@ -8035,81 +8026,79 @@ msgid ""
 "metadata/method_specific_parameters/data_analysis/data_fitting/software_version.hint"
 msgstr ""
 
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps.help"
+msgid "metadata/method_specific_parameters/data_analysis/data_processing.help"
 msgstr ""
 "Describe the steps in the data analysis prior to fitting (removing outliers "
 "in the raw data, applying smoothing filters, etc.)"
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps.label"
-msgstr "Data processing steps"
+"metadata/method_specific_parameters/data_analysis/data_processing.label"
+msgstr "Data processing"
 
-msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps.hint"
+msgid "metadata/method_specific_parameters/data_analysis/data_processing.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/description.help"
+"metadata/method_specific_parameters/data_analysis/data_processing/description.help"
 msgstr "Description of what the processing step was"
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/description.label"
+"metadata/method_specific_parameters/data_analysis/data_processing/description.label"
 msgstr "Description"
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/description.hint"
+"metadata/method_specific_parameters/data_analysis/data_processing/description.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/link_to_source_code.help"
+"metadata/method_specific_parameters/data_analysis/data_processing/link_to_source_code.help"
 msgstr ""
 "If processing was performed with software where the source code is freely "
 "available a link can be specified here (e.g. self-written python script in a"
 " GitHub repository"
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/link_to_source_code.label"
+"metadata/method_specific_parameters/data_analysis/data_processing/link_to_source_code.label"
 msgstr "Link to source code"
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/link_to_source_code.hint"
+"metadata/method_specific_parameters/data_analysis/data_processing/link_to_source_code.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/name.help"
+"metadata/method_specific_parameters/data_analysis/data_processing/name.help"
 msgstr "Short descriptive name of the processing step"
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/name.label"
+"metadata/method_specific_parameters/data_analysis/data_processing/name.label"
 msgstr "Name"
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/name.hint"
+"metadata/method_specific_parameters/data_analysis/data_processing/name.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/software_name.help"
+"metadata/method_specific_parameters/data_analysis/data_processing/software_name.help"
 msgstr "The name of the software that was used for the step (e.g. Excel)"
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/software_name.label"
+"metadata/method_specific_parameters/data_analysis/data_processing/software_name.label"
 msgstr "Software name"
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/software_name.hint"
+"metadata/method_specific_parameters/data_analysis/data_processing/software_name.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/software_version.help"
+"metadata/method_specific_parameters/data_analysis/data_processing/software_version.help"
 msgstr "The version of the software that was used for the step"
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/software_version.label"
+"metadata/method_specific_parameters/data_analysis/data_processing/software_version.label"
 msgstr "Software version"
 
 msgid ""
-"metadata/method_specific_parameters/data_analysis/data_processing_steps/software_version.hint"
+"metadata/method_specific_parameters/data_analysis/data_processing/software_version.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/data_analysis/measurements.help"
@@ -8191,153 +8180,9 @@ msgid ""
 "metadata/method_specific_parameters/data_analysis/type.enum.Complex model"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/experiment_type.help"
-msgstr "Type of experiment conducted"
-
-msgid "metadata/method_specific_parameters/experiment_type.label"
-msgstr "Experiment type"
-
-msgid "metadata/method_specific_parameters/experiment_type.hint"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/experiment_type/type.help"
-msgstr "Type of ITC experiment"
-
-msgid "metadata/method_specific_parameters/experiment_type/type.label"
-msgstr "Type"
-
-msgid "metadata/method_specific_parameters/experiment_type/type.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/type.enum.Single "
-"injection"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/type.enum.Titration"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/experiment_type/volume.help"
-msgstr "Titrant volume injected into the cell"
-
-msgid "metadata/method_specific_parameters/experiment_type/volume.label"
-msgstr "Volume"
-
-msgid "metadata/method_specific_parameters/experiment_type/volume.hint"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/experiment_type/volume/unit.help"
-msgstr "Unit of the volume"
-
-msgid "metadata/method_specific_parameters/experiment_type/volume/unit.label"
-msgstr "Unit"
-
-msgid "metadata/method_specific_parameters/experiment_type/volume/unit.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/volume/unit.enum.ml"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/volume/unit.enum.µl"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/experiment_type/volume/value.label"
-msgstr "Value"
-
-msgid "metadata/method_specific_parameters/experiment_type/volume/value.help"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/experiment_type/volume/value.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters.help"
-msgstr ""
-"Characteristics of each injection (i. e. number of injections at a specific "
-"volume of 0.2 ml)"
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters.label"
-msgstr "Injection parameters"
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/n_injections.help"
-msgstr "Number of injections measured at a specific volume"
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/n_injections.label"
-msgstr "N injections"
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/n_injections.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume.help"
-msgstr "Titrant volume injected into the cell"
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume.label"
-msgstr "Volume"
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume/unit.help"
-msgstr "Unit of the volume"
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume/unit.label"
-msgstr "Unit"
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume/unit.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume/unit.enum.ml"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume/unit.enum.µl"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume/value.label"
-msgstr "Value"
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume/value.help"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/injection_parameters/volume/value.hint"
-msgstr ""
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/number_injections.help"
-msgstr "Number of injections performed in the measurement"
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/number_injections.label"
-msgstr "Number injections"
-
-msgid ""
-"metadata/method_specific_parameters/experiment_type/number_injections.hint"
-msgstr ""
-
 msgid "metadata/method_specific_parameters/feedback_mode.help"
 msgstr ""
-"Operating mode where conditions are adjusted automatically to maintain "
+"The operating mode where conditions are adjusted automatically to maintain "
 "constant temperature during heat measurements"
 
 msgid "metadata/method_specific_parameters/feedback_mode.label"
@@ -8353,6 +8198,149 @@ msgid "metadata/method_specific_parameters/feedback_mode.enum.Low"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/feedback_mode.enum.High"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/injection_mode.help"
+msgstr ""
+"Details of how the experiment was conducted in terms of injection (e.g. "
+"titration)"
+
+msgid "metadata/method_specific_parameters/injection_mode.label"
+msgstr "Injection mode"
+
+msgid "metadata/method_specific_parameters/injection_mode.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/injection_mode/type.help"
+msgstr "Type of ITC experiment"
+
+msgid "metadata/method_specific_parameters/injection_mode/type.label"
+msgstr "Type"
+
+msgid "metadata/method_specific_parameters/injection_mode/type.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/type.enum.Single "
+"injection"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/injection_mode/type.enum.Titration"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/injection_mode/volume.help"
+msgstr "Titrant volume injected into the cell"
+
+msgid "metadata/method_specific_parameters/injection_mode/volume.label"
+msgstr "Volume"
+
+msgid "metadata/method_specific_parameters/injection_mode/volume.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/injection_mode/volume/unit.help"
+msgstr "Unit of the volume"
+
+msgid "metadata/method_specific_parameters/injection_mode/volume/unit.label"
+msgstr "Unit"
+
+msgid "metadata/method_specific_parameters/injection_mode/volume/unit.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/injection_mode/volume/unit.enum.ml"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/injection_mode/volume/unit.enum.µl"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/injection_mode/volume/value.label"
+msgstr "Value"
+
+msgid "metadata/method_specific_parameters/injection_mode/volume/value.help"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/injection_mode/volume/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters.help"
+msgstr ""
+"Characteristics of each injection (i. e. number of injections at a specific "
+"volume of 0.2 ml)"
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters.label"
+msgstr "Injection parameters"
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters/n_injections.help"
+msgstr "Number of injections measured at a specific volume"
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters/n_injections.label"
+msgstr "N injections"
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters/n_injections.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters/volume.help"
+msgstr "Titrant volume injected into the cell"
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters/volume.label"
+msgstr "Volume"
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters/volume.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters/volume/unit.help"
+msgstr "Unit of the volume"
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters/volume/unit.label"
+msgstr "Unit"
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters/volume/unit.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters/volume/unit.enum.ml"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters/volume/unit.enum.µl"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters/volume/value.label"
+msgstr "Value"
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters/volume/value.help"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/injection_parameters/volume/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/number_injections.help"
+msgstr "Number of injections performed in the measurement"
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/number_injections.label"
+msgstr "Number injections"
+
+msgid ""
+"metadata/method_specific_parameters/injection_mode/number_injections.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/measurements.help"
@@ -8883,7 +8871,7 @@ msgstr "Schema version"
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.0.3"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.1.0"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/stirring_speed.help"
@@ -8914,6 +8902,51 @@ msgid "metadata/method_specific_parameters/stirring_speed/value.label"
 msgstr "Value"
 
 msgid "metadata/method_specific_parameters/stirring_speed/value.hint"
+msgstr ""
+
+msgid "pid.help"
+msgstr ""
+
+msgid "pid.label"
+msgstr ""
+
+msgid "pid.hint"
+msgstr ""
+
+msgid "pid/obj_type.help"
+msgstr ""
+
+msgid "pid/obj_type.label"
+msgstr ""
+
+msgid "pid/obj_type.hint"
+msgstr ""
+
+msgid "pid/pid_type.help"
+msgstr ""
+
+msgid "pid/pid_type.label"
+msgstr ""
+
+msgid "pid/pid_type.hint"
+msgstr ""
+
+msgid "pid/pk.help"
+msgstr ""
+
+msgid "pid/pk.label"
+msgstr ""
+
+msgid "pid/pk.hint"
+msgstr ""
+
+msgid "pid/status.help"
+msgstr ""
+
+msgid "pid/status.label"
+msgstr ""
+
+msgid "pid/status.hint"
 msgstr ""
 
 msgid "updated.help"
