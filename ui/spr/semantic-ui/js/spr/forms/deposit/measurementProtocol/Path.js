@@ -25,7 +25,7 @@ function Path({ name }) {
           tooltip="Name (id) of the measurement position"
           renderChild={({ arrayName, index }) => (
             <OptionField
-              name={`${arrayName}.${index}.name`}
+              name={`${arrayName}.${index}`}
               label={`Measurement position`}
               options={measurementPositionOptions}
               tooltip="Name (id) of the measurement position"

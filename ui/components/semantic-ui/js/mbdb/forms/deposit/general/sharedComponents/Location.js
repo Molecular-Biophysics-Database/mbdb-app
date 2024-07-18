@@ -1,33 +1,36 @@
 import React from "react";
-import FormWrapper from '../../buildingBlocks/FormWrapper';
-import CustomField from '../../buildingBlocks/CustomField';
+import FormWrapper from "../../buildingBlocks/FormWrapper";
+import CustomField from "../../buildingBlocks/CustomField";
 
-function Location( { name, tooltip, colorSchema } ) {
-
+function Location({ name, tooltip, colorSchema }) {
   return (
     <>
-        <FormWrapper headline='Location' colorSchema={colorSchema} tooltip={tooltip}>
-            <div className='flex'>
-                <div className='mr-3'>
-                    <CustomField
-                        name={name}
-                        label='Latitude'
-                        fieldName='latitude'
-                        required={true}
-                        tooltip='The latitude, from south to north, in degrees (decimal notation)'
-                    />
-                </div>
-                <div>
-                    <CustomField
-                        name={name}
-                        label='Longitude'
-                        fieldName='longitude'
-                        required={true}
-                        tooltip='The longitude, from west to east, in degrees (decimal notation)'
-                    />
-                </div>
-            </div>
-        </FormWrapper>
+      <FormWrapper
+        headline="Location"
+        colorSchema={colorSchema}
+        tooltip={tooltip}
+      >
+        <div className="flex">
+          <div className="mr-3">
+            <CustomField
+              name={name}
+              label="Latitude"
+              fieldName="latitude"
+              required
+              tooltip="The latitude, from south to north, in degrees (decimal notation)"
+            />
+          </div>
+          <div>
+            <CustomField
+              name={name}
+              label="Longitude"
+              fieldName="longitude"
+              required
+              tooltip="The longitude, from west to east, in degrees (decimal notation)"
+            />
+          </div>
+        </div>
+      </FormWrapper>
     </>
   );
 }
