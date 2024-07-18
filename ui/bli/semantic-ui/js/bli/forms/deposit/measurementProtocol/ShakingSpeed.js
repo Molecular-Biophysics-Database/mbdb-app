@@ -18,8 +18,8 @@ function ShakingSpeed({ colorSchema, name }) {
             name={name}
             tooltipValue="The numerical value of the shaking speed of the plate during the measurement step in the units defined in the general parameters"
             tooltipUnit="The reported error of the value of the shaking speed (e.g. standard deviation, % error)"
-            valueRequired={true}
-            unitRequired={true}
+            valueRequired
+            unitRequired
           />
         </FormWrapper>
       </div>

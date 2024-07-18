@@ -33,7 +33,7 @@ function Flow({ colorSchema, name }) {
               name={name}
               label="Path"
               fieldName="path"
-              required={true}
+              required
               tooltip="list of the flow-path, in terms of measurement positions. Measurement positions that are connected by a flow running serially through them should be mentioned within the inner list, while parallel flows should be mentioned in the outer list"
               renderChild={({ arrayName, index }) => (
                 <FormWrapper
@@ -50,7 +50,7 @@ function Flow({ colorSchema, name }) {
               name={name}
               fieldName="rate"
               label="Rate"
-              required={true}
+              required
               tooltip="Numerical value of the flow-rate"
               type="number"
             />
@@ -60,7 +60,7 @@ function Flow({ colorSchema, name }) {
               name={name}
               fieldName="unit"
               label="Unit"
-              required={true}
+              required
               tooltip="The unit of the flow-rate"
               options={unitOptions}
             />

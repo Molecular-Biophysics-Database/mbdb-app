@@ -26,7 +26,7 @@ export const PublishButton = React.memo(
         close={closeModal}
         trigger={
           <Button
-          style={{ backgroundColor: "#023850", color: "white" }}
+            style={{ backgroundColor: "#023850", color: "white" }}
             onClick={openModal}
             content={i18next.t("Publish")}
             type="button"

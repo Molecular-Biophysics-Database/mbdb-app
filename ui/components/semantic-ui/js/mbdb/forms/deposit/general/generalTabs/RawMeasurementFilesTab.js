@@ -185,7 +185,7 @@ const RawMeasurementFilesTab = forwardRef(
           <ArrayField
             name={name}
             label="Raw measurement file"
-            required={true}
+            required
             initialValue={{ key: "" }}
             tooltip="List of file(s) containing the raw measurements"
             renderChild={({ arrayName, index, item: file }) => (

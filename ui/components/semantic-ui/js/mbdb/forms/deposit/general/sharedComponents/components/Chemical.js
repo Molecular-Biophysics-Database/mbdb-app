@@ -12,7 +12,7 @@ function Chemical({ name }) {
           name={name}
           label="Name"
           fieldName="name"
-          required={true}
+          required
           tooltip="Name of the chemical"
           width="w-full"
         />

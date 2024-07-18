@@ -35,7 +35,7 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
           fieldName="key"
           index={index}
           save={save}
-          required={true}
+          required
           file={file}
           onDeleteFile={onDeleteFile}
         />
@@ -48,7 +48,7 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
           fieldName="metadata.originates_from"
           width="w-[25rem]"
           tooltip="What is the source of the file"
-          required={true}
+          required
         />
       </div>
       <div className="mb-3">
@@ -59,7 +59,7 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
           tooltip="The context the file should be understood within (e.g. raw measurement data)"
           options={contextOptions}
           width="w-[25rem]"
-          required={true}
+          required
         />
       </div>
       <div className="mb-3">
@@ -70,7 +70,7 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
           options={contentTypeOptions}
           tooltip="Type of the file content in terms of how it can be read (text, binary, etc.)"
           width="w-[25rem]"
-          required={true}
+          required
         />
       </div>
       <div className="mb-3">
