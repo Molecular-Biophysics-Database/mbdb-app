@@ -21,7 +21,7 @@ function InjectionMode({ name, colorSchema }) {
 
   return (
     <>
-      <FormWrapper headline="Experiment type" colorSchema={colorSchema}>
+      <FormWrapper headline="Injection mode" colorSchema={colorSchema}>
         <div className="flex">
           <div className="mr-3">
             <OptionField

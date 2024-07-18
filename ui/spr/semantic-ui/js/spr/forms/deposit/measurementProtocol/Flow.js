@@ -25,7 +25,7 @@ function Flow({ colorSchema, name }) {
       <FormWrapper
         colorSchema={colorSchema}
         headline="Flow"
-        tooltip="Information about the flow during the measurement step"
+        tooltip="Information about the liquid flow during the measurement step"
       >
         <div className="flex">
           <div className="-mt-3 mr-3">

@@ -348,8 +348,8 @@ class SprRecord(InvenioRecord):
             keys=["id", "name"],
             related_part="metadata.general_parameters.results",
         ),
-        ligand=InternalRelation(
-            "metadata.method_specific_parameters.measurement_positions.ligand_information.ligand",
+        ligand_entity=InternalRelation(
+            "metadata.method_specific_parameters.measurement_positions.ligand.entity",
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
         ),
@@ -728,8 +728,8 @@ class SprDraft(InvenioDraft):
             keys=["id", "name"],
             related_part="metadata.general_parameters.results",
         ),
-        ligand=InternalRelation(
-            "metadata.method_specific_parameters.measurement_positions.ligand_information.ligand",
+        ligand_entity=InternalRelation(
+            "metadata.method_specific_parameters.measurement_positions.ligand.entity",
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
         ),

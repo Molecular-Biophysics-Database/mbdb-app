@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.2"
-content_hash = "sha256:e121c34e112cfa3dcb261e544506411c06f12772ebd4701ea3ca02ef2988244a"
+content_hash = "sha256:88295d2edd3a2de1a5401647d2da02c5127cfcdd7ea1b62cb80212086fc96f0e"
 
 [[package]]
 name = "alembic"

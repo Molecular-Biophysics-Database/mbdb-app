@@ -33,8 +33,6 @@ class BliFileSchema(InvenioFileSchema):
 
     description = ma_fields.String()
 
-    name = ma_fields.String(required=True)
-
     originates_from = ma_fields.String(
         required=True, validate=[OneOf(["Instrument software", "User", "MBDB"])]
     )
@@ -46,8 +44,6 @@ class BliFileSchema(InvenioFileSchema):
     )
 
     recommended_software = ma_fields.String()
-
-    size = ma_fields.Integer(required=True, validate=[ma.validate.Range(min=0)])
 
     updated = ma_fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
 

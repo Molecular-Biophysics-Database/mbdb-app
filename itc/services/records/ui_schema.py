@@ -55,15 +55,13 @@ class GeneralParametersUISchema(DictOnlySchema):
 
     instrument = ma_fields.Nested(lambda: InstrumentUISchema(), required=True)
 
-    raw_measurement_files = ma_fields.List(ma_fields.String())
-
     record_information = ma_fields.Nested(
         lambda: RecordInformationUISchema(), required=True
     )
 
     results = ma_fields.List(ma_fields.Nested(lambda: ResultsItemUISchema()))
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.22"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.23"])])
 
     technique = ma_fields.String(
         required=True,
@@ -962,9 +960,9 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
 
     data_analysis = ma_fields.List(ma_fields.Nested(lambda: DataAnalysisItemUISchema()))
 
-    experiment_type = ma_fields.Nested(lambda: ExperimentTypeUISchema())
-
     feedback_mode = ma_fields.String(validate=[OneOf(["None", "Low", "High"])])
+
+    injection_mode = ma_fields.Nested(lambda: InjectionModeUISchema())
 
     measurements = ma_fields.List(
         ma_fields.Nested(lambda: MeasurementsItemUISchema()), required=True
@@ -972,7 +970,7 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
 
     reference_power = ma_fields.Nested(lambda: ReferencePowerUISchema(), required=True)
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.0.3"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.1.0"])])
 
     stirring_speed = ma_fields.Nested(lambda: StirringSpeedUISchema(), required=True)
 
@@ -2153,7 +2151,20 @@ class EntitiesOfInterestItemComplex_substance_of_industrial_originUISchema(
     )
 
 
-class ExperimentTypeUISchema(DictOnlySchema):
+class IdentityUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    by_fingerprinting = ma_fields.Nested(lambda: ByFingerprintingUISchema())
+
+    by_intact_mass = ma_fields.Nested(lambda: ByIntactMassUISchema())
+
+    by_sequencing = ma_fields.Nested(lambda: BySequencingUISchema())
+
+    checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
+
+
+class InjectionModeUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -2168,19 +2179,6 @@ class ExperimentTypeUISchema(DictOnlySchema):
     )
 
     volume = ma_fields.Nested(lambda: CellVolumeUISchema(), required=True)
-
-
-class IdentityUISchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    by_fingerprinting = ma_fields.Nested(lambda: ByFingerprintingUISchema())
-
-    by_intact_mass = ma_fields.Nested(lambda: ByIntactMassUISchema())
-
-    by_sequencing = ma_fields.Nested(lambda: BySequencingUISchema())
-
-    checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
 
 class ModificationsUISchema(DictOnlySchema):
@@ -2621,8 +2619,8 @@ class DataAnalysisItemUISchema(DictOnlySchema):
 
     data_fitting = ma_fields.Nested(lambda: DataFittingUISchema())
 
-    data_processing_steps = ma_fields.List(
-        ma_fields.Nested(lambda: DataProcessingStepsItemUISchema())
+    data_processing = ma_fields.List(
+        ma_fields.Nested(lambda: DataProcessingItemUISchema())
     )
 
     measurements = ma_fields.List(ma_fields.Nested(lambda: EntityUISchema()))
@@ -2875,7 +2873,7 @@ class DataFittingUISchema(DictOnlySchema):
     software_version = ma_fields.String()
 
 
-class DataProcessingStepsItemUISchema(DictOnlySchema):
+class DataProcessingItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 

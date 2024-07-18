@@ -29,6 +29,8 @@ class SprFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
     ]
 
     model = "spr"
+    allowed_mimetypes = []
+    allowed_extensions = []
     allow_upload = False
 
     @property
@@ -42,7 +44,7 @@ class SprFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
         return {
             "commit": FileLink("{+api}/records/spr/{id}/files/{key}/commit"),
             "content": FileLink("{+api}/records/spr/{id}/files/{key}/content"),
-            "preview": FileLink("{+ui}/spr/files/{key}/preview"),
+            "preview": FileLink("{+ui}/spr/{id}/files/{key}/preview"),
             "self": FileLink("{+api}/records/spr/{id}/files/{key}"),
         }
 
@@ -79,5 +81,6 @@ class SprFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
         return {
             "commit": FileLink("{+api}/records/spr/{id}/draft/files/{key}/commit"),
             "content": FileLink("{+api}/records/spr/{id}/draft/files/{key}/content"),
+            "preview": FileLink("{+ui}/spr/{id}/files/{key}/preview"),
             "self": FileLink("{+api}/records/spr/{id}/draft/files/{key}"),
         }

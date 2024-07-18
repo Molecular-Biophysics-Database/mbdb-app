@@ -41,7 +41,7 @@ function LigandInformation({ name, colorSchema }) {
               name={name}
               fieldName="immobilization_chemistry"
               label="Immobilization chemistry"
-              tooltip="The type of chemistry on ligands and surface that allows for immobilization of the ligands on the surface of the senor"
+              tooltip="The type of chemistry on ligands and surface that allows for immobilization of the ligands on the surface of the sensor"
               width="w-[16.5rem]"
             />
           </div>

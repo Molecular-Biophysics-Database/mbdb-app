@@ -2239,10 +2239,6 @@
                                     }
                                 }
                             },
-                            "raw_measurement_files": {
-                                "type": "keyword",
-                                "ignore_above": 1024
-                            },
                             "record_information": {
                                 "type": "object",
                                 "properties": {
@@ -2419,7 +2415,7 @@
                                             }
                                         }
                                     },
-                                    "data_processing_steps": {
+                                    "data_processing": {
                                         "type": "object",
                                         "properties": {
                                             "description": {
@@ -2485,7 +2481,11 @@
                                     }
                                 }
                             },
-                            "experiment_type": {
+                            "feedback_mode": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "injection_mode": {
                                 "type": "object",
                                 "properties": {
                                     "type": {
@@ -2529,10 +2529,6 @@
                                         "type": "double"
                                     }
                                 }
-                            },
-                            "feedback_mode": {
-                                "type": "keyword",
-                                "ignore_above": 1024
                             },
                             "measurements": {
                                 "type": "object",
@@ -2716,6 +2712,26 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "pid": {
+                "type": "object",
+                "properties": {
+                    "obj_type": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
+                    "pid_type": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
+                    "pk": {
+                        "type": "integer"
+                    },
+                    "status": {
+                        "type": "keyword",
+                        "ignore_above": 1024
                     }
                 }
             },
