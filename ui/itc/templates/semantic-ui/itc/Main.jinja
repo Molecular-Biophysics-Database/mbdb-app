@@ -4,20 +4,11 @@
 {% set gp=md.general_parameters %}
 {% set msp=md.method_specific_parameters %}
 
+
+
 <RecordHeader md={md} links={d.links} />
+<RecordInformation d={d} gp={gp} />
 
-{#
-note: if you do not specify label for IField, it is taken directly from the model
-(and translated to the current language) and thus is consistent with facets
-#}
-
-<IValueList>
-    <IField d={d.id} label="Record ID" field_class="mbdbv-record-technique" />
-    <IField d={gp.technique} field_class="mbdbv-record-technique" />
-    <IField d={gp.depositors} field_class="mbdbv-record-technique">
-        <Depositors depositors={gp.depositors} />
-    </IField>
-</IValueList>
 
 {# <IField label="Main Publication:" #} {# d={gp.associated_publication}#} {# field_class="mbdbv-record-technique">#}
     {#
