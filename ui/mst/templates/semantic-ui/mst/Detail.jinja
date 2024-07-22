@@ -1,6 +1,13 @@
 {# def record, metadata, ui, extra_context, d, context #}
 {% extends "base/detail.html" %}
 
+{% set gp=d.metadata.general_parameters %}
+
+{%- block head_meta %}
+    {{ super() }}
+    <MetaTags gp={gp} />
+{% endblock head_meta %}
+
 {%- block head_links %}
 {{ super() }}
 {%- endblock %}
