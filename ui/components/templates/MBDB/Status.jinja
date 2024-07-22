@@ -1,0 +1,7 @@
+{# def self_link #}
+
+{% if self_link._ui_value.endswith("draft") %}
+    Draft
+{% else %}
+    Published
+{% endif %}
