@@ -12,6 +12,11 @@ import ArrayField from "../../buildingBlocks/ArrayField";
 import { getIn, useFormikContext } from "formik";
 import OptionField from "../../buildingBlocks/OptionField";
 
+const FormikStateLogger = () => {
+  const { values } = useFormikContext();
+  return <pre>{JSON.stringify(values, null, 2)}</pre>;
+};
+
 function EntitiesOfInterestTab({ name }) {
   const { values } = useFormikContext();
 
@@ -121,6 +126,7 @@ function EntitiesOfInterestTab({ name }) {
                     </div>
                   )}
                 </div>
+                <FormikStateLogger />
               </FormWrapper>
             );
           }}

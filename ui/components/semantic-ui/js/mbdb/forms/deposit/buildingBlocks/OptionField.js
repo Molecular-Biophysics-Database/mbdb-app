@@ -17,13 +17,12 @@ function OptionField({
   required,
   disabled,
 }) {
-  const nameOptionField =
-    fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
+  const nameOptionField = name;
   const [field, meta, helpers] = useField(nameOptionField);
-
   const currentValue =
-    typeof field.value === "object" ? field.value.name : field.value || "";
-
+    typeof field.value === "object"
+      ? field.value[fieldName]
+      : field.value || "";
   return (
     <div className="flex">
       <div className={`${width} rounded-lg relative border min-w-[178px]`}>
@@ -36,11 +35,11 @@ function OptionField({
               const selectedOption = options.find(
                 (option) => option.value === event.target.value
               );
-              helpers.setValue(
-                selectedOption.id !== undefined
-                  ? { name: selectedOption.value, id: selectedOption.id }
-                  : selectedOption.value
-              );
+              console.log(selectedOption);
+              helpers.setValue({
+                [fieldName]: selectedOption.value,
+                id: selectedOption.id,
+              });
             }}
             label={label}
             size="small"
