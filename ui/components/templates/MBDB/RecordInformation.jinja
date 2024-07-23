@@ -1,0 +1,13 @@
+{# def d, gp #}
+
+{% set field_class="mbdbv-record-technique" %}
+
+<IValueList>
+    <IField d={gp.record_information.external_identifier} label="DOI" field_class={field_class} />
+    <IField d={d.id} label="Record ID" field_class={field_class} />
+    <IField d={gp.record_information.date_available} label="Publication date" field_class={field_class} />
+    <IField d={gp.depositors} field_class={field_class}>
+        <Depositors depositors={gp.depositors} />
+    </IField>
+    <IField d={gp.technique} field_class={field_class} />
+</IValueList>

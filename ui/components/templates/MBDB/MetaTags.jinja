@@ -1,0 +1,5 @@
+{# def gp #}
+
+{% if gp.record_information.external_identifier %}
+    <meta name="doi_citation" content={{ gp.record_information.external_identifier }} />
+{% endif %}
