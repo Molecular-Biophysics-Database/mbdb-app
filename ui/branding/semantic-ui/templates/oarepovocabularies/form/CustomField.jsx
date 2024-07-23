@@ -3,8 +3,9 @@ import { useField } from "formik";
 import Tooltip from "@material-ui/core/Tooltip";
 import { Typography } from "@material-ui/core";
 import { useFormikContext } from "formik";
+import { useEffect, useState } from "react";
 
-function TitleField({
+function CustomField({
   label,
   name,
   fieldName,
@@ -14,13 +15,30 @@ function TitleField({
   multiline,
   required,
   disabled,
+  prefix
 }) {
-    const { values } = useFormikContext();
+    const { values, setFieldValue } = useFormikContext();
   const nameCustomField =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const [field, meta] = useField(nameCustomField);
+  const [prefixApplied, setPrefixApplied] = useState(false);
 
   console.log(values, 'Valueesssssss');
+
+  useEffect(() => {
+
+    if(nameCustomField === "id" && prefix && !prefixApplied) {
+      setFieldValue(nameCustomField, `${prefix}:`);
+      setPrefixApplied(true);
+    } if (prefix && !field.value.startsWith(`${prefix}:`)) {
+      setFieldValue(nameCustomField, ``);
+      setFieldValue(nameCustomField, `${prefix}:`);
+    } else {
+      setFieldValue(nameCustomField, field.value);
+    }
+
+
+  }, [field.value, setFieldValue, nameCustomField, prefix, prefixApplied]);
 
   return (
     <>
@@ -34,6 +52,7 @@ function TitleField({
             label={label}
             type={type}
             value={field.value !== undefined ? field.value : ""}
+            //onChange={handleChange}
             disabled={disabled}
             variant="outlined"
             {...(multiline && { multiline: true })}
@@ -74,4 +93,4 @@ function TitleField({
   );
 }
 
-export default TitleField;
+export default CustomField;
