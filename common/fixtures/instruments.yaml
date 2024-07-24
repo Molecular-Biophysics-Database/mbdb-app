@@ -348,61 +348,33 @@ props:
 ---
 id: 'ins:50'
 title:
-  en: 'MicroCal ITC2000'
+  en: 'MicroCal PEAQ-ITC'
 props:
   manufacturer: 'Malvern Panalytical'
   technique: "ITC"
 ---
 id: 'ins:51'
 title:
-  en: 'MicroCal ITC201'
+  en: 'MicroCal Auto-ITC200'
 props:
   manufacturer: 'Malvern Panalytical'
   technique: "ITC"
 ---
 id: 'ins:52'
 title:
-  en: 'MicroCal PEAQ-ITC'
+  en: 'MicroCal PEAQ-ITC Automated'
 props:
   manufacturer: 'Malvern Panalytical'
   technique: "ITC"
 ---
 id: 'ins:53'
 title:
-  en: 'MicroCal Auto-ITC200'
-props:
-  manufacturer: 'Malvern Panalytical'
-  technique: "ITC"
----
-id: 'ins:54'
-title:
-  en: 'MicroCal Auto-ITC2000'
-props:
-  manufacturer: 'Malvern Panalytical'
-  technique: "ITC"
----
-id: 'ins:55'
-title:
-  en: 'MicroCal Auto-ITC201'
-props:
-  manufacturer: 'Malvern Panalytical'
-  technique: "ITC"
----
-id: 'ins:56'
-title:
-  en: 'MicroCal PEAQ-ITC Automated'
-props:
-  manufacturer: 'Malvern Panalytical'
-  technique: "ITC"
----
-id: 'ins:57'
-title:
   en: 'Nano ITC'
 props:
   manufacturer: 'TA Instruments'
   technique: "ITC"
 ---
-id: 'ins:58'
+id: 'ins:54'
 title:
   en: 'Affinity ITC'
 props:
