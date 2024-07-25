@@ -199,6 +199,18 @@
           role="menu"
           aria-labelledby="user-profile-dropdown-btn"
         >
+          <a
+            role="menuitem"
+            class="item mt-2"
+            href="/me/records/"
+            tabindex="-1"
+          >
+            <i class="home icon"></i>
+            My MBDB
+          </a>
+
+          <div class="ui divider"></div>
+
           {%- for item in current_menu.submenu('settings').children if
           item.visible %}
           <a role="menuitem" class="item" href="{{ item.url }}" tabindex="-1">
@@ -353,6 +365,18 @@
           role="menu"
           aria-labelledby="user-profile-dropdown-btn"
         >
+          <a
+            role="menuitem"
+            class="item mt-2"
+            href="/me/records/"
+            tabindex="-1"
+          >
+            <i class="home icon"></i>
+            My MBDB
+          </a>
+
+          <div class="ui divider"></div>
+
           {%- for item in current_menu.submenu('settings').children if
           item.visible %}
           <a role="menuitem" class="item" href="{{ item.url }}" tabindex="-1">
