@@ -894,6 +894,46 @@ video {
   margin-top: 0.5rem;
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mr-20 {
+  margin-right: 5rem;
+}
+
+.mr-12 {
+  margin-right: 3rem;
+}
+
+.ml-8 {
+  margin-left: 2rem;
+}
+
+.ml-10 {
+  margin-left: 2.5rem;
+}
+
+.ml-\[2\.5rem\] {
+  margin-left: 2.5rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-0\.5 {
+  margin-top: 0.125rem;
+}
+
+.-mb-4 {
+  margin-bottom: -1rem;
+}
+
+.-mb-8 {
+  margin-bottom: -2rem;
+}
+
 .block {
   display: block;
 }
@@ -1166,6 +1206,10 @@ video {
 
 .rounded-normal {
   border-radius: 0.28571429rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
 }
 
 .rounded-bl-normal {

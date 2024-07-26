@@ -1,9 +1,8 @@
 import React from "react";
 import ArrayField from "../../../buildingBlocks/ArrayField";
 import CustomField from "../../../buildingBlocks/CustomField";
-import { VocabularySelectField } from "@js/oarepo_vocabularies";
-import { FieldLabel } from "react-invenio-forms";
 import Concentration from "../../../sharedComponents/Concentration";
+import BasicInformationField from "../../../buildingBlocks/BasicInformationField";
 
 function Chemical({ name }) {
   return (
@@ -24,33 +23,24 @@ function Chemical({ name }) {
           tooltip="Concentration of the constituent including its relative concentration related to the collected sample or absolute concentration of the constituent"
         />
       </div>
-      <div className="flex">
-        <div className="mr-3">
-          <VocabularySelectField
-            search={(options) => options}
-            type="chemicals"
-            externalAuthority={true}
-            label={<FieldLabel htmlFor={`${name}.basic_information`} icon="" />}
-            fieldPath={`${name}.basic_information`}
-            placeholder="Basic information"
-          />
-        </div>
-        <div className="-mt-3">
-          <ArrayField
-            name={name}
-            label="Additional specification"
-            fieldName="additional_specifications"
-            tooltip="Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)"
-            renderChild={({ arrayName, index }) => (
-              <CustomField
-                name={`${arrayName}.${index}`}
-                label={`Additional specification ${index + 1}`}
-                width="w-[15rem]"
-                tooltip="Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)"
-              />
-            )}
-          />
-        </div>
+
+      <BasicInformationField name={name} />
+
+      <div>
+        <ArrayField
+          name={name}
+          label="Additional specification"
+          fieldName="additional_specifications"
+          tooltip="Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)"
+          renderChild={({ arrayName, index }) => (
+            <CustomField
+              name={`${arrayName}.${index}`}
+              label={`Additional specification ${index + 1}`}
+              width="w-[15rem]"
+              tooltip="Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)"
+            />
+          )}
+        />
       </div>
     </>
   );

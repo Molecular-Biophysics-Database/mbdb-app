@@ -9,6 +9,7 @@ import OptionalField from "../../buildingBlocks/OptionalField";
 import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
 import CreateUuid from "../../buildingBlocks/CreateUuid";
+import SequenceField from "../../buildingBlocks/SequenceField";
 
 function Polymer({ name }) {
   CreateUuid(name);
@@ -73,10 +74,10 @@ function Polymer({ name }) {
           fieldName="sequence"
           tooltip="Primary sequence of the polymer, using single letter codes (e.g. SAGRELLE, AGTTA). In case of non-natural amino acids or nucleotides, please place the monomer in brackets"
           renderChild={({ optionalFieldName }) => (
-            <CustomField
+            <SequenceField
               name={optionalFieldName}
+              colorSchema="light"
               label="Sequence"
-              multiline={true}
               width="w-[51.5rem]"
               tooltip="Primary sequence of the polymer, using single letter codes (e.g. SAGRELLE, AGTTA). In case of non-natural amino acids or nucleotides, please place the monomer in brackets"
             />
