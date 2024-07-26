@@ -42,11 +42,11 @@ const CustomWidget = ({ fieldPath, nested, label }) => {
       setImportedComponents(await Promise.all(nested.map(importComponent)));
     }
     loadImportedComponents();
-  }, []);
+  }, [fieldPath, nested]);
 
   return (
     <>
-      <div className="-mt-2 -mb-6">
+      <div className="-mb-6">
         <Header as="h3">{label}</Header>
         <div className="w-full">
           <div className="flex">
