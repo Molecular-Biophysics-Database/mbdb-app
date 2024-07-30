@@ -4,8 +4,8 @@ import UseDefault from "../../../buildingBlocks/UseDefault";
 import Polymer from "./Polymer";
 import { getIn, useFormikContext } from "formik";
 import ArrayField from "../../../buildingBlocks/ArrayField";
-import OptionField from "../../../buildingBlocks/OptionField";
 import Chemical from "./Chemical";
+import DynamicOptionField from "../../../buildingBlocks/DynamicOptionField";
 
 function Components({ name, colorSchema, tooltip }) {
   const { values } = useFormikContext();
@@ -42,15 +42,14 @@ function Components({ name, colorSchema, tooltip }) {
                   colorSchema={colorSchema}
                 >
                   <div className="mb-3">
-                    <OptionField
+                    <DynamicOptionField
                       name={`${arrayName}.${index}`}
                       options={componentOptions}
                       label="type"
                       fieldName="type"
                       required
                       width="w-full"
-                      tooltip="The type of component, options are
-                                        (biological) Polymer and Chemical"
+                      tooltip="The type of component, options are (biological) Polymer and Chemical"
                     />
                   </div>
                   <div>
@@ -64,7 +63,10 @@ function Components({ name, colorSchema, tooltip }) {
                     )}
                     {actualValue.type === "Chemical" && (
                       <div>
-                        <Chemical name={`${arrayName}.${index}`} />
+                        <Chemical
+                          name={`${arrayName}.${index}`}
+                          colorSchema={colorSchema === "light" ? "" : "light"}
+                        />
                       </div>
                     )}
                   </div>

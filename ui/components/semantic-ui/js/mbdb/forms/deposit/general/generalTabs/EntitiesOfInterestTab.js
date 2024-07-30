@@ -10,7 +10,7 @@ import ComplexSubstanceOfEnvironmentalOrigin from "../entitiesOfInterest/Complex
 import ComplexSubstanceOfChemicalOrigin from "../entitiesOfInterest/ComplexSubstanceOfChemicalOrigin";
 import ArrayField from "../../buildingBlocks/ArrayField";
 import { getIn, useFormikContext } from "formik";
-import OptionField from "../../buildingBlocks/OptionField";
+import DynamicOptionField from "../../buildingBlocks/DynamicOptionField";
 
 function EntitiesOfInterestTab({ name }) {
   const { values } = useFormikContext();
@@ -62,7 +62,7 @@ function EntitiesOfInterestTab({ name }) {
                 tooltip="List of the entities that are being directly measured, as well as the entities that are being used as a variable to influence the behavior of the directly measured entities (e.g. lysozyme, NAG3,NaCl). IMPORTANT! If the pH was varied by individually prepared chemical environments these should be specified individually in chemical environments"
               >
                 <div className="mb-3">
-                  <OptionField
+                  <DynamicOptionField
                     name={`${arrayName}.${index}`}
                     options={entitiesOfInterestTabOptions}
                     label="type"

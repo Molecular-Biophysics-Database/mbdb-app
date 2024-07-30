@@ -3,7 +3,7 @@ import ArrayField from "../../../buildingBlocks/ArrayField";
 import CustomField from "../../../buildingBlocks/CustomField";
 import BasicInformationField from "../../../buildingBlocks/BasicInformationField";
 
-function Chemical({ name }) {
+function Chemical({ name, colorSchema }) {
   return (
     <>
       <div className="mb-3">
@@ -17,7 +17,7 @@ function Chemical({ name }) {
         />
       </div>
 
-      <BasicInformationField name={name} />
+      <BasicInformationField name={name} colorSchema={colorSchema} />
 
       <ArrayField
         name={name}
