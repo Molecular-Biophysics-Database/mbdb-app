@@ -108,7 +108,7 @@ const RawMeasurementFilesTab = forwardRef(
   ({ name, save, recordMetadata }, ref) => {
     const { values, setFieldValue } = useFormikContext();
     const files = getIn(values, name);
-    console.log(ref);
+    //console.log(ref);
     const submitFiles = async () => {
       const filesList = files;
       const filesStatus = [];
@@ -149,7 +149,7 @@ const RawMeasurementFilesTab = forwardRef(
 
       setFieldValue("files", filesStatus);
     };
-    console.log(ref);
+    //console.log(ref);
     useImperativeHandle(ref, () => ({
       submitFiles,
     }));

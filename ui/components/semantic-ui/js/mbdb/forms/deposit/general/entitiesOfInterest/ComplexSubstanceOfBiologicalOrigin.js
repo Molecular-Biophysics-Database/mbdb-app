@@ -4,8 +4,8 @@ import UseDefault from "../../buildingBlocks/UseDefault";
 import BodyFluid from "./BodyFluid";
 import CellFraction from "./CellFraction";
 import Virion from "./Virion";
-import OptionField from "../../buildingBlocks/OptionField";
 import CreateUuid from "../../buildingBlocks/CreateUuid";
+import DynamicOptionField from "../../buildingBlocks/DynamicOptionField";
 
 function ComplexSubstanceOfBiologicalOrigin({ name }) {
   CreateUuid(name);
@@ -27,7 +27,7 @@ function ComplexSubstanceOfBiologicalOrigin({ name }) {
   return (
     <>
       <div className="mb-3">
-        <OptionField
+        <DynamicOptionField
           name={name}
           options={complexSubstanceOfBiologicalOriginOptions}
           label="Derived from"

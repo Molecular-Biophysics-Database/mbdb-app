@@ -11,7 +11,7 @@ function BasicInformationField({ name, colorSchema }) {
           <div className="mr-2 mt-0.5">Check you chemistry</div>
           <div>
             <a
-              class="flex justify-center py-1 mr-2 px-4 bg-dark rounded-full text-white hover:bg-secondary hover:text-dark transition-all"
+              className="flex justify-center py-1 mr-2 px-4 bg-dark rounded-full text-white hover:bg-secondary hover:text-dark transition-all"
               href="https://pubchem.ncbi.nlm.nih.gov/"
               target="_blank"
               rel="noreferrer"
@@ -21,7 +21,7 @@ function BasicInformationField({ name, colorSchema }) {
           </div>
           <div>
             <a
-              class="flex justify-center py-1 px-4 bg-dark rounded-full text-white hover:bg-secondary hover:text-dark transition-all"
+              className="flex justify-center py-1 px-4 bg-dark rounded-full text-white hover:bg-secondary hover:text-dark transition-all"
               href="https://www.ebi.ac.uk/chembl/"
               target="_blank"
               rel="noreferrer"

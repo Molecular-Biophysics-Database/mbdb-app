@@ -79,23 +79,13 @@ function Virion({ name }) {
           />
         </div>
         <div>
-          <ArrayField
-            name={name}
-            label="Source organism"
-            fieldName="source_organism"
-            maxItems={1}
-            required
-            tooltip="The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy"
-            renderChild={({ arrayName, index }) => (
-              <VocabularySelectField
-                search={(options) => options}
-                type="organisms"
-                externalAuthority={true}
-                label={<FieldLabel htmlFor={`${arrayName}.${index}`} icon="" />}
-                fieldPath={`${arrayName}.${index}`}
-                placeholder="Source organism"
-              />
-            )}
+          <VocabularySelectField
+            search={(options) => options}
+            type="organisms"
+            externalAuthority={true}
+            label={<FieldLabel htmlFor={`${name}.source_organism`} icon="" />}
+            fieldPath={`${name}.source_organism`}
+            placeholder="Source organism"
           />
         </div>
       </div>
