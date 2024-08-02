@@ -15,6 +15,11 @@ import DynamicOptionField from "../../buildingBlocks/DynamicOptionField";
 function EntitiesOfInterestTab({ name }) {
   const { values } = useFormikContext();
 
+  const FormikStateLogger = () => {
+    const { values } = useFormikContext();
+    return <pre>{JSON.stringify(values, null, 2)}</pre>;
+  };
+
   const componentName = `${name}.entities_of_interest[0].type`;
 
   UseDefault(componentName, "Polymer");
@@ -121,6 +126,7 @@ function EntitiesOfInterestTab({ name }) {
                     </div>
                   )}
                 </div>
+                <FormikStateLogger />
               </FormWrapper>
             );
           }}
