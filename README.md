@@ -3,7 +3,6 @@
 Security note! Running an instance of the MBDB as described below is suitable for local development.
 **IT SHOULD NOT BE USED IN PRODUCTION**. Use a WSGI server for that.
 
-
 ## Repository layout
 
 The repository contains the following files and directories:
@@ -64,8 +63,9 @@ in an editable mode to the repository's virtual environment. You can
 repeat this parameter multiple times to install multiple libraries.
 
 Removal of extra libraries can be done by:
-* calling `nrp build` or `nrp upgrade` commands
-* removing the `.venv` directory and calling `nrp develop` again
+
+- calling `nrp build` or `nrp upgrade` commands
+- removing the `.venv` directory and calling `nrp develop` again
 
 After the first run of `nrp develop`, you can speed up the subsequent
 runs by adding `--skip-checks` commandline option.
@@ -80,7 +80,6 @@ This will build the repository for production. It will check that
 the python dependencies are up to date (to skip the check, run
 `nrp build --skip-checks`). It will also clear the virtual environment
 and reinstall all the dependencies before building the repository.
-
 
 ### Running the repository in production mode
 
@@ -178,6 +177,12 @@ model is working correctly under the `/api` endpoint.
 
 ## Handling UI
 
+### build Tailwind CSS
+
+```bash
+./compileTailwind.sh --watch
+```
+
 ### Creating UI pages for models
 
 To create UI pages for a model, type:
@@ -212,7 +217,6 @@ the page to the flask application.
 
 If you run the command with `--react` option, it will also create
 react endpoint for the page and reference it from the jinjax template.
-
 
 ### Useful commands
 
@@ -256,16 +260,16 @@ backup the contents of alembic directory and restore it after model compile.
 1. remove the containers as they might be incompatible
 2. remove .nrp, .venv
 3. remove requirements.txt to get rid of cached requirements
-5. if you added your custom configuration to invenio.cfg, comment it out temporarily.
-6. run `./nrp build` - should not fail as it will skip the not-found directories
-7. call `./nrp develop`, wait for the server to start up (you might want to check that homepage can be opened)
+4. if you added your custom configuration to invenio.cfg, comment it out temporarily.
+5. run `./nrp build` - should not fail as it will skip the not-found directories
+6. call `./nrp develop`, wait for the server to start up (you might want to check that homepage can be opened)
    and shut it down. This will create the database and initialize all the containers
-8. clone mbdb model inside the same directory where the app is
-9. copy `../mbdb-model/models/oarepo/*.yaml` to the models folder
-10. call `./nrp model compile mst`. If you've saved alembic, put it back now into the generated sources
-12. call `invenio oarepo fixtures load` to load the fixtures contained in `common/fixtures`
-13. call `invenio oarepo fixtures load sample_data/mst` to import sample data for mst
-14. call `./nrp develop` and have a look at `https://127.0.0.1:5000/api/records/mst`
+7. clone mbdb model inside the same directory where the app is
+8. copy `../mbdb-model/models/oarepo/*.yaml` to the models folder
+9. call `./nrp model compile mst`. If you've saved alembic, put it back now into the generated sources
+10. call `invenio oarepo fixtures load` to load the fixtures contained in `common/fixtures`
+11. call `invenio oarepo fixtures load sample_data/mst` to import sample data for mst
+12. call `./nrp develop` and have a look at `https://127.0.0.1:5000/api/records/mst`
 
 ## Setting up ORCID authentication
 
@@ -279,8 +283,8 @@ backup the contents of alembic directory and restore it after model compile.
    ```
     export INVENIO_ORCID_APP_KEY='changeme'
     export INVENIO_ORCID_APP_SECRET='changeme'
-    ```
-    Change the 'changeme' to the ORCID public APIs Client ID and Client secret, respectively
+   ```
+   Change the 'changeme' to the ORCID public APIs Client ID and Client secret, respectively
 
 # REST API
 
