@@ -5,7 +5,7 @@ from oarepo_requests.resolvers.ui import (
 from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
 
-from bli.files.api import BliFileDraft
+from bli.files.api import BliFile, BliFileDraft
 from bli.files.requests.resolvers import BliFileDraftResolver
 from bli.records.api import BliDraft, BliRecord
 from bli.records.requests.resolvers import BliDraftResolver, BliResolver
@@ -30,13 +30,21 @@ BLI_RECORD_SERVICE_CONFIG = BliServiceConfig
 BLI_RECORD_SERVICE_CLASS = BliService
 
 
+OAREPO_PRIMARY_RECORD_SERVICE = {
+    BliRecord: "bli",
+    BliDraft: "bli",
+    BliFile: "bli_file",
+    BliFileDraft: "bli_file_draft",
+}
+
+
 BLI_REQUESTS_RESOURCE_CLASS = DraftRecordRequestsResource
 
 
 BLI_REQUESTS_SERVICE_CLASS = DraftRecordRequestsService
 
 
-REQUESTS_ENTITY_RESOLVERS = [
+BLI_ENTITY_RESOLVERS = [
     BliResolver(record_cls=BliRecord, service_id="bli", type_key="bli"),
     BliDraftResolver(record_cls=BliDraft, service_id="bli", type_key="bli_draft"),
     BliFileDraftResolver(

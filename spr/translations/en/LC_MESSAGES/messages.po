@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-07-17T16:18:31.383359\n"
-"PO-Revision-Date: 2024-07-17T16:18:31.383365\n"
+"POT-Creation-Date: 2024-08-05T15:16:15.732373\n"
+"PO-Revision-Date: 2024-08-05T15:16:15.732382\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -785,7 +785,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity.help"
-msgstr "Information about if, and how homogeneity was assessed"
+msgstr "Information about if, and how homogeneity was checked"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity.label"
@@ -873,7 +873,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity.help"
-msgstr "Information about if, and how identity was assessed"
+msgstr "Information about if, and how identity was checked"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity.label"
@@ -1085,7 +1085,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity.help"
-msgstr "Information about if, and how purity was assessed"
+msgstr "Information about if, and how purity was checked"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity.label"
@@ -2000,7 +2000,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity.help"
-msgstr "Information about if, and how homogeneity was assessed"
+msgstr "Information about if, and how homogeneity was checked"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity.label"
@@ -2088,7 +2088,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity.help"
-msgstr "Information about if, and how identity was assessed"
+msgstr "Information about if, and how identity was checked"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity.label"
@@ -2300,7 +2300,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity.help"
-msgstr "Information about if, and how purity was assessed"
+msgstr "Information about if, and how purity was checked"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity.label"
@@ -4636,7 +4636,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity.help"
-msgstr "Information about if, and how homogeneity was assessed"
+msgstr "Information about if, and how homogeneity was checked"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity.label"
@@ -4724,7 +4724,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/quality_controls/identity.help"
-msgstr "Information about if, and how identity was assessed"
+msgstr "Information about if, and how identity was checked"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/quality_controls/identity.label"
@@ -4936,7 +4936,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/quality_controls/purity.help"
-msgstr "Information about if, and how purity was assessed"
+msgstr "Information about if, and how purity was checked"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/quality_controls/purity.label"
@@ -5836,7 +5836,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity.help"
-msgstr "Information about if, and how homogeneity was assessed"
+msgstr "Information about if, and how homogeneity was checked"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity.label"
@@ -5924,7 +5924,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/quality_controls/identity.help"
-msgstr "Information about if, and how identity was assessed"
+msgstr "Information about if, and how identity was checked"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/quality_controls/identity.label"
@@ -6136,7 +6136,7 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/quality_controls/purity.help"
-msgstr "Information about if, and how purity was assessed"
+msgstr "Information about if, and how purity was checked"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/quality_controls/purity.label"
@@ -7803,7 +7803,7 @@ msgstr "Schema version"
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.9.23"
+msgid "metadata/general_parameters/schema_version.enum.0.9.24"
 msgstr ""
 
 msgid "metadata/general_parameters/technique.help"

@@ -61,7 +61,7 @@ class GeneralParametersUISchema(DictOnlySchema):
 
     results = ma_fields.List(ma_fields.Nested(lambda: ResultsItemUISchema()))
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.23"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.24"])])
 
     technique = ma_fields.String(
         required=True,
@@ -2157,6 +2157,19 @@ class EntitiesOfInterestItemComplex_substance_of_industrial_originUISchema(
             )
         ],
     )
+
+
+class IdentityUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    by_fingerprinting = ma_fields.Nested(lambda: ByFingerprintingUISchema())
+
+    by_intact_mass = ma_fields.Nested(lambda: ByIntactMassUISchema())
+
+    by_sequencing = ma_fields.Nested(lambda: BySequencingUISchema())
+
+    checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
 
 class IdentityUISchema(DictOnlySchema):

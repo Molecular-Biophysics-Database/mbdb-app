@@ -99,7 +99,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.23"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.24"])])
 
     technique = ma_fields.String(
         required=True,
@@ -618,36 +618,6 @@ class EntitiesOfInterestItemPolymerSchema(DictOnlySchema):
     variant = ma_fields.String()
 
 
-class MethodSpecificParametersSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    cell_temperature = ma_fields.Nested(lambda: TemperatureSchema(), required=True)
-
-    cell_volume = ma_fields.Nested(lambda: CellVolumeSchema(), required=True)
-
-    data_analysis = ma_fields.List(
-        ma_fields.Nested(lambda: DataAnalysisItemSchema()),
-        validate=[ma.validate.Length(min=1)],
-    )
-
-    feedback_mode = ma_fields.String(validate=[OneOf(["None", "Low", "High"])])
-
-    injection_mode = ma_fields.Nested(lambda: InjectionModeSchema())
-
-    measurements = ma_fields.List(
-        ma_fields.Nested(lambda: MeasurementsItemSchema()),
-        required=True,
-        validate=[ma.validate.Length(min=1)],
-    )
-
-    reference_power = ma_fields.Nested(lambda: ReferencePowerSchema(), required=True)
-
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.1.0"])])
-
-    stirring_speed = ma_fields.Nested(lambda: StirringSpeedSchema(), required=True)
-
-
 class PolymerSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -717,6 +687,47 @@ class PolymerSchema(DictOnlySchema):
     variant = ma_fields.String()
 
 
+class MethodSpecificParametersSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    cell_temperature = ma_fields.Nested(lambda: TemperatureSchema(), required=True)
+
+    cell_volume = ma_fields.Nested(lambda: CellVolumeSchema(), required=True)
+
+    data_analysis = ma_fields.List(
+        ma_fields.Nested(lambda: DataAnalysisItemSchema()),
+        validate=[ma.validate.Length(min=1)],
+    )
+
+    feedback_mode = ma_fields.String(validate=[OneOf(["None", "Low", "High"])])
+
+    injection_mode = ma_fields.Nested(lambda: InjectionModeSchema())
+
+    measurements = ma_fields.List(
+        ma_fields.Nested(lambda: MeasurementsItemSchema()),
+        required=True,
+        validate=[ma.validate.Length(min=1)],
+    )
+
+    reference_power = ma_fields.Nested(lambda: ReferencePowerSchema(), required=True)
+
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.1.0"])])
+
+    stirring_speed = ma_fields.Nested(lambda: StirringSpeedSchema(), required=True)
+
+
+class QualityControlsSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    homogeneity = ma_fields.Nested(lambda: HomogeneitySchema())
+
+    identity = ma_fields.Nested(lambda: IdentitySchema())
+
+    purity = ma_fields.Nested(lambda: PuritySchema())
+
+
 class Complex_substance_of_biological_originSchema(PolymorphicSchema):
     class Meta:
         unknown = ma.RAISE
@@ -767,6 +778,17 @@ class EntitiesOfInterestItemComplex_substance_of_biological_originSchema(
     type_field = "derived_from"
 
 
+class IdentitySchema(PolymorphicSchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    No = ma_fields.Nested(lambda: NoSchema(), required=True)
+
+    Yes = ma_fields.Nested(lambda: IdentityYesSchema(), required=True)
+
+    type_field = "checked"
+
+
 class InjectionModeSchema(PolymorphicSchema):
     class Meta:
         unknown = ma.RAISE
@@ -794,17 +816,6 @@ class MeasurementsItemSchema(DictOnlySchema):
     sample_in_cell = ma_fields.Nested(lambda: SampleInCellSchema(), required=True)
 
     sample_in_syringe = ma_fields.Nested(lambda: SampleInCellSchema(), required=True)
-
-
-class QualityControlsSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    homogeneity = ma_fields.Nested(lambda: HomogeneitySchema())
-
-    identity = ma_fields.Nested(lambda: IdentitySchema())
-
-    purity = ma_fields.Nested(lambda: PuritySchema())
 
 
 class ResultsItemSchema(PolymorphicSchema):
@@ -1862,7 +1873,7 @@ class Hill_coefficientSchema(DictOnlySchema):
     value_error = ma_fields.Nested(lambda: ValueErrorSchema())
 
 
-class IdentitySchema(DictOnlySchema):
+class IdentityYesSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 

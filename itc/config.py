@@ -5,7 +5,7 @@ from oarepo_requests.resolvers.ui import (
 from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
 
-from itc.files.api import ItcFileDraft
+from itc.files.api import ItcFile, ItcFileDraft
 from itc.files.requests.resolvers import ItcFileDraftResolver
 from itc.records.api import ItcDraft, ItcRecord
 from itc.records.requests.resolvers import ItcDraftResolver, ItcResolver
@@ -30,13 +30,21 @@ ITC_RECORD_SERVICE_CONFIG = ItcServiceConfig
 ITC_RECORD_SERVICE_CLASS = ItcService
 
 
+OAREPO_PRIMARY_RECORD_SERVICE = {
+    ItcRecord: "itc",
+    ItcDraft: "itc",
+    ItcFile: "itc_file",
+    ItcFileDraft: "itc_file_draft",
+}
+
+
 ITC_REQUESTS_RESOURCE_CLASS = DraftRecordRequestsResource
 
 
 ITC_REQUESTS_SERVICE_CLASS = DraftRecordRequestsService
 
 
-REQUESTS_ENTITY_RESOLVERS = [
+ITC_ENTITY_RESOLVERS = [
     ItcResolver(record_cls=ItcRecord, service_id="itc", type_key="itc"),
     ItcDraftResolver(record_cls=ItcDraft, service_id="itc", type_key="itc_draft"),
     ItcFileDraftResolver(

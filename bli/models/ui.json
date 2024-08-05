@@ -578,8 +578,8 @@
                                                             }
                                                         },
                                                         "identity": {
-                                                            "detail": false,
-                                                            "input": false,
+                                                            "detail": "polymorphic",
+                                                            "input": "polymorphic",
                                                             "help": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity.help",
                                                             "label": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity.label",
                                                             "hint": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity.hint",
@@ -1357,8 +1357,8 @@
                                                                         }
                                                                     },
                                                                     "identity": {
-                                                                        "detail": false,
-                                                                        "input": false,
+                                                                        "detail": "polymorphic",
+                                                                        "input": "polymorphic",
                                                                         "help": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity.help",
                                                                         "label": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity.label",
                                                                         "hint": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity.hint",
@@ -3007,8 +3007,8 @@
                                                 }
                                             },
                                             "identity": {
-                                                "detail": false,
-                                                "input": false,
+                                                "detail": "polymorphic",
+                                                "input": "polymorphic",
                                                 "help": "metadata/general_parameters/entities_of_interest/quality_controls/identity.help",
                                                 "label": "metadata/general_parameters/entities_of_interest/quality_controls/identity.label",
                                                 "hint": "metadata/general_parameters/entities_of_interest/quality_controls/identity.hint",
@@ -3786,8 +3786,8 @@
                                                             }
                                                         },
                                                         "identity": {
-                                                            "detail": false,
-                                                            "input": false,
+                                                            "detail": "polymorphic",
+                                                            "input": "polymorphic",
                                                             "help": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity.help",
                                                             "label": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity.label",
                                                             "hint": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity.hint",
