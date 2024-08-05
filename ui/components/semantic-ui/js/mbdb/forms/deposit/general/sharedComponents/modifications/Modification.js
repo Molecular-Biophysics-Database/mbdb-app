@@ -3,26 +3,28 @@ import CustomField from "../../../buildingBlocks/CustomField";
 import Protocol from "../../../sharedComponents/Protocol";
 import ArrayField from "../../../buildingBlocks/ArrayField";
 import FormWrapper from "../../../buildingBlocks/FormWrapper";
+import OptionalField from "../../../buildingBlocks/OptionalField";
 
 function Modification( { name, colorSchema } ) {
 
   return (
     <>
         <div className="flex mb-3">
-            <div className="mr-3">
+            <div>
                 <CustomField
+                    name={name}
+                    required
+                    fieldName='type'
+                    label='Type'
+                    tooltip='The common name/type of the modification'
+                />
+            </div>
+            <div className="mr-3">
+                <OptionalField
                     name={name}
                     fieldName='position'
                     label='Position'
                     tooltip='The position where the modification occurs'
-                />
-            </div>
-            <div>
-                <CustomField
-                    name={name}
-                    fieldName='modification'
-                    label='Modification'
-                    tooltip='The common name/type of the modification'
                 />
             </div>
         </div>
