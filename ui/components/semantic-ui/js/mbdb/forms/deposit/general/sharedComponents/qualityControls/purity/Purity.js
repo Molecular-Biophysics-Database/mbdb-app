@@ -19,7 +19,7 @@ function Purity({ name, colorSchema }) {
         name={name}
         label="Purity"
         fieldName="purity"
-        initialValue={{ type: "Yes" }}
+        initialValue={{ checked: "Yes" }}
         tooltip="Information about if and how the purity was obtained"
         renderChild={({ optionalFieldName }) => {
           const actualValue = getIn(values, optionalFieldName);
@@ -36,17 +36,18 @@ function Purity({ name, colorSchema }) {
                 <div className="mr-3">
                   <DynamicOptionField
                     name={optionalFieldName}
+                    required
                     options={typeOptions}
-                    label="type"
-                    fieldName="type"
+                    label="Checked"
+                    fieldName="checked"
                     width="w-full"
                   />
                 </div>
                 <div>
-                  {actualValue.type === "Yes" && (
+                  {actualValue.checked === "Yes" && (
                     <PurityYes name={optionalFieldName} />
                   )}
-                  {actualValue.type === "No" && <></>}
+                  {actualValue.checked === "No" && <></>}
                 </div>
               </div>
             </FormWrapper>

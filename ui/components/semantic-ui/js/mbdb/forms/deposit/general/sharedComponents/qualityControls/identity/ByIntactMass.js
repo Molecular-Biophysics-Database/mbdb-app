@@ -20,6 +20,7 @@ function ByIntactMass( { name, colorSchema } ) {
             <div className='mb-3'>
                 <OptionField
                     name={name}
+                    required
                     fieldName='method'
                     label='Method'
                     options={methodOptions}
@@ -29,6 +30,7 @@ function ByIntactMass( { name, colorSchema } ) {
             <div>
                 <DeviationFromExpectedMass
                     name={`${name}.deviation_from_expected_mass`}
+                    required
                     colorSchema={colorSchema === 'light' ? '' : 'light'}
                 />
             </div>

@@ -23,6 +23,7 @@ function BySequencing( { name, colorSchema } ) {
                 <div className='mr-3'>
                     <OptionField
                         name={name}
+                        required
                         fieldName='method'
                         label='Method'
                         options={methodOptions}
@@ -32,6 +33,7 @@ function BySequencing( { name, colorSchema } ) {
                 <div>
                     <CustomField
                         name={name}
+                        required
                         fieldName='coverage'
                         label='Coverage'
                         tooltip='The amount of the total (expected) sequence that was actually observed by sequencing in percent'

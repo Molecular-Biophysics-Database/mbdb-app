@@ -1,87 +1,61 @@
 import React from "react";
+import { getIn, useFormikContext } from "formik";
 import FormWrapper from '../../../../buildingBlocks/FormWrapper';
-import OptionField from '../../../../buildingBlocks/OptionField';
-import ByIntactMass from './ByIntactMass';
-import BySequencing from './BySequencing';
-import ByFingerprinting from './ByFingerprinting';
 import OptionalField from '../../../../buildingBlocks/OptionalField';
+import DynamicOptionField from "../../../../buildingBlocks/DynamicOptionField";
+import IdentityYes from "./IdentityYes";
 
 function Identity( { name, colorSchema } ) {
+    const { values } = useFormikContext();
 
     const checkedOptions = [
         { value: 'Yes', label: 'Yes' },
         { value: 'No', label: 'No' },
     ];
 
-  return (
-    <>
-        <OptionalField
+    return (
+        <>
+          <OptionalField
             name={name}
-            label='Identity'
-            fieldName='identity'
-            tooltip='Information about if, and how identity was assessed'
-            renderChild={({ optionalFieldName }) => (
+            label="Identity"
+            fieldName="identity"
+            initialValue={{ checked: "Yes" }}
+            tooltip="Information about if and how the identity was obtained"
+            renderChild={({ optionalFieldName }) => {
+              const actualValue = getIn(values, optionalFieldName);
+              if (!actualValue) {
+                return null;
+              }
+              return (
                 <FormWrapper
-                    headline='Identity'
-                    colorSchema={colorSchema}
-                    tooltip='Information about if, and how identity was assessed'
+                  headline="Identity"
+                  colorSchema={colorSchema}
+                  tooltip="Information about if and how the identity was obtained"
                 >
-                    <div>
-                        <OptionField
-                            name={optionalFieldName}
-                            fieldName='checked'
-                            label='Checked'
-                            options={checkedOptions}
-                            tooltip='Whether the identity was confirmed experimentally'
-                        />
+                  <div className="flex">
+                    <div className="mr-3">
+                      <DynamicOptionField
+                        name={optionalFieldName}
+                        required
+                        options={checkedOptions}
+                        label="Checked"
+                        fieldName="checked"
+                        width="w-full"
+                      />
                     </div>
                     <div>
-                        <OptionalField
-                            name={optionalFieldName}
-                            label='By intact mass'
-                            fieldName='by_intact_mass'
-                            tooltip='How identity was determined by intact mass, if applicable'
-                            renderChild={({ optionalFieldName }) => (
-                                <ByIntactMass
-                                    name={optionalFieldName}
-                                    colorSchema={colorSchema === 'light' ? '' : 'light'}
-                                />
-                            )}
-                        />
+                      {actualValue.checked === "Yes" && (
+                        <IdentityYes name={optionalFieldName} />
+                      )}
+                      {actualValue.checked === "No" && <></>}
                     </div>
-                    <div>
-                        <OptionalField
-                            name={optionalFieldName}
-                            label='By sequencing'
-                            fieldName='by_sequencing'
-                            tooltip='How identity was determined by intact mass, if applicable'
-                            renderChild={({ optionalFieldName }) => (
-                                <BySequencing
-                                    name={optionalFieldName}
-                                    colorSchema={colorSchema === 'light' ? '' : 'light'}
-                                />
-                            )}
-                        />
-                    </div>
-                    <div>
-                        <OptionalField
-                            name={optionalFieldName}
-                            label='By fingerprinting'
-                            fieldName='by_fingerprinting'
-                            tooltip='How identity was determined by fingerprinting, if applicable'
-                            renderChild={({ optionalFieldName }) => (
-                                <ByFingerprinting
-                                    name={optionalFieldName}
-                                    colorSchema={colorSchema === 'light' ? '' : 'light'}
-                                />
-                            )}
-                        />
-                    </div>
+                  </div>
                 </FormWrapper>
-            )}
-        />
-    </>
-  );
+              );
+            }}
+          />
+        </>
+      );
 }
 
 export default Identity;

@@ -21,6 +21,8 @@ function DeviationFromExpectedMass( { name, colorSchema } ) {
             <div>
                 <ValueUnit
                     name={name}
+                    unitRequired={true}
+                    valueRequired={true}
                     options={unitOptions}
                     tooltipValue='The numerical value of the molecular weight, -1 if unknown'
                     tooltipUnit='The unit of the molecular weight'
