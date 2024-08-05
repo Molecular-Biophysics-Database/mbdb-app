@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.4.6 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.7 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -802,6 +802,10 @@ video {
   margin-bottom: 1rem;
 }
 
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .mb-8 {
   margin-bottom: 2rem;
 }
@@ -1244,6 +1248,11 @@ video {
   border-style: solid;
 }
 
+.border-accent {
+  --tw-border-opacity: 1;
+  border-color: rgb(224 69 65 / var(--tw-border-opacity));
+}
+
 .border-dark {
   --tw-border-opacity: 1;
   border-color: rgb(2 56 80 / var(--tw-border-opacity));
@@ -1540,6 +1549,10 @@ video {
 
 .last\:border-b-0:last-child {
   border-bottom-width: 0px;
+}
+
+.hover\:border-\[2px\]:hover {
+  border-width: 2px;
 }
 
 .hover\:bg-dark:hover {
