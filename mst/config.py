@@ -5,7 +5,7 @@ from oarepo_requests.resolvers.ui import (
 from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
 
-from mst.files.api import MstFileDraft
+from mst.files.api import MstFile, MstFileDraft
 from mst.files.requests.resolvers import MstFileDraftResolver
 from mst.records.api import MstDraft, MstRecord
 from mst.records.requests.resolvers import MstDraftResolver, MstResolver
@@ -30,13 +30,21 @@ MST_RECORD_SERVICE_CONFIG = MstServiceConfig
 MST_RECORD_SERVICE_CLASS = MstService
 
 
+OAREPO_PRIMARY_RECORD_SERVICE = {
+    MstRecord: "mst",
+    MstDraft: "mst",
+    MstFile: "mst_file",
+    MstFileDraft: "mst_file_draft",
+}
+
+
 MST_REQUESTS_RESOURCE_CLASS = DraftRecordRequestsResource
 
 
 MST_REQUESTS_SERVICE_CLASS = DraftRecordRequestsService
 
 
-REQUESTS_ENTITY_RESOLVERS = [
+MST_ENTITY_RESOLVERS = [
     MstResolver(record_cls=MstRecord, service_id="mst", type_key="mst"),
     MstDraftResolver(record_cls=MstDraft, service_id="mst", type_key="mst_draft"),
     MstFileDraftResolver(

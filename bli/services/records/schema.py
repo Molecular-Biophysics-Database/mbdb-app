@@ -99,7 +99,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.23"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.24"])])
 
     technique = ma_fields.String(
         required=True,
@@ -618,46 +618,6 @@ class EntitiesOfInterestItemPolymerSchema(DictOnlySchema):
     variant = ma_fields.String()
 
 
-class MethodSpecificParametersSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    data_analysis = ma_fields.List(
-        ma_fields.Nested(lambda: DataAnalysisItemSchema()),
-        validate=[ma.validate.Length(min=1)],
-    )
-
-    experiment_type = ma_fields.String(
-        required=True, validate=[OneOf(["Affinity", "Quantification", "Other"])]
-    )
-
-    measurement_protocol = ma_fields.List(
-        ma_fields.Nested(lambda: MeasurementProtocolItemSchema()),
-        required=True,
-        validate=[ma.validate.Length(min=1)],
-    )
-
-    measurements = ma_fields.List(
-        ma_fields.Nested(lambda: MeasurementsItemSchema()),
-        required=True,
-        validate=[ma.validate.Length(min=1)],
-    )
-
-    plates = ma_fields.List(
-        ma_fields.Nested(lambda: PlatesItemSchema()),
-        required=True,
-        validate=[ma.validate.Length(min=1)],
-    )
-
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.7"])])
-
-    sensors = ma_fields.List(
-        ma_fields.Nested(lambda: SensorsItemSchema()),
-        required=True,
-        validate=[ma.validate.Length(min=1)],
-    )
-
-
 class PolymerSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -727,6 +687,57 @@ class PolymerSchema(DictOnlySchema):
     variant = ma_fields.String()
 
 
+class MethodSpecificParametersSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    data_analysis = ma_fields.List(
+        ma_fields.Nested(lambda: DataAnalysisItemSchema()),
+        validate=[ma.validate.Length(min=1)],
+    )
+
+    experiment_type = ma_fields.String(
+        required=True, validate=[OneOf(["Affinity", "Quantification", "Other"])]
+    )
+
+    measurement_protocol = ma_fields.List(
+        ma_fields.Nested(lambda: MeasurementProtocolItemSchema()),
+        required=True,
+        validate=[ma.validate.Length(min=1)],
+    )
+
+    measurements = ma_fields.List(
+        ma_fields.Nested(lambda: MeasurementsItemSchema()),
+        required=True,
+        validate=[ma.validate.Length(min=1)],
+    )
+
+    plates = ma_fields.List(
+        ma_fields.Nested(lambda: PlatesItemSchema()),
+        required=True,
+        validate=[ma.validate.Length(min=1)],
+    )
+
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.7"])])
+
+    sensors = ma_fields.List(
+        ma_fields.Nested(lambda: SensorsItemSchema()),
+        required=True,
+        validate=[ma.validate.Length(min=1)],
+    )
+
+
+class QualityControlsSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    homogeneity = ma_fields.Nested(lambda: HomogeneitySchema())
+
+    identity = ma_fields.Nested(lambda: IdentitySchema())
+
+    purity = ma_fields.Nested(lambda: PuritySchema())
+
+
 class Complex_substance_of_biological_originSchema(PolymorphicSchema):
     class Meta:
         unknown = ma.RAISE
@@ -777,6 +788,17 @@ class EntitiesOfInterestItemComplex_substance_of_biological_originSchema(
     type_field = "derived_from"
 
 
+class IdentitySchema(PolymorphicSchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    No = ma_fields.Nested(lambda: NoSchema(), required=True)
+
+    Yes = ma_fields.Nested(lambda: IdentityYesSchema(), required=True)
+
+    type_field = "checked"
+
+
 class MeasurementsItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -790,17 +812,6 @@ class MeasurementsItemSchema(DictOnlySchema):
     sample = ma_fields.Nested(lambda: SampleSchema(), required=True)
 
     sensor = ma_fields.Nested(lambda: EntitySchema(), required=True)
-
-
-class QualityControlsSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    homogeneity = ma_fields.Nested(lambda: HomogeneitySchema())
-
-    identity = ma_fields.Nested(lambda: IdentitySchema())
-
-    purity = ma_fields.Nested(lambda: PuritySchema())
 
 
 class ResultsItemSchema(PolymorphicSchema):
@@ -1858,7 +1869,7 @@ class Hill_coefficientSchema(DictOnlySchema):
     value_error = ma_fields.Nested(lambda: ValueErrorSchema())
 
 
-class IdentitySchema(DictOnlySchema):
+class IdentityYesSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 

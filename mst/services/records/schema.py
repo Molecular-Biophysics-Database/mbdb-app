@@ -99,7 +99,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.23"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.24"])])
 
     technique = ma_fields.String(
         required=True,
@@ -618,61 +618,6 @@ class EntitiesOfInterestItemPolymerSchema(DictOnlySchema):
     variant = ma_fields.String()
 
 
-class MethodSpecificParametersSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    data_analysis = ma_fields.List(
-        ma_fields.Nested(lambda: DataAnalysisItemSchema()),
-        validate=[ma.validate.Length(min=1)],
-    )
-
-    excitation_led_color = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(
-                [
-                    "RED (ex 605-645nm, em 660-720nm)",
-                    "RED (ex 610-645nm, em 680-720nm)",
-                    "GREEN (ex 555-585nm, em 605-690nm)",
-                    "GREEN (ex 515-550nm, em 565-600nm)",
-                    "BLUE (ex 480-500nm, em 515-550nm)",
-                    "BLUE (ex 460-500nm, em 515-560nm)",
-                    "UV (ex 260-300nm, em 330-380nm)",
-                    "Spectral shift",
-                ]
-            )
-        ],
-    )
-
-    excitation_led_power = ma_fields.Float(
-        required=True, validate=[ma.validate.Range(min=0.0, max=100.0)]
-    )
-
-    experiment_type = ma_fields.String(
-        required=True, validate=[OneOf(["Affinity", "Concentration", "Other"])]
-    )
-
-    ir_mst_laser_power = ma_fields.Float(
-        required=True, validate=[ma.validate.Range(min=0.0, max=100.0)]
-    )
-
-    measurements = ma_fields.List(
-        ma_fields.Nested(lambda: MeasurementsItemSchema()),
-        required=True,
-        validate=[ma.validate.Length(min=1)],
-    )
-
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.10"])])
-
-    signal_type = ma_fields.String(
-        required=True,
-        validate=[OneOf(["Initial intensity", "TRIC/MST", "Spectral shift"])],
-    )
-
-    temperature = ma_fields.Nested(lambda: TemperatureSchema())
-
-
 class PolymerSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -742,6 +687,72 @@ class PolymerSchema(DictOnlySchema):
     variant = ma_fields.String()
 
 
+class MethodSpecificParametersSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    data_analysis = ma_fields.List(
+        ma_fields.Nested(lambda: DataAnalysisItemSchema()),
+        validate=[ma.validate.Length(min=1)],
+    )
+
+    excitation_led_color = ma_fields.String(
+        required=True,
+        validate=[
+            OneOf(
+                [
+                    "RED (ex 605-645nm, em 660-720nm)",
+                    "RED (ex 610-645nm, em 680-720nm)",
+                    "GREEN (ex 555-585nm, em 605-690nm)",
+                    "GREEN (ex 515-550nm, em 565-600nm)",
+                    "BLUE (ex 480-500nm, em 515-550nm)",
+                    "BLUE (ex 460-500nm, em 515-560nm)",
+                    "UV (ex 260-300nm, em 330-380nm)",
+                    "Spectral shift",
+                ]
+            )
+        ],
+    )
+
+    excitation_led_power = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=0.0, max=100.0)]
+    )
+
+    experiment_type = ma_fields.String(
+        required=True, validate=[OneOf(["Affinity", "Concentration", "Other"])]
+    )
+
+    ir_mst_laser_power = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=0.0, max=100.0)]
+    )
+
+    measurements = ma_fields.List(
+        ma_fields.Nested(lambda: MeasurementsItemSchema()),
+        required=True,
+        validate=[ma.validate.Length(min=1)],
+    )
+
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.10"])])
+
+    signal_type = ma_fields.String(
+        required=True,
+        validate=[OneOf(["Initial intensity", "TRIC/MST", "Spectral shift"])],
+    )
+
+    temperature = ma_fields.Nested(lambda: TemperatureSchema())
+
+
+class QualityControlsSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    homogeneity = ma_fields.Nested(lambda: HomogeneitySchema())
+
+    identity = ma_fields.Nested(lambda: IdentitySchema())
+
+    purity = ma_fields.Nested(lambda: PuritySchema())
+
+
 class Complex_substance_of_biological_originSchema(PolymorphicSchema):
     class Meta:
         unknown = ma.RAISE
@@ -792,6 +803,17 @@ class EntitiesOfInterestItemComplex_substance_of_biological_originSchema(
     type_field = "derived_from"
 
 
+class IdentitySchema(PolymorphicSchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    No = ma_fields.Nested(lambda: NoSchema(), required=True)
+
+    Yes = ma_fields.Nested(lambda: IdentityYesSchema(), required=True)
+
+    type_field = "checked"
+
+
 class MeasurementsItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -803,17 +825,6 @@ class MeasurementsItemSchema(DictOnlySchema):
     position = ma_fields.String(required=True)
 
     sample = ma_fields.Nested(lambda: SampleSchema(), required=True)
-
-
-class QualityControlsSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    homogeneity = ma_fields.Nested(lambda: HomogeneitySchema())
-
-    identity = ma_fields.Nested(lambda: IdentitySchema())
-
-    purity = ma_fields.Nested(lambda: PuritySchema())
 
 
 class ResultsItemSchema(PolymorphicSchema):
@@ -1871,7 +1882,7 @@ class Hill_coefficientSchema(DictOnlySchema):
     value_error = ma_fields.Nested(lambda: ValueErrorSchema())
 
 
-class IdentitySchema(DictOnlySchema):
+class IdentityYesSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 

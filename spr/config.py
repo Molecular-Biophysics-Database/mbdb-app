@@ -5,7 +5,7 @@ from oarepo_requests.resolvers.ui import (
 from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
 
-from spr.files.api import SprFileDraft
+from spr.files.api import SprFile, SprFileDraft
 from spr.files.requests.resolvers import SprFileDraftResolver
 from spr.records.api import SprDraft, SprRecord
 from spr.records.requests.resolvers import SprDraftResolver, SprResolver
@@ -30,13 +30,21 @@ SPR_RECORD_SERVICE_CONFIG = SprServiceConfig
 SPR_RECORD_SERVICE_CLASS = SprService
 
 
+OAREPO_PRIMARY_RECORD_SERVICE = {
+    SprRecord: "spr",
+    SprDraft: "spr",
+    SprFile: "spr_file",
+    SprFileDraft: "spr_file_draft",
+}
+
+
 SPR_REQUESTS_RESOURCE_CLASS = DraftRecordRequestsResource
 
 
 SPR_REQUESTS_SERVICE_CLASS = DraftRecordRequestsService
 
 
-REQUESTS_ENTITY_RESOLVERS = [
+SPR_ENTITY_RESOLVERS = [
     SprResolver(record_cls=SprRecord, service_id="spr", type_key="spr"),
     SprDraftResolver(record_cls=SprDraft, service_id="spr", type_key="spr_draft"),
     SprFileDraftResolver(
