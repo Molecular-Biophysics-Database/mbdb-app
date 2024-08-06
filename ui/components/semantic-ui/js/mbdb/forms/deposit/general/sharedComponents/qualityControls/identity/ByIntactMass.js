@@ -1,7 +1,7 @@
 import React from "react";
 import FormWrapper from '../../../../buildingBlocks/FormWrapper';
 import OptionField from '../../../../buildingBlocks/OptionField';
-import DevitationFromExpectedMass from './DeviationFromExpectedMass';
+import DeviationFromExpectedMass from './DeviationFromExpectedMass';
 
 function ByIntactMass( { name, colorSchema } ) {
 
@@ -20,6 +20,7 @@ function ByIntactMass( { name, colorSchema } ) {
             <div className='mb-3'>
                 <OptionField
                     name={name}
+                    required
                     fieldName='method'
                     label='Method'
                     options={methodOptions}
@@ -27,8 +28,9 @@ function ByIntactMass( { name, colorSchema } ) {
                 />
             </div>
             <div>
-                <DevitationFromExpectedMass
-                    name={`${name}.devitation_from_expected_mass`}
+                <DeviationFromExpectedMass
+                    name={`${name}.deviation_from_expected_mass`}
+                    required
                     colorSchema={colorSchema === 'light' ? '' : 'light'}
                 />
             </div>

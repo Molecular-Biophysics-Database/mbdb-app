@@ -19,6 +19,7 @@ function ByFingerprinting( { name, colorSchema } ) {
             <div>
                 <OptionField
                     name={name}
+                    required
                     fieldName='method'
                     label='Method'
                     options={methodOptions}

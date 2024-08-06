@@ -2,7 +2,7 @@ import React from "react";
 import FormWrapper from '../../../../buildingBlocks/FormWrapper';
 import ValueUnit from '../../../../buildingBlocks/ValueUnit';
 
-function DevitationFromExpectedMass( { name, colorSchema } ) {
+function DeviationFromExpectedMass( { name, colorSchema } ) {
 
     const unitOptions = [
         { value: 'g/mol', label: 'g/mol' },
@@ -14,13 +14,15 @@ function DevitationFromExpectedMass( { name, colorSchema } ) {
   return (
     <>
         <FormWrapper
-            headline='Devitation from expected mass'
+            headline='Deviation from expected mass'
             colorSchema={colorSchema}
             tooltip='The amount, including unit, the obtained intact mass deviated from the expected intact mass'
         >
             <div>
                 <ValueUnit
                     name={name}
+                    unitRequired={true}
+                    valueRequired={true}
                     options={unitOptions}
                     tooltipValue='The numerical value of the molecular weight, -1 if unknown'
                     tooltipUnit='The unit of the molecular weight'
@@ -31,4 +33,4 @@ function DevitationFromExpectedMass( { name, colorSchema } ) {
   );
 }
 
-export default DevitationFromExpectedMass;
+export default DeviationFromExpectedMass;

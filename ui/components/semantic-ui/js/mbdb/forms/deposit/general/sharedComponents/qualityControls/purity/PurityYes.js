@@ -22,6 +22,7 @@ function PurityYes( { name } ) {
             <div className='mr-3'>
                 <OptionField
                     name={name}
+                    required
                     fieldName='method'
                     label='Method'
                     options={methodOptions}
@@ -31,6 +32,7 @@ function PurityYes( { name } ) {
             <div>
                 <OptionField
                     name={name}
+                    required
                     fieldName='purity_percentage'
                     label='Purity percentage'
                     options={purityPercentageOptions}

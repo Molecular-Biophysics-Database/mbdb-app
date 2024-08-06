@@ -16,6 +16,7 @@ function HomogeneityYes( { name } ) {
             <div className='mr-3'>
                 <OptionField
                     name={name}
+                    required
                     fieldName='method'
                     label='Method'
                     options={methodOptions}
@@ -25,6 +26,7 @@ function HomogeneityYes( { name } ) {
             <div>
                 <CustomField
                     name={name}
+                    required
                     fieldName='expected_number_of_species'
                     label='Expected number of species'
                     tooltip='The number of species that were expected to be present'
@@ -34,6 +36,7 @@ function HomogeneityYes( { name } ) {
             <div>
                 <CustomField
                     name={name}
+                    required
                     fieldName='number_of_species_observed'
                     label='Number of species observed'
                     tooltip='The number of species that was observed to be present'

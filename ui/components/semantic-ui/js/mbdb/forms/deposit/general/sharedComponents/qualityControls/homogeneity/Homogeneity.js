@@ -19,8 +19,8 @@ function Purity({ name, colorSchema }) {
         name={name}
         label="Homogeneity"
         fieldName="homogeneity"
-        tooltip="Information about if, and how homogeneity was assessed"
-        initialValue={{ type: "Yes" }}
+        tooltip="Information about if, and how homogeneity was checked"
+        initialValue={{ checked: "Yes" }}
         renderChild={({ optionalFieldName }) => {
           const actualValue = getIn(values, optionalFieldName);
           if (!actualValue) {
@@ -30,23 +30,24 @@ function Purity({ name, colorSchema }) {
             <FormWrapper
               headline="Homogeneity"
               colorSchema={colorSchema}
-              tooltip="Information about if, and how homogeneity was assessed"
+              tooltip="Information about if, and how homogeneity was checked"
             >
               <div className="flex">
                 <div className="mr-3">
                   <DynamicOptionField
+                    required
                     name={optionalFieldName}
                     options={typeOptions}
-                    label="type"
-                    fieldName="type"
+                    label="Checked"
+                    fieldName="checked"
                     width="w-full"
                   />
                 </div>
                 <div>
-                  {actualValue.type === "Yes" && (
+                  {actualValue.checked === "Yes" && (
                     <HomogeneityYes name={optionalFieldName} />
                   )}
-                  {actualValue.type === "No" && <></>}
+                  {actualValue.checked === "No" && <></>}
                 </div>
               </div>
             </FormWrapper>

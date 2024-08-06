@@ -15,7 +15,7 @@ class BliInitialValuesComponent(UIResourceComponent):
         empty_data.update({
           "metadata": {
             "general_parameters": {
-              "schema_version": "0.9.23",
+              "schema_version": "0.9.24",
               "technique": "Bio-layer interferometry (BLI)",
               "record_information": {
                 "publisher": "MBDB",
