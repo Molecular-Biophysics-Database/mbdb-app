@@ -2,35 +2,25 @@ from oarepo_ui.resources import BabelComponent
 from oarepo_ui.resources.components import FilesComponent
 from oarepo_ui.resources.config import RecordsUIResourceConfig
 from oarepo_ui.resources.resource import RecordsUIResource
-from datetime import date
 from oarepo_ui.resources.components import UIResourceComponent
 from typing import Dict
 
+from common.fixed_record_values import make_fixed_values
 from common.ui.components import MBDBEditComponent
 
 from oarepo_vocabularies.ui.resources.components import DepositVocabularyOptionsComponent
 
+
 class ItcInitialValuesComponent(UIResourceComponent):
     def empty_record(self, *, resource_requestctx, empty_data: Dict, **kwargs):
-        empty_data.update({
-          "metadata": {
-            "general_parameters": {
-              "schema_version": "0.9.24",
-              "technique": "Isothermal Titration Calorimetry (ITC)",
-              "record_information": {
-                "publisher": "MBDB",
-                "resource_type_general": "Dataset",
-                "resource_type": "ITC",
-                "deposition_date": date.today().isoformat(),
-                "date_available": date.today().isoformat(),
-                "subject_category": "Biophysics",
-              },
-            },
-            "method_specific_parameters": {
-              "schema_version": "0.1.0"
-            }
-          }
-        })
+        empty_data.update(
+            make_fixed_values(
+                technique="Isothermal Titration Calorimetry (ITC)",
+                schema_version="0.1.0",
+                resource_type="ITC",
+            )
+        )
+
 
 class ItcResourceConfig(RecordsUIResourceConfig):
     template_folder = "templates"
