@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useField } from "formik";
 import { useFormikContext } from "formik";
-import { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Tooltip from "@material-ui/core/Tooltip";
 import { Typography } from "@material-ui/core";
@@ -18,30 +17,30 @@ function ExternalDatabaseField({
   const [field, meta] = useField(nameCustomField);
   const { setFieldValue } = useFormikContext();
 
-  const [prefixValue, setPrefixValue] = useState("");
-  const [externalDbValue, setExternalDbValue] = useState(field.value || "");
+  // Split the initial combined value into prefix and external database values
+  const initialCombinedValue = field.value || "";
+  const initialPrefix = initialCombinedValue.split(":")[0] || "";
+  const initialExternalDb = initialCombinedValue.split(":")[1] || "";
 
-  const updateCombinedValue = (newPrefixValue, newExternalDbValue) => {
-    const combinedValue = `${newPrefixValue}:${newExternalDbValue}`;
-    console.log(combinedValue, "Combined value");
+  const [prefixValue, setPrefixValue] = useState(initialPrefix);
+  const [externalDbValue, setExternalDbValue] = useState(initialExternalDb);
+
+  useEffect(() => {
+    // Update the state when the combined value changes
+    const combinedValue = `${prefixValue}:${externalDbValue}`;
     setFieldValue(nameCustomField, combinedValue);
-  };
+  }, [prefixValue, externalDbValue, setFieldValue, nameCustomField]);
 
   const handlePrefixChange = (e) => {
-    const valuePrefix = e.target.value;
-    setPrefixValue(valuePrefix);
-    updateCombinedValue(valuePrefix, externalDbValue);
+    setPrefixValue(e.target.value);
   };
 
   const handleExternalDbChange = (e) => {
-    const valueExternalDb = e.target.value;
-    setExternalDbValue(valueExternalDb);
-    updateCombinedValue(prefixValue, valueExternalDb);
+    setExternalDbValue(e.target.value);
   };
 
   const setPrefix = (prefix) => {
     setPrefixValue(prefix);
-    updateCombinedValue(prefix, externalDbValue);
   };
 
   return (
@@ -51,23 +50,22 @@ function ExternalDatabaseField({
           onClick={() => setPrefix("pdb")}
           className="uppercase flex justify-center py-1 mr-2 px-4 bg-dark rounded-full text-white hover:bg-secondary hover:text-dark transition-all"
         >
-          Pdb
+          PDB
         </button>
 
         <button
           onClick={() => setPrefix("uniprot")}
-          class="uppercase flex justify-center py-1 mr-2 px-4 bg-dark rounded-full text-white hover:bg-secondary hover:text-dark transition-all"
+          className="uppercase flex justify-center py-1 mr-2 px-4 bg-dark rounded-full text-white hover:bg-secondary hover:text-dark transition-all"
         >
-          Uniprot
+          UniProt
         </button>
       </div>
       <div className="flex">
         <div className="w-[30%] mr-3">
           <TextField
-            {...field}
-            id="prefix"
+            id="external_database"
             className={`rounded-lg p-2 text-16px w-full`}
-            label="Prefix"
+            label="External database"
             value={prefixValue}
             onChange={handlePrefixChange}
             disabled={disabled}
@@ -92,10 +90,9 @@ function ExternalDatabaseField({
         )}
         <div className="w-[70%]">
           <TextField
-            {...field}
-            id="external_database"
+            id="ID"
             className={`rounded-lg p-2 text-16px w-full`}
-            label="External database"
+            label="ID"
             value={externalDbValue}
             onChange={handleExternalDbChange}
             disabled={disabled}

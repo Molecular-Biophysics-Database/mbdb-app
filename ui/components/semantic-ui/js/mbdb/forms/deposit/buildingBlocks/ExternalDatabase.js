@@ -18,24 +18,9 @@ function ExternalDatabase({ name, colorSchema }) {
           >
             <ExternalDatabaseField
               name={`${arrayName}.${index}`}
-              dbTooltip="hello"
-              prefixTooltip="tokfdjs"
+              prefixTooltip="Hello"
+              dbTooltip="world"
             />
-            {/*
-              <CustomField
-                name={`${arrayName}.prefix.${index}`}
-                label="Prefix"
-                width="w-[7rem]"
-                tooltip="List of identifiers to records in external databases containing information about the polymer can be specified here (e.g UNIPROT:Q8KRF6)"
-              />
-              <CustomField
-                name={`${arrayName}.${index}`}
-                label="External database"
-                width="w-[15rem]"
-                tooltip="List of identifiers to records in external databases containing information about the polymer can be specified here (e.g UNIPROT:Q8KRF6)"
-              />
-              
-              */}
           </FormWrapper>
         )}
       />
