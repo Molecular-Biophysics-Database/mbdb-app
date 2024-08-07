@@ -26,7 +26,7 @@ function DynamicOptionField({
       ? field.value[fieldName]
       : "";
 
-  console.log(currentValue, "Current value");
+  //console.log(currentValue, "Current value");
   return (
     <div className="flex">
       <div className={`${width} rounded-lg relative border min-w-[178px]`}>

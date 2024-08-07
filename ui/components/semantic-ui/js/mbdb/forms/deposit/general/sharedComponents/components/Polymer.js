@@ -9,6 +9,7 @@ import OptionalField from "../../../buildingBlocks/OptionalField";
 import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
 import SequenceField from "../../../buildingBlocks/SequenceField";
+import ExternalDatabase from "../../../buildingBlocks/ExternalDatabase";
 
 function Polymer({ name, colorSchema }) {
   const polymerTypeOptions = [
@@ -145,20 +146,7 @@ function Polymer({ name, colorSchema }) {
       </div>
       <div className="flex mb-3 -mt-3">
         <div className="mr-3">
-          <ArrayField
-            name={name}
-            label="External Database"
-            fieldName="external_databases"
-            tooltip="List of identifiers to records in external databases containing information about the polymer can be specified here (e.g UNIPROT:Q8KRF6)"
-            renderChild={({ arrayName, index }) => (
-              <CustomField
-                name={`${arrayName}.${index}`}
-                label={`External database ${index + 1}`}
-                width="w-[15rem]"
-                tooltip="List of identifiers to records in external databases containing information about the polymer can be specified here (e.g UNIPROT:Q8KRF6)"
-              />
-            )}
-          />
+          <ExternalDatabase name={name} colorSchema={colorSchema} />
         </div>
         <div>
           <ArrayField

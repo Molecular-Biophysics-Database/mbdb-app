@@ -6,6 +6,7 @@ import Modification from "../sharedComponents/modifications/Modification";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import Components from "../sharedComponents/components/Components";
 import CreateUuid from "../../buildingBlocks/CreateUuid";
+import ExternalDatabase from "../../buildingBlocks/ExternalDatabase";
 
 function MolecularAssembly({ name }) {
   CreateUuid(name);
@@ -24,20 +25,7 @@ function MolecularAssembly({ name }) {
       </div>
       <div className="flex -mt-3 mb-3">
         <div className="mr-3">
-          <ArrayField
-            name={name}
-            label="External Database"
-            fieldName="external_databases"
-            tooltip="List of identifiers to records in external databases containing information about the polymer can be specified here (e.g UNIPROT:Q8KRF6)"
-            renderChild={({ arrayName, index }) => (
-              <CustomField
-                name={`${arrayName}.${index}`}
-                label={`External database ${index + 1}`}
-                width="w-[15rem]"
-                tooltip="List of identifiers to records in external databases containing information about the polymer can be specified here (e.g UNIPROT:Q8KRF6)"
-              />
-            )}
-          />
+          <ExternalDatabase colorSchema="light" name={name} />
         </div>
         <div>
           <ArrayField
