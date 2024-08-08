@@ -1,0 +1,12 @@
+{# def self_link #}
+
+{% if self_link._ui_value.endswith("draft") %}
+<div>
+    <a class="flex justify-center h-[40px] text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
+        href="{{ links.edit_html or links.self_html }}" type="application/json" role="button">
+        <button class="px-4">
+            Delete
+        </button>
+    </a>
+</div>
+{% endif %}

@@ -7,6 +7,7 @@
     <IValue value={ md.general_parameters.record_information.title } placeholder="(Record has no title)" />
   </div>
   <div class="flex">
+    <RemoveButton self_link={ links.self } />
     <div>
       <a class="flex justify-center h-[40px] text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
         href="{{ links.edit_html or links.self_html }}" type="application/json" role="button">
