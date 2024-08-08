@@ -2,8 +2,15 @@ import React from "react";
 import FormWrapper from "./FormWrapper";
 import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
+import { useFormikContext } from "formik";
 
 function BasicInformationField({ name, colorSchema }) {
+  const { setFieldValue } = useFormikContext();
+  const handleWater = () => {
+    const waterId = "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N";
+    setFieldValue(`${name}.basic_information.id`, waterId);
+  };
+
   return (
     <>
       <FormWrapper colorSchema={colorSchema}>
@@ -21,7 +28,7 @@ function BasicInformationField({ name, colorSchema }) {
           </div>
           <div>
             <a
-              className="flex justify-center py-1 px-4 bg-dark rounded-full text-white hover:bg-secondary hover:text-dark transition-all"
+              className="flex justify-center py-1 px-4 mr-2 bg-dark rounded-full text-white hover:bg-secondary hover:text-dark transition-all"
               href="https://www.ebi.ac.uk/chembl/"
               target="_blank"
               rel="noreferrer"
@@ -29,6 +36,12 @@ function BasicInformationField({ name, colorSchema }) {
               ChEMBL
             </a>
           </div>
+          <button
+            className="flex justify-center py-1 px-4 bg-dark rounded-full text-white hover:bg-secondary hover:text-dark transition-all"
+            onClick={handleWater}
+          >
+            Water
+          </button>
         </div>
         <VocabularySelectField
           search={(options) => options}
