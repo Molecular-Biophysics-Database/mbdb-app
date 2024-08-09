@@ -7,8 +7,7 @@
     <IValue value={ md.general_parameters.record_information.title } placeholder="(Record has no title)" />
   </div>
   <div class="flex">
-    <RemoveButton self_link={ links.self } />
-    <div>
+    <div class="mr-4">
       <a class="flex justify-center h-[40px] text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
         href="{{ links.edit_html or links.self_html }}" type="application/json" role="button">
         <button class="px-4">
@@ -16,7 +15,7 @@
         </button>
       </a>
     </div>
-    <div class="mx-4">
+    <div class="mr-4">
       <a class="flex justify-center w-[160px] h-[40px] text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
         href="{{ links.edit_html or links.self_html }}" type="application/json" role="button">
         <button class="px-4">
@@ -24,7 +23,7 @@
         </button>
       </a>
     </div>
-    <div>
+    <div class="mr-4">
       <a class="flex justify-center w-[160px] h-[40px] text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
         href="{{links.export_path}}/json" type="application/json" role="button">
         <button class="px-4">
@@ -32,5 +31,6 @@
         </button>
       </a>
     </div>
+    <RemoveButton self_link={ links.self } />
   </div>
 </div>
