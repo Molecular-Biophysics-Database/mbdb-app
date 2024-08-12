@@ -1,6 +1,10 @@
 {# def depositors #}
 
-{% set people=array(depositors.principal_contact, depositors.depositor, depositors.contributors, remove_empty=True) %}
+{% set people=array(depositors.depositor, depositors.contributors, remove_empty=True) %}
+{% if depositors.depositor != depositors.principal_contact %}
+   {% set people=array(people, depositors.principal_contact, remove_empty=True) %}
+{% endif %}
+
 {%- for person in people -%}
         {%- if not loop.first %}, {%- endif -%}
         <Person person={person}/>
