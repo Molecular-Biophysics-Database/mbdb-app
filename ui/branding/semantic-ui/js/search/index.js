@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (deleteButton) {
-    ReactDOM.render(<DeleteButton />, deleteButton);
+    const selfLink = deleteButton.getAttribute("data-selflink");
+    ReactDOM.render(<DeleteButton selfLink={selfLink} />, deleteButton);
   }
 });

@@ -1,23 +1,21 @@
 import React from 'react';
-import { useDepositApiClient } from "@js/oarepo_ui";
 
-export default function DeleteButton() {
-  const { values: recordMetadata } = useDepositApiClient();
+export default function DeleteButton({ selfLink }) {
 
-  if (!recordMetadata || !recordMetadata.links || !recordMetadata.links.self) {
+  if (!selfLink) {
     return <div>Record metadata is not available.</div>;
   }
 
-  console.log(recordMetadata, 'RecordMetadata');
+  console.log(selfLink, 'SelfLink');
 
-  async function deleteRecord(recordMetadata) {
+  async function deleteRecord() {
     try {
-      const response = await fetch(recordMetadata.links.self, {
+      const response = await fetch(selfLink, {
         method: "DELETE",
       });
 
       if (!response.ok) {
-        throw new Error(`Failed to delete file: ${response.statusText}`);
+        throw new Error(`Failed to delete record: ${response.statusText}`);
       }
 
       console.log('Record deleted successfully');
@@ -29,7 +27,7 @@ export default function DeleteButton() {
   return (
     <div className="flex justify-center h-[40px] text-20px bg-accent rounded-normal text-primary hover:text-dark hover:bg-primary transition-all" role="button">
       <button 
-        onClick={() => deleteRecord(recordMetadata)}
+        onClick={deleteRecord}
         className="px-4"
       >
         Delete
