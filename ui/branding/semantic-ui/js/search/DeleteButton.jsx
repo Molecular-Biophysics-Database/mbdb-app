@@ -57,7 +57,7 @@ export default function DeleteButton({ selfLink }) {
       </button>
 
       {showPopup && (
-        <div className="absolute top-0 left-0 w-screen h-screen overflow-hidden flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div className="fixed top-0 left-0 w-screen h-screen overflow-hidden flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-white p-6 rounded-normal">
             <div className="mb-4">Are you sure you want to delete your record? This action cannot be undone.</div>
             <div className="flex justify-between">
@@ -79,7 +79,7 @@ export default function DeleteButton({ selfLink }) {
       )}
 
       {showSuccess && (
-        <div className="absolute top-0 left-0 w-screen h-screen overflow-hidden flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div className="fixed top-0 left-0 w-screen h-screen overflow-hidden flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-white p-6 rounded-normal">
             <div className="text-lime-600 text-20px">Your record was removed successfully.</div>
           </div>
