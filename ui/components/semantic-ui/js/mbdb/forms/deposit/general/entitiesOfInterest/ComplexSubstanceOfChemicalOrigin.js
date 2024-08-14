@@ -67,13 +67,13 @@ function ComplexSubstanceOfChemicalOrigin({ name }) {
             name={name}
             label="Additional specification"
             fieldName="additional_specifications"
-            tooltip="Additional information about the lipid assembly, if applicable"
+            tooltip="Additional information about the complex substance can be specified here"
             renderChild={({ arrayName, index }) => (
               <CustomField
                 name={`${arrayName}.${index}`}
                 label={`Additional specification ${index + 1}`}
                 width="w-[15rem]"
-                tooltip="Additional information about the lipid assembly, if applicable"
+                tooltip="Additional information about the complex substance can be specified here"
               />
             )}
           />

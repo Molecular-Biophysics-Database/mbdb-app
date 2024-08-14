@@ -44,7 +44,7 @@ function Polymer({ name }) {
             fieldName="name"
             required
             width="w-[29rem]"
-            tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample"
+            tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1, Ligand A). This name is referenced in the measurement description to identify the entities present in the measured sample"
           />
         </div>
         <div className="mr-3">
@@ -73,14 +73,14 @@ function Polymer({ name }) {
           name={name}
           label="Sequence"
           fieldName="sequence"
-          tooltip="Primary sequence of the polymer, using single letter codes (e.g. SAGRELLE, AGTTA). In case of non-natural amino acids or nucleotides, please place the monomer in brackets"
+          tooltip="Primary sequence of the polymer, using single letter codes (e.g. SAGRELLE, AGTTA). In the case of non-natural amino acids or nucleotides, please place the monomer in brackets (e.g. for selenocysteine as SAGREL<Sec>LE)"
           renderChild={({ optionalFieldName }) => (
             <SequenceField
               name={optionalFieldName}
               colorSchema="light"
               label="Sequence"
               width="w-[51.5rem]"
-              tooltip="Primary sequence of the polymer, using single letter codes (e.g. SAGRELLE, AGTTA). In case of non-natural amino acids or nucleotides, please place the monomer in brackets"
+              tooltip="Primary sequence of the polymer, using single letter codes (e.g. SAGRELLE, AGTTA). In the case of non-natural amino acids or nucleotides, please place the monomer in brackets (e.g. for selenocysteine as SAGREL<Sec>LE)"
             />
           )}
         />
@@ -147,13 +147,13 @@ function Polymer({ name }) {
             name={name}
             label="Additional specification"
             fieldName="additional_specifications"
-            tooltip="Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)"
+            tooltip="Additional information about the polymer can be specified here"
             renderChild={({ arrayName, index }) => (
               <CustomField
                 name={`${arrayName}.${index}`}
                 label={`Additional specification ${index + 1}`}
                 width="w-[15rem]"
-                tooltip="Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)"
+                tooltip="Additional information about the polymer can be specified here"
               />
             )}
           />

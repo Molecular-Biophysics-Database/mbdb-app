@@ -10,11 +10,12 @@ function ExternalDatabase({ name, colorSchema }) {
         name={name}
         label="External Database"
         fieldName="external_databases"
-        tooltip="List of identifiers to records in external databases containing information about the polymer can be specified here (e.g UNIPROT:Q8KRF6)"
+        tooltip="List of identifiers of records in external databases containing information about the polymer can be specified here (e.g UNIPROT:Q8KRF6)"
         renderChild={({ arrayName, index }) => (
           <FormWrapper
             headline={`External database ${index + 1}`}
             colorSchema={colorSchema}
+            tooltip="List of identifiers of records in external databases containing information about the polymer can be specified here (e.g UNIPROT:Q8KRF6)"
           >
             <ExternalDatabaseField
               name={`${arrayName}.${index}`}
