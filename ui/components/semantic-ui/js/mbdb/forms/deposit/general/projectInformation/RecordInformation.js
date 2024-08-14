@@ -1,10 +1,10 @@
 import React from "react";
 import CustomField from "../../buildingBlocks/CustomField";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
-import OptionField from "../../buildingBlocks/OptionField";
+//import OptionField from "../../buildingBlocks/OptionField";
 
 function RecordInformation({ name }) {
-// Currently (2024-08-07), the only implemented access type is the open access, so these fields are set automatically
+  // Currently (2024-08-07), the only implemented access type is the open access, so these fields are set automatically
   /*
   const accessRightsOptions = [
     { value: "open access", label: "Open access" },
@@ -28,7 +28,7 @@ function RecordInformation({ name }) {
               fieldName="title"
               label="Title"
               required
-              width="w-[34rem]"
+              width="w-[1110px]"
               tooltip="Short descriptive title of the record"
             />
           </div>

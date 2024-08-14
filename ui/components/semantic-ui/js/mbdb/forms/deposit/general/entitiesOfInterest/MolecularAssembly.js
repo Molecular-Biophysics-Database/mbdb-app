@@ -32,13 +32,13 @@ function MolecularAssembly({ name }) {
             name={name}
             label="Additional specification"
             fieldName="additional_specifications"
-            tooltip="Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)"
+            tooltip="Additional information about the molecule/assembly can be specified here (e.g. RNase-free water, lyophylized sample, recrystallization, desalting)"
             renderChild={({ arrayName, index }) => (
               <CustomField
                 name={`${arrayName}.${index}`}
                 label={`Additional specification ${index + 1}`}
                 width="w-[15rem]"
-                tooltip="Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)"
+                tooltip="Additional information about the molecule/assembly can be specified here (e.g. RNase-free water, lyophylized sample, recrystallization, desalting)"
               />
             )}
           />

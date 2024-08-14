@@ -20,7 +20,7 @@ function Purity({ name, colorSchema }) {
         label="Purity"
         fieldName="purity"
         initialValue={{ checked: "Yes" }}
-        tooltip="Information about if and how the purity was obtained"
+        tooltip="Information about if and how the purity was assessed"
         renderChild={({ optionalFieldName }) => {
           const actualValue = getIn(values, optionalFieldName);
           if (!actualValue) {
@@ -30,7 +30,7 @@ function Purity({ name, colorSchema }) {
             <FormWrapper
               headline="Purity"
               colorSchema={colorSchema}
-              tooltip="Information about if and how the purity was obtained"
+              tooltip="Information about if and how the purity was assessed"
             >
               <div className="flex">
                 <div className="mr-3">
