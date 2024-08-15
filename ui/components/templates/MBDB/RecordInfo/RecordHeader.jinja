@@ -7,7 +7,9 @@
     <IValue value={ md.general_parameters.record_information.title } placeholder="(Record has no title)" />
   </div>
   <div class="flex">
-    <TemplateButton self_link={ links.self } />
+    <div class="mr-4">
+      <TemplateButton self_link={ links.self } />
+    </div>
     <div class="mr-4">
       <a class="flex justify-center w-[160px] h-10 text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
         href="{{ links.edit_html or links.self_html }}" type="application/json" role="button">
