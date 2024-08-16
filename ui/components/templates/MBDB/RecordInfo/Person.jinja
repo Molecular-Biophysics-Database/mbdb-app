@@ -1,11 +1,10 @@
 {# def person, principal=False #}
-
 <div class="mbdb-person-name flex">
     {{person.given_name ~ " " ~ person.family_name}}
+    {%- if principal -%}
+        <span title="Principal contact">*</span>
+    {%- endif -%}
     {%- for id in array(person.identifiers, remove_empty=True) -%}
-        {%- if principal -%}
-            <span title="Principal contact">*</span>
-        {%- endif -%}
         {%- if id._ui_value.startswith("orcid:") -%}
             <a href="https://orcid.org/{{ id._ui_value.removeprefix("orcid:") }}" target="_blank">
                 <img
