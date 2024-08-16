@@ -1,7 +1,19 @@
-{# def person #}
+{# def person, principal=False #}
 
-{%- set identifiers = person.identifiers|ijoin(',') -%}
-
-<span class="mbdb-person-name" title="{{ identifiers }}">
+<div class="mbdb-person-name flex">
     {{person.given_name ~ " " ~ person.family_name}}
-</span>
+    {%- for id in array(person.identifiers, remove_empty=True) -%}
+        {%- if principal -%}
+            <span title="Principal contact">*</span>
+        {%- endif -%}
+        {%- if id._ui_value.startswith("orcid:") -%}
+            <a href="https://orcid.org/{{ id._ui_value.removeprefix("orcid:") }}" target="_blank">
+                <img
+                    src="/static/images/orcid-logo.png"
+                    alt="Orcid link"
+                    width="20px"
+                />
+            </a>
+        {%- endif -%}
+    {%- endfor -%}
+</div>

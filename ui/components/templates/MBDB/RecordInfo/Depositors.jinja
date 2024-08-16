@@ -1,7 +1,14 @@
 {# def depositors #}
 
-{% set people=array(depositors.principal_contact, depositors.depositor, depositors.contributors, remove_empty=True) %}
-{%- for person in people -%}
-        {%- if not loop.first %}, {%- endif -%}
-        <Person person={person}/>
-{%- endfor -%}
+{% set people=array(depositors.contributors, depositors.principal_contact, remove_empty=True) %}
+{% if depositors.depositor != depositors.principal_contact %}
+   {% set people=array(depositors.depositor, people, remove_empty=True) %}
+{% endif %}
+<div class="flex">
+    {%- for person in people -%}
+            {% set principal=False %}
+            {%- if loop.last -%}{% set principal=True %}{% endif %}
+            {%- if not loop.first %}, {%- endif -%}
+            <Person person={person} principal={principal} />
+    {%- endfor -%}
+</div>
