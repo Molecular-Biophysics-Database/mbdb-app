@@ -36,7 +36,7 @@ function ChangeInEnthalpyDeltaH({ name }) {
             options={unitOptions}
             name={name}
             tooltipValue="Numerical value of the result"
-            tooltipUnit="Unit of the change in enthalpy rate constant"
+            tooltipUnit="Unit of the change in enthalpy"
           />
         </div>
       </div>

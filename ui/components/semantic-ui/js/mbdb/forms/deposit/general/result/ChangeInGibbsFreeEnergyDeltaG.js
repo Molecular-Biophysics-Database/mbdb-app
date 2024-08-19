@@ -36,7 +36,7 @@ function ChangeInGibbsFreeEnergyDeltaG({ name }) {
             options={unitOptions}
             name={name}
             tooltipValue="Numerical value of the result"
-            tooltipUnit="Unit of the change in entropy rate constant"
+            tooltipUnit="Unit of the change in Gibbs free energy"
           />
         </div>
       </div>

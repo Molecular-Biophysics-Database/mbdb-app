@@ -57,7 +57,7 @@ function CellFraction({ name }) {
             label="Fraction"
             fieldName="fraction"
             required
-            tooltip="The subcelluar component e.g. (Ribosome)"
+            tooltip="The subcelluar component (e.g. Ribosome)"
           />
         </div>
         <div className="mr-3">
@@ -101,12 +101,12 @@ function CellFraction({ name }) {
             name={name}
             label="Tissue"
             fieldName="tissue"
-            tooltip="The tissue type the cell fraction was derived from"
+            tooltip="The tissue type the cell fraction was derived from (e.g. epithelia, muscle)"
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Tissue"
-                tooltip="The tissue type the cell fraction was derived from"
+                tooltip="The tissue type the cell fraction was derived from (e.g. epithelia, muscle)"
               />
             )}
           />
@@ -116,12 +116,12 @@ function CellFraction({ name }) {
             name={name}
             label="Cell type"
             fieldName="cell_type"
-            tooltip="The cell type the cell fraction was derived from"
+            tooltip="The cell type the cell fraction was derived from (e.g. macrophage, sperm)"
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Cell type"
-                tooltip="The cell type the cell fraction was derived from"
+                tooltip="The cell type the cell fraction was derived from (e.g. macrophage, sperm)"
               />
             )}
           />

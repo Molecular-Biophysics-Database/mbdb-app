@@ -42,7 +42,7 @@ function AssociationRateKOn({ name }) {
             options={unitOptions}
             name={name}
             tooltipValue="Numerical value of the result"
-            tooltipUnit="Unit of the association rate constant"
+            tooltipUnit="Unit of the association rate"
           />
         </div>
       </div>

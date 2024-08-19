@@ -54,7 +54,7 @@ function ResultTab({ name }) {
           label="Result"
           fieldName="results"
           initialValue={{ type: "Concentration" }}
-          tooltip="List of the results (parameter) that were derived by analyzing the raw data and which steps were taken to obtain them"
+          tooltip="List of the results (parameters) that were derived by analyzing the raw data and which steps were taken to obtain them"
           renderChild={({ arrayName, index }) => {
             const actualValue = getIn(values, `${arrayName}.${index}`);
             if (!actualValue) {
@@ -63,7 +63,7 @@ function ResultTab({ name }) {
             return (
               <FormWrapper
                 headline={`Result ${index + 1}`}
-                tooltip="List of the results (parameter) that were derived by analyzing the raw data and which steps were taken to obtain them"
+                tooltip="List of the results (parameters) that were derived by analyzing the raw data and which steps were taken to obtain them"
               >
                 <div className="mb-3">
                   <DynamicOptionField
