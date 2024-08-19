@@ -33,7 +33,7 @@ function DissociationRateKOff({ name }) {
             options={unitOptions}
             name={name}
             tooltipValue="Numerical value of the result"
-            tooltipUnit="Unit of the dissociation rate constant"
+            tooltipUnit="Unit of the dissociation rate"
           />
         </div>
       </div>

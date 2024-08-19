@@ -33,7 +33,7 @@ function HillCoefficient({ name }) {
             options={unitOptions}
             name={name}
             tooltipValue="Numerical value of the result"
-            tooltipUnit="Unit of the Hill coefficient"
+            tooltipUnit="Hill coefficient is unitless"
           />
         </div>
       </div>

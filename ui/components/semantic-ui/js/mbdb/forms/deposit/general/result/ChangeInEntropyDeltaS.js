@@ -36,7 +36,7 @@ function ChangeInEntropyDeltaS({ name }) {
             options={unitOptions}
             name={name}
             tooltipValue="Numerical value of the result"
-            tooltipUnit="Unit of the change in entropy rate constant"
+            tooltipUnit="Unit of the change in entropy"
           />
         </div>
       </div>

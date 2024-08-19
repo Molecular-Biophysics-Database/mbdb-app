@@ -39,6 +39,7 @@ function Purity({ name, colorSchema }) {
                     required
                     options={typeOptions}
                     label="Checked"
+                    tooltip="Wether or not the purity was checked"
                     fieldName="checked"
                     width="w-full"
                   />

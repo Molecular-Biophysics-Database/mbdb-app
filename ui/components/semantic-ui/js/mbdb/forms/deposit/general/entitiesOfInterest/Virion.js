@@ -113,12 +113,12 @@ function Virion({ name }) {
             name={name}
             label="Host cell type"
             fieldName="host_cell_type"
-            tooltip="The host cell type the virion was produced in"
+            tooltip="The host cell type the virion was produced in (e.g. macrophage)"
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Host cell type"
-                tooltip="The host cell type the virion was produced in"
+                tooltip="The host cell type the virion was produced in (e.g. macrophage)"
               />
             )}
           />

@@ -38,7 +38,7 @@ function MolecularWeightMW({ name }) {
             options={unitOptions}
             name={name}
             tooltipValue="Numerical value of the result"
-            tooltipUnit="Unit of the constant of association"
+            tooltipUnit="Unit of the molecular weight"
           />
         </div>
       </div>
