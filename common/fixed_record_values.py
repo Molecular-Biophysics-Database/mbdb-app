@@ -4,15 +4,19 @@ from copy import deepcopy
 FIXED_RECORD_VALUES = {
     "metadata": {
         "general_parameters": {
-            "schema_version": "0.9.24",
+            "schema_version": "0.9.25",
             "record_information": {
                 "access_rights": "open access",
                 "metadata_access_rights": "open access",
                 "publisher": "MBDB",
                 "resource_type_general": "Dataset",
                 "deposition_date": date.today().isoformat(),
-                "date_available": date.today().isoformat(),
                 "subject_category": "Biophysics",
+                "copyright": "Anyone is free to distribute the data and metadata",
+                "license": {
+                    "name": "CC0 1.0 Universal",
+                    "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+                },
             },
         },
     }
