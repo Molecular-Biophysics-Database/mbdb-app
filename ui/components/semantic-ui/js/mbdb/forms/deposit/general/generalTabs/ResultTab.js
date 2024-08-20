@@ -70,6 +70,7 @@ function ResultTab({ name }) {
                     name={`${arrayName}.${index}`}
                     options={resultTabOptions}
                     label="Type"
+                    required
                     fieldName="type"
                     width="w-full"
                     tooltip="The type of physical parameter the result represents"
