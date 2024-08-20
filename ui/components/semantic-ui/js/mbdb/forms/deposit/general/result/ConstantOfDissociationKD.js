@@ -42,8 +42,8 @@ function ConstantOfDissociationKD({ name }) {
           <ValueUnit
             options={unitOptions}
             name={name}
-            valueRequired={true}
-            unitRequired={true}
+            valueRequired
+            unitRequired
             tooltipValue="Numerical value of the result"
             tooltipUnit="Unit of the constant of dissociation"
           />

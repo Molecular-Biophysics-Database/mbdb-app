@@ -53,8 +53,8 @@ function HalfMaximalEffectiveConcentrationEC50({ name }) {
           <ValueUnit
             options={unitOptions}
             name={name}
-            valueRequired={true}
-            unitRequired={true}
+            valueRequired
+            unitRequired
             tooltipValue="Numerical value of the result"
             tooltipUnit="Unit of the half maximal effective concentration"
           />
