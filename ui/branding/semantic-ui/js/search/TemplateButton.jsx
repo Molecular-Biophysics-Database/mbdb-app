@@ -38,7 +38,6 @@ async function getRecordMeta( {selfLink} ) {
       throw new Error(`Failed to get record: ${response.statusText}`);
     }
     let templateRecord = await response.json();
-    console.log(templateRecord)
     updateRecord(templateRecord);
     // we want the record in a form that can be used in an HTTP request body
     return JSON.stringify({metadata: templateRecord.metadata})
@@ -52,8 +51,16 @@ async function getRecordMeta( {selfLink} ) {
 async function createRecord( {selfLink} ) {
   try {
     const body = await getRecordMeta({selfLink})
-    // removing <record-id>/ from link as it should be of the form /api/records/<model>/
-    const postLink = selfLink.split("/").slice(0,-2).join("/")
+
+    // removing <record-id>/draft from link as it should be of the form /api/records/<model>/
+    let postLink = selfLink.split("/");
+    if (postLink.at(-1) === "draft"){
+      postLink = postLink.slice(0,-2)
+    } else {
+      postLink = postLink.slice(0,-1)
+    }
+    postLink = postLink.join("/");
+
     const response = await fetch(postLink, {
       method: "POST",
       headers: headers,
