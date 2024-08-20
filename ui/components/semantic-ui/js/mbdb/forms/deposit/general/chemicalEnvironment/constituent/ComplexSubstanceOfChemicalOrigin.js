@@ -13,9 +13,8 @@ import OptionalField from "../../../buildingBlocks/OptionalField";
 function ComplexSubstanceOfChemicalOrigin({ name }) {
   const classOptions = [{ value: "lipid_assembly", label: "Lipid assembly" }];
 
-  const fieldName = "preparation_protocol";
-
-  UseDefault(`${name}.${fieldName}`, [{}]);
+  const fieldNamePreparationProtocol = "preparation_protocol";
+  UseDefault(`${name}.${fieldNamePreparationProtocol}`, [{}]);
 
   return (
     <>
@@ -44,7 +43,7 @@ function ComplexSubstanceOfChemicalOrigin({ name }) {
           <ArrayField
             name={name}
             label="Preparation protocol"
-            fieldName={fieldName}
+            fieldName={fieldNamePreparationProtocol}
             required
             tooltip="List of the steps performed during the preparation of the complex substance"
             renderChild={({ arrayName, index }) => (

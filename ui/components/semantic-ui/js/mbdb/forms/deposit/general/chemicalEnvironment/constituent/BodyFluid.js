@@ -9,6 +9,7 @@ import Concentration from "../../../sharedComponents/Concentration";
 import OptionalField from "../../../buildingBlocks/OptionalField";
 import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
+import UseDefault from "../../../buildingBlocks/UseDefault";
 
 function BodyFluid({ name }) {
   const fluidOptions = [
@@ -21,6 +22,9 @@ function BodyFluid({ name }) {
     { value: "Urine", label: "Urine" },
     { value: "Plant extract", label: "Plant extract" },
   ];
+
+  const fieldNamePreparationProtocol = "preparation_protocol";
+  UseDefault(`${name}.${fieldNamePreparationProtocol}`, [{}]);
 
   return (
     <>
@@ -70,7 +74,8 @@ function BodyFluid({ name }) {
           <ArrayField
             name={name}
             label="Preparation protocol"
-            fieldName="preparation_protocol"
+            fieldName={fieldNamePreparationProtocol}
+            required
             tooltip="List of the steps performed during the preparation of the complex substance"
             renderChild={({ arrayName, index }) => (
               <FormWrapper

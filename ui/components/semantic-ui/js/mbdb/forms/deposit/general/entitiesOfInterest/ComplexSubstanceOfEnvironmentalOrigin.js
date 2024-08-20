@@ -8,6 +8,7 @@ import Storage from "../sharedComponents/Storage";
 import OptionField from "../../buildingBlocks/OptionField";
 import OptionalField from "../../buildingBlocks/OptionalField";
 import CreateUuid from "../../buildingBlocks/CreateUuid";
+import UseDefault from "../../buildingBlocks/UseDefault";
 
 function ComplexSubstanceOfEnvironmentalOrigin({ name }) {
   CreateUuid(name);
@@ -20,6 +21,9 @@ function ComplexSubstanceOfEnvironmentalOrigin({ name }) {
     { value: "Sewage", label: "Sewage" },
     { value: "Soil", label: "Soil" },
   ];
+
+  const fieldNamePreparationProtocol = "preparation_protocol";
+  UseDefault(`${name}.${fieldNamePreparationProtocol}`, [{}]);
 
   return (
     <>
@@ -57,7 +61,8 @@ function ComplexSubstanceOfEnvironmentalOrigin({ name }) {
           <ArrayField
             name={name}
             label="Preparation protocol"
-            fieldName="preparation_protocol"
+            fieldName={fieldNamePreparationProtocol}
+            required
             tooltip="List of the steps performed during the preparation of the complex substance"
             renderChild={({ arrayName, index }) => (
               <FormWrapper
