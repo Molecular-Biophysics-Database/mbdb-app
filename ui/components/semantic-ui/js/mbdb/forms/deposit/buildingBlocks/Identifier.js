@@ -12,12 +12,12 @@ function Identifier({ name, label, disabled, required }) {
   const [field, meta] = useField(nameCustomField);
 
   useEffect(() => {
-    if (!field.value){
-      setFieldValue(nameCustomField, `${prefix}:`)
+    if (!field.value) {
+      setFieldValue(nameCustomField, `${prefix}:`);
     }
-
     if (field.value && !field.value.startsWith(`${prefix}:`)) {
-      setFieldValue(nameCustomField, `${prefix}:${field.value}`);
+      setFieldValue(nameCustomField, ``);
+      setFieldValue(nameCustomField, `${prefix}:`);
     }
   }, [field.value, setFieldValue, nameCustomField, prefix]);
 
