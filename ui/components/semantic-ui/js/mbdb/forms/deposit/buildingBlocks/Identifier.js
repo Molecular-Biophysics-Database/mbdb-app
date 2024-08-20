@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useField } from "formik";
 import { useFormikContext } from "formik";
 import TextField from "@material-ui/core/TextField";
@@ -10,17 +10,16 @@ function Identifier({ name, label, disabled, required }) {
   const { setFieldValue } = useFormikContext();
   const nameCustomField = name;
   const [field, meta] = useField(nameCustomField);
-  const [prefixApplied, setPrefixApplied] = useState(false);
 
   useEffect(() => {
-    if (!prefixApplied) {
-      setFieldValue(nameCustomField, `${prefix}:`);
-      setPrefixApplied(true);
+    if (!field.value){
+      setFieldValue(nameCustomField, `${prefix}:`)
     }
+
     if (field.value && !field.value.startsWith(`${prefix}:`)) {
-      setFieldValue(nameCustomField, `${prefix}:`);
+      setFieldValue(nameCustomField, `${prefix}:${field.value}`);
     }
-  }, [field.value, setFieldValue, nameCustomField, prefix, prefixApplied]);
+  }, [field.value, setFieldValue, nameCustomField, prefix]);
 
   return (
     <>

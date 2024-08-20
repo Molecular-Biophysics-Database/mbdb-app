@@ -5,12 +5,6 @@ import ArrayField from "../../buildingBlocks/ArrayField";
 import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
 import AssociatedPublication from "../projectInformation/associatedPublication/AssociatedPublication";
-import { useFormikContext } from "formik";
-
-const FormikStateLogger = () => {
-  const { values } = useFormikContext();
-  return <pre>{JSON.stringify(values, null, 2)}</pre>;
-};
 
 function ProjectInformationTab({ name }) {
   return (
@@ -42,7 +36,6 @@ function ProjectInformationTab({ name }) {
           )}
         />
       </div>
-      <FormikStateLogger />
     </>
   );
 }
