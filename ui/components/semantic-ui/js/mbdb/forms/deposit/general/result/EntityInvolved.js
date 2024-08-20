@@ -22,6 +22,7 @@ function EntityInvolved({ name }) {
         <div className="mr-3">
           <OptionField
             name={name}
+            required
             options={entityOptions}
             fieldName="entity"
             label="Entity"
@@ -31,6 +32,7 @@ function EntityInvolved({ name }) {
         <div>
           <CustomField
             name={name}
+            required
             fieldName="copy_number"
             label="Copy number"
             type="number"

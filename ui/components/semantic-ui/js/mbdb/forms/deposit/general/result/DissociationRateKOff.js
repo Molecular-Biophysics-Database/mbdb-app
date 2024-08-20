@@ -23,6 +23,7 @@ function DissociationRateKOff({ name }) {
         <div className="mr-3">
           <CustomField
             name={name}
+            required
             fieldName="name"
             label="Name"
             tooltip="Descriptive name (id) of the result (e.g. Kd of Lysozyme and VHH2). Must be unique within a record"
@@ -32,6 +33,8 @@ function DissociationRateKOff({ name }) {
           <ValueUnit
             options={unitOptions}
             name={name}
+            valueRequired={true}
+            unitRequired={true}
             tooltipValue="Numerical value of the result"
             tooltipUnit="Unit of the dissociation rate"
           />
