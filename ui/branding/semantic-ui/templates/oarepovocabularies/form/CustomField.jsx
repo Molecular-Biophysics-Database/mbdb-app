@@ -17,13 +17,11 @@ function CustomField({
   disabled,
   prefix
 }) {
-    const { values, setFieldValue } = useFormikContext();
+    const { setFieldValue } = useFormikContext();
   const nameCustomField =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const [field, meta] = useField(nameCustomField);
   const [prefixApplied, setPrefixApplied] = useState(false);
-
-  console.log(values, 'Valueesssssss');
 
   useEffect(() => {
 

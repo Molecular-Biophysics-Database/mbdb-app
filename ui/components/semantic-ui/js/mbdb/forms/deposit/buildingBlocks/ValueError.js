@@ -1,14 +1,9 @@
 import React from "react";
 import CustomField from "./CustomField";
 import FormWrapper from "./FormWrapper";
-import OptionField from "./OptionField";
+import RelativeErrors from "./RelativeErrors";
 
 function ValueError({ colorSchema, name }) {
-  const ErrorOptions = [
-    { value: "Yes", label: "Yes" },
-    { value: "No", label: "No" },
-  ];
-
   return (
     <>
       <div className="flex">
@@ -38,15 +33,7 @@ function ValueError({ colorSchema, name }) {
                 width="w-[8rem]"
               />
             </div>
-            <div>
-              <OptionField
-                name={name}
-                fieldName="is_relative"
-                options={ErrorOptions}
-                label="Errors are relative"
-                tooltip="True if the error values should be interpreted as relative errors (fractional uncertainty)"
-              />
-            </div>
+            <RelativeErrors name={name} />
           </div>
         </FormWrapper>
       </div>

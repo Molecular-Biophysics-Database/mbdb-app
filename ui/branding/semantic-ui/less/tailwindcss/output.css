@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.4.9 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.10 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -1023,10 +1023,6 @@ video {
   width: 17rem;
 }
 
-.w-\[18rem\] {
-  width: 18rem;
-}
-
 .w-\[20rem\] {
   width: 20rem;
 }
@@ -1122,6 +1118,14 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-\[10rem\] {
+  width: 10rem;
+}
+
+.w-\[16rem\] {
+  width: 16rem;
 }
 
 .min-w-\[178px\] {
