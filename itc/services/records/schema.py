@@ -99,7 +99,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.24"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.25"])])
 
     technique = ma_fields.String(
         required=True,
@@ -786,7 +786,7 @@ class IdentitySchema(PolymorphicSchema):
 
     Yes = ma_fields.Nested(lambda: IdentityYesSchema(), required=True)
 
-    type_field = "checked"
+    type_field = "assessed"
 
 
 class InjectionModeSchema(PolymorphicSchema):
@@ -1877,13 +1877,13 @@ class IdentityYesSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
+    assessed = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
+
     by_fingerprinting = ma_fields.Nested(lambda: ByFingerprintingSchema())
 
     by_intact_mass = ma_fields.Nested(lambda: ByIntactMassSchema())
 
     by_sequencing = ma_fields.Nested(lambda: BySequencingSchema())
-
-    checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
 
 class ModificationsSchema(DictOnlySchema):
@@ -1949,6 +1949,19 @@ class Molecular_weightSchema(DictOnlySchema):
     value = ma_fields.Float(required=True)
 
     value_error = ma_fields.Nested(lambda: ValueErrorSchema())
+
+
+class RecordInformationSchema(PolymorphicSchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    embargoed = ma_fields.Nested(lambda: OpenSchema(), required=True)
+
+    open = ma_fields.Nested(lambda: OpenSchema(), required=True)
+
+    restricted = ma_fields.Nested(lambda: RestrictedSchema(), required=True)
+
+    type_field = "access_rights"
 
 
 class ResultsItemConcentrationSchema(DictOnlySchema):
@@ -2300,7 +2313,7 @@ class HomogeneitySchema(PolymorphicSchema):
 
     Yes = ma_fields.Nested(lambda: YesSchema(), required=True)
 
-    type_field = "checked"
+    type_field = "assessed"
 
 
 class InjectionParametersItemSchema(DictOnlySchema):
@@ -2312,6 +2325,42 @@ class InjectionParametersItemSchema(DictOnlySchema):
     volume = ma_fields.Nested(lambda: CellVolumeSchema(), required=True)
 
 
+class OpenSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    access_rights = ma_fields.String(
+        required=True, validate=[OneOf(["open", "embargoed", "restricted"])]
+    )
+
+    copyright = ma_fields.String(
+        required=True,
+        validate=[OneOf(["Anyone is free to distribute the data and metadata"])],
+    )
+
+    date_available = ma_fields.String(validate=[validate_date("%Y-%m-%d")])
+
+    deposition_date = ma_fields.String(
+        required=True, validate=[validate_date("%Y-%m-%d")]
+    )
+
+    external_identifier = ma_fields.String()
+
+    license = ma_fields.Nested(lambda: LicenseSchema())
+
+    publisher = ma_fields.String(required=True, validate=[OneOf(["MBDB"])])
+
+    resource_type = ma_fields.String(required=True)
+
+    resource_type_general = ma_fields.String(
+        required=True, validate=[OneOf(["Dataset"])]
+    )
+
+    subject_category = ma_fields.String(required=True, validate=[OneOf(["Biophysics"])])
+
+    title = ma_fields.String(required=True)
+
+
 class PuritySchema(PolymorphicSchema):
     class Meta:
         unknown = ma.RAISE
@@ -2320,7 +2369,7 @@ class PuritySchema(PolymorphicSchema):
 
     Yes = ma_fields.Nested(lambda: PurityYesSchema(), required=True)
 
-    type_field = "checked"
+    type_field = "assessed"
 
 
 class Single_injectionSchema(DictOnlySchema):
@@ -2621,6 +2670,18 @@ class InstrumentSchema(DictOnlySchema):
     title = i18n_strings
 
 
+class LicenseSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    name = ma_fields.String(required=True, validate=[OneOf(["CC0 1.0 Universal"])])
+
+    url = ma_fields.String(
+        required=True,
+        validate=[OneOf(["https://creativecommons.org/publicdomain/zero/1.0/"])],
+    )
+
+
 class LocationSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -2649,7 +2710,7 @@ class NoSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
+    assessed = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
 
 class ProtocolItemSchema(DictOnlySchema):
@@ -2665,7 +2726,7 @@ class PurityYesSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
+    assessed = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
     method = ma_fields.String(
         required=True,
@@ -2681,13 +2742,28 @@ class PurityYesSchema(DictOnlySchema):
     )
 
 
-class RecordInformationSchema(DictOnlySchema):
+class ReferencePowerSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    unit = ma_fields.String(required=True, validate=[OneOf(["µcal/s", "µJ/s"])])
+
+    value = ma_fields.Float(required=True)
+
+
+class RestrictedSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
     access_rights = ma_fields.String(
+        required=True, validate=[OneOf(["open", "embargoed", "restricted"])]
+    )
+
+    copyright = ma_fields.String(
         required=True,
-        validate=[OneOf(["open access", "embargoed access", "restricted access"])],
+        validate=[
+            OneOf(["The depositors retains copyright to the data files and metadata"])
+        ],
     )
 
     date_available = ma_fields.String(validate=[validate_date("%Y-%m-%d")])
@@ -2697,11 +2773,6 @@ class RecordInformationSchema(DictOnlySchema):
     )
 
     external_identifier = ma_fields.String()
-
-    metadata_access_rights = ma_fields.String(
-        required=True,
-        validate=[OneOf(["open access", "embargoed access", "restricted access"])],
-    )
 
     publisher = ma_fields.String(required=True, validate=[OneOf(["MBDB"])])
 
@@ -2714,15 +2785,6 @@ class RecordInformationSchema(DictOnlySchema):
     subject_category = ma_fields.String(required=True, validate=[OneOf(["Biophysics"])])
 
     title = ma_fields.String(required=True)
-
-
-class ReferencePowerSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    unit = ma_fields.String(required=True, validate=[OneOf(["µcal/s", "µJ/s"])])
-
-    value = ma_fields.Float(required=True)
 
 
 class SizeSchema(DictOnlySchema):
@@ -2796,7 +2858,7 @@ class YesSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
+    assessed = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
     expected_number_of_species = ma_fields.Integer(
         required=True, validate=[ma.validate.Range(min=1)]

@@ -214,7 +214,7 @@
                                                         "homogeneity": {
                                                             "type": "object",
                                                             "properties": {
-                                                                "checked": {
+                                                                "assessed": {
                                                                     "type": "string"
                                                                 },
                                                                 "expected_number_of_species": {
@@ -231,6 +231,9 @@
                                                         "identity": {
                                                             "type": "object",
                                                             "properties": {
+                                                                "assessed": {
+                                                                    "type": "string"
+                                                                },
                                                                 "by_fingerprinting": {
                                                                     "type": "object",
                                                                     "properties": {
@@ -268,16 +271,13 @@
                                                                             "type": "string"
                                                                         }
                                                                     }
-                                                                },
-                                                                "checked": {
-                                                                    "type": "string"
                                                                 }
                                                             }
                                                         },
                                                         "purity": {
                                                             "type": "object",
                                                             "properties": {
-                                                                "checked": {
+                                                                "assessed": {
                                                                     "type": "string"
                                                                 },
                                                                 "method": {
@@ -530,7 +530,7 @@
                                                                     "homogeneity": {
                                                                         "type": "object",
                                                                         "properties": {
-                                                                            "checked": {
+                                                                            "assessed": {
                                                                                 "type": "string"
                                                                             },
                                                                             "expected_number_of_species": {
@@ -547,6 +547,9 @@
                                                                     "identity": {
                                                                         "type": "object",
                                                                         "properties": {
+                                                                            "assessed": {
+                                                                                "type": "string"
+                                                                            },
                                                                             "by_fingerprinting": {
                                                                                 "type": "object",
                                                                                 "properties": {
@@ -584,16 +587,13 @@
                                                                                         "type": "string"
                                                                                     }
                                                                                 }
-                                                                            },
-                                                                            "checked": {
-                                                                                "type": "string"
                                                                             }
                                                                         }
                                                                     },
                                                                     "purity": {
                                                                         "type": "object",
                                                                         "properties": {
-                                                                            "checked": {
+                                                                            "assessed": {
                                                                                 "type": "string"
                                                                             },
                                                                             "method": {
@@ -1196,7 +1196,7 @@
                                             "homogeneity": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "checked": {
+                                                    "assessed": {
                                                         "type": "string"
                                                     },
                                                     "expected_number_of_species": {
@@ -1213,6 +1213,9 @@
                                             "identity": {
                                                 "type": "object",
                                                 "properties": {
+                                                    "assessed": {
+                                                        "type": "string"
+                                                    },
                                                     "by_fingerprinting": {
                                                         "type": "object",
                                                         "properties": {
@@ -1250,16 +1253,13 @@
                                                                 "type": "string"
                                                             }
                                                         }
-                                                    },
-                                                    "checked": {
-                                                        "type": "string"
                                                     }
                                                 }
                                             },
                                             "purity": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "checked": {
+                                                    "assessed": {
                                                         "type": "string"
                                                     },
                                                     "method": {
@@ -1512,7 +1512,7 @@
                                                         "homogeneity": {
                                                             "type": "object",
                                                             "properties": {
-                                                                "checked": {
+                                                                "assessed": {
                                                                     "type": "string"
                                                                 },
                                                                 "expected_number_of_species": {
@@ -1529,6 +1529,9 @@
                                                         "identity": {
                                                             "type": "object",
                                                             "properties": {
+                                                                "assessed": {
+                                                                    "type": "string"
+                                                                },
                                                                 "by_fingerprinting": {
                                                                     "type": "object",
                                                                     "properties": {
@@ -1566,16 +1569,13 @@
                                                                             "type": "string"
                                                                         }
                                                                     }
-                                                                },
-                                                                "checked": {
-                                                                    "type": "string"
                                                                 }
                                                             }
                                                         },
                                                         "purity": {
                                                             "type": "object",
                                                             "properties": {
-                                                                "checked": {
+                                                                "assessed": {
                                                                     "type": "string"
                                                                 },
                                                                 "method": {
@@ -1854,6 +1854,9 @@
                                 "access_rights": {
                                     "type": "string"
                                 },
+                                "copyright": {
+                                    "type": "string"
+                                },
                                 "date_available": {
                                     "type": "string",
                                     "format": "date"
@@ -1865,8 +1868,16 @@
                                 "external_identifier": {
                                     "type": "string"
                                 },
-                                "metadata_access_rights": {
-                                    "type": "string"
+                                "license": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        }
+                                    }
                                 },
                                 "publisher": {
                                     "type": "string"

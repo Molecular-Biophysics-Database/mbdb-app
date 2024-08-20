@@ -61,7 +61,7 @@ class GeneralParametersUISchema(DictOnlySchema):
 
     results = ma_fields.List(ma_fields.Nested(lambda: ResultsItemUISchema()))
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.24"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.25"])])
 
     technique = ma_fields.String(
         required=True,
@@ -2165,26 +2165,26 @@ class IdentityUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
+    assessed = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
+
     by_fingerprinting = ma_fields.Nested(lambda: ByFingerprintingUISchema())
 
     by_intact_mass = ma_fields.Nested(lambda: ByIntactMassUISchema())
 
     by_sequencing = ma_fields.Nested(lambda: BySequencingUISchema())
-
-    checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
 
 class IdentityUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
+    assessed = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
+
     by_fingerprinting = ma_fields.Nested(lambda: ByFingerprintingUISchema())
 
     by_intact_mass = ma_fields.Nested(lambda: ByIntactMassUISchema())
 
     by_sequencing = ma_fields.Nested(lambda: BySequencingUISchema())
-
-    checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
 
 class MeasurementPositionsItemUISchema(DictOnlySchema):
@@ -2719,6 +2719,76 @@ class LigandUISchema(DictOnlySchema):
     )
 
 
+class OpenUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    access_rights = ma_fields.String(
+        required=True, validate=[OneOf(["open", "embargoed", "restricted"])]
+    )
+
+    copyright = ma_fields.String(
+        required=True,
+        validate=[OneOf(["Anyone is free to distribute the data and metadata"])],
+    )
+
+    date_available = LocalizedDate()
+
+    deposition_date = LocalizedDate(required=True)
+
+    external_identifier = ma_fields.String()
+
+    license = ma_fields.Nested(lambda: LicenseUISchema())
+
+    publisher = ma_fields.String(required=True, validate=[OneOf(["MBDB"])])
+
+    resource_type = ma_fields.String(required=True)
+
+    resource_type_general = ma_fields.String(
+        required=True, validate=[OneOf(["Dataset"])]
+    )
+
+    subject_category = ma_fields.String(required=True, validate=[OneOf(["Biophysics"])])
+
+    title = ma_fields.String(required=True)
+
+
+class RecordInformationUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    access_rights = ma_fields.String(
+        required=True, validate=[OneOf(["open", "embargoed", "restricted"])]
+    )
+
+    copyright = ma_fields.String(
+        required=True,
+        validate=[
+            OneOf(["The depositors retains copyright to the data files and metadata"])
+        ],
+    )
+
+    date_available = LocalizedDate()
+
+    deposition_date = LocalizedDate(required=True)
+
+    external_identifier = ma_fields.String()
+
+    license = ma_fields.Nested(lambda: LicenseUISchema())
+
+    publisher = ma_fields.String(required=True, validate=[OneOf(["MBDB"])])
+
+    resource_type = ma_fields.String(required=True)
+
+    resource_type_general = ma_fields.String(
+        required=True, validate=[OneOf(["Dataset"])]
+    )
+
+    subject_category = ma_fields.String(required=True, validate=[OneOf(["Biophysics"])])
+
+    title = ma_fields.String(required=True)
+
+
 class SensorUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -3012,7 +3082,7 @@ class HomogeneityUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
+    assessed = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
     expected_number_of_species = ma_fields.Integer(required=True)
 
@@ -3037,7 +3107,7 @@ class HomogeneityUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
+    assessed = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
     expected_number_of_species = ma_fields.Integer(required=True)
 
@@ -3071,6 +3141,18 @@ class InstrumentUISchema(DictOnlySchema):
     title = VocabularyI18nStrUIField()
 
 
+class LicenseUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    name = ma_fields.String(required=True, validate=[OneOf(["CC0 1.0 Universal"])])
+
+    url = ma_fields.String(
+        required=True,
+        validate=[OneOf(["https://creativecommons.org/publicdomain/zero/1.0/"])],
+    )
+
+
 class LocationUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -3095,7 +3177,7 @@ class NoUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
+    assessed = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
 
 class ProtocolItemUISchema(DictOnlySchema):
@@ -3111,7 +3193,7 @@ class PurityUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
+    assessed = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
     method = ma_fields.String(
         required=True,
@@ -3131,7 +3213,7 @@ class PurityUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    checked = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
+    assessed = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
 
     method = ma_fields.String(
         required=True,
@@ -3147,13 +3229,19 @@ class PurityUISchema(DictOnlySchema):
     )
 
 
-class RecordInformationUISchema(DictOnlySchema):
+class RestrictedUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
     access_rights = ma_fields.String(
+        required=True, validate=[OneOf(["open", "embargoed", "restricted"])]
+    )
+
+    copyright = ma_fields.String(
         required=True,
-        validate=[OneOf(["open access", "embargoed access", "restricted access"])],
+        validate=[
+            OneOf(["The depositors retains copyright to the data files and metadata"])
+        ],
     )
 
     date_available = LocalizedDate()
@@ -3161,11 +3249,6 @@ class RecordInformationUISchema(DictOnlySchema):
     deposition_date = LocalizedDate(required=True)
 
     external_identifier = ma_fields.String()
-
-    metadata_access_rights = ma_fields.String(
-        required=True,
-        validate=[OneOf(["open access", "embargoed access", "restricted access"])],
-    )
 
     publisher = ma_fields.String(required=True, validate=[OneOf(["MBDB"])])
 

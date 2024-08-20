@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-08-05T15:14:09.522559\n"
-"PO-Revision-Date: 2024-08-05T15:14:09.522561\n"
+"POT-Creation-Date: 2024-08-20T15:45:25.367038\n"
+"PO-Revision-Date: 2024-08-20T15:45:25.367040\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -765,23 +765,23 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/checked.help"
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/assessed.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/checked.label"
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/assessed.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/checked.hint"
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/assessed.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/checked.enum.Yes"
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/assessed.enum.Yes"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/checked.enum.No"
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/assessed.enum.No"
 msgstr ""
 
 msgid ""
@@ -850,6 +850,26 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/assessed.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/assessed.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/assessed.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/assessed.enum.Yes"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/assessed.enum.No"
 msgstr ""
 
 msgid ""
@@ -1029,26 +1049,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/checked.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/checked.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/checked.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/checked.enum.Yes"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/checked.enum.No"
-msgstr ""
-
-msgid ""
 "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity.help"
 msgstr ""
 
@@ -1061,23 +1061,23 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/checked.help"
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/assessed.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/checked.label"
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/assessed.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/checked.hint"
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/assessed.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/checked.enum.Yes"
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/assessed.enum.Yes"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/checked.enum.No"
+"metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/assessed.enum.No"
 msgstr ""
 
 msgid ""
@@ -1940,23 +1940,23 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/checked.help"
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/assessed.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/checked.label"
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/assessed.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/checked.hint"
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/assessed.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/checked.enum.Yes"
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/assessed.enum.Yes"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/checked.enum.No"
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/assessed.enum.No"
 msgstr ""
 
 msgid ""
@@ -2025,6 +2025,26 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/assessed.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/assessed.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/assessed.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/assessed.enum.Yes"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/assessed.enum.No"
 msgstr ""
 
 msgid ""
@@ -2204,26 +2224,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/checked.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/checked.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/checked.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/checked.enum.Yes"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/checked.enum.No"
-msgstr ""
-
-msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity.help"
 msgstr ""
 
@@ -2236,23 +2236,23 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/checked.help"
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/assessed.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/checked.label"
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/assessed.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/checked.hint"
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/assessed.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/checked.enum.Yes"
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/assessed.enum.Yes"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/checked.enum.No"
+"metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/assessed.enum.No"
 msgstr ""
 
 msgid ""
@@ -4497,23 +4497,23 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/checked.help"
+"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/assessed.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/checked.label"
+"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/assessed.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/checked.hint"
+"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/assessed.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/checked.enum.Yes"
+"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/assessed.enum.Yes"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/checked.enum.No"
+"metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/assessed.enum.No"
 msgstr ""
 
 msgid ""
@@ -4582,6 +4582,26 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/quality_controls/identity.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/identity/assessed.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/identity/assessed.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/identity/assessed.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/identity/assessed.enum.Yes"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/quality_controls/identity/assessed.enum.No"
 msgstr ""
 
 msgid ""
@@ -4761,26 +4781,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/identity/checked.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/identity/checked.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/identity/checked.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/identity/checked.enum.Yes"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/identity/checked.enum.No"
-msgstr ""
-
-msgid ""
 "metadata/general_parameters/entities_of_interest/quality_controls/purity.help"
 msgstr ""
 
@@ -4793,23 +4793,23 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/purity/checked.help"
+"metadata/general_parameters/entities_of_interest/quality_controls/purity/assessed.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/purity/checked.label"
+"metadata/general_parameters/entities_of_interest/quality_controls/purity/assessed.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/purity/checked.hint"
+"metadata/general_parameters/entities_of_interest/quality_controls/purity/assessed.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/purity/checked.enum.Yes"
+"metadata/general_parameters/entities_of_interest/quality_controls/purity/assessed.enum.Yes"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/quality_controls/purity/checked.enum.No"
+"metadata/general_parameters/entities_of_interest/quality_controls/purity/assessed.enum.No"
 msgstr ""
 
 msgid ""
@@ -5652,23 +5652,23 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/checked.help"
+"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/assessed.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/checked.label"
+"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/assessed.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/checked.hint"
+"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/assessed.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/checked.enum.Yes"
+"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/assessed.enum.Yes"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/checked.enum.No"
+"metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/assessed.enum.No"
 msgstr ""
 
 msgid ""
@@ -5737,6 +5737,26 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/quality_controls/identity.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/assessed.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/assessed.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/assessed.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/assessed.enum.Yes"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/assessed.enum.No"
 msgstr ""
 
 msgid ""
@@ -5916,26 +5936,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/checked.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/checked.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/checked.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/checked.enum.Yes"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/identity/checked.enum.No"
-msgstr ""
-
-msgid ""
 "metadata/general_parameters/entities_of_interest/components/quality_controls/purity.help"
 msgstr ""
 
@@ -5948,23 +5948,23 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/purity/checked.help"
+"metadata/general_parameters/entities_of_interest/components/quality_controls/purity/assessed.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/purity/checked.label"
+"metadata/general_parameters/entities_of_interest/components/quality_controls/purity/assessed.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/purity/checked.hint"
+"metadata/general_parameters/entities_of_interest/components/quality_controls/purity/assessed.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/purity/checked.enum.Yes"
+"metadata/general_parameters/entities_of_interest/components/quality_controls/purity/assessed.enum.Yes"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/entities_of_interest/components/quality_controls/purity/checked.enum.No"
+"metadata/general_parameters/entities_of_interest/components/quality_controls/purity/assessed.enum.No"
 msgstr ""
 
 msgid ""
@@ -7068,19 +7068,29 @@ msgstr ""
 msgid "metadata/general_parameters/record_information/access_rights.hint"
 msgstr ""
 
-msgid ""
-"metadata/general_parameters/record_information/access_rights.enum.open "
-"access"
+msgid "metadata/general_parameters/record_information/access_rights.enum.open"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/record_information/access_rights.enum.embargoed "
-"access"
+"metadata/general_parameters/record_information/access_rights.enum.embargoed"
 msgstr ""
 
 msgid ""
 "metadata/general_parameters/record_information/access_rights.enum.restricted"
-" access"
+msgstr ""
+
+msgid "metadata/general_parameters/record_information/copyright.help"
+msgstr ""
+
+msgid "metadata/general_parameters/record_information/copyright.label"
+msgstr ""
+
+msgid "metadata/general_parameters/record_information/copyright.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/record_information/copyright.enum.Anyone is free"
+" to distribute the data and metadata"
 msgstr ""
 
 msgid "metadata/general_parameters/record_information/date_available.help"
@@ -7113,31 +7123,40 @@ msgid ""
 "metadata/general_parameters/record_information/external_identifier.hint"
 msgstr ""
 
-msgid ""
-"metadata/general_parameters/record_information/metadata_access_rights.help"
+msgid "metadata/general_parameters/record_information/license.label"
+msgstr ""
+
+msgid "metadata/general_parameters/record_information/license.help"
+msgstr ""
+
+msgid "metadata/general_parameters/record_information/license.hint"
+msgstr ""
+
+msgid "metadata/general_parameters/record_information/license/name.help"
+msgstr ""
+
+msgid "metadata/general_parameters/record_information/license/name.label"
+msgstr ""
+
+msgid "metadata/general_parameters/record_information/license/name.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/record_information/metadata_access_rights.label"
+"metadata/general_parameters/record_information/license/name.enum.CC0 1.0 "
+"Universal"
+msgstr ""
+
+msgid "metadata/general_parameters/record_information/license/url.help"
+msgstr ""
+
+msgid "metadata/general_parameters/record_information/license/url.label"
+msgstr ""
+
+msgid "metadata/general_parameters/record_information/license/url.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/record_information/metadata_access_rights.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/record_information/metadata_access_rights.enum.open"
-" access"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/record_information/metadata_access_rights.enum.embargoed"
-" access"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/record_information/metadata_access_rights.enum.restricted"
-" access"
+"metadata/general_parameters/record_information/license/url.enum.https://creativecommons.org/publicdomain/zero/1.0/"
 msgstr ""
 
 msgid "metadata/general_parameters/record_information/publisher.help"
@@ -7197,6 +7216,11 @@ msgid "metadata/general_parameters/record_information/title.label"
 msgstr ""
 
 msgid "metadata/general_parameters/record_information/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/record_information/copyright.enum.The depositors"
+" retains copyright to the data files and metadata"
 msgstr ""
 
 msgid "metadata/general_parameters/results.help"
@@ -7528,7 +7552,7 @@ msgstr ""
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.9.24"
+msgid "metadata/general_parameters/schema_version.enum.0.9.25"
 msgstr ""
 
 msgid "metadata/general_parameters/technique.help"

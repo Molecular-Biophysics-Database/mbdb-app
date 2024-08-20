@@ -537,15 +537,15 @@
                                                             "label": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity.label",
                                                             "hint": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity.hint",
                                                             "children": {
-                                                                "checked": {
+                                                                "assessed": {
                                                                     "detail": "keyword",
                                                                     "input": "keyword",
                                                                     "required": true,
-                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/checked.help",
-                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/checked.label",
-                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/checked.hint",
-                                                                    "enum": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/checked.enum",
-                                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_checked"
+                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/assessed.help",
+                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/assessed.label",
+                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/assessed.hint",
+                                                                    "enum": "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/assessed.enum",
+                                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_assessed"
                                                                 },
                                                                 "expected_number_of_species": {
                                                                     "detail": "integer",
@@ -584,6 +584,16 @@
                                                             "label": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity.label",
                                                             "hint": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity.hint",
                                                             "children": {
+                                                                "assessed": {
+                                                                    "detail": "keyword",
+                                                                    "input": "keyword",
+                                                                    "required": true,
+                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/assessed.help",
+                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/assessed.label",
+                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/assessed.hint",
+                                                                    "enum": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/assessed.enum",
+                                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_assessed"
+                                                                },
                                                                 "by_fingerprinting": {
                                                                     "detail": false,
                                                                     "input": false,
@@ -678,16 +688,6 @@
                                                                             "facet": "metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_sequencing_method"
                                                                         }
                                                                     }
-                                                                },
-                                                                "checked": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "required": true,
-                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/checked.help",
-                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/checked.label",
-                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/checked.hint",
-                                                                    "enum": "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/checked.enum",
-                                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_checked"
                                                                 }
                                                             }
                                                         },
@@ -698,15 +698,15 @@
                                                             "label": "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity.label",
                                                             "hint": "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity.hint",
                                                             "children": {
-                                                                "checked": {
+                                                                "assessed": {
                                                                     "detail": "keyword",
                                                                     "input": "keyword",
                                                                     "required": true,
-                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/checked.help",
-                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/checked.label",
-                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/checked.hint",
-                                                                    "enum": "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/checked.enum",
-                                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_checked"
+                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/assessed.help",
+                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/assessed.label",
+                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/assessed.hint",
+                                                                    "enum": "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/assessed.enum",
+                                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_assessed"
                                                                 },
                                                                 "method": {
                                                                     "detail": "keyword",
@@ -1316,15 +1316,15 @@
                                                                         "label": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity.label",
                                                                         "hint": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity.hint",
                                                                         "children": {
-                                                                            "checked": {
+                                                                            "assessed": {
                                                                                 "detail": "keyword",
                                                                                 "input": "keyword",
                                                                                 "required": true,
-                                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/checked.help",
-                                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/checked.label",
-                                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/checked.hint",
-                                                                                "enum": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/checked.enum",
-                                                                                "facet": "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_checked"
+                                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/assessed.help",
+                                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/assessed.label",
+                                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/assessed.hint",
+                                                                                "enum": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/assessed.enum",
+                                                                                "facet": "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_assessed"
                                                                             },
                                                                             "expected_number_of_species": {
                                                                                 "detail": "integer",
@@ -1363,6 +1363,16 @@
                                                                         "label": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity.label",
                                                                         "hint": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity.hint",
                                                                         "children": {
+                                                                            "assessed": {
+                                                                                "detail": "keyword",
+                                                                                "input": "keyword",
+                                                                                "required": true,
+                                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/assessed.help",
+                                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/assessed.label",
+                                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/assessed.hint",
+                                                                                "enum": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/assessed.enum",
+                                                                                "facet": "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_assessed"
+                                                                            },
                                                                             "by_fingerprinting": {
                                                                                 "detail": false,
                                                                                 "input": false,
@@ -1457,16 +1467,6 @@
                                                                                         "facet": "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_sequencing_method"
                                                                                     }
                                                                                 }
-                                                                            },
-                                                                            "checked": {
-                                                                                "detail": "keyword",
-                                                                                "input": "keyword",
-                                                                                "required": true,
-                                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/checked.help",
-                                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/checked.label",
-                                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/checked.hint",
-                                                                                "enum": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/checked.enum",
-                                                                                "facet": "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_checked"
                                                                             }
                                                                         }
                                                                     },
@@ -1477,15 +1477,15 @@
                                                                         "label": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity.label",
                                                                         "hint": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity.hint",
                                                                         "children": {
-                                                                            "checked": {
+                                                                            "assessed": {
                                                                                 "detail": "keyword",
                                                                                 "input": "keyword",
                                                                                 "required": true,
-                                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/checked.help",
-                                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/checked.label",
-                                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/checked.hint",
-                                                                                "enum": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/checked.enum",
-                                                                                "facet": "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_checked"
+                                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/assessed.help",
+                                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/assessed.label",
+                                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/assessed.hint",
+                                                                                "enum": "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/assessed.enum",
+                                                                                "facet": "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_assessed"
                                                                             },
                                                                             "method": {
                                                                                 "detail": "keyword",
@@ -2966,15 +2966,15 @@
                                                 "label": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity.label",
                                                 "hint": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity.hint",
                                                 "children": {
-                                                    "checked": {
+                                                    "assessed": {
                                                         "detail": "keyword",
                                                         "input": "keyword",
                                                         "required": true,
-                                                        "help": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/checked.help",
-                                                        "label": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/checked.label",
-                                                        "hint": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/checked.hint",
-                                                        "enum": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/checked.enum",
-                                                        "facet": "metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_checked"
+                                                        "help": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/assessed.help",
+                                                        "label": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/assessed.label",
+                                                        "hint": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/assessed.hint",
+                                                        "enum": "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/assessed.enum",
+                                                        "facet": "metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_assessed"
                                                     },
                                                     "expected_number_of_species": {
                                                         "detail": "integer",
@@ -3013,6 +3013,16 @@
                                                 "label": "metadata/general_parameters/entities_of_interest/quality_controls/identity.label",
                                                 "hint": "metadata/general_parameters/entities_of_interest/quality_controls/identity.hint",
                                                 "children": {
+                                                    "assessed": {
+                                                        "detail": "keyword",
+                                                        "input": "keyword",
+                                                        "required": true,
+                                                        "help": "metadata/general_parameters/entities_of_interest/quality_controls/identity/assessed.help",
+                                                        "label": "metadata/general_parameters/entities_of_interest/quality_controls/identity/assessed.label",
+                                                        "hint": "metadata/general_parameters/entities_of_interest/quality_controls/identity/assessed.hint",
+                                                        "enum": "metadata/general_parameters/entities_of_interest/quality_controls/identity/assessed.enum",
+                                                        "facet": "metadata_general_parameters_entities_of_interest_quality_controls_identity_assessed"
+                                                    },
                                                     "by_fingerprinting": {
                                                         "detail": false,
                                                         "input": false,
@@ -3107,16 +3117,6 @@
                                                                 "facet": "metadata_general_parameters_entities_of_interest_quality_controls_identity_by_sequencing_method"
                                                             }
                                                         }
-                                                    },
-                                                    "checked": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "required": true,
-                                                        "help": "metadata/general_parameters/entities_of_interest/quality_controls/identity/checked.help",
-                                                        "label": "metadata/general_parameters/entities_of_interest/quality_controls/identity/checked.label",
-                                                        "hint": "metadata/general_parameters/entities_of_interest/quality_controls/identity/checked.hint",
-                                                        "enum": "metadata/general_parameters/entities_of_interest/quality_controls/identity/checked.enum",
-                                                        "facet": "metadata_general_parameters_entities_of_interest_quality_controls_identity_checked"
                                                     }
                                                 }
                                             },
@@ -3127,15 +3127,15 @@
                                                 "label": "metadata/general_parameters/entities_of_interest/quality_controls/purity.label",
                                                 "hint": "metadata/general_parameters/entities_of_interest/quality_controls/purity.hint",
                                                 "children": {
-                                                    "checked": {
+                                                    "assessed": {
                                                         "detail": "keyword",
                                                         "input": "keyword",
                                                         "required": true,
-                                                        "help": "metadata/general_parameters/entities_of_interest/quality_controls/purity/checked.help",
-                                                        "label": "metadata/general_parameters/entities_of_interest/quality_controls/purity/checked.label",
-                                                        "hint": "metadata/general_parameters/entities_of_interest/quality_controls/purity/checked.hint",
-                                                        "enum": "metadata/general_parameters/entities_of_interest/quality_controls/purity/checked.enum",
-                                                        "facet": "metadata_general_parameters_entities_of_interest_quality_controls_purity_checked"
+                                                        "help": "metadata/general_parameters/entities_of_interest/quality_controls/purity/assessed.help",
+                                                        "label": "metadata/general_parameters/entities_of_interest/quality_controls/purity/assessed.label",
+                                                        "hint": "metadata/general_parameters/entities_of_interest/quality_controls/purity/assessed.hint",
+                                                        "enum": "metadata/general_parameters/entities_of_interest/quality_controls/purity/assessed.enum",
+                                                        "facet": "metadata_general_parameters_entities_of_interest_quality_controls_purity_assessed"
                                                     },
                                                     "method": {
                                                         "detail": "keyword",
@@ -3745,15 +3745,15 @@
                                                             "label": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity.label",
                                                             "hint": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity.hint",
                                                             "children": {
-                                                                "checked": {
+                                                                "assessed": {
                                                                     "detail": "keyword",
                                                                     "input": "keyword",
                                                                     "required": true,
-                                                                    "help": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/checked.help",
-                                                                    "label": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/checked.label",
-                                                                    "hint": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/checked.hint",
-                                                                    "enum": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/checked.enum",
-                                                                    "facet": "metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_checked"
+                                                                    "help": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/assessed.help",
+                                                                    "label": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/assessed.label",
+                                                                    "hint": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/assessed.hint",
+                                                                    "enum": "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/assessed.enum",
+                                                                    "facet": "metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_assessed"
                                                                 },
                                                                 "expected_number_of_species": {
                                                                     "detail": "integer",
@@ -3792,6 +3792,16 @@
                                                             "label": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity.label",
                                                             "hint": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity.hint",
                                                             "children": {
+                                                                "assessed": {
+                                                                    "detail": "keyword",
+                                                                    "input": "keyword",
+                                                                    "required": true,
+                                                                    "help": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity/assessed.help",
+                                                                    "label": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity/assessed.label",
+                                                                    "hint": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity/assessed.hint",
+                                                                    "enum": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity/assessed.enum",
+                                                                    "facet": "metadata_general_parameters_entities_of_interest_components_quality_controls_identity_assessed"
+                                                                },
                                                                 "by_fingerprinting": {
                                                                     "detail": false,
                                                                     "input": false,
@@ -3886,16 +3896,6 @@
                                                                             "facet": "metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_sequencing_method"
                                                                         }
                                                                     }
-                                                                },
-                                                                "checked": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "required": true,
-                                                                    "help": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity/checked.help",
-                                                                    "label": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity/checked.label",
-                                                                    "hint": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity/checked.hint",
-                                                                    "enum": "metadata/general_parameters/entities_of_interest/components/quality_controls/identity/checked.enum",
-                                                                    "facet": "metadata_general_parameters_entities_of_interest_components_quality_controls_identity_checked"
                                                                 }
                                                             }
                                                         },
@@ -3906,15 +3906,15 @@
                                                             "label": "metadata/general_parameters/entities_of_interest/components/quality_controls/purity.label",
                                                             "hint": "metadata/general_parameters/entities_of_interest/components/quality_controls/purity.hint",
                                                             "children": {
-                                                                "checked": {
+                                                                "assessed": {
                                                                     "detail": "keyword",
                                                                     "input": "keyword",
                                                                     "required": true,
-                                                                    "help": "metadata/general_parameters/entities_of_interest/components/quality_controls/purity/checked.help",
-                                                                    "label": "metadata/general_parameters/entities_of_interest/components/quality_controls/purity/checked.label",
-                                                                    "hint": "metadata/general_parameters/entities_of_interest/components/quality_controls/purity/checked.hint",
-                                                                    "enum": "metadata/general_parameters/entities_of_interest/components/quality_controls/purity/checked.enum",
-                                                                    "facet": "metadata_general_parameters_entities_of_interest_components_quality_controls_purity_checked"
+                                                                    "help": "metadata/general_parameters/entities_of_interest/components/quality_controls/purity/assessed.help",
+                                                                    "label": "metadata/general_parameters/entities_of_interest/components/quality_controls/purity/assessed.label",
+                                                                    "hint": "metadata/general_parameters/entities_of_interest/components/quality_controls/purity/assessed.hint",
+                                                                    "enum": "metadata/general_parameters/entities_of_interest/components/quality_controls/purity/assessed.enum",
+                                                                    "facet": "metadata_general_parameters_entities_of_interest_components_quality_controls_purity_assessed"
                                                                 },
                                                                 "method": {
                                                                     "detail": "keyword",
@@ -4595,8 +4595,8 @@
                             }
                         },
                         "record_information": {
-                            "detail": "record_information",
-                            "input": "record_information",
+                            "detail": "polymorphic",
+                            "input": "polymorphic",
                             "required": true,
                             "help": "metadata/general_parameters/record_information.help",
                             "label": "metadata/general_parameters/record_information.label",
@@ -4611,6 +4611,16 @@
                                     "hint": "metadata/general_parameters/record_information/access_rights.hint",
                                     "enum": "metadata/general_parameters/record_information/access_rights.enum",
                                     "facet": "metadata_general_parameters_record_information_access_rights"
+                                },
+                                "copyright": {
+                                    "detail": "keyword",
+                                    "input": "keyword",
+                                    "required": true,
+                                    "help": "metadata/general_parameters/record_information/copyright.help",
+                                    "label": "metadata/general_parameters/record_information/copyright.label",
+                                    "hint": "metadata/general_parameters/record_information/copyright.hint",
+                                    "enum": "metadata/general_parameters/record_information/copyright.enum",
+                                    "facet": "metadata_general_parameters_record_information_copyright"
                                 },
                                 "date_available": {
                                     "detail": "date",
@@ -4637,15 +4647,34 @@
                                     "hint": "metadata/general_parameters/record_information/external_identifier.hint",
                                     "facet": "metadata_general_parameters_record_information_external_identifier"
                                 },
-                                "metadata_access_rights": {
-                                    "detail": "keyword",
-                                    "input": "keyword",
-                                    "required": true,
-                                    "help": "metadata/general_parameters/record_information/metadata_access_rights.help",
-                                    "label": "metadata/general_parameters/record_information/metadata_access_rights.label",
-                                    "hint": "metadata/general_parameters/record_information/metadata_access_rights.hint",
-                                    "enum": "metadata/general_parameters/record_information/metadata_access_rights.enum",
-                                    "facet": "metadata_general_parameters_record_information_metadata_access_rights"
+                                "license": {
+                                    "detail": false,
+                                    "input": false,
+                                    "help": "metadata/general_parameters/record_information/license.help",
+                                    "label": "metadata/general_parameters/record_information/license.label",
+                                    "hint": "metadata/general_parameters/record_information/license.hint",
+                                    "children": {
+                                        "name": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "required": true,
+                                            "help": "metadata/general_parameters/record_information/license/name.help",
+                                            "label": "metadata/general_parameters/record_information/license/name.label",
+                                            "hint": "metadata/general_parameters/record_information/license/name.hint",
+                                            "enum": "metadata/general_parameters/record_information/license/name.enum",
+                                            "facet": "metadata_general_parameters_record_information_license_name"
+                                        },
+                                        "url": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "required": true,
+                                            "help": "metadata/general_parameters/record_information/license/url.help",
+                                            "label": "metadata/general_parameters/record_information/license/url.label",
+                                            "hint": "metadata/general_parameters/record_information/license/url.hint",
+                                            "enum": "metadata/general_parameters/record_information/license/url.enum",
+                                            "facet": "metadata_general_parameters_record_information_license_url"
+                                        }
+                                    }
                                 },
                                 "publisher": {
                                     "detail": "keyword",

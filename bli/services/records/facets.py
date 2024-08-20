@@ -303,12 +303,12 @@ metadata_general_parameters_chemical_environments_constituents_polymer_type = Ne
     ),
 )
 
-metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_checked = NestedLabeledFacet(
+metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_assessed = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.quality_controls.homogeneity.checked",
+        field="metadata.general_parameters.chemical_environments.constituents.quality_controls.homogeneity.assessed",
         label=_(
-            "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/checked.label"
+            "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/assessed.label"
         ),
     ),
 )
@@ -339,6 +339,16 @@ metadata_general_parameters_chemical_environments_constituents_quality_controls_
         field="metadata.general_parameters.chemical_environments.constituents.quality_controls.homogeneity.number_of_species_observed",
         label=_(
             "metadata/general_parameters/chemical_environments/constituents/quality_controls/homogeneity/number_of_species_observed.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_assessed = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_environments.constituents.quality_controls.identity.assessed",
+        label=_(
+            "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/assessed.label"
         ),
     ),
 )
@@ -403,22 +413,12 @@ metadata_general_parameters_chemical_environments_constituents_quality_controls_
     ),
 )
 
-metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_checked = NestedLabeledFacet(
+metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_assessed = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.quality_controls.identity.checked",
+        field="metadata.general_parameters.chemical_environments.constituents.quality_controls.purity.assessed",
         label=_(
-            "metadata/general_parameters/chemical_environments/constituents/quality_controls/identity/checked.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_checked = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.quality_controls.purity.checked",
-        label=_(
-            "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/checked.label"
+            "metadata/general_parameters/chemical_environments/constituents/quality_controls/purity/assessed.label"
         ),
     ),
 )
@@ -794,12 +794,12 @@ metadata_general_parameters_chemical_environments_constituents_components_polyme
     ),
 )
 
-metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_checked = NestedLabeledFacet(
+metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_assessed = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.components.quality_controls.homogeneity.checked",
+        field="metadata.general_parameters.chemical_environments.constituents.components.quality_controls.homogeneity.assessed",
         label=_(
-            "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/checked.label"
+            "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/assessed.label"
         ),
     ),
 )
@@ -830,6 +830,16 @@ metadata_general_parameters_chemical_environments_constituents_components_qualit
         field="metadata.general_parameters.chemical_environments.constituents.components.quality_controls.homogeneity.number_of_species_observed",
         label=_(
             "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/homogeneity/number_of_species_observed.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_assessed = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_environments.constituents.components.quality_controls.identity.assessed",
+        label=_(
+            "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/assessed.label"
         ),
     ),
 )
@@ -894,22 +904,12 @@ metadata_general_parameters_chemical_environments_constituents_components_qualit
     ),
 )
 
-metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_checked = NestedLabeledFacet(
+metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_assessed = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_environments",
     nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.components.quality_controls.identity.checked",
+        field="metadata.general_parameters.chemical_environments.constituents.components.quality_controls.purity.assessed",
         label=_(
-            "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/identity/checked.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_checked = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.components.quality_controls.purity.checked",
-        label=_(
-            "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/checked.label"
+            "metadata/general_parameters/chemical_environments/constituents/components/quality_controls/purity/assessed.label"
         ),
     ),
 )
@@ -1670,10 +1670,10 @@ metadata_general_parameters_entities_of_interest_polymer_type = TermsFacet(
     label=_("metadata/general_parameters/entities_of_interest/polymer_type.label"),
 )
 
-metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_checked = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.quality_controls.homogeneity.checked",
+metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_assessed = TermsFacet(
+    field="metadata.general_parameters.entities_of_interest.quality_controls.homogeneity.assessed",
     label=_(
-        "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/checked.label"
+        "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/assessed.label"
     ),
 )
 
@@ -1695,6 +1695,13 @@ metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_nu
     field="metadata.general_parameters.entities_of_interest.quality_controls.homogeneity.number_of_species_observed",
     label=_(
         "metadata/general_parameters/entities_of_interest/quality_controls/homogeneity/number_of_species_observed.label"
+    ),
+)
+
+metadata_general_parameters_entities_of_interest_quality_controls_identity_assessed = TermsFacet(
+    field="metadata.general_parameters.entities_of_interest.quality_controls.identity.assessed",
+    label=_(
+        "metadata/general_parameters/entities_of_interest/quality_controls/identity/assessed.label"
     ),
 )
 
@@ -1740,17 +1747,10 @@ metadata_general_parameters_entities_of_interest_quality_controls_identity_by_se
     ),
 )
 
-metadata_general_parameters_entities_of_interest_quality_controls_identity_checked = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.quality_controls.identity.checked",
+metadata_general_parameters_entities_of_interest_quality_controls_purity_assessed = TermsFacet(
+    field="metadata.general_parameters.entities_of_interest.quality_controls.purity.assessed",
     label=_(
-        "metadata/general_parameters/entities_of_interest/quality_controls/identity/checked.label"
-    ),
-)
-
-metadata_general_parameters_entities_of_interest_quality_controls_purity_checked = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.quality_controls.purity.checked",
-    label=_(
-        "metadata/general_parameters/entities_of_interest/quality_controls/purity/checked.label"
+        "metadata/general_parameters/entities_of_interest/quality_controls/purity/assessed.label"
     ),
 )
 
@@ -2017,10 +2017,10 @@ metadata_general_parameters_entities_of_interest_components_polymer_type = Terms
     ),
 )
 
-metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_checked = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.components.quality_controls.homogeneity.checked",
+metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_assessed = TermsFacet(
+    field="metadata.general_parameters.entities_of_interest.components.quality_controls.homogeneity.assessed",
     label=_(
-        "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/checked.label"
+        "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/assessed.label"
     ),
 )
 
@@ -2042,6 +2042,13 @@ metadata_general_parameters_entities_of_interest_components_quality_controls_hom
     field="metadata.general_parameters.entities_of_interest.components.quality_controls.homogeneity.number_of_species_observed",
     label=_(
         "metadata/general_parameters/entities_of_interest/components/quality_controls/homogeneity/number_of_species_observed.label"
+    ),
+)
+
+metadata_general_parameters_entities_of_interest_components_quality_controls_identity_assessed = TermsFacet(
+    field="metadata.general_parameters.entities_of_interest.components.quality_controls.identity.assessed",
+    label=_(
+        "metadata/general_parameters/entities_of_interest/components/quality_controls/identity/assessed.label"
     ),
 )
 
@@ -2087,17 +2094,10 @@ metadata_general_parameters_entities_of_interest_components_quality_controls_ide
     ),
 )
 
-metadata_general_parameters_entities_of_interest_components_quality_controls_identity_checked = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.components.quality_controls.identity.checked",
+metadata_general_parameters_entities_of_interest_components_quality_controls_purity_assessed = TermsFacet(
+    field="metadata.general_parameters.entities_of_interest.components.quality_controls.purity.assessed",
     label=_(
-        "metadata/general_parameters/entities_of_interest/components/quality_controls/identity/checked.label"
-    ),
-)
-
-metadata_general_parameters_entities_of_interest_components_quality_controls_purity_checked = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.components.quality_controls.purity.checked",
-    label=_(
-        "metadata/general_parameters/entities_of_interest/components/quality_controls/purity/checked.label"
+        "metadata/general_parameters/entities_of_interest/components/quality_controls/purity/assessed.label"
     ),
 )
 
@@ -2353,6 +2353,11 @@ metadata_general_parameters_record_information_access_rights = TermsFacet(
     label=_("metadata/general_parameters/record_information/access_rights.label"),
 )
 
+metadata_general_parameters_record_information_copyright = TermsFacet(
+    field="metadata.general_parameters.record_information.copyright",
+    label=_("metadata/general_parameters/record_information/copyright.label"),
+)
+
 metadata_general_parameters_record_information_date_available = DateTimeFacet(
     field="metadata.general_parameters.record_information.date_available",
     label=_("metadata/general_parameters/record_information/date_available.label"),
@@ -2368,11 +2373,14 @@ metadata_general_parameters_record_information_external_identifier = TermsFacet(
     label=_("metadata/general_parameters/record_information/external_identifier.label"),
 )
 
-metadata_general_parameters_record_information_metadata_access_rights = TermsFacet(
-    field="metadata.general_parameters.record_information.metadata_access_rights",
-    label=_(
-        "metadata/general_parameters/record_information/metadata_access_rights.label"
-    ),
+metadata_general_parameters_record_information_license_name = TermsFacet(
+    field="metadata.general_parameters.record_information.license.name",
+    label=_("metadata/general_parameters/record_information/license/name.label"),
+)
+
+metadata_general_parameters_record_information_license_url = TermsFacet(
+    field="metadata.general_parameters.record_information.license.url",
+    label=_("metadata/general_parameters/record_information/license/url.label"),
 )
 
 metadata_general_parameters_record_information_publisher = TermsFacet(
