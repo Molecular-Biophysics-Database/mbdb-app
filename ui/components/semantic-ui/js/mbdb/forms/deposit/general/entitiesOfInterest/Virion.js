@@ -9,6 +9,7 @@ import OptionalField from "../../buildingBlocks/OptionalField";
 import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
 import CreateUuid from "../../buildingBlocks/CreateUuid";
+import UseDefault from "../../buildingBlocks/UseDefault";
 
 function Virion({ name }) {
   CreateUuid(name);
@@ -32,6 +33,9 @@ function Virion({ name }) {
     { value: "Genetically Engineered", label: "Genetically Engineered" },
     { value: "Synthetic", label: "Synthetic" },
   ];
+
+  const fieldNamePreparationProtocol = "preparation_protocol";
+  UseDefault(`${name}.${fieldNamePreparationProtocol}`, [{}]);
 
   return (
     <>
@@ -144,7 +148,8 @@ function Virion({ name }) {
         <ArrayField
           name={name}
           label="Preparation protocol"
-          fieldName="preparation_protocol"
+          fieldName={fieldNamePreparationProtocol}
+          required
           tooltip="List of the steps performed during the preparation of the complex substance"
           renderChild={({ arrayName, index }) => (
             <FormWrapper

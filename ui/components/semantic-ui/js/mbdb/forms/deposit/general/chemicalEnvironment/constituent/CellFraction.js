@@ -9,6 +9,7 @@ import Concentration from "../../../sharedComponents/Concentration";
 import OptionalField from "../../../buildingBlocks/OptionalField";
 import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
+import UseDefault from "../../../buildingBlocks/UseDefault";
 
 function CellFraction({ name }) {
   const fractionOptions = [
@@ -34,6 +35,9 @@ function CellFraction({ name }) {
     { value: "Vacuole", label: "Vacuole" },
     { value: "Chloroplast", label: "Chloroplast" },
   ];
+
+  const fieldNamePreparationProtocol = "preparation_protocol";
+  UseDefault(`${name}.${fieldNamePreparationProtocol}`, [{}]);
 
   return (
     <>
@@ -133,11 +137,11 @@ function CellFraction({ name }) {
           <ArrayField
             name={name}
             label="Preparation protocol"
-            fieldName="preparation_protocol"
+            fieldName={fieldNamePreparationProtocol}
+            required
             tooltip="List of the steps performed during the preparation of the complex substance"
             renderChild={({ arrayName, index }) => (
               <FormWrapper
-                colorSchema="light"
                 headline={`Preparation protocol ${index + 1}`}
                 tooltip="List of the steps performed during the preparation of the complex substance"
               >
