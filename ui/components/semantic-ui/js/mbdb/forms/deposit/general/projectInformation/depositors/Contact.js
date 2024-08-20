@@ -3,6 +3,7 @@ import ArrayField from "../../../buildingBlocks/ArrayField";
 import CustomField from "../../../buildingBlocks/CustomField";
 import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
+import Identifier from "../../../buildingBlocks/Identifier";
 
 function Contact({ name }) {
   return (
@@ -35,10 +36,9 @@ function Contact({ name }) {
             fieldName="identifiers"
             tooltip="Persistent personal identifiers, currently only ORCIDs are allowed"
             renderChild={({ arrayName, index }) => (
-              <CustomField
+              <Identifier
                 name={`${arrayName}.${index}`}
-                label={`identifier ${index + 1}`}
-                tooltip="Persistent personal identifiers, currently only ORCIDs are allowed"
+                label={`Identifier ${index + 1}`}
               />
             )}
           />
