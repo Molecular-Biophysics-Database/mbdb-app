@@ -20,7 +20,7 @@ function Purity({ name, colorSchema }) {
         label="Homogeneity"
         fieldName="homogeneity"
         tooltip="Information about if and how homogeneity was checked"
-        initialValue={{ checked: "Yes" }}
+        initialValue={{ assessed: "Yes" }}
         renderChild={({ optionalFieldName }) => {
           const actualValue = getIn(values, optionalFieldName);
           if (!actualValue) {
@@ -38,16 +38,16 @@ function Purity({ name, colorSchema }) {
                     required
                     name={optionalFieldName}
                     options={typeOptions}
-                    label="Checked"
-                    fieldName="checked"
+                    label="Assessed"
+                    fieldName="assessed"
                     width="w-full"
                   />
                 </div>
                 <div>
-                  {actualValue.checked === "Yes" && (
+                  {actualValue.assessed === "Yes" && (
                     <HomogeneityYes name={optionalFieldName} />
                   )}
-                  {actualValue.checked === "No" && <></>}
+                  {actualValue.assessed === "No" && <></>}
                 </div>
               </div>
             </FormWrapper>
