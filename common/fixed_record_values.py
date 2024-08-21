@@ -6,8 +6,7 @@ FIXED_RECORD_VALUES = {
         "general_parameters": {
             "schema_version": "0.9.25",
             "record_information": {
-                "access_rights": "open access",
-                "metadata_access_rights": "open access",
+                "access_rights": "open",
                 "publisher": "MBDB",
                 "resource_type_general": "Dataset",
                 "deposition_date": date.today().isoformat(),
