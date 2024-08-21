@@ -8,7 +8,7 @@ import IdentityYes from "./IdentityYes";
 function Identity({ name, colorSchema }) {
   const { values } = useFormikContext();
 
-  const checkedOptions = [
+  const typeOptions = [
     { value: "Yes", label: "Yes" },
     { value: "No", label: "No" },
   ];
@@ -19,7 +19,7 @@ function Identity({ name, colorSchema }) {
         name={name}
         label="Identity"
         fieldName="identity"
-        initialValue={{ checked: "Yes" }}
+        initialValue={{ assessed: "Yes" }}
         tooltip="Information about if and how the identity was obtained"
         renderChild={({ optionalFieldName }) => {
           const actualValue = getIn(values, optionalFieldName);
@@ -36,20 +36,20 @@ function Identity({ name, colorSchema }) {
                 <DynamicOptionField
                   name={optionalFieldName}
                   required
-                  options={checkedOptions}
-                  label="Checked"
-                  fieldName="checked"
+                  options={typeOptions}
+                  label="Assessed"
+                  fieldName="assessed"
                   width="w-full"
                 />
               </div>
               <div>
-                {actualValue.checked === "Yes" && (
+                {actualValue.assessed === "Yes" && (
                   <IdentityYes
                     name={optionalFieldName}
                     colorSchema={colorSchema === "light" ? "" : "light"}
                   />
                 )}
-                {actualValue.checked === "No" && <></>}
+                {actualValue.assessed === "No" && <></>}
               </div>
             </FormWrapper>
           );
