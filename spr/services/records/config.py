@@ -59,6 +59,11 @@ class SprServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
     @property
     def links_item(self):
         return {
+            "applicable-requests": ConditionalLink(
+                cond=is_published_record,
+                if_=RecordLink("{+api}/records/spr/{id}/requests/applicable"),
+                else_=RecordLink("{+api}/records/spr/{id}/draft/requests/applicable"),
+            ),
             "draft": RecordLink("{+api}/records/spr/{id}/draft"),
             "edit_html": RecordLink("{+ui}/spr/{id}/edit", when=has_draft),
             "files": ConditionalLink(

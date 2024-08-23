@@ -6,7 +6,28 @@
                 "settings": {
                     "index.mapping.total_fields.limit": 3000,
                     "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": "collected_default_search_fields"
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "ngram",
+                                "min_gram": 3,
+                                "max_gram": 3,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
                 }
             },
             "generate": true,
@@ -16,7 +37,6 @@
             "file": "mst/records/mappings/os-v2/mst/mst-1.0.0.json",
             "index-field-args": []
         },
-        "searchable": true,
         "permissions": {
             "presets": [
                 "authenticated"
@@ -39,6 +59,23 @@
             "module": "mst.services.records.schema",
             "class": "mst.services.records.schema.MstSchema",
             "extra-code": ""
+        },
+        "searchable": true,
+        "ui": {
+            "marshmallow": {
+                "imports": [],
+                "base-classes": [
+                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
+                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
+                ],
+                "generate": true,
+                "module": "mst.services.records.ui_schema",
+                "class": "mst.services.records.ui_schema.MstUISchema",
+                "extra-code": ""
+            },
+            "module": "mst.models",
+            "file": "mst/models/ui.json",
+            "alias": "mst"
         },
         "service-config": {
             "components": [
@@ -82,22 +119,6 @@
                 "create=True"
             ],
             "extra-code": ""
-        },
-        "ui": {
-            "marshmallow": {
-                "imports": [],
-                "base-classes": [
-                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
-                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
-                ],
-                "generate": true,
-                "module": "mst.services.records.ui_schema",
-                "class": "mst.services.records.ui_schema.MstUISchema",
-                "extra-code": ""
-            },
-            "module": "mst.models",
-            "file": "mst/models/ui.json",
-            "alias": "mst"
         },
         "search-options": {
             "base-classes": [
@@ -291,7 +312,6 @@
                     }
                 }
             },
-            "searchable": true,
             "marshmallow": {
                 "imports": [
                     {
@@ -303,6 +323,7 @@
                     "InvenioFileSchema"
                 ]
             },
+            "searchable": true,
             "resource": {
                 "base-classes": [
                     "oarepo_ui.resources.file_resource.S3RedirectFileResource"
@@ -353,6 +374,44 @@
             "skip": false
         },
         "model-name": "Mst",
+        "record-resolver": {
+            "generate": true,
+            "module": "mst.records.requests.resolvers",
+            "class": "mst.records.requests.resolvers.MstResolver",
+            "base-classes": [
+                "oarepo_runtime.records.entity_resolvers.RecordResolver"
+            ],
+            "imports": [],
+            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
+        },
+        "ui-record-resolver": {
+            "generate": true,
+            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
+        },
+        "record": {
+            "base-classes": [
+                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
+            ],
+            "generate": true,
+            "module": "mst.records.api",
+            "class": "mst.records.api.MstRecord",
+            "imports": [],
+            "extra-code": "",
+            "fields": {}
+        },
+        "resource": {
+            "base-classes": [
+                "invenio_drafts_resources.resources.RecordResource"
+            ],
+            "generate": true,
+            "config-key": "MST_RECORD_RESOURCE_CLASS",
+            "module": "mst.resources.records.resource",
+            "class": "mst.resources.records.resource.MstResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
+        },
         "config": {
             "generate": true,
             "module": "mst.config",
@@ -398,68 +457,6 @@
         "proxy": {
             "module": "mst.proxies",
             "generate": true
-        },
-        "record": {
-            "base-classes": [
-                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
-            ],
-            "generate": true,
-            "module": "mst.records.api",
-            "class": "mst.records.api.MstRecord",
-            "imports": [],
-            "extra-code": "",
-            "fields": {}
-        },
-        "resource": {
-            "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
-            ],
-            "generate": true,
-            "config-key": "MST_RECORD_RESOURCE_CLASS",
-            "module": "mst.resources.records.resource",
-            "class": "mst.resources.records.resource.MstResource",
-            "proxy": "current_resource",
-            "extra-code": "",
-            "imports": [],
-            "additional-args": []
-        },
-        "record-resolver": {
-            "generate": true,
-            "module": "mst.records.requests.resolvers",
-            "class": "mst.records.requests.resolvers.MstResolver",
-            "base-classes": [
-                "oarepo_runtime.records.entity_resolvers.RecordResolver"
-            ],
-            "imports": [],
-            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
-        },
-        "ui-record-resolver": {
-            "generate": true,
-            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
-        },
-        "json-schema-settings": {
-            "generate": true,
-            "alias": "mst",
-            "version": "1.0.0",
-            "module": "mst.records.jsonschemas",
-            "name": "mst-1.0.0.json",
-            "file": "mst/records/jsonschemas/mst-1.0.0.json"
-        },
-        "json-serializer": {
-            "module": "mst.resources.records.ui",
-            "class": "mst.resources.records.ui.MstUIJSONSerializer",
-            "base-classes": [
-                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
-            ],
-            "imports": [],
-            "extra-code": "",
-            "generate": true,
-            "list_schema_cls": "flask_resources.BaseListSchema",
-            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
-            "schema-context-args": {
-                "\"object_key\"": "\"ui\"",
-                "\"identity\"": "{{ flask.g{g.identity} }}"
-            }
         },
         "record-metadata": {
             "generate": true,
@@ -507,6 +504,30 @@
             ],
             "imports": []
         },
+        "json-schema-settings": {
+            "generate": true,
+            "alias": "mst",
+            "version": "1.0.0",
+            "module": "mst.records.jsonschemas",
+            "name": "mst-1.0.0.json",
+            "file": "mst/records/jsonschemas/mst-1.0.0.json"
+        },
+        "json-serializer": {
+            "module": "mst.resources.records.ui",
+            "class": "mst.resources.records.ui.MstUIJSONSerializer",
+            "base-classes": [
+                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
+            ],
+            "imports": [],
+            "extra-code": "",
+            "generate": true,
+            "list_schema_cls": "flask_resources.BaseListSchema",
+            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
+            "schema-context-args": {
+                "\"object_key\"": "\"ui\"",
+                "\"identity\"": "{{ flask.g{g.identity} }}"
+            }
+        },
         "translations": {
             "module": "mst.translations",
             "alias": "mst"
@@ -517,42 +538,6 @@
             "file-class": "mst.records.api.MstRecord",
             "field-args": [
                 "store=False"
-            ],
-            "imports": []
-        },
-        "edtf-interval-dumper": {
-            "generate": true,
-            "module": "mst.records.dumpers.edtf",
-            "class": "mst.records.dumpers.edtf.MstEDTFIntervalDumperExt",
-            "base-classes": [
-                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
-            ],
-            "extra-code": "",
-            "extensions": [],
-            "imports": []
-        },
-        "record-list": {
-            "generate": true,
-            "module": "mst.services.records.results",
-            "class": "mst.services.records.results.MstRecordList",
-            "extra-code": "",
-            "base-classes": [
-                "oarepo_runtime.services.results.RecordList"
-            ],
-            "components": [],
-            "imports": []
-        },
-        "record-item": {
-            "generate": true,
-            "module": "mst.services.records.results",
-            "class": "mst.services.records.results.MstRecordItem",
-            "extra-code": "",
-            "base-classes": [
-                "oarepo_runtime.services.results.RecordItem"
-            ],
-            "components": [
-                "{{oarepo_requests.services.results.RequestsComponent}}()",
-                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
             ],
             "imports": []
         },
@@ -621,13 +606,41 @@
             ],
             "imports": []
         },
-        "parent-record-marshmallow": {
-            "module": "mst.services.records.schema",
-            "class": "mst.services.records.schema.GeneratedParentSchema",
+        "edtf-interval-dumper": {
             "generate": true,
+            "module": "mst.records.dumpers.edtf",
+            "class": "mst.records.dumpers.edtf.MstEDTFIntervalDumperExt",
             "base-classes": [
-                "invenio_drafts_resources.services.records.schema.ParentSchema{InvenioParentSchema}"
-            ]
+                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
+            ],
+            "extra-code": "",
+            "extensions": [],
+            "imports": []
+        },
+        "record-list": {
+            "generate": true,
+            "module": "mst.services.records.results",
+            "class": "mst.services.records.results.MstRecordList",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordList"
+            ],
+            "components": [],
+            "imports": []
+        },
+        "record-item": {
+            "generate": true,
+            "module": "mst.services.records.results",
+            "class": "mst.services.records.results.MstRecordItem",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordItem"
+            ],
+            "components": [
+                "{{oarepo_requests.services.results.RequestsComponent}}()",
+                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
+            ],
+            "imports": []
         },
         "requests": {
             "types": {},
@@ -669,6 +682,14 @@
             "additional-ui-resolvers": {},
             "ui-serialization-referenced-fields": []
         },
+        "parent-record-marshmallow": {
+            "module": "mst.services.records.schema",
+            "class": "mst.services.records.schema.GeneratedParentSchema",
+            "generate": true,
+            "base-classes": [
+                "invenio_drafts_resources.services.records.schema.ParentSchema{InvenioParentSchema}"
+            ]
+        },
         "sortable": [],
         "properties": {
             "$schema": {
@@ -693,6 +714,14 @@
             },
             "collected_default_search_fields": {
                 "type": "fulltext",
+                "mapping": {
+                    "fields": {
+                        "substringmatch": {
+                            "type": "text",
+                            "analyzer": "substring"
+                        }
+                    }
+                },
                 "marshmallow": {
                     "read": false,
                     "write": false
