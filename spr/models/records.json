@@ -6,7 +6,28 @@
                 "settings": {
                     "index.mapping.total_fields.limit": 3000,
                     "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": "collected_default_search_fields"
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "ngram",
+                                "min_gram": 3,
+                                "max_gram": 3,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
                 }
             },
             "generate": true,
@@ -16,7 +37,6 @@
             "file": "spr/records/mappings/os-v2/spr/spr-1.0.0.json",
             "index-field-args": []
         },
-        "searchable": true,
         "permissions": {
             "presets": [
                 "authenticated"
@@ -39,6 +59,23 @@
             "module": "spr.services.records.schema",
             "class": "spr.services.records.schema.SprSchema",
             "extra-code": ""
+        },
+        "searchable": true,
+        "ui": {
+            "marshmallow": {
+                "imports": [],
+                "base-classes": [
+                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
+                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
+                ],
+                "generate": true,
+                "module": "spr.services.records.ui_schema",
+                "class": "spr.services.records.ui_schema.SprUISchema",
+                "extra-code": ""
+            },
+            "module": "spr.models",
+            "file": "spr/models/ui.json",
+            "alias": "spr"
         },
         "service-config": {
             "components": [
@@ -82,22 +119,6 @@
                 "create=True"
             ],
             "extra-code": ""
-        },
-        "ui": {
-            "marshmallow": {
-                "imports": [],
-                "base-classes": [
-                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
-                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
-                ],
-                "generate": true,
-                "module": "spr.services.records.ui_schema",
-                "class": "spr.services.records.ui_schema.SprUISchema",
-                "extra-code": ""
-            },
-            "module": "spr.models",
-            "file": "spr/models/ui.json",
-            "alias": "spr"
         },
         "search-options": {
             "base-classes": [
@@ -291,7 +312,6 @@
                     }
                 }
             },
-            "searchable": true,
             "marshmallow": {
                 "imports": [
                     {
@@ -303,6 +323,7 @@
                     "InvenioFileSchema"
                 ]
             },
+            "searchable": true,
             "resource": {
                 "base-classes": [
                     "oarepo_ui.resources.file_resource.S3RedirectFileResource"
@@ -353,6 +374,44 @@
             "skip": false
         },
         "model-name": "Spr",
+        "record-resolver": {
+            "generate": true,
+            "module": "spr.records.requests.resolvers",
+            "class": "spr.records.requests.resolvers.SprResolver",
+            "base-classes": [
+                "oarepo_runtime.records.entity_resolvers.RecordResolver"
+            ],
+            "imports": [],
+            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
+        },
+        "ui-record-resolver": {
+            "generate": true,
+            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
+        },
+        "record": {
+            "base-classes": [
+                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
+            ],
+            "generate": true,
+            "module": "spr.records.api",
+            "class": "spr.records.api.SprRecord",
+            "imports": [],
+            "extra-code": "",
+            "fields": {}
+        },
+        "resource": {
+            "base-classes": [
+                "invenio_drafts_resources.resources.RecordResource"
+            ],
+            "generate": true,
+            "config-key": "SPR_RECORD_RESOURCE_CLASS",
+            "module": "spr.resources.records.resource",
+            "class": "spr.resources.records.resource.SprResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
+        },
         "config": {
             "generate": true,
             "module": "spr.config",
@@ -398,68 +457,6 @@
         "proxy": {
             "module": "spr.proxies",
             "generate": true
-        },
-        "record": {
-            "base-classes": [
-                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
-            ],
-            "generate": true,
-            "module": "spr.records.api",
-            "class": "spr.records.api.SprRecord",
-            "imports": [],
-            "extra-code": "",
-            "fields": {}
-        },
-        "resource": {
-            "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
-            ],
-            "generate": true,
-            "config-key": "SPR_RECORD_RESOURCE_CLASS",
-            "module": "spr.resources.records.resource",
-            "class": "spr.resources.records.resource.SprResource",
-            "proxy": "current_resource",
-            "extra-code": "",
-            "imports": [],
-            "additional-args": []
-        },
-        "record-resolver": {
-            "generate": true,
-            "module": "spr.records.requests.resolvers",
-            "class": "spr.records.requests.resolvers.SprResolver",
-            "base-classes": [
-                "oarepo_runtime.records.entity_resolvers.RecordResolver"
-            ],
-            "imports": [],
-            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
-        },
-        "ui-record-resolver": {
-            "generate": true,
-            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
-        },
-        "json-schema-settings": {
-            "generate": true,
-            "alias": "spr",
-            "version": "1.0.0",
-            "module": "spr.records.jsonschemas",
-            "name": "spr-1.0.0.json",
-            "file": "spr/records/jsonschemas/spr-1.0.0.json"
-        },
-        "json-serializer": {
-            "module": "spr.resources.records.ui",
-            "class": "spr.resources.records.ui.SprUIJSONSerializer",
-            "base-classes": [
-                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
-            ],
-            "imports": [],
-            "extra-code": "",
-            "generate": true,
-            "list_schema_cls": "flask_resources.BaseListSchema",
-            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
-            "schema-context-args": {
-                "\"object_key\"": "\"ui\"",
-                "\"identity\"": "{{ flask.g{g.identity} }}"
-            }
         },
         "record-metadata": {
             "generate": true,
@@ -507,6 +504,30 @@
             ],
             "imports": []
         },
+        "json-schema-settings": {
+            "generate": true,
+            "alias": "spr",
+            "version": "1.0.0",
+            "module": "spr.records.jsonschemas",
+            "name": "spr-1.0.0.json",
+            "file": "spr/records/jsonschemas/spr-1.0.0.json"
+        },
+        "json-serializer": {
+            "module": "spr.resources.records.ui",
+            "class": "spr.resources.records.ui.SprUIJSONSerializer",
+            "base-classes": [
+                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
+            ],
+            "imports": [],
+            "extra-code": "",
+            "generate": true,
+            "list_schema_cls": "flask_resources.BaseListSchema",
+            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
+            "schema-context-args": {
+                "\"object_key\"": "\"ui\"",
+                "\"identity\"": "{{ flask.g{g.identity} }}"
+            }
+        },
         "translations": {
             "module": "spr.translations",
             "alias": "spr"
@@ -517,42 +538,6 @@
             "file-class": "spr.records.api.SprRecord",
             "field-args": [
                 "store=False"
-            ],
-            "imports": []
-        },
-        "edtf-interval-dumper": {
-            "generate": true,
-            "module": "spr.records.dumpers.edtf",
-            "class": "spr.records.dumpers.edtf.SprEDTFIntervalDumperExt",
-            "base-classes": [
-                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
-            ],
-            "extra-code": "",
-            "extensions": [],
-            "imports": []
-        },
-        "record-list": {
-            "generate": true,
-            "module": "spr.services.records.results",
-            "class": "spr.services.records.results.SprRecordList",
-            "extra-code": "",
-            "base-classes": [
-                "oarepo_runtime.services.results.RecordList"
-            ],
-            "components": [],
-            "imports": []
-        },
-        "record-item": {
-            "generate": true,
-            "module": "spr.services.records.results",
-            "class": "spr.services.records.results.SprRecordItem",
-            "extra-code": "",
-            "base-classes": [
-                "oarepo_runtime.services.results.RecordItem"
-            ],
-            "components": [
-                "{{oarepo_requests.services.results.RequestsComponent}}()",
-                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
             ],
             "imports": []
         },
@@ -621,13 +606,41 @@
             ],
             "imports": []
         },
-        "parent-record-marshmallow": {
-            "module": "spr.services.records.schema",
-            "class": "spr.services.records.schema.GeneratedParentSchema",
+        "edtf-interval-dumper": {
             "generate": true,
+            "module": "spr.records.dumpers.edtf",
+            "class": "spr.records.dumpers.edtf.SprEDTFIntervalDumperExt",
             "base-classes": [
-                "invenio_drafts_resources.services.records.schema.ParentSchema{InvenioParentSchema}"
-            ]
+                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
+            ],
+            "extra-code": "",
+            "extensions": [],
+            "imports": []
+        },
+        "record-list": {
+            "generate": true,
+            "module": "spr.services.records.results",
+            "class": "spr.services.records.results.SprRecordList",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordList"
+            ],
+            "components": [],
+            "imports": []
+        },
+        "record-item": {
+            "generate": true,
+            "module": "spr.services.records.results",
+            "class": "spr.services.records.results.SprRecordItem",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordItem"
+            ],
+            "components": [
+                "{{oarepo_requests.services.results.RequestsComponent}}()",
+                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
+            ],
+            "imports": []
         },
         "requests": {
             "types": {},
@@ -669,6 +682,14 @@
             "additional-ui-resolvers": {},
             "ui-serialization-referenced-fields": []
         },
+        "parent-record-marshmallow": {
+            "module": "spr.services.records.schema",
+            "class": "spr.services.records.schema.GeneratedParentSchema",
+            "generate": true,
+            "base-classes": [
+                "invenio_drafts_resources.services.records.schema.ParentSchema{InvenioParentSchema}"
+            ]
+        },
         "sortable": [],
         "properties": {
             "$schema": {
@@ -693,6 +714,14 @@
             },
             "collected_default_search_fields": {
                 "type": "fulltext",
+                "mapping": {
+                    "fields": {
+                        "substringmatch": {
+                            "type": "text",
+                            "analyzer": "substring"
+                        }
+                    }
+                },
                 "marshmallow": {
                     "read": false,
                     "write": false

@@ -59,6 +59,11 @@ class ItcServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
     @property
     def links_item(self):
         return {
+            "applicable-requests": ConditionalLink(
+                cond=is_published_record,
+                if_=RecordLink("{+api}/records/itc/{id}/requests/applicable"),
+                else_=RecordLink("{+api}/records/itc/{id}/draft/requests/applicable"),
+            ),
             "draft": RecordLink("{+api}/records/itc/{id}/draft"),
             "edit_html": RecordLink("{+ui}/itc/{id}/edit", when=has_draft),
             "files": ConditionalLink(

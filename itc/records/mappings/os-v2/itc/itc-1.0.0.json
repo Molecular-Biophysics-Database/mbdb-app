@@ -6,6 +6,12 @@
                 "ignore_above": 1024
             },
             "collected_default_search_fields": {
+                "fields": {
+                    "substringmatch": {
+                        "type": "text",
+                        "analyzer": "substring"
+                    }
+                },
                 "type": "text"
             },
             "created": {
@@ -2757,6 +2763,27 @@
     "settings": {
         "index.mapping.total_fields.limit": 3000,
         "index.mapping.nested_fields.limit": 200,
-        "index.query.default_field": "collected_default_search_fields"
+        "index.query.default_field": [
+            "collected_default_search_fields",
+            "collected_default_search_fields.substringmatch"
+        ],
+        "analysis": {
+            "analyzer": {
+                "substring": {
+                    "tokenizer": "substringtokenizer"
+                }
+            },
+            "tokenizer": {
+                "substringtokenizer": {
+                    "type": "ngram",
+                    "min_gram": 3,
+                    "max_gram": 3,
+                    "token_chars": [
+                        "letter",
+                        "digit"
+                    ]
+                }
+            }
+        }
     }
 }
