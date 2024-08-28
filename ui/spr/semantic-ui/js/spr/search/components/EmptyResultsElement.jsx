@@ -8,6 +8,12 @@ export const EmptyResultsElement = ({
   searchPath,
   resetQuery,
 }) => {
+
+  const handleClick = () => {
+    resetQuery();
+    window.location.href = '/';
+  };
+
   return (
     <Grid>
       <Grid.Row centered>
@@ -20,7 +26,7 @@ export const EmptyResultsElement = ({
       </Grid.Row>
       <Grid.Row centered>
         <Grid.Column width={8} textAlign="center">
-          <Button primary onClick={resetQuery}>
+          <Button primary onClick={handleClick}>
             <Icon name="search" />
             Start over
           </Button>
