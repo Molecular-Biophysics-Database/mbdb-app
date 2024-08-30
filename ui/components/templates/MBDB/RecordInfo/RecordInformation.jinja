@@ -12,6 +12,9 @@
     <IField d={gp.associated_publication} field_class={field_class}>
         <AssociatedPublication publication={gp.associated_publication} />
     </IField>
+    <IField d={gp.record_information.license} field_class={field_class}>
+        <License license={gp.record_information.license} />
+    </IField>
     <IField d={gp.funding_references} field_class={field_class}>
         <Funding funding_refs={gp.funding_references} />
     </IField>
