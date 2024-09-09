@@ -2,18 +2,14 @@
 
 set -e
 
-curl -sSL https://pdm-project.org/install-pdm.py | python - -p /tmp/pdm
-
-export PATH=$PWD:/tmp/pdm/bin:$PATH
-# somewhere in the build process it is assumed that $PYTHON is set
-export PYTHON=`which python`
+export NRP_USE_UV=1
+export PYTHON=`which python3.12`
 
 echo "use_docker: false" > .oarepo-user.yaml
 
 set
 
-nrp upgrade
-# nrp build
+./nrp upgrade
 
 source .venv/bin/activate
 
@@ -34,7 +30,7 @@ done
 invenio users create --password 123456 -a -c test@test.com
 TOKEN=$(invenio tokens create -n test -u test@test.com)
 
-nrp run 2>&1 | tee nrp-server.log &
+./nrp run 2>&1 | tee nrp-server.log &
 NRP_SERVER_PID=$!
 
 trap "kill $NRP_SERVER_PID" EXIT
