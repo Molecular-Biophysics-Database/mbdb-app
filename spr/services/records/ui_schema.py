@@ -17,6 +17,8 @@ class SprUISchema(UIRequestsSerializationMixin, InvenioUISchema):
 
     metadata = ma_fields.Nested(lambda: SprMetadataUISchema())
 
+    state = ma_fields.String(dump_only=True)
+
 
 class SprMetadataUISchema(Schema):
     class Meta:

@@ -17,6 +17,8 @@ class ItcUISchema(UIRequestsSerializationMixin, InvenioUISchema):
 
     metadata = ma_fields.Nested(lambda: ItcMetadataUISchema())
 
+    state = ma_fields.String(dump_only=True)
+
 
 class ItcMetadataUISchema(Schema):
     class Meta:

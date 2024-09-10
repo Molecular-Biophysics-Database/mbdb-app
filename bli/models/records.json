@@ -39,7 +39,7 @@
         },
         "permissions": {
             "presets": [
-                "authenticated"
+                "mbdb"
             ],
             "generate": true,
             "extra-code": "",
@@ -77,13 +77,33 @@
             "file": "bli/models/ui.json",
             "alias": "bli"
         },
+        "service": {
+            "base-classes": [
+                "common.services.records.service.AddWorkflowServiceMixin",
+                "invenio_drafts_resources.services.RecordService"
+            ],
+            "imports": [],
+            "generate": true,
+            "config-key": "BLI_RECORD_SERVICE_CLASS",
+            "proxy": "current_service",
+            "module": "bli.services.records.service",
+            "class": "bli.services.records.service.BliService",
+            "extra-code": "",
+            "additional-args": [
+                "files_service=self.service_files",
+                "draft_files_service=self.service_draft_files"
+            ]
+        },
         "service-config": {
             "components": [
                 "{{oarepo_vocabularies.authorities.components.AuthorityComponent}}",
+                "{{oarepo_communities.services.components.default_workflow.CommunityDefaultWorkflowComponent}}",
+                "{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
                 "{{oarepo_runtime.services.components.OwnersComponent}}",
                 "{{invenio_drafts_resources.services.records.components.DraftFilesComponent}}",
-                "{{invenio_records_resources.services.records.components.DataComponent}}",
-                "{{oarepo_runtime.services.files.FilesComponent}}"
+                "{{oarepo_runtime.services.components.CustomFieldsComponent}}",
+                "{{oarepo_runtime.services.files.FilesComponent}}",
+                "{{oarepo_workflows.services.components.workflow.WorkflowComponent}}"
             ],
             "base-classes": [
                 "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
@@ -397,7 +417,9 @@
             "class": "bli.records.api.BliRecord",
             "imports": [],
             "extra-code": "",
-            "fields": {}
+            "fields": {
+                "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')"
+            }
         },
         "resource": {
             "base-classes": [
@@ -411,6 +433,26 @@
             "extra-code": "",
             "imports": [],
             "additional-args": []
+        },
+        "draft-parent-record-metadata": {
+            "base-classes": [
+                "oarepo_workflows.records.models.RecordWorkflowParentModelMixin",
+                "invenio_db.db{db.Model}",
+                "invenio_records.models.RecordMetadataBase"
+            ],
+            "class": "bli.records.models.BliParentMetadata",
+            "imports": [],
+            "table": "bli_parent_record_metadata",
+            "module": "bli.records.models",
+            "generate": true
+        },
+        "parent-record-marshmallow": {
+            "base-classes": [
+                "oarepo_workflows.services.records.schema.WorkflowParentSchema"
+            ],
+            "module": "bli.services.records.schema",
+            "class": "bli.services.records.schema.GeneratedParentSchema",
+            "generate": true
         },
         "config": {
             "generate": true,
@@ -474,22 +516,6 @@
             "use-versioning": true,
             "alembic": "bli.alembic"
         },
-        "service": {
-            "imports": [],
-            "base-classes": [
-                "invenio_drafts_resources.services.RecordService{InvenioRecordService}"
-            ],
-            "generate": true,
-            "config-key": "BLI_RECORD_SERVICE_CLASS",
-            "proxy": "current_service",
-            "module": "bli.services.records.service",
-            "class": "bli.services.records.service.BliService",
-            "extra-code": "",
-            "additional-args": [
-                "files_service=self.service_files",
-                "draft_files_service=self.service_draft_files"
-            ]
-        },
         "record-dumper": {
             "generate": true,
             "module": "bli.records.dumpers.dumper",
@@ -503,6 +529,10 @@
                 "{{bli.records.dumpers.edtf.BliEDTFIntervalDumperExt}}()"
             ],
             "imports": []
+        },
+        "translations": {
+            "module": "bli.translations",
+            "alias": "bli"
         },
         "json-schema-settings": {
             "generate": true,
@@ -528,10 +558,6 @@
                 "\"identity\"": "{{ flask.g{g.identity} }}"
             }
         },
-        "translations": {
-            "module": "bli.translations",
-            "alias": "bli"
-        },
         "files-field": {
             "generate": true,
             "field-class": "invenio_records_resources.records.systemfields.FilesField",
@@ -547,7 +573,9 @@
                 "invenio_drafts_resources.records.api.ParentRecord"
             ],
             "imports": [],
-            "fields": {},
+            "fields": {
+                "workflow": "{{oarepo_workflows.records.systemfields.workflow.WorkflowField}}()"
+            },
             "module": "bli.records.api",
             "generate": true
         },
@@ -562,21 +590,21 @@
             "generate": true,
             "table": "bli_parent_state_metadata"
         },
-        "draft-parent-record-metadata": {
-            "class": "bli.records.models.BliParentMetadata",
-            "base-classes": [
-                "invenio_db.db{db.Model}",
-                "invenio_records.models.RecordMetadataBase"
-            ],
-            "imports": [],
-            "table": "bli_parent_record_metadata",
-            "module": "bli.records.models",
-            "generate": true
-        },
         "draft-parent-record-schema": {
             "name": "parent-v1.0.0.json",
             "file": "bli/records/jsonschemas/parent-v1.0.0.json",
             "generate": true
+        },
+        "edtf-interval-dumper": {
+            "generate": true,
+            "module": "bli.records.dumpers.edtf",
+            "class": "bli.records.dumpers.edtf.BliEDTFIntervalDumperExt",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
+            ],
+            "extra-code": "",
+            "extensions": [],
+            "imports": []
         },
         "published-service-config": {
             "config-key": "BLI_RECORD_PUBLISHED_SERVICE_CONFIG",
@@ -604,17 +632,6 @@
             "base-classes": [
                 "oarepo_published_service.services.service.PublishedService"
             ],
-            "imports": []
-        },
-        "edtf-interval-dumper": {
-            "generate": true,
-            "module": "bli.records.dumpers.edtf",
-            "class": "bli.records.dumpers.edtf.BliEDTFIntervalDumperExt",
-            "base-classes": [
-                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
-            ],
-            "extra-code": "",
-            "extensions": [],
             "imports": []
         },
         "record-list": {
@@ -681,14 +698,6 @@
             "additional-resolvers": [],
             "additional-ui-resolvers": {},
             "ui-serialization-referenced-fields": []
-        },
-        "parent-record-marshmallow": {
-            "module": "bli.services.records.schema",
-            "class": "bli.services.records.schema.GeneratedParentSchema",
-            "generate": true,
-            "base-classes": [
-                "invenio_drafts_resources.services.records.schema.ParentSchema{InvenioParentSchema}"
-            ]
         },
         "sortable": [],
         "properties": {
@@ -1246,7 +1255,7 @@
                                                                 "label.en": "Source organism",
                                                                 "imports": [
                                                                     {
-                                                                        "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                        "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                     }
                                                                 ],
                                                                 "model": "vocabularies",
@@ -1301,7 +1310,7 @@
                                                                 "label.en": "Expression organism",
                                                                 "imports": [
                                                                     {
-                                                                        "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                        "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                     }
                                                                 ],
                                                                 "model": "vocabularies",
@@ -2174,7 +2183,7 @@
                                                                 "label.en": "Basic information",
                                                                 "imports": [
                                                                     {
-                                                                        "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                        "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                     }
                                                                 ],
                                                                 "model": "vocabularies",
@@ -2470,7 +2479,7 @@
                                                                                     "label.en": "Source organism",
                                                                                     "imports": [
                                                                                         {
-                                                                                            "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                                         }
                                                                                     ],
                                                                                     "model": "vocabularies",
@@ -2525,7 +2534,7 @@
                                                                                     "label.en": "Expression organism",
                                                                                     "imports": [
                                                                                         {
-                                                                                            "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                                         }
                                                                                     ],
                                                                                     "model": "vocabularies",
@@ -3348,7 +3357,7 @@
                                                                                     "label.en": "Basic information",
                                                                                     "imports": [
                                                                                         {
-                                                                                            "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                                         }
                                                                                     ],
                                                                                     "model": "vocabularies",
@@ -4196,7 +4205,7 @@
                                                                         "label.en": "Source organism",
                                                                         "imports": [
                                                                             {
-                                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                             }
                                                                         ],
                                                                         "model": "vocabularies",
@@ -4602,7 +4611,7 @@
                                                                         "label.en": "Source organism",
                                                                         "imports": [
                                                                             {
-                                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                             }
                                                                         ],
                                                                         "model": "vocabularies",
@@ -4970,7 +4979,7 @@
                                                                         "label.en": "Host organism",
                                                                         "imports": [
                                                                             {
-                                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                             }
                                                                         ],
                                                                         "model": "vocabularies",
@@ -5047,7 +5056,7 @@
                                                                         "label.en": "Source organism",
                                                                         "imports": [
                                                                             {
-                                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                             }
                                                                         ],
                                                                         "model": "vocabularies",
@@ -5885,7 +5894,7 @@
                                                                                             "label.en": "Source organism",
                                                                                             "imports": [
                                                                                                 {
-                                                                                                    "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                                    "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                                                 }
                                                                                             ],
                                                                                             "model": "vocabularies",
@@ -5940,7 +5949,7 @@
                                                                                             "label.en": "Expression organism",
                                                                                             "imports": [
                                                                                                 {
-                                                                                                    "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                                    "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                                                 }
                                                                                             ],
                                                                                             "model": "vocabularies",
@@ -6763,7 +6772,7 @@
                                                                                             "label.en": "Basic information",
                                                                                             "imports": [
                                                                                                 {
-                                                                                                    "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                                    "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                                                 }
                                                                                             ],
                                                                                             "model": "vocabularies",
@@ -7684,7 +7693,7 @@
                                                         "label.en": "Expression organism",
                                                         "imports": [
                                                             {
-                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                             }
                                                         ],
                                                         "model": "vocabularies",
@@ -8837,7 +8846,7 @@
                                                         "label.en": "Source organism",
                                                         "imports": [
                                                             {
-                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                             }
                                                         ],
                                                         "model": "vocabularies",
@@ -9017,7 +9026,7 @@
                                                         "label.en": "Basic information",
                                                         "imports": [
                                                             {
-                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                             }
                                                         ],
                                                         "model": "vocabularies",
@@ -9372,7 +9381,7 @@
                                                                             "label.en": "Source organism",
                                                                             "imports": [
                                                                                 {
-                                                                                    "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                    "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                                 }
                                                                             ],
                                                                             "model": "vocabularies",
@@ -9427,7 +9436,7 @@
                                                                             "label.en": "Expression organism",
                                                                             "imports": [
                                                                                 {
-                                                                                    "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                    "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                                 }
                                                                             ],
                                                                             "model": "vocabularies",
@@ -10250,7 +10259,7 @@
                                                                             "label.en": "Basic information",
                                                                             "imports": [
                                                                                 {
-                                                                                    "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                    "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                                 }
                                                                             ],
                                                                             "model": "vocabularies",
@@ -10392,7 +10401,7 @@
                                                                     "label.en": "Expression organism",
                                                                     "imports": [
                                                                         {
-                                                                            "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                         }
                                                                     ],
                                                                     "model": "vocabularies",
@@ -11544,7 +11553,7 @@
                                                                     "label.en": "Source organism",
                                                                     "imports": [
                                                                         {
-                                                                            "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                         }
                                                                     ],
                                                                     "model": "vocabularies",
@@ -11719,7 +11728,7 @@
                                                                     "label.en": "Basic information",
                                                                     "imports": [
                                                                         {
-                                                                            "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                         }
                                                                     ],
                                                                     "model": "vocabularies",
@@ -12161,7 +12170,7 @@
                                                         "label.en": "Host organism",
                                                         "imports": [
                                                             {
-                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                             }
                                                         ],
                                                         "model": "vocabularies",
@@ -12554,7 +12563,7 @@
                                                                 "label.en": "Basic information",
                                                                 "imports": [
                                                                     {
-                                                                        "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                        "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                     }
                                                                 ],
                                                                 "model": "vocabularies",
@@ -12764,7 +12773,7 @@
                                                         "label.en": "Basic information",
                                                         "imports": [
                                                             {
-                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                             }
                                                         ],
                                                         "model": "vocabularies",
@@ -13076,7 +13085,7 @@
                                                         "vocabulary-type": "affiliations",
                                                         "imports": [
                                                             {
-                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                             }
                                                         ],
                                                         "model": "vocabularies",
@@ -13296,7 +13305,7 @@
                                                     "vocabulary-type": "affiliations",
                                                     "imports": [
                                                         {
-                                                            "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                         }
                                                     ],
                                                     "model": "vocabularies",
@@ -13515,7 +13524,7 @@
                                                     "vocabulary-type": "affiliations",
                                                     "imports": [
                                                         {
-                                                            "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                         }
                                                     ],
                                                     "model": "vocabularies",
@@ -13814,7 +13823,7 @@
                                                     "label.en": "Source organism",
                                                     "imports": [
                                                         {
-                                                            "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                         }
                                                     ],
                                                     "model": "vocabularies",
@@ -13869,7 +13878,7 @@
                                                     "label.en": "Expression organism",
                                                     "imports": [
                                                         {
-                                                            "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                         }
                                                     ],
                                                     "model": "vocabularies",
@@ -14692,7 +14701,7 @@
                                                     "label.en": "Basic information",
                                                     "imports": [
                                                         {
-                                                            "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                         }
                                                     ],
                                                     "model": "vocabularies",
@@ -14938,7 +14947,7 @@
                                                                         "label.en": "Source organism",
                                                                         "imports": [
                                                                             {
-                                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                             }
                                                                         ],
                                                                         "model": "vocabularies",
@@ -14993,7 +15002,7 @@
                                                                         "label.en": "Expression organism",
                                                                         "imports": [
                                                                             {
-                                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                             }
                                                                         ],
                                                                         "model": "vocabularies",
@@ -15816,7 +15825,7 @@
                                                                         "label.en": "Basic information",
                                                                         "imports": [
                                                                             {
-                                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                             }
                                                                         ],
                                                                         "model": "vocabularies",
@@ -16614,7 +16623,7 @@
                                                             "label.en": "Source organism",
                                                             "imports": [
                                                                 {
-                                                                    "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                    "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                 }
                                                             ],
                                                             "model": "vocabularies",
@@ -16970,7 +16979,7 @@
                                                             "label.en": "Source organism",
                                                             "imports": [
                                                                 {
-                                                                    "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                    "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                 }
                                                             ],
                                                             "model": "vocabularies",
@@ -17288,7 +17297,7 @@
                                                             "label.en": "Host organism",
                                                             "imports": [
                                                                 {
-                                                                    "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                    "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                 }
                                                             ],
                                                             "model": "vocabularies",
@@ -17365,7 +17374,7 @@
                                                             "label.en": "Source organism",
                                                             "imports": [
                                                                 {
-                                                                    "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                    "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                 }
                                                             ],
                                                             "model": "vocabularies",
@@ -18103,7 +18112,7 @@
                                                                                 "label.en": "Source organism",
                                                                                 "imports": [
                                                                                     {
-                                                                                        "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                        "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                                     }
                                                                                 ],
                                                                                 "model": "vocabularies",
@@ -18158,7 +18167,7 @@
                                                                                 "label.en": "Expression organism",
                                                                                 "imports": [
                                                                                     {
-                                                                                        "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                        "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                                     }
                                                                                 ],
                                                                                 "model": "vocabularies",
@@ -18981,7 +18990,7 @@
                                                                                 "label.en": "Basic information",
                                                                                 "imports": [
                                                                                     {
-                                                                                        "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                                        "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                                     }
                                                                                 ],
                                                                                 "model": "vocabularies",
@@ -19745,7 +19754,7 @@
                                             "label.en": "Expression organism",
                                             "imports": [
                                                 {
-                                                    "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                    "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                 }
                                             ],
                                             "model": "vocabularies",
@@ -20902,7 +20911,7 @@
                                             "label.en": "Source organism",
                                             "imports": [
                                                 {
-                                                    "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                    "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                 }
                                             ],
                                             "model": "vocabularies",
@@ -21085,7 +21094,7 @@
                                             "label.en": "Basic information",
                                             "imports": [
                                                 {
-                                                    "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                    "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                 }
                                             ],
                                             "model": "vocabularies",
@@ -21440,7 +21449,7 @@
                                                                 "label.en": "Source organism",
                                                                 "imports": [
                                                                     {
-                                                                        "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                        "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                     }
                                                                 ],
                                                                 "model": "vocabularies",
@@ -21495,7 +21504,7 @@
                                                                 "label.en": "Expression organism",
                                                                 "imports": [
                                                                     {
-                                                                        "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                        "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                     }
                                                                 ],
                                                                 "model": "vocabularies",
@@ -22318,7 +22327,7 @@
                                                                 "label.en": "Basic information",
                                                                 "imports": [
                                                                     {
-                                                                        "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                        "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                                     }
                                                                 ],
                                                                 "model": "vocabularies",
@@ -22460,7 +22469,7 @@
                                                         "label.en": "Expression organism",
                                                         "imports": [
                                                             {
-                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                             }
                                                         ],
                                                         "model": "vocabularies",
@@ -23612,7 +23621,7 @@
                                                         "label.en": "Source organism",
                                                         "imports": [
                                                             {
-                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                             }
                                                         ],
                                                         "model": "vocabularies",
@@ -23787,7 +23796,7 @@
                                                         "label.en": "Basic information",
                                                         "imports": [
                                                             {
-                                                                "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                             }
                                                         ],
                                                         "model": "vocabularies",
@@ -24229,7 +24238,7 @@
                                             "label.en": "Host organism",
                                             "imports": [
                                                 {
-                                                    "import": "invenio_vocabularies.records.api.Vocabulary"
+                                                    "import": "oarepo_vocabularies.records.api.Vocabulary"
                                                 }
                                             ],
                                             "model": "vocabularies",
@@ -24577,7 +24586,7 @@
                                     "vocabulary-type": "grants",
                                     "imports": [
                                         {
-                                            "import": "invenio_vocabularies.records.api.Vocabulary"
+                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
                                         }
                                     ],
                                     "model": "vocabularies",
@@ -24703,7 +24712,7 @@
                                 "label.en": "Instrument",
                                 "imports": [
                                     {
-                                        "import": "invenio_vocabularies.records.api.Vocabulary"
+                                        "import": "oarepo_vocabularies.records.api.Vocabulary"
                                     }
                                 ],
                                 "model": "vocabularies",
@@ -29049,6 +29058,19 @@
                             "searchable": true,
                             "facet": false
                         }
+                    }
+                }
+            },
+            "state": {
+                "type": "keyword",
+                "marshmallow": {
+                    "read": true,
+                    "write": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": true,
+                        "write": false
                     }
                 }
             },

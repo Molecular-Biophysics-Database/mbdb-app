@@ -1,3 +1,4 @@
+from invenio_communities.records.records.models import CommunityRelationMixin
 from invenio_db import db
 from invenio_drafts_resources.records import (
     DraftMetadataBase,
@@ -6,10 +7,11 @@ from invenio_drafts_resources.records import (
 )
 from invenio_files_rest.models import Bucket
 from invenio_records.models import RecordMetadataBase
+from oarepo_workflows.records.models import RecordWorkflowParentModelMixin
 from sqlalchemy_utils import UUIDType
 
 
-class MstParentMetadata(db.Model, RecordMetadataBase):
+class MstParentMetadata(RecordWorkflowParentModelMixin, db.Model, RecordMetadataBase):
 
     __tablename__ = "mst_parent_record_metadata"
 
@@ -35,6 +37,11 @@ class MstDraftMetadata(db.Model, DraftMetadataBase, ParentRecordMixin):
     __parent_record_model__ = MstParentMetadata
     bucket_id = db.Column(UUIDType, db.ForeignKey(Bucket.id))
     bucket = db.relationship(Bucket)
+
+
+class MstCommunitiesMetadata(db.Model, CommunityRelationMixin):
+    __tablename__ = "mst_communities_metadata"
+    __record_model__ = MstParentMetadata
 
 
 class MstParentState(db.Model, ParentRecordStateMixin):

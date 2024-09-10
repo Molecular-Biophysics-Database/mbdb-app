@@ -337,6 +337,7 @@ class ItcSearchOptions(RecordSearchOptions):
         "metadata_method_specific_parameters_schema_version": facets.metadata_method_specific_parameters_schema_version,
         "metadata_method_specific_parameters_stirring_speed_unit": facets.metadata_method_specific_parameters_stirring_speed_unit,
         "metadata_method_specific_parameters_stirring_speed_value": facets.metadata_method_specific_parameters_stirring_speed_value,
+        "state": facets.state,
         **getattr(RecordSearchOptions, "facets", {}),
         "record_status": facets.record_status,
         "has_draft": facets.has_draft,

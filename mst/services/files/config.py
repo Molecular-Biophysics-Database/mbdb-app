@@ -1,5 +1,5 @@
 from invenio_records_resources.services import FileLink, FileServiceConfig, RecordLink
-from invenio_records_resources.services.records.components import DataComponent
+from oarepo_runtime.services.components import CustomFieldsComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 
 from mst.records.api import MstDraft, MstRecord
@@ -25,7 +25,7 @@ class MstFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
     components = [
         *PermissionsPresetsConfigMixin.components,
         *FileServiceConfig.components,
-        DataComponent,
+        CustomFieldsComponent,
     ]
 
     model = "mst"
@@ -65,7 +65,7 @@ class MstFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
     components = [
         *PermissionsPresetsConfigMixin.components,
         *FileServiceConfig.components,
-        DataComponent,
+        CustomFieldsComponent,
     ]
 
     model = "mst"

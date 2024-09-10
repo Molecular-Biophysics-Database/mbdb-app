@@ -332,6 +332,7 @@ class MstSearchOptions(RecordSearchOptions):
         "metadata_method_specific_parameters_signal_type": facets.metadata_method_specific_parameters_signal_type,
         "metadata_method_specific_parameters_temperature_unit": facets.metadata_method_specific_parameters_temperature_unit,
         "metadata_method_specific_parameters_temperature_value": facets.metadata_method_specific_parameters_temperature_value,
+        "state": facets.state,
         **getattr(RecordSearchOptions, "facets", {}),
         "record_status": facets.record_status,
         "has_draft": facets.has_draft,

@@ -1,10 +1,13 @@
+from invenio_communities.records.records.systemfields import CommunitiesField
 from invenio_drafts_resources.records.api import Draft as InvenioDraft
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2, ParentRecord
 from invenio_drafts_resources.records.api import Record as InvenioRecord
 from invenio_records.systemfields import ConstantField, ModelField
 from invenio_records_resources.records.systemfields import FilesField, IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
-from invenio_vocabularies.records.api import Vocabulary
+from oarepo_communities.records.systemfields.communities import (
+    OARepoCommunitiesFieldContext,
+)
 from oarepo_runtime.records.relations import (
     InternalRelation,
     PIDRelation,
@@ -13,10 +16,14 @@ from oarepo_runtime.records.relations import (
 from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.records.systemfields.owner import OwnersField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
+from oarepo_vocabularies.records.api import Vocabulary
+from oarepo_workflows.records.systemfields.state import RecordStateField
+from oarepo_workflows.records.systemfields.workflow import WorkflowField
 
 from itc.files.api import ItcFile, ItcFileDraft
 from itc.records.dumpers.dumper import ItcDraftDumper, ItcDumper
 from itc.records.models import (
+    ItcCommunitiesMetadata,
     ItcDraftMetadata,
     ItcMetadata,
     ItcParentMetadata,
@@ -26,6 +33,12 @@ from itc.records.models import (
 
 class ItcParentRecord(ParentRecord):
     model_cls = ItcParentMetadata
+
+    workflow = WorkflowField()
+
+    communities = CommunitiesField(
+        ItcCommunitiesMetadata, context_cls=OARepoCommunitiesFieldContext
+    )
 
     owners = OwnersField()
 
@@ -47,6 +60,8 @@ class ItcRecord(InvenioRecord):
     pid = PIDField(provider=ItcIdProvider, context_cls=PIDFieldContext, create=True)
 
     dumper = ItcDumper()
+
+    state = RecordStateField(initial="published")
 
     relations = RelationsField(
         expression_organism=PIDRelation(
@@ -397,6 +412,8 @@ class ItcDraft(InvenioDraft):
     )
 
     dumper = ItcDraftDumper()
+
+    state = RecordStateField()
 
     relations = RelationsField(
         expression_organism=PIDRelation(

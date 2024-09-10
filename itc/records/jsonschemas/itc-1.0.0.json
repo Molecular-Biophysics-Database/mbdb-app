@@ -2318,6 +2318,9 @@
                 }
             }
         },
+        "state": {
+            "type": "string"
+        },
         "updated": {
             "type": "string",
             "format": "date-time"
