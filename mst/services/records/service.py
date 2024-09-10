@@ -1,5 +1,7 @@
-from invenio_drafts_resources.services import RecordService as InvenioRecordService
+from invenio_drafts_resources.services import RecordService
+
+from common.services.records.service import AddWorkflowServiceMixin
 
 
-class MstService(InvenioRecordService):
+class MstService(AddWorkflowServiceMixin, RecordService):
     """MstRecord service."""

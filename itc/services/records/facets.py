@@ -2704,6 +2704,8 @@ metadata_method_specific_parameters_stirring_speed_value = TermsFacet(
     label=_("metadata/method_specific_parameters/stirring_speed/value.label"),
 )
 
+state = TermsFacet(field="state", label=_("state.label"))
+
 
 record_status = TermsFacet(field="record_status", label=_("record_status"))
 

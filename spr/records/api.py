@@ -1,10 +1,13 @@
+from invenio_communities.records.records.systemfields import CommunitiesField
 from invenio_drafts_resources.records.api import Draft as InvenioDraft
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2, ParentRecord
 from invenio_drafts_resources.records.api import Record as InvenioRecord
 from invenio_records.systemfields import ConstantField, ModelField
 from invenio_records_resources.records.systemfields import FilesField, IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
-from invenio_vocabularies.records.api import Vocabulary
+from oarepo_communities.records.systemfields.communities import (
+    OARepoCommunitiesFieldContext,
+)
 from oarepo_runtime.records.relations import (
     InternalRelation,
     PIDRelation,
@@ -13,10 +16,14 @@ from oarepo_runtime.records.relations import (
 from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.records.systemfields.owner import OwnersField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
+from oarepo_vocabularies.records.api import Vocabulary
+from oarepo_workflows.records.systemfields.state import RecordStateField
+from oarepo_workflows.records.systemfields.workflow import WorkflowField
 
 from spr.files.api import SprFile, SprFileDraft
 from spr.records.dumpers.dumper import SprDraftDumper, SprDumper
 from spr.records.models import (
+    SprCommunitiesMetadata,
     SprDraftMetadata,
     SprMetadata,
     SprParentMetadata,
@@ -26,6 +33,12 @@ from spr.records.models import (
 
 class SprParentRecord(ParentRecord):
     model_cls = SprParentMetadata
+
+    workflow = WorkflowField()
+
+    communities = CommunitiesField(
+        SprCommunitiesMetadata, context_cls=OARepoCommunitiesFieldContext
+    )
 
     owners = OwnersField()
 
@@ -47,6 +60,8 @@ class SprRecord(InvenioRecord):
     pid = PIDField(provider=SprIdProvider, context_cls=PIDFieldContext, create=True)
 
     dumper = SprDumper()
+
+    state = RecordStateField(initial="published")
 
     relations = RelationsField(
         expression_organism=PIDRelation(
@@ -427,6 +442,8 @@ class SprDraft(InvenioDraft):
     )
 
     dumper = SprDraftDumper()
+
+    state = RecordStateField()
 
     relations = RelationsField(
         expression_organism=PIDRelation(

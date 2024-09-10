@@ -7,12 +7,17 @@ from invenio_records_resources.services import (
     RecordLink,
     pagination_links,
 )
-from invenio_records_resources.services.records.components import DataComponent
+from oarepo_communities.services.components.default_workflow import (
+    CommunityDefaultWorkflowComponent,
+)
+from oarepo_communities.services.components.include import CommunityInclusionComponent
+from oarepo_communities.services.links import CommunitiesLinks
 from oarepo_runtime.records import has_draft, is_published_record
-from oarepo_runtime.services.components import OwnersComponent
+from oarepo_runtime.services.components import CustomFieldsComponent, OwnersComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 from oarepo_runtime.services.files import FilesComponent
 from oarepo_vocabularies.authorities.components import AuthorityComponent
+from oarepo_workflows.services.components.workflow import WorkflowComponent
 
 from itc.records.api import ItcDraft, ItcRecord
 from itc.services.records.permissions import ItcPermissionPolicy
@@ -28,7 +33,7 @@ class ItcServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
 
     result_list_cls = ItcRecordList
 
-    PERMISSIONS_PRESETS = ["authenticated"]
+    PERMISSIONS_PRESETS = ["mbdb"]
 
     url_prefix = "/records/itc/"
 
@@ -46,10 +51,13 @@ class ItcServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
         AuthorityComponent,
+        CommunityDefaultWorkflowComponent,
+        #CommunityInclusionComponent,
         OwnersComponent,
         DraftFilesComponent,
-        DataComponent,
+        CustomFieldsComponent,
         FilesComponent,
+        WorkflowComponent,
     ]
 
     model = "itc"
@@ -63,6 +71,12 @@ class ItcServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
                 cond=is_published_record,
                 if_=RecordLink("{+api}/records/itc/{id}/requests/applicable"),
                 else_=RecordLink("{+api}/records/itc/{id}/draft/requests/applicable"),
+            ),
+            "communities": CommunitiesLinks(
+                {
+                    "self": "{+api}/communities/{id}",
+                    "self_html": "{+ui}/communities/{slug}/records",
+                }
             ),
             "draft": RecordLink("{+api}/records/itc/{id}/draft"),
             "edit_html": RecordLink("{+ui}/itc/{id}/edit", when=has_draft),

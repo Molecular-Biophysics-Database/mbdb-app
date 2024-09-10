@@ -17,6 +17,8 @@ class BliUISchema(UIRequestsSerializationMixin, InvenioUISchema):
 
     metadata = ma_fields.Nested(lambda: BliMetadataUISchema())
 
+    state = ma_fields.String(dump_only=True)
+
 
 class BliMetadataUISchema(Schema):
     class Meta:

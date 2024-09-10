@@ -1,5 +1,5 @@
 from invenio_records_resources.services import FileLink, FileServiceConfig, RecordLink
-from invenio_records_resources.services.records.components import DataComponent
+from oarepo_runtime.services.components import CustomFieldsComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 
 from itc.records.api import ItcDraft, ItcRecord
@@ -25,7 +25,7 @@ class ItcFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
     components = [
         *PermissionsPresetsConfigMixin.components,
         *FileServiceConfig.components,
-        DataComponent,
+        CustomFieldsComponent,
     ]
 
     model = "itc"
@@ -65,7 +65,7 @@ class ItcFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
     components = [
         *PermissionsPresetsConfigMixin.components,
         *FileServiceConfig.components,
-        DataComponent,
+        CustomFieldsComponent,
     ]
 
     model = "itc"

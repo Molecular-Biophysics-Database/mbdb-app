@@ -353,6 +353,7 @@ class BliSearchOptions(RecordSearchOptions):
         "metadata_method_specific_parameters_sensors_supplier_further_information": facets.metadata_method_specific_parameters_sensors_supplier_further_information,
         "metadata_method_specific_parameters_sensors_supplier_name": facets.metadata_method_specific_parameters_sensors_supplier_name,
         "metadata_method_specific_parameters_sensors_surface_properties": facets.metadata_method_specific_parameters_sensors_surface_properties,
+        "state": facets.state,
         **getattr(RecordSearchOptions, "facets", {}),
         "record_status": facets.record_status,
         "has_draft": facets.has_draft,
