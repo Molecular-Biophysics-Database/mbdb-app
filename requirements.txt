@@ -10,6 +10,7 @@ json5==0.9.25
 langcodes==3.4.0
 language-data==1.2.0
 marisa-trie==1.2.0
+oarepo-communities==5.0.12
 oarepo-dashboard==1.0.9
 oarepo-global-search==1.0.25
 oarepo-published-service==1.0.3
@@ -17,6 +18,7 @@ oarepo-requests==2.0.9
 oarepo-runtime==1.5.59
 oarepo-ui==5.2.8
 oarepo-vocabularies==2.0.99
+oarepo-workflows==1.0.9
 openpyxl==3.1.5
 python-dotenv==1.0.1
 whitenoise==6.7.0

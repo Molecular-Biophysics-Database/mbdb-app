@@ -16,6 +16,7 @@ plugins:
   - oarepo-model-builder-ui
   - oarepo-model-builder-polymorphic
   - oarepo-model-builder-vocabularies
+  - oarepo-model-builder-communities>=5.0.0
 profiles:
 - record
 - draft
@@ -35,7 +36,7 @@ record:
     qualified: spr
   permissions:
     presets:
-    - authenticated
+    - mbdb
   pid:
     type: spr
   properties:

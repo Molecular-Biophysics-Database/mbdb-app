@@ -8,6 +8,7 @@ dependencies = [
     "invenio-drafts-resources>=1.0.4",
     "json5",
     "luqum",
+    "oarepo-communities>=5.0.0",
     "oarepo-dashboard",
     "oarepo-global-search>=1.0.13",
     "oarepo-published-service>=1.0.0",
@@ -15,6 +16,7 @@ dependencies = [
     "oarepo-runtime",
     "oarepo-ui",
     "oarepo-vocabularies",
+    "oarepo-workflows>=1.0.0",
     "oarepo[s3]==12.1.*",
     "python-dotenv",
 ]

@@ -35,6 +35,10 @@ record:
       type: keyword
       mapping:
         copy_to: collected_default_search_fields
+  service:
+    base-classes:
+      - common.services.records.service.AddWorkflowServiceMixin
+      - invenio_drafts_resources.services.RecordService
   service-config:
     components: ["{{oarepo_vocabularies.authorities.components.AuthorityComponent}}"]
   search-options:
