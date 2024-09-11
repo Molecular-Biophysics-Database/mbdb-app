@@ -6,7 +6,6 @@ from oarepo_ui.resources.components import UIResourceComponent
 from typing import Dict
 
 from common.fixed_record_values import make_fixed_values
-from common.ui.components import MBDBEditComponent
 
 from oarepo_vocabularies.ui.resources.components import DepositVocabularyOptionsComponent
 
