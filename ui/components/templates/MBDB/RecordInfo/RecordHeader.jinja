@@ -12,17 +12,20 @@
     </div>
     <div class="mr-4">
       <a class="flex justify-center w-[160px] h-10 text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
-        href="{{ links.edit_html or links.self_html }}" type="application/json" role="button">
+        href="{{links.export_path}}/json" type="application/json" role="button">
         <button class="px-4">
-          Edit
+          Download entry
         </button>
       </a>
     </div>
     <div class="mr-4">
-      <a class="flex justify-center w-[160px] h-10 text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
-        href="{{links.export_path}}/json" type="application/json" role="button">
+      <PublishButton self_link={ md.state } />
+    </div>
+    <div class="mr-4">
+      <a class="flex justify-center px-8 h-10 text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
+        href="{{ links.edit_html or links.self_html }}" type="application/json" role="button">
         <button class="px-4">
-          Download entry
+          Edit
         </button>
       </a>
     </div>
