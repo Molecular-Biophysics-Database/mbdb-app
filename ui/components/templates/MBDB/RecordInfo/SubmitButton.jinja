@@ -1,8 +1,8 @@
 {# def self_link, state #}
 {%- block page_body %}
-    {% if state._ui_value == "accepted" %}
+    {% if state._ui_value == "draft" %}
         <div>
-            <div id="publish-button" data-selflink="{{self_link}}"></div>
+            <div id="submit-button" data-selflink="{{self_link}}"></div>
         </div>
     {% endif %}
 {%- endblock page_body %}

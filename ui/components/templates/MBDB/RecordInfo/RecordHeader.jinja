@@ -1,6 +1,6 @@
-{# def md, links #}
+{# def md, links, state #}
 
-<Status self_link={ links.self } />
+<Status state={ state } />
 
 <div class="flex justify-between mb-8">
   <div class="font-JostMedium text-30px lg:text-40px">
@@ -19,7 +19,10 @@
       </a>
     </div>
     <div class="mr-4">
-      <PublishButton self_link={ md.state } />
+      <PublishButton self_link={ links.self } state={ state } />
+    </div>
+    <div class="mr-4">
+      <SubmitButton self_link={ links.self } state={ state } />
     </div>
     <div class="mr-4">
       <a class="flex justify-center px-8 h-10 text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
@@ -29,6 +32,6 @@
         </button>
       </a>
     </div>
-    <RemoveButton self_link={ links.self } />
+    <RemoveButton self_link={ links.self } state={ state } />
   </div>
 </div>
