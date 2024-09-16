@@ -1,50 +1,46 @@
-# `models` folder
+# models 
 
-Contains generated models. 
+This contains the data model definitions and settings.
 
-## Creating models
+## Model files 
 
-```bash
-nrp model add <model-name> --config <custom config> \
-  --use <custom model>[:<jsonpath>] \
-  --no-input
-```
+### `<model-name>.yaml`
 
-Will create a new model. You can provide your own oarepo.yaml
-config for the model via the --config option (to get the format,
-run the command without --config, answer all the questions
-and then copy the model part of the oarepo.yaml to your own file)
+This contains the model specific setting, dependencies, and defines endpoints.
 
-You can also include a custom model. The file will be copied
-to the destination and referenced from the generated model file.
-If no path is specified, it will be referenced from the root
-of the file, with path the reference will be put there.
+### `<model-name>-metadata.yaml`
 
-Use `--no-input` to disable asking questions (and be sure to
-run it with `--config`)
+The top level model definition. This is a generated file, and it shouldn't be 
+changed manually. Instead, changes to this file should be made by following the 
+steps outlined in [mbdb-model]. 
 
-## Compiling models
+### `<model-name>-definitions.yaml`
 
-```bash
-nrp model compile <model-name>
-```
+This file contains the method specific definitions (the metadata item `method_specific_parameteres`),
 
-This command will compile your model into invenio sources
+This is a generated file, and it shouldn't be changed manually. Instead, changes to this file should be made by following the 
+steps outlined in [mbdb-model]. 
 
-## Installing models
+## Special files 
 
-```bash
-nrp model install <model-name> [<site-name>]
-```
+### `settings.yaml` 
+Settings used by all models including searching and relations
 
-Will install the model into the given site. Site name 
-can be omitted if there is only one site in the monorepo.
+### `files.yaml`
 
-## Uninstalling models
+The metadata items of uploaded files (found under the key `"metadata"`) 
+ 
+This is a generated file, and it shouldn't be changed manually. 
+Instead, changes to this file should be made by following the 
+steps outlined in [mbdb-model].
 
-```bash
-nrp model uninstall <model-name> [<site-name>] [--remove-directory]
-```
+### `general_parameters-definitions.yaml`
 
-Will uninstall the model from the given site. Site name 
-can be omitted if there is only one site in the monorepo.
+Contains the metadata item `"general_parameters"`, which is shared among all models,
+and definitions used by in more than one method specific model.
+
+This is a generated file, and it shouldn't be changed manually. 
+Instead, changes to this file should be made by following the 
+steps outlined in [mbdb-model].
+
+[mbdb-model]: https://github.com/Molecular-Biophysics-Database/mbdb-app
