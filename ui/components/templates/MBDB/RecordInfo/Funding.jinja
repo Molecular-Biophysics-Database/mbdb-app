@@ -2,5 +2,5 @@
 
 {%- for ref in array(funding_refs, remove_empty=True)  -%}
         {%- if not loop.first %}, {%- endif -%}
-        {{ ref.funder_name ~ ": " ~ ref.grant_id }}
+        {{ ref.title ~ " (" ~ ref.funder_name ~ ": " ~ ref.grant_id ~ ")" }}
 {%- endfor -%}
