@@ -7,16 +7,18 @@ export const SaveButton = React.memo(({ ...uiProps }) => {
   const { isSubmitting, save } = useDepositApiClient();
   return (
     <div>
-        <Button
-          name="save"
-          style={{ backgroundColor: "#023850", color: "white" }}
-          disabled={isSubmitting}
-          loading={isSubmitting}
-          onClick={() => save()}
-          content={i18next.t("Save")}
-          type="submit"
-          {...uiProps}
-        >Save</Button>
+      <Button
+        name="save"
+        style={{ backgroundColor: "#023850", color: "white" }}
+        disabled={isSubmitting}
+        loading={isSubmitting}
+        onClick={() => save()}
+        content={i18next.t("Save")}
+        type="submit"
+        {...uiProps}
+      >
+        Save
+      </Button>
     </div>
   );
 });

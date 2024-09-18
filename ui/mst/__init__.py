@@ -3,6 +3,7 @@ from oarepo_ui.resources.components import FilesComponent
 from oarepo_ui.resources.config import RecordsUIResourceConfig
 from oarepo_ui.resources.resource import RecordsUIResource
 from oarepo_ui.resources.components import UIResourceComponent
+from oarepo_ui.resources import BabelComponent, PermissionsComponent
 from typing import Dict
 
 from common.ui.components import MBDBEditComponent
@@ -36,6 +37,7 @@ class MstResourceConfig(RecordsUIResourceConfig):
         FilesComponent,
         DepositVocabularyOptionsComponent,
         MstInitialValuesComponent,
+        PermissionsComponent
     ]
 
     # TODO: is this still needed?
