@@ -1,8 +1,8 @@
-{# def self_link #}
+{# def state #}
 
-{% if self_link._ui_value.endswith("draft") %}
-<div class="text-26px flex text-accent font-JostMedium mb-4">
-    Draft
-</div>
-<div class="border-b-[.1px] border-accent mt-3 mb-6"></div>
+{% if state._ui_value in ("draft", "submitted", "accepted") %}
+    <div class="text-26px flex text-accent font-JostMedium mb-4">
+        {{ state | capitalize }}
+    </div>
+    <div class="border-b-[.1px] border-accent mt-3 mb-6"></div>
 {% endif %}

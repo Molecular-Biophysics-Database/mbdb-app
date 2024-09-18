@@ -3,6 +3,7 @@ from oarepo_ui.resources.components import FilesComponent
 from oarepo_ui.resources.config import RecordsUIResourceConfig
 from oarepo_ui.resources.resource import RecordsUIResource
 from oarepo_ui.resources.components import UIResourceComponent
+from oarepo_ui.resources import BabelComponent, PermissionsComponent
 from typing import Dict
 
 from common.fixed_record_values import make_fixed_values
@@ -26,7 +27,7 @@ class SprResourceConfig(RecordsUIResourceConfig):
     ui_serializer_class = "spr.resources.records.ui.SprUIJSONSerializer"
     api_service = "spr"
 
-    components = [BabelComponent, FilesComponent, DepositVocabularyOptionsComponent, SprInitialValuesComponent]
+    components = [BabelComponent, FilesComponent, DepositVocabularyOptionsComponent, SprInitialValuesComponent, PermissionsComponent]
 
     # TODO: is this still needed?
     edit_layout = 'edit_layout.json'

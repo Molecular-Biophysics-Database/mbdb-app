@@ -1,0 +1,8 @@
+{# def self_link, state #}
+{%- block page_body %}
+    {% if state._ui_value == "accepted" %}
+        <div>
+            <div id="publish-button" data-selflink="{{self_link}}"></div>
+        </div>
+    {% endif %}
+{%- endblock page_body %}

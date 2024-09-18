@@ -95,9 +95,9 @@ export default function TemplateButton({ selfLink }) {
     <div className="flex justify-center h-10 text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all" role="button">
       <button
         onClick={redirectRecord}
-        className="px-4"
+        className="px-8"
       >
-        Duplicate Record
+        Duplicate
       </button>
     </div>
   );

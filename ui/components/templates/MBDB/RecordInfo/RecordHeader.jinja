@@ -1,6 +1,6 @@
-{# def md, links #}
+{# def md, links, state, permissions #}
 
-<Status self_link={ links.self } />
+<Status state={ state } />
 
 <div class="flex justify-between mb-8">
   <div class="font-JostMedium text-30px lg:text-40px">
@@ -11,21 +11,25 @@
       <TemplateButton self_link={ links.self } />
     </div>
     <div class="mr-4">
-      <a class="flex justify-center w-[160px] h-10 text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
+      <a class="flex justify-center px-4 h-10 text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
+        href="{{links.export_path}}/json" type="application/json" role="button">
+        <button class="px-4">
+          Download
+        </button>
+      </a>
+    </div>
+    {% if permissions.can_update_draft %}
+    <div class="mr-4">
+      <a class="flex justify-center px-8 h-10 text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
         href="{{ links.edit_html or links.self_html }}" type="application/json" role="button">
         <button class="px-4">
           Edit
         </button>
       </a>
     </div>
-    <div class="mr-4">
-      <a class="flex justify-center w-[160px] h-10 text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
-        href="{{links.export_path}}/json" type="application/json" role="button">
-        <button class="px-4">
-          Download entry
-        </button>
-      </a>
-    </div>
-    <RemoveButton self_link={ links.self } />
+    {% endif %}
+    {% if permissions.can_delete_draft %}
+    <RemoveButton self_link={ links.self } state={ state } />
+    {% endif %}
   </div>
 </div>

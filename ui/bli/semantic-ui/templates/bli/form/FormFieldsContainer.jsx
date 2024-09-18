@@ -64,7 +64,10 @@ function FormFieldsContainer() {
   return (
     <>
       <div className="mb-4 ml-3">
-        <Button style={{ backgroundColor: "#023850", color: "white" }} onClick={() => handleSaveMetadataAndFiles()}>
+        <Button
+          style={{ backgroundColor: "#023850", color: "white" }}
+          onClick={() => handleSaveMetadataAndFiles()}
+        >
           Save
         </Button>
       </div>

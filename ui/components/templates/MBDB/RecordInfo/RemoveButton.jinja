@@ -1,9 +1,8 @@
-{# def self_link #}
+{# def self_link, state #}
 {%- block page_body %}
-{% if self_link._ui_value.endswith("draft") %}
-
-<div>
-    <div id="delete-button" data-selflink="{{self_link}}"></div>
-</div>
-{% endif %}
+    {% if state._ui_value in ("draft", "submitted", "accepted") %}
+        <div>
+            <div id="delete-button" data-selflink="{{self_link}}"></div>
+        </div>
+    {% endif %}
 {%- endblock page_body %}
