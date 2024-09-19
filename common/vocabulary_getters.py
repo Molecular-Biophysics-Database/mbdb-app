@@ -230,11 +230,23 @@ class PubChemService(AuthorityProvider):
 
         url = f"{self.get_url}{item_id[9:]}/property/{self.properties}/JSON"
         response = ApiGet(url).json
-        return self.convert_pubchem_record(response["PropertyTable"]["Properties"][0])
+        records = self.filter_hits(response["PropertyTable"]["Properties"])
+        return self.convert_pubchem_record(records[0])
 
-    @staticmethod
-    def filter_hits(hits):
-        return [hit for hit in hits if ("Title" in hit) and ("InChIKey" in hit)]
+    def filter_hits(self, hits):
+        # Occasionally, multiple CID for the same compound (e.g. 5'-GMP)
+        # even though this shouldn't happen. In those case there seem to
+        # be a single preferred record. The non-preferred are marked
+        # by being incomplete, especially the title are often missing. This
+        # function filters these away.
+        complete_records = []
+        for hit in hits:
+            try:
+                self.convert_pubchem_record(hit)
+                complete_records.append(hit)
+            except KeyError:
+                continue
+        return complete_records
 
     @staticmethod
     def convert_pubchem_record(chemical):
