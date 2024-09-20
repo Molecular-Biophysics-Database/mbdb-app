@@ -6,13 +6,15 @@ import Protocol from "../../sharedComponents/Protocol";
 import Storage from "../sharedComponents/Storage";
 import OptionField from "../../buildingBlocks/OptionField";
 import OptionalField from "../../buildingBlocks/OptionalField";
-import { VocabularySelectField } from "@js/oarepo_vocabularies";
-import { FieldLabel } from "react-invenio-forms";
 import CreateUuid from "../../buildingBlocks/CreateUuid";
 import UseDefault from "../../buildingBlocks/UseDefault";
+import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
+import { useFieldData } from "@js/oarepo_ui";
+import { RORInstitutionResultListItem } from "../../buildingBlocks/RORInstitutionResultListItem";
 
 function Virion({ name }) {
   CreateUuid(name);
+  const { getFieldData } = useFieldData();
 
   const geneticMaterialOptions = [
     { value: "No genetic material", label: "No genetic material" },
@@ -49,7 +51,29 @@ function Virion({ name }) {
           tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample"
         />
       </div>
-      <div className="flex mb-3">
+      <div className="flex">
+        <div className="mr-3">
+          <FormWrapper
+            headline="Source organism"
+            colorSchema="light"
+            tooltip="Identification of the organism to the lowest taxonomic rank possible e.g. strain. Note that this is based on the NCBI taxonomy"
+          >
+            <VocabularyRemoteSelectField
+              overriddenComponents={{
+                "VocabularyRemoteSelect.ext.ResultsList.item":
+                  RORInstitutionResultListItem,
+              }}
+              vocabulary="organisms"
+              fieldPath={`${name}.source_organism`}
+              modalHeader={
+                getFieldData({
+                  fieldPath: `${name}.source_organism`,
+                  fieldRepresentation: "text",
+                }).label
+              }
+            />
+          </FormWrapper>
+        </div>
         <div className="mr-3">
           <OptionField
             name={name}
@@ -70,9 +94,7 @@ function Virion({ name }) {
             tooltip="The type of virion capsid (e.g. genetically engineered, None"
           />
         </div>
-      </div>
-      <div className="flex">
-        <div className="mr-3">
+        <div>
           <OptionField
             name={name}
             options={envelopeOptions}
@@ -80,16 +102,6 @@ function Virion({ name }) {
             fieldName="envelope_type"
             required
             tooltip="The type of virion envelope (e.g. genetically engineered, None"
-          />
-        </div>
-        <div>
-          <VocabularySelectField
-            search={(options) => options}
-            type="organisms"
-            externalAuthority={true}
-            label={<FieldLabel htmlFor={`${name}.source_organism`} icon="" />}
-            fieldPath={`${name}.source_organism`}
-            placeholder="Source organism"
           />
         </div>
       </div>
@@ -101,14 +113,26 @@ function Virion({ name }) {
             fieldName="host_organism"
             tooltip="The host organism the virion was produced in. Note that information is based on the NCBI taxonomy"
             renderChild={({ optionalFieldName }) => (
-              <VocabularySelectField
-                search={(options) => options}
-                type="organisms"
-                externalAuthority={true}
-                label={<FieldLabel htmlFor={optionalFieldName} icon="" />}
-                fieldPath={optionalFieldName}
-                placeholder="Host organism"
-              />
+              <FormWrapper
+                headline="Host organism"
+                colorSchema="light"
+                tooltip="The host organism the virion was produced in. Note that information is based on the NCBI taxonomy"
+              >
+                <VocabularyRemoteSelectField
+                  overriddenComponents={{
+                    "VocabularyRemoteSelect.ext.ResultsList.item":
+                      RORInstitutionResultListItem,
+                  }}
+                  vocabulary="organisms"
+                  fieldPath={optionalFieldName}
+                  modalHeader={
+                    getFieldData({
+                      fieldPath: optionalFieldName,
+                      fieldRepresentation: "text",
+                    }).label
+                  }
+                />
+              </FormWrapper>
             )}
           />
         </div>

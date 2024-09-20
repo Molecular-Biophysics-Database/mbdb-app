@@ -7,12 +7,16 @@ import Concentration from "../../../sharedComponents/Concentration";
 import OptionField from "../../../buildingBlocks/OptionField";
 import QualityControls from "../../sharedComponents/qualityControls/QualityControls";
 import OptionalField from "../../../buildingBlocks/OptionalField";
-import { VocabularySelectField } from "@js/oarepo_vocabularies";
-import { FieldLabel } from "react-invenio-forms";
 import SequenceField from "../../../buildingBlocks/SequenceField";
 import ExternalDatabase from "../../../buildingBlocks/ExternalDatabase";
+import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
+import { useFieldData } from "@js/oarepo_ui";
+import { RORInstitutionResultListItem } from "../../../buildingBlocks/RORInstitutionResultListItem";
+import FormWrapper from "../../../buildingBlocks/FormWrapper";
 
 function Polymer({ name }) {
+  const { getFieldData } = useFieldData();
+
   const polymerTypeOptions = [
     { value: "cyclic-pseudo-peptide", label: "cyclic-pseudo-peptide" },
     { value: "peptide nucleic acid", label: "peptide nucleic acid" },
@@ -102,14 +106,25 @@ function Polymer({ name }) {
             fieldName="source_organism"
             tooltip="The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy"
             renderChild={({ optionalFieldName }) => (
-              <VocabularySelectField
-                search={(options) => options}
-                type="organisms"
-                externalAuthority={true}
-                label={<FieldLabel htmlFor={optionalFieldName} icon="" />}
-                fieldPath={optionalFieldName}
-                placeholder="Source organism"
-              />
+              <FormWrapper
+                headline="Source organism"
+                tooltip="The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy"
+              >
+                <VocabularyRemoteSelectField
+                  overriddenComponents={{
+                    "VocabularyRemoteSelect.ext.ResultsList.item":
+                      RORInstitutionResultListItem,
+                  }}
+                  vocabulary="organisms"
+                  fieldPath={optionalFieldName}
+                  modalHeader={
+                    getFieldData({
+                      fieldPath: optionalFieldName,
+                      fieldRepresentation: "text",
+                    }).label
+                  }
+                />
+              </FormWrapper>
             )}
           />
         </div>
@@ -120,13 +135,25 @@ function Polymer({ name }) {
             fieldName="expression_organism"
             tooltip="The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy"
             renderChild={({ optionalFieldName }) => (
-              <VocabularySelectField
-                type="organisms"
-                externalAuthority={true}
-                label={<FieldLabel htmlFor={optionalFieldName} icon="" />}
-                fieldPath={optionalFieldName}
-                placeholder="Expression organism"
-              />
+              <FormWrapper
+                headline="Expression organism"
+                tooltip="The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy"
+              >
+                <VocabularyRemoteSelectField
+                  overriddenComponents={{
+                    "VocabularyRemoteSelect.ext.ResultsList.item":
+                      RORInstitutionResultListItem,
+                  }}
+                  vocabulary="organisms"
+                  fieldPath={optionalFieldName}
+                  modalHeader={
+                    getFieldData({
+                      fieldPath: optionalFieldName,
+                      fieldRepresentation: "text",
+                    }).label
+                  }
+                />
+              </FormWrapper>
             )}
           />
         </div>

@@ -6,13 +6,15 @@ import Protocol from "../../sharedComponents/Protocol";
 import Storage from "../sharedComponents/Storage";
 import OptionField from "../../buildingBlocks/OptionField";
 import OptionalField from "../../buildingBlocks/OptionalField";
-import { VocabularySelectField } from "@js/oarepo_vocabularies";
-import { FieldLabel } from "react-invenio-forms";
 import CreateUuid from "../../buildingBlocks/CreateUuid";
 import UseDefault from "../../buildingBlocks/UseDefault";
+import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
+import { useFieldData } from "@js/oarepo_ui";
+import { RORInstitutionResultListItem } from "../../buildingBlocks/RORInstitutionResultListItem";
 
 function CellFraction({ name }) {
   CreateUuid(name);
+  const { getFieldData } = useFieldData();
 
   const fractionOptions = [
     { value: "Ribosome", label: "Ribosome" },
@@ -55,6 +57,28 @@ function CellFraction({ name }) {
       </div>
       <div className="flex mb-3">
         <div className="mr-3">
+          <FormWrapper
+            headline="Source organism"
+            colorSchema="light"
+            tooltip="Identification of the organism to the lowest taxonomic rank possible e.g. strain. Note that this is based on the NCBI taxonomy"
+          >
+            <VocabularyRemoteSelectField
+              overriddenComponents={{
+                "VocabularyRemoteSelect.ext.ResultsList.item":
+                  RORInstitutionResultListItem,
+              }}
+              vocabulary="organisms"
+              fieldPath={`${name}.source_organism`}
+              modalHeader={
+                getFieldData({
+                  fieldPath: `${name}.source_organism`,
+                  fieldRepresentation: "text",
+                }).label
+              }
+            />
+          </FormWrapper>
+        </div>
+        <div className="mr-3">
           <OptionField
             name={name}
             options={fractionOptions}
@@ -64,23 +88,13 @@ function CellFraction({ name }) {
             tooltip="The subcelluar component (e.g. Ribosome)"
           />
         </div>
-        <div className="mr-3">
+        <div>
           <CustomField
             name={name}
             label="Health status"
             fieldName="health_status"
             required
             tooltip="Health status of the donor organism where the cell fraction was derived from (e.g. healthy, sick, patient with Diabetes type 2)"
-          />
-        </div>
-        <div>
-          <VocabularySelectField
-            search={(options) => options}
-            type="organisms"
-            externalAuthority={true}
-            label={<FieldLabel htmlFor={`${name}.source_organism`} icon="" />}
-            fieldPath={`${name}.source_organism`}
-            placeholder="Source organism"
           />
         </div>
       </div>

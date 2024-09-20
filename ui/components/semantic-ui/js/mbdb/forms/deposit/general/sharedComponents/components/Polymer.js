@@ -6,12 +6,16 @@ import Modifications from "../modifications/Modifications";
 import OptionField from "../../../buildingBlocks/OptionField";
 import QualityControls from "../qualityControls/QualityControls";
 import OptionalField from "../../../buildingBlocks/OptionalField";
-import { VocabularySelectField } from "@js/oarepo_vocabularies";
-import { FieldLabel } from "react-invenio-forms";
 import SequenceField from "../../../buildingBlocks/SequenceField";
 import ExternalDatabase from "../../../buildingBlocks/ExternalDatabase";
+import FormWrapper from "../../../buildingBlocks/FormWrapper";
+import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
+import { useFieldData } from "@js/oarepo_ui";
+import { RORInstitutionResultListItem } from "../../../buildingBlocks/RORInstitutionResultListItem";
 
 function Polymer({ name, colorSchema }) {
+  const { getFieldData } = useFieldData();
+
   const polymerTypeOptions = [
     { value: "Cyclic pseudo peptide", label: "Cyclic pseudo peptide" },
     { value: "Peptide nucleic acid", label: "Peptide nucleic acid" },
@@ -114,14 +118,25 @@ function Polymer({ name, colorSchema }) {
             fieldName="source_organism"
             tooltip="The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy"
             renderChild={({ optionalFieldName }) => (
-              <VocabularySelectField
-                search={(options) => options}
-                type="organisms"
-                externalAuthority={true}
-                label={<FieldLabel htmlFor={optionalFieldName} icon="" />}
-                fieldPath={optionalFieldName}
-                placeholder="Source organism"
-              />
+              <FormWrapper
+                headline="Source organism"
+                tooltip="The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy"
+              >
+                <VocabularyRemoteSelectField
+                  overriddenComponents={{
+                    "VocabularyRemoteSelect.ext.ResultsList.item":
+                      RORInstitutionResultListItem,
+                  }}
+                  vocabulary="organisms"
+                  fieldPath={optionalFieldName}
+                  modalHeader={
+                    getFieldData({
+                      fieldPath: optionalFieldName,
+                      fieldRepresentation: "text",
+                    }).label
+                  }
+                />
+              </FormWrapper>
             )}
           />
         </div>
@@ -132,14 +147,25 @@ function Polymer({ name, colorSchema }) {
             fieldName="expression_organism"
             tooltip="The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy"
             renderChild={({ optionalFieldName }) => (
-              <VocabularySelectField
-                search={(options) => options}
-                type="organisms"
-                externalAuthority={true}
-                label={<FieldLabel htmlFor={optionalFieldName} icon="" />}
-                fieldPath={optionalFieldName}
-                placeholder="Expression organism"
-              />
+              <FormWrapper
+                headline="Expression organism"
+                tooltip="The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy"
+              >
+                <VocabularyRemoteSelectField
+                  overriddenComponents={{
+                    "VocabularyRemoteSelect.ext.ResultsList.item":
+                      RORInstitutionResultListItem,
+                  }}
+                  vocabulary="organisms"
+                  fieldPath={optionalFieldName}
+                  modalHeader={
+                    getFieldData({
+                      fieldPath: optionalFieldName,
+                      fieldRepresentation: "text",
+                    }).label
+                  }
+                />
+              </FormWrapper>
             )}
           />
         </div>

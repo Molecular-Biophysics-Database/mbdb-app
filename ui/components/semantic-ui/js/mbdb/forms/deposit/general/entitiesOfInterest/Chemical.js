@@ -20,7 +20,10 @@ function Chemical({ name }) {
         />
       </div>
 
-      <BasicInformationField name={name} colorSchema="light" />
+      <BasicInformationField
+        name={`${name}.basic_information`}
+        colorSchema="light"
+      />
 
       <ArrayField
         name={name}

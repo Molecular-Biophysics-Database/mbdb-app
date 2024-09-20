@@ -32,7 +32,9 @@ export const PublishButton = React.memo(
             type="button"
             disabled={isSubmitting}
             loading={isSubmitting}
-          >Deposit</Button>
+          >
+            Submit
+          </Button>
         }
         actions={
           <>
@@ -45,16 +47,18 @@ export const PublishButton = React.memo(
                 {i18next.t("Cancel")}
               </button>
               <button
-                  disabled={isSubmitting}
-                  loading={isSubmitting}
-                  className="flex justify-center w-[120px] py-3 text-20px rounded-normal bg-secondary text-dark hover:bg-dark hover:text-white transition-all"
-                  onClick={() => {
-                      publish();
-                      closeModal();
-                  }}
-                  content={i18next.t("Publish")}
-                  type="submit"
-              >Deposit</button>
+                disabled={isSubmitting}
+                loading={isSubmitting}
+                className="flex justify-center w-[120px] py-3 text-20px rounded-normal bg-secondary text-dark hover:bg-dark hover:text-white transition-all"
+                onClick={() => {
+                  publish();
+                  closeModal();
+                }}
+                content={i18next.t("Publish")}
+                type="submit"
+              >
+                Submit
+              </button>
             </div>
           </>
         }

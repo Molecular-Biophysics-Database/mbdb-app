@@ -24,7 +24,7 @@ function Chemical({ name }) {
         />
       </div>
 
-      <BasicInformationField name={name} />
+      <BasicInformationField name={`${name}.basic_information`} />
 
       <div>
         <ArrayField

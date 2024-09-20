@@ -1,11 +1,15 @@
 import React from "react";
 import ArrayField from "../../../buildingBlocks/ArrayField";
 import CustomField from "../../../buildingBlocks/CustomField";
-import { VocabularySelectField } from "@js/oarepo_vocabularies";
-import { FieldLabel } from "react-invenio-forms";
 import Identifier from "../../../buildingBlocks/Identifier";
+import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
+import { useFieldData } from "@js/oarepo_ui";
+import { RORInstitutionResultListItem } from "../../../buildingBlocks/RORInstitutionResultListItem";
+import FormWrapper from "../../../buildingBlocks/FormWrapper";
 
 function Contact({ name }) {
+  const { getFieldData } = useFieldData();
+
   return (
     <>
       <div className="flex">
@@ -50,14 +54,26 @@ function Contact({ name }) {
             fieldName="affiliations"
             tooltip="The affiliation of the person. Note that this is based on the Research Organization Registry (ROR)"
             renderChild={({ arrayName, index }) => (
-              <VocabularySelectField
-                search={(options) => options}
-                type="affiliations"
-                externalAuthority={true}
-                label={<FieldLabel htmlFor={`${arrayName}.${index}`} icon="" />}
-                fieldPath={`${arrayName}.${index}`}
-                placeholder={`affiliation ${index + 1}`}
-              />
+              <FormWrapper
+                headline={`affiliation ${index + 1}`}
+                tooltip="The affiliation of the person. Note that this is based on the Research Organization Registry (ROR)"
+              >
+                <VocabularyRemoteSelectField
+                  overriddenComponents={{
+                    "VocabularyRemoteSelect.ext.ResultsList.item":
+                      RORInstitutionResultListItem,
+                  }}
+                  vocabulary="affiliations"
+                  multiple={true}
+                  fieldPath={`${arrayName}.${index}`}
+                  modalHeader={
+                    getFieldData({
+                      fieldPath: `${arrayName}.${index}`,
+                      fieldRepresentation: "text",
+                    }).label
+                  }
+                />
+              </FormWrapper>
             )}
           />
         </div>
