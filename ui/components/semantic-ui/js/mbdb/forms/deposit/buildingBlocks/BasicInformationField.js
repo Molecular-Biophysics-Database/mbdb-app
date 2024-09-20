@@ -1,9 +1,12 @@
 import React from "react";
 import FormWrapper from "./FormWrapper";
-import { VocabularySelectField } from "@js/oarepo_vocabularies";
-import { FieldLabel } from "react-invenio-forms";
+import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
+import { useFieldData } from "@js/oarepo_ui";
+import { RORInstitutionResultListItem } from "./RORInstitutionResultListItem";
 
 function BasicInformationField({ name, colorSchema }) {
+  const { getFieldData } = useFieldData();
+
   return (
     <>
       <FormWrapper colorSchema={colorSchema}>
@@ -30,13 +33,24 @@ function BasicInformationField({ name, colorSchema }) {
             </a>
           </div>
         </div>
-        <VocabularySelectField
-          search={(options) => options}
-          type="chemicals"
-          externalAuthority={true}
-          label={<FieldLabel htmlFor={`${name}.basic_information`} icon="" />}
-          fieldPath={`${name}.basic_information`}
-          placeholder="Basic information"
+        <VocabularyRemoteSelectField
+          overriddenComponents={{
+            "VocabularyRemoteSelect.ext.ResultsList.item":
+              RORInstitutionResultListItem,
+          }}
+          vocabulary="chemicals"
+          multiple={true}
+          fieldPath={name}
+          modalHeader={
+            getFieldData({
+              fieldPath: name,
+              fieldRepresentation: "text",
+            }).label
+          }
+          {...getFieldData({
+            fieldPath: name,
+            icon: false,
+          })}
         />
       </FormWrapper>
     </>

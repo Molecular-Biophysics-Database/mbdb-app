@@ -2,11 +2,15 @@ import React from "react";
 import RecordInformation from "../projectInformation/RecordInformation";
 import Depositors from "../projectInformation/depositors/Depositors";
 import ArrayField from "../../buildingBlocks/ArrayField";
-import { VocabularySelectField } from "@js/oarepo_vocabularies";
-import { FieldLabel } from "react-invenio-forms";
 import AssociatedPublication from "../projectInformation/associatedPublication/AssociatedPublication";
+import FormWrapper from "../../buildingBlocks/FormWrapper";
+import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
+import { useFieldData } from "@js/oarepo_ui";
+import { RORInstitutionResultListItem } from "../../buildingBlocks/RORInstitutionResultListItem";
 
 function ProjectInformationTab({ name }) {
+  const { getFieldData } = useFieldData();
+
   return (
     <>
       <div className="mb-3">
@@ -25,14 +29,26 @@ function ProjectInformationTab({ name }) {
           fieldName="funding_references"
           tooltip="List of information about the grants that supported generation of the raw data annotated by this record. Note that this information is based on OpenAire Projects"
           renderChild={({ arrayName, index }) => (
-            <VocabularySelectField
-              search={(options) => options}
-              type="grants"
-              externalAuthority={true}
-              label={<FieldLabel htmlFor={`${arrayName}.${index}`} icon="" />}
-              fieldPath={`${arrayName}.${index}`}
-              placeholder={`funding reference ${index + 1}`}
-            />
+            <FormWrapper
+              headline={`funding reference ${index + 1}`}
+              tooltip="List of information about the grants that supported generation of the raw data annotated by this record. Note that this information is based on OpenAire Projects"
+            >
+              <VocabularyRemoteSelectField
+                overriddenComponents={{
+                  "VocabularyRemoteSelect.ext.ResultsList.item":
+                    RORInstitutionResultListItem,
+                }}
+                vocabulary="grants"
+                multiple={true}
+                fieldPath={`${arrayName}.${index}`}
+                modalHeader={
+                  getFieldData({
+                    fieldPath: `${arrayName}.${index}`,
+                    fieldRepresentation: "text",
+                  }).label
+                }
+              />
+            </FormWrapper>
           )}
         />
       </div>

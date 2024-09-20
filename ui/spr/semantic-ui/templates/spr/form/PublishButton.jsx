@@ -33,7 +33,7 @@ export const PublishButton = React.memo(
             disabled={isSubmitting}
             loading={isSubmitting}
           >
-            Deposit
+            Submit
           </Button>
         }
         actions={
@@ -57,7 +57,7 @@ export const PublishButton = React.memo(
                 content={i18next.t("Publish")}
                 type="submit"
               >
-                Deposit
+                Submit
               </button>
             </div>
           </>
