@@ -1,9 +1,19 @@
-#
 # Roles within the workflow:
 #
-# administrator == super curator, IBT staff
-# curator == scientific curator, IBT staff
+# administrator:
+#  - IBT staff
+#  - has the overall technical responsibility for MBDB (extensive rights except publication related operation)
+#  - main tasks include changing records and drafts for technical reasons (e.g. model change, old drafts)
 #
+# editor:
+#  - IBT staff
+#  - has the overall scientific responsibility for MBDB
+#  - main task include changing published records and drafts on scientific ground
+#
+# reviewer:
+#  - MBDB community (IBT staff initially)
+#  - Method specific scientific reviewer
+#  - Main task is to scientifically review records durin depositions
 #
 # Synthetic roles:
 #
@@ -12,7 +22,8 @@
 # Record states:
 #
 # draft == record is being created
-# submitted == record is submitted for approval/publishing but not yet accepted
+# submitted == record is submitted for approval/publishing but not yet accepted (locked)
+# accepted == record has been approved for publication, the decision of timing is made by owner (locked)
 # published == record is published
 # deleting == record is in the process of being deleted (request filed but not yet accepted)
 #
@@ -26,90 +37,80 @@ from oarepo_workflows import (
     WorkflowRequest,
     WorkflowRequestPolicy,
     WorkflowTransitions,
+    AutoRequest,
 )
 
-from oarepo_requests.services.permissions.workflow_policies import RequestBasedWorkflowPermissions
+from oarepo_requests.services.permissions.workflow_policies import (
+    RequestBasedWorkflowPermissions,
+)
 
 from .custom_generators import UserWithRole
 
 
 # TODO: naming issue: DefaultWorkflowPermissions vs DefaultWorkflowPermissionPolicy
 class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
-    can_create = [
-        AuthenticatedUser()
-    ]
+    can_create = [AuthenticatedUser()]
 
     can_read = [
         RecordOwners(),
-        # curator can see the record in any state
-        UserWithRole("curator"),
-        # administrator can see everything
+        # administrator and editor can always read
         UserWithRole("administrator"),
+        UserWithRole("editor"),
+        # reviewer can see submitted drafts
+        IfInState("submitted", then_=[UserWithRole("reviewer")]),
         IfInState(
             "published",
             then_=[
                 AnyUser(),
             ],
-        )
+        ),
     ]
 
     can_update = [
+        # administrator and editor can always update
+        UserWithRole("administrator"),
+        UserWithRole("editor"),
+        # owners can edit drafts before submission
         IfInState(
             "draft",
             then_=[
                 RecordOwners(),
-                UserWithRole("curator"),
-                UserWithRole("administrator"),
             ],
         ),
     ]
 
     can_delete = [
+        # administrator and editor can always delete
+        UserWithRole("administrator"),
+        UserWithRole("editor"),
         # draft can be deleted, published record must be deleted via request
         IfInState(
             "draft",
             then_=[
                 RecordOwners(),
-                UserWithRole("curator"),
-                UserWithRole("administrator"),
             ],
         ),
     ]
 
     can_publish = [
+        # only accepted drafts can be published
         IfInState(
-            "draft",
-            then_=[RecordOwners()]
-        )
+            "accepted",
+            then_=[
+                RecordOwners(),
+            ],
+        ),
     ]
 
 
 class IndividualWorkflowRequests(WorkflowRequestPolicy):
-    publish_draft = WorkflowRequest(
-        # if the record is in draft state, the owner can publish
+    review_draft = WorkflowRequest(
+        # reviewers are notified when a draft is submitted
         requesters=[
-            IfInState(
-                "draft",
-                then_=[
-                    RecordOwners(),
-                ]
-            ),
+            IfInState("submitted", then_=[AutoRequest()]),
         ],
-        recipients=[AutoApprove()],
-    )
-
-    edit_published_record = WorkflowRequest(
-        requesters=[
-            IfInState(
-                "published",
-                then_=[
-                    RecordOwners(),
-                ],
-            )
-        ],
-        # the request is auto-approve, we do not limit the owner of the record to create a new
-        # draft version. It will need to be accepted by the curator though.
-        recipients=[AutoApprove()],
+        recipients=[UserWithRole("reviewer")],
+        transitions=WorkflowTransitions(declined="draft", accepted="accepted"),
     )
 
     delete_published_record = WorkflowRequest(
@@ -121,6 +122,7 @@ class IndividualWorkflowRequests(WorkflowRequestPolicy):
                 then_=[
                     RecordOwners(),
                     UserWithRole("administrator"),
+                    UserWithRole("editor"),
                 ],
             ),
         ],
@@ -130,10 +132,10 @@ class IndividualWorkflowRequests(WorkflowRequestPolicy):
             IfRequestedBy(
                 requesters=[
                     UserWithRole("administrator"),
-                    UserWithRole("curator"),
                 ],
                 then_=[AutoApprove()],
-                else_=[UserWithRole("administrator")])
+                else_=[UserWithRole("administrator")],
+            )
         ],
         # the record comes to the state of retracting when the request is submitted. If the request
         # is accepted, the record is deleted, if declined, it is published again.
@@ -142,3 +144,10 @@ class IndividualWorkflowRequests(WorkflowRequestPolicy):
         ),
     )
 
+    assign_doi = WorkflowRequest(
+        # Upon publication, a DOI assignment request is automatically generated
+        requesters=[
+            IfInState("published", then_=[AutoRequest()])
+        ],
+        recipients=[AutoApprove()],
+    )

@@ -1,6 +1,11 @@
 {# def record, metadata, ui, extra_context, d, context #}
 {% extends "base/detail.html" %}
 
+{%- block javascript %}
+{{ super() }}
+{{ webpack['oarepo_requests_ui_record_requests.js']}}
+{%- endblock %}
+
 {% set gp=d.metadata.general_parameters %}
 
 {%- block head_meta %}
