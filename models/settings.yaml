@@ -13,9 +13,9 @@ record:
               tokenizer: substringtokenizer
           "tokenizer":
             "substringtokenizer":
-              "type": "ngram"
-              "min_gram": 3
-              "max_gram": 3
+              "type": "egde_ngram"
+              "min_gram": 4
+              "max_gram": 8
               "token_chars":
                 - "letter"
                 - "digit"
