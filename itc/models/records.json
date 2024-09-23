@@ -97,6 +97,7 @@
         "service-config": {
             "components": [
                 "{{oarepo_vocabularies.authorities.components.AuthorityComponent}}",
+                "{{oarepo_doi.services.components.DoiComponent}}",
                 "{{oarepo_communities.services.components.default_workflow.CommunityDefaultWorkflowComponent}}",
                 "{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
                 "{{oarepo_runtime.services.components.OwnersComponent}}",

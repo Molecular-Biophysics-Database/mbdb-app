@@ -12,6 +12,7 @@ from oarepo_communities.services.components.default_workflow import (
 )
 from oarepo_communities.services.components.include import CommunityInclusionComponent
 from oarepo_communities.services.links import CommunitiesLinks
+from oarepo_doi.services.components import DoiComponent
 from oarepo_runtime.records import has_draft, is_published_record
 from oarepo_runtime.services.components import CustomFieldsComponent, OwnersComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
@@ -51,6 +52,7 @@ class MstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordDraftsServiceConfig.components,
         AuthorityComponent,
+        DoiComponent,
         CommunityDefaultWorkflowComponent,
         #CommunityInclusionComponent,
         OwnersComponent,
