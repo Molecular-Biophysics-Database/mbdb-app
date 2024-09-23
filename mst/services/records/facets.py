@@ -2679,6 +2679,10 @@ metadata_method_specific_parameters_temperature_value = TermsFacet(
     label=_("metadata/method_specific_parameters/temperature/value.label"),
 )
 
+metadata_version = TermsFacet(
+    field="metadata.version", label=_("metadata/version.label")
+)
+
 state = TermsFacet(field="state", label=_("state.label"))
 
 

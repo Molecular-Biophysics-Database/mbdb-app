@@ -32,6 +32,8 @@ class MstMetadataUISchema(Schema):
         lambda: MethodSpecificParametersUISchema(), required=True
     )
 
+    version = ma_fields.String()
+
 
 class GeneralParametersUISchema(DictOnlySchema):
     class Meta:
