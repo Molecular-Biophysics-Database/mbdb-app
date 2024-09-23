@@ -12,6 +12,7 @@ language-data==1.2.0
 marisa-trie==1.2.0
 oarepo-communities==5.0.16
 oarepo-dashboard==1.0.11
+oarepo-doi==1.0.10
 oarepo-global-search==1.0.26
 oarepo-published-service==1.0.3
 oarepo-requests==2.1.3

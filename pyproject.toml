@@ -10,6 +10,7 @@ dependencies = [
     "luqum",
     "oarepo-communities>=5.0.0",
     "oarepo-dashboard",
+    "oarepo-doi",
     "oarepo-global-search>=1.0.13",
     "oarepo-published-service>=1.0.0",
     "oarepo-requests>=2.0.0",
@@ -150,6 +151,9 @@ mst = "mst.models:ui.json"
 spr = "spr.models:ui.json"
 bli = "bli.models:ui.json"
 itc = "itc.models:ui.json"
+
+[project.entry-points."invenio_requests.types"]
+review-draft-request = "common.requests.review_draft:ReviewDraftRequestType"
 
 [project.optional-dependencies]
 tests = [
