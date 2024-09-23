@@ -3,7 +3,9 @@ from oarepo_requests.resolvers.ui import (
     RecordEntityReferenceUIResolver,
 )
 from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
+from oarepo_requests.resources.draft.types.resource import DraftRequestTypesResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
+from oarepo_requests.services.draft.types.service import DraftRecordRequestTypesService
 
 from mst.files.api import MstFile, MstFileDraft
 from mst.files.requests.resolvers import MstFileDraftResolver
@@ -58,6 +60,12 @@ ENTITY_REFERENCE_UI_RESOLVERS = {
     "mst_draft": RecordEntityDraftReferenceUIResolver("mst_draft"),
 }
 REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = []
+
+
+MST_REQUEST_TYPES_RESOURCE_CLASS = DraftRequestTypesResource
+
+
+MST_REQUEST_TYPES_SERVICE_CLASS = DraftRecordRequestTypesService
 
 
 MST_FILES_RESOURCE_CONFIG = MstFileResourceConfig

@@ -2796,6 +2796,10 @@ metadata_method_specific_parameters_sensor_surface_properties = TermsFacet(
     label=_("metadata/method_specific_parameters/sensor/surface_properties.label"),
 )
 
+metadata_version = TermsFacet(
+    field="metadata.version", label=_("metadata/version.label")
+)
+
 state = TermsFacet(field="state", label=_("state.label"))
 
 

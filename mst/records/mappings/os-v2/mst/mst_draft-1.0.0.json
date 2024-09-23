@@ -2654,6 +2654,10 @@
                                 }
                             }
                         }
+                    },
+                    "version": {
+                        "type": "keyword",
+                        "ignore_above": 1024
                     }
                 }
             },
@@ -2709,9 +2713,9 @@
             },
             "tokenizer": {
                 "substringtokenizer": {
-                    "type": "ngram",
-                    "min_gram": 3,
-                    "max_gram": 3,
+                    "type": "edge_ngram",
+                    "min_gram": 4,
+                    "max_gram": 8,
                     "token_chars": [
                         "letter",
                         "digit"

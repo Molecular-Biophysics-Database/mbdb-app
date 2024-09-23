@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-09-10T12:49:30.970394\n"
-"PO-Revision-Date: 2024-09-10T12:49:30.970401\n"
+"POT-Creation-Date: 2024-09-23T12:04:41.509072\n"
+"PO-Revision-Date: 2024-09-23T12:04:41.509079\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9388,6 +9388,15 @@ msgid "metadata/method_specific_parameters/sensor/surface_properties.label"
 msgstr "Surface properties"
 
 msgid "metadata/method_specific_parameters/sensor/surface_properties.hint"
+msgstr ""
+
+msgid "metadata/version.label"
+msgstr "Resource version"
+
+msgid "metadata/version.hint"
+msgstr "Write down the version (first, second…)."
+
+msgid "metadata/version.help"
 msgstr ""
 
 msgid "pid.help"

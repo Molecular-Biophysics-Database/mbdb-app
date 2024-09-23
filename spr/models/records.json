@@ -18,9 +18,9 @@
                         },
                         "tokenizer": {
                             "substringtokenizer": {
-                                "type": "ngram",
-                                "min_gram": 3,
-                                "max_gram": 3,
+                                "type": "edge_ngram",
+                                "min_gram": 4,
+                                "max_gram": 8,
                                 "token_chars": [
                                     "letter",
                                     "digit"
@@ -530,10 +530,6 @@
             ],
             "imports": []
         },
-        "translations": {
-            "module": "spr.translations",
-            "alias": "spr"
-        },
         "json-schema-settings": {
             "generate": true,
             "alias": "spr",
@@ -557,6 +553,10 @@
                 "\"object_key\"": "\"ui\"",
                 "\"identity\"": "{{ flask.g{g.identity} }}"
             }
+        },
+        "translations": {
+            "module": "spr.translations",
+            "alias": "spr"
         },
         "files-field": {
             "generate": true,
@@ -661,6 +661,11 @@
         },
         "requests": {
             "types": {},
+            "additional-resolvers": [],
+            "additional-ui-resolvers": {},
+            "ui-serialization-referenced-fields": []
+        },
+        "record-requests": {
             "api-blueprint": {
                 "generate": true,
                 "alias": "spr_requests",
@@ -694,10 +699,43 @@
                     "oarepo_requests_service={{oarepo_requests.proxies.current_oarepo_requests_service}}"
                 ],
                 "skip": false
+            }
+        },
+        "record-request-types": {
+            "api-blueprint": {
+                "generate": true,
+                "alias": "spr_request_types",
+                "module": "spr.views.request_types.api",
+                "function": "spr.views.request_types.api.create_api_blueprint",
+                "imports": []
             },
-            "additional-resolvers": [],
-            "additional-ui-resolvers": {},
-            "ui-serialization-referenced-fields": []
+            "app-blueprint": {
+                "generate": true,
+                "alias": "spr_request_types",
+                "extra_code": "",
+                "module": "spr.views.request_types.app",
+                "function": "spr.views.request_types.app.create_app_blueprint",
+                "imports": []
+            },
+            "resource": {
+                "generate": true,
+                "config-key": "SPR_REQUEST_TYPES_RESOURCE_CLASS",
+                "class": "oarepo_requests.resources.draft.types.resource.DraftRequestTypesResource",
+                "additional-args": [
+                    "record_requests_config={{oarepo_requests.resources.draft.types.config.DraftRequestTypesResourceConfig}}()"
+                ],
+                "skip": false
+            },
+            "service": {
+                "generate": true,
+                "config-key": "SPR_REQUEST_TYPES_SERVICE_CLASS",
+                "class": "oarepo_requests.services.draft.types.service.DraftRecordRequestTypesService",
+                "additional-args": [
+                    "record_service=self.service_records",
+                    "oarepo_requests_service={{oarepo_requests.proxies.current_oarepo_requests_service}}"
+                ],
+                "skip": false
+            }
         },
         "sortable": [],
         "properties": {
@@ -29268,6 +29306,20 @@
                                 }
                             }
                         }
+                    },
+                    "version": {
+                        "type": "keyword",
+                        "sample": [
+                            "1.0",
+                            "1.1",
+                            "2.0",
+                            "2.1",
+                            "2.2"
+                        ],
+                        "label.cs": "Verze zdroje",
+                        "label.en": "Resource version",
+                        "hint.cs": "Zapište verzi (první, druhá…).",
+                        "hint.en": "Write down the version (first, second…)."
                     }
                 }
             },

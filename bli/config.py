@@ -3,7 +3,9 @@ from oarepo_requests.resolvers.ui import (
     RecordEntityReferenceUIResolver,
 )
 from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
+from oarepo_requests.resources.draft.types.resource import DraftRequestTypesResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
+from oarepo_requests.services.draft.types.service import DraftRecordRequestTypesService
 
 from bli.files.api import BliFile, BliFileDraft
 from bli.files.requests.resolvers import BliFileDraftResolver
@@ -58,6 +60,12 @@ ENTITY_REFERENCE_UI_RESOLVERS = {
     "bli_draft": RecordEntityDraftReferenceUIResolver("bli_draft"),
 }
 REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = []
+
+
+BLI_REQUEST_TYPES_RESOURCE_CLASS = DraftRequestTypesResource
+
+
+BLI_REQUEST_TYPES_SERVICE_CLASS = DraftRecordRequestTypesService
 
 
 BLI_FILES_RESOURCE_CONFIG = BliFileResourceConfig
