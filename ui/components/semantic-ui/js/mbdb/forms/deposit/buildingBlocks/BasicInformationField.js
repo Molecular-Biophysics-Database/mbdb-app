@@ -39,7 +39,6 @@ function BasicInformationField({ name, colorSchema }) {
               RORInstitutionResultListItem,
           }}
           vocabulary="chemicals"
-          multiple={true}
           fieldPath={name}
           modalHeader={
             getFieldData({
@@ -47,10 +46,6 @@ function BasicInformationField({ name, colorSchema }) {
               fieldRepresentation: "text",
             }).label
           }
-          {...getFieldData({
-            fieldPath: name,
-            icon: false,
-          })}
         />
       </FormWrapper>
     </>

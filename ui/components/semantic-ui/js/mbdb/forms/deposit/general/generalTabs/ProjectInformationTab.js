@@ -39,7 +39,6 @@ function ProjectInformationTab({ name }) {
                     RORInstitutionResultListItem,
                 }}
                 vocabulary="grants"
-                multiple={true}
                 fieldPath={`${arrayName}.${index}`}
                 modalHeader={
                   getFieldData({
