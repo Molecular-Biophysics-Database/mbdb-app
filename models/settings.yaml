@@ -13,7 +13,7 @@ record:
               tokenizer: substringtokenizer
           "tokenizer":
             "substringtokenizer":
-              "type": "egde_ngram"
+              "type": "edge_ngram"
               "min_gram": 4
               "max_gram": 8
               "token_chars":
@@ -40,6 +40,8 @@ record:
       - common.services.records.service.AddWorkflowServiceMixin
       - invenio_drafts_resources.services.RecordService
   service-config:
-    components: ["{{oarepo_vocabularies.authorities.components.AuthorityComponent}}"]
+    components:
+      - "{{oarepo_vocabularies.authorities.components.AuthorityComponent}}"
+      - "{{oarepo_doi.services.components.DoiComponent}}"
   search-options:
     base-classes: [common.services.records.search_options.RecordSearchOptions]

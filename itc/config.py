@@ -3,7 +3,9 @@ from oarepo_requests.resolvers.ui import (
     RecordEntityReferenceUIResolver,
 )
 from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
+from oarepo_requests.resources.draft.types.resource import DraftRequestTypesResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
+from oarepo_requests.services.draft.types.service import DraftRecordRequestTypesService
 
 from itc.files.api import ItcFile, ItcFileDraft
 from itc.files.requests.resolvers import ItcFileDraftResolver
@@ -58,6 +60,12 @@ ENTITY_REFERENCE_UI_RESOLVERS = {
     "itc_draft": RecordEntityDraftReferenceUIResolver("itc_draft"),
 }
 REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = []
+
+
+ITC_REQUEST_TYPES_RESOURCE_CLASS = DraftRequestTypesResource
+
+
+ITC_REQUEST_TYPES_SERVICE_CLASS = DraftRecordRequestTypesService
 
 
 ITC_FILES_RESOURCE_CONFIG = ItcFileResourceConfig

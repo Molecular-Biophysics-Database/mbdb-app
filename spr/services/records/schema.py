@@ -61,6 +61,8 @@ class SprMetadataSchema(Schema):
         lambda: MethodSpecificParametersSchema(), required=True
     )
 
+    version = ma_fields.String()
+
 
 class GeneralParametersSchema(DictOnlySchema):
     class Meta:

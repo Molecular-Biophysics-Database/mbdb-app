@@ -3,7 +3,9 @@ from oarepo_requests.resolvers.ui import (
     RecordEntityReferenceUIResolver,
 )
 from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
+from oarepo_requests.resources.draft.types.resource import DraftRequestTypesResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
+from oarepo_requests.services.draft.types.service import DraftRecordRequestTypesService
 
 from spr.files.api import SprFile, SprFileDraft
 from spr.files.requests.resolvers import SprFileDraftResolver
@@ -58,6 +60,12 @@ ENTITY_REFERENCE_UI_RESOLVERS = {
     "spr_draft": RecordEntityDraftReferenceUIResolver("spr_draft"),
 }
 REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = []
+
+
+SPR_REQUEST_TYPES_RESOURCE_CLASS = DraftRequestTypesResource
+
+
+SPR_REQUEST_TYPES_SERVICE_CLASS = DraftRecordRequestTypesService
 
 
 SPR_FILES_RESOURCE_CONFIG = SprFileResourceConfig

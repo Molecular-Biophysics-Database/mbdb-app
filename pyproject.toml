@@ -10,6 +10,7 @@ dependencies = [
     "luqum",
     "oarepo-communities>=5.0.0",
     "oarepo-dashboard",
+    "oarepo-doi",
     "oarepo-global-search>=1.0.13",
     "oarepo-published-service>=1.0.0",
     "oarepo-requests>=2.0.0",
@@ -47,9 +48,9 @@ bli_ui = "ui.bli:create_blueprint"
 bli = "bli.views.records.app:create_app_blueprint"
 bli_file = "bli.views.files.app:create_app_blueprint"
 bli_file_draft = "bli.views.draft_files.app:create_app_blueprint"
-mst_requests = "mst.views.requests.api:create_api_blueprint"
-bli_requests = "bli.views.requests.api:create_api_blueprint"
-spr_requests = "spr.views.requests.api:create_api_blueprint"
+mst_requests = "mst.views.requests.app:create_app_blueprint"
+bli_requests = "bli.views.requests.app:create_app_blueprint"
+spr_requests = "spr.views.requests.app:create_app_blueprint"
 ui_tutorial = "ui.tutorial:create_blueprint"
 ui_contact = "ui.contact:create_blueprint"
 ui_under_development = "ui.under_development:create_blueprint"
@@ -58,9 +59,13 @@ ui_supported_techniques = "ui.supported_techniques:create_blueprint"
 ui_choose_method = "ui.choose_method:create_blueprint"
 itc_ui = "ui.itc:create_blueprint"
 itc = "itc.views.records.app:create_app_blueprint"
-itc_requests = "itc.views.requests.api:create_api_blueprint"
+itc_requests = "itc.views.requests.app:create_app_blueprint"
 itc_file = "itc.views.files.app:create_app_blueprint"
 itc_file_draft = "itc.views.draft_files.app:create_app_blueprint"
+bli_request_types = "bli.views.request_types.app:create_app_blueprint"
+mst_request_types = "mst.views.request_types.app:create_app_blueprint"
+itc_request_types = "itc.views.request_types.app:create_app_blueprint"
+spr_request_types = "spr.views.request_types.app:create_app_blueprint"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"
@@ -118,6 +123,10 @@ itc = "itc.views.records.api:create_api_blueprint"
 itc_requests = "itc.views.requests.api:create_api_blueprint"
 itc_file = "itc.views.files.api:create_api_blueprint"
 itc_file_draft = "itc.views.draft_files.api:create_api_blueprint"
+bli_request_types = "bli.views.request_types.api:create_api_blueprint"
+mst_request_types = "mst.views.request_types.api:create_api_blueprint"
+itc_request_types = "itc.views.request_types.api:create_api_blueprint"
+spr_request_types = "spr.views.request_types.api:create_api_blueprint"
 
 [project.entry-points."invenio_search.mappings"]
 mst = "mst.records.mappings"
@@ -142,6 +151,9 @@ mst = "mst.models:ui.json"
 spr = "spr.models:ui.json"
 bli = "bli.models:ui.json"
 itc = "itc.models:ui.json"
+
+[project.entry-points."invenio_requests.types"]
+review-draft-request = "common.requests.review_draft:ReviewDraftRequestType"
 
 [project.optional-dependencies]
 tests = [

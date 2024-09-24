@@ -23,7 +23,10 @@ function dateFormater(date, sep="-") {
 
 // changes the template record in-place for fields that needs to be updated
 function updateRecord(templateRecord){
-   templateRecord.metadata.general_parameters.record_information.deposition_date = dateFormater(new Date);
+  let info = templateRecord.metadata.general_parameters.record_information
+  info.deposition_date = dateFormater(new Date);
+  delete info.date_available;
+  delete info.external_identifier;
 }
 
 // extracts the metadata section of the record prepares it for deposition
@@ -86,7 +89,7 @@ export default function TemplateButton({ selfLink }) {
     console.log('Self link is not available')
   }
 
-  // calls the create function and redirects to it's edit link
+  // calls the create function and redirects to its edit link
   async function redirectRecord() {
     window.location.href = await createRecord( {selfLink} );
   }
