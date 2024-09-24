@@ -1,3 +1,4 @@
+import React from "react";
 import { Header, Icon, Label, List } from "semantic-ui-react";
 import _join from "lodash/join";
 

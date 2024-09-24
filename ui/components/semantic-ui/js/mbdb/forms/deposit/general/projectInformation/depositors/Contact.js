@@ -57,6 +57,7 @@ function Contact({ name }) {
               <FormWrapper
                 headline={`affiliation ${index + 1}`}
                 tooltip="The affiliation of the person. Note that this is based on the Research Organization Registry (ROR)"
+                colorSchema="light"
               >
                 <VocabularyRemoteSelectField
                   overriddenComponents={{
@@ -64,7 +65,6 @@ function Contact({ name }) {
                       RORInstitutionResultListItem,
                   }}
                   vocabulary="affiliations"
-                  multiple={true}
                   fieldPath={`${arrayName}.${index}`}
                   modalHeader={
                     getFieldData({
