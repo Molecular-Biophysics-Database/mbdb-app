@@ -1,10 +1,12 @@
 import React from "react";
 import { Header, Icon, Label, List } from "semantic-ui-react";
 import _join from "lodash/join";
+import { getTitleFromMultilingualObject } from "@js/oarepo_ui";
 
 export const RORInstitutionResultListItem = ({
   result,
   handleSelect = () => {},
+  selected,
 }) => {
   // This is just a very basic knowledge-less component to display
   // pretty much anything coming from an external vocabulary API source.
@@ -12,7 +14,7 @@ export const RORInstitutionResultListItem = ({
   // Feel free to override it to fit your use-case using overridable id:
   // VocabularyRemoteSelect.ext.ResultsList.item
   //
-  const { id, relatedURI, props } = result;
+  const { relatedURI, title, props } = result;
 
   const uriLinks =
     relatedURI &&
@@ -32,24 +34,23 @@ export const RORInstitutionResultListItem = ({
       );
     });
 
-  const propValues = _join(Object.values(props), ", ");
+  // const propValues = _join(Object.values(props), ", ");
 
   const onSelect = (result) => {
-    // TODO: here you can convert the result to internal format
-    handleSelect(result);
+    handleSelect(result, selected);
   };
 
   return (
     <List.Item
       onClick={() => onSelect(result)}
       className="search-external-result-item"
-      //   active={true}
+      active={selected}
     >
       <List.Content>
         <Header className="mb-5" size="small">
-          {id} {uriLinks}
+          {getTitleFromMultilingualObject(title)} {uriLinks}
         </Header>
-        <List.Description>{propValues}</List.Description>
+       {/* <List.Description>{propValues}</List.Description> */}
       </List.Content>
     </List.Item>
   );
