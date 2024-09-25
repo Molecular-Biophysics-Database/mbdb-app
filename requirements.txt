@@ -7,7 +7,7 @@ frozendict==2.4.4
 jinja2-simple-tags==0.6.1
 jinjax==0.37
 json5==0.9.25
-langcodes==3.4.0
+langcodes==3.4.1
 language-data==1.2.0
 marisa-trie==1.2.0
 oarepo-communities==5.0.16
