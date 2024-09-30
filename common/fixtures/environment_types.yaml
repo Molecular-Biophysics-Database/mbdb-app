@@ -1,0 +1,15 @@
+id: 'env:1'
+title:
+  en: Fresh water
+---
+id: 'env:2'
+title:
+  en: Marine
+---
+id: 'env:3'
+title:
+  en: Ice core
+---
+id: 'env:4'
+title:
+  en: 'Sewage'
