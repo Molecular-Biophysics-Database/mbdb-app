@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-09-23T16:16:18.247542\n"
-"PO-Revision-Date: 2024-09-23T16:16:18.247544\n"
+"POT-Creation-Date: 2024-09-30T10:53:02.031355\n"
+"PO-Revision-Date: 2024-09-30T10:53:02.031357\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2553,6 +2553,11 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/general_parameters/chemical_environments/constituents/derived_from.enum.Solid"
+" tissue sample"
+msgstr ""
+
+msgid ""
 "metadata/general_parameters/chemical_environments/constituents/fluid.help"
 msgstr ""
 
@@ -2565,37 +2570,39 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fluid.enum.Blood"
+"metadata/general_parameters/chemical_environments/constituents/fluid/id.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fluid.enum.Fecal"
-" matter"
+"metadata/general_parameters/chemical_environments/constituents/fluid/id.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fluid.enum.Milk"
+"metadata/general_parameters/chemical_environments/constituents/fluid/id.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fluid.enum.Plasma"
+"metadata/general_parameters/chemical_environments/constituents/fluid/title.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fluid.enum.Saliva"
+"metadata/general_parameters/chemical_environments/constituents/fluid/title.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fluid.enum.Serum"
+"metadata/general_parameters/chemical_environments/constituents/fluid/title.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fluid.enum.Urine"
+"metadata/general_parameters/chemical_environments/constituents/fluid/@v.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fluid.enum.Plant"
-" extract"
+"metadata/general_parameters/chemical_environments/constituents/fluid/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/fluid/@v.hint"
 msgstr ""
 
 msgid ""
@@ -2839,62 +2846,39 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fraction.enum.Ribosome"
+"metadata/general_parameters/chemical_environments/constituents/fraction/id.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fraction.enum.Cell"
-" wall"
+"metadata/general_parameters/chemical_environments/constituents/fraction/id.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fraction.enum.VesicleCell"
-" lysate/Cytoplasm"
+"metadata/general_parameters/chemical_environments/constituents/fraction/id.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fraction.enum.Cell"
-" Membrane"
+"metadata/general_parameters/chemical_environments/constituents/fraction/title.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fraction.enum.Extracellular"
-" matrix"
+"metadata/general_parameters/chemical_environments/constituents/fraction/title.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fraction.enum.Lysosome"
+"metadata/general_parameters/chemical_environments/constituents/fraction/title.hint"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fraction.enum.Golgi"
-" Apparatus"
+"metadata/general_parameters/chemical_environments/constituents/fraction/@v.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fraction.enum.Mitochondrion"
+"metadata/general_parameters/chemical_environments/constituents/fraction/@v.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fraction.enum.Nucleus"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fraction.enum.Rough"
-" Endoplasmic Reticulum"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fraction.enum.Smooth"
-" Endoplasmic Reticulum"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fraction.enum.Vacuole"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/fraction.enum.Chloroplast"
+"metadata/general_parameters/chemical_environments/constituents/fraction/@v.hint"
 msgstr ""
 
 msgid ""
@@ -3078,6 +3062,66 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/general_parameters/chemical_environments/constituents/homogenized.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/homogenized.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/homogenized.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/environment_type.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/environment_type.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/environment_type.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/environment_type/id.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/environment_type/id.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/environment_type/id.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/environment_type/title.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/environment_type/title.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/environment_type/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/environment_type/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/environment_type/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/environment_type/@v.hint"
+msgstr ""
+
+msgid ""
 "metadata/general_parameters/chemical_environments/constituents/location.help"
 msgstr ""
 
@@ -3087,6 +3131,18 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/location.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/location/altitude.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/location/altitude.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/location/altitude.hint"
 msgstr ""
 
 msgid ""
@@ -3111,44 +3167,6 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/location/longitude.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/source.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/source.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/source.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/source.enum.Fresh"
-" water"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/source.enum.Marine"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/source.enum.Ice"
-" core"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/source.enum.Sediment"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/source.enum.Sewage"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/source.enum.Soil"
 msgstr ""
 
 msgid ""
@@ -3342,16 +3360,39 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/product.enum.Beer"
+"metadata/general_parameters/chemical_environments/constituents/product/id.help"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/product.enum.Cell"
-" medium"
+"metadata/general_parameters/chemical_environments/constituents/product/id.label"
 msgstr ""
 
 msgid ""
-"metadata/general_parameters/chemical_environments/constituents/product.enum.Whey"
+"metadata/general_parameters/chemical_environments/constituents/product/id.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/product/title.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/product/title.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/product/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/product/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/product/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/chemical_environments/constituents/product/@v.hint"
 msgstr ""
 
 msgid "metadata/general_parameters/chemical_environments/id.help"
@@ -6258,6 +6299,11 @@ msgid ""
 "metadata/general_parameters/entities_of_interest/derived_from.enum.Virion"
 msgstr ""
 
+msgid ""
+"metadata/general_parameters/entities_of_interest/derived_from.enum.Solid "
+"tissue sample"
+msgstr ""
+
 msgid "metadata/general_parameters/entities_of_interest/fluid.help"
 msgstr ""
 
@@ -6267,30 +6313,31 @@ msgstr ""
 msgid "metadata/general_parameters/entities_of_interest/fluid.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/entities_of_interest/fluid.enum.Blood"
+msgid "metadata/general_parameters/entities_of_interest/fluid/id.help"
 msgstr ""
 
-msgid ""
-"metadata/general_parameters/entities_of_interest/fluid.enum.Fecal matter"
+msgid "metadata/general_parameters/entities_of_interest/fluid/id.label"
 msgstr ""
 
-msgid "metadata/general_parameters/entities_of_interest/fluid.enum.Milk"
+msgid "metadata/general_parameters/entities_of_interest/fluid/id.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/entities_of_interest/fluid.enum.Plasma"
+msgid "metadata/general_parameters/entities_of_interest/fluid/title.help"
 msgstr ""
 
-msgid "metadata/general_parameters/entities_of_interest/fluid.enum.Saliva"
+msgid "metadata/general_parameters/entities_of_interest/fluid/title.label"
 msgstr ""
 
-msgid "metadata/general_parameters/entities_of_interest/fluid.enum.Serum"
+msgid "metadata/general_parameters/entities_of_interest/fluid/title.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/entities_of_interest/fluid.enum.Urine"
+msgid "metadata/general_parameters/entities_of_interest/fluid/@v.help"
 msgstr ""
 
-msgid ""
-"metadata/general_parameters/entities_of_interest/fluid.enum.Plant extract"
+msgid "metadata/general_parameters/entities_of_interest/fluid/@v.label"
+msgstr ""
+
+msgid "metadata/general_parameters/entities_of_interest/fluid/@v.hint"
 msgstr ""
 
 msgid "metadata/general_parameters/entities_of_interest/health_status.help"
@@ -6519,59 +6566,31 @@ msgstr ""
 msgid "metadata/general_parameters/entities_of_interest/fraction.hint"
 msgstr ""
 
-msgid ""
-"metadata/general_parameters/entities_of_interest/fraction.enum.Ribosome"
+msgid "metadata/general_parameters/entities_of_interest/fraction/id.help"
 msgstr ""
 
-msgid ""
-"metadata/general_parameters/entities_of_interest/fraction.enum.Cell wall"
+msgid "metadata/general_parameters/entities_of_interest/fraction/id.label"
 msgstr ""
 
-msgid ""
-"metadata/general_parameters/entities_of_interest/fraction.enum.VesicleCell "
-"lysate/Cytoplasm"
+msgid "metadata/general_parameters/entities_of_interest/fraction/id.hint"
 msgstr ""
 
-msgid ""
-"metadata/general_parameters/entities_of_interest/fraction.enum.Cell Membrane"
+msgid "metadata/general_parameters/entities_of_interest/fraction/title.help"
 msgstr ""
 
-msgid ""
-"metadata/general_parameters/entities_of_interest/fraction.enum.Extracellular"
-" matrix"
+msgid "metadata/general_parameters/entities_of_interest/fraction/title.label"
 msgstr ""
 
-msgid ""
-"metadata/general_parameters/entities_of_interest/fraction.enum.Lysosome"
+msgid "metadata/general_parameters/entities_of_interest/fraction/title.hint"
 msgstr ""
 
-msgid ""
-"metadata/general_parameters/entities_of_interest/fraction.enum.Golgi "
-"Apparatus"
+msgid "metadata/general_parameters/entities_of_interest/fraction/@v.help"
 msgstr ""
 
-msgid ""
-"metadata/general_parameters/entities_of_interest/fraction.enum.Mitochondrion"
+msgid "metadata/general_parameters/entities_of_interest/fraction/@v.label"
 msgstr ""
 
-msgid "metadata/general_parameters/entities_of_interest/fraction.enum.Nucleus"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/fraction.enum.Rough "
-"Endoplasmic Reticulum"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/fraction.enum.Smooth "
-"Endoplasmic Reticulum"
-msgstr ""
-
-msgid "metadata/general_parameters/entities_of_interest/fraction.enum.Vacuole"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/fraction.enum.Chloroplast"
+msgid "metadata/general_parameters/entities_of_interest/fraction/@v.hint"
 msgstr ""
 
 msgid "metadata/general_parameters/entities_of_interest/organ.help"
@@ -6729,6 +6748,61 @@ msgstr ""
 msgid "metadata/general_parameters/entities_of_interest/host_organism/@v.hint"
 msgstr ""
 
+msgid "metadata/general_parameters/entities_of_interest/homogenized.help"
+msgstr ""
+
+msgid "metadata/general_parameters/entities_of_interest/homogenized.label"
+msgstr ""
+
+msgid "metadata/general_parameters/entities_of_interest/homogenized.hint"
+msgstr ""
+
+msgid "metadata/general_parameters/entities_of_interest/environment_type.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/environment_type.label"
+msgstr ""
+
+msgid "metadata/general_parameters/entities_of_interest/environment_type.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/environment_type/id.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/environment_type/id.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/environment_type/id.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/environment_type/title.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/environment_type/title.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/environment_type/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/environment_type/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/environment_type/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/environment_type/@v.hint"
+msgstr ""
+
 msgid "metadata/general_parameters/entities_of_interest/location.help"
 msgstr ""
 
@@ -6736,6 +6810,18 @@ msgid "metadata/general_parameters/entities_of_interest/location.label"
 msgstr ""
 
 msgid "metadata/general_parameters/entities_of_interest/location.hint"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/location/altitude.help"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/location/altitude.label"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/entities_of_interest/location/altitude.hint"
 msgstr ""
 
 msgid ""
@@ -6760,34 +6846,6 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/location/longitude.hint"
-msgstr ""
-
-msgid "metadata/general_parameters/entities_of_interest/source.help"
-msgstr ""
-
-msgid "metadata/general_parameters/entities_of_interest/source.label"
-msgstr ""
-
-msgid "metadata/general_parameters/entities_of_interest/source.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/source.enum.Fresh water"
-msgstr ""
-
-msgid "metadata/general_parameters/entities_of_interest/source.enum.Marine"
-msgstr ""
-
-msgid "metadata/general_parameters/entities_of_interest/source.enum.Ice core"
-msgstr ""
-
-msgid "metadata/general_parameters/entities_of_interest/source.enum.Sediment"
-msgstr ""
-
-msgid "metadata/general_parameters/entities_of_interest/source.enum.Sewage"
-msgstr ""
-
-msgid "metadata/general_parameters/entities_of_interest/source.enum.Soil"
 msgstr ""
 
 msgid "metadata/general_parameters/entities_of_interest/assembly_type.help"
@@ -6941,14 +6999,31 @@ msgstr ""
 msgid "metadata/general_parameters/entities_of_interest/product.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/entities_of_interest/product.enum.Beer"
+msgid "metadata/general_parameters/entities_of_interest/product/id.help"
 msgstr ""
 
-msgid ""
-"metadata/general_parameters/entities_of_interest/product.enum.Cell medium"
+msgid "metadata/general_parameters/entities_of_interest/product/id.label"
 msgstr ""
 
-msgid "metadata/general_parameters/entities_of_interest/product.enum.Whey"
+msgid "metadata/general_parameters/entities_of_interest/product/id.hint"
+msgstr ""
+
+msgid "metadata/general_parameters/entities_of_interest/product/title.help"
+msgstr ""
+
+msgid "metadata/general_parameters/entities_of_interest/product/title.label"
+msgstr ""
+
+msgid "metadata/general_parameters/entities_of_interest/product/title.hint"
+msgstr ""
+
+msgid "metadata/general_parameters/entities_of_interest/product/@v.help"
+msgstr ""
+
+msgid "metadata/general_parameters/entities_of_interest/product/@v.label"
+msgstr ""
+
+msgid "metadata/general_parameters/entities_of_interest/product/@v.hint"
 msgstr ""
 
 msgid "metadata/general_parameters/funding_references.help"
@@ -7552,7 +7627,7 @@ msgstr ""
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.9.25"
+msgid "metadata/general_parameters/schema_version.enum.0.10.0"
 msgstr ""
 
 msgid "metadata/general_parameters/technique.help"

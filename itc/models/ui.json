@@ -1667,14 +1667,37 @@
                                                     "facet": "metadata_general_parameters_chemical_environments_constituents_derived_from"
                                                 },
                                                 "fluid": {
-                                                    "detail": "keyword",
-                                                    "input": "keyword",
+                                                    "detail": "vocabulary_item",
+                                                    "edit": "vocabulary_item",
+                                                    "input": "vocabulary",
                                                     "required": true,
                                                     "help": "metadata/general_parameters/chemical_environments/constituents/fluid.help",
                                                     "label": "metadata/general_parameters/chemical_environments/constituents/fluid.label",
                                                     "hint": "metadata/general_parameters/chemical_environments/constituents/fluid.hint",
-                                                    "enum": "metadata/general_parameters/chemical_environments/constituents/fluid.enum",
-                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_fluid"
+                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_fluid",
+                                                    "children": {
+                                                        "id": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/fluid/id.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/fluid/id.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/fluid/id.hint"
+                                                        },
+                                                        "title": {
+                                                            "detail": false,
+                                                            "input": false,
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/fluid/title.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/fluid/title.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/fluid/title.hint"
+                                                        },
+                                                        "@v": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/fluid/@v.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/fluid/@v.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/fluid/@v.hint"
+                                                        }
+                                                    }
                                                 },
                                                 "health_status": {
                                                     "detail": "keyword",
@@ -1829,18 +1852,42 @@
                                                     "facet": "metadata_general_parameters_chemical_environments_constituents_cell_type"
                                                 },
                                                 "fraction": {
-                                                    "detail": "keyword",
-                                                    "input": "keyword",
+                                                    "detail": "vocabulary_item",
+                                                    "edit": "vocabulary_item",
+                                                    "input": "vocabulary",
                                                     "required": true,
                                                     "help": "metadata/general_parameters/chemical_environments/constituents/fraction.help",
                                                     "label": "metadata/general_parameters/chemical_environments/constituents/fraction.label",
                                                     "hint": "metadata/general_parameters/chemical_environments/constituents/fraction.hint",
-                                                    "enum": "metadata/general_parameters/chemical_environments/constituents/fraction.enum",
-                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_fraction"
+                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_fraction",
+                                                    "children": {
+                                                        "id": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/fraction/id.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/fraction/id.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/fraction/id.hint"
+                                                        },
+                                                        "title": {
+                                                            "detail": false,
+                                                            "input": false,
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/fraction/title.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/fraction/title.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/fraction/title.hint"
+                                                        },
+                                                        "@v": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/fraction/@v.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/fraction/@v.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/fraction/@v.hint"
+                                                        }
+                                                    }
                                                 },
                                                 "organ": {
                                                     "detail": "keyword",
                                                     "input": "keyword",
+                                                    "required": true,
                                                     "help": "metadata/general_parameters/chemical_environments/constituents/organ.help",
                                                     "label": "metadata/general_parameters/chemical_environments/constituents/organ.label",
                                                     "hint": "metadata/general_parameters/chemical_environments/constituents/organ.hint",
@@ -1931,6 +1978,48 @@
                                                         }
                                                     }
                                                 },
+                                                "homogenized": {
+                                                    "detail": "boolean",
+                                                    "input": "boolean",
+                                                    "required": true,
+                                                    "help": "metadata/general_parameters/chemical_environments/constituents/homogenized.help",
+                                                    "label": "metadata/general_parameters/chemical_environments/constituents/homogenized.label",
+                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/homogenized.hint",
+                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_homogenized"
+                                                },
+                                                "environment_type": {
+                                                    "detail": "vocabulary_item",
+                                                    "edit": "vocabulary_item",
+                                                    "input": "vocabulary",
+                                                    "required": true,
+                                                    "help": "metadata/general_parameters/chemical_environments/constituents/environment_type.help",
+                                                    "label": "metadata/general_parameters/chemical_environments/constituents/environment_type.label",
+                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/environment_type.hint",
+                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_environment_type",
+                                                    "children": {
+                                                        "id": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/environment_type/id.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/environment_type/id.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/environment_type/id.hint"
+                                                        },
+                                                        "title": {
+                                                            "detail": false,
+                                                            "input": false,
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/environment_type/title.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/environment_type/title.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/environment_type/title.hint"
+                                                        },
+                                                        "@v": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/environment_type/@v.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/environment_type/@v.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/environment_type/@v.hint"
+                                                        }
+                                                    }
+                                                },
                                                 "location": {
                                                     "detail": false,
                                                     "input": false,
@@ -1939,6 +2028,15 @@
                                                     "label": "metadata/general_parameters/chemical_environments/constituents/location.label",
                                                     "hint": "metadata/general_parameters/chemical_environments/constituents/location.hint",
                                                     "children": {
+                                                        "altitude": {
+                                                            "detail": "double",
+                                                            "input": "double",
+                                                            "required": true,
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/location/altitude.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/location/altitude.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/location/altitude.hint",
+                                                            "facet": "metadata_general_parameters_chemical_environments_constituents_location_altitude"
+                                                        },
                                                         "latitude": {
                                                             "detail": "double",
                                                             "input": "double",
@@ -1958,16 +2056,6 @@
                                                             "facet": "metadata_general_parameters_chemical_environments_constituents_location_longitude"
                                                         }
                                                     }
-                                                },
-                                                "source": {
-                                                    "detail": "keyword",
-                                                    "input": "keyword",
-                                                    "required": true,
-                                                    "help": "metadata/general_parameters/chemical_environments/constituents/source.help",
-                                                    "label": "metadata/general_parameters/chemical_environments/constituents/source.label",
-                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/source.hint",
-                                                    "enum": "metadata/general_parameters/chemical_environments/constituents/source.enum",
-                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_source"
                                                 },
                                                 "assembly_type": {
                                                     "detail": "keyword",
@@ -2060,14 +2148,37 @@
                                                     }
                                                 },
                                                 "product": {
-                                                    "detail": "keyword",
-                                                    "input": "keyword",
+                                                    "detail": "vocabulary_item",
+                                                    "edit": "vocabulary_item",
+                                                    "input": "vocabulary",
                                                     "required": true,
                                                     "help": "metadata/general_parameters/chemical_environments/constituents/product.help",
                                                     "label": "metadata/general_parameters/chemical_environments/constituents/product.label",
                                                     "hint": "metadata/general_parameters/chemical_environments/constituents/product.hint",
-                                                    "enum": "metadata/general_parameters/chemical_environments/constituents/product.enum",
-                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_product"
+                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_product",
+                                                    "children": {
+                                                        "id": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/product/id.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/product/id.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/product/id.hint"
+                                                        },
+                                                        "title": {
+                                                            "detail": false,
+                                                            "input": false,
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/product/title.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/product/title.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/product/title.hint"
+                                                        },
+                                                        "@v": {
+                                                            "detail": "keyword",
+                                                            "input": "keyword",
+                                                            "help": "metadata/general_parameters/chemical_environments/constituents/product/@v.help",
+                                                            "label": "metadata/general_parameters/chemical_environments/constituents/product/@v.label",
+                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/product/@v.hint"
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -4096,14 +4207,37 @@
                                         "facet": "metadata_general_parameters_entities_of_interest_derived_from"
                                     },
                                     "fluid": {
-                                        "detail": "keyword",
-                                        "input": "keyword",
+                                        "detail": "vocabulary_item",
+                                        "edit": "vocabulary_item",
+                                        "input": "vocabulary",
                                         "required": true,
                                         "help": "metadata/general_parameters/entities_of_interest/fluid.help",
                                         "label": "metadata/general_parameters/entities_of_interest/fluid.label",
                                         "hint": "metadata/general_parameters/entities_of_interest/fluid.hint",
-                                        "enum": "metadata/general_parameters/entities_of_interest/fluid.enum",
-                                        "facet": "metadata_general_parameters_entities_of_interest_fluid"
+                                        "facet": "metadata_general_parameters_entities_of_interest_fluid",
+                                        "children": {
+                                            "id": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/general_parameters/entities_of_interest/fluid/id.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/fluid/id.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/fluid/id.hint"
+                                            },
+                                            "title": {
+                                                "detail": false,
+                                                "input": false,
+                                                "help": "metadata/general_parameters/entities_of_interest/fluid/title.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/fluid/title.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/fluid/title.hint"
+                                            },
+                                            "@v": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/general_parameters/entities_of_interest/fluid/@v.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/fluid/@v.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/fluid/@v.hint"
+                                            }
+                                        }
                                     },
                                     "health_status": {
                                         "detail": "keyword",
@@ -4258,18 +4392,42 @@
                                         "facet": "metadata_general_parameters_entities_of_interest_cell_type"
                                     },
                                     "fraction": {
-                                        "detail": "keyword",
-                                        "input": "keyword",
+                                        "detail": "vocabulary_item",
+                                        "edit": "vocabulary_item",
+                                        "input": "vocabulary",
                                         "required": true,
                                         "help": "metadata/general_parameters/entities_of_interest/fraction.help",
                                         "label": "metadata/general_parameters/entities_of_interest/fraction.label",
                                         "hint": "metadata/general_parameters/entities_of_interest/fraction.hint",
-                                        "enum": "metadata/general_parameters/entities_of_interest/fraction.enum",
-                                        "facet": "metadata_general_parameters_entities_of_interest_fraction"
+                                        "facet": "metadata_general_parameters_entities_of_interest_fraction",
+                                        "children": {
+                                            "id": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/general_parameters/entities_of_interest/fraction/id.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/fraction/id.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/fraction/id.hint"
+                                            },
+                                            "title": {
+                                                "detail": false,
+                                                "input": false,
+                                                "help": "metadata/general_parameters/entities_of_interest/fraction/title.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/fraction/title.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/fraction/title.hint"
+                                            },
+                                            "@v": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/general_parameters/entities_of_interest/fraction/@v.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/fraction/@v.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/fraction/@v.hint"
+                                            }
+                                        }
                                     },
                                     "organ": {
                                         "detail": "keyword",
                                         "input": "keyword",
+                                        "required": true,
                                         "help": "metadata/general_parameters/entities_of_interest/organ.help",
                                         "label": "metadata/general_parameters/entities_of_interest/organ.label",
                                         "hint": "metadata/general_parameters/entities_of_interest/organ.hint",
@@ -4360,6 +4518,48 @@
                                             }
                                         }
                                     },
+                                    "homogenized": {
+                                        "detail": "boolean",
+                                        "input": "boolean",
+                                        "required": true,
+                                        "help": "metadata/general_parameters/entities_of_interest/homogenized.help",
+                                        "label": "metadata/general_parameters/entities_of_interest/homogenized.label",
+                                        "hint": "metadata/general_parameters/entities_of_interest/homogenized.hint",
+                                        "facet": "metadata_general_parameters_entities_of_interest_homogenized"
+                                    },
+                                    "environment_type": {
+                                        "detail": "vocabulary_item",
+                                        "edit": "vocabulary_item",
+                                        "input": "vocabulary",
+                                        "required": true,
+                                        "help": "metadata/general_parameters/entities_of_interest/environment_type.help",
+                                        "label": "metadata/general_parameters/entities_of_interest/environment_type.label",
+                                        "hint": "metadata/general_parameters/entities_of_interest/environment_type.hint",
+                                        "facet": "metadata_general_parameters_entities_of_interest_environment_type",
+                                        "children": {
+                                            "id": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/general_parameters/entities_of_interest/environment_type/id.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/environment_type/id.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/environment_type/id.hint"
+                                            },
+                                            "title": {
+                                                "detail": false,
+                                                "input": false,
+                                                "help": "metadata/general_parameters/entities_of_interest/environment_type/title.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/environment_type/title.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/environment_type/title.hint"
+                                            },
+                                            "@v": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/general_parameters/entities_of_interest/environment_type/@v.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/environment_type/@v.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/environment_type/@v.hint"
+                                            }
+                                        }
+                                    },
                                     "location": {
                                         "detail": false,
                                         "input": false,
@@ -4368,6 +4568,15 @@
                                         "label": "metadata/general_parameters/entities_of_interest/location.label",
                                         "hint": "metadata/general_parameters/entities_of_interest/location.hint",
                                         "children": {
+                                            "altitude": {
+                                                "detail": "double",
+                                                "input": "double",
+                                                "required": true,
+                                                "help": "metadata/general_parameters/entities_of_interest/location/altitude.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/location/altitude.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/location/altitude.hint",
+                                                "facet": "metadata_general_parameters_entities_of_interest_location_altitude"
+                                            },
                                             "latitude": {
                                                 "detail": "double",
                                                 "input": "double",
@@ -4387,16 +4596,6 @@
                                                 "facet": "metadata_general_parameters_entities_of_interest_location_longitude"
                                             }
                                         }
-                                    },
-                                    "source": {
-                                        "detail": "keyword",
-                                        "input": "keyword",
-                                        "required": true,
-                                        "help": "metadata/general_parameters/entities_of_interest/source.help",
-                                        "label": "metadata/general_parameters/entities_of_interest/source.label",
-                                        "hint": "metadata/general_parameters/entities_of_interest/source.hint",
-                                        "enum": "metadata/general_parameters/entities_of_interest/source.enum",
-                                        "facet": "metadata_general_parameters_entities_of_interest_source"
                                     },
                                     "assembly_type": {
                                         "detail": "keyword",
@@ -4489,14 +4688,37 @@
                                         }
                                     },
                                     "product": {
-                                        "detail": "keyword",
-                                        "input": "keyword",
+                                        "detail": "vocabulary_item",
+                                        "edit": "vocabulary_item",
+                                        "input": "vocabulary",
                                         "required": true,
                                         "help": "metadata/general_parameters/entities_of_interest/product.help",
                                         "label": "metadata/general_parameters/entities_of_interest/product.label",
                                         "hint": "metadata/general_parameters/entities_of_interest/product.hint",
-                                        "enum": "metadata/general_parameters/entities_of_interest/product.enum",
-                                        "facet": "metadata_general_parameters_entities_of_interest_product"
+                                        "facet": "metadata_general_parameters_entities_of_interest_product",
+                                        "children": {
+                                            "id": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/general_parameters/entities_of_interest/product/id.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/product/id.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/product/id.hint"
+                                            },
+                                            "title": {
+                                                "detail": false,
+                                                "input": false,
+                                                "help": "metadata/general_parameters/entities_of_interest/product/title.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/product/title.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/product/title.hint"
+                                            },
+                                            "@v": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "help": "metadata/general_parameters/entities_of_interest/product/@v.help",
+                                                "label": "metadata/general_parameters/entities_of_interest/product/@v.label",
+                                                "hint": "metadata/general_parameters/entities_of_interest/product/@v.hint"
+                                            }
+                                        }
                                     }
                                 }
                             }

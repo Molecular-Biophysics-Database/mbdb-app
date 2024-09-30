@@ -673,7 +673,18 @@
                                                     "type": "string"
                                                 },
                                                 "fluid": {
-                                                    "type": "string"
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
                                                 },
                                                 "health_status": {
                                                     "type": "string"
@@ -737,7 +748,18 @@
                                                     "type": "string"
                                                 },
                                                 "fraction": {
-                                                    "type": "string"
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
                                                 },
                                                 "organ": {
                                                     "type": "string"
@@ -774,9 +796,29 @@
                                                         }
                                                     }
                                                 },
+                                                "homogenized": {
+                                                    "type": "boolean"
+                                                },
+                                                "environment_type": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
                                                 "location": {
                                                     "type": "object",
                                                     "properties": {
+                                                        "altitude": {
+                                                            "type": "number"
+                                                        },
                                                         "latitude": {
                                                             "type": "number"
                                                         },
@@ -784,9 +826,6 @@
                                                             "type": "number"
                                                         }
                                                     }
-                                                },
-                                                "source": {
-                                                    "type": "string"
                                                 },
                                                 "assembly_type": {
                                                     "type": "string"
@@ -821,7 +860,18 @@
                                                     }
                                                 },
                                                 "product": {
-                                                    "type": "string"
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "object"
+                                                        },
+                                                        "@v": {
+                                                            "type": "string"
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -1655,7 +1705,18 @@
                                         "type": "string"
                                     },
                                     "fluid": {
-                                        "type": "string"
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "type": "object"
+                                            },
+                                            "@v": {
+                                                "type": "string"
+                                            }
+                                        }
                                     },
                                     "health_status": {
                                         "type": "string"
@@ -1719,7 +1780,18 @@
                                         "type": "string"
                                     },
                                     "fraction": {
-                                        "type": "string"
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "type": "object"
+                                            },
+                                            "@v": {
+                                                "type": "string"
+                                            }
+                                        }
                                     },
                                     "organ": {
                                         "type": "string"
@@ -1756,9 +1828,29 @@
                                             }
                                         }
                                     },
+                                    "homogenized": {
+                                        "type": "boolean"
+                                    },
+                                    "environment_type": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "type": "object"
+                                            },
+                                            "@v": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
                                     "location": {
                                         "type": "object",
                                         "properties": {
+                                            "altitude": {
+                                                "type": "number"
+                                            },
                                             "latitude": {
                                                 "type": "number"
                                             },
@@ -1766,9 +1858,6 @@
                                                 "type": "number"
                                             }
                                         }
-                                    },
-                                    "source": {
-                                        "type": "string"
                                     },
                                     "assembly_type": {
                                         "type": "string"
@@ -1803,7 +1892,18 @@
                                         }
                                     },
                                     "product": {
-                                        "type": "string"
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "type": "object"
+                                            },
+                                            "@v": {
+                                                "type": "string"
+                                            }
+                                        }
                                     }
                                 }
                             }

@@ -104,7 +104,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.25"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.10.0"])])
 
     technique = ma_fields.String(
         required=True,
@@ -761,6 +761,13 @@ class Complex_substance_of_biological_originSchema(PolymorphicSchema):
         attribute="Cell fraction",
     )
 
+    Solid_tissue_sample = ma_fields.Nested(
+        lambda: Solid_tissue_sampleSchema(),
+        required=True,
+        data_key="Solid tissue sample",
+        attribute="Solid tissue sample",
+    )
+
     Virion = ma_fields.Nested(lambda: VirionSchema(), required=True)
 
     type_field = "derived_from"
@@ -784,6 +791,13 @@ class EntitiesOfInterestItemComplex_substance_of_biological_originSchema(
         required=True,
         data_key="Cell fraction",
         attribute="Cell fraction",
+    )
+
+    Solid_tissue_sample = ma_fields.Nested(
+        lambda: Complex_substance_of_biological_originSolid_tissue_sampleSchema(),
+        required=True,
+        data_key="Solid tissue sample",
+        attribute="Solid tissue sample",
     )
 
     Virion = ma_fields.Nested(
@@ -981,26 +995,13 @@ class Body_fluidSchema(DictOnlySchema):
     concentration = ma_fields.Nested(lambda: ConcentrationSchema(), required=True)
 
     derived_from = ma_fields.String(
-        required=True, validate=[OneOf(["Body fluid", "Cell fraction", "Virion"])]
-    )
-
-    fluid = ma_fields.String(
         required=True,
         validate=[
-            OneOf(
-                [
-                    "Blood",
-                    "Fecal matter",
-                    "Milk",
-                    "Plasma",
-                    "Saliva",
-                    "Serum",
-                    "Urine",
-                    "Plant extract",
-                ]
-            )
+            OneOf(["Body fluid", "Cell fraction", "Virion", "Solid tissue sample"])
         ],
     )
+
+    fluid = ma_fields.Nested(lambda: FluidSchema(), required=True)
 
     health_status = ma_fields.String(required=True)
 
@@ -1049,31 +1050,13 @@ class Cell_fractionSchema(DictOnlySchema):
     concentration = ma_fields.Nested(lambda: ConcentrationSchema(), required=True)
 
     derived_from = ma_fields.String(
-        required=True, validate=[OneOf(["Body fluid", "Cell fraction", "Virion"])]
-    )
-
-    fraction = ma_fields.String(
         required=True,
         validate=[
-            OneOf(
-                [
-                    "Ribosome",
-                    "Cell wall",
-                    "VesicleCell lysate/Cytoplasm",
-                    "Cell Membrane",
-                    "Extracellular matrix",
-                    "Lysosome",
-                    "Golgi Apparatus",
-                    "Mitochondrion",
-                    "Nucleus",
-                    "Rough Endoplasmic Reticulum",
-                    "Smooth Endoplasmic Reticulum",
-                    "Vacuole",
-                    "Chloroplast",
-                ]
-            )
+            OneOf(["Body fluid", "Cell fraction", "Virion", "Solid tissue sample"])
         ],
     )
+
+    fraction = ma_fields.Nested(lambda: FluidSchema(), required=True)
 
     health_status = ma_fields.String(required=True)
 
@@ -1244,26 +1227,13 @@ class Complex_substance_of_biological_originBody_fluidSchema(DictOnlySchema):
     )
 
     derived_from = ma_fields.String(
-        required=True, validate=[OneOf(["Body fluid", "Cell fraction", "Virion"])]
-    )
-
-    fluid = ma_fields.String(
         required=True,
         validate=[
-            OneOf(
-                [
-                    "Blood",
-                    "Fecal matter",
-                    "Milk",
-                    "Plasma",
-                    "Saliva",
-                    "Serum",
-                    "Urine",
-                    "Plant extract",
-                ]
-            )
+            OneOf(["Body fluid", "Cell fraction", "Virion", "Solid tissue sample"])
         ],
     )
+
+    fluid = ma_fields.Nested(lambda: FluidSchema(), required=True)
 
     health_status = ma_fields.String(required=True)
 
@@ -1312,31 +1282,13 @@ class Complex_substance_of_biological_originCell_fractionSchema(DictOnlySchema):
     cell_type = ma_fields.String()
 
     derived_from = ma_fields.String(
-        required=True, validate=[OneOf(["Body fluid", "Cell fraction", "Virion"])]
-    )
-
-    fraction = ma_fields.String(
         required=True,
         validate=[
-            OneOf(
-                [
-                    "Ribosome",
-                    "Cell wall",
-                    "VesicleCell lysate/Cytoplasm",
-                    "Cell Membrane",
-                    "Extracellular matrix",
-                    "Lysosome",
-                    "Golgi Apparatus",
-                    "Mitochondrion",
-                    "Nucleus",
-                    "Rough Endoplasmic Reticulum",
-                    "Smooth Endoplasmic Reticulum",
-                    "Vacuole",
-                    "Chloroplast",
-                ]
-            )
+            OneOf(["Body fluid", "Cell fraction", "Virion", "Solid tissue sample"])
         ],
     )
+
+    fraction = ma_fields.Nested(lambda: FluidSchema(), required=True)
 
     health_status = ma_fields.String(required=True)
 
@@ -1376,6 +1328,61 @@ class Complex_substance_of_biological_originCell_fractionSchema(DictOnlySchema):
     )
 
 
+class Complex_substance_of_biological_originSolid_tissue_sampleSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma_fields.String(data_key="id", attribute="id")
+
+    additional_specifications = ma_fields.List(
+        ma_fields.String(), validate=[ma.validate.Length(min=1)]
+    )
+
+    derived_from = ma_fields.String(
+        required=True,
+        validate=[
+            OneOf(["Body fluid", "Cell fraction", "Virion", "Solid tissue sample"])
+        ],
+    )
+
+    health_status = ma_fields.String(required=True)
+
+    homogenized = ma_fields.Boolean(required=True)
+
+    name = ma_fields.String(required=True)
+
+    organ = ma_fields.String(required=True)
+
+    preparation_protocol = ma_fields.List(
+        ma_fields.Nested(lambda: ProtocolItemSchema()),
+        required=True,
+        validate=[ma.validate.Length(min=1)],
+    )
+
+    source_organism = ma_fields.Nested(
+        lambda: ExpressionOrganismSchema(), required=True
+    )
+
+    storage = ma_fields.Nested(lambda: StorageSchema())
+
+    type = ma_fields.String(
+        required=True,
+        validate=[
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial origin",
+                ]
+            )
+        ],
+    )
+
+
 class Complex_substance_of_biological_originVirionSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -1392,7 +1399,10 @@ class Complex_substance_of_biological_originVirionSchema(DictOnlySchema):
     )
 
     derived_from = ma_fields.String(
-        required=True, validate=[OneOf(["Body fluid", "Cell fraction", "Virion"])]
+        required=True,
+        validate=[
+            OneOf(["Body fluid", "Cell fraction", "Virion", "Solid tissue sample"])
+        ],
     )
 
     envelope_type = ma_fields.String(
@@ -1451,6 +1461,8 @@ class Complex_substance_of_environmental_originSchema(DictOnlySchema):
 
     concentration = ma_fields.Nested(lambda: ConcentrationSchema(), required=True)
 
+    environment_type = ma_fields.Nested(lambda: FluidSchema(), required=True)
+
     location = ma_fields.Nested(lambda: LocationSchema(), required=True)
 
     name = ma_fields.String(required=True)
@@ -1459,13 +1471,6 @@ class Complex_substance_of_environmental_originSchema(DictOnlySchema):
         ma_fields.Nested(lambda: ProtocolItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
-    )
-
-    source = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(["Fresh water", "Marine", "Ice core", "Sediment", "Sewage", "Soil"])
-        ],
     )
 
     storage = ma_fields.Nested(lambda: StorageSchema())
@@ -1506,9 +1511,7 @@ class Complex_substance_of_industrial_originSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    product = ma_fields.String(
-        required=True, validate=[OneOf(["Beer", "Cell medium", "Whey"])]
-    )
+    product = ma_fields.Nested(lambda: FluidSchema(), required=True)
 
     storage = ma_fields.Nested(lambda: StorageSchema())
 
@@ -1750,6 +1753,8 @@ class EntitiesOfInterestItemComplex_substance_of_environmental_originSchema(
         ma_fields.String(), validate=[ma.validate.Length(min=1)]
     )
 
+    environment_type = ma_fields.Nested(lambda: FluidSchema(), required=True)
+
     location = ma_fields.Nested(lambda: LocationSchema(), required=True)
 
     name = ma_fields.String(required=True)
@@ -1758,13 +1763,6 @@ class EntitiesOfInterestItemComplex_substance_of_environmental_originSchema(
         ma_fields.Nested(lambda: ProtocolItemSchema()),
         required=True,
         validate=[ma.validate.Length(min=1)],
-    )
-
-    source = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(["Fresh water", "Marine", "Ice core", "Sediment", "Sewage", "Soil"])
-        ],
     )
 
     storage = ma_fields.Nested(lambda: StorageSchema())
@@ -1807,9 +1805,7 @@ class EntitiesOfInterestItemComplex_substance_of_industrial_originSchema(
         validate=[ma.validate.Length(min=1)],
     )
 
-    product = ma_fields.String(
-        required=True, validate=[OneOf(["Beer", "Cell medium", "Whey"])]
-    )
+    product = ma_fields.Nested(lambda: FluidSchema(), required=True)
 
     storage = ma_fields.Nested(lambda: StorageSchema())
 
@@ -2098,6 +2094,61 @@ class SensorsItemSchema(DictOnlySchema):
     surface_properties = ma_fields.String()
 
 
+class Solid_tissue_sampleSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    additional_specifications = ma_fields.List(
+        ma_fields.String(), validate=[ma.validate.Length(min=1)]
+    )
+
+    concentration = ma_fields.Nested(lambda: ConcentrationSchema(), required=True)
+
+    derived_from = ma_fields.String(
+        required=True,
+        validate=[
+            OneOf(["Body fluid", "Cell fraction", "Virion", "Solid tissue sample"])
+        ],
+    )
+
+    health_status = ma_fields.String(required=True)
+
+    homogenized = ma_fields.Boolean(required=True)
+
+    name = ma_fields.String(required=True)
+
+    organ = ma_fields.String(required=True)
+
+    preparation_protocol = ma_fields.List(
+        ma_fields.Nested(lambda: ProtocolItemSchema()),
+        required=True,
+        validate=[ma.validate.Length(min=1)],
+    )
+
+    source_organism = ma_fields.Nested(
+        lambda: ExpressionOrganismSchema(), required=True
+    )
+
+    storage = ma_fields.Nested(lambda: StorageSchema())
+
+    type = ma_fields.String(
+        required=True,
+        validate=[
+            OneOf(
+                [
+                    "Polymer",
+                    "Chemical",
+                    "Molecular assembly",
+                    "Complex substance of biological origin",
+                    "Complex substance of environmental origin",
+                    "Complex substance of chemical origin",
+                    "Complex substance of industrial origin",
+                ]
+            )
+        ],
+    )
+
+
 class SolventItemChemicalSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -2176,7 +2227,10 @@ class VirionSchema(DictOnlySchema):
     concentration = ma_fields.Nested(lambda: ConcentrationSchema(), required=True)
 
     derived_from = ma_fields.String(
-        required=True, validate=[OneOf(["Body fluid", "Cell fraction", "Virion"])]
+        required=True,
+        validate=[
+            OneOf(["Body fluid", "Cell fraction", "Virion", "Solid tissue sample"])
+        ],
     )
 
     envelope_type = ma_fields.String(
@@ -2696,6 +2750,17 @@ class ExpressionOrganismSchema(DictOnlySchema):
     title = i18n_strings
 
 
+class FluidSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.INCLUDE
+
+    _id = String(data_key="id", attribute="id")
+
+    _version = String(data_key="@v", attribute="@v")
+
+    title = i18n_strings
+
+
 class FundingReferencesItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.INCLUDE
@@ -2739,6 +2804,10 @@ class LicenseSchema(DictOnlySchema):
 class LocationSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
+
+    altitude = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=-6378100.0)]
+    )
 
     latitude = ma_fields.Float(
         required=True, validate=[ma.validate.Range(min=-90.0, max=90.0)]

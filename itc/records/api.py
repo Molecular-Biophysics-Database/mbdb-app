@@ -106,10 +106,20 @@ class ItcRecord(InvenioRecord):
             ],
             pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
         ),
+        fluid=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.fluid",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("body_fluids"),
+        ),
         Body_fluid_source_organism=PIDRelation(
             "metadata.general_parameters.chemical_environments.constituents.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        fraction=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.fraction",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("cell_fractions"),
         ),
         Cell_fraction_source_organism=PIDRelation(
             "metadata.general_parameters.chemical_environments.constituents.source_organism",
@@ -125,6 +135,16 @@ class ItcRecord(InvenioRecord):
             "metadata.general_parameters.chemical_environments.constituents.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Solid_tissue_sample_source_organism=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        environment_type=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.environment_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("environment_types"),
         ),
         components_Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.chemical_environments.constituents.components.expression_organism",
@@ -146,6 +166,11 @@ class ItcRecord(InvenioRecord):
                 "molecular_weight",
             ],
             pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
+        ),
+        product=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.product",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("products"),
         ),
         solvent_Chemical_basic_information=PIDRelation(
             "metadata.general_parameters.chemical_environments.solvent.basic_information",
@@ -233,10 +258,20 @@ class ItcRecord(InvenioRecord):
             ],
             pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
         ),
+        Body_fluid_fluid=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.fluid",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("body_fluids"),
+        ),
         Complex_substance_of_biological_origin_Body_fluid_source_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Cell_fraction_fraction=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.fraction",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("cell_fractions"),
         ),
         Complex_substance_of_biological_origin_Cell_fraction_source_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.source_organism",
@@ -252,6 +287,16 @@ class ItcRecord(InvenioRecord):
             "metadata.general_parameters.entities_of_interest.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Complex_substance_of_biological_origin_Solid_tissue_sample_source_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Complex_substance_of_environmental_origin_environment_type=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.environment_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("environment_types"),
         ),
         Lipid_assembly_components_Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.components.expression_organism",
@@ -273,6 +318,11 @@ class ItcRecord(InvenioRecord):
                 "molecular_weight",
             ],
             pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
+        ),
+        Complex_substance_of_industrial_origin_product=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.product",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("products"),
         ),
         funding_references=PIDRelation(
             "metadata.general_parameters.funding_references",
@@ -458,10 +508,20 @@ class ItcDraft(InvenioDraft):
             ],
             pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
         ),
+        fluid=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.fluid",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("body_fluids"),
+        ),
         Body_fluid_source_organism=PIDRelation(
             "metadata.general_parameters.chemical_environments.constituents.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        fraction=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.fraction",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("cell_fractions"),
         ),
         Cell_fraction_source_organism=PIDRelation(
             "metadata.general_parameters.chemical_environments.constituents.source_organism",
@@ -477,6 +537,16 @@ class ItcDraft(InvenioDraft):
             "metadata.general_parameters.chemical_environments.constituents.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Solid_tissue_sample_source_organism=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        environment_type=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.environment_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("environment_types"),
         ),
         components_Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.chemical_environments.constituents.components.expression_organism",
@@ -498,6 +568,11 @@ class ItcDraft(InvenioDraft):
                 "molecular_weight",
             ],
             pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
+        ),
+        product=PIDRelation(
+            "metadata.general_parameters.chemical_environments.constituents.product",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("products"),
         ),
         solvent_Chemical_basic_information=PIDRelation(
             "metadata.general_parameters.chemical_environments.solvent.basic_information",
@@ -585,10 +660,20 @@ class ItcDraft(InvenioDraft):
             ],
             pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
         ),
+        Body_fluid_fluid=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.fluid",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("body_fluids"),
+        ),
         Complex_substance_of_biological_origin_Body_fluid_source_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Cell_fraction_fraction=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.fraction",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("cell_fractions"),
         ),
         Complex_substance_of_biological_origin_Cell_fraction_source_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.source_organism",
@@ -604,6 +689,16 @@ class ItcDraft(InvenioDraft):
             "metadata.general_parameters.entities_of_interest.source_organism",
             keys=["id", "title", {"key": "props.rank", "target": "rank"}],
             pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Complex_substance_of_biological_origin_Solid_tissue_sample_source_organism=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.source_organism",
+            keys=["id", "title", {"key": "props.rank", "target": "rank"}],
+            pid_field=Vocabulary.pid.with_type_ctx("organisms"),
+        ),
+        Complex_substance_of_environmental_origin_environment_type=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.environment_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("environment_types"),
         ),
         Lipid_assembly_components_Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.components.expression_organism",
@@ -625,6 +720,11 @@ class ItcDraft(InvenioDraft):
                 "molecular_weight",
             ],
             pid_field=Vocabulary.pid.with_type_ctx("chemicals"),
+        ),
+        Complex_substance_of_industrial_origin_product=PIDRelation(
+            "metadata.general_parameters.entities_of_interest.product",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("products"),
         ),
         funding_references=PIDRelation(
             "metadata.general_parameters.funding_references",
