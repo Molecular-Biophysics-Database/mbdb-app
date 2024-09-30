@@ -178,7 +178,7 @@ function Virion({ name }) {
           renderChild={({ arrayName, index }) => (
             <FormWrapper
               colorSchema="light"
-              headline={`Preparation protocol ${index + 1}`}
+              headline={`Preparation protocol step ${index + 1}`}
               tooltip="List of the steps performed during the preparation of the complex substance"
             >
               <Protocol name={`${arrayName}.${index}`} />

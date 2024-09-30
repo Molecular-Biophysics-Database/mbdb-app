@@ -93,7 +93,7 @@ function BodyFluid({ name }) {
             tooltip="List of the steps performed during the preparation of the complex substance"
             renderChild={({ arrayName, index }) => (
               <FormWrapper
-                headline={`Preparation protocol ${index + 1}`}
+                headline={`Preparation protocol step ${index + 1}`}
                 tooltip="List of the steps performed during the preparation of the complex substance"
               >
                 <Protocol name={`${arrayName}.${index}`} />
