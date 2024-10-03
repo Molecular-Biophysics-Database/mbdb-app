@@ -1,6 +1,4 @@
 {# def entity #}
 
-<LabelledValueUnit label="Molecular weight" obj={entity.molecular_weight} />
-<IField label="InChI key" d={entity.inchikey} />
-
-
+<IField label="Pubchem Title" d={entity.basic_information.title} />
+<LabelledValueUnit label="Molecular weight" obj={entity.basic_information.molecular_weight} />
