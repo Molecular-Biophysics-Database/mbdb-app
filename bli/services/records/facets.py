@@ -998,11 +998,12 @@ metadata_general_parameters_chemical_environments_constituents_derived_from = Ne
 
 metadata_general_parameters_chemical_environments_constituents_fluid = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
+    nested_facet=VocabularyFacet(
         field="metadata.general_parameters.chemical_environments.constituents.fluid",
         label=_(
             "metadata/general_parameters/chemical_environments/constituents/fluid.label"
         ),
+        vocabulary="body_fluids",
     ),
 )
 
@@ -1108,11 +1109,12 @@ metadata_general_parameters_chemical_environments_constituents_cell_type = Neste
 
 metadata_general_parameters_chemical_environments_constituents_fraction = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
+    nested_facet=VocabularyFacet(
         field="metadata.general_parameters.chemical_environments.constituents.fraction",
         label=_(
             "metadata/general_parameters/chemical_environments/constituents/fraction.label"
         ),
+        vocabulary="cell_fractions",
     ),
 )
 
@@ -1187,6 +1189,37 @@ metadata_general_parameters_chemical_environments_constituents_host_organism = N
     ),
 )
 
+metadata_general_parameters_chemical_environments_constituents_homogenized = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_environments.constituents.homogenized",
+        label=_(
+            "metadata/general_parameters/chemical_environments/constituents/homogenized.label"
+        ),
+    ),
+)
+
+metadata_general_parameters_chemical_environments_constituents_environment_type = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_environments",
+    nested_facet=VocabularyFacet(
+        field="metadata.general_parameters.chemical_environments.constituents.environment_type",
+        label=_(
+            "metadata/general_parameters/chemical_environments/constituents/environment_type.label"
+        ),
+        vocabulary="environment_types",
+    ),
+)
+
+metadata_general_parameters_chemical_environments_constituents_location_altitude = NestedLabeledFacet(
+    path="metadata.general_parameters.chemical_environments",
+    nested_facet=TermsFacet(
+        field="metadata.general_parameters.chemical_environments.constituents.location.altitude",
+        label=_(
+            "metadata/general_parameters/chemical_environments/constituents/location/altitude.label"
+        ),
+    ),
+)
+
 metadata_general_parameters_chemical_environments_constituents_location_latitude = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_environments",
     nested_facet=TermsFacet(
@@ -1203,16 +1236,6 @@ metadata_general_parameters_chemical_environments_constituents_location_longitud
         field="metadata.general_parameters.chemical_environments.constituents.location.longitude",
         label=_(
             "metadata/general_parameters/chemical_environments/constituents/location/longitude.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_constituents_source = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.chemical_environments.constituents.source",
-        label=_(
-            "metadata/general_parameters/chemical_environments/constituents/source.label"
         ),
     ),
 )
@@ -1309,11 +1332,12 @@ metadata_general_parameters_chemical_environments_constituents_size_upper = Nest
 
 metadata_general_parameters_chemical_environments_constituents_product = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_environments",
-    nested_facet=TermsFacet(
+    nested_facet=VocabularyFacet(
         field="metadata.general_parameters.chemical_environments.constituents.product",
         label=_(
             "metadata/general_parameters/chemical_environments/constituents/product.label"
         ),
+        vocabulary="products",
     ),
 )
 
@@ -2155,9 +2179,10 @@ metadata_general_parameters_entities_of_interest_derived_from = TermsFacet(
     label=_("metadata/general_parameters/entities_of_interest/derived_from.label"),
 )
 
-metadata_general_parameters_entities_of_interest_fluid = TermsFacet(
+metadata_general_parameters_entities_of_interest_fluid = VocabularyFacet(
     field="metadata.general_parameters.entities_of_interest.fluid",
     label=_("metadata/general_parameters/entities_of_interest/fluid.label"),
+    vocabulary="body_fluids",
 )
 
 metadata_general_parameters_entities_of_interest_health_status = TermsFacet(
@@ -2226,9 +2251,10 @@ metadata_general_parameters_entities_of_interest_cell_type = TermsFacet(
     label=_("metadata/general_parameters/entities_of_interest/cell_type.label"),
 )
 
-metadata_general_parameters_entities_of_interest_fraction = TermsFacet(
+metadata_general_parameters_entities_of_interest_fraction = VocabularyFacet(
     field="metadata.general_parameters.entities_of_interest.fraction",
     label=_("metadata/general_parameters/entities_of_interest/fraction.label"),
+    vocabulary="cell_fractions",
 )
 
 metadata_general_parameters_entities_of_interest_organ = TermsFacet(
@@ -2267,6 +2293,22 @@ metadata_general_parameters_entities_of_interest_host_organism = VocabularyFacet
     vocabulary="organisms",
 )
 
+metadata_general_parameters_entities_of_interest_homogenized = TermsFacet(
+    field="metadata.general_parameters.entities_of_interest.homogenized",
+    label=_("metadata/general_parameters/entities_of_interest/homogenized.label"),
+)
+
+metadata_general_parameters_entities_of_interest_environment_type = VocabularyFacet(
+    field="metadata.general_parameters.entities_of_interest.environment_type",
+    label=_("metadata/general_parameters/entities_of_interest/environment_type.label"),
+    vocabulary="environment_types",
+)
+
+metadata_general_parameters_entities_of_interest_location_altitude = TermsFacet(
+    field="metadata.general_parameters.entities_of_interest.location.altitude",
+    label=_("metadata/general_parameters/entities_of_interest/location/altitude.label"),
+)
+
 metadata_general_parameters_entities_of_interest_location_latitude = TermsFacet(
     field="metadata.general_parameters.entities_of_interest.location.latitude",
     label=_("metadata/general_parameters/entities_of_interest/location/latitude.label"),
@@ -2277,11 +2319,6 @@ metadata_general_parameters_entities_of_interest_location_longitude = TermsFacet
     label=_(
         "metadata/general_parameters/entities_of_interest/location/longitude.label"
     ),
-)
-
-metadata_general_parameters_entities_of_interest_source = TermsFacet(
-    field="metadata.general_parameters.entities_of_interest.source",
-    label=_("metadata/general_parameters/entities_of_interest/source.label"),
 )
 
 metadata_general_parameters_entities_of_interest_assembly_type = TermsFacet(
@@ -2331,9 +2368,10 @@ metadata_general_parameters_entities_of_interest_size_upper = TermsFacet(
     label=_("metadata/general_parameters/entities_of_interest/size/upper.label"),
 )
 
-metadata_general_parameters_entities_of_interest_product = TermsFacet(
+metadata_general_parameters_entities_of_interest_product = VocabularyFacet(
     field="metadata.general_parameters.entities_of_interest.product",
     label=_("metadata/general_parameters/entities_of_interest/product.label"),
+    vocabulary="products",
 )
 
 metadata_general_parameters_funding_references = VocabularyFacet(

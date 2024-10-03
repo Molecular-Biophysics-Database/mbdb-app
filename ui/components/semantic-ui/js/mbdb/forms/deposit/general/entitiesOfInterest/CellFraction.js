@@ -4,41 +4,18 @@ import CustomField from "../../buildingBlocks/CustomField";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import Protocol from "../../sharedComponents/Protocol";
 import Storage from "../sharedComponents/Storage";
-import OptionField from "../../buildingBlocks/OptionField";
 import OptionalField from "../../buildingBlocks/OptionalField";
 import CreateUuid from "../../buildingBlocks/CreateUuid";
 import UseDefault from "../../buildingBlocks/UseDefault";
 import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
 import { useFieldData } from "@js/oarepo_ui";
 import { RORInstitutionResultListItem } from "../../buildingBlocks/RORInstitutionResultListItem";
+import { VocabularySelectField } from "@js/oarepo_vocabularies";
+import { FieldLabel } from "react-invenio-forms";
 
 function CellFraction({ name }) {
   CreateUuid(name);
   const { getFieldData } = useFieldData();
-
-  const fractionOptions = [
-    { value: "Ribosome", label: "Ribosome" },
-    { value: "Cell wall", label: "Cell wall" },
-    {
-      value: "VesicleCell lysate/Cytoplasm",
-      label: "VesicleCell lysate/Cytoplasm",
-    },
-    { value: "Cell Membrane", label: "Cell Membrane" },
-    { value: "Extracellular matrix", label: "Extracellular matrix" },
-    { value: "Lysosome", label: "Lysosome" },
-    { value: "Golgi Apparatus", label: "Golgi Apparatus" },
-    { value: "Mitochondrion", label: "Mitochondrion" },
-    {
-      value: "Rough Endoplasmic Reticulum",
-      label: "Rough Endoplasmic Reticulum",
-    },
-    {
-      value: "Smooth Endoplasmic Reticulum",
-      label: "Smooth Endoplasmic Reticulum",
-    },
-    { value: "Vacuole", label: "Vacuole" },
-    { value: "Chloroplast", label: "Chloroplast" },
-  ];
 
   const fieldNamePreparationProtocol = "preparation_protocol";
   UseDefault(`${name}.${fieldNamePreparationProtocol}`, [{}]);
@@ -58,66 +35,72 @@ function CellFraction({ name }) {
       <div className="flex mb-3">
         <div className="mr-3">
           <FormWrapper
-            headline="Source organism"
-            colorSchema="light"
-            tooltip="Identification of the organism to the lowest taxonomic rank possible e.g. strain. Note that this is based on the NCBI taxonomy"
+              headline="Source organism"
+              colorSchema="light"
+              tooltip="Identification of the organism to the lowest taxonomic rank possible e.g. strain. Note that this is based on the NCBI taxonomy"
           >
             <VocabularyRemoteSelectField
-              overriddenComponents={{
-                "VocabularyRemoteSelect.ext.ResultsList.item":
+                overriddenComponents={{
+                  "VocabularyRemoteSelect.ext.ResultsList.item":
                   RORInstitutionResultListItem,
-              }}
-              vocabulary="organisms"
-              fieldPath={`${name}.source_organism`}
-              modalHeader={
-                getFieldData({
-                  fieldPath: `${name}.source_organism`,
-                  fieldRepresentation: "text",
-                }).label
-              }
+                }}
+                vocabulary="organisms"
+                fieldPath={`${name}.source_organism`}
+                modalHeader={
+                  getFieldData({
+                    fieldPath: `${name}.source_organism`,
+                    fieldRepresentation: "text",
+                  }).label
+                }
             />
           </FormWrapper>
         </div>
         <div className="mr-3">
-          <OptionField
-            name={name}
-            options={fractionOptions}
-            label="Fraction"
-            fieldName="fraction"
-            required
-            tooltip="The subcelluar component (e.g. Ribosome)"
-          />
+          <FormWrapper
+              headline="Fraction"
+              colorSchema="light"
+              tooltip="The sub-cellular component (e.g. Ribosome)"
+          >
+            <VocabularySelectField
+                search={(options) => options}
+                type="cell_fractions"
+                label={<FieldLabel htmlFor={`${name}.fraction`} icon=""/>}
+                fieldPath={`${name}.fraction`}
+                placeholder="Fraction"
+                clearable
+            />
+          </FormWrapper>
         </div>
         <div>
           <CustomField
-            name={name}
-            label="Health status"
-            fieldName="health_status"
-            required
-            tooltip="Health status of the donor organism where the cell fraction was derived from (e.g. healthy, sick, patient with Diabetes type 2)"
+              name={name}
+              label="Health status"
+              fieldName="health_status"
+              required
+              tooltip="Health status of the donor organism where the cell fraction was derived from (e.g. healthy, sick, patient with Diabetes type 2)"
           />
         </div>
       </div>
       <div className="flex -mt-3 mb-3">
         <div className="mr-3">
           <OptionalField
-            name={name}
-            label="Organ"
-            fieldName="organ"
-            tooltip="The organ the cell fraction was derived from (e.g. heart)"
-            renderChild={({ optionalFieldName }) => (
-              <CustomField
-                name={optionalFieldName}
-                label="Organ"
-                tooltip="The organ the cell fraction was derived from (e.g. heart)"
-              />
-            )}
+              name={name}
+              label="Organ"
+              fieldName="organ"
+              tooltip="The organ the cell fraction was derived from (e.g. heart)"
+              renderChild={({optionalFieldName}) => (
+                  <CustomField
+                      name={optionalFieldName}
+                      label="Organ"
+                      tooltip="The organ the cell fraction was derived from (e.g. heart)"
+                  />
+              )}
           />
         </div>
         <div className="mr-3">
           <OptionalField
-            name={name}
-            label="Tissue"
+              name={name}
+              label="Tissue"
             fieldName="tissue"
             tooltip="The tissue type the cell fraction was derived from (e.g. epithelia, muscle)"
             renderChild={({ optionalFieldName }) => (
@@ -156,7 +139,7 @@ function CellFraction({ name }) {
             renderChild={({ arrayName, index }) => (
               <FormWrapper
                 colorSchema="light"
-                headline={`Preparation protocol ${index + 1}`}
+                headline={`Preparation protocol step ${index + 1}`}
                 tooltip="List of the steps performed during the preparation of the complex substance"
               >
                 <Protocol name={`${arrayName}.${index}`} />

@@ -12,6 +12,7 @@ function Protocol( { name } ) {
                     fieldName='name'
                     label='Name'
                     tooltip='Descriptive name of the step'
+                    required
                 />
             </div>
             <div>
@@ -20,6 +21,7 @@ function Protocol( { name } ) {
                     fieldName='description'
                     label='Description'
                     tooltip='Short description of the step'
+                    required
                 />
             </div>
         </div>

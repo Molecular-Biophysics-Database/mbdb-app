@@ -5,69 +5,68 @@ import ArrayField from "../../buildingBlocks/ArrayField";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import Protocol from "../../sharedComponents/Protocol";
 import Storage from "../sharedComponents/Storage";
-import OptionField from "../../buildingBlocks/OptionField";
 import OptionalField from "../../buildingBlocks/OptionalField";
 import CreateUuid from "../../buildingBlocks/CreateUuid";
 import UseDefault from "../../buildingBlocks/UseDefault";
+import { VocabularySelectField } from "@js/oarepo_vocabularies";
+import { FieldLabel } from "react-invenio-forms";
+
 
 function ComplexSubstanceOfEnvironmentalOrigin({ name }) {
   CreateUuid(name);
-
-  const sourceOptions = [
-    { value: "Fresh water", label: "Fresh water" },
-    { value: "Marine", label: "Marine" },
-    { value: "Ice core", label: "Ice core" },
-    { value: "Sediment", label: "Sediment" },
-    { value: "Sewage", label: "Sewage" },
-    { value: "Soil", label: "Soil" },
-  ];
 
   const fieldNamePreparationProtocol = "preparation_protocol";
   UseDefault(`${name}.${fieldNamePreparationProtocol}`, [{}]);
 
   return (
     <>
-      <div className="flex mb-3">
-        <div className="mr-3">
-          <CustomField
-            name={name}
-            label="Name"
-            fieldName="name"
-            required
-            width="w-[22rem]"
-            tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample"
-          />
+        <div className="flex mb-3">
+            <div className="mr-3">
+                <CustomField
+                    name={name}
+                    label="Name"
+                    fieldName="name"
+                    required
+                    width="w-[22rem]"
+                    tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample"
+                />
+            </div>
+            <div className="mr-3">
+                <FormWrapper
+                    headline="Environment type"
+                    colorSchema="light"
+                    tooltip="The environmental source where the complex substance was derived from"
+                >
+                    <VocabularySelectField
+                        search={(options) => options}
+                        type="environment_types"
+                        label={<FieldLabel htmlFor={`${name}.environment_type`} icon=""/>}
+                        fieldPath={`${name}.environment_type`}
+                        placeholder="Environment type"
+                        clearable
+                    />
+                </FormWrapper>
+            </div>
         </div>
         <div>
-          <OptionField
-            name={name}
-            options={sourceOptions}
-            label="Source"
-            fieldName="source"
-            required
-            tooltip="The environmental source where the complex substance was derived from"
-          />
+            <Location
+                name={`${name}.location`}
+                colorSchema="light"
+                tooltip="The longitude, from west to east, in degrees (decimal notation)"
+            />
         </div>
-      </div>
-      <div>
-        <Location
-          name={`${name}.location`}
-          colorSchema="light"
-          tooltip="The longitude, from west to east, in degrees (decimal notation)"
-        />
-      </div>
-      <div className="flex">
-        <div className="mr-3">
-          <ArrayField
-            name={name}
-            label="Preparation protocol"
-            fieldName={fieldNamePreparationProtocol}
-            required
-            tooltip="List of the steps performed during the preparation of the complex substance"
-            renderChild={({ arrayName, index }) => (
+        <div className="flex">
+            <div className="mr-3">
+                <ArrayField
+                    name={name}
+                    label="Preparation protocol"
+                    fieldName={fieldNamePreparationProtocol}
+                    required
+                    tooltip="List of the steps performed during the preparation of the complex substance"
+                    renderChild={({arrayName, index }) => (
               <FormWrapper
                 colorSchema="light"
-                headline={`Preparation protocol ${index + 1}`}
+                headline={`Preparation protocol step ${index + 1}`}
                 tooltip="List of the steps performed during the preparation of the complex substance"
               >
                 <Protocol name={`${arrayName}.${index}`} />

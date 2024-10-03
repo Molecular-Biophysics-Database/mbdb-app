@@ -6,6 +6,22 @@ vocabulary-affiliations:
       en: Affiliations
   - source: affiliations.yaml
 
+vocabulary-body-fluids:
+  - writer: vocabulary
+    vocabulary: body_fluids
+    pid_type: v-bod
+    title:
+      en: Body fluids
+  - source: body_fluids.yaml
+
+vocabulary-cell-fractions:
+  - writer: vocabulary
+    vocabulary: cell_fractions
+    pid_type: v-cel
+    title:
+      en: Cell fractions
+  - source: cell_fractions.yaml
+
 vocabulary-chemicals:
   - writer: vocabulary
     vocabulary: chemicals
@@ -13,6 +29,14 @@ vocabulary-chemicals:
     title:
       en: Chemicals
   - source: chemicals.yaml
+
+vocabulary-environment-types:
+  - writer: vocabulary
+    vocabulary: environment_types
+    pid_type: v-env
+    title:
+      en: Environment types
+  - source: environment_types.yaml
 
 vocabulary-grants:
   - writer: vocabulary
@@ -46,5 +70,10 @@ vocabulary-organisms:
       en: Organisms
   - source: organisms.yaml
 
-
-
+vocabulary-products:
+  - writer: vocabulary
+    vocabulary: products
+    pid_type: v-pro
+    title:
+      en: Products
+  - source: products.yaml

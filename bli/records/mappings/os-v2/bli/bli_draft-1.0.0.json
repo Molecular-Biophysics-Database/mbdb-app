@@ -798,9 +798,33 @@
                                                 "ignore_above": 1024
                                             },
                                             "fluid": {
-                                                "copy_to": "collected_default_search_fields",
-                                                "type": "keyword",
-                                                "ignore_above": 1024
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "copy_to": "collected_default_search_fields",
+                                                        "fields": {
+                                                            "text": {
+                                                                "type": "search_as_you_type"
+                                                            }
+                                                        },
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "title": {
+                                                        "properties": {
+                                                            "en": {
+                                                                "copy_to": "collected_default_search_fields",
+                                                                "type": "search_as_you_type"
+                                                            }
+                                                        },
+                                                        "dynamic": true,
+                                                        "type": "object"
+                                                    },
+                                                    "@v": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
                                             },
                                             "health_status": {
                                                 "type": "keyword",
@@ -866,9 +890,33 @@
                                                 "ignore_above": 1024
                                             },
                                             "fraction": {
-                                                "copy_to": "collected_default_search_fields",
-                                                "type": "keyword",
-                                                "ignore_above": 1024
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "copy_to": "collected_default_search_fields",
+                                                        "fields": {
+                                                            "text": {
+                                                                "type": "search_as_you_type"
+                                                            }
+                                                        },
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "title": {
+                                                        "properties": {
+                                                            "en": {
+                                                                "copy_to": "collected_default_search_fields",
+                                                                "type": "search_as_you_type"
+                                                            }
+                                                        },
+                                                        "dynamic": true,
+                                                        "type": "object"
+                                                    },
+                                                    "@v": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
                                             },
                                             "organ": {
                                                 "type": "keyword",
@@ -926,9 +974,44 @@
                                                     }
                                                 }
                                             },
+                                            "homogenized": {
+                                                "type": "boolean"
+                                            },
+                                            "environment_type": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "copy_to": "collected_default_search_fields",
+                                                        "fields": {
+                                                            "text": {
+                                                                "type": "search_as_you_type"
+                                                            }
+                                                        },
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "title": {
+                                                        "properties": {
+                                                            "en": {
+                                                                "copy_to": "collected_default_search_fields",
+                                                                "type": "search_as_you_type"
+                                                            }
+                                                        },
+                                                        "dynamic": true,
+                                                        "type": "object"
+                                                    },
+                                                    "@v": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
+                                            },
                                             "location": {
                                                 "type": "object",
                                                 "properties": {
+                                                    "altitude": {
+                                                        "type": "double"
+                                                    },
                                                     "latitude": {
                                                         "type": "double"
                                                     },
@@ -936,11 +1019,6 @@
                                                         "type": "double"
                                                     }
                                                 }
-                                            },
-                                            "source": {
-                                                "copy_to": "collected_default_search_fields",
-                                                "type": "keyword",
-                                                "ignore_above": 1024
                                             },
                                             "assembly_type": {
                                                 "type": "keyword",
@@ -979,9 +1057,33 @@
                                                 }
                                             },
                                             "product": {
-                                                "copy_to": "collected_default_search_fields",
-                                                "type": "keyword",
-                                                "ignore_above": 1024
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "copy_to": "collected_default_search_fields",
+                                                        "fields": {
+                                                            "text": {
+                                                                "type": "search_as_you_type"
+                                                            }
+                                                        },
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "title": {
+                                                        "properties": {
+                                                            "en": {
+                                                                "copy_to": "collected_default_search_fields",
+                                                                "type": "search_as_you_type"
+                                                            }
+                                                        },
+                                                        "dynamic": true,
+                                                        "type": "object"
+                                                    },
+                                                    "@v": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
                                             }
                                         }
                                     },
@@ -1989,9 +2091,33 @@
                                         "ignore_above": 1024
                                     },
                                     "fluid": {
-                                        "copy_to": "collected_default_search_fields",
-                                        "type": "keyword",
-                                        "ignore_above": 1024
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "copy_to": "collected_default_search_fields",
+                                                "fields": {
+                                                    "text": {
+                                                        "type": "search_as_you_type"
+                                                    }
+                                                },
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "title": {
+                                                "properties": {
+                                                    "en": {
+                                                        "copy_to": "collected_default_search_fields",
+                                                        "type": "search_as_you_type"
+                                                    }
+                                                },
+                                                "dynamic": true,
+                                                "type": "object"
+                                            },
+                                            "@v": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            }
+                                        }
                                     },
                                     "health_status": {
                                         "type": "keyword",
@@ -2057,9 +2183,33 @@
                                         "ignore_above": 1024
                                     },
                                     "fraction": {
-                                        "copy_to": "collected_default_search_fields",
-                                        "type": "keyword",
-                                        "ignore_above": 1024
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "copy_to": "collected_default_search_fields",
+                                                "fields": {
+                                                    "text": {
+                                                        "type": "search_as_you_type"
+                                                    }
+                                                },
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "title": {
+                                                "properties": {
+                                                    "en": {
+                                                        "copy_to": "collected_default_search_fields",
+                                                        "type": "search_as_you_type"
+                                                    }
+                                                },
+                                                "dynamic": true,
+                                                "type": "object"
+                                            },
+                                            "@v": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            }
+                                        }
                                     },
                                     "organ": {
                                         "type": "keyword",
@@ -2117,9 +2267,44 @@
                                             }
                                         }
                                     },
+                                    "homogenized": {
+                                        "type": "boolean"
+                                    },
+                                    "environment_type": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "copy_to": "collected_default_search_fields",
+                                                "fields": {
+                                                    "text": {
+                                                        "type": "search_as_you_type"
+                                                    }
+                                                },
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "title": {
+                                                "properties": {
+                                                    "en": {
+                                                        "copy_to": "collected_default_search_fields",
+                                                        "type": "search_as_you_type"
+                                                    }
+                                                },
+                                                "dynamic": true,
+                                                "type": "object"
+                                            },
+                                            "@v": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            }
+                                        }
+                                    },
                                     "location": {
                                         "type": "object",
                                         "properties": {
+                                            "altitude": {
+                                                "type": "double"
+                                            },
                                             "latitude": {
                                                 "type": "double"
                                             },
@@ -2127,11 +2312,6 @@
                                                 "type": "double"
                                             }
                                         }
-                                    },
-                                    "source": {
-                                        "copy_to": "collected_default_search_fields",
-                                        "type": "keyword",
-                                        "ignore_above": 1024
                                     },
                                     "assembly_type": {
                                         "type": "keyword",
@@ -2170,9 +2350,33 @@
                                         }
                                     },
                                     "product": {
-                                        "copy_to": "collected_default_search_fields",
-                                        "type": "keyword",
-                                        "ignore_above": 1024
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "copy_to": "collected_default_search_fields",
+                                                "fields": {
+                                                    "text": {
+                                                        "type": "search_as_you_type"
+                                                    }
+                                                },
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "title": {
+                                                "properties": {
+                                                    "en": {
+                                                        "copy_to": "collected_default_search_fields",
+                                                        "type": "search_as_you_type"
+                                                    }
+                                                },
+                                                "dynamic": true,
+                                                "type": "object"
+                                            },
+                                            "@v": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            }
+                                        }
                                     }
                                 }
                             },
