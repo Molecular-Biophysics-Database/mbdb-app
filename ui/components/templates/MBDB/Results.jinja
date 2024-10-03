@@ -5,7 +5,10 @@
     {% set title='Result ' ~ loop.index %}
     <div class="mb-4 pb-8 border-b-[.1px] border-b-dark last:border-b-0 last:mb-0">
         <SubSection title={ title }>
-            <IField label={ result.name }>
+            <IField label="Name" d={result.name}>
+                {{ result.name._ui_value | truncate(100) }}
+            </IField>
+            <IField label="Value" d={result.value} }>
                 {% if result.unit._is_empty %}
                     {{ result.value }}
                 {% else %}
