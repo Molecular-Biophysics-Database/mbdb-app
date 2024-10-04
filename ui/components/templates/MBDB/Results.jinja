@@ -17,6 +17,13 @@
                 <ValueError value_error={result.value_error} />
             </IField>
             <IField label="Result type" d={result.type} />
+            {%- for ent in array(result.entities_involved) %}
+                {% set ent_title='Entity ' ~ loop.index %}
+                <SubSection title={ ent_title }>
+                    <IField label="Name" d={ent.entity.name} />
+                    <IField label="copy number" d={ent.copy_number} />
+                </SubSection>
+            {% endfor %}
         </SubSection>
     </div>
     {% endfor %}
