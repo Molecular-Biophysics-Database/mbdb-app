@@ -104,7 +104,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.10.0"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.10.1"])])
 
     technique = ma_fields.String(
         required=True,
@@ -2162,12 +2162,6 @@ class StoichiometrySchema(DictOnlySchema):
             )
         ],
     )
-
-    unit = ma_fields.String(required=True, validate=[OneOf(["per complex"])])
-
-    value = ma_fields.Float(required=True)
-
-    value_error = ma_fields.Nested(lambda: ValueErrorSchema())
 
 
 class TitrationSchema(DictOnlySchema):
