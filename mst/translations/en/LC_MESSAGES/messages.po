@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-09-30T10:49:02.124457\n"
-"PO-Revision-Date: 2024-09-30T10:49:02.124464\n"
+"POT-Creation-Date: 2024-10-04T11:00:57.637793\n"
+"PO-Revision-Date: 2024-10-04T11:00:57.637801\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7809,9 +7809,6 @@ msgstr "Upper"
 msgid "metadata/general_parameters/results/value_error/upper.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/results/unit.enum.per complex"
-msgstr ""
-
 msgid "metadata/general_parameters/results/unit.enum.M^-1"
 msgstr ""
 
@@ -7912,7 +7909,7 @@ msgstr "Schema version"
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.10.0"
+msgid "metadata/general_parameters/schema_version.enum.0.10.1"
 msgstr ""
 
 msgid "metadata/general_parameters/technique.help"

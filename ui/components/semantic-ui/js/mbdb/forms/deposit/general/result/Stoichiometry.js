@@ -12,8 +12,6 @@ import CreateUuid from "../../buildingBlocks/CreateUuid";
 function Stoichiometry({ name }) {
   CreateUuid(name);
 
-  const unitOptions = [{ value: "per complex", label: "per complex" }];
-
   const fieldNameEntityInvolved = "entities_involved";
   UseDefault(`${name}.${fieldNameEntityInvolved}`, [{}]);
 
@@ -29,29 +27,6 @@ function Stoichiometry({ name }) {
             tooltip="Descriptive name (id) of the result (e.g. Kd of Lysozyme and VHH2). Must be unique within a record"
           />
         </div>
-        <div>
-          <ValueUnit
-            options={unitOptions}
-            name={name}
-            valueRequired
-            unitRequired
-            tooltipValue="Numerical value of the result"
-            tooltipUnit="Unit of the stoichiometry"
-          />
-        </div>
-      </div>
-      <div>
-        <OptionalField
-          name={name}
-          label="Value error"
-          fieldName="value_error"
-          tooltip="The expected error of the result in terms of a 95 % confidence interval"
-          renderChild={({ optionalFieldName }) => (
-            <div>
-              <ValueError name={optionalFieldName} colorSchema="light" />
-            </div>
-          )}
-        />
       </div>
       <div>
         <ArrayField

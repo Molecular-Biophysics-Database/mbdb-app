@@ -27300,6 +27300,47 @@
                                             "type": "object",
                                             "required": true,
                                             "properties": {
+                                                "value": {
+                                                    "type": "double",
+                                                    "required": true,
+                                                    "help.en": "Numerical value of the result",
+                                                    "label.en": "Value"
+                                                },
+                                                "value_error": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "lower": {
+                                                            "type": "double",
+                                                            "required": true,
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide them in fractional form (e.g.  0.01 for 1 %)",
+                                                            "label.en": "Lower"
+                                                        },
+                                                        "upper": {
+                                                            "type": "double",
+                                                            "required": true,
+                                                            "help.en": "The upper error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide them in fractional form (e.g.  0.01 for 1 %)",
+                                                            "label.en": "Upper"
+                                                        },
+                                                        "is_relative": {
+                                                            "type": "boolean",
+                                                            "required": true,
+                                                            "help.en": "True if the error values should be interpreted as relative errors (fractional uncertainty)",
+                                                            "label.en": "Is relative"
+                                                        }
+                                                    },
+                                                    "help.en": "The expected error of the result in terms of a 95 % confidence interval",
+                                                    "label.en": "Value error",
+                                                    "marshmallow": {
+                                                        "generate": true,
+                                                        "class": "spr.services.records.schema.ValueErrorSchema"
+                                                    },
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "generate": true,
+                                                            "class": "spr.services.records.ui_schema.ValueErrorUISchema"
+                                                        }
+                                                    }
+                                                },
                                                 "unit": {
                                                     "type": "keyword",
                                                     "required": true,
@@ -27426,47 +27467,6 @@
                                                             "ma.validate.Length(min=1)"
                                                         ]
                                                     }
-                                                },
-                                                "value": {
-                                                    "type": "double",
-                                                    "required": true,
-                                                    "help.en": "Numerical value of the result",
-                                                    "label.en": "Value"
-                                                },
-                                                "value_error": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "lower": {
-                                                            "type": "double",
-                                                            "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide them in fractional form (e.g.  0.01 for 1 %)",
-                                                            "label.en": "Lower"
-                                                        },
-                                                        "upper": {
-                                                            "type": "double",
-                                                            "required": true,
-                                                            "help.en": "The upper error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide them in fractional form (e.g.  0.01 for 1 %)",
-                                                            "label.en": "Upper"
-                                                        },
-                                                        "is_relative": {
-                                                            "type": "boolean",
-                                                            "required": true,
-                                                            "help.en": "True if the error values should be interpreted as relative errors (fractional uncertainty)",
-                                                            "label.en": "Is relative"
-                                                        }
-                                                    },
-                                                    "help.en": "The expected error of the result in terms of a 95 % confidence interval",
-                                                    "label.en": "Value error",
-                                                    "marshmallow": {
-                                                        "generate": true,
-                                                        "class": "spr.services.records.schema.ValueErrorSchema"
-                                                    },
-                                                    "ui": {
-                                                        "marshmallow": {
-                                                            "generate": true,
-                                                            "class": "spr.services.records.ui_schema.ValueErrorUISchema"
-                                                        }
-                                                    }
                                                 }
                                             },
                                             "label.en": "Result",
@@ -27485,15 +27485,6 @@
                                             "type": "object",
                                             "required": true,
                                             "properties": {
-                                                "unit": {
-                                                    "type": "keyword",
-                                                    "required": true,
-                                                    "enum": [
-                                                        "per complex"
-                                                    ],
-                                                    "help.en": "Unit of the stoichiometry",
-                                                    "label.en": "Unit"
-                                                },
                                                 "id": {
                                                     "type": "keyword",
                                                     "label.en": "Id"
@@ -27593,7 +27584,24 @@
                                                             "ma.validate.Length(min=1)"
                                                         ]
                                                     }
-                                                },
+                                                }
+                                            },
+                                            "label.en": "Result",
+                                            "marshmallow": {
+                                                "generate": true,
+                                                "class": "spr.services.records.schema.StoichiometrySchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": true,
+                                                    "class": "spr.services.records.ui_schema.StoichiometryUISchema"
+                                                }
+                                            }
+                                        },
+                                        "Constant of association KA": {
+                                            "type": "object",
+                                            "required": true,
+                                            "properties": {
                                                 "value": {
                                                     "type": "double",
                                                     "required": true,
@@ -27634,24 +27642,7 @@
                                                             "class": "spr.services.records.ui_schema.ValueErrorUISchema"
                                                         }
                                                     }
-                                                }
-                                            },
-                                            "label.en": "Result",
-                                            "marshmallow": {
-                                                "generate": true,
-                                                "class": "spr.services.records.schema.StoichiometrySchema"
-                                            },
-                                            "ui": {
-                                                "marshmallow": {
-                                                    "generate": true,
-                                                    "class": "spr.services.records.ui_schema.StoichiometryUISchema"
-                                                }
-                                            }
-                                        },
-                                        "Constant of association KA": {
-                                            "type": "object",
-                                            "required": true,
-                                            "properties": {
+                                                },
                                                 "unit": {
                                                     "type": "keyword",
                                                     "required": true,
@@ -27767,7 +27758,24 @@
                                                             "ma.validate.Length(min=1)"
                                                         ]
                                                     }
-                                                },
+                                                }
+                                            },
+                                            "label.en": "Result",
+                                            "marshmallow": {
+                                                "generate": true,
+                                                "class": "spr.services.records.schema.Constant_of_association_KASchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": true,
+                                                    "class": "spr.services.records.ui_schema.Constant_of_association_KAUISchema"
+                                                }
+                                            }
+                                        },
+                                        "Constant of dissociation KD": {
+                                            "type": "object",
+                                            "required": true,
+                                            "properties": {
                                                 "value": {
                                                     "type": "double",
                                                     "required": true,
@@ -27808,24 +27816,7 @@
                                                             "class": "spr.services.records.ui_schema.ValueErrorUISchema"
                                                         }
                                                     }
-                                                }
-                                            },
-                                            "label.en": "Result",
-                                            "marshmallow": {
-                                                "generate": true,
-                                                "class": "spr.services.records.schema.Constant_of_association_KASchema"
-                                            },
-                                            "ui": {
-                                                "marshmallow": {
-                                                    "generate": true,
-                                                    "class": "spr.services.records.ui_schema.Constant_of_association_KAUISchema"
-                                                }
-                                            }
-                                        },
-                                        "Constant of dissociation KD": {
-                                            "type": "object",
-                                            "required": true,
-                                            "properties": {
+                                                },
                                                 "unit": {
                                                     "type": "keyword",
                                                     "required": true,
@@ -27941,7 +27932,24 @@
                                                             "ma.validate.Length(min=1)"
                                                         ]
                                                     }
-                                                },
+                                                }
+                                            },
+                                            "label.en": "Result",
+                                            "marshmallow": {
+                                                "generate": true,
+                                                "class": "spr.services.records.schema.Constant_of_dissociation_KDSchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": true,
+                                                    "class": "spr.services.records.ui_schema.Constant_of_dissociation_KDUISchema"
+                                                }
+                                            }
+                                        },
+                                        "Association rate kOn": {
+                                            "type": "object",
+                                            "required": true,
+                                            "properties": {
                                                 "value": {
                                                     "type": "double",
                                                     "required": true,
@@ -27982,24 +27990,7 @@
                                                             "class": "spr.services.records.ui_schema.ValueErrorUISchema"
                                                         }
                                                     }
-                                                }
-                                            },
-                                            "label.en": "Result",
-                                            "marshmallow": {
-                                                "generate": true,
-                                                "class": "spr.services.records.schema.Constant_of_dissociation_KDSchema"
-                                            },
-                                            "ui": {
-                                                "marshmallow": {
-                                                    "generate": true,
-                                                    "class": "spr.services.records.ui_schema.Constant_of_dissociation_KDUISchema"
-                                                }
-                                            }
-                                        },
-                                        "Association rate kOn": {
-                                            "type": "object",
-                                            "required": true,
-                                            "properties": {
+                                                },
                                                 "unit": {
                                                     "type": "keyword",
                                                     "required": true,
@@ -28115,7 +28106,24 @@
                                                             "ma.validate.Length(min=1)"
                                                         ]
                                                     }
-                                                },
+                                                }
+                                            },
+                                            "label.en": "Result",
+                                            "marshmallow": {
+                                                "generate": true,
+                                                "class": "spr.services.records.schema.Association_rate_kOnSchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": true,
+                                                    "class": "spr.services.records.ui_schema.Association_rate_kOnUISchema"
+                                                }
+                                            }
+                                        },
+                                        "Dissociation rate kOff": {
+                                            "type": "object",
+                                            "required": true,
+                                            "properties": {
                                                 "value": {
                                                     "type": "double",
                                                     "required": true,
@@ -28156,24 +28164,7 @@
                                                             "class": "spr.services.records.ui_schema.ValueErrorUISchema"
                                                         }
                                                     }
-                                                }
-                                            },
-                                            "label.en": "Result",
-                                            "marshmallow": {
-                                                "generate": true,
-                                                "class": "spr.services.records.schema.Association_rate_kOnSchema"
-                                            },
-                                            "ui": {
-                                                "marshmallow": {
-                                                    "generate": true,
-                                                    "class": "spr.services.records.ui_schema.Association_rate_kOnUISchema"
-                                                }
-                                            }
-                                        },
-                                        "Dissociation rate kOff": {
-                                            "type": "object",
-                                            "required": true,
-                                            "properties": {
+                                                },
                                                 "unit": {
                                                     "type": "keyword",
                                                     "required": true,
@@ -28282,7 +28273,24 @@
                                                             "ma.validate.Length(min=1)"
                                                         ]
                                                     }
-                                                },
+                                                }
+                                            },
+                                            "label.en": "Result",
+                                            "marshmallow": {
+                                                "generate": true,
+                                                "class": "spr.services.records.schema.Dissociation_rate_kOffSchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": true,
+                                                    "class": "spr.services.records.ui_schema.Dissociation_rate_kOffUISchema"
+                                                }
+                                            }
+                                        },
+                                        "Change in enthalpy deltaH": {
+                                            "type": "object",
+                                            "required": true,
+                                            "properties": {
                                                 "value": {
                                                     "type": "double",
                                                     "required": true,
@@ -28323,24 +28331,7 @@
                                                             "class": "spr.services.records.ui_schema.ValueErrorUISchema"
                                                         }
                                                     }
-                                                }
-                                            },
-                                            "label.en": "Result",
-                                            "marshmallow": {
-                                                "generate": true,
-                                                "class": "spr.services.records.schema.Dissociation_rate_kOffSchema"
-                                            },
-                                            "ui": {
-                                                "marshmallow": {
-                                                    "generate": true,
-                                                    "class": "spr.services.records.ui_schema.Dissociation_rate_kOffUISchema"
-                                                }
-                                            }
-                                        },
-                                        "Change in enthalpy deltaH": {
-                                            "type": "object",
-                                            "required": true,
-                                            "properties": {
+                                                },
                                                 "unit": {
                                                     "type": "keyword",
                                                     "required": true,
@@ -28450,7 +28441,24 @@
                                                             "ma.validate.Length(min=1)"
                                                         ]
                                                     }
-                                                },
+                                                }
+                                            },
+                                            "label.en": "Result",
+                                            "marshmallow": {
+                                                "generate": true,
+                                                "class": "spr.services.records.schema.Change_in_enthalpy_deltaHSchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": true,
+                                                    "class": "spr.services.records.ui_schema.Change_in_enthalpy_deltaHUISchema"
+                                                }
+                                            }
+                                        },
+                                        "Change in entropy deltaS": {
+                                            "type": "object",
+                                            "required": true,
+                                            "properties": {
                                                 "value": {
                                                     "type": "double",
                                                     "required": true,
@@ -28491,24 +28499,7 @@
                                                             "class": "spr.services.records.ui_schema.ValueErrorUISchema"
                                                         }
                                                     }
-                                                }
-                                            },
-                                            "label.en": "Result",
-                                            "marshmallow": {
-                                                "generate": true,
-                                                "class": "spr.services.records.schema.Change_in_enthalpy_deltaHSchema"
-                                            },
-                                            "ui": {
-                                                "marshmallow": {
-                                                    "generate": true,
-                                                    "class": "spr.services.records.ui_schema.Change_in_enthalpy_deltaHUISchema"
-                                                }
-                                            }
-                                        },
-                                        "Change in entropy deltaS": {
-                                            "type": "object",
-                                            "required": true,
-                                            "properties": {
+                                                },
                                                 "unit": {
                                                     "type": "keyword",
                                                     "required": true,
@@ -28618,7 +28609,24 @@
                                                             "ma.validate.Length(min=1)"
                                                         ]
                                                     }
-                                                },
+                                                }
+                                            },
+                                            "label.en": "Result",
+                                            "marshmallow": {
+                                                "generate": true,
+                                                "class": "spr.services.records.schema.Change_in_entropy_deltaSSchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": true,
+                                                    "class": "spr.services.records.ui_schema.Change_in_entropy_deltaSUISchema"
+                                                }
+                                            }
+                                        },
+                                        "Change in Gibbs free energy deltaG": {
+                                            "type": "object",
+                                            "required": true,
+                                            "properties": {
                                                 "value": {
                                                     "type": "double",
                                                     "required": true,
@@ -28659,24 +28667,7 @@
                                                             "class": "spr.services.records.ui_schema.ValueErrorUISchema"
                                                         }
                                                     }
-                                                }
-                                            },
-                                            "label.en": "Result",
-                                            "marshmallow": {
-                                                "generate": true,
-                                                "class": "spr.services.records.schema.Change_in_entropy_deltaSSchema"
-                                            },
-                                            "ui": {
-                                                "marshmallow": {
-                                                    "generate": true,
-                                                    "class": "spr.services.records.ui_schema.Change_in_entropy_deltaSUISchema"
-                                                }
-                                            }
-                                        },
-                                        "Change in Gibbs free energy deltaG": {
-                                            "type": "object",
-                                            "required": true,
-                                            "properties": {
+                                                },
                                                 "unit": {
                                                     "type": "keyword",
                                                     "required": true,
@@ -28786,7 +28777,24 @@
                                                             "ma.validate.Length(min=1)"
                                                         ]
                                                     }
-                                                },
+                                                }
+                                            },
+                                            "label.en": "Result",
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "spr.services.records.schema.Change_in_enthalpy_deltaHSchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": false,
+                                                    "class": "spr.services.records.ui_schema.Change_in_enthalpy_deltaHUISchema"
+                                                }
+                                            }
+                                        },
+                                        "Molecular weight": {
+                                            "type": "object",
+                                            "required": true,
+                                            "properties": {
                                                 "value": {
                                                     "type": "double",
                                                     "required": true,
@@ -28827,24 +28835,7 @@
                                                             "class": "spr.services.records.ui_schema.ValueErrorUISchema"
                                                         }
                                                     }
-                                                }
-                                            },
-                                            "label.en": "Result",
-                                            "marshmallow": {
-                                                "generate": false,
-                                                "class": "spr.services.records.schema.Change_in_enthalpy_deltaHSchema"
-                                            },
-                                            "ui": {
-                                                "marshmallow": {
-                                                    "generate": false,
-                                                    "class": "spr.services.records.ui_schema.Change_in_enthalpy_deltaHUISchema"
-                                                }
-                                            }
-                                        },
-                                        "Molecular weight": {
-                                            "type": "object",
-                                            "required": true,
-                                            "properties": {
+                                                },
                                                 "unit": {
                                                     "type": "keyword",
                                                     "required": true,
@@ -28956,7 +28947,24 @@
                                                             "ma.validate.Length(min=1)"
                                                         ]
                                                     }
-                                                },
+                                                }
+                                            },
+                                            "label.en": "Result",
+                                            "marshmallow": {
+                                                "generate": true,
+                                                "class": "spr.services.records.schema.Molecular_weightSchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": true,
+                                                    "class": "spr.services.records.ui_schema.Molecular_weightUISchema"
+                                                }
+                                            }
+                                        },
+                                        "Half maximal effective concentration EC50": {
+                                            "type": "object",
+                                            "required": true,
+                                            "properties": {
                                                 "value": {
                                                     "type": "double",
                                                     "required": true,
@@ -28997,24 +29005,7 @@
                                                             "class": "spr.services.records.ui_schema.ValueErrorUISchema"
                                                         }
                                                     }
-                                                }
-                                            },
-                                            "label.en": "Result",
-                                            "marshmallow": {
-                                                "generate": true,
-                                                "class": "spr.services.records.schema.Molecular_weightSchema"
-                                            },
-                                            "ui": {
-                                                "marshmallow": {
-                                                    "generate": true,
-                                                    "class": "spr.services.records.ui_schema.Molecular_weightUISchema"
-                                                }
-                                            }
-                                        },
-                                        "Half maximal effective concentration EC50": {
-                                            "type": "object",
-                                            "required": true,
-                                            "properties": {
+                                                },
                                                 "unit": {
                                                     "type": "keyword",
                                                     "required": true,
@@ -29141,7 +29132,24 @@
                                                             "ma.validate.Length(min=1)"
                                                         ]
                                                     }
-                                                },
+                                                }
+                                            },
+                                            "label.en": "Result",
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "spr.services.records.schema.ResultsItemConcentrationSchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": false,
+                                                    "class": "spr.services.records.ui_schema.ResultsItemConcentrationUISchema"
+                                                }
+                                            }
+                                        },
+                                        "Hill coefficient": {
+                                            "type": "object",
+                                            "required": true,
+                                            "properties": {
                                                 "value": {
                                                     "type": "double",
                                                     "required": true,
@@ -29182,24 +29190,7 @@
                                                             "class": "spr.services.records.ui_schema.ValueErrorUISchema"
                                                         }
                                                     }
-                                                }
-                                            },
-                                            "label.en": "Result",
-                                            "marshmallow": {
-                                                "generate": false,
-                                                "class": "spr.services.records.schema.ResultsItemConcentrationSchema"
-                                            },
-                                            "ui": {
-                                                "marshmallow": {
-                                                    "generate": false,
-                                                    "class": "spr.services.records.ui_schema.ResultsItemConcentrationUISchema"
-                                                }
-                                            }
-                                        },
-                                        "Hill coefficient": {
-                                            "type": "object",
-                                            "required": true,
-                                            "properties": {
+                                                },
                                                 "unit": {
                                                     "type": "keyword",
                                                     "required": true,
@@ -29307,47 +29298,6 @@
                                                         "validators": [
                                                             "ma.validate.Length(min=1)"
                                                         ]
-                                                    }
-                                                },
-                                                "value": {
-                                                    "type": "double",
-                                                    "required": true,
-                                                    "help.en": "Numerical value of the result",
-                                                    "label.en": "Value"
-                                                },
-                                                "value_error": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "lower": {
-                                                            "type": "double",
-                                                            "required": true,
-                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide them in fractional form (e.g.  0.01 for 1 %)",
-                                                            "label.en": "Lower"
-                                                        },
-                                                        "upper": {
-                                                            "type": "double",
-                                                            "required": true,
-                                                            "help.en": "The upper error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide them in fractional form (e.g.  0.01 for 1 %)",
-                                                            "label.en": "Upper"
-                                                        },
-                                                        "is_relative": {
-                                                            "type": "boolean",
-                                                            "required": true,
-                                                            "help.en": "True if the error values should be interpreted as relative errors (fractional uncertainty)",
-                                                            "label.en": "Is relative"
-                                                        }
-                                                    },
-                                                    "help.en": "The expected error of the result in terms of a 95 % confidence interval",
-                                                    "label.en": "Value error",
-                                                    "marshmallow": {
-                                                        "generate": false,
-                                                        "class": "spr.services.records.schema.ValueErrorSchema"
-                                                    },
-                                                    "ui": {
-                                                        "marshmallow": {
-                                                            "generate": false,
-                                                            "class": "spr.services.records.ui_schema.ValueErrorUISchema"
-                                                        }
                                                     }
                                                 }
                                             },
@@ -29565,7 +29515,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.10.0"
+                                    "0.10.1"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"
