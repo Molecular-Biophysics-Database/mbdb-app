@@ -5,7 +5,9 @@ from oarepo_ui.resources.config import RecordsUIResourceConfig
 from oarepo_ui.resources.resource import RecordsUIResource
 from oarepo_ui.resources.components import UIResourceComponent
 from oarepo_ui.resources import BabelComponent, PermissionsComponent
-from oarepo_vocabularies.ui.resources.config import VocabularyFormDepositVocabularyOptionsComponent
+from oarepo_vocabularies.ui.resources.config import (
+    VocabularyFormDepositVocabularyOptionsComponent,
+)
 
 from common.fixed_record_values import make_fixed_values
 
@@ -15,10 +17,10 @@ class SprInitialValuesComponent(UIResourceComponent):
         empty_data.update(
             make_fixed_values(
                 technique="Surface plasmon resonance (SPR)",
-                schema_version="0.9.6",
                 resource_type="SPR",
             )
         )
+
 
 class SprResourceConfig(RecordsUIResourceConfig):
     template_folder = "templates"
@@ -36,7 +38,7 @@ class SprResourceConfig(RecordsUIResourceConfig):
     ]
 
     # TODO: is this still needed?
-    edit_layout = 'edit_layout.json'
+    edit_layout = "edit_layout.json"
 
     search_component = "spr/search/ResultsListItem"
 
@@ -52,8 +54,12 @@ class SprResourceConfig(RecordsUIResourceConfig):
     # TODO: will be removed when user dashboard gets implemented
     def search_app_config(self, identity, api_config, overrides=None, **kwargs):
         return super().search_app_config(
-            identity, api_config,
-            overrides=overrides or {}, endpoint='/api/user/records/spr/', **kwargs)
+            identity,
+            api_config,
+            overrides=overrides or {},
+            endpoint="/api/user/records/spr/",
+            **kwargs,
+        )
 
 
 class SprResource(RecordsUIResource):
