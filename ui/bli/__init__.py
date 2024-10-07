@@ -5,10 +5,11 @@ from oarepo_ui.resources.config import RecordsUIResourceConfig
 from oarepo_ui.resources.resource import RecordsUIResource
 from oarepo_ui.resources.components import UIResourceComponent
 from oarepo_ui.resources import BabelComponent, PermissionsComponent
-from oarepo_vocabularies.ui.resources.config import VocabularyFormDepositVocabularyOptionsComponent
+from oarepo_vocabularies.ui.resources.config import (
+    VocabularyFormDepositVocabularyOptionsComponent,
+)
 
 from common.fixed_record_values import make_fixed_values
-
 
 
 class BliInitialValuesComponent(UIResourceComponent):
@@ -16,7 +17,6 @@ class BliInitialValuesComponent(UIResourceComponent):
         empty_data.update(
             make_fixed_values(
                 technique="Bio-layer interferometry (BLI)",
-                schema_version="0.9.7",
                 resource_type="BLI",
             )
         )
@@ -38,7 +38,7 @@ class BliResourceConfig(RecordsUIResourceConfig):
     ]
 
     # TODO: is this still needed?
-    edit_layout = 'edit_layout.json'
+    edit_layout = "edit_layout.json"
 
     search_component = "bli/search/ResultsListItem"
 
@@ -54,8 +54,12 @@ class BliResourceConfig(RecordsUIResourceConfig):
     # TODO: will be removed when user dashboard gets implemented
     def search_app_config(self, identity, api_config, overrides=None, **kwargs):
         return super().search_app_config(
-            identity, api_config,
-            overrides=overrides or {}, endpoint='/api/user/records/bli/', **kwargs)
+            identity,
+            api_config,
+            overrides=overrides or {},
+            endpoint="/api/user/records/bli/",
+            **kwargs,
+        )
 
 
 class BliResource(RecordsUIResource):

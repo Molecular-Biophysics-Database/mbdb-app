@@ -5,16 +5,18 @@ from oarepo_ui.resources.config import RecordsUIResourceConfig
 from oarepo_ui.resources.resource import RecordsUIResource
 from oarepo_ui.resources.components import UIResourceComponent
 from oarepo_ui.resources import BabelComponent, PermissionsComponent
-from oarepo_vocabularies.ui.resources.config import VocabularyFormDepositVocabularyOptionsComponent
+from oarepo_vocabularies.ui.resources.config import (
+    VocabularyFormDepositVocabularyOptionsComponent,
+)
 
 from common.fixed_record_values import make_fixed_values
+
 
 class MstInitialValuesComponent(UIResourceComponent):
     def empty_record(self, *, resource_requestctx, empty_data: Dict, **kwargs):
         empty_data.update(
             make_fixed_values(
                 technique="Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
-                schema_version="0.9.10",
                 resource_type="MST",
             )
         )
@@ -32,7 +34,7 @@ class MstResourceConfig(RecordsUIResourceConfig):
         FilesComponent,
         VocabularyFormDepositVocabularyOptionsComponent,
         MstInitialValuesComponent,
-        PermissionsComponent
+        PermissionsComponent,
     ]
 
     # TODO: is this still needed?
