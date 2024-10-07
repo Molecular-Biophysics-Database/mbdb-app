@@ -44,12 +44,12 @@ function SampleInSyringe({ name, colorSchema }) {
         <div>
           <ArrayField
             name={name}
-            label="Preparational protocol"
-            fieldName="preparational_protocol"
+            label="Preparation protocol"
+            fieldName="preparation_protocol"
             tooltip="List of steps taken to prepare the sample, ending at the point where it was placed in the measurement container. Information include operations like filtration and which filter material and pore-size was used should be added"
             renderChild={({ arrayName, index }) => (
               <FormWrapper
-                headline={`Preparational protocol ${index + 1}`}
+                headline={`Preparation protocol step ${index + 1}`}
                 tooltip="List of steps taken to prepare the sample, ending at the point where it was placed in the measurement container. Information include operations like filtration and which filter material and pore-size was used should be added"
               >
                 <Protocol name={`${arrayName}.${index}`} />
