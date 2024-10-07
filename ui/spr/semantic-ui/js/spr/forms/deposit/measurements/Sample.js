@@ -76,7 +76,7 @@ function Sample({ name }) {
         <OptionalField
           name={name}
           label="Temperature"
-          fieldName="Temperature"
+          fieldName="temperature"
           tooltip="Temperature of the sample while being measured"
           renderChild={({ optionalFieldName }) => (
             <Temperature
