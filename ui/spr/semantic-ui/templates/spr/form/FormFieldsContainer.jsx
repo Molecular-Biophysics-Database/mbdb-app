@@ -37,6 +37,7 @@ function FormFieldsContainer() {
   const { save, values: recordMetadata } = useDepositApiClient();
 
   useEffect(() => {
+    save(true);
     const selectedTab = location?.state?.selectedTab || "raw-measurement-files";
     setState({ selected: selectedTab });
   }, [location]);
