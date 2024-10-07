@@ -103,12 +103,12 @@ function Sample({ name }) {
       <div>
         <ArrayField
           name={name}
-          label="Preparational protocol"
-          fieldName="preparational_protocol"
+          label="Preparation protocol"
+          fieldName="preparation_protocol"
           tooltip="List of steps taken to prepare the sample"
           renderChild={({ arrayName, index }) => (
             <FormWrapper
-              headline={`Preparational protocol ${index + 1}`}
+              headline={`Preparation protocol step ${index + 1}`}
               tooltip="List of steps taken to prepare the sample"
             >
               <Protocol name={`${arrayName}.${index}`} />
