@@ -1,6 +1,6 @@
 {# def entities #}
 
-{% for entity in array(entities) %}
+{% for entity in array(entities, remove_empty=True) %}
 {% set title='Entity of interest ' ~ loop.index %}
 <div class="mb-4 pb-8 border-b-[.1px] border-b-dark last:border-b-0 last:mb-0">
     <SubSection title={ title }>

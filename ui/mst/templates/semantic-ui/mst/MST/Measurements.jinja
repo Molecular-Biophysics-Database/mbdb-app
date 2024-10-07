@@ -11,13 +11,12 @@
         </SubSection>
     </div>
 
-    {% for measurement in array(msp.measurements) %}
+    {% for measurement in array(msp.measurements, remove_empty=True) %}
     {% set title='Measurement ' ~ loop.index %}
     <div class="mb-4 pb-8 border-b-[.1px] border-b-dark last:border-b-0 last:mb-0">
         <SubSection title={ title }>
             <IField label="Name" d={ measurement.name } />
             <IField label="Position" d={ measurement.position } />
-
             <mst.MST.Sample gp={gp} sample={ measurement.sample } />
         </SubSection>
     </div>
