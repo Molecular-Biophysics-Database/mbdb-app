@@ -32,7 +32,6 @@ function Supplier({ name, colorSchema, tooltip }) {
                 <CustomField
                   name={optionalFieldName}
                   label="Catalog number"
-                  type="number"
                   tooltip="The catalog number or identifier of the item"
                 />
               )}
