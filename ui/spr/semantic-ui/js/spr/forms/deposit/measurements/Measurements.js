@@ -79,8 +79,8 @@ function Measurements({ name }) {
       <div>
         <ArrayField
           name={name}
-          fieldName="reference_sample"
-          label="Reference sample"
+          fieldName="reference_samples"
+          label="Reference samples"
           renderChild={({ arrayName, index }) => (
             <FormWrapper
               headline={`Reference sample ${index + 1}`}
