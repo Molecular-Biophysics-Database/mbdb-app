@@ -49,7 +49,7 @@ function DataAnalysis({ name }) {
         <div className="-mt-3">
           <ArrayField
             name={name}
-            label="Result"
+            label="Results"
             fieldName="results"
             tooltip="Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters"
             renderChild={({ arrayName, index }) => (
