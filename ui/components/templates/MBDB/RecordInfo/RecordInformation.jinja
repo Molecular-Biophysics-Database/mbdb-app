@@ -1,22 +1,20 @@
 {# def d, gp #}
 
-{% set field_class="mbdbv-record-technique" %}
-
 <IValueList>
-    <IField d={gp.record_information.external_identifier} label="DOI" field_class={field_class} />
-    <IField d={d.id} label="Record ID" field_class={field_class} />
-    <IField d={gp.record_information.date_available} label="Publication date" field_class={field_class} />
-    <IField d={gp.depositors} field_class={field_class}>
+    <IField d={gp.record_information.external_identifier} label="DOI"  />
+    <IField d={d.id} label="Record ID"  />
+    <IField d={gp.record_information.date_available} label="Publication date"  />
+    <IField d={gp.depositors}>
         <Depositors depositors={gp.depositors} />
     </IField>
-    <IField d={gp.associated_publication} field_class={field_class}>
+    <IField d={gp.associated_publication}>
         <AssociatedPublication publication={gp.associated_publication} />
     </IField>
-    <IField d={gp.record_information.license} field_class={field_class}>
+    <IField d={gp.record_information.license} >
         <License license={gp.record_information.license} />
     </IField>
-    <IField d={gp.funding_references} field_class={field_class}>
+    <IField d={gp.funding_references} >
         <Funding funding_refs={gp.funding_references} />
     </IField>
-    <IField d={gp.technique} field_class={field_class} />
+    <IField d={gp.technique} />
 </IValueList>

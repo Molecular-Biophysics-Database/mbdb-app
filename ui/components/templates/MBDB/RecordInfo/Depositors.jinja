@@ -5,12 +5,21 @@
     {% if depositors.depositor %}
         <Person person={depositors.depositor} principal={dep_and_prince} />
     {% endif %}
-
     {%- for person in array(depositors.contributors, remove_empty=True) -%}
-        , <Person person={person} />
+        <div class="flex">
+            <div class="mr-2">
+            ,
+            </div>
+            <Person person={person} />
+        </div>
     {%- endfor -%}
 
     {% if not (dep_and_prince and depositors.principal_contact) %}
-        , <Person person={depositors.principal_contact} principal={True} />
+        <div class="flex">
+            <div class="mr-2">
+            ,
+            </div>
+            <Person person={depositors.principal_contact} principal={True} />
+        </div>
     {% endif %}
 </div>

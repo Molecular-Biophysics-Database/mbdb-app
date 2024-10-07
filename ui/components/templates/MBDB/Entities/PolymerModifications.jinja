@@ -2,7 +2,7 @@
 
 <INonEmpty d={modifications.synthesis}>
   <div class="font-JostBold mb-2">Synthesis</div>
-  <div class="mbdbv-hoffset ml-4">
+  <div class="ml-4">
     {%- for mod in array(modifications.synthesis) %}
     <SubstanceModification mod={mod} />
     {%- endfor %}
@@ -11,7 +11,7 @@
 
 <INonEmpty d={modifications.biological_postprocessing}>
   <div class="font-JostBold mb-2">Biolog. postprocessing</div>
-  <div class="mbdbv-hoffset ml-4">
+  <div class="ml-4">
     {%- for mod in array(modifications.biological_preparation) %}
     <SubstanceModification mod={mod} />
     {%- endfor %}
@@ -20,7 +20,7 @@
 
 <INonEmpty d={modifications.chemical}>
   <div class="font-JostBold mb-2">Chemical</div>
-  <div class="mbdbv-hoffset ml-4">
+  <div class="ml-4">
     {%- for mod in array(modifications.chemical) %}
     <SubstanceModification mod={mod} />
     {%- endfor %}
