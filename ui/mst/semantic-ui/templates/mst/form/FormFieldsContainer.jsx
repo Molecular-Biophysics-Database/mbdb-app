@@ -40,6 +40,7 @@ function FormFieldsContainer() {
   console.log(recordMetadata);
 
   useEffect(() => {
+    save(true);
     const selectedTab = location?.state?.selectedTab || "raw-measurement-files";
     setState({ selected: selectedTab });
   }, [location]);
