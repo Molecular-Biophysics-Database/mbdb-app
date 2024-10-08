@@ -11,6 +11,7 @@ function Book( { name } ) {
                     name={name}
                     fieldName='pid'
                     label='Pid'
+                    required
                     tooltip='Persistent identifier associated with the publication (e.g. DOI, ISBN, URN)'
                     width='w-[8rem]'
                 />
@@ -29,6 +30,7 @@ function Book( { name } ) {
                     name={name}
                     fieldName='publisher'
                     label='Publisher'
+                    required
                     tooltip='The full name of the publisher of the book'
                     width='w-[17.5rem]'
                 />

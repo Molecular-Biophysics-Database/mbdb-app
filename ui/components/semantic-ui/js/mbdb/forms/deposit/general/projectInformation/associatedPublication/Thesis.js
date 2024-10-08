@@ -19,6 +19,7 @@ function Thesis( { name } ) {
                     name={name}
                     fieldName='pid'
                     label='Pid'
+                    required
                     tooltip='Persistent identifier associated with the publication (e.g. DOI, ISBN, URN)'
                     width='w-[8rem]'
                 />
@@ -37,6 +38,7 @@ function Thesis( { name } ) {
                     name={name}
                     options={degreeTypeOptions}
                     label='Degree type'
+                    required
                     fieldName='degree_type'
                     tooltip='The type of degree (equivalent) the thesis was submitted to attain'
                 />

@@ -10,6 +10,7 @@ function Article({ name }) {
             name={name}
             fieldName="pid"
             label="Pid"
+            required
             tooltip="Persistent identifier associated with the publication (e.g. DOI, ISBN, URN)"
             width="w-[8rem]"
           />
@@ -28,6 +29,7 @@ function Article({ name }) {
             name={name}
             fieldName="journal"
             label="Journal"
+            required
             tooltip="The full name of the journal the article appears in"
             width="w-[17.5rem]"
           />

@@ -41,6 +41,7 @@ function AssociatedPublication({ name }) {
                       name={optionalFieldName}
                       options={associatedPublicationOptions}
                       label="type"
+                      required
                       fieldName="type"
                       width="w-full"
                       tooltip="The type of the publication"
