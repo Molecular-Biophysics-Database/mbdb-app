@@ -40,13 +40,13 @@ function Supplier({ name, colorSchema, tooltip }) {
           <div className="-mt-3">
             <ArrayField
               name={name}
-              label="Futher information"
-              fieldName="futher_information"
+              label="Further information"
+              fieldName="further_information"
               tooltip="Further information e.g. batch number"
               renderChild={({ arrayName, index }) => (
                 <CustomField
                   name={`${arrayName}.${index}`}
-                  label={`Futher information ${index + 1}`}
+                  label={`Further information ${index + 1}`}
                   tooltip="Further information e.g. batch number"
                 />
               )}
