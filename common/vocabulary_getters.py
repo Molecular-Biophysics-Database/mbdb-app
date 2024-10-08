@@ -3,6 +3,7 @@ import math
 from oarepo_vocabularies.authorities.providers import AuthorityProvider
 
 
+
 class ApiGet:
     def __init__(self, url, params: dict = None):
         self.url = url
@@ -13,8 +14,8 @@ class ApiGet:
     @property
     def json(self):
         if not self.response.ok:
-            self.err_msg = f"{self.response.status_code}: {self.response.content}"
-            return {}
+            self.err_msg = f"status: {self.response.status_code}, content: {self.response.content}"
+            raise ConnectionError(self.err_msg)
         return self.response.json()
 
     def __repr__(self):
