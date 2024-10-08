@@ -11,6 +11,7 @@ function DataProcessingStep({ name }) {
             name={name}
             fieldName="name"
             label="Name"
+            required
             tooltip="Short descriptive name of the processing step"
           />
         </div>
@@ -19,6 +20,7 @@ function DataProcessingStep({ name }) {
             name={name}
             fieldName="description"
             label="Description"
+            required
             tooltip="Description of what the processing step was"
           />
         </div>

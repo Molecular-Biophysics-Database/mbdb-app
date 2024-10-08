@@ -24,6 +24,7 @@ function DataFitting( { name } ) {
                 <CustomField
                     name={name}
                     fieldName='model'
+                    required
                     label='Model'
                     tooltip='Description of the model (e.g. 1:1 binding)'
                 />
