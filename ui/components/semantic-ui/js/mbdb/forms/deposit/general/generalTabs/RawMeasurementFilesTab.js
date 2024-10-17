@@ -46,12 +46,29 @@ async function SubmitFile(file, recordMetadata) {
   });
 
   if (!resp.ok) {
-    return {
-      code: resp.status,
-      errors: [
-        `Failed to upload content of file "${fileName}": ${resp.statusText}`,
-      ],
-    };
+    console.error(
+      `Failed to upload file "${fileName}": ${resp.statusText}, retrying...`
+    );
+
+    // Retry the upload once
+    const retryResp = await fetch(fileObject.links.content, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/octet-stream",
+      },
+      body: file.fileContent,
+    });
+
+    if (!retryResp.ok) {
+      return {
+        code: retryResp.status,
+        errors: [
+          `Failed to upload content of file "${fileName}" after retry: ${retryResp.statusText}`,
+        ],
+      };
+    }
+
+    return retryResp;
   }
 
   // Commit the result
