@@ -1,5 +1,6 @@
 import React from "react";
 import { i18next } from "@translations/oarepo_ui/i18next";
+import { Trans } from "react-i18next";
 import {
   useConfirmationModal,
   useDepositApiClient,
@@ -57,7 +58,7 @@ export const PublishButton = React.memo(
                 content={i18next.t("Publish")}
                 type="submit"
               >
-                Submit
+                Agree and Submit
               </button>
             </div>
           </>
@@ -75,9 +76,14 @@ PublishButton.propTypes = {
 
 PublishButton.defaultProps = {
   modalHeader: i18next.t("Are you sure you wish to publish this draft?"),
-  modalMessage: i18next.t(
-    "Once the record is published you will no longer be able to change record's files! However, you will still be able to update the record's metadata later."
-  ),
+  modalMessage: <Trans i18n={i18next}>
+    You agree that MBDB will distribute your files and metadata under
+    the <a href='https://creativecommons.org/publicdomain/zero/1.0/' target='_blank'><u>CCO license</u></a>,
+    which is also referred to as the "No rights reserved" license as it places your work in the public domain!
+
+    Furthermore, once the record is published you will no longer be able to change the record's files! However,
+    you will still be able to update the record's metadata later.
+  </Trans>
 };
 
 export default PublishButton;

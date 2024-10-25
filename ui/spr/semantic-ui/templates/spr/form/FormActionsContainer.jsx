@@ -1,6 +1,6 @@
 import React from "react";
-import PublishButton from "./PublishButton";
-import PreviewButton from "./PreviewButton";
+import PublishButton from "@mbdb_deposit/buttons/PublishButton";
+import PreviewButton from "@mbdb_deposit/buttons/PreviewButton";
 
 export const FormActionsContainer = ({ record }) => {
   return (
