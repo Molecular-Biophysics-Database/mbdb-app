@@ -15,7 +15,7 @@ import MeasurementPositionsTab from "@spr_deposit/sprTabs/MeasurementPositionsTa
 import { Formik } from "formik";
 import { useFormConfig, useDepositApiClient } from "@js/oarepo_ui";
 import { Button } from "semantic-ui-react";
-import PublishButton from "./PublishButton";
+
 
 function FormFieldsContainer() {
   const Tabs = [
