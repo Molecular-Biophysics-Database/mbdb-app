@@ -17,7 +17,7 @@ function BasicInformationField({ name, colorSchema }) {
         tooltip="Basic information about the chemical. Note that this information is based on PubChem records"
         >
           <div className="flex mb-2">
-            <div className="mr-2 mt-0.5">Check you chemistry</div>
+            <div className="mr-2 mt-0.5">Check your chemistry</div>
               <div>
                 <a
                   className="flex justify-center py-1 mr-2 px-4 bg-dark rounded-full text-white hover:bg-secondary hover:text-dark transition-all"
