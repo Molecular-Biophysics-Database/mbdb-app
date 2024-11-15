@@ -12,9 +12,10 @@ import MeasurementsTab from "@spr_deposit/sprTabs/MeasurementsTab";
 import DataAnalysisTab from "@spr_deposit/sprTabs/DataAnalysisTab";
 import SensorTab from "@spr_deposit/sprTabs/SensorTab";
 import MeasurementPositionsTab from "@spr_deposit/sprTabs/MeasurementPositionsTab";
-import { Formik } from "formik";
+import { Formik, useFormikContext } from "formik";
 import { useFormConfig, useDepositApiClient } from "@js/oarepo_ui";
 import { Button } from "semantic-ui-react";
+import RequestOnRecordView from "@mbdb_deposit/buttons/RequestsRecordView";
 
 
 function FormFieldsContainer() {
@@ -35,6 +36,7 @@ function FormFieldsContainer() {
   const location = useLocation();
   const [state, setState] = useState({ selected: "raw-measurement-files" });
   const { save, values: recordMetadata } = useDepositApiClient();
+  const { values, setErrors } = useFormikContext();
 
   useEffect(() => {
     save(true);
@@ -72,6 +74,7 @@ function FormFieldsContainer() {
         >
           Save
         </Button>
+      {values.id && RequestOnRecordView(values, setErrors, save)}
       </div>
       <div className="flex justify-center">
         <div className="bg-primary border-dark border-solid border-[.1px] rounded-normal">
