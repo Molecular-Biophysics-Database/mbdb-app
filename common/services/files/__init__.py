@@ -4,7 +4,7 @@ from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 from mbdb_parsing.mst import MocProcessor, XlxsProcessor
 
 
-class MstFilesServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
+class MstFileServiceConfigWithProcessors(PermissionsPresetsConfigMixin, FileServiceConfig):
     file_processors = [
         MocProcessor(),
         XlxsProcessor(),

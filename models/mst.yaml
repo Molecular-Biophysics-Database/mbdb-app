@@ -26,10 +26,14 @@ record:
   use: ["invenio"]
   draft: {}
   draft-files:
+    service-config:
+      base-classes: [ common.services.files.MstFileServiceConfigWithProcessors ]
     resource:
       base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
   files:
     use: ['./files.yaml', 'invenio_files']
+    service-config:
+      base-classes: [ common.services.files.MstFileServiceConfigWithProcessors ]
     resource:
       base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
   module:

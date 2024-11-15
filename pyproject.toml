@@ -8,6 +8,7 @@ dependencies = [
     "invenio-drafts-resources>=1.0.4",
     "json5",
     "luqum",
+    "mbdb-parsing",
     "oarepo-communities>=5.0.0",
     "oarepo-dashboard",
     "oarepo-doi",
@@ -20,7 +21,6 @@ dependencies = [
     "oarepo-workflows>=1.0.0",
     "oarepo[s3]==12.1.*",
     "python-dotenv",
-    "mbdb-parsing",
 ]
 requires-python = ">=3.12,<3.13"
 
