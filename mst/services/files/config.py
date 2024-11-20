@@ -1,16 +1,16 @@
-from invenio_records_resources.services import FileLink, FileServiceConfig, RecordLink
+from invenio_records_resources.services import FileLink, RecordLink
 from oarepo_runtime.services.components import CustomFieldsComponent
-from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 
+from common.services.files import MstFileServiceConfigWithProcessors
 from mst.records.api import MstDraft, MstRecord
 from mst.services.files.schema import MstFileSchema
 from mst.services.records.permissions import MstPermissionPolicy
 
 
-class MstFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
+class MstFileServiceConfig(MstFileServiceConfigWithProcessors):
     """MstRecord service config."""
 
-    PERMISSIONS_PRESETS = ["everyone"]
+    PERMISSIONS_PRESETS = ["workflow"]
 
     url_prefix = "/records/mst/<pid_value>"
 
@@ -22,11 +22,7 @@ class MstFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
 
     service_id = "mst_file"
 
-    components = [
-        *PermissionsPresetsConfigMixin.components,
-        *FileServiceConfig.components,
-        CustomFieldsComponent,
-    ]
+    components = [*MstFileServiceConfigWithProcessors.components, CustomFieldsComponent]
 
     model = "mst"
     allowed_mimetypes = []
@@ -49,10 +45,10 @@ class MstFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
         }
 
 
-class MstFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
+class MstFileDraftServiceConfig(MstFileServiceConfigWithProcessors):
     """MstDraft service config."""
 
-    PERMISSIONS_PRESETS = ["everyone"]
+    PERMISSIONS_PRESETS = ["workflow"]
 
     url_prefix = "/records/mst/<pid_value>/draft"
 
@@ -62,11 +58,7 @@ class MstFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
 
     service_id = "mst_file_draft"
 
-    components = [
-        *PermissionsPresetsConfigMixin.components,
-        *FileServiceConfig.components,
-        CustomFieldsComponent,
-    ]
+    components = [*MstFileServiceConfigWithProcessors.components, CustomFieldsComponent]
 
     model = "mst"
 

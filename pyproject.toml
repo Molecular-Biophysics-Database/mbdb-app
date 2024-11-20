@@ -8,6 +8,7 @@ dependencies = [
     "invenio-drafts-resources>=1.0.4",
     "json5",
     "luqum",
+    "mbdb-parsing",
     "oarepo-communities>=5.0.0",
     "oarepo-dashboard",
     "oarepo-doi",
