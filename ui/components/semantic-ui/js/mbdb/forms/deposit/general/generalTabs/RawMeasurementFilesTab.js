@@ -86,7 +86,12 @@ async function SubmitFile(file, recordMetadata) {
   }
 
   const res = await resp.json();
-
+  // update the page to place values in inside the form case extraction took place
+  // also serves signal to let the user know that file uploading has completed
+  setTimeout(() => {
+        window.location.href = '/';
+      }, 500); // 0.5 seconds delay
+  window.location.reload();
   return res;
 }
 
