@@ -9,7 +9,7 @@ function Modification({ name, colorSchema }) {
   return (
     <>
       <div className="flex mb-3">
-        <div>
+        <div className="mr-3">
           <CustomField
             name={name}
             required
@@ -18,12 +18,19 @@ function Modification({ name, colorSchema }) {
             tooltip="The common name/type of the modification"
           />
         </div>
-        <div className="mr-3">
+        <div className="-mt-3">
           <OptionalField
             name={name}
             fieldName="position"
             label="Position"
             tooltip="The position where the modification occurs (e.g. 23)"
+            renderChild={({ optionalFieldName }) => (
+              <CustomField
+                name={optionalFieldName}
+                label="Position"
+                tooltip="The position where the modification occurs (e.g. 23)"
+              />
+            )}
           />
         </div>
       </div>

@@ -22,8 +22,8 @@ function Polymer({ name }) {
     { value: "peptide nucleic acid", label: "peptide nucleic acid" },
     { value: "polydeoxyribonucleotide", label: "polydeoxyribonucleotide" },
     {
-      value: "polydeoxyribonucleotide/polyribonucleotidehybrid",
-      label: "polydeoxyribonucleotide/polyribonucleotidehybrid",
+      value: "polydeoxyribonucleotide/polyribonucleotide hybrid",
+      label: "polydeoxyribonucleotide/polyribonucleotide hybrid",
     },
     { value: "polypeptide(D)", label: "polypeptide(D)" },
     { value: "polypeptide(L)", label: "polypeptide(L)" },

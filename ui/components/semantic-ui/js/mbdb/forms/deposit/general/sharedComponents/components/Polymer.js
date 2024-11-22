@@ -17,16 +17,16 @@ function Polymer({ name, colorSchema }) {
   const { getFieldData } = useFieldData();
 
   const polymerTypeOptions = [
-    { value: "Cyclic pseudo peptide", label: "Cyclic pseudo peptide" },
-    { value: "Peptide nucleic acid", label: "Peptide nucleic acid" },
-    { value: "Polydeoxyribonucleotide", label: "Polydeoxyribonucleotide" },
+    { value: "cyclic-pseudo-peptide", label: "cyclic-pseudo-peptide" },
+    { value: "peptide nucleic acid", label: "peptide nucleic acid" },
+    { value: "polydeoxyribonucleotide", label: "polydeoxyribonucleotide" },
     {
-      value: "Polydeoxyribonucleotide / polyribonucleotide hybrid",
-      label: "Polydeoxyribonucleotide / polyribonucleotide hybrid",
+      value: "polydeoxyribonucleotide/polyribonucleotide hybrid",
+      label: "polydeoxyribonucleotide/polyribonucleotide hybrid",
     },
-    { value: "Polypeptide(D)", label: "Polypeptide(D)" },
-    { value: "Polypeptide(L)", label: "Polypeptide(L)" },
-    { value: "Polyribonucleotide", label: "Polyribonucleotide" },
+    { value: "polypeptide(D)", label: "polypeptide(D)" },
+    { value: "polypeptide(L)", label: "polypeptide(L)" },
+    { value: "polyribonucleotide", label: "polyribonucleotide" },
   ];
 
   const expressionSourceTypeOptions = [
