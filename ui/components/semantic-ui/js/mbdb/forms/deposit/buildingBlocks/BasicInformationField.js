@@ -9,9 +9,14 @@ function BasicInformationField({ name, colorSchema }) {
 
   return (
     <>
-      <FormWrapper colorSchema={colorSchema}>
+      <FormWrapper
+        colorSchema={colorSchema}
+        headline="Basic information"
+        tooltip="Basic information about the chemical. Note that this information is based on PubChem records"
+        required
+      >
         <div className="flex mb-2">
-          <div className="mr-2 mt-0.5">Check you chemistry</div>
+          <div className="mr-2 mt-0.5">Check your chemistry</div>
           <div>
             <a
               className="flex justify-center py-1 mr-2 px-4 bg-dark rounded-full text-white hover:bg-secondary hover:text-dark transition-all"
@@ -33,20 +38,24 @@ function BasicInformationField({ name, colorSchema }) {
             </a>
           </div>
         </div>
-        <VocabularyRemoteSelectField
-          overriddenComponents={{
-            "VocabularyRemoteSelect.ext.ResultsList.item":
-              RORInstitutionResultListItem,
-          }}
-          vocabulary="chemicals"
-          fieldPath={name}
-          modalHeader={
-            getFieldData({
-              fieldPath: name,
-              fieldRepresentation: "text",
-            }).label
-          }
-        />
+        <div className="flex">
+          <div>
+            <VocabularyRemoteSelectField
+              overriddenComponents={{
+                "VocabularyRemoteSelect.ext.ResultsList.item":
+                  RORInstitutionResultListItem,
+              }}
+              vocabulary="chemicals"
+              fieldPath={name}
+              modalHeader={
+                getFieldData({
+                  fieldPath: name,
+                  fieldRepresentation: "text",
+                }).label
+              }
+            />
+          </div>
+        </div>
       </FormWrapper>
     </>
   );
