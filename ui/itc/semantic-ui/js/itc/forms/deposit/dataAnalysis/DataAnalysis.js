@@ -33,61 +33,61 @@ function DataAnalysis({ name }) {
 
   return (
     <>
-        <div className="flex">
-            <div className="mr-3">
-                <OptionField
-                    name={name}
-                    label="Type"
-                    fieldName="type"
-                    options={TypeOptions}
-                    required
-                    tooltip="Type of model used to obtain derived parameters"
-                />
-            </div>
-            <div className="mr-3 -mt-3">
-                <ArrayField
-                    name={name}
-                    label="Measurement"
-                    fieldName="measurements"
-                    tooltip="List of measurement links that was analyzed together"
-                    renderChild={({arrayName, index}) => (
-                        <div>
-                            <OptionField
-                                name={`${arrayName}.${index}`}
-                                label={`Measurement ${index + 1}`}
-                                options={measurementOptions}
-                                tooltip="List of measurement links that was analyzed together"
-                            />
-                        </div>
-                    )}
-                />
-            </div>
-            <div className="-mt-3">
-                <ArrayField
-                    name={name}
-                    label="Results"
-                    fieldName="results"
-                    tooltip="Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters"
-                    renderChild={({arrayName, index}) => (
-                        <div>
-                            <OptionField
-                                name={`${arrayName}.${index}`}
-                                label={`Result ${index + 1}`}
-                                options={resultOptions}
-                                tooltip="Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters"
-                            />
-                        </div>
-                    )}
-                />
-            </div>
+      <div className="flex">
+        <div className="mr-3">
+          <OptionField
+            name={name}
+            label="Type"
+            fieldName="type"
+            options={TypeOptions}
+            required
+            tooltip="Type of model used to obtain derived parameters"
+          />
         </div>
-        <div className="mb-3">
-            <OptionalField
-                name={name}
-                label="Data fitting"
-                fieldName="data_fitting"
-                tooltip="The details of how data fitting of the data to obtain the result was performed"
-                renderChild={({optionalFieldName }) => (
+        <div className="mr-3 -mt-3">
+          <ArrayField
+            name={name}
+            label="Measurement"
+            fieldName="measurements"
+            tooltip="Measurements that were analyzed together"
+            renderChild={({ arrayName, index }) => (
+              <div>
+                <OptionField
+                  name={`${arrayName}.${index}`}
+                  label={`Measurement ${index + 1}`}
+                  options={measurementOptions}
+                  tooltip="Measurements that were analyzed together"
+                />
+              </div>
+            )}
+          />
+        </div>
+        <div className="-mt-3">
+          <ArrayField
+            name={name}
+            label="Results"
+            fieldName="results"
+            tooltip="Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters"
+            renderChild={({ arrayName, index }) => (
+              <div>
+                <OptionField
+                  name={`${arrayName}.${index}`}
+                  label={`Result ${index + 1}`}
+                  options={resultOptions}
+                  tooltip="Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters"
+                />
+              </div>
+            )}
+          />
+        </div>
+      </div>
+      <div className="mb-3">
+        <OptionalField
+          name={name}
+          label="Data fitting"
+          fieldName="data_fitting"
+          tooltip="The details of how data fitting of the data to obtain the result was performed"
+          renderChild={({ optionalFieldName }) => (
             <FormWrapper
               colorSchema="light"
               headline="Data fitting"
