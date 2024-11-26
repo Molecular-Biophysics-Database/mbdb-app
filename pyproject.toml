@@ -155,6 +155,7 @@ itc = "itc.models:ui.json"
 
 [project.entry-points."invenio_requests.types"]
 submit-draft-request = "common.requests.submit_draft:SubmitDraftRequestType"
+publish-accepted-draft-request = "common.requests.publish_accepted_draft:PublishAcceptedDraftRequestType"
 
 [project.optional-dependencies]
 tests = [

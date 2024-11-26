@@ -47,7 +47,6 @@ from oarepo_requests.services.permissions.workflow_policies import (
 from .custom_generators import UserWithRole
 
 
-# TODO: naming issue: DefaultWorkflowPermissions vs DefaultWorkflowPermissionPolicy
 class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
     can_create = [AuthenticatedUser()]
 
@@ -76,7 +75,7 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
     ]
 
     can_delete = [
-        # draft can be deleted, published record must be deleted via request
+        # draft can be directly deleted, published record must be deleted via request
         IfInState(
             "draft",
             then_=[
@@ -162,8 +161,7 @@ class IndividualWorkflowRequests(WorkflowRequestPolicy):
         recipients=[AutoApprove()],
     )
 
-    publish_draft = WorkflowRequest(
-        # reviewers are notified when a draft is submitted
+    publish_accepted_draft = WorkflowRequest(
         requesters=[
             IfInState("accepted", then_=[RecordOwners()]),
         ],
