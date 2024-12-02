@@ -21,6 +21,9 @@ class PublishAcceptedDraftRequestType(PublishDraftRequestType):
     type_id = "publish_accepted_draft"
     name = _("Publish")
 
+    # If inputs are needed, e.g. version name, they should be specified in form
+    form = {}
+
     @override
     def stateful_description(
         self,
@@ -39,9 +42,9 @@ class PublishAcceptedDraftRequestType(PublishDraftRequestType):
                 <a 
                   href='https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1' 
                   target='_blank'
-                >CC0 License</a>
+                ><u>CCO license.</u></a>
                 """
-                " This means that <br>"
+                "This means that <br>"
                 "1) You hereby waive all copyright and related or neighboring "
                 "rights together with all associated claims and causes of action "
                 "with respect to this work to the extent possible under the law.<br>"
@@ -54,10 +57,10 @@ class PublishAcceptedDraftRequestType(PublishDraftRequestType):
                 <a 
                   href='https://molecular-biophysics-database.github.io/mbdb-docs/terms-and-conditions/' 
                   target='_blank'
-                >terms and conditions</a>
+                ><u>terms and conditions,</u></a>
                 """
-                ", which, among others, include receiving permissions from all depositors, "
-                "and that to the information in the record, to best of your knowledge, is correct."
+                "which, among others, include receiving permissions from all depositors, "
+                "and ensuring that all deposited information, to the best of your knowledge, is correct."
             )
 
         match request.status:
