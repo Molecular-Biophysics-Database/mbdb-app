@@ -53,9 +53,7 @@ class SprRecord(InvenioRecord):
 
     schema = ConstantField("$schema", "local://spr-1.0.0.json")
 
-    index = IndexField(
-        "spr-spr-1.0.0",
-    )
+    index = IndexField("spr-spr-1.0.0", search_alias="spr")
 
     pid = PIDField(provider=SprIdProvider, context_cls=PIDFieldContext, create=True)
 

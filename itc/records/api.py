@@ -53,9 +53,7 @@ class ItcRecord(InvenioRecord):
 
     schema = ConstantField("$schema", "local://itc-1.0.0.json")
 
-    index = IndexField(
-        "itc-itc-1.0.0",
-    )
+    index = IndexField("itc-itc-1.0.0", search_alias="itc")
 
     pid = PIDField(provider=ItcIdProvider, context_cls=PIDFieldContext, create=True)
 
