@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 export default function ChooseSearchMethodDropdown() {
 
-  const [method, setMethod] = useState('mst');
+  const [method, setMethod] = useState('search/');
 
   const handleChange = (event) => {
     setMethod(event.target.value);
