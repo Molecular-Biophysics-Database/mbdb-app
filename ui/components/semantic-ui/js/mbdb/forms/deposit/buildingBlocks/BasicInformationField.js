@@ -2,7 +2,7 @@ import React from "react";
 import FormWrapper from "./FormWrapper";
 import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
 import { useFieldData } from "@js/oarepo_ui";
-import { RORInstitutionResultListItem } from "./RORInstitutionResultListItem";
+import { PubChemResultListItem } from "./PubChemResultListItem";
 
 function BasicInformationField({ name, colorSchema }) {
   const { getFieldData } = useFieldData();
@@ -43,7 +43,7 @@ function BasicInformationField({ name, colorSchema }) {
             <VocabularyRemoteSelectField
               overriddenComponents={{
                 "VocabularyRemoteSelect.ext.ResultsList.item":
-                  RORInstitutionResultListItem,
+                  PubChemResultListItem,
               }}
               vocabulary="chemicals"
               fieldPath={name}

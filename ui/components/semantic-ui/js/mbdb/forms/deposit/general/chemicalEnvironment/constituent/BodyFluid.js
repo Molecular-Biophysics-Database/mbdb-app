@@ -10,7 +10,7 @@ import OptionalField from "../../../buildingBlocks/OptionalField";
 import UseDefault from "../../../buildingBlocks/UseDefault";
 import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
 import { useFieldData } from "@js/oarepo_ui";
-import { RORInstitutionResultListItem } from "../../../buildingBlocks/RORInstitutionResultListItem";
+import { NcbiTaxIdResultListItem } from "../../../buildingBlocks/NcbiTaxIdResultListItem";
 
 function BodyFluid({ name }) {
   const { getFieldData } = useFieldData();
@@ -49,7 +49,7 @@ function BodyFluid({ name }) {
             <VocabularyRemoteSelectField
               overriddenComponents={{
                 "VocabularyRemoteSelect.ext.ResultsList.item":
-                  RORInstitutionResultListItem,
+                  NcbiTaxIdResultListItem,
               }}
               vocabulary="organisms"
               fieldPath={`${name}.source_organism`}
