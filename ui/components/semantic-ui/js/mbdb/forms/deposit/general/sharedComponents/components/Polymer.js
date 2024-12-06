@@ -11,7 +11,7 @@ import ExternalDatabase from "../../../buildingBlocks/ExternalDatabase";
 import FormWrapper from "../../../buildingBlocks/FormWrapper";
 import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
 import { useFieldData } from "@js/oarepo_ui";
-import { RORInstitutionResultListItem } from "../../../buildingBlocks/RORInstitutionResultListItem";
+import { NcbiTaxIdResultListItem } from "../../../buildingBlocks/NcbiTaxIdResultListItem";
 
 function Polymer({ name, colorSchema }) {
   const { getFieldData } = useFieldData();
@@ -125,7 +125,7 @@ function Polymer({ name, colorSchema }) {
                 <VocabularyRemoteSelectField
                   overriddenComponents={{
                     "VocabularyRemoteSelect.ext.ResultsList.item":
-                      RORInstitutionResultListItem,
+                      NcbiTaxIdResultListItem,
                   }}
                   vocabulary="organisms"
                   fieldPath={optionalFieldName}
@@ -154,7 +154,7 @@ function Polymer({ name, colorSchema }) {
                 <VocabularyRemoteSelectField
                   overriddenComponents={{
                     "VocabularyRemoteSelect.ext.ResultsList.item":
-                      RORInstitutionResultListItem,
+                      NcbiTaxIdResultListItem,
                   }}
                   vocabulary="organisms"
                   fieldPath={optionalFieldName}

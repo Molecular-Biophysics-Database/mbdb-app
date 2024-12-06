@@ -6,7 +6,7 @@ import AssociatedPublication from "../projectInformation/associatedPublication/A
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
 import { useFieldData } from "@js/oarepo_ui";
-import { RORInstitutionResultListItem } from "../../buildingBlocks/RORInstitutionResultListItem";
+import { OpenAireProjectResultListItem } from "../../buildingBlocks/OpenAireProjectResultListItem";
 
 function ProjectInformationTab({ name }) {
   const { getFieldData } = useFieldData();
@@ -36,7 +36,7 @@ function ProjectInformationTab({ name }) {
               <VocabularyRemoteSelectField
                 overriddenComponents={{
                   "VocabularyRemoteSelect.ext.ResultsList.item":
-                    RORInstitutionResultListItem,
+                    OpenAireProjectResultListItem,
                 }}
                 vocabulary="grants"
                 fieldPath={`${arrayName}.${index}`}

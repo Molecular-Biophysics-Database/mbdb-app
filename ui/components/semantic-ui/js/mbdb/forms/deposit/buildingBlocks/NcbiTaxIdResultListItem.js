@@ -3,7 +3,7 @@ import _join from "lodash/join";
 import { VocabularyUri } from "./VocabularyUri";
 import { VocabularyItem } from "./VocabularyItem";
 
-export const RORInstitutionResultListItem = ({
+export const NcbiTaxIdResultListItem = ({
   result,
   handleSelect = () => {},
   selected,
@@ -13,8 +13,7 @@ export const RORInstitutionResultListItem = ({
 
   const uriLinks = VocabularyUri(relatedURI)
 
-  const displayProps = (({ city, country }) => ({ city, country}))(props);
-  const propValues = _join(Object.values(displayProps), ", ");
+  const propValues = props.rank;
 
   const onSelect = (result) => {
     handleSelect(result, selected);

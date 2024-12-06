@@ -11,7 +11,7 @@ import SequenceField from "../../../buildingBlocks/SequenceField";
 import ExternalDatabase from "../../../buildingBlocks/ExternalDatabase";
 import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
 import { useFieldData } from "@js/oarepo_ui";
-import { RORInstitutionResultListItem } from "../../../buildingBlocks/RORInstitutionResultListItem";
+import { NcbiTaxIdResultListItem } from "../../../buildingBlocks/NcbiTaxIdResultListItem";
 import FormWrapper from "../../../buildingBlocks/FormWrapper";
 
 function Polymer({ name }) {
@@ -113,7 +113,7 @@ function Polymer({ name }) {
                 <VocabularyRemoteSelectField
                   overriddenComponents={{
                     "VocabularyRemoteSelect.ext.ResultsList.item":
-                      RORInstitutionResultListItem,
+                      NcbiTaxIdResultListItem,
                   }}
                   vocabulary="organisms"
                   fieldPath={optionalFieldName}
@@ -142,7 +142,7 @@ function Polymer({ name }) {
                 <VocabularyRemoteSelectField
                   overriddenComponents={{
                     "VocabularyRemoteSelect.ext.ResultsList.item":
-                      RORInstitutionResultListItem,
+                      NcbiTaxIdResultListItem,
                   }}
                   vocabulary="organisms"
                   fieldPath={optionalFieldName}

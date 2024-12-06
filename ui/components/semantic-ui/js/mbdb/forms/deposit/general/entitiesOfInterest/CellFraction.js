@@ -9,7 +9,7 @@ import CreateUuid from "../../buildingBlocks/CreateUuid";
 import UseDefault from "../../buildingBlocks/UseDefault";
 import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
 import { useFieldData } from "@js/oarepo_ui";
-import { RORInstitutionResultListItem } from "../../buildingBlocks/RORInstitutionResultListItem";
+import { NcbiTaxIdResultListItem } from "../../buildingBlocks/NcbiTaxIdResultListItem";
 import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
 
@@ -42,7 +42,7 @@ function CellFraction({ name }) {
             <VocabularyRemoteSelectField
                 overriddenComponents={{
                   "VocabularyRemoteSelect.ext.ResultsList.item":
-                  RORInstitutionResultListItem,
+                  NcbiTaxIdResultListItem,
                 }}
                 vocabulary="organisms"
                 fieldPath={`${name}.source_organism`}
