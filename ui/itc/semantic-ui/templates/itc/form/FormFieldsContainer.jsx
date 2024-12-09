@@ -17,24 +17,24 @@ import PreviewButton from "@mbdb_deposit/buttons/PreviewButton";
 
 function FormFieldsContainer() {
   const Tabs = [
-    { value: "raw-measurement-files", label: "Raw measurement files" },
     { value: "project-information", label: "Project information" },
     { value: "entities-of-interest", label: "Entities of interest" },
     { value: "chemical-environment", label: "Chemical environments" },
-    { value: "result", label: "Results" },
+    { value: "raw-measurement-files", label: "Raw measurement files" },
     { value: "instrument", label: "Instrument" },
     { value: "measurements", label: "Measurements" },
+    { value: "result", label: "Results" },
     { value: "data-analysis", label: "Data analysis" },
   ];
 
   const location = useLocation();
-  const [state, setState] = useState({ selected: "raw-measurement-files" });
+  const [state, setState] = useState({ selected: "project-information" });
   const { save, values: recordMetadata } = useDepositApiClient();
   const { values, setErrors } = useFormikContext();
 
   useEffect(() => {
     save(true);
-    const selectedTab = location?.state?.selectedTab || "raw-measurement-files";
+    const selectedTab = location?.state?.selectedTab || "project-information";
     setState({ selected: selectedTab });
   }, [location]);
   const { files: recordFiles } = useFormConfig();
