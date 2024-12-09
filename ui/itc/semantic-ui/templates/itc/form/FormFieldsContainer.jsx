@@ -13,7 +13,7 @@ import { Formik, useFormikContext } from "formik";
 import { useFormConfig, useDepositApiClient } from "@js/oarepo_ui";
 import { Button } from "semantic-ui-react";
 import RequestOnRecordView from "@mbdb_deposit/buttons/RequestsRecordView";
-
+import PreviewButton from "@mbdb_deposit/buttons/PreviewButton";
 
 function FormFieldsContainer() {
   const Tabs = [
@@ -60,15 +60,16 @@ function FormFieldsContainer() {
   };
   return (
     <>
-      <div className="mb-4 ml-3">
+      <div className="flex mb-4 ml-3">
+        <PreviewButton />
         <Button
           style={{ backgroundColor: "#023850", color: "white" }}
           onClick={() => handleSaveMetadataAndFiles()}
         >
           Save
         </Button>
+        {values.id && RequestOnRecordView(values, setErrors, save)}
       </div>
-      {values.id && RequestOnRecordView(values, setErrors, save)}
       <div className="flex justify-center">
         <div className="bg-primary border-dark border-solid border-[.1px] rounded-normal">
           <div className="flex justify-center w-fit h-[90vh]">

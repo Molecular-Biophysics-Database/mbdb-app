@@ -2,20 +2,6 @@
 
 <section class="ui segment" aria-label='{{ _("Actions") }}'>
 <h2 class="ui small header detail-sidebar-header">{{ _("Actions") }}</h2>
-{% if record.links.self_html %}
-  <div class="mb-10">
-    <SidebarLink href={record.links.self_html}>
-      {{_('Preview')}}
-    </SidebarLink>
-  </div>
-{% endif %}
-{% if record.links.edit_html %}
-  <div class="mb-10">
-    <SidebarLink href={record.links.edit_html}>
-      {{_('Edit')}}
-    </SidebarLink>
-  </div>
-{% endif %}
 
 <RecordRequests record={record} />
 </section>

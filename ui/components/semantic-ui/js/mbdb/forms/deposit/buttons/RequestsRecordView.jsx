@@ -1,7 +1,7 @@
 import React from "react";
 import {serializeErrors} from "@js/oarepo_ui";
 import { RecordRequests } from "@js/oarepo_requests/components";
-
+import { i18next } from "@translations/oarepo_ui/i18next";
 
 function RequestOnRecordView(values, setErrors, save) {
 
