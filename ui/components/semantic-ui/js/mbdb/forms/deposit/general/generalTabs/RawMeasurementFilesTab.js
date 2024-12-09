@@ -90,7 +90,7 @@ async function SubmitFile(file, recordMetadata) {
   // also serves signal to let the user know that file uploading has completed
   setTimeout(() => {
         window.location.href = '/';
-      }, 500); // 0.5 seconds delay
+      }, 1500); // 1.5 seconds delay
   window.location.reload();
   return res;
 }

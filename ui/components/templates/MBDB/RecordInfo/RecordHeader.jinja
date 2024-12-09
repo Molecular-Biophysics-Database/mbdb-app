@@ -1,4 +1,4 @@
-{# def md, links, state, permissions #}
+{# def record, md, links, state, permissions #}
 
 <Status state={ state } />
 
@@ -11,7 +11,7 @@
       <TemplateButton self_link={ links.self } />
     </div>
     <div class="mr-4">
-      <a class="flex justify-center px-4 h-10 text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
+      <a class="flex justify-center px-4 h-10 text-20px bg-dark rounded-normal text-white hover:text-dark hover:bg-primary transition-all"
         href="{{links.export_path}}/json" type="application/json" role="button">
         <button class="px-4">
           Download
@@ -20,7 +20,7 @@
     </div>
     {% if permissions.can_update_draft %}
     <div class="mr-4">
-      <a class="flex justify-center px-8 h-10 text-20px bg-dark rounded-normal text-primary hover:text-dark hover:bg-primary transition-all"
+      <a class="flex justify-center px-8 h-10 text-20px bg-dark rounded-normal text-white hover:text-dark hover:bg-primary transition-all"
         href="{{ links.edit_html or links.self_html }}" type="application/json" role="button">
         <button class="px-4">
           Edit
@@ -28,6 +28,9 @@
       </a>
     </div>
     {% endif %}
+    <div class="mr-4">
+      <RecordRequests record={ record } />
+    </div>
     {% if permissions.can_delete_draft %}
     <RemoveButton self_link={ links.self } state={ state } />
     {% endif %}

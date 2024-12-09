@@ -1,6 +1,11 @@
 {# def record, metadata, ui, extra_context, d, context #}
 {% extends "base/detail.html" %}
 
+{%- block javascript %}
+{{ super() }}
+{{ webpack['oarepo_requests_ui_record_requests.js']}}
+{%- endblock %}
+
 {% set gp=d.metadata.general_parameters %}
 
 {%- block head_meta %}
@@ -15,7 +20,3 @@
 {% block record_main_content %}
     <mst.Main metadata={metadata} ui={ui} extra_context={extra_context} record={record} d={d} context={context}/>
 {% endblock %}
-
-{% block record_sidebar %}
-    <mst.Sidebar metadata={metadata} ui={ui} extra_context={extra_context} record={record} d={d}/>
-{% endblock record_sidebar %}

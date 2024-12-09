@@ -48,7 +48,7 @@ export default function DeleteButton({ selfLink }) {
   }
 
   return (
-    <div className="flex justify-center h-10 text-20px bg-accent rounded-normal text-primary hover:text-dark hover:bg-primary transition-all" role="button">
+    <div className="flex justify-center h-10 text-20px bg-accent rounded-normal text-white hover:text-dark hover:bg-primary transition-all" role="button">
       <button 
         onClick={popUp}
         className="px-4"

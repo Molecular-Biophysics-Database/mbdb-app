@@ -12,9 +12,11 @@ import SensorsTab from "@bli_deposit/bliTabs/SensorsTab";
 import MeasurementProtocolStepTab from "@bli_deposit/bliTabs/MeasurementProtocolStepTab";
 import MeasurementsTab from "@bli_deposit/bliTabs/MeasurementsTab";
 import DataAnalysisTab from "@bli_deposit/bliTabs/DataAnalysisTab";
-import { Formik } from "formik";
+import { Formik, useFormikContext } from "formik";
 import { useFormConfig, useDepositApiClient } from "@js/oarepo_ui";
 import { Button } from "semantic-ui-react";
+import RequestOnRecordView from "@mbdb_deposit/buttons/RequestsRecordView";
+import PreviewButton from "@mbdb_deposit/buttons/PreviewButton";
 
 function FormFieldsContainer() {
   const Tabs = [
@@ -34,6 +36,7 @@ function FormFieldsContainer() {
   const location = useLocation();
   const [state, setState] = useState({ selected: "raw-measurement-files" });
   const { save, values: recordMetadata } = useDepositApiClient();
+  const { values, setErrors } = useFormikContext();
 
   useEffect(() => {
     save(true);
@@ -64,13 +67,15 @@ function FormFieldsContainer() {
 
   return (
     <>
-      <div className="mb-4 ml-3">
+      <div className="flex mb-4 ml-3">
+        <PreviewButton />
         <Button
           style={{ backgroundColor: "#023850", color: "white" }}
           onClick={() => handleSaveMetadataAndFiles()}
         >
           Save
         </Button>
+        {values.id && RequestOnRecordView(values, setErrors, save)}
       </div>
       <div className="flex justify-center">
         <div className="bg-primary border-dark border-solid border-[.1px] rounded-normal">

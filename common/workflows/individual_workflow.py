@@ -47,7 +47,6 @@ from oarepo_requests.services.permissions.workflow_policies import (
 from .custom_generators import UserWithRole
 
 
-# TODO: naming issue: DefaultWorkflowPermissions vs DefaultWorkflowPermissionPolicy
 class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
     can_create = [AuthenticatedUser()]
 
@@ -65,45 +64,69 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
     ]
 
     can_update = [
-        # administrator and editor can always update
-        UserWithRole("administrator"),
-        UserWithRole("editor"),
         # owners can edit drafts before submission
         IfInState(
             "draft",
             then_=[
                 RecordOwners(),
+                UserWithRole("editor"),
             ],
         ),
     ]
 
     can_delete = [
-        # administrator and editor can always delete
-        UserWithRole("administrator"),
-        UserWithRole("editor"),
-        # draft can be deleted, published record must be deleted via request
+        # draft can be directly deleted, published record must be deleted via request
         IfInState(
             "draft",
             then_=[
                 RecordOwners(),
+                UserWithRole("editor"),
+                UserWithRole("administrator"),
+            ],
+        ),
+        IfInState(
+            "submitted",
+            then_=[
+                RecordOwners(),
+                UserWithRole("editor"),
+                UserWithRole("administrator"),
+            ],
+        ),
+        IfInState(
+            "accepted",
+            then_=[
+                RecordOwners(),
+                UserWithRole("editor"),
+                UserWithRole("administrator"),
             ],
         ),
     ]
 
-    can_publish = [
-        # only accepted drafts can be published
-        RecordOwners(),
-    ]
-
-
 class IndividualWorkflowRequests(WorkflowRequestPolicy):
-    review_draft = WorkflowRequest(
+
+    submit_draft = WorkflowRequest(
         # reviewers are notified when a draft is submitted
         requesters=[
-            IfInState("submitted", then_=[AutoRequest()]),
+            IfInState("draft", then_=[RecordOwners()]),
         ],
         recipients=[UserWithRole("reviewer")],
-        transitions=WorkflowTransitions(declined="draft", accepted="accepted"),
+        transitions=WorkflowTransitions(declined="draft", submitted="submitted", accepted="accepted"),
+    )
+
+    new_version = WorkflowRequest(
+        requesters=[
+            IfInState(
+                "published",
+                then_=[
+                    RecordOwners(),
+                    UserWithRole("administrator"),
+                    UserWithRole("editor")
+                ],
+            )
+        ],
+        # the request is auto-approve, we do not limit the owner of the record to create a new
+        # draft version. It will need to be accepted by the curator though.
+        recipients=[AutoApprove()],
     )
 
     delete_published_record = WorkflowRequest(
@@ -115,20 +138,13 @@ class IndividualWorkflowRequests(WorkflowRequestPolicy):
                 then_=[
                     RecordOwners(),
                     UserWithRole("administrator"),
-                    UserWithRole("editor"),
                 ],
             ),
         ],
         # if the requester is the curator of the community or administrator, auto approve the request,
         # otherwise, the request is sent to the curator
         recipients=[
-            IfRequestedBy(
-                requesters=[
-                    UserWithRole("administrator"),
-                ],
-                then_=[AutoApprove()],
-                else_=[UserWithRole("administrator")],
-            )
+            UserWithRole("administrator")
         ],
         # the record comes to the state of retracting when the request is submitted. If the request
         # is accepted, the record is deleted, if declined, it is published again.
@@ -143,4 +159,12 @@ class IndividualWorkflowRequests(WorkflowRequestPolicy):
             IfInState("published", then_=[AutoRequest()])
         ],
         recipients=[AutoApprove()],
+    )
+
+    publish_accepted_draft = WorkflowRequest(
+        requesters=[
+            IfInState("accepted", then_=[RecordOwners()]),
+        ],
+        recipients=[AutoApprove()],
+        transitions=WorkflowTransitions(declined="accepted", accepted="published"),
     )

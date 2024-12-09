@@ -154,7 +154,8 @@ bli = "bli.models:ui.json"
 itc = "itc.models:ui.json"
 
 [project.entry-points."invenio_requests.types"]
-review-draft-request = "common.requests.review_draft:ReviewDraftRequestType"
+submit-draft-request = "common.requests.submit_draft:SubmitDraftRequestType"
+publish-accepted-draft-request = "common.requests.publish_accepted_draft:PublishAcceptedDraftRequestType"
 
 [project.optional-dependencies]
 tests = [
