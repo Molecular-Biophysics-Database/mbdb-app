@@ -38,7 +38,11 @@ function OptionalField({
             style={{ backgroundColor: "#023850", color: "white" }}
             onClick={() => remove()}
           >
-            -
+            <img
+              src="/static/images/delete.svg"
+              alt="Delete"
+              className="w-4 h-auto"
+            />
           </Button>
         </div>
       )}
