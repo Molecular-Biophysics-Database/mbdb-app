@@ -46,25 +46,35 @@ function OptionalField({
           </Button>
         </div>
       )}
-      {(value === undefined || !value === "") && (
-        <div className="mt-3">
-          <Tooltip
-            title={
-              <Typography style={{ color: "white", fontSize: 13 }}>
-                {tooltip}
-              </Typography>
-            }
-            arrow
-          >
+      {(value === undefined || !value === "") &&
+        (tooltip ? (
+          <div className="mt-3">
+            <Tooltip
+              title={
+                <Typography style={{ color: "white", fontSize: 13 }}>
+                  {tooltip}
+                </Typography>
+              }
+              arrow
+            >
+              <Button
+                style={{ backgroundColor: "#023850", color: "white" }}
+                onClick={() => add()}
+              >
+                + {`${label}`}
+              </Button>
+            </Tooltip>
+          </div>
+        ) : (
+          <div className="mt-3">
             <Button
               style={{ backgroundColor: "#023850", color: "white" }}
               onClick={() => add()}
             >
               + {`${label}`}
             </Button>
-          </Tooltip>
-        </div>
-      )}
+          </div>
+        ))}
     </>
   );
 }

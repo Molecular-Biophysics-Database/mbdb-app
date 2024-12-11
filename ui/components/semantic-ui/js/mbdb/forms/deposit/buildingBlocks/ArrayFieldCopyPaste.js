@@ -5,26 +5,88 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { Typography } from "@material-ui/core";
 import { v4 as uuidv4 } from "uuid";
 
-function ArrayField({
+function ArrayFieldCopyPaste({
   name,
   fieldName,
   label,
   renderChild,
-  initialValue,
   required,
   maxItems,
   tooltip,
   uuid,
+  method,
 }) {
   const { values } = useFormikContext();
 
   const handlePush = (push) => {
+    const array = getIn(values, arrayName);
+    const previousArray = array[array.length - 1];
+
+    const updatedObject = () => {
+      if (method === "mst") {
+        return {
+          ...(({ position, ...rest }) => rest)(previousArray),
+          id: uuidv4(),
+          sample: {
+            ...previousArray.sample,
+            ligands: (previousArray.sample.ligands || []).map(
+              ({ concentration, ...ligandRest }) => ligandRest
+            ),
+            targets: (previousArray.sample.targets || []).map(
+              ({ concentration, ...targetRest }) => targetRest
+            ),
+          },
+        };
+      } else if (method === "bli") {
+        const sample = previousArray?.sample;
+        return {
+          ...(({ measurement_protocol_step, ...rest }) => rest)(previousArray),
+          id: uuidv4(),
+          sample: sample
+            ? {
+                ...(({ well_position, chemical_environment, ...rest }) => rest)(
+                  sample
+                ),
+                analytes: (sample.analytes || []).map(
+                  ({ concentration, ...analyteRest }) => analyteRest
+                ),
+              }
+            : {},
+        };
+      } else if (method === "spr") {
+        const samples = previousArray?.samples;
+        return {
+          ...previousArray,
+          id: uuidv4(),
+          samples:
+            samples && samples.length > 0
+              ? [
+                  {
+                    ...(() => {
+                      const {
+                        measurement_step,
+                        chemical_environment,
+                        ...rest
+                      } = samples[0];
+                      return rest;
+                    })(),
+                    analytes: (samples[0].analytes || []).map(
+                      ({ concentration, ...analyteRest }) => analyteRest
+                    ),
+                  },
+                ]
+              : [],
+        };
+      }
+    };
+
     const newItem =
-      initialValue !== undefined
-        ? { ...initialValue }
+      array && array.length > 0
+        ? updatedObject()
         : uuid
         ? { id: uuidv4() }
         : undefined;
+
     push(newItem);
   };
 
@@ -94,4 +156,4 @@ function ArrayField({
   );
 }
 
-export default ArrayField;
+export default ArrayFieldCopyPaste;

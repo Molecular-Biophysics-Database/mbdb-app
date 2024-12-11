@@ -1,6 +1,6 @@
 import React from "react";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
-import ArrayField from "@mbdb_deposit/buildingBlocks/ArrayField";
+import ArrayFieldCopyPaste from "@mbdb_deposit/buildingBlocks/ArrayFieldCopyPaste";
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
 import Measurements from "../measurements/Measurements";
 
@@ -12,10 +12,11 @@ function MeasurementsTab({ name }) {
   return (
     <>
       <div className="-mt-3">
-        <ArrayField
+        <ArrayFieldCopyPaste
           name={name}
           label="Measurement"
           required
+          method="bli"
           fieldName={fieldName}
           tooltip="List of measurement where each step from each sensor is considered a single measurement"
           renderChild={({ arrayName, index }) => (

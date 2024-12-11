@@ -1,6 +1,6 @@
 import React from "react";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
-import ArrayField from "@mbdb_deposit/buildingBlocks/ArrayField";
+import ArrayFieldCopyPaste from "@mbdb_deposit/buildingBlocks/ArrayFieldCopyPaste";
 import Measurement from "../measurement/Measurement";
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
 
@@ -12,10 +12,11 @@ function MeasurementTab({ name }) {
   return (
     <>
       <div className="-mt-3">
-        <ArrayField
+        <ArrayFieldCopyPaste
           name={name}
           label="Measurement"
           required
+          method="mst"
           fieldName={fieldName}
           tooltip="List of the information about each measurement. This includes target(s), ligand(s), chemical environment, and the position of the sample within the instrument"
           renderChild={({ arrayName, index }) => (
