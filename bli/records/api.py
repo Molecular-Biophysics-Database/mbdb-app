@@ -17,7 +17,10 @@ from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckFiel
 from oarepo_runtime.records.systemfields.owner import OwnersField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
 from oarepo_vocabularies.records.api import Vocabulary
-from oarepo_workflows.records.systemfields.state import RecordStateField
+from oarepo_workflows.records.systemfields.state import (
+    RecordStateField,
+    RecordStateTimestampField,
+)
 from oarepo_workflows.records.systemfields.workflow import WorkflowField
 
 from bli.files.api import BliFile, BliFileDraft
@@ -60,6 +63,8 @@ class BliRecord(InvenioRecord):
     dumper = BliDumper()
 
     state = RecordStateField(initial="published")
+
+    state_timestamp = RecordStateTimestampField()
 
     relations = RelationsField(
         expression_organism=PIDRelation(
@@ -397,6 +402,11 @@ class BliRecord(InvenioRecord):
             related_part="metadata.general_parameters.entities_of_interest",
         ),
         Hill_coefficient_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Correction_of_active_concentration_entities_involved_entity=InternalRelation(
             "metadata.general_parameters.results.entities_involved.entity",
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
@@ -473,6 +483,8 @@ class BliDraft(InvenioDraft):
 
     state = RecordStateField()
 
+    state_timestamp = RecordStateTimestampField()
+
     relations = RelationsField(
         expression_organism=PIDRelation(
             "metadata.general_parameters.chemical_environments.constituents.expression_organism",
@@ -809,6 +821,11 @@ class BliDraft(InvenioDraft):
             related_part="metadata.general_parameters.entities_of_interest",
         ),
         Hill_coefficient_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Correction_of_active_concentration_entities_involved_entity=InternalRelation(
             "metadata.general_parameters.results.entities_involved.entity",
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",

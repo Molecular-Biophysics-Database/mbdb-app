@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-11-15T10:46:29.521042\n"
-"PO-Revision-Date: 2024-11-15T10:46:29.521044\n"
+"POT-Creation-Date: 2024-12-11T13:00:34.905020\n"
+"PO-Revision-Date: 2024-12-11T13:00:34.905022\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -559,78 +559,6 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/modifications/chemical/type.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/position.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/position.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/position.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/description.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/description.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/description.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/name.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/name.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/name.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/type.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/type.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/type.hint"
 msgstr ""
 
 msgid ""
@@ -1734,78 +1662,6 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/modifications/chemical/type.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/position.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/position.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/position.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/description.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/description.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/description.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/name.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/name.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/name.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/type.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/type.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/type.hint"
 msgstr ""
 
 msgid ""
@@ -3690,15 +3546,6 @@ msgid ""
 "metadata/general_parameters/chemical_environments/solvent/type.enum.Chemical"
 msgstr ""
 
-msgid "metadata/general_parameters/collection_start_time.help"
-msgstr ""
-
-msgid "metadata/general_parameters/collection_start_time.label"
-msgstr ""
-
-msgid "metadata/general_parameters/collection_start_time.hint"
-msgstr ""
-
 msgid "metadata/general_parameters/depositors.help"
 msgstr ""
 
@@ -4342,78 +4189,6 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/modifications/chemical/type.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/position.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/position.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/position.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/description.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/description.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/description.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/name.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/name.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/name.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/type.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/type.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/type.hint"
 msgstr ""
 
 msgid "metadata/general_parameters/entities_of_interest/molecular_weight.help"
@@ -5490,78 +5265,6 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/modifications/chemical/type.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/position.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/position.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/position.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/description.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/description.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/description.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/name.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/name.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/name.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/type.help"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/type.label"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/type.hint"
 msgstr ""
 
 msgid ""
@@ -7411,6 +7114,11 @@ msgid ""
 "deltaG"
 msgstr ""
 
+msgid ""
+"metadata/general_parameters/results/type.enum.Correction of active "
+"concentration"
+msgstr ""
+
 msgid "metadata/general_parameters/results/type.enum.Molecular weight"
 msgstr ""
 
@@ -7624,7 +7332,7 @@ msgstr ""
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.10.1"
+msgid "metadata/general_parameters/schema_version.enum.0.11.0"
 msgstr ""
 
 msgid "metadata/general_parameters/technique.help"
@@ -8545,7 +8253,7 @@ msgstr ""
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.9.10"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.9.11"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/signal_type.help"
@@ -8663,6 +8371,15 @@ msgid "state.label"
 msgstr ""
 
 msgid "state.hint"
+msgstr ""
+
+msgid "state_timestamp.help"
+msgstr ""
+
+msgid "state_timestamp.label"
+msgstr ""
+
+msgid "state_timestamp.hint"
 msgstr ""
 
 msgid "updated.help"

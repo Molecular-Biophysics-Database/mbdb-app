@@ -211,58 +211,6 @@ metadata_general_parameters_chemical_environments_constituents_modifications_che
     ),
 )
 
-metadata_general_parameters_chemical_environments_constituents_modifications_synthesis_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_environments.constituents.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_environments.constituents.modifications.synthesis.position",
-            label=_(
-                "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/position.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_constituents_modifications_synthesis_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_environments.constituents.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_environments.constituents.modifications.synthesis.protocol.description",
-            label=_(
-                "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/description.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_constituents_modifications_synthesis_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_environments.constituents.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_environments.constituents.modifications.synthesis.protocol.name",
-            label=_(
-                "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/name.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_constituents_modifications_synthesis_type = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_environments.constituents.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_environments.constituents.modifications.synthesis.type",
-            label=_(
-                "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/type.label"
-            ),
-        ),
-    ),
-)
-
 metadata_general_parameters_chemical_environments_constituents_molecular_weight_unit = NestedLabeledFacet(
     path="metadata.general_parameters.chemical_environments",
     nested_facet=TermsFacet(
@@ -697,58 +645,6 @@ metadata_general_parameters_chemical_environments_constituents_components_modifi
             field="metadata.general_parameters.chemical_environments.constituents.components.modifications.chemical.type",
             label=_(
                 "metadata/general_parameters/chemical_environments/constituents/components/modifications/chemical/type.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_constituents_components_modifications_synthesis_position = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_environments.constituents.components.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_environments.constituents.components.modifications.synthesis.position",
-            label=_(
-                "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/position.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_constituents_components_modifications_synthesis_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_environments.constituents.components.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_environments.constituents.components.modifications.synthesis.protocol.description",
-            label=_(
-                "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/description.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_constituents_components_modifications_synthesis_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_environments.constituents.components.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_environments.constituents.components.modifications.synthesis.protocol.name",
-            label=_(
-                "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/name.label"
-            ),
-        ),
-    ),
-)
-
-metadata_general_parameters_chemical_environments_constituents_components_modifications_synthesis_type = NestedLabeledFacet(
-    path="metadata.general_parameters.chemical_environments",
-    nested_facet=NestedLabeledFacet(
-        path="metadata.general_parameters.chemical_environments.constituents.components.modifications.synthesis",
-        nested_facet=TermsFacet(
-            field="metadata.general_parameters.chemical_environments.constituents.components.modifications.synthesis.type",
-            label=_(
-                "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/type.label"
             ),
         ),
     ),
@@ -1422,11 +1318,6 @@ metadata_general_parameters_chemical_environments_solvent_type = NestedLabeledFa
     ),
 )
 
-metadata_general_parameters_collection_start_time = DateTimeFacet(
-    field="metadata.general_parameters.collection_start_time",
-    label=_("metadata/general_parameters/collection_start_time.label"),
-)
-
 metadata_general_parameters_depositors_contributors_affiliations = NestedLabeledFacet(
     path="metadata.general_parameters.depositors.contributors",
     nested_facet=VocabularyFacet(
@@ -1626,46 +1517,6 @@ metadata_general_parameters_entities_of_interest_modifications_chemical_type = N
         field="metadata.general_parameters.entities_of_interest.modifications.chemical.type",
         label=_(
             "metadata/general_parameters/entities_of_interest/modifications/chemical/type.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_entities_of_interest_modifications_synthesis_position = NestedLabeledFacet(
-    path="metadata.general_parameters.entities_of_interest.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.entities_of_interest.modifications.synthesis.position",
-        label=_(
-            "metadata/general_parameters/entities_of_interest/modifications/synthesis/position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_entities_of_interest_modifications_synthesis_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.entities_of_interest.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.entities_of_interest.modifications.synthesis.protocol.description",
-        label=_(
-            "metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_entities_of_interest_modifications_synthesis_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.entities_of_interest.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.entities_of_interest.modifications.synthesis.protocol.name",
-        label=_(
-            "metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_entities_of_interest_modifications_synthesis_type = NestedLabeledFacet(
-    path="metadata.general_parameters.entities_of_interest.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.entities_of_interest.modifications.synthesis.type",
-        label=_(
-            "metadata/general_parameters/entities_of_interest/modifications/synthesis/type.label"
         ),
     ),
 )
@@ -1971,46 +1822,6 @@ metadata_general_parameters_entities_of_interest_components_modifications_chemic
         field="metadata.general_parameters.entities_of_interest.components.modifications.chemical.type",
         label=_(
             "metadata/general_parameters/entities_of_interest/components/modifications/chemical/type.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_entities_of_interest_components_modifications_synthesis_position = NestedLabeledFacet(
-    path="metadata.general_parameters.entities_of_interest.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.entities_of_interest.components.modifications.synthesis.position",
-        label=_(
-            "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/position.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_entities_of_interest_components_modifications_synthesis_protocol_description = NestedLabeledFacet(
-    path="metadata.general_parameters.entities_of_interest.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.entities_of_interest.components.modifications.synthesis.protocol.description",
-        label=_(
-            "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/description.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_entities_of_interest_components_modifications_synthesis_protocol_name = NestedLabeledFacet(
-    path="metadata.general_parameters.entities_of_interest.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.entities_of_interest.components.modifications.synthesis.protocol.name",
-        label=_(
-            "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/name.label"
-        ),
-    ),
-)
-
-metadata_general_parameters_entities_of_interest_components_modifications_synthesis_type = NestedLabeledFacet(
-    path="metadata.general_parameters.entities_of_interest.components.modifications.synthesis",
-    nested_facet=TermsFacet(
-        field="metadata.general_parameters.entities_of_interest.components.modifications.synthesis.type",
-        label=_(
-            "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/type.label"
         ),
     ),
 )
@@ -2747,6 +2558,10 @@ metadata_version = TermsFacet(
 )
 
 state = TermsFacet(field="state", label=_("state.label"))
+
+state_timestamp = DateTimeFacet(
+    field="state_timestamp", label=_("state_timestamp.label")
+)
 
 
 record_status = TermsFacet(field="record_status", label=_("record_status"))
