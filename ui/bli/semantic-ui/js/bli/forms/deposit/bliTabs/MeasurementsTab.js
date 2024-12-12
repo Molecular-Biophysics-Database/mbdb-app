@@ -11,26 +11,28 @@ function MeasurementsTab({ name }) {
 
   return (
     <>
-      <div className="-mt-3">
-        <ArrayFieldCopyPaste
-          name={name}
-          label="Measurement"
-          required
-          method="bli"
-          fieldName={fieldName}
-          tooltip="List of measurement where each step from each sensor is considered a single measurement"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              headline={`Measurement ${index + 1}`}
-              tooltip="List of measurement where each step from each sensor is considered a single measurement"
-            >
-              <div>
-                <Measurements name={`${arrayName}.${index}`} />
-              </div>
-            </FormWrapper>
-          )}
-        />
+      <div className="mb-3 w-fit">
+        <FormWrapper>
+          Information about each measurement for all the sensors at each step in
+          the measurement protocol
+        </FormWrapper>
       </div>
+      <ArrayFieldCopyPaste
+        name={name}
+        label="Measurement"
+        required
+        method="bli"
+        fieldName={fieldName}
+        tooltip="List of measurement where each step from each sensor is considered a single measurement"
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            headline={`Measurement ${index + 1}`}
+            tooltip="List of measurement where each step from each sensor is considered a single measurement"
+          >
+            <Measurements name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }

@@ -11,25 +11,26 @@ function SensorsTab({ name }) {
 
   return (
     <>
-      <div className="-mt-3">
-        <ArrayField
-          name={name}
-          label="Sensor"
-          required
-          fieldName={fieldName}
-          tooltip="List of the sensors used for the measurements, reference sensors included"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              headline={`Sensor ${index + 1}`}
-              tooltip="List of the sensors used for the measurements, reference sensors included"
-            >
-              <div>
-                <Sensors name={`${arrayName}.${index}`} />
-              </div>
-            </FormWrapper>
-          )}
-        />
+      <div className="mb-3 w-fit">
+        <FormWrapper>
+          Information about the sensors used in the measurement
+        </FormWrapper>
       </div>
+      <ArrayField
+        name={name}
+        label="Sensor"
+        required
+        fieldName={fieldName}
+        tooltip="List of the sensors used for the measurements, reference sensors included"
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            headline={`Sensor ${index + 1}`}
+            tooltip="List of the sensors used for the measurements, reference sensors included"
+          >
+            <Sensors name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }

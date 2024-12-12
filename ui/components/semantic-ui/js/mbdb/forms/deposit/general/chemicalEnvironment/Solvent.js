@@ -53,9 +53,7 @@ function Solvent({ name }) {
                     </div>
                     <div>
                       {actualValue.type === "Chemical" && (
-                        <div>
-                          <Chemical name={`${arrayName}.${index}`} />
-                        </div>
+                        <Chemical name={`${arrayName}.${index}`} />
                       )}
                     </div>
                   </FormWrapper>

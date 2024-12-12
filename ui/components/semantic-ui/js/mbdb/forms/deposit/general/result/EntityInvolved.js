@@ -36,7 +36,7 @@ function EntityInvolved({ name }) {
             fieldName="copy_number"
             label="Copy number"
             type="number"
-            tooltip="Number of copies of the entity that contribute to the result, -1 if unknown (e.g. if two individual copies of a polymer bind to another, the copy number would be 2)"
+            tooltip="Number of copies of the entity that contribute to the result, -1 if unknown (e.g. if two metals ions binds independent of each other to a monomeric protein, the copy number would be 2 and 1 for the metal ions and protein, respectively)"
           />
         </div>
       </div>

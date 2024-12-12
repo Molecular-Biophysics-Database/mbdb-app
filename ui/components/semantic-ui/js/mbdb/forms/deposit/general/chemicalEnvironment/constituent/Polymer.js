@@ -72,13 +72,13 @@ function Polymer({ name }) {
           name={name}
           label="Sequence"
           fieldName="sequence"
-          tooltip="Primary sequence of the polymer, using single letter codes (e.g. SAGRELLE, AGTTA). In case of non-natural amino acids or nucleotides, please place the monomer in brackets"
+          tooltip="Primary sequence of the polymer using single letter codes (e.g. SAGRELLE, AGTTA). This should be the sequence of the polymer that was used in the experiment including mutations, purification tags etc. For non-canonical amino acids or nucleotides, please place the full name of the monomer in angle brackets (e.g. SAGREL<3-Sulfinoalanine>LE)"
           renderChild={({ optionalFieldName }) => (
             <SequenceField
               name={optionalFieldName}
               label="Sequence"
               width="w-[51.5rem]"
-              tooltip="Primary sequence of the polymer, using single letter codes (e.g. SAGRELLE, AGTTA). In case of non-natural amino acids or nucleotides, please place the monomer in brackets"
+              tooltip="Primary sequence of the polymer using single letter codes (e.g. SAGRELLE, AGTTA). This should be the sequence of the polymer that was used in the experiment including mutations, purification tags etc. For non-canonical amino acids or nucleotides, please place the full name of the monomer in angle brackets (e.g. SAGREL<3-Sulfinoalanine>LE)"
             />
           )}
         />
@@ -89,12 +89,12 @@ function Polymer({ name }) {
             name={name}
             label="Variant"
             fieldName="variant"
-            tooltip="Descriptive name indicating differences of primary sequence of the polymer as compared to the most common form, or wildtype, including mutations, purification tags, etc. (A53T, C-terminal GFP, N-terminal 6xHis-tag)"
+            tooltip="Annotation of the primary sequence can be specified here (e.g. Wildtype, C-terminal 6x-histag). Note that this also applies to polymers of unknown sequence"
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Variant"
-                tooltip="Descriptive name indicating differences of primary sequence of the polymer as compared to the most common form, or wildtype, including mutations, purification tags, etc. (A53T, C-terminal GFP, N-terminal 6xHis-tag)"
+                tooltip="Annotation of the primary sequence can be specified here (e.g. Wildtype, C-terminal 6x-histag). Note that this also applies to polymers of unknown sequence"
               />
             )}
           />

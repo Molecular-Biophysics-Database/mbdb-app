@@ -14,34 +14,14 @@ function Modifications({ name, colorSchema }) {
         <div className="-mt-3">
           <ArrayField
             name={name}
-            label="Synthesis"
-            fieldName="synthesis"
-            tooltip="Modifications (e.g. non-natural amino acids) of the polymer made during synthesis (e.g. translation) of the polymer"
-            renderChild={({ arrayName, index }) => (
-              <FormWrapper
-                colorSchema={colorSchema === "light" ? "" : "light"}
-                headline={`Synthesis ${index + 1}`}
-                tooltip="Modifications (e.g. non-natural amino acids) of the polymer made during synthesis (e.g. translation) of the polymer"
-              >
-                <Modification
-                  name={`${arrayName}.${index}`}
-                  colorSchema={colorSchema === "light" ? "light" : ""}
-                />
-              </FormWrapper>
-            )}
-          />
-        </div>
-        <div>
-          <ArrayField
-            name={name}
             label="Biological postprocessing"
             fieldName="biological_postprocessing"
-            tooltip="Modifications of the polymer made after synthesis (e.g. post-translational modifications, DNA methylation) by the organism where synthesis occurred (e.g. glycosylation)"
+            tooltip="Modifications of the polymer after its synthesis (e.g. post-translational modifications and DNA methylation) by the organism where the synthesis occurred"
             renderChild={({ arrayName, index }) => (
               <FormWrapper
                 colorSchema={colorSchema === "light" ? "" : "light"}
                 headline={`Biological postprocessing ${index + 1}`}
-                tooltip="Modifications of the polymer made after synthesis (e.g. post-translational modifications, DNA methylation) by the organism where synthesis occurred (e.g. glycosylation)"
+                tooltip="Modifications of the polymer after its synthesis (e.g. post-translational modifications and DNA methylation) by the organism where the synthesis occurred"
               >
                 <Modification
                   name={`${arrayName}.${index}`}

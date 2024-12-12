@@ -77,6 +77,12 @@ function ArrayFieldCopyPaste({
                 ]
               : [],
         };
+      } else if (method === "file") {
+        const metadata = previousArray?.metadata;
+        return {
+          id: uuidv4(),
+          metadata: { ...metadata },
+        };
       }
     };
 

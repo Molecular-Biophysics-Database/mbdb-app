@@ -6,6 +6,8 @@ import DataProcessingStep from "../../sharedComponents/DataProcessingStep";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import OptionalField from "../../buildingBlocks/OptionalField";
 import FileField from "../../buildingBlocks/FileField";
+import Tooltip from "@material-ui/core/Tooltip";
+import { Typography } from "@material-ui/core";
 
 function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
   const originatesFromOptions = [
@@ -39,6 +41,35 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
           file={file}
           onDeleteFile={onDeleteFile}
         />
+      </div>
+      <div className="w-[25rem] mr-7 mb-3">
+        <FormWrapper colorSchema="light">
+          <div className="flex">
+            <div className="flex">
+              <div className="mr-3 my-auto text-dark">Creation date</div>
+              <div className="-mt-1 -ml-2 mr-3">
+                <Tooltip
+                  title={
+                    <Typography style={{ color: "white", fontSize: 13 }}>
+                      Creation date
+                    </Typography>
+                  }
+                  arrow
+                >
+                  <span>?</span>
+                </Tooltip>
+              </div>
+            </div>
+            <div>
+              <CustomField
+                name={name}
+                type="date"
+                fieldName="metadata.creation_date"
+                required
+              />
+            </div>
+          </div>
+        </FormWrapper>
       </div>
       <div className="mb-3">
         <OptionField

@@ -15,6 +15,7 @@ import HillCoefficient from "../result/HillCoefficient";
 import { getIn, useFormikContext } from "formik";
 import ChangeInGibbsFreeEnergyDeltaG from "../result/ChangeInGibbsFreeEnergyDeltaG";
 import DynamicOptionField from "../../buildingBlocks/DynamicOptionField";
+import ActiveConcentrationCorrection from "../result/ActiveConcentrationCorrection";
 
 function ResultTab({ name }) {
   const { values } = useFormikContext();
@@ -44,113 +45,98 @@ function ResultTab({ name }) {
       label: "Half maximal effective concentration EC50",
     },
     { value: "Hill coefficient", label: "Hill coefficient" },
+    {
+      value: "Active concentration correction",
+      label: "Active concentration correction",
+    },
   ];
 
   return (
     <>
-      <div className="-mt-3">
-        <ArrayField
-          name={name}
-          label="Result"
-          fieldName="results"
-          initialValue={{ type: "Concentration" }}
-          tooltip="List of the results (parameters) that were derived by analyzing the raw data and which steps were taken to obtain them"
-          renderChild={({ arrayName, index }) => {
-            const actualValue = getIn(values, `${arrayName}.${index}`);
-            if (!actualValue) {
-              return null;
-            }
-            return (
-              <FormWrapper
-                headline={`Result ${index + 1}`}
-                tooltip="List of the results (parameters) that were derived by analyzing the raw data and which steps were taken to obtain them"
-              >
-                <div className="mb-3">
-                  <DynamicOptionField
-                    name={`${arrayName}.${index}`}
-                    options={resultTabOptions}
-                    label="Type"
-                    required
-                    fieldName="type"
-                    width="w-full"
-                    tooltip="The type of physical parameter the result represents"
-                  />
-                </div>
-                <div>
-                  {actualValue.type === "Concentration" && (
-                    <div>
-                      <Concentration name={`${arrayName}.${index}`} />
-                    </div>
-                  )}
-                  {actualValue.type === "Stoichiometry" && (
-                    <div>
-                      <Stoichiometry name={`${arrayName}.${index}`} />
-                    </div>
-                  )}
-                  {actualValue.type === "Constant of association KA" && (
-                    <div>
-                      <ConstantOfAssociationKA name={`${arrayName}.${index}`} />
-                    </div>
-                  )}
-                  {actualValue.type === "Constant of dissociation KD" && (
-                    <div>
-                      <ConstantOfDissociationKD
-                        name={`${arrayName}.${index}`}
-                      />
-                    </div>
-                  )}
-                  {actualValue.type === "Association rate kOn" && (
-                    <div>
-                      <AssociationRateKOn name={`${arrayName}.${index}`} />
-                    </div>
-                  )}
-                  {actualValue.type === "Dissociation rate kOff" && (
-                    <div>
-                      <DissociationRateKOff name={`${arrayName}.${index}`} />
-                    </div>
-                  )}
-                  {actualValue.type === "Change in enthalpy deltaH" && (
-                    <div>
-                      <ChangeInEnthalpyDeltaH name={`${arrayName}.${index}`} />
-                    </div>
-                  )}
-                  {actualValue.type === "Change in entropy deltaS" && (
-                    <div>
-                      <ChangeInEntropyDeltaS name={`${arrayName}.${index}`} />
-                    </div>
-                  )}
-                  {actualValue.type ===
-                    "Change in gibbs free energy deltaG" && (
-                    <div>
-                      <ChangeInGibbsFreeEnergyDeltaG
-                        name={`${arrayName}.${index}`}
-                      />
-                    </div>
-                  )}
-                  {actualValue.type === "Molecular weight MW" && (
-                    <div>
-                      <MolecularWeightMW name={`${arrayName}.${index}`} />
-                    </div>
-                  )}
-                  {actualValue.type ===
-                    "Half maximal effective concentration EC50" && (
-                    <div>
-                      <HalfMaximalEffectiveConcentrationEC50
-                        name={`${arrayName}.${index}`}
-                      />
-                    </div>
-                  )}
-                  {actualValue.type === "Hill coefficient" && (
-                    <div>
-                      <HillCoefficient name={`${arrayName}.${index}`} />
-                    </div>
-                  )}
-                </div>
-              </FormWrapper>
-            );
-          }}
-        />
+      <div className="mb-3 w-fit">
+        <FormWrapper>
+          The results derived from the measurements (i.e. KD)
+        </FormWrapper>
       </div>
+      <ArrayField
+        name={name}
+        label="Result"
+        fieldName="results"
+        initialValue={{ type: "Concentration" }}
+        tooltip="List of the results (parameters) that were derived by analyzing the raw data and which steps were taken to obtain them"
+        renderChild={({ arrayName, index }) => {
+          const actualValue = getIn(values, `${arrayName}.${index}`);
+          if (!actualValue) {
+            return null;
+          }
+          return (
+            <FormWrapper
+              headline={`Result ${index + 1}`}
+              tooltip="List of the results (parameters) that were derived by analyzing the raw data and which steps were taken to obtain them"
+            >
+              <div className="mb-3">
+                <DynamicOptionField
+                  name={`${arrayName}.${index}`}
+                  options={resultTabOptions}
+                  label="Type"
+                  required
+                  fieldName="type"
+                  width="w-full"
+                  tooltip="The type of physical parameter the result represents"
+                />
+              </div>
+              <div>
+                {actualValue.type === "Concentration" && (
+                  <Concentration name={`${arrayName}.${index}`} />
+                )}
+                {actualValue.type === "Stoichiometry" && (
+                  <Stoichiometry name={`${arrayName}.${index}`} />
+                )}
+                {actualValue.type === "Constant of association KA" && (
+                  <ConstantOfAssociationKA name={`${arrayName}.${index}`} />
+                )}
+                {actualValue.type === "Constant of dissociation KD" && (
+                  <ConstantOfDissociationKD name={`${arrayName}.${index}`} />
+                )}
+                {actualValue.type === "Association rate kOn" && (
+                  <AssociationRateKOn name={`${arrayName}.${index}`} />
+                )}
+                {actualValue.type === "Dissociation rate kOff" && (
+                  <DissociationRateKOff name={`${arrayName}.${index}`} />
+                )}
+                {actualValue.type === "Change in enthalpy deltaH" && (
+                  <ChangeInEnthalpyDeltaH name={`${arrayName}.${index}`} />
+                )}
+                {actualValue.type === "Change in entropy deltaS" && (
+                  <ChangeInEntropyDeltaS name={`${arrayName}.${index}`} />
+                )}
+                {actualValue.type === "Change in gibbs free energy deltaG" && (
+                  <ChangeInGibbsFreeEnergyDeltaG
+                    name={`${arrayName}.${index}`}
+                  />
+                )}
+                {actualValue.type === "Molecular weight MW" && (
+                  <MolecularWeightMW name={`${arrayName}.${index}`} />
+                )}
+                {actualValue.type ===
+                  "Half maximal effective concentration EC50" && (
+                  <HalfMaximalEffectiveConcentrationEC50
+                    name={`${arrayName}.${index}`}
+                  />
+                )}
+                {actualValue.type === "Hill coefficient" && (
+                  <HillCoefficient name={`${arrayName}.${index}`} />
+                )}
+                {actualValue.type === "Active concentration correction" && (
+                  <ActiveConcentrationCorrection
+                    name={`${arrayName}.${index}`}
+                  />
+                )}
+              </div>
+            </FormWrapper>
+          );
+        }}
+      />
     </>
   );
 }

@@ -7,36 +7,33 @@ import InstrumentTab from "@mst_deposit/mstTabs/InstrumentTab";
 import ChemicalEnvironmentTab from "@mbdb_deposit/general/generalTabs/ChemicalEnvironmentTab";
 import ResultTab from "@mbdb_deposit/general/generalTabs/ResultTab";
 import DataAnalysisTab from "@mst_deposit/mstTabs/DataAnalysisTab";
-import ProjectInformationTab from "@mbdb_deposit/general/generalTabs/ProjectInformationTab";
-import MeasurementTab from "@mst_deposit/mstTabs/MeasurementTab";
+import RecordInformationTab from "@mbdb_deposit/general/generalTabs/RecordInformationTab";
+import MeasurementsTab from "@mst_deposit/mstTabs/MeasurementsTab";
 import { Formik, useFormikContext } from "formik";
 import { useFormConfig, useDepositApiClient } from "@js/oarepo_ui";
 import { Button } from "semantic-ui-react";
 import RequestOnRecordView from "@mbdb_deposit/buttons/RequestsRecordView";
 import PreviewButton from "@mbdb_deposit/buttons/PreviewButton";
 
-/**
-// for testing only
 const FormikStateLogger = () => {
   const state = useFormikContext();
   return <pre>{JSON.stringify(state, null, 2)}</pre>;
 };
-**/
 
 function FormFieldsContainer() {
   const Tabs = [
-    { value: "project-information", label: "Project information" },
+    { value: "record-information", label: "Record information" },
     { value: "entities-of-interest", label: "Entities of interest" },
     { value: "chemical-environment", label: "Chemical environments" },
     { value: "raw-measurement-files", label: "Raw measurement files" },
     { value: "instrument", label: "Instrument" },
-    { value: "measurement", label: "Measurements" },
+    { value: "measurements", label: "Measurements" },
     { value: "result", label: "Results" },
     { value: "data-analysis", label: "Data analysis" },
   ];
 
   const location = useLocation();
-  const [state, setState] = useState({ selected: "project-information" });
+  const [state, setState] = useState({ selected: "record-information" });
   const { save, values: recordMetadata } = useDepositApiClient();
   const { values, setErrors } = useFormikContext();
 
@@ -44,7 +41,7 @@ function FormFieldsContainer() {
 
   useEffect(() => {
     save(true);
-    const selectedTab = location?.state?.selectedTab || "project-information";
+    const selectedTab = location?.state?.selectedTab || "record-information";
     setState({ selected: selectedTab });
   }, [location]);
   const { files: recordFiles } = useFormConfig();
@@ -126,8 +123,8 @@ function FormFieldsContainer() {
                       state.selected === "raw-measurement-files" ? "hidden" : ""
                     }
                   >
-                    {state.selected === "project-information" && (
-                      <ProjectInformationTab name="metadata.general_parameters" />
+                    {state.selected === "record-information" && (
+                      <RecordInformationTab name="metadata.general_parameters" />
                     )}
                     {state.selected === "entities-of-interest" && (
                       <EntitiesOfInterestTab name="metadata.general_parameters" />
@@ -141,8 +138,8 @@ function FormFieldsContainer() {
                     {state.selected === "instrument" && (
                       <InstrumentTab name="metadata.general_parameters" />
                     )}
-                    {state.selected === "measurement" && (
-                      <MeasurementTab name="metadata.method_specific_parameters" />
+                    {state.selected === "measurements" && (
+                      <MeasurementsTab name="metadata.method_specific_parameters" />
                     )}
                     {state.selected === "data-analysis" && (
                       <DataAnalysisTab name="metadata.method_specific_parameters" />

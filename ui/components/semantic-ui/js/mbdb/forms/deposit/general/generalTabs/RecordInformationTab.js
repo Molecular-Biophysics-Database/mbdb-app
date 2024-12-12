@@ -1,18 +1,23 @@
 import React from "react";
-import RecordInformation from "../projectInformation/RecordInformation";
-import Depositors from "../projectInformation/depositors/Depositors";
+import RecordInformation from "../recordInformation/RecordInformation";
+import Depositors from "../recordInformation/depositors/Depositors";
 import ArrayField from "../../buildingBlocks/ArrayField";
-import AssociatedPublication from "../projectInformation/associatedPublication/AssociatedPublication";
+import AssociatedPublication from "../recordInformation/associatedPublication/AssociatedPublication";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
 import { useFieldData } from "@js/oarepo_ui";
 import { OpenAireProjectResultListItem } from "../../buildingBlocks/OpenAireProjectResultListItem";
 
-function ProjectInformationTab({ name }) {
+function RecordInformationTab({ name }) {
   const { getFieldData } = useFieldData();
 
   return (
     <>
+      <div className="mb-3 w-fit">
+        <FormWrapper>
+          The bibliographic, funding, and assosiated publication information
+        </FormWrapper>
+      </div>
       <div className="mb-3">
         <RecordInformation name={`${name}.record_information`} />
       </div>
@@ -55,4 +60,4 @@ function ProjectInformationTab({ name }) {
   );
 }
 
-export default ProjectInformationTab;
+export default RecordInformationTab;

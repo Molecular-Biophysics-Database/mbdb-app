@@ -6,7 +6,7 @@ import EntitiesOfInterestTab from "@mbdb_deposit/general/generalTabs/EntitiesOfI
 import InstrumentTab from "@bli_deposit/bliTabs/InstrumentTab";
 import ChemicalEnvironmentTab from "@mbdb_deposit/general/generalTabs/ChemicalEnvironmentTab";
 import ResultTab from "@mbdb_deposit/general/generalTabs/ResultTab";
-import ProjectInformationTab from "@mbdb_deposit/general/generalTabs/ProjectInformationTab";
+import RecordInformationTab from "@mbdb_deposit/general/generalTabs/RecordInformationTab";
 import PlatesTab from "@bli_deposit/bliTabs/PlatesTab";
 import SensorsTab from "@bli_deposit/bliTabs/SensorsTab";
 import MeasurementProtocolStepTab from "@bli_deposit/bliTabs/MeasurementProtocolStepTab";
@@ -20,7 +20,7 @@ import PreviewButton from "@mbdb_deposit/buttons/PreviewButton";
 
 function FormFieldsContainer() {
   const Tabs = [
-    { value: "project-information", label: "Project information" },
+    { value: "record-information", label: "Record information" },
     { value: "entities-of-interest", label: "Entities of interest" },
     { value: "chemical-environment", label: "Chemical environments" },
     { value: "raw-measurement-files", label: "Raw measurement files" },
@@ -34,13 +34,13 @@ function FormFieldsContainer() {
   ];
 
   const location = useLocation();
-  const [state, setState] = useState({ selected: "project-information" });
+  const [state, setState] = useState({ selected: "record-information" });
   const { save, values: recordMetadata } = useDepositApiClient();
   const { values, setErrors } = useFormikContext();
 
   useEffect(() => {
     save(true);
-    const selectedTab = location?.state?.selectedTab || "project-information";
+    const selectedTab = location?.state?.selectedTab || "record-information";
     setState({ selected: selectedTab });
   }, [location]);
   const { files: recordFiles } = useFormConfig();
@@ -122,8 +122,8 @@ function FormFieldsContainer() {
                       state.selected === "raw-measurement-files" ? "hidden" : ""
                     }
                   >
-                    {state.selected === "project-information" && (
-                      <ProjectInformationTab name="metadata.general_parameters" />
+                    {state.selected === "record-information" && (
+                      <RecordInformationTab name="metadata.general_parameters" />
                     )}
                     {state.selected === "entities-of-interest" && (
                       <EntitiesOfInterestTab name="metadata.general_parameters" />

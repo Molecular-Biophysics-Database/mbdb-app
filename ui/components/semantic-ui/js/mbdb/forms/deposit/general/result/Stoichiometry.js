@@ -1,12 +1,9 @@
 import React from "react";
 import CustomField from "../../buildingBlocks/CustomField";
-import ValueUnit from "../../buildingBlocks/ValueUnit";
-import ValueError from "../../buildingBlocks/ValueError";
 import ArrayField from "../../buildingBlocks/ArrayField";
 import EntityInvolved from "./EntityInvolved";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import UseDefault from "../../buildingBlocks/UseDefault";
-import OptionalField from "../../buildingBlocks/OptionalField";
 import CreateUuid from "../../buildingBlocks/CreateUuid";
 
 function Stoichiometry({ name }) {

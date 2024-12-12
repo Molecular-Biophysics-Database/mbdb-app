@@ -10,7 +10,6 @@ import CreateUuid from "../../buildingBlocks/CreateUuid";
 import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
 
-
 function ComplexSubstanceOfIndustrialOrigin({ name }) {
   CreateUuid(name);
 
@@ -19,47 +18,47 @@ function ComplexSubstanceOfIndustrialOrigin({ name }) {
 
   return (
     <>
-        <div className="flex">
-            <div className="mr-3">
-                <CustomField
-                    name={name}
-                    label="Name"
-                    fieldName="name"
-                    required
-                    width="w-[31.5rem]"
-                    tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample"
-                />
-            </div>
-            <div className="mr-3">
-                <FormWrapper
-                    headline="Product"
-                    colorSchema="light"
-                    tooltip="The type of product, byproduct, or waste product the complex substance was derived from"
-                >
-                    <VocabularySelectField
-                        search={(options) => options}
-                        type="products"
-                        label={<FieldLabel htmlFor={`${name}.product`} icon=""/>}
-                        fieldPath={`${name}.product`}
-                        placeholder="Product"
-                        clearable
-                    />
-                </FormWrapper>
-            </div>
+      <div className="flex">
+        <div className="mr-3">
+          <CustomField
+            name={name}
+            label="Name"
+            fieldName="name"
+            required
+            width="w-[31.5rem]"
+            tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample"
+          />
         </div>
-        <div className="flex">
-            <div>
-                <ArrayField
-                    name={name}
-                    label="Preparation protocol"
-                    fieldName={fieldNamePreparationProtocol}
-                    required
-                    tooltip="List of the steps performed during the preparation of the complex substance"
-                    renderChild={({arrayName, index}) => (
-                        <FormWrapper
-                            colorSchema="light"
-                            headline={`Preparation protocol step ${index + 1}`}
-                            tooltip="List of the steps performed during the preparation of the complex substance"
+        <div className="mr-3">
+          <FormWrapper
+            headline="Product"
+            colorSchema="light"
+            tooltip="The type of product, byproduct, or waste product the complex substance was derived from"
+          >
+            <VocabularySelectField
+              search={(options) => options}
+              type="products"
+              label={<FieldLabel htmlFor={`${name}.product`} icon="" />}
+              fieldPath={`${name}.product`}
+              placeholder="Product"
+              clearable
+            />
+          </FormWrapper>
+        </div>
+      </div>
+      <div className="flex">
+        <div>
+          <ArrayField
+            name={name}
+            label="Preparation protocol"
+            fieldName={fieldNamePreparationProtocol}
+            required
+            tooltip="List of the steps performed during the preparation of the complex substance"
+            renderChild={({ arrayName, index }) => (
+              <FormWrapper
+                colorSchema="light"
+                headline={`Preparation protocol step ${index + 1}`}
+                tooltip="List of the steps performed during the preparation of the complex substance"
               >
                 <Protocol name={`${arrayName}.${index}`} />
               </FormWrapper>
