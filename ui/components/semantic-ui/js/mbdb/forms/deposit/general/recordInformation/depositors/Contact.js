@@ -6,12 +6,46 @@ import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
 import { useFieldData } from "@js/oarepo_ui";
 import { RORInstitutionResultListItem } from "../../../buildingBlocks/RORInstitutionResultListItem";
 import FormWrapper from "../../../buildingBlocks/FormWrapper";
+import { useFormikContext, getIn } from "formik";
 
-function Contact({ name }) {
+function Contact({ name, copy }) {
   const { getFieldData } = useFieldData();
+  const { values, setFieldValue } = useFormikContext();
+
+  const depositor = getIn(
+    values,
+    `metadata.general_parameters.depositors.depositor`
+  );
+
+  const principalContact = `metadata.general_parameters.depositors.principal_contact`;
 
   return (
     <>
+      {copy && (
+        <>
+          <div className="flex mb-3">
+            <input
+              className="mr-3 accent-dark"
+              type="checkbox"
+              onChange={(e) => {
+                if (e.target.checked) {
+                  if (depositor) {
+                    setFieldValue(principalContact, depositor);
+                    console.log(
+                      depositor,
+                      "Hello depositor - on checkbox toggle"
+                    );
+                  }
+                } else {
+                  console.log("is this even rendering");
+                  setFieldValue(principalContact, {});
+                }
+              }}
+            />
+            <div className="font-JostMedium">Same as depositor</div>
+          </div>
+        </>
+      )}
       <div className="flex">
         <div className="mr-3">
           <CustomField

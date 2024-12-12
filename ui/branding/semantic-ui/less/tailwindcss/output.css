@@ -1483,6 +1483,10 @@ video {
   text-decoration-line: underline;
 }
 
+.accent-dark {
+  accent-color: #023850;
+}
+
 .outline-primary {
   outline-color: #EDF5F8;
 }
