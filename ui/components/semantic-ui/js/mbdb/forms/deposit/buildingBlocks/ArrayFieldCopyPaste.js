@@ -24,18 +24,11 @@ function ArrayFieldCopyPaste({
 
     const updatedObject = () => {
       if (method === "mst") {
+        const { position, ...rest } = previousArray;
         return {
-          ...(({ position, ...rest }) => rest)(previousArray),
+          ...rest,
           id: uuidv4(),
-          sample: {
-            ...previousArray.sample,
-            ligands: (previousArray.sample.ligands || []).map(
-              ({ concentration, ...ligandRest }) => ligandRest
-            ),
-            targets: (previousArray.sample.targets || []).map(
-              ({ concentration, ...targetRest }) => targetRest
-            ),
-          },
+          sample: { ...previousArray?.sample },
         };
       } else if (method === "bli") {
         const sample = previousArray?.sample;

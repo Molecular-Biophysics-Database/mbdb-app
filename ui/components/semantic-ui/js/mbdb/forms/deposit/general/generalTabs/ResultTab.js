@@ -15,7 +15,7 @@ import HillCoefficient from "../result/HillCoefficient";
 import { getIn, useFormikContext } from "formik";
 import ChangeInGibbsFreeEnergyDeltaG from "../result/ChangeInGibbsFreeEnergyDeltaG";
 import DynamicOptionField from "../../buildingBlocks/DynamicOptionField";
-import ActiveConcentrationCorrection from "../result/ActiveConcentrationCorrection";
+import CorrectionOfActiveConcentration from "../result/CorrectionOfActiveConcentration";
 
 function ResultTab({ name }) {
   const { values } = useFormikContext();
@@ -46,8 +46,8 @@ function ResultTab({ name }) {
     },
     { value: "Hill coefficient", label: "Hill coefficient" },
     {
-      value: "Active concentration correction",
-      label: "Active concentration correction",
+      value: "Correction of active concentration",
+      label: "Correction of active concentration",
     },
   ];
 
@@ -127,8 +127,8 @@ function ResultTab({ name }) {
                 {actualValue.type === "Hill coefficient" && (
                   <HillCoefficient name={`${arrayName}.${index}`} />
                 )}
-                {actualValue.type === "Active concentration correction" && (
-                  <ActiveConcentrationCorrection
+                {actualValue.type === "Correction of active concentration" && (
+                  <CorrectionOfActiveConcentration
                     name={`${arrayName}.${index}`}
                   />
                 )}

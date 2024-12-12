@@ -8,20 +8,48 @@ import { RORInstitutionResultListItem } from "../../../buildingBlocks/RORInstitu
 import FormWrapper from "../../../buildingBlocks/FormWrapper";
 import { useFormikContext, getIn } from "formik";
 
-function Contact({ name, copy }) {
+function Contact({ name, copyDepositor, copyPrincipalContact }) {
   const { getFieldData } = useFieldData();
   const { values, setFieldValue } = useFormikContext();
 
-  const depositor = getIn(
-    values,
-    `metadata.general_parameters.depositors.depositor`
-  );
+  const depositor = `metadata.general_parameters.depositors.depositor`;
+
+  const getDepositor = getIn(values, depositor);
 
   const principalContact = `metadata.general_parameters.depositors.principal_contact`;
 
+  const getPrincipalContact = getIn(values, principalContact);
+
+  /*
+  
+  function CopyPaste(copy, paste, name) {
+    return (
+      <>
+        <div className="flex mb-3">
+          <input
+            className="mr-3 accent-dark"
+            type="checkbox"
+            onChange={(e) => {
+              if (e.target.checked) {
+                if (copy) {
+                  setFieldValue(paste, copy);
+                }
+              } else {
+                setFieldValue(paste, {});
+              }
+            }}
+          />
+          <div className="font-JostMedium">{`Same as ${name}`}</div>
+        </div>
+      </>
+    );
+  }
+  
+  */
+
   return (
     <>
-      {copy && (
+      {copyPrincipalContact && (
         <>
           <div className="flex mb-3">
             <input
@@ -29,15 +57,30 @@ function Contact({ name, copy }) {
               type="checkbox"
               onChange={(e) => {
                 if (e.target.checked) {
-                  if (depositor) {
-                    setFieldValue(principalContact, depositor);
-                    console.log(
-                      depositor,
-                      "Hello depositor - on checkbox toggle"
-                    );
+                  if (getPrincipalContact) {
+                    setFieldValue(depositor, getPrincipalContact);
                   }
                 } else {
-                  console.log("is this even rendering");
+                  setFieldValue(depositor, {});
+                }
+              }}
+            />
+            <div className="font-JostMedium">Same as principal contact</div>
+          </div>
+        </>
+      )}
+      {copyDepositor && (
+        <>
+          <div className="flex mb-3">
+            <input
+              className="mr-3 accent-dark"
+              type="checkbox"
+              onChange={(e) => {
+                if (e.target.checked) {
+                  if (getDepositor) {
+                    setFieldValue(principalContact, getDepositor);
+                  }
+                } else {
                   setFieldValue(principalContact, {});
                 }
               }}

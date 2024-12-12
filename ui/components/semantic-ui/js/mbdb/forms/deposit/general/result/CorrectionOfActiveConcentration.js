@@ -4,7 +4,7 @@ import ValueError from "../../buildingBlocks/ValueError";
 import OptionalField from "../../buildingBlocks/OptionalField";
 import CreateUuid from "../../buildingBlocks/CreateUuid";
 
-function ActiveConcentrationCorrection({ name }) {
+function CorrectionOfActiveConcentration({ name }) {
   CreateUuid(name);
 
   const unitOptions = [{ value: "unitless", label: "unitless" }];
@@ -40,4 +40,4 @@ function ActiveConcentrationCorrection({ name }) {
   );
 }
 
-export default ActiveConcentrationCorrection;
+export default CorrectionOfActiveConcentration;
