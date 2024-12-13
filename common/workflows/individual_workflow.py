@@ -29,7 +29,6 @@
 #
 from invenio_records_permissions.generators import AnyUser, AuthenticatedUser
 
-from oarepo_requests.services.permissions.generators import IfRequestedBy
 from oarepo_runtime.services.permissions.generators import RecordOwners
 from oarepo_workflows import (
     AutoApprove,
@@ -61,6 +60,12 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
                 AnyUser(),
             ],
         ),
+        IfInState(
+            "submitted",
+            then_=[
+                UserWithRole("reviewer"),
+            ],
+        ),
     ]
 
     can_update = [
@@ -80,7 +85,6 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
             "draft",
             then_=[
                 RecordOwners(),
-                UserWithRole("editor"),
                 UserWithRole("administrator"),
             ],
         ),
@@ -88,7 +92,6 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
             "submitted",
             then_=[
                 RecordOwners(),
-                UserWithRole("editor"),
                 UserWithRole("administrator"),
             ],
         ),
@@ -96,14 +99,12 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
             "accepted",
             then_=[
                 RecordOwners(),
-                UserWithRole("editor"),
                 UserWithRole("administrator"),
             ],
         ),
     ]
 
 class IndividualWorkflowRequests(WorkflowRequestPolicy):
-
     submit_draft = WorkflowRequest(
         # reviewers are notified when a draft is submitted
         requesters=[
@@ -113,6 +114,9 @@ class IndividualWorkflowRequests(WorkflowRequestPolicy):
         transitions=WorkflowTransitions(declined="draft", submitted="submitted", accepted="accepted"),
     )
 
+    # TODO: Currently, new versions are not implemented, when it is,
+    #       please uncomment the following
+    """
     new_version = WorkflowRequest(
         requesters=[
             IfInState(
@@ -128,6 +132,7 @@ class IndividualWorkflowRequests(WorkflowRequestPolicy):
         # draft version. It will need to be accepted by the curator though.
         recipients=[AutoApprove()],
     )
+    """
 
     delete_published_record = WorkflowRequest(
         # if the record is draft, it is covered by the delete permission
@@ -137,12 +142,11 @@ class IndividualWorkflowRequests(WorkflowRequestPolicy):
                 "published",
                 then_=[
                     RecordOwners(),
+                    UserWithRole("editor"),
                     UserWithRole("administrator"),
                 ],
             ),
         ],
-        # if the requester is the curator of the community or administrator, auto approve the request,
-        # otherwise, the request is sent to the curator
         recipients=[
             UserWithRole("administrator")
         ],

@@ -55,7 +55,7 @@ class PublishAcceptedDraftRequestType(PublishDraftRequestType):
                 "Furthermore, you hereby agree to MBDB's "
                 """
                 <a 
-                  href='https://molecular-biophysics-database.github.io/mbdb-docs/terms-and-conditions/' 
+                  href='https://molecular-biophysics-database.github.io/mbdb-docs/terms-and-conditions/users' 
                   target='_blank'
                 ><u>terms and conditions,</u></a>
                 """
