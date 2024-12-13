@@ -3,7 +3,7 @@ from oarepo_runtime.services.config.permissions_presets import ReadOnlyPermissio
 
 
 class FineGrainedVocabularyPermissionPolicy(ReadOnlyPermissionPolicy):
-    can_create_affiliations = [SystemProcess()]
+    can_create_affiliations = [AuthenticatedUser(), SystemProcess()]
     can_create_cell_fractions = [AuthenticatedUser(), SystemProcess()]
     can_create_body_fluids = [AuthenticatedUser(), SystemProcess()]
     can_create_chemicals = [AuthenticatedUser(), SystemProcess()]
