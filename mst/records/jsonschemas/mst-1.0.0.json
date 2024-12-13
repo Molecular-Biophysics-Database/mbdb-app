@@ -160,34 +160,6 @@
                                                                     }
                                                                 }
                                                             }
-                                                        },
-                                                        "synthesis": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "position": {
-                                                                        "type": "string"
-                                                                    },
-                                                                    "protocol": {
-                                                                        "type": "array",
-                                                                        "items": {
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "description": {
-                                                                                    "type": "string"
-                                                                                },
-                                                                                "name": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "type": {
-                                                                        "type": "string"
-                                                                    }
-                                                                }
-                                                            }
                                                         }
                                                     }
                                                 },
@@ -450,34 +422,6 @@
                                                                         }
                                                                     },
                                                                     "chemical": {
-                                                                        "type": "array",
-                                                                        "items": {
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "position": {
-                                                                                    "type": "string"
-                                                                                },
-                                                                                "protocol": {
-                                                                                    "type": "array",
-                                                                                    "items": {
-                                                                                        "type": "object",
-                                                                                        "properties": {
-                                                                                            "description": {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            "name": {
-                                                                                                "type": "string"
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                },
-                                                                                "type": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "synthesis": {
                                                                         "type": "array",
                                                                         "items": {
                                                                             "type": "object",
@@ -953,10 +897,6 @@
                                 }
                             }
                         },
-                        "collection_start_time": {
-                            "type": "string",
-                            "format": "date"
-                        },
                         "depositors": {
                             "type": "object",
                             "properties": {
@@ -1166,34 +1106,6 @@
                                                 }
                                             },
                                             "chemical": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "position": {
-                                                            "type": "string"
-                                                        },
-                                                        "protocol": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "description": {
-                                                                        "type": "string"
-                                                                    },
-                                                                    "name": {
-                                                                        "type": "string"
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        "type": {
-                                                            "type": "string"
-                                                        }
-                                                    }
-                                                }
-                                            },
-                                            "synthesis": {
                                                 "type": "array",
                                                 "items": {
                                                     "type": "object",
@@ -1482,34 +1394,6 @@
                                                             }
                                                         },
                                                         "chemical": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "position": {
-                                                                        "type": "string"
-                                                                    },
-                                                                    "protocol": {
-                                                                        "type": "array",
-                                                                        "items": {
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "description": {
-                                                                                    "type": "string"
-                                                                                },
-                                                                                "name": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "type": {
-                                                                        "type": "string"
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        "synthesis": {
                                                             "type": "array",
                                                             "items": {
                                                                 "type": "object",
@@ -2348,6 +2232,10 @@
         },
         "state": {
             "type": "string"
+        },
+        "state_timestamp": {
+            "type": "string",
+            "format": "date-time"
         },
         "updated": {
             "type": "string",

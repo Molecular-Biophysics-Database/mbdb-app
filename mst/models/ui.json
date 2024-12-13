@@ -405,73 +405,6 @@
                                                                     }
                                                                 }
                                                             }
-                                                        },
-                                                        "synthesis": {
-                                                            "detail": "array",
-                                                            "input": "array",
-                                                            "help": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis.help",
-                                                            "label": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis.label",
-                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis.hint",
-                                                            "child": {
-                                                                "detail": "synthesi",
-                                                                "input": "synthesi",
-                                                                "help": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis.help",
-                                                                "label": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis.label",
-                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis.hint",
-                                                                "children": {
-                                                                    "position": {
-                                                                        "detail": "keyword",
-                                                                        "input": "keyword",
-                                                                        "help": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/position.help",
-                                                                        "label": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/position.label",
-                                                                        "hint": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/position.hint",
-                                                                        "facet": "metadata_general_parameters_chemical_environments_constituents_modifications_synthesis_position"
-                                                                    },
-                                                                    "protocol": {
-                                                                        "detail": "array",
-                                                                        "input": "array",
-                                                                        "help": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol.help",
-                                                                        "label": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol.label",
-                                                                        "hint": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol.hint",
-                                                                        "child": {
-                                                                            "detail": false,
-                                                                            "input": false,
-                                                                            "help": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol.help",
-                                                                            "label": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol.label",
-                                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol.hint",
-                                                                            "children": {
-                                                                                "description": {
-                                                                                    "detail": "keyword",
-                                                                                    "input": "keyword",
-                                                                                    "required": true,
-                                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/description.help",
-                                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/description.label",
-                                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/description.hint",
-                                                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_modifications_synthesis_protocol_description"
-                                                                                },
-                                                                                "name": {
-                                                                                    "detail": "keyword",
-                                                                                    "input": "keyword",
-                                                                                    "required": true,
-                                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/name.help",
-                                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/name.label",
-                                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/name.hint",
-                                                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_modifications_synthesis_protocol_name"
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "type": {
-                                                                        "detail": "keyword",
-                                                                        "input": "keyword",
-                                                                        "required": true,
-                                                                        "help": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/type.help",
-                                                                        "label": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/type.label",
-                                                                        "hint": "metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/type.hint",
-                                                                        "facet": "metadata_general_parameters_chemical_environments_constituents_modifications_synthesis_type"
-                                                                    }
-                                                                }
-                                                            }
                                                         }
                                                     }
                                                 },
@@ -1181,73 +1114,6 @@
                                                                                     "label": "metadata/general_parameters/chemical_environments/constituents/components/modifications/chemical/type.label",
                                                                                     "hint": "metadata/general_parameters/chemical_environments/constituents/components/modifications/chemical/type.hint",
                                                                                     "facet": "metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_type"
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "synthesis": {
-                                                                        "detail": "array",
-                                                                        "input": "array",
-                                                                        "help": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis.help",
-                                                                        "label": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis.label",
-                                                                        "hint": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis.hint",
-                                                                        "child": {
-                                                                            "detail": "synthesi",
-                                                                            "input": "synthesi",
-                                                                            "help": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis.help",
-                                                                            "label": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis.label",
-                                                                            "hint": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis.hint",
-                                                                            "children": {
-                                                                                "position": {
-                                                                                    "detail": "keyword",
-                                                                                    "input": "keyword",
-                                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/position.help",
-                                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/position.label",
-                                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/position.hint",
-                                                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_components_modifications_synthesis_position"
-                                                                                },
-                                                                                "protocol": {
-                                                                                    "detail": "array",
-                                                                                    "input": "array",
-                                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol.help",
-                                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol.label",
-                                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol.hint",
-                                                                                    "child": {
-                                                                                        "detail": false,
-                                                                                        "input": false,
-                                                                                        "help": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol.help",
-                                                                                        "label": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol.label",
-                                                                                        "hint": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol.hint",
-                                                                                        "children": {
-                                                                                            "description": {
-                                                                                                "detail": "keyword",
-                                                                                                "input": "keyword",
-                                                                                                "required": true,
-                                                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/description.help",
-                                                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/description.label",
-                                                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/description.hint",
-                                                                                                "facet": "metadata_general_parameters_chemical_environments_constituents_components_modifications_synthesis_protocol_description"
-                                                                                            },
-                                                                                            "name": {
-                                                                                                "detail": "keyword",
-                                                                                                "input": "keyword",
-                                                                                                "required": true,
-                                                                                                "help": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/name.help",
-                                                                                                "label": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/name.label",
-                                                                                                "hint": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/name.hint",
-                                                                                                "facet": "metadata_general_parameters_chemical_environments_constituents_components_modifications_synthesis_protocol_name"
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                },
-                                                                                "type": {
-                                                                                    "detail": "keyword",
-                                                                                    "input": "keyword",
-                                                                                    "required": true,
-                                                                                    "help": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/type.help",
-                                                                                    "label": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/type.label",
-                                                                                    "hint": "metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/type.hint",
-                                                                                    "facet": "metadata_general_parameters_chemical_environments_constituents_components_modifications_synthesis_type"
                                                                                 }
                                                                             }
                                                                         }
@@ -2370,15 +2236,6 @@
                                 }
                             }
                         },
-                        "collection_start_time": {
-                            "detail": "date",
-                            "input": "date",
-                            "required": true,
-                            "help": "metadata/general_parameters/collection_start_time.help",
-                            "label": "metadata/general_parameters/collection_start_time.label",
-                            "hint": "metadata/general_parameters/collection_start_time.hint",
-                            "facet": "metadata_general_parameters_collection_start_time"
-                        },
                         "depositors": {
                             "detail": "depositor",
                             "input": "depositor",
@@ -2942,73 +2799,6 @@
                                                             "label": "metadata/general_parameters/entities_of_interest/modifications/chemical/type.label",
                                                             "hint": "metadata/general_parameters/entities_of_interest/modifications/chemical/type.hint",
                                                             "facet": "metadata_general_parameters_entities_of_interest_modifications_chemical_type"
-                                                        }
-                                                    }
-                                                }
-                                            },
-                                            "synthesis": {
-                                                "detail": "array",
-                                                "input": "array",
-                                                "help": "metadata/general_parameters/entities_of_interest/modifications/synthesis.help",
-                                                "label": "metadata/general_parameters/entities_of_interest/modifications/synthesis.label",
-                                                "hint": "metadata/general_parameters/entities_of_interest/modifications/synthesis.hint",
-                                                "child": {
-                                                    "detail": "synthesi",
-                                                    "input": "synthesi",
-                                                    "help": "metadata/general_parameters/entities_of_interest/modifications/synthesis.help",
-                                                    "label": "metadata/general_parameters/entities_of_interest/modifications/synthesis.label",
-                                                    "hint": "metadata/general_parameters/entities_of_interest/modifications/synthesis.hint",
-                                                    "children": {
-                                                        "position": {
-                                                            "detail": "keyword",
-                                                            "input": "keyword",
-                                                            "help": "metadata/general_parameters/entities_of_interest/modifications/synthesis/position.help",
-                                                            "label": "metadata/general_parameters/entities_of_interest/modifications/synthesis/position.label",
-                                                            "hint": "metadata/general_parameters/entities_of_interest/modifications/synthesis/position.hint",
-                                                            "facet": "metadata_general_parameters_entities_of_interest_modifications_synthesis_position"
-                                                        },
-                                                        "protocol": {
-                                                            "detail": "array",
-                                                            "input": "array",
-                                                            "help": "metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol.help",
-                                                            "label": "metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol.label",
-                                                            "hint": "metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol.hint",
-                                                            "child": {
-                                                                "detail": false,
-                                                                "input": false,
-                                                                "help": "metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol.help",
-                                                                "label": "metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol.label",
-                                                                "hint": "metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol.hint",
-                                                                "children": {
-                                                                    "description": {
-                                                                        "detail": "keyword",
-                                                                        "input": "keyword",
-                                                                        "required": true,
-                                                                        "help": "metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/description.help",
-                                                                        "label": "metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/description.label",
-                                                                        "hint": "metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/description.hint",
-                                                                        "facet": "metadata_general_parameters_entities_of_interest_modifications_synthesis_protocol_description"
-                                                                    },
-                                                                    "name": {
-                                                                        "detail": "keyword",
-                                                                        "input": "keyword",
-                                                                        "required": true,
-                                                                        "help": "metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/name.help",
-                                                                        "label": "metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/name.label",
-                                                                        "hint": "metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/name.hint",
-                                                                        "facet": "metadata_general_parameters_entities_of_interest_modifications_synthesis_protocol_name"
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        "type": {
-                                                            "detail": "keyword",
-                                                            "input": "keyword",
-                                                            "required": true,
-                                                            "help": "metadata/general_parameters/entities_of_interest/modifications/synthesis/type.help",
-                                                            "label": "metadata/general_parameters/entities_of_interest/modifications/synthesis/type.label",
-                                                            "hint": "metadata/general_parameters/entities_of_interest/modifications/synthesis/type.hint",
-                                                            "facet": "metadata_general_parameters_entities_of_interest_modifications_synthesis_type"
                                                         }
                                                     }
                                                 }
@@ -3721,73 +3511,6 @@
                                                                         "label": "metadata/general_parameters/entities_of_interest/components/modifications/chemical/type.label",
                                                                         "hint": "metadata/general_parameters/entities_of_interest/components/modifications/chemical/type.hint",
                                                                         "facet": "metadata_general_parameters_entities_of_interest_components_modifications_chemical_type"
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        "synthesis": {
-                                                            "detail": "array",
-                                                            "input": "array",
-                                                            "help": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis.help",
-                                                            "label": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis.label",
-                                                            "hint": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis.hint",
-                                                            "child": {
-                                                                "detail": "synthesi",
-                                                                "input": "synthesi",
-                                                                "help": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis.help",
-                                                                "label": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis.label",
-                                                                "hint": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis.hint",
-                                                                "children": {
-                                                                    "position": {
-                                                                        "detail": "keyword",
-                                                                        "input": "keyword",
-                                                                        "help": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/position.help",
-                                                                        "label": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/position.label",
-                                                                        "hint": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/position.hint",
-                                                                        "facet": "metadata_general_parameters_entities_of_interest_components_modifications_synthesis_position"
-                                                                    },
-                                                                    "protocol": {
-                                                                        "detail": "array",
-                                                                        "input": "array",
-                                                                        "help": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol.help",
-                                                                        "label": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol.label",
-                                                                        "hint": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol.hint",
-                                                                        "child": {
-                                                                            "detail": false,
-                                                                            "input": false,
-                                                                            "help": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol.help",
-                                                                            "label": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol.label",
-                                                                            "hint": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol.hint",
-                                                                            "children": {
-                                                                                "description": {
-                                                                                    "detail": "keyword",
-                                                                                    "input": "keyword",
-                                                                                    "required": true,
-                                                                                    "help": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/description.help",
-                                                                                    "label": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/description.label",
-                                                                                    "hint": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/description.hint",
-                                                                                    "facet": "metadata_general_parameters_entities_of_interest_components_modifications_synthesis_protocol_description"
-                                                                                },
-                                                                                "name": {
-                                                                                    "detail": "keyword",
-                                                                                    "input": "keyword",
-                                                                                    "required": true,
-                                                                                    "help": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/name.help",
-                                                                                    "label": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/name.label",
-                                                                                    "hint": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/name.hint",
-                                                                                    "facet": "metadata_general_parameters_entities_of_interest_components_modifications_synthesis_protocol_name"
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "type": {
-                                                                        "detail": "keyword",
-                                                                        "input": "keyword",
-                                                                        "required": true,
-                                                                        "help": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/type.help",
-                                                                        "label": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/type.label",
-                                                                        "hint": "metadata/general_parameters/entities_of_interest/components/modifications/synthesis/type.hint",
-                                                                        "facet": "metadata_general_parameters_entities_of_interest_components_modifications_synthesis_type"
                                                                     }
                                                                 }
                                                             }
@@ -5832,6 +5555,14 @@
             "label": "state.label",
             "hint": "state.hint",
             "facet": "state"
+        },
+        "state_timestamp": {
+            "detail": "datetime",
+            "input": "datetime",
+            "help": "state_timestamp.help",
+            "label": "state_timestamp.label",
+            "hint": "state_timestamp.hint",
+            "facet": "state_timestamp"
         },
         "updated": {
             "detail": "datetime",

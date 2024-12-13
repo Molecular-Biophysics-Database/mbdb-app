@@ -31,6 +31,10 @@ class SprFileSchema(InvenioFileSchema):
 
     created = ma_fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
 
+    creation_date = ma_fields.String(
+        required=True, validate=[validate_date("%Y-%m-%d")]
+    )
+
     description = ma_fields.String()
 
     originates_from = ma_fields.String(

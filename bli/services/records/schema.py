@@ -9,7 +9,7 @@ from marshmallow_utils.fields import SanitizedUnicode
 from oarepo_communities.schemas.parent import CommunitiesParentSchema
 from oarepo_runtime.services.schema.marshmallow import BaseRecordSchema, DictOnlySchema
 from oarepo_runtime.services.schema.polymorphic import PolymorphicSchema
-from oarepo_runtime.services.schema.validation import validate_date
+from oarepo_runtime.services.schema.validation import validate_date, validate_datetime
 from oarepo_workflows.services.records.schema import WorkflowParentSchema
 
 
@@ -28,6 +28,8 @@ class BliSchema(BaseRecordSchema):
     metadata = ma_fields.Nested(lambda: BliMetadataSchema())
 
     state = ma_fields.String(dump_only=True)
+
+    state_timestamp = ma_fields.String(dump_only=True, validate=[validate_datetime])
     parent = ma.fields.Nested(GeneratedParentSchema)
     files = ma.fields.Nested(
         lambda: FilesOptionsSchema(), load_default={"enabled": True}
@@ -76,10 +78,6 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    collection_start_time = ma_fields.String(
-        required=True, validate=[validate_date("%Y-%m-%d")]
-    )
-
     depositors = ma_fields.Nested(lambda: DepositorsSchema(), required=True)
 
     entities_of_interest = ma_fields.List(
@@ -104,7 +102,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.10.1"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.11.0"])])
 
     technique = ma_fields.String(
         required=True,
@@ -723,7 +721,7 @@ class MethodSpecificParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.7"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.8"])])
 
     sensors = ma_fields.List(
         ma_fields.Nested(lambda: SensorsItemSchema()),
@@ -883,6 +881,13 @@ class ResultsItemSchema(PolymorphicSchema):
         attribute="Constant of dissociation KD",
     )
 
+    Correction_of_active_concentration = ma_fields.Nested(
+        lambda: Hill_coefficientSchema(),
+        required=True,
+        data_key="Correction of active concentration",
+        attribute="Correction of active concentration",
+    )
+
     Dissociation_rate_kOff = ma_fields.Nested(
         lambda: Dissociation_rate_kOffSchema(),
         required=True,
@@ -955,6 +960,7 @@ class Association_rate_kOnSchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -1126,6 +1132,7 @@ class Change_in_enthalpy_deltaHSchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -1169,6 +1176,7 @@ class Change_in_entropy_deltaSSchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -1582,6 +1590,7 @@ class Constant_of_association_KASchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -1632,6 +1641,7 @@ class Constant_of_dissociation_KDSchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -1694,6 +1704,7 @@ class Dissociation_rate_kOffSchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -1857,6 +1868,7 @@ class Hill_coefficientSchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -1897,11 +1909,6 @@ class ModificationsSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    synthesis = ma_fields.List(
-        ma_fields.Nested(lambda: BiologicalPostprocessingItemSchema()),
-        validate=[ma.validate.Length(min=1)],
-    )
-
 
 class Molecular_weightSchema(DictOnlySchema):
     class Meta:
@@ -1933,6 +1940,7 @@ class Molecular_weightSchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -1958,11 +1966,11 @@ class PlatesItemSchema(DictOnlySchema):
 
     sealing = ma_fields.String()
 
-    supplier = ma_fields.Nested(lambda: SupplierSchema(), required=True)
+    supplier = ma_fields.Nested(lambda: SupplierSchema())
 
     surface_modification = ma_fields.Nested(lambda: SurfaceModificationSchema())
 
-    type = ma_fields.String(required=True)
+    type = ma_fields.String()
 
     wells = ma_fields.String(required=True, validate=[OneOf(["96", "384"])])
 
@@ -2010,6 +2018,7 @@ class ResultsItemConcentrationSchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -2089,7 +2098,7 @@ class SensorsItemSchema(DictOnlySchema):
 
     sensor_id = ma_fields.String()
 
-    supplier = ma_fields.Nested(lambda: SupplierSchema(), required=True)
+    supplier = ma_fields.Nested(lambda: SupplierSchema())
 
     surface_properties = ma_fields.String()
 
@@ -2198,6 +2207,7 @@ class StoichiometrySchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )

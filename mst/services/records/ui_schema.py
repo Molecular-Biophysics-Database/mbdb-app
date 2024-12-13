@@ -5,7 +5,11 @@ from marshmallow.fields import String
 from marshmallow.validate import OneOf
 from oarepo_requests.services.ui_schema import UIRequestsSerializationMixin
 from oarepo_runtime.services.schema.marshmallow import DictOnlySchema
-from oarepo_runtime.services.schema.ui import InvenioUISchema, LocalizedDate
+from oarepo_runtime.services.schema.ui import (
+    InvenioUISchema,
+    LocalizedDate,
+    LocalizedDateTime,
+)
 from oarepo_vocabularies.services.ui_schema import VocabularyI18nStrUIField
 
 
@@ -18,6 +22,8 @@ class MstUISchema(UIRequestsSerializationMixin, InvenioUISchema):
     metadata = ma_fields.Nested(lambda: MstMetadataUISchema())
 
     state = ma_fields.String(dump_only=True)
+
+    state_timestamp = LocalizedDateTime(dump_only=True)
 
 
 class MstMetadataUISchema(Schema):
@@ -45,8 +51,6 @@ class GeneralParametersUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: ChemicalEnvironmentsItemUISchema()), required=True
     )
 
-    collection_start_time = LocalizedDate(required=True)
-
     depositors = ma_fields.Nested(lambda: DepositorsUISchema(), required=True)
 
     entities_of_interest = ma_fields.List(
@@ -65,7 +69,7 @@ class GeneralParametersUISchema(DictOnlySchema):
 
     results = ma_fields.List(ma_fields.Nested(lambda: ResultsItemUISchema()))
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.10.1"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.11.0"])])
 
     technique = ma_fields.String(
         required=True,
@@ -912,7 +916,7 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: MeasurementsItemUISchema()), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.10"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.11"])])
 
     signal_type = ma_fields.String(
         required=True,
@@ -1041,6 +1045,7 @@ class Association_rate_kOnUISchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -1202,6 +1207,7 @@ class Change_in_enthalpy_deltaHUISchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -1243,6 +1249,7 @@ class Change_in_entropy_deltaSUISchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -1704,6 +1711,7 @@ class Constant_of_association_KAUISchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -1752,6 +1760,7 @@ class Constant_of_dissociation_KDUISchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -1809,6 +1818,7 @@ class Dissociation_rate_kOffUISchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -2050,10 +2060,6 @@ class ModificationsUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: BiologicalPostprocessingItemUISchema())
     )
 
-    synthesis = ma_fields.List(
-        ma_fields.Nested(lambda: BiologicalPostprocessingItemUISchema())
-    )
-
 
 class Molecular_weightUISchema(DictOnlySchema):
     class Meta:
@@ -2083,6 +2089,7 @@ class Molecular_weightUISchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -2126,6 +2133,7 @@ class ResultsItemConcentrationUISchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -2194,6 +2202,7 @@ class ResultsItemUISchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -2235,6 +2244,7 @@ class ResultsItemUISchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )
@@ -2400,6 +2410,7 @@ class StoichiometryUISchema(DictOnlySchema):
                     "Change in enthalpy deltaH",
                     "Change in entropy deltaS",
                     "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
                     "Molecular weight",
                 ]
             )

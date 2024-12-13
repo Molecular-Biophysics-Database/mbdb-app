@@ -17,6 +17,7 @@ class MstExt:
 
     def init_app(self, app):
         """Flask application initialization."""
+        self.app = app
 
         self.init_config(app)
         if not self.is_inherited():
@@ -55,8 +56,15 @@ class MstExt:
 
     @cached_property
     def service_records(self):
+        service_config = config.MST_RECORD_SERVICE_CONFIG
+        if hasattr(service_config, "build"):
+            config_class = service_config.build(self.app)
+        else:
+            config_class = service_config()
+
+        service_kwargs = {"config": config_class}
         return config.MST_RECORD_SERVICE_CLASS(
-            config=config.MST_RECORD_SERVICE_CONFIG(),
+            **service_kwargs,
             files_service=self.service_files,
             draft_files_service=self.service_draft_files,
         )
@@ -111,8 +119,15 @@ class MstExt:
 
     @cached_property
     def service_files(self):
+        service_config = config.MST_FILES_SERVICE_CONFIG
+        if hasattr(service_config, "build"):
+            config_class = service_config.build(self.app)
+        else:
+            config_class = service_config()
+
+        service_kwargs = {"config": config_class}
         return config.MST_FILES_SERVICE_CLASS(
-            config=config.MST_FILES_SERVICE_CONFIG(),
+            **service_kwargs,
         )
 
     @cached_property
@@ -133,8 +148,15 @@ class MstExt:
 
     @cached_property
     def service_draft_files(self):
+        service_config = config.MST_DRAFT_FILES_SERVICE_CONFIG
+        if hasattr(service_config, "build"):
+            config_class = service_config.build(self.app)
+        else:
+            config_class = service_config()
+
+        service_kwargs = {"config": config_class}
         return config.MST_DRAFT_FILES_SERVICE_CLASS(
-            config=config.MST_DRAFT_FILES_SERVICE_CONFIG(),
+            **service_kwargs,
         )
 
     @cached_property

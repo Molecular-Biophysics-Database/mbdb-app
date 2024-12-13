@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-10-04T11:02:07.626764\n"
-"PO-Revision-Date: 2024-10-04T11:02:07.626771\n"
+"POT-Creation-Date: 2024-12-11T13:18:47.043715\n"
+"PO-Revision-Date: 2024-12-11T13:18:47.043721\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -454,7 +454,10 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/modifications/biological_postprocessing/position.help"
-msgstr "The position where the modification occurs (e.g. 23)"
+msgstr ""
+"The position in the primary sequence where the modification occurs (e.g. "
+"23). Please indicate if the numbering differs from that implied by the "
+"sequence field"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/modifications/biological_postprocessing/position.label"
@@ -529,7 +532,10 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/modifications/chemical/position.help"
-msgstr "The position where the modification occurs (e.g. 23)"
+msgstr ""
+"The position in the primary sequence where the modification occurs (e.g. "
+"23). Please indicate if the numbering differs from that implied by the "
+"sequence field"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/modifications/chemical/position.label"
@@ -585,80 +591,6 @@ msgstr "Type"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/modifications/chemical/type.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis.help"
-msgstr ""
-"Modifications (e.g. non-natural amino acids) of the polymer made during "
-"synthesis (e.g. translation) of the polymer"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis.label"
-msgstr "Synthesis"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/position.help"
-msgstr "The position where the modification occurs (e.g. 23)"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/position.label"
-msgstr "Position"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/position.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol.help"
-msgstr "List of steps that led to the modification taking place"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol.label"
-msgstr "Protocol"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/description.help"
-msgstr "Short description of the step"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/description.label"
-msgstr "Description"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/description.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/name.help"
-msgstr "Descriptive name of the step"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/name.label"
-msgstr "Name"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/protocol/name.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/type.help"
-msgstr "The common name/type of the modification"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/type.label"
-msgstr "Type"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/modifications/synthesis/type.hint"
 msgstr ""
 
 msgid ""
@@ -1180,9 +1112,11 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/sequence.help"
 msgstr ""
-"Primary sequence of the polymer, using single letter codes (e.g. SAGRELLE, "
-"AGTTA). In the case of non-natural amino acids or nucleotides, please place "
-"the monomer in brackets (e.g. for selenocysteine as SAGREL<Sec>LE)"
+"Primary sequence of the polymer using single letter codes (e.g. SAGRELLE, "
+"AGTTA). This should be the sequence of the polymer that was used in the "
+"experiment including mutations, purification tags etc. For non-canonical "
+"amino acids or nucleotides, please place the full name of the monomer in "
+"angle brackets (e.g. SAGREL<3-Sulfinoalanine>LE)"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/sequence.label"
@@ -1304,9 +1238,9 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/variant.help"
 msgstr ""
-"Descriptive name indicating differences of primary sequence of the polymer "
-"as compared to the most common form, or wildtype, including mutations, "
-"purification tags, etc. (A53T, C-terminal GFP, N-terminal 6xHis-tag)"
+"Annotation of the primary sequence can be specified here (e.g. Wildtype, "
+"C-terminal 6x-histag). Note that this also applies to polymers of unknown "
+"sequence"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/variant.label"
@@ -1443,7 +1377,10 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/chemical_modifications/position.help"
-msgstr "The position where the modification occurs (e.g. 23)"
+msgstr ""
+"The position in the primary sequence where the modification occurs (e.g. "
+"23). Please indicate if the numbering differs from that implied by the "
+"sequence field"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/chemical_modifications/position.label"
@@ -1530,7 +1467,9 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/copy_number.help"
-msgstr "Number of copies of the component within the assembly, -1 if unknown"
+msgstr ""
+"The number of copies of the component within the assembly, -1 if unknown "
+"(e.g. for homodimer, the copy number would be 2)"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/copy_number.label"
@@ -1672,7 +1611,10 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/modifications/biological_postprocessing/position.help"
-msgstr "The position where the modification occurs (e.g. 23)"
+msgstr ""
+"The position in the primary sequence where the modification occurs (e.g. "
+"23). Please indicate if the numbering differs from that implied by the "
+"sequence field"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/modifications/biological_postprocessing/position.label"
@@ -1747,7 +1689,10 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/modifications/chemical/position.help"
-msgstr "The position where the modification occurs (e.g. 23)"
+msgstr ""
+"The position in the primary sequence where the modification occurs (e.g. "
+"23). Please indicate if the numbering differs from that implied by the "
+"sequence field"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/modifications/chemical/position.label"
@@ -1803,80 +1748,6 @@ msgstr "Type"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/modifications/chemical/type.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis.help"
-msgstr ""
-"Modifications (e.g. non-natural amino acids) of the polymer made during "
-"synthesis (e.g. translation) of the polymer"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis.label"
-msgstr "Synthesis"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/position.help"
-msgstr "The position where the modification occurs (e.g. 23)"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/position.label"
-msgstr "Position"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/position.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol.help"
-msgstr "List of steps that led to the modification taking place"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol.label"
-msgstr "Protocol"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/description.help"
-msgstr "Short description of the step"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/description.label"
-msgstr "Description"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/description.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/name.help"
-msgstr "Descriptive name of the step"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/name.label"
-msgstr "Name"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/protocol/name.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/type.help"
-msgstr "The common name/type of the modification"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/type.label"
-msgstr "Type"
-
-msgid ""
-"metadata/general_parameters/chemical_environments/constituents/components/modifications/synthesis/type.hint"
 msgstr ""
 
 msgid ""
@@ -2398,9 +2269,11 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/sequence.help"
 msgstr ""
-"Primary sequence of the polymer, using single letter codes (e.g. SAGRELLE, "
-"AGTTA). In the case of non-natural amino acids or nucleotides, please place "
-"the monomer in brackets (e.g. for selenocysteine as SAGREL<Sec>LE)"
+"Primary sequence of the polymer using single letter codes (e.g. SAGRELLE, "
+"AGTTA). This should be the sequence of the polymer that was used in the "
+"experiment including mutations, purification tags etc. For non-canonical "
+"amino acids or nucleotides, please place the full name of the monomer in "
+"angle brackets (e.g. SAGREL<3-Sulfinoalanine>LE)"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/sequence.label"
@@ -2495,9 +2368,9 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/variant.help"
 msgstr ""
-"Descriptive name indicating differences of primary sequence of the polymer "
-"as compared to the most common form, or wildtype, including mutations, "
-"purification tags, etc. (A53T, C-terminal GFP, N-terminal 6xHis-tag)"
+"Annotation of the primary sequence can be specified here (e.g. Wildtype, "
+"C-terminal 6x-histag). Note that this also applies to polymers of unknown "
+"sequence"
 
 msgid ""
 "metadata/general_parameters/chemical_environments/constituents/components/variant.label"
@@ -3814,15 +3687,6 @@ msgid ""
 "metadata/general_parameters/chemical_environments/solvent/type.enum.Chemical"
 msgstr ""
 
-msgid "metadata/general_parameters/collection_start_time.help"
-msgstr "The date when collection of the raw data began"
-
-msgid "metadata/general_parameters/collection_start_time.label"
-msgstr "Collection start time"
-
-msgid "metadata/general_parameters/collection_start_time.hint"
-msgstr ""
-
 msgid "metadata/general_parameters/depositors.help"
 msgstr "Information about the depositors (authors) of this record"
 
@@ -4364,7 +4228,10 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/modifications/biological_postprocessing/position.help"
-msgstr "The position where the modification occurs (e.g. 23)"
+msgstr ""
+"The position in the primary sequence where the modification occurs (e.g. "
+"23). Please indicate if the numbering differs from that implied by the "
+"sequence field"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/modifications/biological_postprocessing/position.label"
@@ -4439,7 +4306,10 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/modifications/chemical/position.help"
-msgstr "The position where the modification occurs (e.g. 23)"
+msgstr ""
+"The position in the primary sequence where the modification occurs (e.g. "
+"23). Please indicate if the numbering differs from that implied by the "
+"sequence field"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/modifications/chemical/position.label"
@@ -4495,80 +4365,6 @@ msgstr "Type"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/modifications/chemical/type.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis.help"
-msgstr ""
-"Modifications (e.g. non-natural amino acids) of the polymer made during "
-"synthesis (e.g. translation) of the polymer"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis.label"
-msgstr "Synthesis"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/position.help"
-msgstr "The position where the modification occurs (e.g. 23)"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/position.label"
-msgstr "Position"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/position.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol.help"
-msgstr "List of steps that led to the modification taking place"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol.label"
-msgstr "Protocol"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/description.help"
-msgstr "Short description of the step"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/description.label"
-msgstr "Description"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/description.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/name.help"
-msgstr "Descriptive name of the step"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/name.label"
-msgstr "Name"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/protocol/name.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/type.help"
-msgstr "The common name/type of the modification"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/type.label"
-msgstr "Type"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/modifications/synthesis/type.hint"
 msgstr ""
 
 msgid "metadata/general_parameters/entities_of_interest/molecular_weight.help"
@@ -5081,9 +4877,11 @@ msgstr ""
 
 msgid "metadata/general_parameters/entities_of_interest/sequence.help"
 msgstr ""
-"Primary sequence of the polymer, using single letter codes (e.g. SAGRELLE, "
-"AGTTA). In the case of non-natural amino acids or nucleotides, please place "
-"the monomer in brackets (e.g. for selenocysteine as SAGREL<Sec>LE)"
+"Primary sequence of the polymer using single letter codes (e.g. SAGRELLE, "
+"AGTTA). This should be the sequence of the polymer that was used in the "
+"experiment including mutations, purification tags etc. For non-canonical "
+"amino acids or nucleotides, please place the full name of the monomer in "
+"angle brackets (e.g. SAGREL<3-Sulfinoalanine>LE)"
 
 msgid "metadata/general_parameters/entities_of_interest/sequence.label"
 msgstr "Sequence"
@@ -5199,9 +4997,9 @@ msgstr ""
 
 msgid "metadata/general_parameters/entities_of_interest/variant.help"
 msgstr ""
-"Descriptive name indicating differences of primary sequence of the polymer "
-"as compared to the most common form, or wildtype, including mutations, "
-"purification tags, etc. (A53T, C-terminal GFP, N-terminal 6xHis-tag)"
+"Annotation of the primary sequence can be specified here (e.g. Wildtype, "
+"C-terminal 6x-histag). Note that this also applies to polymers of unknown "
+"sequence"
 
 msgid "metadata/general_parameters/entities_of_interest/variant.label"
 msgstr "Variant"
@@ -5336,7 +5134,10 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/chemical_modifications/position.help"
-msgstr "The position where the modification occurs (e.g. 23)"
+msgstr ""
+"The position in the primary sequence where the modification occurs (e.g. "
+"23). Please indicate if the numbering differs from that implied by the "
+"sequence field"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/chemical_modifications/position.label"
@@ -5420,7 +5221,9 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/copy_number.help"
-msgstr "Number of copies of the component within the assembly, -1 if unknown"
+msgstr ""
+"The number of copies of the component within the assembly, -1 if unknown "
+"(e.g. for homodimer, the copy number would be 2)"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/copy_number.label"
@@ -5562,7 +5365,10 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/modifications/biological_postprocessing/position.help"
-msgstr "The position where the modification occurs (e.g. 23)"
+msgstr ""
+"The position in the primary sequence where the modification occurs (e.g. "
+"23). Please indicate if the numbering differs from that implied by the "
+"sequence field"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/modifications/biological_postprocessing/position.label"
@@ -5637,7 +5443,10 @@ msgstr ""
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/modifications/chemical/position.help"
-msgstr "The position where the modification occurs (e.g. 23)"
+msgstr ""
+"The position in the primary sequence where the modification occurs (e.g. "
+"23). Please indicate if the numbering differs from that implied by the "
+"sequence field"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/modifications/chemical/position.label"
@@ -5693,80 +5502,6 @@ msgstr "Type"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/modifications/chemical/type.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis.help"
-msgstr ""
-"Modifications (e.g. non-natural amino acids) of the polymer made during "
-"synthesis (e.g. translation) of the polymer"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis.label"
-msgstr "Synthesis"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/position.help"
-msgstr "The position where the modification occurs (e.g. 23)"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/position.label"
-msgstr "Position"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/position.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol.help"
-msgstr "List of steps that led to the modification taking place"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol.label"
-msgstr "Protocol"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/description.help"
-msgstr "Short description of the step"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/description.label"
-msgstr "Description"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/description.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/name.help"
-msgstr "Descriptive name of the step"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/name.label"
-msgstr "Name"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/protocol/name.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/type.help"
-msgstr "The common name/type of the modification"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/type.label"
-msgstr "Type"
-
-msgid ""
-"metadata/general_parameters/entities_of_interest/components/modifications/synthesis/type.hint"
 msgstr ""
 
 msgid ""
@@ -6285,9 +6020,11 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/sequence.help"
 msgstr ""
-"Primary sequence of the polymer, using single letter codes (e.g. SAGRELLE, "
-"AGTTA). In the case of non-natural amino acids or nucleotides, please place "
-"the monomer in brackets (e.g. for selenocysteine as SAGREL<Sec>LE)"
+"Primary sequence of the polymer using single letter codes (e.g. SAGRELLE, "
+"AGTTA). This should be the sequence of the polymer that was used in the "
+"experiment including mutations, purification tags etc. For non-canonical "
+"amino acids or nucleotides, please place the full name of the monomer in "
+"angle brackets (e.g. SAGREL<3-Sulfinoalanine>LE)"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/sequence.label"
@@ -6379,9 +6116,9 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/variant.help"
 msgstr ""
-"Descriptive name indicating differences of primary sequence of the polymer "
-"as compared to the most common form, or wildtype, including mutations, "
-"purification tags, etc. (A53T, C-terminal GFP, N-terminal 6xHis-tag)"
+"Annotation of the primary sequence can be specified here (e.g. Wildtype, "
+"C-terminal 6x-histag). Note that this also applies to polymers of unknown "
+"sequence"
 
 msgid ""
 "metadata/general_parameters/entities_of_interest/components/variant.label"
@@ -7585,8 +7322,9 @@ msgstr ""
 msgid "metadata/general_parameters/results/entities_involved/copy_number.help"
 msgstr ""
 "Number of copies of the entity that contribute to the result, -1 if unknown "
-"(e.g. if two individual copies of a polymer bind to another, the copy number"
-" would be 2)"
+"(e.g. if two metals ions binds independent of each other to a monomeric "
+"protein, the copy number would be be 2 and 1 for the metal ions and protein,"
+" respectively)"
 
 msgid ""
 "metadata/general_parameters/results/entities_involved/copy_number.label"
@@ -7682,6 +7420,11 @@ msgstr ""
 msgid ""
 "metadata/general_parameters/results/type.enum.Change in Gibbs free energy "
 "deltaG"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/results/type.enum.Correction of active "
+"concentration"
 msgstr ""
 
 msgid "metadata/general_parameters/results/type.enum.Molecular weight"
@@ -7909,7 +7652,7 @@ msgstr "Schema version"
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.10.1"
+msgid "metadata/general_parameters/schema_version.enum.0.11.0"
 msgstr ""
 
 msgid "metadata/general_parameters/technique.help"
@@ -9071,6 +8814,15 @@ msgid "state.label"
 msgstr ""
 
 msgid "state.hint"
+msgstr ""
+
+msgid "state_timestamp.help"
+msgstr ""
+
+msgid "state_timestamp.label"
+msgstr ""
+
+msgid "state_timestamp.hint"
 msgstr ""
 
 msgid "updated.help"
