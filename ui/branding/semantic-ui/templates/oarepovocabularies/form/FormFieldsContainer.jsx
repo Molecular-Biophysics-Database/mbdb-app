@@ -20,6 +20,8 @@ const VocabularyFormFields = () => {
   useEffect(() => {
     if (type === "grants") {
       values.id = `oa:${uuidv4()}`
+    } else if (type === "affiliations") {
+      values.id = `ror:${uuidv4()}`
     }
   }, [type, values]);
   return (
