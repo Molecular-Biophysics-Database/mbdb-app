@@ -1,8 +1,8 @@
 import React from "react";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import ArrayFieldCopyPaste from "@mbdb_deposit/buildingBlocks/ArrayFieldCopyPaste";
+import Measurement from "../measurement/Measurement";
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
-import Measurements from "../measurements/Measurements";
 
 function MeasurementsTab({ name }) {
   const fieldName = "measurements";
@@ -13,23 +13,23 @@ function MeasurementsTab({ name }) {
     <>
       <div className="mb-3 w-fit">
         <FormWrapper>
-          Information about the sample that was flowing over each measurement
-          position at each step in the measurement protocol
+          Information about the individual measurements (content of the
+          capillaries)
         </FormWrapper>
       </div>
       <ArrayFieldCopyPaste
         name={name}
         label="Measurement"
         required
-        method="spr"
+        method="mst"
         fieldName={fieldName}
-        tooltip="List of measurements where the complete output from a single sensor going through the measurement protocol is considered a separate measurement"
+        tooltip="List of the information about each measurement. This includes target(s), ligand(s), chemical environment, and the position of the sample within the instrument"
         renderChild={({ arrayName, index }) => (
           <FormWrapper
             headline={`Measurement ${index + 1}`}
-            tooltip="List of measurements where the complete output from a single sensor going through the measurement protocol is considered a separate measurement"
+            tooltip="List of the information about each measurement. This includes target(s), ligand(s), chemical environment, and the position of the sample within the instrument"
           >
-            <Measurements name={`${arrayName}.${index}`} />
+            <Measurement name={`${arrayName}.${index}`} />
           </FormWrapper>
         )}
       />

@@ -68,51 +68,37 @@ function Constituent({ name }) {
                   </div>
                   <div>
                     {actualValue.type === "Polymer" && (
-                      <div>
-                        <Polymer name={`${arrayName}.${index}`} />
-                      </div>
+                      <Polymer name={`${arrayName}.${index}`} />
                     )}
                     {actualValue.type === "Chemical" && (
-                      <div>
-                        <Chemical name={`${arrayName}.${index}`} />
-                      </div>
+                      <Chemical name={`${arrayName}.${index}`} />
                     )}
                     {actualValue.type === "Molecular assembly" && (
-                      <div>
-                        <MolecularAssembly name={`${arrayName}.${index}`} />
-                      </div>
+                      <MolecularAssembly name={`${arrayName}.${index}`} />
                     )}
                     {actualValue.type ===
                       "Complex substance of biological origin" && (
-                      <div>
-                        <ComplexSubstanceOfBiologicalOrigin
-                          name={`${arrayName}.${index}`}
-                        />
-                      </div>
+                      <ComplexSubstanceOfBiologicalOrigin
+                        name={`${arrayName}.${index}`}
+                      />
                     )}
                     {actualValue.type ===
                       "Complex substance of environmental origin" && (
-                      <div>
-                        <ComplexSubstanceOfEnvironmentalOrigin
-                          name={`${arrayName}.${index}`}
-                        />
-                      </div>
+                      <ComplexSubstanceOfEnvironmentalOrigin
+                        name={`${arrayName}.${index}`}
+                      />
                     )}
                     {actualValue.type ===
                       "Complex substance of chemical origin" && (
-                      <div>
-                        <ComplexSubstanceOfChemicalOrigin
-                          name={`${arrayName}.${index}`}
-                        />
-                      </div>
+                      <ComplexSubstanceOfChemicalOrigin
+                        name={`${arrayName}.${index}`}
+                      />
                     )}
                     {actualValue.type ===
                       "Complex substance of industrial origin" && (
-                      <div>
-                        <ComplexSubstanceOfIndustrialOrigin
-                          name={`${arrayName}.${index}`}
-                        />
-                      </div>
+                      <ComplexSubstanceOfIndustrialOrigin
+                        name={`${arrayName}.${index}`}
+                      />
                     )}
                   </div>
                 </FormWrapper>

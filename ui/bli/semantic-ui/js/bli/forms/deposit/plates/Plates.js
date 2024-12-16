@@ -37,13 +37,19 @@ function Plates({ name }) {
             tooltip="Number of wells in the plate"
           />
         </div>
-        <div className="mr-3">
-          <CustomField
+        <div className="-mt-3 mr-3">
+          <OptionalField
             name={name}
-            fieldName="type"
             label="Type"
-            required
+            fieldName="type"
             tooltip="The type of the plate (e.g. half-area black polystyrene)"
+            renderChild={({ optionalFieldName }) => (
+              <CustomField
+                name={optionalFieldName}
+                label="Type"
+                tooltip="The type of the plate (e.g. half-area black polystyrene)"
+              />
+            )}
           />
         </div>
         <div className="-mt-3">
@@ -63,10 +69,18 @@ function Plates({ name }) {
         </div>
       </div>
       <div>
-        <Supplier
-          name={`${name}.supplier`}
-          colorSchema="light"
+        <OptionalField
+          name={name}
+          label="Supplier"
+          fieldName="supplier"
           tooltip="Information about the supplier of the plate"
+          renderChild={({ optionalFieldName }) => (
+            <Supplier
+              name={optionalFieldName}
+              colorSchema="light"
+              tooltip="Information about the supplier of the plate"
+            />
+          )}
         />
       </div>
       <div>

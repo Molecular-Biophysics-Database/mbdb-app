@@ -58,6 +58,7 @@ function Measurements({ name }) {
                 name={optionalFieldName}
                 label="Reference measurement position"
                 options={measurementPotionOptions}
+                width="w-[20rem]"
               />
             )}
           />

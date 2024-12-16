@@ -11,25 +11,26 @@ function MeasurementProtocolStepTab({ name }) {
 
   return (
     <>
-      <div className="-mt-3">
-        <ArrayField
-          name={name}
-          label="Measurement protocol step"
-          required
-          fieldName={fieldName}
-          tooltip="List of the steps in the measurement protocol"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              headline={`Measurement protocol step ${index + 1}`}
-              tooltip="List of the steps in the measurement protocol"
-            >
-              <div>
-                <MeasurementProtocol name={`${arrayName}.${index}`} />
-              </div>
-            </FormWrapper>
-          )}
-        />
+      <div className="mb-3 w-fit">
+        <FormWrapper>
+          Information about each step in the measurement protocol
+        </FormWrapper>
       </div>
+      <ArrayField
+        name={name}
+        label="Measurement protocol step"
+        required
+        fieldName={fieldName}
+        tooltip="List of the steps in the measurement protocol"
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            headline={`Measurement protocol step ${index + 1}`}
+            tooltip="List of the steps in the measurement protocol"
+          >
+            <MeasurementProtocol name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }

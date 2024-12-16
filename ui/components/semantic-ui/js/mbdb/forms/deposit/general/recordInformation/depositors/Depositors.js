@@ -11,7 +11,7 @@ function Depositors({ name }) {
           headline="Depositor"
           tooltip="The person who made the deposition to MBDB"
         >
-          <Contact name={`${name}.depositor`} />
+          <Contact name={`${name}.depositor`} copyPrincipalContact />
         </FormWrapper>
       </div>
       <div className="mb-3">
@@ -19,7 +19,7 @@ function Depositors({ name }) {
           headline="Principal contact"
           tooltip="The person responsible for the record and the one to contact for inquiries, this would typically be the principle investigator, group leader, or laboratory head"
         >
-          <Contact name={`${name}.principal_contact`} />
+          <Contact name={`${name}.principal_contact`} copyDepositor />
         </FormWrapper>
       </div>
       <div>

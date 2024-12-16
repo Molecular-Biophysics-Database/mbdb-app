@@ -8,7 +8,7 @@ function FormWrapper({ headline, children, colorSchema, tooltip, required }) {
       <div
         className={`${
           colorSchema === "light" ? "bg-primary" : "bg-white"
-        } p-3 rounded-lg text-dark`}
+        } p-3 rounded-lg text-dark font-JostMedium`}
       >
         {headline && (
           <div className="flex">

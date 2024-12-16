@@ -11,25 +11,27 @@ function MeasurementPositionsTab({ name }) {
 
   return (
     <>
-      <div className="-mt-3">
-        <ArrayField
-          name={name}
-          label="Measurement position"
-          required
-          fieldName={fieldName}
-          tooltip="Information about each of the positions where data was collected including reference positions"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              headline={`Measurement position ${index + 1}`}
-              tooltip="Information about each of the positions where data was collected including reference positions"
-            >
-              <div>
-                <MeasurementPositions name={`${arrayName}.${index}`} />
-              </div>
-            </FormWrapper>
-          )}
-        />
+      <div className="mb-3 w-fit">
+        <FormWrapper>
+          Information about each measurement position in each flow channel where
+          measurements were performed
+        </FormWrapper>
       </div>
+      <ArrayField
+        name={name}
+        label="Measurement position"
+        required
+        fieldName={fieldName}
+        tooltip="Information about each of the positions where data was collected including reference positions"
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            headline={`Measurement position ${index + 1}`}
+            tooltip="Information about each of the positions where data was collected including reference positions"
+          >
+            <MeasurementPositions name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }

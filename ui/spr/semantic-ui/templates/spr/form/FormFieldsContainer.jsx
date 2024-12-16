@@ -5,7 +5,7 @@ import RawMeasurementFilesTab from "@mbdb_deposit/general/generalTabs/RawMeasure
 import EntitiesOfInterestTab from "@mbdb_deposit/general/generalTabs/EntitiesOfInterestTab";
 import ChemicalEnvironmentTab from "@mbdb_deposit/general/generalTabs/ChemicalEnvironmentTab";
 import ResultTab from "@mbdb_deposit/general/generalTabs/ResultTab";
-import ProjectInformationTab from "@mbdb_deposit/general/generalTabs/ProjectInformationTab";
+import RecordInformationTab from "@mbdb_deposit/general/generalTabs/RecordInformationTab";
 import InstrumentTab from "@spr_deposit/sprTabs/InstrumentTab";
 import MeasurementProtocolTab from "@spr_deposit/sprTabs/MeasurementProtocolTab";
 import MeasurementsTab from "@spr_deposit/sprTabs/MeasurementsTab";
@@ -20,7 +20,7 @@ import PreviewButton from "@mbdb_deposit/buttons/PreviewButton";
 
 function FormFieldsContainer() {
   const Tabs = [
-    { value: "project-information", label: "Project information" },
+    { value: "record-information", label: "Record information" },
     { value: "entities-of-interest", label: "Entities of interest" },
     { value: "chemical-environment", label: "Chemical environments" },
     { value: "raw-measurement-files", label: "Raw measurement files" },
@@ -34,13 +34,13 @@ function FormFieldsContainer() {
   ];
 
   const location = useLocation();
-  const [state, setState] = useState({ selected: "project-information" });
+  const [state, setState] = useState({ selected: "record-information" });
   const { save, values: recordMetadata } = useDepositApiClient();
   const { values, setErrors } = useFormikContext();
 
   useEffect(() => {
     save(true);
-    const selectedTab = location?.state?.selectedTab || "project-information";
+    const selectedTab = location?.state?.selectedTab || "record-information";
     setState({ selected: selectedTab });
   }, [location]);
   const { files: recordFiles } = useFormConfig();
@@ -79,7 +79,7 @@ function FormFieldsContainer() {
       </div>
       <div className="flex justify-center">
         <div className="bg-primary border-dark border-solid border-[.1px] rounded-normal">
-          <div className="flex justify-center w-fit h-[90vh]">
+          <div className="flex justify-center w-fit h-[90vh] max-h-[900px]">
             <div className="bg-dark flex flex-col rounded-tl-normal rounded-bl-normal">
               {Tabs.map((tab) => (
                 <button
@@ -122,8 +122,8 @@ function FormFieldsContainer() {
                       state.selected === "raw-measurement-files" ? "hidden" : ""
                     }
                   >
-                    {state.selected === "project-information" && (
-                      <ProjectInformationTab name="metadata.general_parameters" />
+                    {state.selected === "record-information" && (
+                      <RecordInformationTab name="metadata.general_parameters" />
                     )}
                     {state.selected === "entities-of-interest" && (
                       <EntitiesOfInterestTab name="metadata.general_parameters" />

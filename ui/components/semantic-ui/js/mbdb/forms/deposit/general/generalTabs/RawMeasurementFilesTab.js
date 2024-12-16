@@ -1,6 +1,6 @@
 import React, { forwardRef, useImperativeHandle } from "react";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
-import ArrayField from "../../buildingBlocks/ArrayField";
+import ArrayFieldCopyPaste from "../../buildingBlocks/ArrayFieldCopyPaste";
 import RawMeasurementFile from "../rawMeasurementFiles/RawMeasurementFile";
 import { useFormikContext, getIn } from "formik";
 import _isEqual from "lodash/isEqual";
@@ -89,8 +89,8 @@ async function SubmitFile(file, recordMetadata) {
   // update the page to place values in inside the form case extraction took place
   // also serves signal to let the user know that file uploading has completed
   setTimeout(() => {
-        window.location.href = '/';
-      }, 1500); // 1.5 seconds delay
+    window.location.href = "/";
+  }, 1500); // 1.5 seconds delay
   window.location.reload();
   return res;
 }
@@ -203,11 +203,17 @@ const RawMeasurementFilesTab = forwardRef(
             Submit files
           </Button>
         */}
-        <div className="-mt-3">
-          <ArrayField
+        <div className="mb-3 w-fit">
+          <FormWrapper>
+            Information about the file(s) containing the raw data
+          </FormWrapper>
+        </div>
+        <div>
+          <ArrayFieldCopyPaste
             name={name}
             label="Raw measurement file"
             required
+            method="file"
             initialValue={{ key: "" }}
             tooltip="List of file(s) containing the raw measurements"
             renderChild={({ arrayName, index, item: file }) => (

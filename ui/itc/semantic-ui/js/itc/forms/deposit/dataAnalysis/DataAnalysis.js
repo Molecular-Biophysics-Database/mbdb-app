@@ -51,14 +51,12 @@ function DataAnalysis({ name }) {
             fieldName="measurements"
             tooltip="Measurements that were analyzed together"
             renderChild={({ arrayName, index }) => (
-              <div>
-                <OptionField
-                  name={`${arrayName}.${index}`}
-                  label={`Measurement ${index + 1}`}
-                  options={measurementOptions}
-                  tooltip="Measurements that were analyzed together"
-                />
-              </div>
+              <OptionField
+                name={`${arrayName}.${index}`}
+                label={`Measurement ${index + 1}`}
+                options={measurementOptions}
+                tooltip="Measurements that were analyzed together"
+              />
             )}
           />
         </div>
@@ -69,14 +67,12 @@ function DataAnalysis({ name }) {
             fieldName="results"
             tooltip="Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters"
             renderChild={({ arrayName, index }) => (
-              <div>
-                <OptionField
-                  name={`${arrayName}.${index}`}
-                  label={`Result ${index + 1}`}
-                  options={resultOptions}
-                  tooltip="Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters"
-                />
-              </div>
+              <OptionField
+                name={`${arrayName}.${index}`}
+                label={`Result ${index + 1}`}
+                options={resultOptions}
+                tooltip="Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters"
+              />
             )}
           />
         </div>

@@ -6,12 +6,89 @@ import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
 import { useFieldData } from "@js/oarepo_ui";
 import { RORInstitutionResultListItem } from "../../../buildingBlocks/RORInstitutionResultListItem";
 import FormWrapper from "../../../buildingBlocks/FormWrapper";
+import { useFormikContext, getIn } from "formik";
 
-function Contact({ name }) {
+function Contact({ name, copyDepositor, copyPrincipalContact }) {
   const { getFieldData } = useFieldData();
+  const { values, setFieldValue } = useFormikContext();
+
+  const depositor = `metadata.general_parameters.depositors.depositor`;
+
+  const getDepositor = getIn(values, depositor);
+
+  const principalContact = `metadata.general_parameters.depositors.principal_contact`;
+
+  const getPrincipalContact = getIn(values, principalContact);
+
+  /*
+  
+  function CopyPaste(copy, paste, name) {
+    return (
+      <>
+        <div className="flex mb-3">
+          <input
+            className="mr-3 accent-dark"
+            type="checkbox"
+            onChange={(e) => {
+              if (e.target.checked) {
+                if (copy) {
+                  setFieldValue(paste, copy);
+                }
+              } else {
+                setFieldValue(paste, {});
+              }
+            }}
+          />
+          <div className="font-JostMedium">{`Same as ${name}`}</div>
+        </div>
+      </>
+    );
+  }
+  
+  */
 
   return (
     <>
+      {copyPrincipalContact && (
+        <>
+          <div className="flex mb-3">
+            <input
+              className="mr-3 accent-dark"
+              type="checkbox"
+              onChange={(e) => {
+                if (e.target.checked) {
+                  if (getPrincipalContact) {
+                    setFieldValue(depositor, getPrincipalContact);
+                  }
+                } else {
+                  setFieldValue(depositor, {});
+                }
+              }}
+            />
+            <div className="font-JostMedium">Same as principal contact</div>
+          </div>
+        </>
+      )}
+      {copyDepositor && (
+        <>
+          <div className="flex mb-3">
+            <input
+              className="mr-3 accent-dark"
+              type="checkbox"
+              onChange={(e) => {
+                if (e.target.checked) {
+                  if (getDepositor) {
+                    setFieldValue(principalContact, getDepositor);
+                  }
+                } else {
+                  setFieldValue(principalContact, {});
+                }
+              }}
+            />
+            <div className="font-JostMedium">Same as depositor</div>
+          </div>
+        </>
+      )}
       <div className="flex">
         <div className="mr-3">
           <CustomField

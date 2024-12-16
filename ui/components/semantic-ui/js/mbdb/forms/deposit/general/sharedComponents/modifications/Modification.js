@@ -23,12 +23,12 @@ function Modification({ name, colorSchema }) {
             name={name}
             fieldName="position"
             label="Position"
-            tooltip="The position where the modification occurs (e.g. 23)"
+            tooltip="The position in the primary sequence where the modification occurs (e.g. 23). Please indicate if the numbering differs from that implied by the sequence field"
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Position"
-                tooltip="The position where the modification occurs (e.g. 23)"
+                tooltip="The position in the primary sequence where the modification occurs (e.g. 23). Please indicate if the numbering differs from that implied by the sequence field"
               />
             )}
           />

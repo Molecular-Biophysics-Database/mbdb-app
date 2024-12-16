@@ -11,25 +11,26 @@ function PlatesTab({ name }) {
 
   return (
     <>
-      <div className="-mt-3">
-        <ArrayField
-          name={name}
-          label="Plate"
-          required
-          fieldName={fieldName}
-          tooltip="List of the plate types used for the measurements"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              headline={`Plate ${index + 1}`}
-              tooltip="List of the plate types used for the measurements"
-            >
-              <div>
-                <Plates name={`${arrayName}.${index}`} />
-              </div>
-            </FormWrapper>
-          )}
-        />
+      <div className="mb-3 w-fit">
+        <FormWrapper>
+          Information about the plates where measurements were performed
+        </FormWrapper>
       </div>
+      <ArrayField
+        name={name}
+        label="Plate"
+        required
+        fieldName={fieldName}
+        tooltip="Information about the plates used for the measurements"
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            headline={`Plate ${index + 1}`}
+            tooltip="Information about the plates used for the measurements"
+          >
+            <Plates name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }

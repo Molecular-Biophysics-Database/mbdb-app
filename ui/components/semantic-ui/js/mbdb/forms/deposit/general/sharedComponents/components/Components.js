@@ -54,20 +54,16 @@ function Components({ name, colorSchema, tooltip }) {
                   </div>
                   <div>
                     {actualValue.type === "Polymer" && (
-                      <div>
-                        <Polymer
-                          name={`${arrayName}.${index}`}
-                          colorSchema={colorSchema === "light" ? "" : "light"}
-                        />
-                      </div>
+                      <Polymer
+                        name={`${arrayName}.${index}`}
+                        colorSchema={colorSchema === "light" ? "" : "light"}
+                      />
                     )}
                     {actualValue.type === "Chemical" && (
-                      <div>
-                        <Chemical
-                          name={`${arrayName}.${index}`}
-                          colorSchema={colorSchema === "light" ? "" : "light"}
-                        />
-                      </div>
+                      <Chemical
+                        name={`${arrayName}.${index}`}
+                        colorSchema={colorSchema === "light" ? "" : "light"}
+                      />
                     )}
                   </div>
                 </FormWrapper>
