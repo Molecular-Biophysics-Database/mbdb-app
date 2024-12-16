@@ -79,7 +79,7 @@ function FormFieldsContainer() {
       </div>
       <div className="flex justify-center">
         <div className="bg-primary border-dark border-solid border-[.1px] rounded-normal">
-          <div className="flex justify-center w-fit h-[90vh]">
+          <div className="flex justify-center w-fit h-[90vh] max-h-[900px]">
             <div className="bg-dark flex flex-col rounded-tl-normal rounded-bl-normal">
               {Tabs.map((tab) => (
                 <button

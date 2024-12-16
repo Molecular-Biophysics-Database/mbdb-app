@@ -790,10 +790,6 @@ video {
   margin-bottom: 0.25rem;
 }
 
-.mb-10 {
-  margin-bottom: 2.5rem;
-}
-
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -967,6 +963,10 @@ video {
   height: 100vh;
 }
 
+.max-h-\[900px\] {
+  max-height: 900px;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -1130,10 +1130,6 @@ video {
 
 .min-w-\[178px\] {
   min-width: 178px;
-}
-
-.max-w-\[60rem\] {
-  max-width: 60rem;
 }
 
 .translate-x-full {
