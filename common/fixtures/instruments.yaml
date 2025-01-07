@@ -213,28 +213,28 @@ props:
 ---
 id: 'ins:31'
 title:
-  en: 'Octet R5 (Four-Channel System)'
+  en: 'Octet R4 (Four-Channel System)'
 props:
   manufacturer: 'Sartorius'
   technique: "BLI"
 ---
 id: 'ins:32'
 title:
-  en: 'Octet R8 (Eigth-Channel System)'
+  en: 'Octet R8 (Eight-Channel System)'
 props:
   manufacturer: 'Sartorius'
   technique: "BLI"
 ---
 id: 'ins:33'
 title:
-  en: 'Octet RH96 (96-Channel Ultra High Throughut Octet System)'
+  en: 'Octet RH96 (96-Channel Ultra High Throughput Octet System)'
 props:
   manufacturer: 'Sartorius'
   technique: "BLI"
 ---
 id: 'ins:34'
 title:
-  en: 'Octet RH16 (16-Channel High Throughut Octet System)'
+  en: 'Octet RH16 (16-Channel High Throughput Octet System)'
 props:
   manufacturer: 'Sartorius'
   technique: "BLI"
@@ -242,6 +242,13 @@ props:
 id: 'ins:35'
 title:
   en: 'Octet N1 (Personal Assay System)'
+props:
+  manufacturer: 'Sartorius'
+  technique: "BLI"
+---
+id: 'ins:55'
+title:
+  en: 'Octet RED384'
 props:
   manufacturer: 'Sartorius'
   technique: "BLI"
