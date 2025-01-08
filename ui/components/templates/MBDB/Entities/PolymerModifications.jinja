@@ -1,18 +1,9 @@
 {# def modifications #}
 
-<INonEmpty d={modifications.synthesis}>
-  <div class="font-JostBold mb-2">Synthesis</div>
-  <div class="ml-4">
-    {%- for mod in array(modifications.synthesis) %}
-    <SubstanceModification mod={mod} />
-    {%- endfor %}
-  </div>
-</INonEmpty>
-
 <INonEmpty d={modifications.biological_postprocessing}>
-  <div class="font-JostBold mb-2">Biolog. postprocessing</div>
+  <div class="font-JostBold mb-2">Biological postprocessing</div>
   <div class="ml-4">
-    {%- for mod in array(modifications.biological_preparation) %}
+    {%- for mod in array(modifications.biological_postprocessing) %}
     <SubstanceModification mod={mod} />
     {%- endfor %}
   </div>
