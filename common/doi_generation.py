@@ -1,6 +1,6 @@
 import datetime
 from typing import List
-
+from flask import current_app
 
 ####### <creators_functions>
 def add_optional_fields_creator(field: str, person: dict, creator: dict) -> None:
@@ -100,7 +100,7 @@ def to_url(record: dict) -> str:
     record_type = record["metadata"]["general_parameters"]["record_information"][
         "resource_type"
     ].lower()
-    return f"https://mbdb.test.du.cesnet.cz/{record_type}/{record_id}"
+    return f"{current_app.config.get("BASE_DOMAIN")}/{record_type}/{record_id}"
 
 
 def to_rights(record_info: dict) -> List[dict]:
