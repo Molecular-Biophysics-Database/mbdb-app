@@ -3,12 +3,12 @@
 ## Requirements
 
  * Linux or MacOS
- * Docker 
+ * Docker
  * Python 3.12
  * uv (python package management)
  * Node.js >= 16
 
-## Installation 
+## Installation
 
 Security note! Running an instance of the MBDB as described below is suitable for local development.
 **IT SHOULD NOT BE USED IN PRODUCTION**. Use a WSGI server for that.
@@ -17,10 +17,10 @@ Recommendation: Run Python outside of docker for this (you'll be prompted during
 
 1. clone a copy of this repository and enter it
 2. run `./nrp build` - should not fail as it will skip the not-found directories
-3. run `./nrp develop`, wait for the server to start up (you might want to check that homepage can be opened 
+3. run `./nrp develop`, wait for the server to start up (you might want to check that homepage can be opened
    at `https://127.0.0.1:5000/`) and shut it down. This will create the database and initialize all the containers
 4. run `source .venv/bin/activate` to activate the virtual environment
-5. run `invenio oarepo fixtures load` to load the vocabularies 
+5. run `invenio oarepo fixtures load` to load the vocabularies
 6. set up ORCID authentication (see below)
 
 ### Setting up ORCID authentication
@@ -29,7 +29,7 @@ Recommendation: Run Python outside of docker for this (you'll be prompted during
 1. Create an ORCID user account - https://orcid.org/register (it's free of charge)
 2. Register a public API https://info.orcid.org/documentation/integration-guide/registering-a-public-api-client/
 3. Add your domain(s) to list of the redirect URIs:
-   1. If you're only running locally, add https://127.0.0.1:5000/oauth/authorized/orcid4. 
+   1. If you're only running locally, add https://127.0.0.1:5000/oauth/authorized/orcid4.
 
 #### Register the public API credentials in the mbdb-app
 
@@ -41,40 +41,53 @@ Recommendation: Run Python outside of docker for this (you'll be prompted during
    ```
 Change the 'changeme' to the ORCID public APIs Client ID and Client secret, respectively
 
+### DOI setup
+
+In order to mint DOIS the following environment variables needs to be set:
+
+```
+INVENIO_DOI_DATACITE_PASSWORD
+INVENIO_DOI_DATACITE_USERNAME
+INVENIO_DOI_DATACITE_PREFIX
+INVENIO_DOI_DATACITE_URL
+```
+Note that they should correspond to the test API credentials and endpoint
+(https://api.test.datacite.org/dois) for local development.
+
 ## Repository layout overview
 
 - `common` - directory with shared code, local implementation etc.
 - `invenio.cfg` - the main configuration file for the repository
 - `nrp` - the nrp command line tool
 - `pyproject.toml` - python dependencies, plugins, and registration of endpoints
-- `models` - contains model definitions 
+- `models` - contains model definitions
 - `ui` - contains the UI sources, such as title page, search page, record detail page, etc.
 - `tests` - directory containing tests for the repository
 - `bli`, `itc`, `mst`, `spr` - compiled models (should not be modified manually)
 - `.venv` - virtual environment for the repository (should not be modified manually)
 - `.nrp` - virtual environment for the development tools (should not be modified manually)
 
-Further information is available at the README inside the respective folders 
+Further information is available at the README inside the respective folders
 
 ## Upgrading dependencies of the repository
 
-Run the following command to upgrade the dependencies of 
+Run the following command to upgrade the dependencies of
 the repository:
 
 ```bash
 ./nrp upgrade
 ```
-This will upgrade the dependencies of the repository to the latest 
+This will upgrade the dependencies of the repository to the latest
 versions (python and node dependencies). After upgrading, it will run the build
-via `nrp build --production` and `nrp test` to make sure that the dependencies 
+via `nrp build --production` and `nrp test` to make sure that the dependencies
 will build.
 
-## Handling models 
+## Handling models
 
 ### Schema for a new model
 
 The following three model files should be placed inside `models`:
- * `<model-name>.yaml` 
+ * `<model-name>.yaml`
  * `<model-name>-metadata.yaml`
  * `<model-name>-definitions.yaml`
 
@@ -228,7 +241,7 @@ it will report the failure and exit with a non-zero exit code.
 The command expects the repository to be built beforehand. If not, it
 will fail.
 
-## UI handling 
+## UI handling
 
 ## Creating UI pages for custom endpoints
 
@@ -238,8 +251,8 @@ To create UI pages for a custom endpoint, type:
 nrp ui page create <page-name> <page-endpoint>
 ```
 
-The `page-name` is the name of the page, for example `about` or `search`.  
-The `page-endpoint` is the endpoint of the page, for example`/about` or `/search`. 
+The `page-name` is the name of the page, for example `about` or `search`.
+The `page-endpoint` is the endpoint of the page, for example`/about` or `/search`.
 
 If `page-endpoint` is not specified, it will be the same as
 `page-name`.
@@ -266,7 +279,7 @@ source .venv/bin/activate
 ```
 
 ```bash
-# clear and recreate db tables 
+# clear and recreate db tables
 invenio db destroy --yes-i-know
 invenio db init
 invenio db create
@@ -275,13 +288,13 @@ invenio db create
 invenio index destroy --yes-i-know
 invenio index init
 
-# initialise custom fields 
+# initialise custom fields
 invenio oarepo cf init
 
-# configure file storage 
+# configure file storage
 invenio files location create --default default s3://default
 
-# create and load vocabularies 
+# create and load vocabularies
 invenio oarepo fixtures load
 
 # load mst sample data
