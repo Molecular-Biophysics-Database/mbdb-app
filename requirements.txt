@@ -1,4 +1,4 @@
-oarepo[s3]==12.1.36
+oarepo[s3,rdm]==12.2.1
 cachetools==5.5.0
 deepmerge==2.0
 et-xmlfile==2.0.0
@@ -11,14 +11,14 @@ langcodes==3.5.0
 language-data==1.3.0
 marisa-trie==1.2.1
 mbdb-parsing==0.2.1
-numpy==2.2.1
+numpy==2.2.2
 oarepo-communities==5.1.4
 oarepo-dashboard==1.0.17
 oarepo-doi==1.0.17
 oarepo-global-search==1.0.29
 oarepo-published-service==1.0.3
 oarepo-requests==2.3.14
-oarepo-runtime==1.5.84
+oarepo-runtime==1.5.85
 oarepo-ui==5.2.32
 oarepo-vocabularies==2.1.14
 oarepo-workflows==1.1.5
