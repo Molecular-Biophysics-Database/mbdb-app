@@ -19,11 +19,19 @@ class MstUISchema(UIRequestsSerializationMixin, InvenioUISchema):
 
     collected_default_search_fields = ma_fields.String()
 
+    deletion_status = ma_fields.String()
+
+    is_deleted = ma_fields.Boolean()
+
+    is_published = ma_fields.Boolean()
+
     metadata = ma_fields.Nested(lambda: MstMetadataUISchema())
 
     state = ma_fields.String(dump_only=True)
 
     state_timestamp = LocalizedDateTime(dump_only=True)
+
+    version_id = ma_fields.Integer()
 
 
 class MstMetadataUISchema(Schema):

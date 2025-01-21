@@ -24,6 +24,15 @@ class BliFileResourceConfig(FileResourceConfig):
             **entrypoint_response_handlers,
         }
 
+    @property
+    def error_handlers(self):
+        entrypoint_error_handlers = {}
+        for x in importlib_metadata.entry_points(
+            group="invenio.bli_files.error_handlers"
+        ):
+            entrypoint_error_handlers.update(x.load())
+        return {**super().error_handlers, **entrypoint_error_handlers}
+
 
 class BliFileDraftResourceConfig(FileResourceConfig):
     """BliFileDraft resource config."""
@@ -43,3 +52,12 @@ class BliFileDraftResourceConfig(FileResourceConfig):
             **super().response_handlers,
             **entrypoint_response_handlers,
         }
+
+    @property
+    def error_handlers(self):
+        entrypoint_error_handlers = {}
+        for x in importlib_metadata.entry_points(
+            group="invenio.bli_draft_files.error_handlers"
+        ):
+            entrypoint_error_handlers.update(x.load())
+        return {**super().error_handlers, **entrypoint_error_handlers}

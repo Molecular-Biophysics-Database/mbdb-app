@@ -56,7 +56,9 @@ class MstRecord(InvenioRecord):
 
     schema = ConstantField("$schema", "local://mst-1.0.0.json")
 
-    index = IndexField("mst-mst-1.0.0", search_alias="mst")
+    index = IndexField(
+        "mst-mst-1.0.0",
+    )
 
     pid = PIDField(provider=MstIdProvider, context_cls=PIDFieldContext, create=True)
 
