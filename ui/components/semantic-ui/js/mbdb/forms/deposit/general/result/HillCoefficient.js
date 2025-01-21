@@ -40,37 +40,33 @@ function HillCoefficient({ name }) {
           />
         </div>
       </div>
-      <div>
-        <OptionalField
-          name={name}
-          label="Value error"
-          fieldName="value_error"
-          tooltip="The expected error of the result in terms of a 95 % confidence interval"
-          renderChild={({ optionalFieldName }) => (
-            <div>
-              <ValueError name={optionalFieldName} colorSchema="light" />
-            </div>
-          )}
-        />
-      </div>
-      <div>
-        <ArrayField
-          name={name}
-          label="Entity involved"
-          fieldName={fieldNameEntityInvolved}
-          required
-          tooltip="List of chemical or molecular assemblies the result describes and how many copies of each are involved"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              colorSchema="light"
-              headline={`Entity involved ${index + 1}`}
-              tooltip="List of chemical or molecular assemblies the result describes and how many copies of each are involved"
-            >
-              <EntityInvolved name={`${arrayName}.${index}`} />
-            </FormWrapper>
-          )}
-        />
-      </div>
+      <OptionalField
+        name={name}
+        label="Value error"
+        fieldName="value_error"
+        tooltip="The expected error of the result in terms of a 95 % confidence interval"
+        renderChild={({ optionalFieldName }) => (
+          <div>
+            <ValueError name={optionalFieldName} colorSchema="light" />
+          </div>
+        )}
+      />
+      <ArrayField
+        name={name}
+        label="Entity involved"
+        fieldName={fieldNameEntityInvolved}
+        required
+        tooltip="List of chemical or molecular assemblies the result describes and how many copies of each are involved"
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            colorSchema="light"
+            headline={`Entity involved ${index + 1}`}
+            tooltip="List of chemical or molecular assemblies the result describes and how many copies of each are involved"
+          >
+            <EntityInvolved name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }
