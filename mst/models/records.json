@@ -183,6 +183,21 @@
             "suffix-upper": "MST",
             "suffix-snake": "mst"
         },
+        "draft": {
+            "type": "draft_record",
+            "properties": {},
+            "searchable": true,
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
+        },
+        "tests": {
+            "extra-fixtures": [],
+            "extra-code": "",
+            "module": "tests"
+        },
         "draft-files": {
             "type": "draft-file",
             "properties": {},
@@ -202,21 +217,6 @@
                 "extra-code": "",
                 "module": "tests"
             }
-        },
-        "draft": {
-            "type": "draft_record",
-            "properties": {},
-            "searchable": true,
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            }
-        },
-        "tests": {
-            "extra-fixtures": [],
-            "extra-code": "",
-            "module": "tests"
         },
         "files": {
             "type": "file",
@@ -413,19 +413,39 @@
             "skip": false
         },
         "model-name": "Mst",
-        "record-resolver": {
-            "generate": true,
-            "module": "mst.records.requests.resolvers",
-            "class": "mst.records.requests.resolvers.MstResolver",
+        "record": {
+            "fields": {
+                "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')",
+                "state_timestamp": "{{oarepo_workflows.records.systemfields.state.RecordStateTimestampField}}()"
+            },
             "base-classes": [
-                "oarepo_runtime.records.entity_resolvers.RecordResolver"
+                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
             ],
-            "imports": [],
-            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
-        },
-        "ui-record-resolver": {
             "generate": true,
-            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
+            "module": "mst.records.api",
+            "class": "mst.records.api.MstRecord",
+            "imports": [],
+            "extra-code": ""
+        },
+        "draft-parent-record-metadata": {
+            "base-classes": [
+                "oarepo_workflows.records.models.RecordWorkflowParentModelMixin",
+                "invenio_db.db{db.Model}",
+                "invenio_records.models.RecordMetadataBase"
+            ],
+            "class": "mst.records.models.MstParentMetadata",
+            "imports": [],
+            "table": "mst_parent_record_metadata",
+            "module": "mst.records.models",
+            "generate": true
+        },
+        "parent-record-marshmallow": {
+            "base-classes": [
+                "oarepo_workflows.services.records.schema.WorkflowParentSchema"
+            ],
+            "module": "mst.services.records.schema",
+            "class": "mst.services.records.schema.GeneratedParentSchema",
+            "generate": true
         },
         "resource": {
             "base-classes": [
@@ -439,6 +459,20 @@
             "extra-code": "",
             "imports": [],
             "additional-args": []
+        },
+        "record-resolver": {
+            "generate": true,
+            "module": "mst.records.requests.resolvers",
+            "class": "mst.records.requests.resolvers.MstResolver",
+            "base-classes": [
+                "oarepo_runtime.records.entity_resolvers.RecordResolver"
+            ],
+            "imports": [],
+            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
+        },
+        "ui-record-resolver": {
+            "generate": true,
+            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
         },
         "config": {
             "generate": true,
@@ -486,39 +520,9 @@
             "module": "mst.proxies",
             "generate": true
         },
-        "record": {
-            "fields": {
-                "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')",
-                "state_timestamp": "{{oarepo_workflows.records.systemfields.state.RecordStateTimestampField}}()"
-            },
-            "base-classes": [
-                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
-            ],
-            "generate": true,
-            "module": "mst.records.api",
-            "class": "mst.records.api.MstRecord",
-            "imports": [],
-            "extra-code": ""
-        },
-        "draft-parent-record-metadata": {
-            "base-classes": [
-                "oarepo_workflows.records.models.RecordWorkflowParentModelMixin",
-                "invenio_db.db{db.Model}",
-                "invenio_records.models.RecordMetadataBase"
-            ],
-            "class": "mst.records.models.MstParentMetadata",
-            "imports": [],
-            "table": "mst_parent_record_metadata",
-            "module": "mst.records.models",
-            "generate": true
-        },
-        "parent-record-marshmallow": {
-            "base-classes": [
-                "oarepo_workflows.services.records.schema.WorkflowParentSchema"
-            ],
-            "module": "mst.services.records.schema",
-            "class": "mst.services.records.schema.GeneratedParentSchema",
-            "generate": true
+        "translations": {
+            "module": "mst.translations",
+            "alias": "mst"
         },
         "json-serializer": {
             "module": "mst.resources.records.ui",
@@ -535,10 +539,6 @@
                 "\"object_key\"": "\"ui\"",
                 "\"identity\"": "{{ flask.g{g.identity} }}"
             }
-        },
-        "translations": {
-            "module": "mst.translations",
-            "alias": "mst"
         },
         "files-field": {
             "generate": true,
@@ -814,6 +814,20 @@
                     "skip": true
                 }
             },
+            "deletion_status": {
+                "type": "keyword",
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
             "id": {
                 "type": "keyword",
                 "mapping": {
@@ -832,6 +846,34 @@
                         "read": false,
                         "write": false
                     }
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "is_deleted": {
+                "type": "boolean",
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "is_published": {
+                "type": "boolean",
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "marshmallow": {
+                    "read": false,
+                    "write": false
                 },
                 "sample": {
                     "skip": true
@@ -29837,6 +29879,132 @@
                 },
                 "sample": {
                     "skip": true
+                }
+            },
+            "version_id": {
+                "type": "integer",
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "versions": {
+                "type": "object",
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "generate": false,
+                        "class": "mst.services.records.ui_schema.FakeVersionsUISchema",
+                        "skip": true,
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "generate": false,
+                    "class": "mst.services.records.schema.FakeVersionsSchema",
+                    "skip": true,
+                    "read": false,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                },
+                "properties": {
+                    "index": {
+                        "type": "integer",
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        },
+                        "facets": {
+                            "searchable": true,
+                            "facet": false
+                        },
+                        "sample": {
+                            "skip": true
+                        }
+                    },
+                    "is_latest": {
+                        "type": "boolean",
+                        "facets": {
+                            "searchable": true,
+                            "facet": false
+                        },
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        },
+                        "sample": {
+                            "skip": true
+                        }
+                    },
+                    "is_latest_draft": {
+                        "type": "boolean",
+                        "facets": {
+                            "searchable": true,
+                            "facet": false
+                        },
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        },
+                        "sample": {
+                            "skip": true
+                        }
+                    },
+                    "latest_id": {
+                        "type": "keyword",
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        },
+                        "facets": {
+                            "searchable": true,
+                            "facet": false
+                        },
+                        "sample": {
+                            "skip": true
+                        }
+                    },
+                    "latest_index": {
+                        "type": "integer",
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        },
+                        "facets": {
+                            "searchable": true,
+                            "facet": false
+                        },
+                        "sample": {
+                            "skip": true
+                        }
+                    },
+                    "next_draft_id": {
+                        "type": "keyword",
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        },
+                        "facets": {
+                            "searchable": true,
+                            "facet": false
+                        },
+                        "sample": {
+                            "skip": true
+                        }
+                    }
                 }
             }
         }
