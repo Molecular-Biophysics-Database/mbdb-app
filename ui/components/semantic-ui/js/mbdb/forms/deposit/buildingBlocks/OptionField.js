@@ -1,5 +1,5 @@
 import React from "react";
-import { useField } from "formik";
+import { useField, useFormikContext } from "formik";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
@@ -20,9 +20,18 @@ function OptionField({
   const nameOptionField =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const [field, meta, helpers] = useField(nameOptionField);
+  const { setFieldValue } = useFormikContext();
 
   const currentValue =
     typeof field.value === "object" ? field.value.name : field.value || "";
+
+  // Determine if the current value is valid (exists in options)
+  const isValidValue = options.some((option) => option.value === currentValue);
+
+  // Automatically reset value if it is invalid
+  if (!isValidValue && currentValue) {
+    setFieldValue(nameOptionField, undefined, false);
+  }
 
   return (
     <div className="flex">
@@ -31,15 +40,16 @@ function OptionField({
           <InputLabel>{label}</InputLabel>
           <Select
             {...field}
-            value={currentValue}
+            value={isValidValue ? currentValue : ""}
             onChange={(event) => {
               const selectedOption = options.find(
                 (option) => option.value === event.target.value
               );
+
               helpers.setValue(
-                selectedOption.id !== undefined
+                selectedOption?.id !== undefined
                   ? { name: selectedOption.value, id: selectedOption.id }
-                  : selectedOption.value
+                  : selectedOption?.value || ""
               );
             }}
             label={label}
