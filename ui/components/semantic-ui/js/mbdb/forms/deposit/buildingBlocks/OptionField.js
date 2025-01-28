@@ -6,6 +6,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Tooltip from "@material-ui/core/Tooltip";
 import { Typography } from "@material-ui/core";
+import { useEffect } from "react";
 
 function OptionField({
   label,
@@ -29,9 +30,11 @@ function OptionField({
   const isValidValue = options.some((option) => option.value === currentValue);
 
   // Automatically reset value if it is invalid
-  if (!isValidValue && currentValue) {
-    setFieldValue(nameOptionField, undefined, false);
-  }
+  useEffect(() => {
+    if (!isValidValue && currentValue) {
+      setFieldValue(nameOptionField, undefined, false);
+    }
+  }, [currentValue, isValidValue, nameOptionField, setFieldValue]);
 
   return (
     <div className="flex">
