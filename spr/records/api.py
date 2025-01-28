@@ -58,6 +58,7 @@ class SprRecord(InvenioRecord):
 
     index = IndexField(
         "spr-spr-1.0.0",
+        search_alias="spr",
     )
 
     pid = PIDField(provider=SprIdProvider, context_cls=PIDFieldContext, create=True)

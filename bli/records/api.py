@@ -58,6 +58,7 @@ class BliRecord(InvenioRecord):
 
     index = IndexField(
         "bli-bli-1.0.0",
+        search_alias="bli",
     )
 
     pid = PIDField(provider=BliIdProvider, context_cls=PIDFieldContext, create=True)
