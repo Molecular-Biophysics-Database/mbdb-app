@@ -58,6 +58,7 @@ class MstRecord(InvenioRecord):
 
     index = IndexField(
         "mst-mst-1.0.0",
+        search_alias="mst",
     )
 
     pid = PIDField(provider=MstIdProvider, context_cls=PIDFieldContext, create=True)

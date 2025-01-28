@@ -58,6 +58,7 @@ class ItcRecord(InvenioRecord):
 
     index = IndexField(
         "itc-itc-1.0.0",
+        search_alias="itc",
     )
 
     pid = PIDField(provider=ItcIdProvider, context_cls=PIDFieldContext, create=True)
