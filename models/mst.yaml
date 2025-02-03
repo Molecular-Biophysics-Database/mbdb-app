@@ -27,7 +27,7 @@ record:
   draft: {}
   draft-files:
     service-config:
-      base-classes: [ common.services.files.MstFileServiceConfigWithProcessors ]
+      base-classes: [ common.services.files.mst_metadata_extraction.MstFileServiceConfigWithProcessors ]
     resource:
       base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
   files:
