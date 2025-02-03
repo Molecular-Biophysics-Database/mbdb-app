@@ -2,6 +2,7 @@ import datetime
 from typing import List
 from flask import current_app
 
+
 ####### <creators_functions>
 def add_optional_fields_creator(field: str, person: dict, creator: dict) -> None:
     options = {
@@ -70,8 +71,6 @@ def to_creators(depositors: dict) -> List[dict]:
 
 
 ######## </creators_functions>
-
-
 def to_titles(title: str) -> List[dict]:
     return [{"title": title}]
 
@@ -96,11 +95,12 @@ def to_subjects(record_info: dict) -> List[dict]:
 
 
 def to_url(record: dict) -> str:
-    record_id = record["id"]
+    base_url = current_app.config.get("BASE_DOMAIN")
     record_type = record["metadata"]["general_parameters"]["record_information"][
         "resource_type"
     ].lower()
-    return f"{current_app.config.get("BASE_DOMAIN")}/{record_type}/{record_id}"
+    record_id = record["id"]
+    return f"{base_url}/{record_type}/{record_id}"
 
 
 def to_rights(record_info: dict) -> List[dict]:
@@ -121,7 +121,7 @@ def add_schema(datacite_version):
 
 
 class DataCiteMappingMBDB:
-    """This is the interface between DataCite and MBDB data models"""
+    """Interface between DataCite and MBDB data models"""
 
     def __init__(self):
         # current_date is used both in creating the payload and updating
@@ -130,6 +130,7 @@ class DataCiteMappingMBDB:
 
     @staticmethod
     def metadata_check(data, errors=None):
+        """Ensure that the mandatory fields in DataCite's schema are present"""
         if errors is None:
             errors = []
 
@@ -145,9 +146,16 @@ class DataCiteMappingMBDB:
         return errors
 
     def create_datacite_payload(self, data):
+        """Extracted information to generate a DataCite compatible payload"""
         gp = data["metadata"]["general_parameters"]
         record_info = gp["record_information"]
 
+        # The tuple fields correspond to
+        # (
+        #   DataCite schema field name,
+        #   converter function,
+        #   data that will be converted,
+        # )
         fields = (
             ("creators", to_creators, gp["depositors"]),
             ("titles", to_titles, record_info["title"]),
@@ -157,22 +165,26 @@ class DataCiteMappingMBDB:
             ("subjects", to_subjects, record_info),
             ("rightsList", to_rights, record_info),
             ("url", to_url, data),
-            ("schemaVersion", add_schema,"http://datacite.org/schema/kernel-4")
+            ("schemaVersion", add_schema, "http://datacite.org/schema/kernel-4"),
         )
 
         return {field: func(data) for field, func, data in fields}
 
     @staticmethod
     def get_doi(record):
+        """Extract DOI from record metadata"""
         return record["metadata"]["general_parameters"]["record_information"].get(
             "external_identifier", None
         )
 
     def add_doi(self, record, data, doi_value):
+        """Add the DOI to the record metadata"""
         info = data["metadata"]["general_parameters"]["record_information"]
-        info.update({
-            "external_identifier": doi_value,
-            "date_available": self.current_date.isoformat(),
-        })
+        info.update(
+            {
+                "external_identifier": doi_value,
+                "date_available": self.current_date.isoformat(),
+            }
+        )
         record.update(data)
         record.commit()

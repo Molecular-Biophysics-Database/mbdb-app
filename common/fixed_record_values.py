@@ -5,6 +5,10 @@ import yaml
 
 
 def schema_version(model: str) -> str:
+    """
+    Extracts the version from the model and returns it.
+    Note that it assumes models can be located in ../models
+    """
     model_path = Path(__file__).parent.parent / "models"
     models = ("General_parameters", "BLI", "ITC", "MST", "SPR")
 
@@ -14,7 +18,7 @@ def schema_version(model: str) -> str:
     with open(model_path / f"{model.lower()}-definitions.yaml", "r") as f:
         yml = yaml.safe_load(f)
 
-    # Name of the object that has the schema version
+    # Sets the name of the object that contains the schema version
     if model != "General_parameters":
         model = f"{model}_specific_parameters"
 
@@ -22,6 +26,10 @@ def schema_version(model: str) -> str:
 
 
 def make_fixed_values(technique: str, resource_type: str) -> dict:
+    """
+    Based on the technique, make_fixed_values constructs an initial
+    metadata record with all the fixed values set
+    """
     record = deepcopy(FIXED_RECORD_VALUES)
     metadata = record["metadata"]
     gp = metadata["general_parameters"]
@@ -32,7 +40,7 @@ def make_fixed_values(technique: str, resource_type: str) -> dict:
     }
     return record
 
-
+# These values are the fixed (general parameter) values that are added to all records
 FIXED_RECORD_VALUES = {
     "metadata": {
         "general_parameters": {
