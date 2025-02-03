@@ -94,7 +94,7 @@ class RORService(AuthorityProvider):
 
 
 class NCBIService(AuthorityProvider):
-    base_url = "https://api.ncbi.nlm.nih.gov/datasets/v2alpha/taxonomy"
+    base_url = "https://api.ncbi.nlm.nih.gov/datasets/v2/taxonomy"
     search_url = f"{base_url}/taxon_suggest/"
     get_url = f"{base_url}/taxon/"
 
