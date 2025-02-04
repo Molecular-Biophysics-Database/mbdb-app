@@ -8,8 +8,8 @@ from common.services.files.synchronous_file_processing import SynchronousFilePro
 
 class BaseFileServiceConfigWithProcessors(PermissionsPresetsConfigMixin, FileServiceConfig):
     components = [
-        *PermissionsPresetsConfigMixin.components,
-        FileMetadataComponent,
-        FileContentComponent,
-        SynchronousFileProcessorComponent,
+        #*PermissionsPresetsConfigMixin.components,
+        #FileMetadataComponent,
+        #FileContentComponent,
+        #SynchronousFileProcessorComponent,
     ]
