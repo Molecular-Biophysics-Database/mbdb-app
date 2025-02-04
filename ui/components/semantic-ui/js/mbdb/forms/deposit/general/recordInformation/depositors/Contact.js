@@ -12,6 +12,11 @@ function Contact({ name, copyDepositor, copyPrincipalContact }) {
   const { getFieldData } = useFieldData();
   const { values, setFieldValue } = useFormikContext();
 
+  const tooltips = {
+    affiliation:
+      "The affiliation of the person. Note that this is based on the Research Organization Registry (ROR)",
+  };
+
   const depositor = `metadata.general_parameters.depositors.depositor`;
 
   const getDepositor = getIn(values, depositor);
@@ -99,15 +104,14 @@ function Contact({ name, copyDepositor, copyPrincipalContact }) {
             tooltip="The given name(s), including middlename(s), of the person"
           />
         </div>
-        <div>
-          <CustomField
-            name={name}
-            label="Family name"
-            fieldName="family_name"
-            required
-            tooltip="The family name(s) of the person"
-          />
-        </div>
+
+        <CustomField
+          name={name}
+          label="Family name"
+          fieldName="family_name"
+          required
+          tooltip="The family name(s) of the person"
+        />
       </div>
       <div className="flex">
         <div className="mr-3">
@@ -124,36 +128,35 @@ function Contact({ name, copyDepositor, copyPrincipalContact }) {
             )}
           />
         </div>
-        <div>
-          <ArrayField
-            name={name}
-            label="affiliation"
-            fieldName="affiliations"
-            tooltip="The affiliation of the person. Note that this is based on the Research Organization Registry (ROR)"
-            renderChild={({ arrayName, index }) => (
-              <FormWrapper
-                headline={`affiliation ${index + 1}`}
-                tooltip="The affiliation of the person. Note that this is based on the Research Organization Registry (ROR)"
-                colorSchema="light"
-              >
-                <VocabularyRemoteSelectField
-                  overriddenComponents={{
-                    "VocabularyRemoteSelect.ext.ResultsList.item":
-                      RORInstitutionResultListItem,
-                  }}
-                  vocabulary="affiliations"
-                  fieldPath={`${arrayName}.${index}`}
-                  modalHeader={
-                    getFieldData({
-                      fieldPath: `${arrayName}.${index}`,
-                      fieldRepresentation: "text",
-                    }).label
-                  }
-                />
-              </FormWrapper>
-            )}
-          />
-        </div>
+
+        <ArrayField
+          name={name}
+          label="affiliation"
+          fieldName="affiliations"
+          tooltip={tooltips.affiliation}
+          renderChild={({ arrayName, index }) => (
+            <FormWrapper
+              headline={`affiliation ${index + 1}`}
+              tooltip={tooltips.affiliation}
+              colorSchema="light"
+            >
+              <VocabularyRemoteSelectField
+                overriddenComponents={{
+                  "VocabularyRemoteSelect.ext.ResultsList.item":
+                    RORInstitutionResultListItem,
+                }}
+                vocabulary="affiliations"
+                fieldPath={`${arrayName}.${index}`}
+                modalHeader={
+                  getFieldData({
+                    fieldPath: `${arrayName}.${index}`,
+                    fieldRepresentation: "text",
+                  }).label
+                }
+              />
+            </FormWrapper>
+          )}
+        />
       </div>
     </>
   );

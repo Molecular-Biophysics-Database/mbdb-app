@@ -3,7 +3,12 @@ import ArrayField from "../../../buildingBlocks/ArrayField";
 import FormWrapper from "../../../buildingBlocks/FormWrapper";
 import Contact from "./Contact";
 
-function Depositors({ name }) {
+export default function Depositors({ name }) {
+  const tooltips = {
+    contributor:
+      "List of other people who contributed to generating the deposited data, metadata, results , or the deposition itself",
+  };
+
   return (
     <>
       <div className="mb-3">
@@ -22,24 +27,21 @@ function Depositors({ name }) {
           <Contact name={`${name}.principal_contact`} copyDepositor />
         </FormWrapper>
       </div>
-      <div>
-        <ArrayField
-          name={name}
-          label="Contributor"
-          fieldName="contributors"
-          tooltip="List of other people who contributed to generating the deposited data, metadata, results , or the deposition itself"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              headline={`Contributor ${index + 1}`}
-              tooltip="List of other people who contributed to generating the deposited data, metadata, results , or the deposition itself"
-            >
-              <Contact name={`${arrayName}.${index}`} />
-            </FormWrapper>
-          )}
-        />
-      </div>
+
+      <ArrayField
+        name={name}
+        label="Contributor"
+        fieldName="contributors"
+        tooltip={tooltips.contributor}
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            headline={`Contributor ${index + 1}`}
+            tooltip={tooltips.contributor}
+          >
+            <Contact name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }
-
-export default Depositors;
