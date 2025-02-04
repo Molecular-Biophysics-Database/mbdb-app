@@ -11,6 +11,15 @@ import OptionalField from "../../../buildingBlocks/OptionalField";
 import UseDefault from "../../../buildingBlocks/UseDefault";
 
 function ComplexSubstanceOfEnvironmentalOrigin({ name }) {
+  const tooltips = {
+    preparationProtocol:
+      "List of the steps performed during the preparation of the complex substance",
+    storage:
+      "The specific steps that were taken to prepare the samples for storage (e.g. flash freezing in liquid nitrogen), if applicable",
+    additionalSpecification:
+      "Additional information about the complex substance can be specified here",
+  };
+
   const sourceOptions = [
     { value: "Fresh water", label: "Fresh water" },
     { value: "Marine", label: "Marine" },
@@ -35,15 +44,14 @@ function ComplexSubstanceOfEnvironmentalOrigin({ name }) {
             tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample"
           />
         </div>
-        <div>
-          <OptionField
-            name={name}
-            options={sourceOptions}
-            label="Source"
-            fieldName="source"
-            tooltip="The environmental source where the complex substance was derived from"
-          />
-        </div>
+
+        <OptionField
+          name={name}
+          options={sourceOptions}
+          label="Source"
+          fieldName="source"
+          tooltip="The environmental source where the complex substance was derived from"
+        />
       </div>
       <div className="flex">
         <div className="mr-3">
@@ -52,59 +60,52 @@ function ComplexSubstanceOfEnvironmentalOrigin({ name }) {
             tooltip="The longitude, from west to east, in degrees (decimal notation)"
           />
         </div>
-        <div>
-          <Concentration name={`${name}.concentration`} />
-        </div>
+
+        <Concentration name={`${name}.concentration`} />
       </div>
-      <div>
-        <ArrayField
-          name={name}
-          label="Preparation protocol"
-          fieldName={fieldNamePreparationProtocol}
-          required
-          tooltip="List of the steps performed during the preparation of the complex substance"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              headline={`Preparation protocol step ${index + 1}`}
-              tooltip="List of the steps performed during the preparation of the complex substance"
-            >
-              <Protocol name={`${arrayName}.${index}`} />
-            </FormWrapper>
-          )}
-        />
-      </div>
-      <div>
-        <OptionalField
-          name={name}
-          label="Storage"
-          fieldName="storage"
-          tooltip="The specific steps that were taken to prepare the samples for storage (e.g. flash freezing in liquid nitrogen), if applicable"
-          renderChild={({ optionalFieldName }) => (
-            <FormWrapper
-              headline="Storage"
-              tooltip="The specific steps that were taken to prepare the samples for storage (e.g. flash freezing in liquid nitrogen), if applicable"
-            >
-              <Storage name={optionalFieldName} colorSchema="light" />
-            </FormWrapper>
-          )}
-        />
-      </div>
-      <div>
-        <ArrayField
-          name={name}
-          label="Additional specification"
-          fieldName="additional_specifications"
-          tooltip="Additional information about the complex substance can be specified here"
-          renderChild={({ arrayName, index }) => (
-            <CustomField
-              name={`${arrayName}.${index}`}
-              label={`Additional specification ${index + 1}`}
-              width="w-[15rem]"
-              tooltip="Additional information about the complex substance can be specified here"
-            />
-          )}
-        />
-      </div>
+
+      <ArrayField
+        name={name}
+        label="Preparation protocol"
+        fieldName={fieldNamePreparationProtocol}
+        required
+        tooltip={tooltips.preparationProtocol}
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            headline={`Preparation protocol step ${index + 1}`}
+            tooltip={tooltips.preparationProtocol}
+          >
+            <Protocol name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
+
+      <OptionalField
+        name={name}
+        label="Storage"
+        fieldName="storage"
+        tooltip={tooltips.storage}
+        renderChild={({ optionalFieldName }) => (
+          <FormWrapper headline="Storage" tooltip={tooltips.storage}>
+            <Storage name={optionalFieldName} colorSchema="light" />
+          </FormWrapper>
+        )}
+      />
+
+      <ArrayField
+        name={name}
+        label="Additional specification"
+        fieldName="additional_specifications"
+        tooltip={tooltips.additionalSpecification}
+        renderChild={({ arrayName, index }) => (
+          <CustomField
+            name={`${arrayName}.${index}`}
+            label={`Additional specification ${index + 1}`}
+            width="w-[15rem]"
+            tooltip={tooltips.additionalSpecification}
+          />
+        )}
+      />
     </>
   );
 }

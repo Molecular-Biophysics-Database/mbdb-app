@@ -6,8 +6,13 @@ import ArrayField from "../../buildingBlocks/ArrayField";
 import Ph from "./Ph";
 import CreateUuid from "../../buildingBlocks/CreateUuid";
 
-function ChemicalEnvironment({ name }) {
+export default function ChemicalEnvironment({ name }) {
   CreateUuid(name);
+
+  const tooltips = {
+    additionalSpecification:
+      "Additional information about the chemical environment can be specified here (e.g. prepared just prior to conducting the measurement, additional treatments like UV irradiation, specific storage container of chemical environment if that influenced the measurement etc.)",
+  };
 
   return (
     <>
@@ -30,13 +35,13 @@ function ChemicalEnvironment({ name }) {
             name={name}
             label="Additional specification"
             fieldName="additional_specifications"
-            tooltip="Additional information about the chemical environment can be specified here (e.g. prepared just prior to conducting the measurement, additional treatments like UV irradiation, specific storage container of chemical environment if that influenced the measurement etc.)"
+            tooltip={tooltips.additionalSpecification}
             renderChild={({ arrayName, index }) => (
               <CustomField
                 name={`${arrayName}.${index}`}
                 label={`Additional specification ${index + 1}`}
                 width="w-[15rem]"
-                tooltip="Additional information about the chemical environment can be specified here (e.g. prepared just prior to conducting the measurement, additional treatments like UV irradiation, specific storage container of chemical environment if that influenced the measurement etc.)"
+                tooltip={tooltips.additionalSpecification}
               />
             )}
           />
@@ -45,11 +50,8 @@ function ChemicalEnvironment({ name }) {
       <div className="mb-3">
         <Solvent name={name} />
       </div>
-      <div>
-        <Constituent name={name} />
-      </div>
+
+      <Constituent name={name} />
     </>
   );
 }
-
-export default ChemicalEnvironment;

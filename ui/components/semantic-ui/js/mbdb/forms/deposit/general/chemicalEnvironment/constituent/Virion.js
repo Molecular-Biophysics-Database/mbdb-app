@@ -15,6 +15,19 @@ import { NcbiTaxIdResultListItem } from "../../../buildingBlocks/NcbiTaxIdResult
 function Virion({ name }) {
   const { getFieldData } = useFieldData();
 
+  const tooltips = {
+    hostOrganism:
+      "The host organism the virion was produced in. Note that information is based on the NCBI taxonomy",
+    hostCellType:
+      "The host cell type the virion was produced in (e.g. macrophage)",
+    additionalSpecification:
+      "Additional information about the complex substance can be specified here",
+    preparationProtocol:
+      "List of the steps performed during the preparation of the complex substance",
+    storage:
+      "Information about how the complex substance was stored between being acquired and measured, including temperature and duration",
+  };
+
   const geneticMaterialOptions = [
     { value: "No genetic material", label: "No genetic material" },
     { value: "Virus genome", label: "Virus genome" },
@@ -89,15 +102,14 @@ function Virion({ name }) {
             tooltip="The type of virion capsid (e.g. genetically engineered, None"
           />
         </div>
-        <div>
-          <OptionField
-            name={name}
-            options={envelopeOptions}
-            label="Envelope type"
-            fieldName="envelope_type"
-            tooltip="The type of virion envelope (e.g. genetically engineered, None"
-          />
-        </div>
+
+        <OptionField
+          name={name}
+          options={envelopeOptions}
+          label="Envelope type"
+          fieldName="envelope_type"
+          tooltip="The type of virion envelope (e.g. genetically engineered, None"
+        />
       </div>
       <div className="flex mb-3">
         <div className="mr-3">
@@ -105,11 +117,11 @@ function Virion({ name }) {
             name={name}
             label="Host organism"
             fieldName="host_organism"
-            tooltip="The host organism the virion was produced in. Note that information is based on the NCBI taxonomy"
+            tooltip={tooltips.hostOrganism}
             renderChild={({ optionalFieldName }) => (
               <FormWrapper
                 headline="Host organism"
-                tooltip="The host organism the virion was produced in. Note that information is based on the NCBI taxonomy"
+                tooltip={tooltips.hostOrganism}
               >
                 <VocabularyRemoteSelectField
                   overriddenComponents={{
@@ -134,69 +146,62 @@ function Virion({ name }) {
             name={name}
             label="Host cell type"
             fieldName="host_cell_type"
-            tooltip="The host cell type the virion was produced in (e.g. macrophage)"
+            tooltip={tooltips.hostCellType}
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Host cell type"
-                tooltip="The host cell type the virion was produced in (e.g. macrophage)"
+                tooltip={tooltips.hostCellType}
               />
             )}
           />
         </div>
-        <div>
-          <ArrayField
-            name={name}
-            label="Additional specification"
-            fieldName="additional_specifications"
-            tooltip="Additional information about the complex substance can be specified here"
-            renderChild={({ arrayName, index }) => (
-              <CustomField
-                name={`${arrayName}.${index}`}
-                label={`Additional specification ${index + 1}`}
-                width="w-[15rem]"
-                tooltip="Additional information about the complex substance can be specified here"
-              />
-            )}
-          />
-        </div>
-      </div>
-      <div>
-        <Concentration name={`${name}.concentration`} />
-      </div>
-      <div>
+
         <ArrayField
           name={name}
-          label="Preparation protocol"
-          fieldName={fieldNamePreparationProtocol}
-          required
-          tooltip="List of the steps performed during the preparation of the complex substance"
+          label="Additional specification"
+          fieldName="additional_specifications"
+          tooltip={tooltips.additionalSpecification}
           renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              headline={`Preparation protocol step ${index + 1}`}
-              tooltip="List of the steps performed during the preparation of the complex substance"
-            >
-              <Protocol name={`${arrayName}.${index}`} />
-            </FormWrapper>
+            <CustomField
+              name={`${arrayName}.${index}`}
+              label={`Additional specification ${index + 1}`}
+              width="w-[15rem]"
+              tooltip={tooltips.additionalSpecification}
+            />
           )}
         />
       </div>
-      <div>
-        <OptionalField
-          name={name}
-          label="Storage"
-          fieldName="storage"
-          tooltip="Information about how the complex substance was stored between being acquired and measured, including temperature and duration"
-          renderChild={({ optionalFieldName }) => (
-            <FormWrapper
-              headline="Storage"
-              tooltip="Information about how the complex substance was stored between being acquired and measured, including temperature and duration"
-            >
-              <Storage name={optionalFieldName} colorSchema="light" />
-            </FormWrapper>
-          )}
-        />
-      </div>
+
+      <Concentration name={`${name}.concentration`} />
+
+      <ArrayField
+        name={name}
+        label="Preparation protocol"
+        fieldName={fieldNamePreparationProtocol}
+        required
+        tooltip={tooltips.preparationProtocol}
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            headline={`Preparation protocol step ${index + 1}`}
+            tooltip={tooltips.preparationProtocol}
+          >
+            <Protocol name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
+
+      <OptionalField
+        name={name}
+        label="Storage"
+        fieldName="storage"
+        tooltip={tooltips.storage}
+        renderChild={({ optionalFieldName }) => (
+          <FormWrapper headline="Storage" tooltip={tooltips.storage}>
+            <Storage name={optionalFieldName} colorSchema="light" />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }
