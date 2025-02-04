@@ -8,6 +8,12 @@ import ReferencePower from "./methodSpecificParameters/ReferencePower";
 import StirringSpeed from "./methodSpecificParameters/StirringSpeed";
 
 function MethodSpecificParameters({ name }) {
+  const tooltips = {
+    methodSpecific: "The parameters of the experiment that are specific to ITC",
+    feedbackMode:
+      "The operating mode where conditions are adjusted automatically to maintain constant temperature during heat measurements",
+  };
+
   const feedbackModeOptions = [
     { value: "None", label: "None" },
     { value: "Low", label: "Low" },
@@ -18,7 +24,7 @@ function MethodSpecificParameters({ name }) {
     <>
       <FormWrapper
         headline="Method specific parameters"
-        tooltip="The parameters of the experiment that is specific to ITC"
+        tooltip={tooltips.methodSpecific}
       >
         <div className="mb-3">
           <OptionField
@@ -27,41 +33,26 @@ function MethodSpecificParameters({ name }) {
             label="Feedback mode"
             required
             options={feedbackModeOptions}
-            tooltip="The operating mode where conditions are adjusted automatically to maintain constant temperature during heat measurements"
+            tooltip={tooltips.feedbackMode}
           />
         </div>
         <div className="flex mb-3">
-          <div>
-            <InjectionMode
-              name={`${name}.injection_mode`}
-              colorSchema="light"
-            />
-          </div>
+          <InjectionMode name={`${name}.injection_mode`} colorSchema="light" />
         </div>
-        <div className="flex mb-3">
-          <div className="mr-3">
-            <CellTemperature
-              name={`${name}.cell_temperature`}
-              colorSchema="light"
-            />
-          </div>
-          <div>
-            <CellVolume name={`${name}.cell_volume`} colorSchema="light" />
-          </div>
+        <div className="flex gap-x-3 mb-3">
+          <CellTemperature
+            name={`${name}.cell_temperature`}
+            colorSchema="light"
+          />
+          <CellVolume name={`${name}.cell_volume`} colorSchema="light" />
         </div>
-        <div className="flex">
-          <div className="mr-3">
-            <ReferencePower
-              name={`${name}.reference_power`}
-              colorSchema="light"
-            />
-          </div>
-          <div>
-            <StirringSpeed
-              name={`${name}.stirring_speed`}
-              colorSchema="light"
-            />
-          </div>
+        <div className="flex gap-x-3">
+          <ReferencePower
+            name={`${name}.reference_power`}
+            colorSchema="light"
+          />
+
+          <StirringSpeed name={`${name}.stirring_speed`} colorSchema="light" />
         </div>
       </FormWrapper>
     </>

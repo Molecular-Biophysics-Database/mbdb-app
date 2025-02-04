@@ -2,7 +2,7 @@ import React from "react";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import ValueUnit from "@mbdb_deposit/buildingBlocks/ValueUnit";
 
-function Volume({ colorSchema, name }) {
+export default function Volume({ colorSchema, name }) {
   const unitOptions = [
     { value: "ml", label: "ml" },
     { value: "µl", label: "µl" },
@@ -27,5 +27,3 @@ function Volume({ colorSchema, name }) {
     </>
   );
 }
-
-export default Volume;

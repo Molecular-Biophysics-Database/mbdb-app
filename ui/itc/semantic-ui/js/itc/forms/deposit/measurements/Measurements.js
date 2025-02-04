@@ -4,7 +4,7 @@ import SampleInCell from "./SampleInCell";
 import SampleInSyringe from "./SampleInSyringe";
 import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 
-function Measurements({ name }) {
+export default function Measurements({ name }) {
   CreateUuid(name);
 
   return (
@@ -22,14 +22,8 @@ function Measurements({ name }) {
       <div className="mb-3">
         <SampleInCell name={`${name}.sample_in_cell`} colorSchema="light" />
       </div>
-      <div>
-        <SampleInSyringe
-          name={`${name}.sample_in_syringe`}
-          colorSchema="light"
-        />
-      </div>
+
+      <SampleInSyringe name={`${name}.sample_in_syringe`} colorSchema="light" />
     </>
   );
 }
-
-export default Measurements;
