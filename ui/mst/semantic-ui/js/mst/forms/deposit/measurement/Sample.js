@@ -12,6 +12,15 @@ import CreateOptions from "@mbdb_deposit/buildingBlocks/CreateOptions";
 function Sample({ name, tooltip, colorSchema }) {
   const { values } = useFormikContext();
 
+  const tooltips = {
+    preparationProtocol:
+      "List of the steps performed during the preparation of the complex substance",
+    target:
+      "List of names (ids), from the entities of interest defined in the general parameters, of directly measured entities",
+    ligand:
+      "List of names (ids) of entities (from the entities of interest defined in the general parameters) that were used to alter the behavior of the target(s)",
+  };
+
   const measurementContainerOptions = [
     {
       value: "Monolith Standard Capillary",
@@ -49,13 +58,9 @@ function Sample({ name, tooltip, colorSchema }) {
     { value: "Other", label: "Other" },
   ];
 
-  const chemicalEnvironmentsValue = getIn(
-    values,
-    `metadata.general_parameters.chemical_environments`
-  );
   const chemicalEnvironmentOptions = CreateOptions(
-    chemicalEnvironmentsValue,
-    "Select Chemical environment, if applicable"
+    getIn(values, "metadata.general_parameters.chemical_environments"),
+    "Select Chemical Environment, if applicable"
   );
 
   const fieldNameTarget = "targets";
@@ -83,68 +88,64 @@ function Sample({ name, tooltip, colorSchema }) {
               width="w-[14rem]"
             />
           </div>
-          <div>
-            <OptionField
-              name={name}
-              fieldName="measurement_container"
-              options={measurementContainerOptions}
-              label="Measurement container"
-              required
-              tooltip="The container the sample was in during the measurement"
-              width="w-[14rem]"
-            />
-          </div>
-        </div>
-        <div>
-          <ArrayField
+
+          <OptionField
             name={name}
-            label="Preparation protocol"
-            fieldName="preparation_protocol"
-            tooltip="List of the steps performed during the preparation of the complex substance"
-            renderChild={({ arrayName, index }) => (
-              <FormWrapper
-                headline={`Preparation protocol step ${index + 1}`}
-                tooltip="List of the steps performed during the preparation of the complex substance"
-              >
-                <Protocol name={`${arrayName}.${index}`} />
-              </FormWrapper>
-            )}
-          />
-        </div>
-        <div>
-          <ArrayField
-            name={name}
-            label="Target"
-            fieldName={fieldNameTarget}
+            fieldName="measurement_container"
+            options={measurementContainerOptions}
+            label="Measurement container"
             required
-            tooltip="List of names (ids), from the entities of interest defined in the general parameters, of directly measured entities"
-            renderChild={({ arrayName, index }) => (
-              <FormWrapper
-                headline={`Target ${index + 1}`}
-                tooltip="List of names (ids), from the entities of interest defined in the general parameters, of directly measured entities"
-              >
-                <Target name={`${arrayName}.${index}`} />
-              </FormWrapper>
-            )}
+            tooltip="The container the sample was in during the measurement"
+            width="w-[14rem]"
           />
         </div>
-        <div>
-          <ArrayField
-            name={name}
-            label="Ligand"
-            fieldName={fieldNameLigand}
-            required
-            tooltip="List of names (ids) of entities (from the entities of interest defined in the general parameters) that were used to alter the behavior of the target(s)"
-            renderChild={({ arrayName, index }) => (
-              <FormWrapper
-                headline={`Ligand ${index + 1}`}
-                tooltip="List of names (ids) of entities (from the entities of interest defined in the general parameters) that were used to alter the behavior of the target(s)"
-              >
-                <Ligand name={`${arrayName}.${index}`} />
-              </FormWrapper>
-            )}
-          />
-        </div>
+
+        <ArrayField
+          name={name}
+          label="Preparation protocol"
+          fieldName="preparation_protocol"
+          tooltip={tooltips.preparationProtocol}
+          renderChild={({ arrayName, index }) => (
+            <FormWrapper
+              headline={`Preparation protocol step ${index + 1}`}
+              tooltip={tooltips.preparationProtocol}
+            >
+              <Protocol name={`${arrayName}.${index}`} />
+            </FormWrapper>
+          )}
+        />
+
+        <ArrayField
+          name={name}
+          label="Target"
+          fieldName={fieldNameTarget}
+          required
+          tooltip={tooltips.target}
+          renderChild={({ arrayName, index }) => (
+            <FormWrapper
+              headline={`Target ${index + 1}`}
+              tooltip={tooltips.target}
+            >
+              <Target name={`${arrayName}.${index}`} />
+            </FormWrapper>
+          )}
+        />
+
+        <ArrayField
+          name={name}
+          label="Ligand"
+          fieldName={fieldNameLigand}
+          required
+          tooltip={tooltips.ligand}
+          renderChild={({ arrayName, index }) => (
+            <FormWrapper
+              headline={`Ligand ${index + 1}`}
+              tooltip={tooltips.ligand}
+            >
+              <Ligand name={`${arrayName}.${index}`} />
+            </FormWrapper>
+          )}
+        />
       </FormWrapper>
     </>
   );
