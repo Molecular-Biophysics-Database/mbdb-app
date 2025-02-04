@@ -7,6 +7,10 @@ import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 function MeasurementPositions({ name }) {
   CreateUuid(name);
 
+  const tooltips = {
+    position: "Position of the measurement spot within the flow cell",
+  };
+
   return (
     <>
       <div className="mb-3">
@@ -34,28 +38,27 @@ function MeasurementPositions({ name }) {
             name={name}
             fieldName="position"
             label="Position"
-            tooltip="Position of the measurement spot within the flow cell"
+            tooltip={tooltips.position}
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Position"
-                tooltip="Position of the measurement spot within the flow cell"
+                tooltip={tooltips.position}
               />
             )}
           />
         </div>
       </div>
-      <div>
-        <OptionalField
-          name={name}
-          label="Ligand"
-          fieldName="ligand"
-          tooltip="Information about the ligand and how it was immobilized"
-          renderChild={({ optionalFieldName }) => (
-            <LigandInformation name={optionalFieldName} colorSchema="light" />
-          )}
-        />
-      </div>
+
+      <OptionalField
+        name={name}
+        label="Ligand"
+        fieldName="ligand"
+        tooltip="Information about the ligand and how it was immobilized"
+        renderChild={({ optionalFieldName }) => (
+          <LigandInformation name={optionalFieldName} colorSchema="light" />
+        )}
+      />
     </>
   );
 }

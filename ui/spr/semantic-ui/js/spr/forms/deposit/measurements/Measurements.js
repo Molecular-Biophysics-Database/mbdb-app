@@ -15,12 +15,8 @@ function Measurements({ name }) {
 
   UseDefault(`${name}.samples`, [{}]);
 
-  const measurementPotionValue = getIn(
-    values,
-    `metadata.method_specific_parameters.measurement_positions`
-  );
   const measurementPotionOptions = CreateOptions(
-    measurementPotionValue,
+    getIn(values, "metadata.method_specific_parameters.measurement_positions"),
     "Select Measurement position, if applicable"
   );
 
@@ -64,34 +60,32 @@ function Measurements({ name }) {
           />
         </div>
       </div>
-      <div>
-        <ArrayField
-          name={name}
-          fieldName="samples"
-          label="Samples"
-          required
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper headline={`Sample ${index + 1}`} colorSchema="light">
-              <Sample name={`${arrayName}.${index}`} />
-            </FormWrapper>
-          )}
-        />
-      </div>
-      <div>
-        <ArrayField
-          name={name}
-          fieldName="reference_samples"
-          label="Reference samples"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              headline={`Reference sample ${index + 1}`}
-              colorSchema="light"
-            >
-              <Sample name={`${arrayName}.${index}`} />
-            </FormWrapper>
-          )}
-        />
-      </div>
+
+      <ArrayField
+        name={name}
+        fieldName="samples"
+        label="Samples"
+        required
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper headline={`Sample ${index + 1}`} colorSchema="light">
+            <Sample name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
+
+      <ArrayField
+        name={name}
+        fieldName="reference_samples"
+        label="Reference samples"
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            headline={`Reference sample ${index + 1}`}
+            colorSchema="light"
+          >
+            <Sample name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }

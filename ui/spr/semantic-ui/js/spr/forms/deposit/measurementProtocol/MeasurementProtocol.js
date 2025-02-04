@@ -5,9 +5,8 @@ import StartTime from "@mbdb_deposit/sharedComponents/StartTime";
 import TimeLength from "@mbdb_deposit/sharedComponents/TimeLength";
 import Flow from "./Flow";
 import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
-import { useFormikContext } from "formik";
 
-function MeasurementProtocol({ name }) {
+export default function MeasurementProtocol({ name }) {
   const typeOptions = [
     { value: "Association", label: "Association" },
     { value: "Baseline", label: "Baseline" },
@@ -19,8 +18,6 @@ function MeasurementProtocol({ name }) {
     { value: "Enhancement", label: "Enhancement" },
   ];
 
-  const { values } = useFormikContext();
-  console.log(values);
   CreateUuid(name);
 
   return (
@@ -36,30 +33,22 @@ function MeasurementProtocol({ name }) {
             width="w-[29rem]"
           />
         </div>
-        <div>
-          <OptionField
-            name={name}
-            label="Type"
-            fieldName="type"
-            required
-            options={typeOptions}
-            tooltip="Which type of step in the measurement protocol this refers to"
-          />
-        </div>
+        <OptionField
+          name={name}
+          label="Type"
+          fieldName="type"
+          required
+          options={typeOptions}
+          tooltip="Which type of step in the measurement protocol this refers to"
+        />
       </div>
       <div className="flex mb-3">
         <div className="mr-3">
           <StartTime name={`${name}.start_time`} colorSchema="light" />
         </div>
-        <div>
-          <TimeLength name={`${name}.time_length`} colorSchema="light" />
-        </div>
+        <TimeLength name={`${name}.time_length`} colorSchema="light" />
       </div>
-      <div>
-        <Flow name={`${name}.flow`} colorSchema="light" />
-      </div>
+      <Flow name={`${name}.flow`} colorSchema="light" />
     </>
   );
 }
-
-export default MeasurementProtocol;
