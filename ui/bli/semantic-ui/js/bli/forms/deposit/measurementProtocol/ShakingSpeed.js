@@ -2,7 +2,7 @@ import React from "react";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import ValueUnit from "@mbdb_deposit/buildingBlocks/ValueUnit";
 
-function ShakingSpeed({ colorSchema, name }) {
+export default function ShakingSpeed({ colorSchema, name }) {
   const unitOptions = [{ value: "RPM", label: "RPM" }];
 
   return (
@@ -26,5 +26,3 @@ function ShakingSpeed({ colorSchema, name }) {
     </>
   );
 }
-
-export default ShakingSpeed;
