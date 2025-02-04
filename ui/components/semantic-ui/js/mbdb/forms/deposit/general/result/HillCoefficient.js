@@ -12,6 +12,11 @@ import CreateUuid from "../../buildingBlocks/CreateUuid";
 function HillCoefficient({ name }) {
   CreateUuid(name);
 
+  const tooltips = {
+    entityInvolved:
+      "List of chemical or molecular assemblies the result describes and how many copies of each are involved",
+  };
+
   const unitOptions = [{ value: "unitless", label: "unitless" }];
 
   const fieldNameEntityInvolved = "entities_involved";
@@ -29,16 +34,15 @@ function HillCoefficient({ name }) {
             tooltip="Descriptive name (id) of the result (e.g. Kd of Lysozyme and VHH2). Must be unique within a record"
           />
         </div>
-        <div>
-          <ValueUnit
-            options={unitOptions}
-            name={name}
-            valueRequired
-            unitRequired
-            tooltipValue="Numerical value of the result"
-            tooltipUnit="Hill coefficient is unitless"
-          />
-        </div>
+
+        <ValueUnit
+          options={unitOptions}
+          name={name}
+          valueRequired
+          unitRequired
+          tooltipValue="Numerical value of the result"
+          tooltipUnit="Hill coefficient is unitless"
+        />
       </div>
       <OptionalField
         name={name}
@@ -46,9 +50,7 @@ function HillCoefficient({ name }) {
         fieldName="value_error"
         tooltip="The expected error of the result in terms of a 95 % confidence interval"
         renderChild={({ optionalFieldName }) => (
-          <div>
-            <ValueError name={optionalFieldName} colorSchema="light" />
-          </div>
+          <ValueError name={optionalFieldName} colorSchema="light" />
         )}
       />
       <ArrayField
@@ -56,12 +58,12 @@ function HillCoefficient({ name }) {
         label="Entity involved"
         fieldName={fieldNameEntityInvolved}
         required
-        tooltip="List of chemical or molecular assemblies the result describes and how many copies of each are involved"
+        tooltip={tooltips.entityInvolved}
         renderChild={({ arrayName, index }) => (
           <FormWrapper
             colorSchema="light"
             headline={`Entity involved ${index + 1}`}
-            tooltip="List of chemical or molecular assemblies the result describes and how many copies of each are involved"
+            tooltip={tooltips.entityInvolved}
           >
             <EntityInvolved name={`${arrayName}.${index}`} />
           </FormWrapper>

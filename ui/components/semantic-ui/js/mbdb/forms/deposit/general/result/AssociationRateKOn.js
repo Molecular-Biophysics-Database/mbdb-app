@@ -12,6 +12,11 @@ import CreateUuid from "../../buildingBlocks/CreateUuid";
 function AssociationRateKOn({ name }) {
   CreateUuid(name);
 
+  const tooltips = {
+    entityInvolved:
+      "List of chemical or molecular assemblies the result describes and how many copies of each are involved",
+  };
+
   const unitOptions = [
     { value: "M^-1 s^-1", label: "M^-1 s^-1" },
     { value: "M^-2 s^-1", label: "M^-2 s^-1" },
@@ -38,48 +43,43 @@ function AssociationRateKOn({ name }) {
             tooltip="Descriptive name (id) of the result (e.g. Kd of Lysozyme and VHH2). Must be unique within a record"
           />
         </div>
-        <div>
-          <ValueUnit
-            options={unitOptions}
-            name={name}
-            valueRequired
-            unitRequired
-            tooltipValue="Numerical value of the result"
-            tooltipUnit="Unit of the association rate"
-          />
-        </div>
-      </div>
-      <div>
-        <OptionalField
+
+        <ValueUnit
+          options={unitOptions}
           name={name}
-          label="Value error"
-          fieldName="value_error"
-          tooltip="The expected error of the result in terms of a 95 % confidence interval"
-          renderChild={({ optionalFieldName }) => (
-            <div>
-              <ValueError name={optionalFieldName} colorSchema="light" />
-            </div>
-          )}
+          valueRequired
+          unitRequired
+          tooltipValue="Numerical value of the result"
+          tooltipUnit="Unit of the association rate"
         />
       </div>
-      <div>
-        <ArrayField
-          name={name}
-          label="Entity involved"
-          fieldName={fieldNameEntityInvolved}
-          required
-          tooltip="List of chemical or molecular assemblies the result describes and how many copies of each are involved"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              colorSchema="light"
-              headline={`Entity involved ${index + 1}`}
-              tooltip="List of chemical or molecular assemblies the result describes and how many copies of each are involved"
-            >
-              <EntityInvolved name={`${arrayName}.${index}`} />
-            </FormWrapper>
-          )}
-        />
-      </div>
+
+      <OptionalField
+        name={name}
+        label="Value error"
+        fieldName="value_error"
+        tooltip="The expected error of the result in terms of a 95 % confidence interval"
+        renderChild={({ optionalFieldName }) => (
+          <ValueError name={optionalFieldName} colorSchema="light" />
+        )}
+      />
+
+      <ArrayField
+        name={name}
+        label="Entity involved"
+        fieldName={fieldNameEntityInvolved}
+        required
+        tooltip={tooltips.entityInvolved}
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            colorSchema="light"
+            headline={`Entity involved ${index + 1}`}
+            tooltip={tooltips.entityInvolved}
+          >
+            <EntityInvolved name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }
