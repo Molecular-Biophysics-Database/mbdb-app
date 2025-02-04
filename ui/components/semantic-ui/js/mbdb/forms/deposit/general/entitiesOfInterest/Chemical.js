@@ -4,8 +4,13 @@ import CustomField from "../../buildingBlocks/CustomField";
 import CreateUuid from "../../buildingBlocks/CreateUuid";
 import BasicInformationField from "../../buildingBlocks/BasicInformationField";
 
-function Chemical({ name }) {
+export default function Chemical({ name }) {
   CreateUuid(name);
+
+  const tooltips = {
+    additionalSpecification:
+      "Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)",
+  };
 
   return (
     <>
@@ -29,18 +34,16 @@ function Chemical({ name }) {
         name={name}
         label="Additional specification"
         fieldName="additional_specifications"
-        tooltip="Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)"
+        tooltip={tooltips.additionalSpecification}
         renderChild={({ arrayName, index }) => (
           <CustomField
             name={`${arrayName}.${index}`}
             label={`Additional specification ${index + 1}`}
             width="w-[15rem]"
-            tooltip="Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)"
+            tooltip={tooltips.additionalSpecification}
           />
         )}
       />
     </>
   );
 }
-
-export default Chemical;
