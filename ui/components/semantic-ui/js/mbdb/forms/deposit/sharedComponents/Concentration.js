@@ -2,7 +2,7 @@ import React from "react";
 import FormWrapper from "../buildingBlocks/FormWrapper";
 import ValueUnit from "../buildingBlocks/ValueUnit";
 
-function Concentration({ name, tooltip, colorSchema }) {
+export default function Concentration({ name, tooltip, colorSchema }) {
   const unitOptions = [
     { value: "M", label: "M" },
     { value: "mM", label: "mM" },
@@ -44,5 +44,3 @@ function Concentration({ name, tooltip, colorSchema }) {
     </>
   );
 }
-
-export default Concentration;
