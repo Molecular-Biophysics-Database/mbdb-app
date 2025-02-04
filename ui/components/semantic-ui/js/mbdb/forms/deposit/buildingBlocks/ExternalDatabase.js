@@ -3,7 +3,7 @@ import FormWrapper from "./FormWrapper";
 import ArrayField from "./ArrayField";
 import ExternalDatabaseField from "./ExternalDatabaseField";
 
-function ExternalDatabase({ name, colorSchema }) {
+export default function ExternalDatabase({ name, colorSchema }) {
   return (
     <>
       <ArrayField
@@ -28,5 +28,3 @@ function ExternalDatabase({ name, colorSchema }) {
     </>
   );
 }
-
-export default ExternalDatabase;

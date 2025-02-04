@@ -12,7 +12,7 @@ function FormWrapper({ headline, children, colorSchema, tooltip, required }) {
       >
         {headline && (
           <div className="flex">
-            <div className="font-JostMedium text-18px mb-2">{headline}</div>
+            <div className="font-JostSemiBold text-lg mb-2">{headline}</div>
             {required && (
               <div className="text-accent ml-1">
                 <Tooltip
