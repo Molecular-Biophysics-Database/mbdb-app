@@ -38,7 +38,7 @@
 
 from oarepo_communities.services.permissions.policy import CommunityDefaultWorkflowPermissions
 
-from invenio_records_permissions.generators import AnyUser
+from invenio_records_permissions.generators import AnyUser, Disable
 from oarepo_communities.services.permissions.generators import (
     CommunityMembers,
     DefaultCommunityRole,
@@ -116,6 +116,10 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
                 UserWithRole("administrator"),
             ],
         ),
+    ]
+
+    can_manage_files = [
+        Disable(),
     ]
 
 

@@ -17,6 +17,7 @@ plugins:
   - oarepo-model-builder-polymorphic
   - oarepo-model-builder-vocabularies
   - oarepo-model-builder-communities>=5.0.0
+  - oarepo-model-builder-rdm
 profiles:
 - record
 - draft
@@ -33,7 +34,7 @@ record:
   files:
     use: ['./files.yaml', 'invenio_files']
     service-config:
-      base-classes: [ common.services.files.MstFileServiceConfigWithProcessors ]
+      base-classes: [ common.services.files.mst_metadata_extraction.MstFileServiceConfigWithProcessors ]
     resource:
       base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
   module:
@@ -50,6 +51,10 @@ record:
   resource-config:
     base-url: /records/mst/
     base-html-url: /mst/
+  service:
+    base-classes:
+      - common.services.records.service.AddWorkflowServiceMixin
+      - invenio_rdm_records.services.services.RDMRecordService
 
 runtime-dependencies: {}
 

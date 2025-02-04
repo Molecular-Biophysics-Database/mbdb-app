@@ -8,7 +8,9 @@ from oarepo_runtime.services.config import (
     has_permission_file_service,
 )
 
-from common.services.files.mst_metadata_extraction import MstFileServiceConfigWithProcessors
+from common.services.files.mst_metadata_extraction import (
+    MstFileServiceConfigWithProcessors,
+)
 from mst.records.api import MstDraft, MstRecord
 from mst.services.files.schema import MstFileSchema
 from mst.services.records.permissions import MstPermissionPolicy
