@@ -27,7 +27,7 @@
 # published == record is published
 # deleting == record is in the process of being deleted (request filed but not yet accepted)
 #
-from invenio_records_permissions.generators import AnyUser, AuthenticatedUser
+from invenio_records_permissions.generators import AnyUser, AuthenticatedUser, Disable
 
 from oarepo_runtime.services.permissions.generators import RecordOwners
 from oarepo_workflows import (
@@ -102,6 +102,9 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
                 UserWithRole("administrator"),
             ],
         ),
+    ]
+    can_manage_files = [
+        Disable(),
     ]
 
 class IndividualWorkflowRequests(WorkflowRequestPolicy):

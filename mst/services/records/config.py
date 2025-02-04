@@ -1,7 +1,4 @@
-from invenio_drafts_resources.services import (
-    RecordServiceConfig as InvenioRecordDraftsServiceConfig,
-)
-from invenio_drafts_resources.services.records.components import DraftFilesComponent
+from invenio_rdm_records.services.config import RDMRecordServiceConfig
 from invenio_records_resources.services import (
     ConditionalLink,
     LinksTemplate,
@@ -27,7 +24,6 @@ from oarepo_runtime.services.config import (
     is_published_record,
 )
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
-from oarepo_runtime.services.files import FilesComponent
 from oarepo_runtime.services.records import pagination_links_html
 from oarepo_vocabularies.authorities.components import AuthorityComponent
 from oarepo_workflows.services.components.workflow import WorkflowComponent
@@ -39,7 +35,7 @@ from mst.services.records.schema import MstSchema
 from mst.services.records.search import MstSearchOptions
 
 
-class MstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsServiceConfig):
+class MstServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
     """MstRecord service config."""
 
     result_item_cls = MstRecordItem
@@ -71,10 +67,8 @@ class MstServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordDraftsService
             AuthorityComponent,
             DoiComponent,
             CommunityDefaultWorkflowComponent,
-            # CommunityInclusionComponent,
+           # CommunityInclusionComponent,
             OwnersComponent,
-            FilesComponent,
-            DraftFilesComponent,
             CustomFieldsComponent,
             WorkflowComponent,
         ]

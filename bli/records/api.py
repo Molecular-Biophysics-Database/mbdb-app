@@ -1,7 +1,15 @@
 from invenio_communities.records.records.systemfields import CommunitiesField
-from invenio_drafts_resources.records.api import Draft as InvenioDraft
-from invenio_drafts_resources.records.api import DraftRecordIdProviderV2, ParentRecord
-from invenio_drafts_resources.records.api import Record as InvenioRecord
+from invenio_drafts_resources.records.api import DraftRecordIdProviderV2
+from invenio_drafts_resources.services.records.components.media_files import (
+    MediaFilesAttrConfig,
+)
+from invenio_rdm_records.records.api import (
+    RDMDraft,
+    RDMMediaFileDraft,
+    RDMMediaFileRecord,
+    RDMParent,
+    RDMRecord,
+)
 from invenio_records.systemfields import ConstantField, ModelField
 from invenio_records_resources.records.systemfields import FilesField, IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
@@ -14,7 +22,6 @@ from oarepo_runtime.records.relations import (
     RelationsField,
 )
 from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
-from oarepo_runtime.records.systemfields.owner import OwnersField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
 from oarepo_vocabularies.records.api import Vocabulary
 from oarepo_workflows.records.systemfields.state import (
@@ -34,7 +41,7 @@ from bli.records.models import (
 )
 
 
-class BliParentRecord(ParentRecord):
+class BliParentRecord(RDMParent):
     model_cls = BliParentMetadata
 
     workflow = WorkflowField()
@@ -43,23 +50,18 @@ class BliParentRecord(ParentRecord):
         BliCommunitiesMetadata, context_cls=OARepoCommunitiesFieldContext
     )
 
-    owners = OwnersField()
-
 
 class BliIdProvider(DraftRecordIdProviderV2):
     pid_type = "bli"
 
 
-class BliRecord(InvenioRecord):
+class BliRecord(RDMRecord):
 
     model_cls = BliMetadata
 
     schema = ConstantField("$schema", "local://bli-1.0.0.json")
 
-    index = IndexField(
-        "bli-bli-1.0.0",
-        search_alias="bli",
-    )
+    index = IndexField("bli-bli-1.0.0", search_alias="bli")
 
     pid = PIDField(provider=BliIdProvider, context_cls=PIDFieldContext, create=True)
 
@@ -68,6 +70,17 @@ class BliRecord(InvenioRecord):
     state = RecordStateField(initial="published")
 
     state_timestamp = RecordStateTimestampField()
+
+    media_files = FilesField(
+        key=MediaFilesAttrConfig["_files_attr_key"],
+        bucket_id_attr=MediaFilesAttrConfig["_files_bucket_id_attr_key"],
+        bucket_attr=MediaFilesAttrConfig["_files_bucket_attr_key"],
+        store=False,
+        dump=False,
+        file_cls=RDMMediaFileRecord,
+        create=False,
+        delete=False,
+    )
 
     relations = RelationsField(
         expression_organism=PIDRelation(
@@ -470,7 +483,24 @@ class BliRecord(InvenioRecord):
     bucket = ModelField(dump=False)
 
 
-class BliDraft(InvenioDraft):
+class RDMRecordMediaFiles(BliRecord):
+    """RDM Media file record API."""
+
+    files = FilesField(
+        key=MediaFilesAttrConfig["_files_attr_key"],
+        bucket_id_attr=MediaFilesAttrConfig["_files_bucket_id_attr_key"],
+        bucket_attr=MediaFilesAttrConfig["_files_bucket_attr_key"],
+        store=False,
+        dump=False,
+        file_cls=RDMMediaFileRecord,
+        # Don't create
+        create=False,
+        # Don't delete, we'll manage in the service
+        delete=False,
+    )
+
+
+class BliDraft(RDMDraft):
 
     model_cls = BliDraftMetadata
 
@@ -487,6 +517,17 @@ class BliDraft(InvenioDraft):
     state = RecordStateField()
 
     state_timestamp = RecordStateTimestampField()
+
+    media_files = FilesField(
+        key=MediaFilesAttrConfig["_files_attr_key"],
+        bucket_id_attr=MediaFilesAttrConfig["_files_bucket_id_attr_key"],
+        bucket_attr=MediaFilesAttrConfig["_files_bucket_attr_key"],
+        store=False,
+        dump=False,
+        file_cls=RDMMediaFileDraft,
+        create=False,
+        delete=False,
+    )
 
     relations = RelationsField(
         expression_organism=PIDRelation(
@@ -887,6 +928,24 @@ class BliDraft(InvenioDraft):
     bucket_id = ModelField(dump=False)
     bucket = ModelField(dump=False)
 
+
+class RDMDraftMediaFiles(BliDraft):
+    """RDM Draft media file API."""
+
+    files = FilesField(
+        key=MediaFilesAttrConfig["_files_attr_key"],
+        bucket_id_attr=MediaFilesAttrConfig["_files_bucket_id_attr_key"],
+        bucket_attr=MediaFilesAttrConfig["_files_bucket_attr_key"],
+        store=False,
+        dump=False,
+        file_cls=RDMMediaFileDraft,
+        # Don't delete, we'll manage in the service
+        delete=False,
+    )
+
+
+RDMMediaFileRecord.record_cls = RDMRecordMediaFiles
+RDMMediaFileDraft.record_cls = RDMDraftMediaFiles
 
 BliFile.record_cls = BliRecord
 

@@ -8,9 +8,7 @@ class SprFile(FileRecord):
 
     model_cls = SprFileMetadata
 
-    index = IndexField(
-        "spr_file-spr_file-1.0.0",
-    )
+    index = IndexField("spr_file-spr_file-1.0.0", search_alias="spr_file")
     record_cls = None  # is defined inside the parent record
 
 
@@ -19,6 +17,6 @@ class SprFileDraft(FileRecord):
     model_cls = SprFileDraftMetadata
 
     index = IndexField(
-        "spr_file_draft-spr_file_draft-1.0.0",
+        "spr_file_draft-spr_file_draft-1.0.0", search_alias="spr_file_draft"
     )
     record_cls = None  # is defined inside the parent record
