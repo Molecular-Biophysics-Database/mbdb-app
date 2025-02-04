@@ -5,8 +5,10 @@ import OptionalField from "../../../../buildingBlocks/OptionalField";
 import DynamicOptionField from "../../../../buildingBlocks/DynamicOptionField";
 import IdentityYes from "./IdentityYes";
 
-function Identity({ name, colorSchema }) {
+export default function Identity({ name, colorSchema }) {
   const { values } = useFormikContext();
+
+  const tooltip = "Information about if and how the identity was obtained";
 
   const typeOptions = [
     { value: "Yes", label: "Yes" },
@@ -20,7 +22,7 @@ function Identity({ name, colorSchema }) {
         label="Identity"
         fieldName="identity"
         initialValue={{ assessed: "Yes" }}
-        tooltip="Information about if and how the identity was obtained"
+        tooltip={tooltip}
         renderChild={({ optionalFieldName }) => {
           const actualValue = getIn(values, optionalFieldName);
           if (!actualValue) {
@@ -30,7 +32,7 @@ function Identity({ name, colorSchema }) {
             <FormWrapper
               headline="Identity"
               colorSchema={colorSchema}
-              tooltip="Information about if and how the identity was obtained"
+              tooltip={tooltip}
             >
               <div className="mr-3">
                 <DynamicOptionField
@@ -58,5 +60,3 @@ function Identity({ name, colorSchema }) {
     </>
   );
 }
-
-export default Identity;

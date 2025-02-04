@@ -4,7 +4,7 @@ import Homogeneity from "./homogeneity/Homogeneity";
 import Identity from "./identity/Identity";
 import Purity from "./purity/Purity";
 
-function QualityControls({ name, colorSchema }) {
+export default function QualityControls({ name, colorSchema }) {
   return (
     <>
       <FormWrapper
@@ -24,15 +24,12 @@ function QualityControls({ name, colorSchema }) {
             colorSchema={colorSchema === "light" ? "" : "light"}
           />
         </div>
-        <div>
-          <Homogeneity
-            name={name}
-            colorSchema={colorSchema === "light" ? "" : "light"}
-          />
-        </div>
+
+        <Homogeneity
+          name={name}
+          colorSchema={colorSchema === "light" ? "" : "light"}
+        />
       </FormWrapper>
     </>
   );
 }
-
-export default QualityControls;

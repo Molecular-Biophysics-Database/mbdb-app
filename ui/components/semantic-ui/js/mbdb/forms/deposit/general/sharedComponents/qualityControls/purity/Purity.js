@@ -5,8 +5,10 @@ import PurityYes from "./PurityYes";
 import OptionalField from "../../../../buildingBlocks/OptionalField";
 import DynamicOptionField from "../../../../buildingBlocks/DynamicOptionField";
 
-function Purity({ name, colorSchema }) {
+export default function Purity({ name, colorSchema }) {
   const { values } = useFormikContext();
+
+  const tooltip = "Information about if and how the purity was assessed";
 
   const typeOptions = [
     { value: "Yes", label: "Yes" },
@@ -20,7 +22,7 @@ function Purity({ name, colorSchema }) {
         label="Purity"
         fieldName="purity"
         initialValue={{ assessed: "Yes" }}
-        tooltip="Information about if and how the purity was assessed"
+        tooltip={tooltip}
         renderChild={({ optionalFieldName }) => {
           const actualValue = getIn(values, optionalFieldName);
           if (!actualValue) {
@@ -30,7 +32,7 @@ function Purity({ name, colorSchema }) {
             <FormWrapper
               headline="Purity"
               colorSchema={colorSchema}
-              tooltip="Information about if and how the purity was assessed"
+              tooltip={tooltip}
             >
               <div className="flex">
                 <div className="mr-3">
@@ -58,5 +60,3 @@ function Purity({ name, colorSchema }) {
     </>
   );
 }
-
-export default Purity;

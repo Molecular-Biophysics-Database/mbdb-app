@@ -3,7 +3,7 @@ import CustomField from "../../../../buildingBlocks/CustomField";
 import FormWrapper from "../../../../buildingBlocks/FormWrapper";
 import OptionField from "../../../../buildingBlocks/OptionField";
 
-function BySequencing({ name, colorSchema }) {
+export default function BySequencing({ name, colorSchema }) {
   const methodOptions = [
     {
       value: "Mass spectrometry-Mass spectrometry",
@@ -35,19 +35,16 @@ function BySequencing({ name, colorSchema }) {
               tooltip="The method used to assess identity"
             />
           </div>
-          <div>
-            <CustomField
-              name={name}
-              required
-              fieldName="coverage"
-              label="Coverage"
-              tooltip="The amount of the total (expected) sequence that was actually observed by sequencing in percent"
-            />
-          </div>
+
+          <CustomField
+            name={name}
+            required
+            fieldName="coverage"
+            label="Coverage"
+            tooltip="The amount of the total (expected) sequence that was actually observed by sequencing in percent"
+          />
         </div>
       </FormWrapper>
     </>
   );
 }
-
-export default BySequencing;
