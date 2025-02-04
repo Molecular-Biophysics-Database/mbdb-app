@@ -4,8 +4,11 @@ import ArrayFieldCopyPaste from "@mbdb_deposit/buildingBlocks/ArrayFieldCopyPast
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
 import Measurements from "../measurements/Measurements";
 
-function MeasurementsTab({ name }) {
+export default function MeasurementsTab({ name }) {
   const fieldName = "measurements";
+
+  const tooltip =
+    "List of measurements where the complete output from a single sensor going through the measurement protocol is considered a separate measurement";
 
   UseDefault(`${name}.${fieldName}`, [{}]);
 
@@ -23,12 +26,9 @@ function MeasurementsTab({ name }) {
         required
         method="spr"
         fieldName={fieldName}
-        tooltip="List of measurements where the complete output from a single sensor going through the measurement protocol is considered a separate measurement"
+        tooltip={tooltip}
         renderChild={({ arrayName, index }) => (
-          <FormWrapper
-            headline={`Measurement ${index + 1}`}
-            tooltip="List of measurements where the complete output from a single sensor going through the measurement protocol is considered a separate measurement"
-          >
+          <FormWrapper headline={`Measurement ${index + 1}`} tooltip={tooltip}>
             <Measurements name={`${arrayName}.${index}`} />
           </FormWrapper>
         )}
@@ -36,5 +36,3 @@ function MeasurementsTab({ name }) {
     </>
   );
 }
-
-export default MeasurementsTab;

@@ -4,7 +4,9 @@ import ArrayField from "@mbdb_deposit/buildingBlocks/ArrayField";
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
 import Plates from "../plates/Plates";
 
-function PlatesTab({ name }) {
+export default function PlatesTab({ name }) {
+  const tooltip = "Information about the plates used for the measurements";
+
   const fieldName = "plates";
 
   UseDefault(`${name}.${fieldName}`, [{}]);
@@ -21,12 +23,9 @@ function PlatesTab({ name }) {
         label="Plate"
         required
         fieldName={fieldName}
-        tooltip="Information about the plates used for the measurements"
+        tooltip={tooltip}
         renderChild={({ arrayName, index }) => (
-          <FormWrapper
-            headline={`Plate ${index + 1}`}
-            tooltip="Information about the plates used for the measurements"
-          >
+          <FormWrapper headline={`Plate ${index + 1}`} tooltip={tooltip}>
             <Plates name={`${arrayName}.${index}`} />
           </FormWrapper>
         )}
@@ -34,5 +33,3 @@ function PlatesTab({ name }) {
     </>
   );
 }
-
-export default PlatesTab;
