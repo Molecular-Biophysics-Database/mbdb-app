@@ -2,7 +2,7 @@ import React from "react";
 import CustomField from "../../../../buildingBlocks/CustomField";
 import OptionField from "../../../../buildingBlocks/OptionField";
 
-function HomogeneityYes({ name }) {
+export default function HomogeneityYes({ name }) {
   const methodOptions = [
     {
       value: "Size exclusion chromatography",
@@ -18,17 +18,15 @@ function HomogeneityYes({ name }) {
   return (
     <>
       <div className="flex">
-        <div className="mr-3">
-          <OptionField
-            name={name}
-            required
-            fieldName="method"
-            label="Method"
-            options={methodOptions}
-            tooltip="The method used to evaluate the homogeneity"
-          />
-        </div>
-        <div>
+        <OptionField
+          name={name}
+          required
+          fieldName="method"
+          label="Method"
+          options={methodOptions}
+          tooltip="The method used to evaluate the homogeneity"
+        />
+        <div className="mx-3">
           <CustomField
             name={name}
             required
@@ -38,19 +36,15 @@ function HomogeneityYes({ name }) {
             type="number"
           />
         </div>
-        <div>
-          <CustomField
-            name={name}
-            required
-            fieldName="number_of_species_observed"
-            label="Number of species observed"
-            tooltip="The number of species that was observed to be present"
-            type="number"
-          />
-        </div>
+        <CustomField
+          name={name}
+          required
+          fieldName="number_of_species_observed"
+          label="Number of species observed"
+          tooltip="The number of species that was observed to be present"
+          type="number"
+        />
       </div>
     </>
   );
 }
-
-export default HomogeneityYes;

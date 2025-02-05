@@ -4,8 +4,11 @@ import ArrayFieldCopyPaste from "@mbdb_deposit/buildingBlocks/ArrayFieldCopyPast
 import Measurement from "../measurement/Measurement";
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
 
-function MeasurementsTab({ name }) {
+export default function MeasurementsTab({ name }) {
   const fieldName = "measurements";
+
+  const tooltip =
+    "List of the information about each measurement. This includes target(s), ligand(s), chemical environment, and the position of the sample within the instrument";
 
   UseDefault(`${name}.${fieldName}`, [{}]);
 
@@ -23,12 +26,9 @@ function MeasurementsTab({ name }) {
         required
         method="mst"
         fieldName={fieldName}
-        tooltip="List of the information about each measurement. This includes target(s), ligand(s), chemical environment, and the position of the sample within the instrument"
+        tooltip={tooltip}
         renderChild={({ arrayName, index }) => (
-          <FormWrapper
-            headline={`Measurement ${index + 1}`}
-            tooltip="List of the information about each measurement. This includes target(s), ligand(s), chemical environment, and the position of the sample within the instrument"
-          >
+          <FormWrapper headline={`Measurement ${index + 1}`} tooltip={tooltip}>
             <Measurement name={`${arrayName}.${index}`} />
           </FormWrapper>
         )}
@@ -36,5 +36,3 @@ function MeasurementsTab({ name }) {
     </>
   );
 }
-
-export default MeasurementsTab;

@@ -4,7 +4,10 @@ import ArrayFieldCopyPaste from "@mbdb_deposit/buildingBlocks/ArrayFieldCopyPast
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
 import Measurements from "../measurements/Measurements";
 
-function MeasurementsTab({ name }) {
+export default function MeasurementsTab({ name }) {
+  const tooltip =
+    "List of measurement where each step from each sensor is considered a single measurement";
+
   const fieldName = "measurements";
 
   UseDefault(`${name}.${fieldName}`, [{}]);
@@ -23,12 +26,9 @@ function MeasurementsTab({ name }) {
         required
         method="bli"
         fieldName={fieldName}
-        tooltip="List of measurement where each step from each sensor is considered a single measurement"
+        tooltip={tooltip}
         renderChild={({ arrayName, index }) => (
-          <FormWrapper
-            headline={`Measurement ${index + 1}`}
-            tooltip="List of measurement where each step from each sensor is considered a single measurement"
-          >
+          <FormWrapper headline={`Measurement ${index + 1}`} tooltip={tooltip}>
             <Measurements name={`${arrayName}.${index}`} />
           </FormWrapper>
         )}
@@ -36,5 +36,3 @@ function MeasurementsTab({ name }) {
     </>
   );
 }
-
-export default MeasurementsTab;

@@ -6,7 +6,7 @@ import Virion from "./Virion";
 import { useFormikContext, getIn } from "formik";
 import DynamicOptionField from "../../../buildingBlocks/DynamicOptionField";
 
-function ComplexSubstanceOfBiologicalOrigin({ name }) {
+export default function ComplexSubstanceOfBiologicalOrigin({ name }) {
   const { values } = useFormikContext();
 
   const componentName = `${name}.derived_from`;
@@ -34,23 +34,9 @@ function ComplexSubstanceOfBiologicalOrigin({ name }) {
         />
       </div>
 
-      {actualValue === "body_fluid" && (
-        <>
-          <BodyFluid name={name} />
-        </>
-      )}
-      {actualValue === "cell_fraction" && (
-        <>
-          <CellFraction name={name} />
-        </>
-      )}
-      {actualValue === "virion" && (
-        <>
-          <Virion name={name} />
-        </>
-      )}
+      {actualValue === "body_fluid" && <BodyFluid name={name} />}
+      {actualValue === "cell_fraction" && <CellFraction name={name} />}
+      {actualValue === "virion" && <Virion name={name} />}
     </>
   );
 }
-
-export default ComplexSubstanceOfBiologicalOrigin;

@@ -1,7 +1,7 @@
 import { getIn, useFormikContext } from "formik";
 import { useEffect } from "react";
 
-function UseDefault(name, content) {
+export default function UseDefault(name, content) {
   const { setFieldValue, values } = useFormikContext();
 
   useEffect(() => {
@@ -11,5 +11,3 @@ function UseDefault(name, content) {
     }
   }, [content, name, setFieldValue, values]);
 }
-
-export default UseDefault;

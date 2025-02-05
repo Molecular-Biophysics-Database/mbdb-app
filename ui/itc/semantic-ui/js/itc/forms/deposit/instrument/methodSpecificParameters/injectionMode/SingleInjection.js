@@ -1,13 +1,10 @@
 import React from "react";
 import Volume from "../../../sharedComponents/Volume";
 
-function SingleInjection( { name } ) {
-
+export default function SingleInjection({ name }) {
   return (
     <>
-      <Volume name={`${name}.volume`}/>
+      <Volume name={`${name}.volume`} />
     </>
   );
 }
-
-export default SingleInjection;

@@ -11,6 +11,13 @@ import ExternalDatabase from "../../buildingBlocks/ExternalDatabase";
 function MolecularAssembly({ name }) {
   CreateUuid(name);
 
+  const tooltips = {
+    additionalSpecification:
+      "Additional information about the moleculer assembly can be specified here",
+    chemicalModification:
+      "List describing deliberate modifications made to the molecular assembly through chemical, biochemical, or physical means",
+  };
+
   return (
     <>
       <div className="mb-3">
@@ -27,22 +34,21 @@ function MolecularAssembly({ name }) {
         <div className="mr-3">
           <ExternalDatabase colorSchema="light" name={name} />
         </div>
-        <div>
-          <ArrayField
-            name={name}
-            label="Additional specification"
-            fieldName="additional_specifications"
-            tooltip="Additional information about the moleculer assembly can be specified here"
-            renderChild={({ arrayName, index }) => (
-              <CustomField
-                name={`${arrayName}.${index}`}
-                label={`Additional specification ${index + 1}`}
-                width="w-[15rem]"
-                tooltip="Additional information about the molecular assembly can be specified here"
-              />
-            )}
-          />
-        </div>
+
+        <ArrayField
+          name={name}
+          label="Additional specification"
+          fieldName="additional_specifications"
+          tooltip={tooltips.additionalSpecification}
+          renderChild={({ arrayName, index }) => (
+            <CustomField
+              name={`${arrayName}.${index}`}
+              label={`Additional specification ${index + 1}`}
+              width="w-[15rem]"
+              tooltip={tooltips.additionalSpecification}
+            />
+          )}
+        />
       </div>
       <div className="mb-3">
         <MolecularWeight
@@ -51,30 +57,28 @@ function MolecularAssembly({ name }) {
           tooltip="The molecular weight of the molecular assembly"
         />
       </div>
-      <div>
-        <ArrayField
-          name={name}
-          label="Chemical Modification"
-          fieldName="chemical_modifications"
-          tooltip="List describing deliberate modifications made to the molecular assembly through chemical, biochemical, or physical means"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              colorSchema="light"
-              tooltip="List describing deliberate modifications made to the molecular assembly through chemical, biochemical, or physical means"
-              headline={`Chemical modification ${index + 1}`}
-            >
-              <Modification name={`${arrayName}.${index}`} />
-            </FormWrapper>
-          )}
-        />
-      </div>
-      <div>
-        <Components
-          name={name}
-          colorSchema="light"
-          tooltip="Description of the individual components (e.g. polypeptide, heme, lipids, metal ions etc.) the molecular assembly is composed of (e.g. Hemoglobin alpha) and how many copies of each component were present"
-        />
-      </div>
+
+      <ArrayField
+        name={name}
+        label="Chemical Modification"
+        fieldName="chemical_modifications"
+        tooltip={tooltips.chemicalModification}
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            colorSchema="light"
+            tooltip={tooltips.chemicalModification}
+            headline={`Chemical modification ${index + 1}`}
+          >
+            <Modification name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
+
+      <Components
+        name={name}
+        colorSchema="light"
+        tooltip="Description of the individual components (e.g. polypeptide, heme, lipids, metal ions etc.) the molecular assembly is composed of (e.g. Hemoglobin alpha) and how many copies of each component were present"
+      />
     </>
   );
 }

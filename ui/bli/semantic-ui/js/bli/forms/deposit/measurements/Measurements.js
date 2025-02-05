@@ -6,27 +6,19 @@ import Sample from "./Sample";
 import CreateOptions from "@mbdb_deposit/buildingBlocks/CreateOptions";
 import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 
-function Measurements({ name }) {
+export default function Measurements({ name }) {
   CreateUuid(name);
 
   const { values } = useFormikContext();
 
-  const sensorValue = getIn(
-    values,
-    `metadata.method_specific_parameters.sensors`
-  );
   const sensorOptions = CreateOptions(
-    sensorValue,
+    getIn(values, "metadata.method_specific_parameters.sensors"),
     "Select Sensor, if applicable"
   );
 
-  const measurementProtocolStepValue = getIn(
-    values,
-    `metadata.method_specific_parameters.measurement_protocol`
-  );
   const measurementProtocolStepOptions = CreateOptions(
-    measurementProtocolStepValue,
-    "Select Measurement protocol step, if applicable"
+    getIn(values, "metadata.method_specific_parameters.measurement_protocol"),
+    "Select Measurement Protocol step, if applicable"
   );
 
   return (
@@ -52,23 +44,17 @@ function Measurements({ name }) {
             tooltip="Link to the sensor used for the measurement"
           />
         </div>
-        <div className="mr-3">
-          <OptionField
-            name={name}
-            label="Measurement protocol step"
-            fieldName="measurement_protocol_step"
-            required
-            options={measurementProtocolStepOptions}
-            tooltip="Link to one of the measurement steps"
-            width="w-[17rem]"
-          />
-        </div>
+        <OptionField
+          name={name}
+          label="Measurement protocol step"
+          fieldName="measurement_protocol_step"
+          required
+          options={measurementProtocolStepOptions}
+          tooltip="Link to one of the measurement steps"
+          width="w-[17rem]"
+        />
       </div>
-      <div>
-        <Sample name={`${name}.sample`} colorSchema="light" />
-      </div>
+      <Sample name={`${name}.sample`} colorSchema="light" />
     </>
   );
 }
-
-export default Measurements;

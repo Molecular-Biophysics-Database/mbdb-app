@@ -2,7 +2,7 @@ import React from "react";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import OptionField from "@mbdb_deposit/buildingBlocks/OptionField";
 
-function MethodSpecificParameters({ name }) {
+export default function MethodSpecificParameters({ name }) {
   const experimentTypeOptions = [
     { value: "Affinity", label: "Affinity" },
     { value: "Quantification", label: "Quantification" },
@@ -27,5 +27,3 @@ function MethodSpecificParameters({ name }) {
     </>
   );
 }
-
-export default MethodSpecificParameters;

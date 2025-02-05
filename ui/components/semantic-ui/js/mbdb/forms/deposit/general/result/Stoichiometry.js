@@ -6,37 +6,42 @@ import FormWrapper from "../../buildingBlocks/FormWrapper";
 import UseDefault from "../../buildingBlocks/UseDefault";
 import CreateUuid from "../../buildingBlocks/CreateUuid";
 
-function Stoichiometry({ name }) {
+export default function Stoichiometry({ name }) {
   CreateUuid(name);
+
+  const tooltips = {
+    entityInvolved:
+      "List of chemical or molecular assemblies the result describes and how many copies of each are involved",
+  };
 
   const fieldNameEntityInvolved = "entities_involved";
   UseDefault(`${name}.${fieldNameEntityInvolved}`, [{}]);
 
   return (
     <>
-      <div className="flex mb-3">
-        <div className="mr-3">
-          <CustomField
-            name={name}
-            required
-            fieldName="name"
-            label="Name"
-            tooltip="Descriptive name (id) of the result (e.g. Kd of Lysozyme and VHH2). Must be unique within a record"
-          />
-        </div>
+      <div className="mb-3">
+        <CustomField
+          name={name}
+          required
+          fieldName="name"
+          label="Name"
+          width="w-full"
+          tooltip="Descriptive name (id) of the result (e.g. Kd of Lysozyme and VHH2). Must be unique within a record"
+        />
       </div>
-      <div>
+
+      <div className="mr-4">
         <ArrayField
           name={name}
           label="Entity involved"
           fieldName={fieldNameEntityInvolved}
           required
-          tooltip="List of chemical or molecular assemblies the result describes and how many copies of each are involved"
+          tooltip={tooltips.entityInvolved}
           renderChild={({ arrayName, index }) => (
             <FormWrapper
               colorSchema="light"
               headline={`Entity involved ${index + 1}`}
-              tooltip="List of chemical or molecular assemblies the result describes and how many copies of each are involved"
+              tooltip={tooltips.entityInvolved}
             >
               <EntityInvolved name={`${arrayName}.${index}`} />
             </FormWrapper>
@@ -46,5 +51,3 @@ function Stoichiometry({ name }) {
     </>
   );
 }
-
-export default Stoichiometry;

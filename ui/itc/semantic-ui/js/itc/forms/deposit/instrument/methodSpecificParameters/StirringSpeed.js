@@ -2,7 +2,7 @@ import React from "react";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import ValueUnit from "@mbdb_deposit/buildingBlocks/ValueUnit";
 
-function StirringSpeed({ colorSchema, name }) {
+export default function StirringSpeed({ colorSchema, name }) {
   const unitOptions = [{ value: "RPM", label: "RPM" }];
 
   return (
@@ -24,5 +24,3 @@ function StirringSpeed({ colorSchema, name }) {
     </>
   );
 }
-
-export default StirringSpeed;

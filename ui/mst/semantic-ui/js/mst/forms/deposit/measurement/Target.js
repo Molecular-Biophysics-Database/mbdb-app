@@ -4,15 +4,11 @@ import Concentration from "@mbdb_deposit/sharedComponents/Concentration";
 import { useFormikContext, getIn } from "formik";
 import CreateOptions from "@mbdb_deposit/buildingBlocks/CreateOptions";
 
-function Target({ name }) {
+export default function Target({ name }) {
   const { values } = useFormikContext();
 
-  const entitiesValue = getIn(
-    values,
-    `metadata.general_parameters.entities_of_interest`
-  );
   const entityOptions = CreateOptions(
-    entitiesValue,
+    getIn(values, "metadata.general_parameters.entities_of_interest"),
     "Select Entity, if applicable"
   );
 
@@ -29,16 +25,13 @@ function Target({ name }) {
             tooltip="List of names (ids), from the entities of interest defined in the general parameters, of directly measured entities"
           />
         </div>
-        <div>
-          <Concentration
-            name={`${name}.concentration`}
-            colorSchema="light"
-            tooltip="Concentration of the entity"
-          />
-        </div>
+
+        <Concentration
+          name={`${name}.concentration`}
+          colorSchema="light"
+          tooltip="Concentration of the entity"
+        />
       </div>
     </>
   );
 }
-
-export default Target;

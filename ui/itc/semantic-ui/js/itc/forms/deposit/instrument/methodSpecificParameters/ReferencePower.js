@@ -2,7 +2,7 @@ import React from "react";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import ValueUnit from "@mbdb_deposit/buildingBlocks/ValueUnit";
 
-function ReferencePower({ colorSchema, name }) {
+export default function ReferencePower({ colorSchema, name }) {
   const unitOptions = [
     { value: "µcal/s", label: "µcal/s" },
     { value: "µJ/s", label: "µJ/s" },
@@ -27,5 +27,3 @@ function ReferencePower({ colorSchema, name }) {
     </>
   );
 }
-
-export default ReferencePower;

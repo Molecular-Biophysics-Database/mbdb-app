@@ -2,7 +2,7 @@ import React from "react";
 import FormWrapper from "../buildingBlocks/FormWrapper";
 import ValueUnit from "../buildingBlocks/ValueUnit";
 
-function TimeLength({ colorSchema, name }) {
+export default function TimeLength({ colorSchema, name }) {
   const unitOptions = [
     { value: "nanoseconds", label: "nanoseconds" },
     { value: "microseconds", label: "microseconds" },
@@ -34,5 +34,3 @@ function TimeLength({ colorSchema, name }) {
     </>
   );
 }
-
-export default TimeLength;

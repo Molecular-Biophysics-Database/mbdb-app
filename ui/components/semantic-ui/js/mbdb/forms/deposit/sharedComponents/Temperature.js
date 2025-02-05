@@ -1,29 +1,28 @@
-import React from 'react';
-import ValueUnit from '../buildingBlocks/ValueUnit';
-import FormWrapper from '../buildingBlocks/FormWrapper';
+import React from "react";
+import ValueUnit from "../buildingBlocks/ValueUnit";
+import FormWrapper from "../buildingBlocks/FormWrapper";
 
-function Temperature( { name, tooltip, colorSchema } ) {
-
+export default function Temperature({ name, tooltip, colorSchema }) {
   const unitOptions = [
-    { value: 'K', label: 'K' },
-    { value: '°C', label: '°C' },
-    { value: '°F', label: '°F' },
+    { value: "K", label: "K" },
+    { value: "°C", label: "°C" },
+    { value: "°F", label: "°F" },
   ];
 
   return (
     <>
-      <FormWrapper headline='Temperature' colorSchema={colorSchema} tooltip={tooltip}>
-          <div>
-            <ValueUnit
-              options={unitOptions} 
-              name={name}
-              tooltipValue='The numeric value of the temperature'
-              tooltipUnit='The unit of temperature'
-            />
-          </div>
+      <FormWrapper
+        headline="Temperature"
+        colorSchema={colorSchema}
+        tooltip={tooltip}
+      >
+        <ValueUnit
+          options={unitOptions}
+          name={name}
+          tooltipValue="The numeric value of the temperature"
+          tooltipUnit="The unit of temperature"
+        />
       </FormWrapper>
     </>
   );
 }
-
-export default Temperature;

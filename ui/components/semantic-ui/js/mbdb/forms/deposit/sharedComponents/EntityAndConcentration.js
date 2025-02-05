@@ -4,15 +4,11 @@ import Concentration from "./Concentration";
 import { useFormikContext, getIn } from "formik";
 import CreateOptions from "../buildingBlocks/CreateOptions";
 
-function EntityAndConcentration({ name }) {
+export default function EntityAndConcentration({ name }) {
   const { values } = useFormikContext();
 
-  const entitiesValue = getIn(
-    values,
-    `metadata.general_parameters.entities_of_interest`
-  );
   const entityOptions = CreateOptions(
-    entitiesValue,
+    getIn(values, "metadata.general_parameters.entities_of_interest"),
     "Select Entity, if applicable"
   );
 
@@ -29,16 +25,12 @@ function EntityAndConcentration({ name }) {
             tooltip="Name (id) of the entity (from the entities of interest defined in the general parameters"
           />
         </div>
-        <div>
-          <Concentration
-            name={`${name}.concentration`}
-            colorSchema="light"
-            tooltip="Concentration of the entity"
-          />
-        </div>
+        <Concentration
+          name={`${name}.concentration`}
+          colorSchema="light"
+          tooltip="Concentration of the entity"
+        />
       </div>
     </>
   );
 }
-
-export default EntityAndConcentration;

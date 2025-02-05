@@ -1,10 +1,13 @@
-function CreateOptions(list, label) {
+export default function CreateOptions(list, label) {
   if (
     list &&
     list.length >= 1 &&
-    list.some((item) => item.name !== undefined || item.id !== undefined)
+    list.some(
+      (item) =>
+        item.name !== undefined || item.name !== "" || item.id !== undefined
+    )
   ) {
-    const filteredList = list.filter((item) => item.name !== undefined);
+    const filteredList = list.filter((item) => item?.name !== undefined);
 
     if (filteredList.length === 0) {
       return [{ label }];
@@ -21,5 +24,3 @@ function CreateOptions(list, label) {
     return [{ label }];
   }
 }
-
-export default CreateOptions;

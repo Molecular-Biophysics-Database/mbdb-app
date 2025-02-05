@@ -2,7 +2,7 @@ import React from "react";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import ValueUnit from "@mbdb_deposit/buildingBlocks/ValueUnit";
 
-function CellTemperature({ colorSchema, name }) {
+export default function CellTemperature({ colorSchema, name }) {
   const unitOptions = [
     { value: "K", label: "K" },
     { value: "°C", label: "°C" },
@@ -28,5 +28,3 @@ function CellTemperature({ colorSchema, name }) {
     </>
   );
 }
-
-export default CellTemperature;

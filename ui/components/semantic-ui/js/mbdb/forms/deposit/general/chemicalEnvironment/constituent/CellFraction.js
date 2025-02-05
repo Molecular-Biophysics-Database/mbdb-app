@@ -15,6 +15,20 @@ import UseDefault from "../../../buildingBlocks/UseDefault";
 function CellFraction({ name }) {
   const { getFieldData } = useFieldData();
 
+  const tooltips = {
+    organ: "The organ the cell fraction was derived from (e.g. heart)",
+    tissue:
+      "The tissue type the cell fraction was derived from (e.g. epithelia, muscle)",
+    cellType:
+      "The cell type the cell fraction was derived from (e.g. macrophage, sperm)",
+    preparationProtocol:
+      "List of the steps performed during the preparation of the complex substance",
+    additionalSpecification:
+      "Additional information about the complex substance can be specified here",
+    storage:
+      "Information about how the complex substance was stored between being acquired and measured, including temperature and duration",
+  };
+
   const fractionOptions = [
     { value: "Ribosome", label: "Ribosome" },
     { value: "Cell wall", label: "Cell wall" },
@@ -86,15 +100,14 @@ function CellFraction({ name }) {
             tooltip="The subcelluar component (e.g. Ribosome)"
           />
         </div>
-        <div>
-          <CustomField
-            name={name}
-            label="Health status"
-            fieldName="health_status"
-            required
-            tooltip="Health status of the donor organism where the cell fraction was derived from (e.g. healthy, sick, patient with Diabetes type 2)"
-          />
-        </div>
+
+        <CustomField
+          name={name}
+          label="Health status"
+          fieldName="health_status"
+          required
+          tooltip="Health status of the donor organism where the cell fraction was derived from (e.g. healthy, sick, patient with Diabetes type 2)"
+        />
       </div>
       <div className="flex -mt-3 mb-3">
         <div className="mr-3">
@@ -102,12 +115,12 @@ function CellFraction({ name }) {
             name={name}
             label="Organ"
             fieldName="organ"
-            tooltip="The organ the cell fraction was derived from (e.g. heart)"
+            tooltip={tooltips.organ}
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Organ"
-                tooltip="The organ the cell fraction was derived from (e.g. heart)"
+                tooltip={tooltips.organ}
               />
             )}
           />
@@ -117,35 +130,34 @@ function CellFraction({ name }) {
             name={name}
             label="Tissue"
             fieldName="tissue"
-            tooltip="The tissue type the cell fraction was derived from (e.g. epithelia, muscle)"
+            tooltip={tooltips.tissue}
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Tissue"
-                tooltip="The tissue type the cell fraction was derived from (e.g. epithelia, muscle)"
+                tooltip={tooltips.tissue}
               />
             )}
           />
         </div>
-        <div>
-          <OptionalField
-            name={name}
-            label="Cell type"
-            fieldName="cell_type"
-            tooltip="The cell type the cell fraction was derived from (e.g. macrophage, sperm)"
-            renderChild={({ optionalFieldName }) => (
-              <CustomField
-                name={optionalFieldName}
-                label="Cell type"
-                tooltip="The cell type the cell fraction was derived from (e.g. macrophage, sperm)"
-              />
-            )}
-          />
-        </div>
+
+        <OptionalField
+          name={name}
+          label="Cell type"
+          fieldName="cell_type"
+          tooltip={tooltips.cellType}
+          renderChild={({ optionalFieldName }) => (
+            <CustomField
+              name={optionalFieldName}
+              label="Cell type"
+              tooltip={tooltips.cellType}
+            />
+          )}
+        />
       </div>
-      <div>
-        <Concentration name={`${name}.concentration`} />
-      </div>
+
+      <Concentration name={`${name}.concentration`} />
+
       <div className="flex">
         <div className="mr-3">
           <ArrayField
@@ -153,51 +165,49 @@ function CellFraction({ name }) {
             label="Preparation protocol"
             fieldName={fieldNamePreparationProtocol}
             required
-            tooltip="List of the steps performed during the preparation of the complex substance"
+            tooltip={tooltips.preparationProtocol}
             renderChild={({ arrayName, index }) => (
               <FormWrapper
                 headline={`Preparation protocol step ${index + 1}`}
-                tooltip="List of the steps performed during the preparation of the complex substance"
+                tooltip={tooltips.preparationProtocol}
               >
                 <Protocol name={`${arrayName}.${index}`} />
               </FormWrapper>
             )}
           />
         </div>
-        <div>
-          <ArrayField
-            name={name}
-            label="Additional specification"
-            fieldName="additional_specifications"
-            tooltip="Additional information about the complex substance can be specified here"
-            renderChild={({ arrayName, index }) => (
-              <CustomField
-                name={`${arrayName}.${index}`}
-                label={`Additional specification ${index + 1}`}
-                width="w-[15rem]"
-                tooltip="Additional information about the complex substance can be specified here"
-              />
-            )}
-          />
-        </div>
-      </div>
-      <div>
-        <OptionalField
+
+        <ArrayField
           name={name}
-          label="Storage"
-          fieldName="storage"
-          tooltip="Information about how the complex substance was stored between being acquired and measured, including temperature and duration"
-          renderChild={({ optionalFieldName }) => (
-            <FormWrapper
-              colorSchema="light"
-              headline="Storage"
-              tooltip="Information about how the complex substance was stored between being acquired and measured, including temperature and duration"
-            >
-              <Storage name={optionalFieldName} />
-            </FormWrapper>
+          label="Additional specification"
+          fieldName="additional_specifications"
+          tooltip={tooltips.additionalSpecification}
+          renderChild={({ arrayName, index }) => (
+            <CustomField
+              name={`${arrayName}.${index}`}
+              label={`Additional specification ${index + 1}`}
+              width="w-[15rem]"
+              tooltip={tooltips.additionalSpecification}
+            />
           )}
         />
       </div>
+
+      <OptionalField
+        name={name}
+        label="Storage"
+        fieldName="storage"
+        tooltip={tooltips.storage}
+        renderChild={({ optionalFieldName }) => (
+          <FormWrapper
+            colorSchema="light"
+            headline="Storage"
+            tooltip={tooltips.storage}
+          >
+            <Storage name={optionalFieldName} />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }

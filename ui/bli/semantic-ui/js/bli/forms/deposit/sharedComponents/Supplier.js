@@ -5,6 +5,11 @@ import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import OptionalField from "@mbdb_deposit/buildingBlocks/OptionalField";
 
 function Supplier({ name, colorSchema, tooltip }) {
+  const tooltips = {
+    catalogNumber: "The catalog number or identifier of the item",
+    furtherInformation: "Further information e.g. batch number",
+  };
+
   return (
     <>
       <FormWrapper
@@ -27,12 +32,12 @@ function Supplier({ name, colorSchema, tooltip }) {
               name={name}
               label="Catalog number"
               fieldName="catalog_number"
-              tooltip="The catalog number or identifier of the item"
+              tooltip={tooltips.catalogNumber}
               renderChild={({ optionalFieldName }) => (
                 <CustomField
                   name={optionalFieldName}
                   label="Catalog number"
-                  tooltip="The catalog number or identifier of the item"
+                  tooltip={tooltips.catalogNumber}
                 />
               )}
             />
@@ -42,12 +47,12 @@ function Supplier({ name, colorSchema, tooltip }) {
               name={name}
               label="Further information"
               fieldName="further_information"
-              tooltip="Further information e.g. batch number"
+              tooltip={tooltips.furtherInformation}
               renderChild={({ arrayName, index }) => (
                 <CustomField
                   name={`${arrayName}.${index}`}
                   label={`Further information ${index + 1}`}
-                  tooltip="Further information e.g. batch number"
+                  tooltip={tooltips.furtherInformation}
                 />
               )}
             />

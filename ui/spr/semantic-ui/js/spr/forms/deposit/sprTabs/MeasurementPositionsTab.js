@@ -4,8 +4,11 @@ import ArrayField from "@mbdb_deposit/buildingBlocks/ArrayField";
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
 import MeasurementPositions from "../measurementPositions/MeasurementPositions";
 
-function MeasurementPositionsTab({ name }) {
+export default function MeasurementPositionsTab({ name }) {
   const fieldName = "measurement_positions";
+
+  const tooltip =
+    "Information about each of the positions where data was collected including reference positions";
 
   UseDefault(`${name}.${fieldName}`, [{}]);
 
@@ -22,11 +25,11 @@ function MeasurementPositionsTab({ name }) {
         label="Measurement position"
         required
         fieldName={fieldName}
-        tooltip="Information about each of the positions where data was collected including reference positions"
+        tooltip={tooltip}
         renderChild={({ arrayName, index }) => (
           <FormWrapper
             headline={`Measurement position ${index + 1}`}
-            tooltip="Information about each of the positions where data was collected including reference positions"
+            tooltip={tooltip}
           >
             <MeasurementPositions name={`${arrayName}.${index}`} />
           </FormWrapper>
@@ -35,5 +38,3 @@ function MeasurementPositionsTab({ name }) {
     </>
   );
 }
-
-export default MeasurementPositionsTab;

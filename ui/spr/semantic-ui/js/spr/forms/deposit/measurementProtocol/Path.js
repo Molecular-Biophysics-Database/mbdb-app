@@ -4,15 +4,15 @@ import ArrayField from "@mbdb_deposit/buildingBlocks/ArrayField";
 import { useFormikContext, getIn } from "formik";
 import CreateOptions from "@mbdb_deposit/buildingBlocks/CreateOptions";
 
-function Path({ name }) {
+export default function Path({ name }) {
   const { values } = useFormikContext();
 
-  const measurementPositionValue = getIn(
-    values,
-    "metadata.method_specific_parameters.measurement_positions"
-  );
+  const tooltips = {
+    measurementPosition: "Name (id) of the measurement position",
+  };
+
   const measurementPositionOptions = CreateOptions(
-    measurementPositionValue,
+    getIn(values, "metadata.method_specific_parameters.measurement_positions"),
     "Select Measurement position, if applicable"
   );
 
@@ -22,13 +22,14 @@ function Path({ name }) {
         <ArrayField
           name={name}
           label="Measurement position"
-          tooltip="Name (id) of the measurement position"
+          tooltip={tooltips.measurementPosition}
           renderChild={({ arrayName, index }) => (
             <OptionField
               name={`${arrayName}.${index}`}
-              label={`Measurement position`}
+              label={`Measurement position ${index + 1}`}
+              width="w-[15rem]"
               options={measurementPositionOptions}
-              tooltip="Name (id) of the measurement position"
+              tooltip={tooltips.measurementPosition}
             />
           )}
         />
@@ -36,5 +37,3 @@ function Path({ name }) {
     </>
   );
 }
-
-export default Path;

@@ -16,6 +16,19 @@ import { NcbiTaxIdResultListItem } from "../../../buildingBlocks/NcbiTaxIdResult
 function Polymer({ name, colorSchema }) {
   const { getFieldData } = useFieldData();
 
+  const tooltips = {
+    sequence:
+      "Primary sequence of the polymer using single letter codes (e.g. SAGRELLE, AGTTA). This should be the sequence of the polymer that was used in the experiment including mutations, purification tags etc. For non-canonical amino acids or nucleotides, please place the full name of the monomer in angle brackets (e.g. SAGREL<3-Sulfinoalanine>LE)",
+    variant:
+      "Annotation of the primary sequence can be specified here (e.g. Wildtype, C-terminal 6x-histag). Note that this also applies to polymers of unknown sequence",
+    sourceOrganism:
+      "The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy",
+    expressionOrganism:
+      "The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy",
+    additionalSpecification:
+      "Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)",
+  };
+
   const polymerTypeOptions = [
     { value: "cyclic-pseudo-peptide", label: "cyclic-pseudo-peptide" },
     { value: "peptide nucleic acid", label: "peptide nucleic acid" },
@@ -68,29 +81,28 @@ function Polymer({ name, colorSchema }) {
             tooltip="How the polymer was produced"
           />
         </div>
-        <div>
-          <CustomField
-            name={name}
-            label="Copy number"
-            fieldName="copy_number"
-            required
-            type="number"
-            tooltip="The number of copies of the component within the assembly, -1 if unknown (e.g. for homodimer, the copy number would be 2)"
-          />
-        </div>
+
+        <CustomField
+          name={name}
+          label="Copy number"
+          fieldName="copy_number"
+          required
+          type="number"
+          tooltip="The number of copies of the component within the assembly, -1 if unknown (e.g. for homodimer, the copy number would be 2)"
+        />
       </div>
       <div className="mb-3">
         <OptionalField
           name={name}
           label="Sequence"
           fieldName="sequence"
-          tooltip="Primary sequence of the polymer using single letter codes (e.g. SAGRELLE, AGTTA). This should be the sequence of the polymer that was used in the experiment including mutations, purification tags etc. For non-canonical amino acids or nucleotides, please place the full name of the monomer in angle brackets (e.g. SAGREL<3-Sulfinoalanine>LE)"
+          tooltip={tooltips.sequence}
           renderChild={({ optionalFieldName }) => (
             <SequenceField
               name={optionalFieldName}
               label="Sequence"
               width="w-[50rem]"
-              tooltip="Primary sequence of the polymer using single letter codes (e.g. SAGRELLE, AGTTA). This should be the sequence of the polymer that was used in the experiment including mutations, purification tags etc. For non-canonical amino acids or nucleotides, please place the full name of the monomer in angle brackets (e.g. SAGREL<3-Sulfinoalanine>LE)"
+              tooltip={tooltips.sequence}
             />
           )}
         />
@@ -101,12 +113,12 @@ function Polymer({ name, colorSchema }) {
             name={name}
             label="Variant"
             fieldName="variant"
-            tooltip="Annotation of the primary sequence can be specified here (e.g. Wildtype, C-terminal 6x-histag). Note that this also applies to polymers of unknown sequence"
+            tooltip={tooltips.variant}
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Variant"
-                tooltip="Annotation of the primary sequence can be specified here (e.g. Wildtype, C-terminal 6x-histag). Note that this also applies to polymers of unknown sequence"
+                tooltip={tooltips.variant}
               />
             )}
           />
@@ -116,11 +128,11 @@ function Polymer({ name, colorSchema }) {
             name={name}
             label="Source organism"
             fieldName="source_organism"
-            tooltip="The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy"
+            tooltip={tooltips.sourceOrganism}
             renderChild={({ optionalFieldName }) => (
               <FormWrapper
                 headline="Source organism"
-                tooltip="The biological species where the polymer naturally occurs. Note that this is based on the NCBI taxonomy"
+                tooltip={tooltips.sourceOrganism}
               >
                 <VocabularyRemoteSelectField
                   overriddenComponents={{
@@ -140,56 +152,54 @@ function Polymer({ name, colorSchema }) {
             )}
           />
         </div>
-        <div>
-          <OptionalField
-            name={name}
-            label="Expression organism"
-            fieldName="expression_organism"
-            tooltip="The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy"
-            renderChild={({ optionalFieldName }) => (
-              <FormWrapper
-                headline="Expression organism"
-                tooltip="The biological species that was used to express (produce) the polymer. Note that this is based on the NCBI taxonomy"
-              >
-                <VocabularyRemoteSelectField
-                  overriddenComponents={{
-                    "VocabularyRemoteSelect.ext.ResultsList.item":
-                      NcbiTaxIdResultListItem,
-                  }}
-                  vocabulary="organisms"
-                  fieldPath={optionalFieldName}
-                  modalHeader={
-                    getFieldData({
-                      fieldPath: optionalFieldName,
-                      fieldRepresentation: "text",
-                    }).label
-                  }
-                />
-              </FormWrapper>
-            )}
-          />
-        </div>
+
+        <OptionalField
+          name={name}
+          label="Expression organism"
+          fieldName="expression_organism"
+          tooltip={tooltips.expressionOrganism}
+          renderChild={({ optionalFieldName }) => (
+            <FormWrapper
+              headline="Expression organism"
+              tooltip={tooltips.expressionOrganism}
+            >
+              <VocabularyRemoteSelectField
+                overriddenComponents={{
+                  "VocabularyRemoteSelect.ext.ResultsList.item":
+                    NcbiTaxIdResultListItem,
+                }}
+                vocabulary="organisms"
+                fieldPath={optionalFieldName}
+                modalHeader={
+                  getFieldData({
+                    fieldPath: optionalFieldName,
+                    fieldRepresentation: "text",
+                  }).label
+                }
+              />
+            </FormWrapper>
+          )}
+        />
       </div>
       <div className="flex mb-3 -mt-3">
         <div className="mr-3">
           <ExternalDatabase name={name} colorSchema={colorSchema} />
         </div>
-        <div>
-          <ArrayField
-            name={name}
-            label="Additional specification"
-            fieldName="additional_specifications"
-            tooltip="Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)"
-            renderChild={({ arrayName, index }) => (
-              <CustomField
-                name={`${arrayName}.${index}`}
-                label={`Additional specification ${index + 1}`}
-                width="w-[15rem]"
-                tooltip="Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)"
-              />
-            )}
-          />
-        </div>
+
+        <ArrayField
+          name={name}
+          label="Additional specification"
+          fieldName="additional_specifications"
+          tooltip={tooltips.additionalSpecification}
+          renderChild={({ arrayName, index }) => (
+            <CustomField
+              name={`${arrayName}.${index}`}
+              label={`Additional specification ${index + 1}`}
+              width="w-[15rem]"
+              tooltip={tooltips.additionalSpecification}
+            />
+          )}
+        />
       </div>
       <div className="mb-3">
         <MolecularWeight
@@ -204,12 +214,11 @@ function Polymer({ name, colorSchema }) {
           colorSchema={colorSchema}
         />
       </div>
-      <div>
-        <QualityControls
-          name={`${name}.quality_controls`}
-          colorSchema={colorSchema}
-        />
-      </div>
+
+      <QualityControls
+        name={`${name}.quality_controls`}
+        colorSchema={colorSchema}
+      />
     </>
   );
 }

@@ -10,6 +10,14 @@ import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 function Sensors({ name }) {
   CreateUuid(name);
 
+  const tooltips = {
+    surfaceProperties:
+      "The type of surface properties the sensor has, e.g. Protein A",
+    sensorId: "The id of the sensor as given by the supplier",
+    previouslyUsed:
+      "Whether or not the sensor was used for previous measurements",
+  };
+
   const previouslyUsedOptions = [
     { value: "Yes", label: "Yes" },
     { value: "No", label: "No" },
@@ -33,12 +41,12 @@ function Sensors({ name }) {
             name={name}
             label="Surface properties"
             fieldName="surface_properties"
-            tooltip="The type of surface properties the sensor has, e.g. Protein A"
+            tooltip={tooltips.surfaceProperties}
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Surface properties"
-                tooltip="The type of surface properties the sensor has, e.g. Protein A"
+                tooltip={tooltips.surfaceProperties}
               />
             )}
           />
@@ -48,32 +56,30 @@ function Sensors({ name }) {
             name={name}
             label="Sensor id"
             fieldName="sensor_id"
-            tooltip="The id of the sensor as given by the supplier"
+            tooltip={tooltips.sensorId}
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Sensor id"
-                tooltip="The id of the sensor as given by the supplier"
+                tooltip={tooltips.sensorId}
               />
             )}
           />
         </div>
-        <div>
-          <OptionalField
-            name={name}
-            label="Previously used"
-            fieldName="previously_used"
-            tooltip="Whether or not the sensor was used for previous measurements"
-            renderChild={({ optionalFieldName }) => (
-              <OptionField
-                name={optionalFieldName}
-                label="Previously used"
-                options={previouslyUsedOptions}
-                tooltip="Whether or not the sensor was used for previous measurements"
-              />
-            )}
-          />
-        </div>
+        <OptionalField
+          name={name}
+          label="Previously used"
+          fieldName="previously_used"
+          tooltip={tooltips.previouslyUsed}
+          renderChild={({ optionalFieldName }) => (
+            <OptionField
+              name={optionalFieldName}
+              label="Previously used"
+              options={previouslyUsedOptions}
+              tooltip={tooltips.previouslyUsed}
+            />
+          )}
+        />
       </div>
       <div className="mb-3">
         <OptionalField
@@ -97,13 +103,11 @@ function Sensors({ name }) {
           )}
         />
       </div>
-      <div>
-        <Supplier
-          name={`${name}.supplier`}
-          colorSchema="light"
-          tooltip="Information about the supplier of the sensor"
-        />
-      </div>
+      <Supplier
+        name={`${name}.supplier`}
+        colorSchema="light"
+        tooltip="Information about the supplier of the sensor"
+      />
     </>
   );
 }

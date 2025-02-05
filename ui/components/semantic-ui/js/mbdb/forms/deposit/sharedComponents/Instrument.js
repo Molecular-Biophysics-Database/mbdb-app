@@ -4,7 +4,7 @@ import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
 import { useDepositApiClient } from "@js/oarepo_ui";
 
-function Instrument({ name }) {
+export default function Instrument({ name }) {
   const { values: recordMetadata } = useDepositApiClient();
 
   const resourceType =
@@ -18,23 +18,19 @@ function Instrument({ name }) {
         tooltip="Information about the instrument being used to collect (measure) the raw data annotated by this record"
       >
         <div className="flex">
-          <div>
-            <VocabularySelectField
-              search={(options) => options}
-              type="instruments"
-              label={<FieldLabel htmlFor={name} icon="" />}
-              filterFunction={(opt) =>
-                opt.props.technique.startsWith(resourceType)
-              }
-              fieldPath={name}
-              placeholder="Instrument"
-              clearable
-            />
-          </div>
+          <VocabularySelectField
+            search={(options) => options}
+            type="instruments"
+            label={<FieldLabel htmlFor={name} icon="" />}
+            filterFunction={(opt) =>
+              opt.props?.technique.startsWith(resourceType)
+            }
+            fieldPath={name}
+            placeholder="Instrument"
+            clearable
+          />
         </div>
       </FormWrapper>
     </>
   );
 }
-
-export default Instrument;
