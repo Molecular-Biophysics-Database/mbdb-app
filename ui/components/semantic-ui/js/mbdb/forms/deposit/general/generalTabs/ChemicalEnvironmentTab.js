@@ -4,8 +4,11 @@ import ArrayField from "../../buildingBlocks/ArrayField";
 import ChemicalEnvironment from "../chemicalEnvironment/ChemicalEnvironment";
 import UseDefault from "../../buildingBlocks/UseDefault";
 
-function ChemicalEnvironmentTab({ name }) {
+export default function ChemicalEnvironmentTab({ name }) {
   const fieldName = "chemical_environments";
+
+  const tooltip =
+    "Composition of the chemical environment (colloquially known as the buffer)";
 
   UseDefault(`${name}.${fieldName}`, [{}]);
 
@@ -23,11 +26,11 @@ function ChemicalEnvironmentTab({ name }) {
         label="Chemical environment"
         required
         fieldName={fieldName}
-        tooltip="Composition of the chemical environment (colloquially known as the buffer)"
+        tooltip={tooltip}
         renderChild={({ arrayName, index }) => (
           <FormWrapper
             headline={`Chemical environment ${index + 1}`}
-            tooltip="Composition of the chemical environment (colloquially known as the buffer)"
+            tooltip={tooltip}
           >
             <ChemicalEnvironment name={`${arrayName}.${index}`} />
           </FormWrapper>
@@ -36,5 +39,3 @@ function ChemicalEnvironmentTab({ name }) {
     </>
   );
 }
-
-export default ChemicalEnvironmentTab;

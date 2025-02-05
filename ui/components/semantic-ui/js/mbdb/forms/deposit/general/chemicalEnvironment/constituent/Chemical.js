@@ -4,7 +4,12 @@ import CustomField from "../../../buildingBlocks/CustomField";
 import Concentration from "../../../sharedComponents/Concentration";
 import BasicInformationField from "../../../buildingBlocks/BasicInformationField";
 
-function Chemical({ name }) {
+export default function Chemical({ name }) {
+  const tooltips = {
+    additionalSpecification:
+      "Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)",
+  };
+
   return (
     <>
       <div className="mb-3">
@@ -26,24 +31,20 @@ function Chemical({ name }) {
 
       <BasicInformationField name={`${name}.basic_information`} />
 
-      <div>
-        <ArrayField
-          name={name}
-          label="Additional specification"
-          fieldName="additional_specifications"
-          tooltip="Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)"
-          renderChild={({ arrayName, index }) => (
-            <CustomField
-              name={`${arrayName}.${index}`}
-              label={`Additional specification ${index + 1}`}
-              width="w-[15rem]"
-              tooltip="Additional information about the chemical can be specified here (e.g. RNase free water, recrystallization, desalting)"
-            />
-          )}
-        />
-      </div>
+      <ArrayField
+        name={name}
+        label="Additional specification"
+        fieldName="additional_specifications"
+        tooltip={tooltips.additionalSpecification}
+        renderChild={({ arrayName, index }) => (
+          <CustomField
+            name={`${arrayName}.${index}`}
+            label={`Additional specification ${index + 1}`}
+            width="w-[15rem]"
+            tooltip={tooltips.additionalSpecification}
+          />
+        )}
+      />
     </>
   );
 }
-
-export default Chemical;

@@ -21,57 +21,53 @@ function Components({ name, colorSchema, tooltip }) {
 
   return (
     <>
-      <div>
-        <ArrayField
-          name={name}
-          label="Component"
-          fieldName="components"
-          required
-          initialValue={{ type: "Polymer" }}
-          tooltip={tooltip}
-          renderChild={({ arrayName, index }) => {
-            const actualValue = getIn(values, `${arrayName}.${index}`);
-            if (!actualValue) {
-              return null;
-            }
-            return (
-              <div>
-                <FormWrapper
-                  headline={`Component ${index + 1}`}
-                  tooltip={tooltip}
-                  colorSchema={colorSchema}
-                >
-                  <div className="mb-3">
-                    <DynamicOptionField
-                      name={`${arrayName}.${index}`}
-                      options={componentOptions}
-                      label="type"
-                      fieldName="type"
-                      required
-                      width="w-full"
-                      tooltip="The type of component, options are (biological) Polymer and Chemical"
-                    />
-                  </div>
-                  <div>
-                    {actualValue.type === "Polymer" && (
-                      <Polymer
-                        name={`${arrayName}.${index}`}
-                        colorSchema={colorSchema === "light" ? "" : "light"}
-                      />
-                    )}
-                    {actualValue.type === "Chemical" && (
-                      <Chemical
-                        name={`${arrayName}.${index}`}
-                        colorSchema={colorSchema === "light" ? "" : "light"}
-                      />
-                    )}
-                  </div>
-                </FormWrapper>
+      <ArrayField
+        name={name}
+        label="Component"
+        fieldName="components"
+        required
+        initialValue={{ type: "Polymer" }}
+        tooltip={tooltip}
+        renderChild={({ arrayName, index }) => {
+          const actualValue = getIn(values, `${arrayName}.${index}`);
+          if (!actualValue) {
+            return null;
+          }
+          return (
+            <FormWrapper
+              headline={`Component ${index + 1}`}
+              tooltip={tooltip}
+              colorSchema={colorSchema}
+            >
+              <div className="mb-3">
+                <DynamicOptionField
+                  name={`${arrayName}.${index}`}
+                  options={componentOptions}
+                  label="type"
+                  fieldName="type"
+                  required
+                  width="w-full"
+                  tooltip="The type of component, options are (biological) Polymer and Chemical"
+                />
               </div>
-            );
-          }}
-        />
-      </div>
+              <div>
+                {actualValue.type === "Polymer" && (
+                  <Polymer
+                    name={`${arrayName}.${index}`}
+                    colorSchema={colorSchema === "light" ? "" : "light"}
+                  />
+                )}
+                {actualValue.type === "Chemical" && (
+                  <Chemical
+                    name={`${arrayName}.${index}`}
+                    colorSchema={colorSchema === "light" ? "" : "light"}
+                  />
+                )}
+              </div>
+            </FormWrapper>
+          );
+        }}
+      />
     </>
   );
 }

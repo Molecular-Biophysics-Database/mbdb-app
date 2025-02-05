@@ -12,23 +12,22 @@ import CreateOptions from "@mbdb_deposit/buildingBlocks/CreateOptions";
 import EntityAndConcentration from "@mbdb_deposit/sharedComponents/EntityAndConcentration";
 
 function Sample({ name, colorSchema }) {
+  const tooltips = {
+    temperature: "Temperature of the sample while being measured",
+    analyte:
+      "List of names (ids) of entities (from the entities of interest defined in the general parameters) that was used to alter the behavior of the target(s) or entities present at varying concentrations for a series of measurements and their concentrations",
+    preparation_protocol: "List of steps taken to prepare the sample",
+  };
+
   const { values } = useFormikContext();
 
-  const platesValue = getIn(
-    values,
-    `metadata.method_specific_parameters.plates`
-  );
   const platesOptions = CreateOptions(
-    platesValue,
+    getIn(values, "metadata.method_specific_parameters.plates"),
     "Select Plate, if applicable"
   );
 
-  const chemicalEnvironmentsValue = getIn(
-    values,
-    `metadata.general_parameters.chemical_environments`
-  );
   const chemicalEnvironmentsOptions = CreateOptions(
-    chemicalEnvironmentsValue,
+    getIn(values, "metadata.general_parameters.chemical_environments"),
     "Select Chemical environment, if applicable"
   );
 
@@ -59,63 +58,58 @@ function Sample({ name, colorSchema }) {
               tooltip="The position the well (in the plate) where the sample was during the measurement"
             />
           </div>
-          <div>
-            <OptionField
-              name={name}
-              label="Chemical environment"
-              fieldName="chemical_environment"
-              options={chemicalEnvironmentsOptions}
-              required
-              tooltip="Name (id) of the chemical environment of the sample (from the chemical environments defined in the general parameters"
+          <OptionField
+            name={name}
+            label="Chemical environment"
+            fieldName="chemical_environment"
+            options={chemicalEnvironmentsOptions}
+            required
+            tooltip="Name (id) of the chemical environment of the sample (from the chemical environments defined in the general parameters"
+          />
+        </div>
+
+        <OptionalField
+          name={name}
+          label="Temperature"
+          fieldName="temperature"
+          tooltip={tooltips.temperature}
+          renderChild={({ optionalFieldName }) => (
+            <Temperature
+              name={optionalFieldName}
+              tooltip={tooltips.temperature}
             />
-          </div>
-        </div>
-        <div>
-          <OptionalField
-            name={name}
-            label="Temperature"
-            fieldName="temperature"
-            tooltip="Temperature of the sample while being measured"
-            renderChild={({ optionalFieldName }) => (
-              <Temperature
-                name={optionalFieldName}
-                tooltip="Temperature of the sample while being measured"
-              />
-            )}
-          />
-        </div>
-        <div>
-          <ArrayField
-            name={name}
-            label="Analyte"
-            fieldName="analytes"
-            tooltip="List of names (ids) of entities (from the entities of interest defined in the general parameters) that was used to alter the behavior of the target(s) or entities present at varying concentrations for a series of measurements and their concentrations"
-            renderChild={({ arrayName, index }) => (
-              <FormWrapper
-                headline={`Analyte ${index + 1}`}
-                tooltip="List of names (ids) of entities (from the entities of interest defined in the general parameters) that was used to alter the behavior of the target(s) or entities present at varying concentrations for a series of measurements and their concentrations"
-              >
-                <EntityAndConcentration name={`${arrayName}.${index}`} />
-              </FormWrapper>
-            )}
-          />
-        </div>
-        <div>
-          <ArrayField
-            name={name}
-            label="Preparation protocol"
-            fieldName="preparation_protocol"
-            tooltip="List of steps taken to prepare the sample"
-            renderChild={({ arrayName, index }) => (
-              <FormWrapper
-                headline={`Preparation protocol step ${index + 1}`}
-                tooltip="List of steps taken to prepare the sample"
-              >
-                <Protocol name={`${arrayName}.${index}`} />
-              </FormWrapper>
-            )}
-          />
-        </div>
+          )}
+        />
+
+        <ArrayField
+          name={name}
+          label="Analyte"
+          fieldName="analytes"
+          tooltip={tooltips.analyte}
+          renderChild={({ arrayName, index }) => (
+            <FormWrapper
+              headline={`Analyte ${index + 1}`}
+              tooltip={tooltips.analyte}
+            >
+              <EntityAndConcentration name={`${arrayName}.${index}`} />
+            </FormWrapper>
+          )}
+        />
+
+        <ArrayField
+          name={name}
+          label="Preparation protocol"
+          fieldName="preparation_protocol"
+          tooltip={tooltips.preparation_protocol}
+          renderChild={({ arrayName, index }) => (
+            <FormWrapper
+              headline={`Preparation protocol step ${index + 1}`}
+              tooltip={tooltips.preparation_protocol}
+            >
+              <Protocol name={`${arrayName}.${index}`} />
+            </FormWrapper>
+          )}
+        />
       </FormWrapper>
     </>
   );

@@ -17,6 +17,9 @@ function EntitiesOfInterestTab({ name }) {
 
   const componentName = `${name}.entities_of_interest[0].type`;
 
+  const tooltip =
+    "List of the entities that are being directly measured, as well as the entities that are being used as a variable to influence the behavior of the directly measured entities (e.g. lysozyme, NAG3, NaCl). IMPORTANT! If the pH was varied by individually prepared chemical environments these should be specified individually in chemical environments";
+
   UseDefault(componentName, "Polymer");
 
   const entitiesOfInterestTabOptions = [
@@ -49,75 +52,74 @@ function EntitiesOfInterestTab({ name }) {
           substances used to affect them
         </FormWrapper>
       </div>
-      <div>
-        <ArrayField
-          name={name}
-          label="Entity of interest"
-          fieldName="entities_of_interest"
-          initialValue={{ type: "Polymer" }}
-          required
-          tooltip="List of the entities that are being directly measured, as well as the entities that are being used as a variable to influence the behavior of the directly measured entities (e.g. lysozyme, NAG3, NaCl). IMPORTANT! If the pH was varied by individually prepared chemical environments these should be specified individually in chemical environments"
-          renderChild={({ arrayName, index }) => {
-            const actualValue = getIn(values, `${arrayName}.${index}`);
-            if (!actualValue) {
-              return null;
-            }
-            return (
-              <FormWrapper
-                headline={`Entity of interest ${index + 1}`}
-                tooltip="List of the entities that are being directly measured, as well as the entities that are being used as a variable to influence the behavior of the directly measured entities (e.g. lysozyme, NAG3,NaCl). IMPORTANT! If the pH was varied by individually prepared chemical environments these should be specified individually in chemical environments"
-              >
-                <div className="mb-3">
-                  <DynamicOptionField
+
+      <ArrayField
+        name={name}
+        label="Entity of interest"
+        fieldName="entities_of_interest"
+        initialValue={{ type: "Polymer" }}
+        required
+        tooltip={tooltip}
+        renderChild={({ arrayName, index }) => {
+          const actualValue = getIn(values, `${arrayName}.${index}`);
+          if (!actualValue) {
+            return null;
+          }
+          return (
+            <FormWrapper
+              headline={`Entity of interest ${index + 1}`}
+              tooltip={tooltip}
+            >
+              <div className="mb-3">
+                <DynamicOptionField
+                  name={`${arrayName}.${index}`}
+                  options={entitiesOfInterestTabOptions}
+                  label="type"
+                  fieldName="type"
+                  required
+                  width="w-full"
+                  tooltip="The type of the entity, where the options are (biological) Polymer, Chemical, Molecular assembly (also includes all proteins composed of more than one polypeptide chain) or Complex substance. Chemical polymers such as PEG 5000 should be described as being a Chemical. Complex substance refers to substances which are not exactly specified by their exact chemical composition by the time measurements were performed, e.g. blood, serum, plant extract"
+                />
+              </div>
+              <div>
+                {actualValue.type === "Polymer" && (
+                  <Polymer name={`${arrayName}.${index}`} />
+                )}
+                {actualValue.type === "Chemical" && (
+                  <Chemical name={`${arrayName}.${index}`} />
+                )}
+                {actualValue.type === "Molecular assembly" && (
+                  <MolecularAssembly name={`${arrayName}.${index}`} />
+                )}
+                {actualValue.type ===
+                  "Complex substance of biological origin" && (
+                  <ComplexSubstanceOfBiologicalOrigin
                     name={`${arrayName}.${index}`}
-                    options={entitiesOfInterestTabOptions}
-                    label="type"
-                    fieldName="type"
-                    required
-                    width="w-full"
-                    tooltip="The type of the entity, where the options are (biological) Polymer, Chemical, Molecular assembly (also includes all proteins composed of more than one polypeptide chain) or Complex substance. Chemical polymers such as PEG 5000 should be described as being a Chemical. Complex substance refers to substances which are not exactly specified by their exact chemical composition by the time measurements were performed, e.g. blood, serum, plant extract"
                   />
-                </div>
-                <div>
-                  {actualValue.type === "Polymer" && (
-                    <Polymer name={`${arrayName}.${index}`} />
-                  )}
-                  {actualValue.type === "Chemical" && (
-                    <Chemical name={`${arrayName}.${index}`} />
-                  )}
-                  {actualValue.type === "Molecular assembly" && (
-                    <MolecularAssembly name={`${arrayName}.${index}`} />
-                  )}
-                  {actualValue.type ===
-                    "Complex substance of biological origin" && (
-                    <ComplexSubstanceOfBiologicalOrigin
-                      name={`${arrayName}.${index}`}
-                    />
-                  )}
-                  {actualValue.type ===
-                    "Complex substance of environmental origin" && (
-                    <ComplexSubstanceOfEnvironmentalOrigin
-                      name={`${arrayName}.${index}`}
-                    />
-                  )}
-                  {actualValue.type ===
-                    "Complex substance of chemical origin" && (
-                    <ComplexSubstanceOfChemicalOrigin
-                      name={`${arrayName}.${index}`}
-                    />
-                  )}
-                  {actualValue.type ===
-                    "Complex substance of industrial origin" && (
-                    <ComplexSubstanceOfIndustrialOrigin
-                      name={`${arrayName}.${index}`}
-                    />
-                  )}
-                </div>
-              </FormWrapper>
-            );
-          }}
-        />
-      </div>
+                )}
+                {actualValue.type ===
+                  "Complex substance of environmental origin" && (
+                  <ComplexSubstanceOfEnvironmentalOrigin
+                    name={`${arrayName}.${index}`}
+                  />
+                )}
+                {actualValue.type ===
+                  "Complex substance of chemical origin" && (
+                  <ComplexSubstanceOfChemicalOrigin
+                    name={`${arrayName}.${index}`}
+                  />
+                )}
+                {actualValue.type ===
+                  "Complex substance of industrial origin" && (
+                  <ComplexSubstanceOfIndustrialOrigin
+                    name={`${arrayName}.${index}`}
+                  />
+                )}
+              </div>
+            </FormWrapper>
+          );
+        }}
+      />
     </>
   );
 }

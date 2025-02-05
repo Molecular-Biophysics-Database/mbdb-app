@@ -5,8 +5,6 @@ import { Button } from "semantic-ui-react";
 export default function PreviewButton() {
   const { save, values: recordMetadata } = useDepositApiClient();
 
-  console.log(recordMetadata, "RecordMetadata");
-
   async function preview() {
     await save(true);
 
@@ -20,13 +18,11 @@ export default function PreviewButton() {
   }
 
   return (
-    <div>
       <Button
         style={{ backgroundColor: "#023850", color: "white" }}
         onClick={preview}
       >
         Preview
       </Button>
-    </div>
   );
 }

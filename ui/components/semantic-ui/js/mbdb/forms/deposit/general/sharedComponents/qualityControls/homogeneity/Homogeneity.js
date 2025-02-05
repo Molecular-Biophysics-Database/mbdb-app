@@ -5,8 +5,10 @@ import HomogeneityYes from "./HomogeneityYes";
 import OptionalField from "../../../../buildingBlocks/OptionalField";
 import DynamicOptionField from "../../../../buildingBlocks/DynamicOptionField";
 
-function Purity({ name, colorSchema }) {
+export default function Homogeneity({ name, colorSchema }) {
   const { values } = useFormikContext();
+
+  const tooltip = "Information about if and how homogeneity was checked";
 
   const typeOptions = [
     { value: "Yes", label: "Yes" },
@@ -19,7 +21,7 @@ function Purity({ name, colorSchema }) {
         name={name}
         label="Homogeneity"
         fieldName="homogeneity"
-        tooltip="Information about if and how homogeneity was checked"
+        tooltip={tooltip}
         initialValue={{ assessed: "Yes" }}
         renderChild={({ optionalFieldName }) => {
           const actualValue = getIn(values, optionalFieldName);
@@ -30,7 +32,7 @@ function Purity({ name, colorSchema }) {
             <FormWrapper
               headline="Homogeneity"
               colorSchema={colorSchema}
-              tooltip="Information about if and how homogeneity was checked"
+              tooltip={tooltip}
             >
               <div className="flex">
                 <div className="mr-3">
@@ -57,5 +59,3 @@ function Purity({ name, colorSchema }) {
     </>
   );
 }
-
-export default Purity;

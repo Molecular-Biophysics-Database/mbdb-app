@@ -10,6 +10,14 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { Typography } from "@material-ui/core";
 
 function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
+  const tooltips = {
+    description: "Short description of what the file contains",
+    recommendedSoftware:
+      "The name of the software recommended for opening and working with the file",
+    processingStep:
+      "List of the processing steps performed on the file before it was deposited (e.g. exported to xlsx)",
+  };
+
   const originatesFromOptions = [
     { value: "Instrument software", label: "Instrument software" },
     { value: "User", label: "User" },
@@ -60,14 +68,13 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
                 </Tooltip>
               </div>
             </div>
-            <div>
-              <CustomField
-                name={name}
-                type="date"
-                fieldName="metadata.creation_date"
-                required
-              />
-            </div>
+
+            <CustomField
+              name={name}
+              type="date"
+              fieldName="metadata.creation_date"
+              required
+            />
           </div>
         </FormWrapper>
       </div>
@@ -109,43 +116,43 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
           name={name}
           label="Description"
           fieldName="metadata.description"
-          tooltip="Short description of what the file contains"
+          tooltip={tooltips.description}
           renderChild={({ optionalFieldName }) => (
             <CustomField
               name={`${optionalFieldName}`}
               label="description"
               width="w-[25rem]"
-              tooltip="Short description of what the file contains"
+              tooltip={tooltips.description}
             />
           )}
         />
       </div>
-      <div>
-        <OptionalField
-          name={name}
-          label="Recommended software"
-          fieldName="metadata.recommended_software"
-          tooltip="The name of the software recommended for opening and working with the file"
-          renderChild={({ optionalFieldName }) => (
-            <CustomField
-              name={optionalFieldName}
-              label="Recommended software"
-              width="w-[25rem]"
-              tooltip="The name of the software recommended for opening and working with the file"
-            />
-          )}
-        />
-      </div>
+
+      <OptionalField
+        name={name}
+        label="Recommended software"
+        fieldName="metadata.recommended_software"
+        tooltip={tooltips.recommendedSoftware}
+        renderChild={({ optionalFieldName }) => (
+          <CustomField
+            name={optionalFieldName}
+            label="Recommended software"
+            width="w-[25rem]"
+            tooltip={tooltips.recommendedSoftware}
+          />
+        )}
+      />
+
       <ArrayField
         name={name}
         label="processing step"
         fieldName="metadata.processing_step"
-        tooltip="List of the processing steps performed on the file before it was deposited (e.g. exported to xlsx)"
+        tooltip={tooltips.processingStep}
         renderChild={({ arrayName, index }) => (
           <FormWrapper
             colorSchema="light"
             headline={`Processing step ${index + 1}`}
-            tooltip="List of the processing steps performed on the file before it was deposited (e.g. exported to xlsx)"
+            tooltip={tooltips.processingStep}
           >
             <DataProcessingStep name={`${arrayName}.${index}`} />
           </FormWrapper>

@@ -16,6 +16,7 @@ module.exports = {
         JostLight: ["Jost-Light"],
         JostRegular: ["Jost-Regular"],
         JostMedium: ["Jost-Medium"],
+        JostSemiBold: ["Jost-SemiBold"],
         JostBold: ["Jost-Bold"],
       },
 

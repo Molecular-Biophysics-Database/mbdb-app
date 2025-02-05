@@ -5,7 +5,13 @@ import ArrayField from "../../../buildingBlocks/ArrayField";
 import FormWrapper from "../../../buildingBlocks/FormWrapper";
 import OptionalField from "../../../buildingBlocks/OptionalField";
 
-function Modification({ name, colorSchema }) {
+export default function Modification({ name, colorSchema }) {
+  const tooltips = {
+    position:
+      "The position in the primary sequence where the modification occurs (e.g. 23). Please indicate if the numbering differs from that implied by the sequence field",
+    protocol: "List of steps that led to the modification taking place",
+  };
+
   return (
     <>
       <div className="flex mb-3">
@@ -23,36 +29,33 @@ function Modification({ name, colorSchema }) {
             name={name}
             fieldName="position"
             label="Position"
-            tooltip="The position in the primary sequence where the modification occurs (e.g. 23). Please indicate if the numbering differs from that implied by the sequence field"
+            tooltip={tooltips.position}
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Position"
-                tooltip="The position in the primary sequence where the modification occurs (e.g. 23). Please indicate if the numbering differs from that implied by the sequence field"
+                tooltip={tooltips.position}
               />
             )}
           />
         </div>
       </div>
-      <div>
-        <ArrayField
-          name={name}
-          label="Protocol"
-          fieldName="protocol"
-          tooltip="List of steps that led to the modification taking place"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              headline={`Protocol ${index + 1}`}
-              colorSchema={colorSchema}
-              tooltip="List of steps that led to the modification taking place"
-            >
-              <Protocol name={`${arrayName}.${index}`} />
-            </FormWrapper>
-          )}
-        />
-      </div>
+
+      <ArrayField
+        name={name}
+        label="Protocol"
+        fieldName="protocol"
+        tooltip={tooltips.protocol}
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            headline={`Protocol ${index + 1}`}
+            colorSchema={colorSchema}
+            tooltip={tooltips.protocol}
+          >
+            <Protocol name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }
-
-export default Modification;

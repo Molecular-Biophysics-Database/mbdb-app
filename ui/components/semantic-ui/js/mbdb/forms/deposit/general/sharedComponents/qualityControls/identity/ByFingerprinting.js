@@ -2,7 +2,7 @@ import React from "react";
 import FormWrapper from "../../../../buildingBlocks/FormWrapper";
 import OptionField from "../../../../buildingBlocks/OptionField";
 
-function ByFingerprinting({ name, colorSchema }) {
+export default function ByFingerprinting({ name, colorSchema }) {
   const methodOptions = [
     {
       value: "Protease digest + Mass spectrometry",
@@ -21,19 +21,15 @@ function ByFingerprinting({ name, colorSchema }) {
         colorSchema={colorSchema}
         tooltip="How identity was determined by fingerprinting, if applicable"
       >
-        <div>
-          <OptionField
-            name={name}
-            required
-            fieldName="method"
-            label="Method"
-            options={methodOptions}
-            tooltip="The method used for fingerprinting"
-          />
-        </div>
+        <OptionField
+          name={name}
+          required
+          fieldName="method"
+          label="Method"
+          options={methodOptions}
+          tooltip="The method used for fingerprinting"
+        />
       </FormWrapper>
     </>
   );
 }
-
-export default ByFingerprinting;

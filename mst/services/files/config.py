@@ -8,7 +8,12 @@ from oarepo_runtime.services.config import (
     has_permission_file_service,
 )
 
-from common.services.files import MstFileServiceConfigWithProcessors
+from common.services.files.mst_metadata_extraction import (
+    MstFileServiceConfigWithProcessors,
+)
+
+from common.services.files.synchronous_file_processing import SynchronousFileProcessorComponent
+
 from mst.records.api import MstDraft, MstRecord
 from mst.services.files.schema import MstFileSchema
 from mst.services.records.permissions import MstPermissionPolicy
@@ -87,7 +92,7 @@ class MstFileDraftServiceConfig(MstFileServiceConfigWithProcessors):
     @property
     def components(self):
 
-        return process_service_configs(self) + [CustomFieldsComponent]
+        return process_service_configs(self) + [CustomFieldsComponent, SynchronousFileProcessorComponent]
 
     model = "mst"
 

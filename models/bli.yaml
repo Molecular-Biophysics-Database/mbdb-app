@@ -17,6 +17,7 @@ plugins:
   - oarepo-model-builder-polymorphic
   - oarepo-model-builder-vocabularies
   - oarepo-model-builder-communities>=5.0.0
+  - oarepo-model-builder-rdm
 profiles:
 - record
 - draft
@@ -46,6 +47,10 @@ record:
   resource-config:
     base-url: /records/bli/
     base-html-url: /bli/
+  service:
+    base-classes:
+      - common.services.records.service.AddWorkflowServiceMixin
+      - invenio_rdm_records.services.services.RDMRecordService
 
 runtime-dependencies: {}
 

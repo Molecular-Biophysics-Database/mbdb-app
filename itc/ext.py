@@ -1,6 +1,7 @@
 import re
 from functools import cached_property
 
+from invenio_rdm_records.services.pids import PIDManager, PIDsService
 from oarepo_requests.proxies import current_oarepo_requests_service
 from oarepo_requests.resources.draft.config import DraftRecordRequestsResourceConfig
 from oarepo_requests.resources.draft.types.config import DraftRequestTypesResourceConfig
@@ -62,7 +63,10 @@ class ItcExt:
         else:
             config_class = service_config()
 
-        service_kwargs = {"config": config_class}
+        service_kwargs = {
+            "pids_service": PIDsService(config_class, PIDManager),
+            "config": config_class,
+        }
         return config.ITC_RECORD_SERVICE_CLASS(
             **service_kwargs,
             files_service=self.service_files,
@@ -107,17 +111,6 @@ class ItcExt:
         )
 
     @cached_property
-    def published_service_records(self):
-        from itc.services.records.published.config import ItcPublishedServiceConfig
-        from itc.services.records.published.service import ItcPublishedService
-
-        return ItcPublishedService(
-            config=ItcPublishedServiceConfig(
-                proxied_drafts_config=self.service_records.config
-            ),
-        )
-
-    @cached_property
     def service_files(self):
         service_config = config.ITC_FILES_SERVICE_CONFIG
         if hasattr(service_config, "build"):
@@ -135,15 +128,6 @@ class ItcExt:
         return config.ITC_FILES_RESOURCE_CLASS(
             service=self.service_files,
             config=config.ITC_FILES_RESOURCE_CONFIG(),
-        )
-
-    @cached_property
-    def published_service_files(self):
-        from itc.services.files.published.config import ItcFilePublishedServiceConfig
-        from itc.services.files.published.service import ItcFilePublishedService
-
-        return ItcFilePublishedService(
-            config=ItcFilePublishedServiceConfig(),
         )
 
     @cached_property

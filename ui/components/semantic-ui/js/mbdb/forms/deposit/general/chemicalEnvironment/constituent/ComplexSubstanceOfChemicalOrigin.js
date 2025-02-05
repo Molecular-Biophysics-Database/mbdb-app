@@ -11,6 +11,15 @@ import UseDefault from "../../../buildingBlocks/UseDefault";
 import OptionalField from "../../../buildingBlocks/OptionalField";
 
 function ComplexSubstanceOfChemicalOrigin({ name }) {
+  const tooltips = {
+    preparationProtocol:
+      "List of the steps performed during the preparation of the complex substance",
+    additionalSpecification:
+      "Additional information about the lipid assembly, if applicable",
+    storage:
+      "Information about how the complex substance was stored between being acquired and measured, including temperature and duration",
+  };
+
   const classOptions = [{ value: "lipid_assembly", label: "Lipid assembly" }];
 
   const fieldNamePreparationProtocol = "preparation_protocol";
@@ -28,73 +37,67 @@ function ComplexSubstanceOfChemicalOrigin({ name }) {
             tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample"
           />
         </div>
-        <div>
-          <OptionField
-            name={name}
-            options={classOptions}
-            label="Class"
-            fieldName="class"
-            tooltip="The chemical origin where the complex substance was derived from"
-          />
-        </div>
+
+        <OptionField
+          name={name}
+          options={classOptions}
+          label="Class"
+          fieldName="class"
+          tooltip="The chemical origin where the complex substance was derived from"
+        />
       </div>
       <div className="flex -mt-3 mb-3">
-        <div>
-          <ArrayField
-            name={name}
-            label="Preparation protocol"
-            fieldName={fieldNamePreparationProtocol}
-            required
-            tooltip="List of the steps performed during the preparation of the complex substance"
-            renderChild={({ arrayName, index }) => (
-              <FormWrapper
-                headline={`Preparation protocol step ${index + 1}`}
-                tooltip="List of the steps performed during the preparation of the complex substance"
-              >
-                <Protocol name={`${arrayName}.${index}`} />
-              </FormWrapper>
-            )}
-          />
-        </div>
+        <ArrayField
+          name={name}
+          label="Preparation protocol"
+          fieldName={fieldNamePreparationProtocol}
+          required
+          tooltip={tooltips.preparationProtocol}
+          renderChild={({ arrayName, index }) => (
+            <FormWrapper
+              headline={`Preparation protocol step ${index + 1}`}
+              tooltip={tooltips.preparationProtocol}
+            >
+              <Protocol name={`${arrayName}.${index}`} />
+            </FormWrapper>
+          )}
+        />
+
         <div className="mt-3">
           <Concentration name={`${name}.concentration`} />
         </div>
       </div>
-      <div>
-        <ArrayField
-          name={name}
-          label="Additional specification"
-          fieldName="additional_specifications"
-          tooltip="Additional information about the lipid assembly, if applicable"
-          renderChild={({ arrayName, index }) => (
-            <CustomField
-              name={`${arrayName}.${index}`}
-              label={`Additional specification ${index + 1}`}
-              width="w-[15rem]"
-              tooltip="Additional information about the lipid assembly, if applicable"
-            />
-          )}
-        />
-      </div>
+
+      <ArrayField
+        name={name}
+        label="Additional specification"
+        fieldName="additional_specifications"
+        tooltip={tooltips.additionalSpecification}
+        renderChild={({ arrayName, index }) => (
+          <CustomField
+            name={`${arrayName}.${index}`}
+            label={`Additional specification ${index + 1}`}
+            width="w-[15rem]"
+            tooltip={tooltips.additionalSpecification}
+          />
+        )}
+      />
+
       <div className="mb-3">
         <OptionalField
           name={name}
           label="Storage"
           fieldName="storage"
-          tooltip="Information about how the complex substance was stored between being acquired and measured, including temperature and duration"
+          tooltip={tooltips.storage}
           renderChild={({ optionalFieldName }) => (
-            <FormWrapper
-              headline="Storage"
-              tooltip="Information about how the complex substance was stored between being acquired and measured, including temperature and duration"
-            >
+            <FormWrapper headline="Storage" tooltip={tooltips.storage}>
               <Storage name={optionalFieldName} colorSchema="light" />
             </FormWrapper>
           )}
         />
       </div>
-      <div>
-        <Details name={`${name}.details`} />
-      </div>
+
+      <Details name={`${name}.details`} />
     </>
   );
 }

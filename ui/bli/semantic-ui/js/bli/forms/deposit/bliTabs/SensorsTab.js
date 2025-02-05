@@ -4,7 +4,10 @@ import ArrayField from "@mbdb_deposit/buildingBlocks/ArrayField";
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
 import Sensors from "../sensors/Sensors";
 
-function SensorsTab({ name }) {
+export default function SensorsTab({ name }) {
+  const tooltip =
+    "List of the sensors used for the measurements, reference sensors included";
+
   const fieldName = "sensors";
 
   UseDefault(`${name}.${fieldName}`, [{}]);
@@ -21,12 +24,9 @@ function SensorsTab({ name }) {
         label="Sensor"
         required
         fieldName={fieldName}
-        tooltip="List of the sensors used for the measurements, reference sensors included"
+        tooltip={tooltip}
         renderChild={({ arrayName, index }) => (
-          <FormWrapper
-            headline={`Sensor ${index + 1}`}
-            tooltip="List of the sensors used for the measurements, reference sensors included"
-          >
+          <FormWrapper headline={`Sensor ${index + 1}`} tooltip={tooltip}>
             <Sensors name={`${arrayName}.${index}`} />
           </FormWrapper>
         )}
@@ -34,5 +34,3 @@ function SensorsTab({ name }) {
     </>
   );
 }
-
-export default SensorsTab;

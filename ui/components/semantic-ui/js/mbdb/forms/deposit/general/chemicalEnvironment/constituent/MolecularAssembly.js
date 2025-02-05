@@ -9,37 +9,42 @@ import Concentration from "../../../sharedComponents/Concentration";
 import ExternalDatabase from "../../../buildingBlocks/ExternalDatabase";
 
 function MolecularAssembly({ name }) {
+  const tooltips = {
+    additionalSpecification:
+      "Additional information about the complex substance can be specified here",
+    chemicalModification:
+      "List describing deliberate modifications made to the molecular assembly through chemical, biochemical, or physical means",
+  };
+
   return (
     <>
-      <div>
-        <CustomField
-          name={name}
-          label="Name"
-          fieldName="name"
-          width="w-full"
-          tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample"
-        />
-      </div>
+      <CustomField
+        name={name}
+        label="Name"
+        fieldName="name"
+        width="w-full"
+        tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample"
+      />
+
       <div className="flex mb-3">
         <div className="mr-3">
           <ExternalDatabase name={name} />
         </div>
-        <div>
-          <ArrayField
-            name={name}
-            label="Additional specification"
-            fieldName="additional_specifications"
-            tooltip="Additional information about the complex substance can be specified here"
-            renderChild={({ arrayName, index }) => (
-              <CustomField
-                name={`${arrayName}.${index}`}
-                label={`Additional specification ${index + 1}`}
-                width="w-[15rem]"
-                tooltip="Additional information about the complex substance can be specified here"
-              />
-            )}
-          />
-        </div>
+
+        <ArrayField
+          name={name}
+          label="Additional specification"
+          fieldName="additional_specifications"
+          tooltip={tooltips.additionalSpecification}
+          renderChild={({ arrayName, index }) => (
+            <CustomField
+              name={`${arrayName}.${index}`}
+              label={`Additional specification ${index + 1}`}
+              width="w-[15rem]"
+              tooltip={tooltips.additionalSpecification}
+            />
+          )}
+        />
       </div>
       <div className="flex">
         <div className="mr-3">
@@ -60,11 +65,11 @@ function MolecularAssembly({ name }) {
           name={name}
           label="Chemical Modification"
           fieldName="chemical_modifications"
-          tooltip="List describing deliberate modifications made to the molecular assembly through chemical, biochemical, or physical means"
+          tooltip={tooltips.chemicalModification}
           renderChild={({ arrayName, index }) => (
             <FormWrapper
               headline={`Chemical modification ${index + 1}`}
-              tooltip="List describing deliberate modifications made to the molecular assembly through chemical, biochemical, or physical means"
+              tooltip={tooltips.chemicalModification}
             >
               <Modification
                 name={`${arrayName}.${index}`}
@@ -74,15 +79,14 @@ function MolecularAssembly({ name }) {
           )}
         />
       </div>
-      <div>
-        <Components
-          name={name}
-          colorSchemaHeadline="light"
-          colorSchemaProtocol="light"
-          molecularWeightColorSchema="light"
-          tooltip="Description of the individual components (e.g. polypeptide, heme, lipids, metal ions etc.) the molecular assembly is composed of (e.g. Hemoglobin alpha) and how many copies of each component were present"
-        />
-      </div>
+
+      <Components
+        name={name}
+        colorSchemaHeadline="light"
+        colorSchemaProtocol="light"
+        molecularWeightColorSchema="light"
+        tooltip="Description of the individual components (e.g. polypeptide, heme, lipids, metal ions etc.) the molecular assembly is composed of (e.g. Hemoglobin alpha) and how many copies of each component were present"
+      />
     </>
   );
 }

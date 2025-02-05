@@ -7,12 +7,18 @@ import OptionalField from "@mbdb_deposit/buildingBlocks/OptionalField";
 import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 
 function Plates({ name }) {
-  CreateUuid(name);
+  const tooltips = {
+    type: "The type of the plate (e.g. half-area black polystyrene)",
+    sealing: "The type of sealing used to seal the top of the plate",
+    supplier: "Information about the supplier of the plate",
+  };
 
   const wellsOptions = [
     { value: "96", label: "96" },
     { value: "384", label: "384" },
   ];
+
+  CreateUuid(name);
 
   return (
     <>
@@ -42,12 +48,12 @@ function Plates({ name }) {
             name={name}
             label="Type"
             fieldName="type"
-            tooltip="The type of the plate (e.g. half-area black polystyrene)"
+            tooltip={tooltips.type}
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Type"
-                tooltip="The type of the plate (e.g. half-area black polystyrene)"
+                tooltip={tooltips.type}
               />
             )}
           />
@@ -57,43 +63,40 @@ function Plates({ name }) {
             name={name}
             label="Sealing"
             fieldName="sealing"
-            tooltip="The type of sealing used to seal the top of the plate"
+            tooltip={tooltips.sealing}
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Sealing"
-                tooltip="The type of sealing used to seal the top of the plate"
+                tooltip={tooltips.sealing}
               />
             )}
           />
         </div>
       </div>
-      <div>
-        <OptionalField
-          name={name}
-          label="Supplier"
-          fieldName="supplier"
-          tooltip="Information about the supplier of the plate"
-          renderChild={({ optionalFieldName }) => (
-            <Supplier
-              name={optionalFieldName}
-              colorSchema="light"
-              tooltip="Information about the supplier of the plate"
-            />
-          )}
-        />
-      </div>
-      <div>
-        <OptionalField
-          name={name}
-          label="Surface modification"
-          fieldName="surface_modification"
-          tooltip="If the plate had a modified surface, the modification can specified here (e.g. Non-binding surface)"
-          renderChild={({ optionalFieldName }) => (
-            <SurfaceModification name={optionalFieldName} colorSchema="light" />
-          )}
-        />
-      </div>
+      <OptionalField
+        name={name}
+        label="Supplier"
+        fieldName="supplier"
+        tooltip={tooltips.supplier}
+        renderChild={({ optionalFieldName }) => (
+          <Supplier
+            name={optionalFieldName}
+            colorSchema="light"
+            tooltip={tooltips.supplier}
+          />
+        )}
+      />
+
+      <OptionalField
+        name={name}
+        label="Surface modification"
+        fieldName="surface_modification"
+        tooltip="If the plate had a modified surface, the modification can specified here (e.g. Non-binding surface)"
+        renderChild={({ optionalFieldName }) => (
+          <SurfaceModification name={optionalFieldName} colorSchema="light" />
+        )}
+      />
     </>
   );
 }

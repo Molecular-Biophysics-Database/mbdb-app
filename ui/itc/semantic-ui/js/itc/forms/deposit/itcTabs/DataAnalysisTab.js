@@ -3,7 +3,10 @@ import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import ArrayField from "@mbdb_deposit/buildingBlocks/ArrayField";
 import DataAnalysis from "../dataAnalysis/DataAnalysis";
 
-function DataAnalysisTab({ name }) {
+export default function DataAnalysisTab({ name }) {
+  const tooltip =
+    "The details of how data analysis was performed to obtain results";
+
   return (
     <>
       <div className="mb-3 w-fit">
@@ -15,11 +18,11 @@ function DataAnalysisTab({ name }) {
         name={name}
         label="Data analysis"
         fieldName="data_analysis"
-        tooltip="The details of how data analysis was performed to obtain results"
+        tooltip={tooltip}
         renderChild={({ arrayName, index }) => (
           <FormWrapper
             headline={`Data analysis ${index + 1}`}
-            tooltip="The details of how data analysis was performed to obtain results"
+            tooltip={tooltip}
           >
             <DataAnalysis name={`${arrayName}.${index}`} />
           </FormWrapper>
@@ -28,5 +31,3 @@ function DataAnalysisTab({ name }) {
     </>
   );
 }
-
-export default DataAnalysisTab;

@@ -11,18 +11,23 @@ import CreateOptions from "../buildingBlocks/CreateOptions";
 function DataAnalysis({ name }) {
   const { values } = useFormikContext();
 
-  const resultValue = getIn(values, "metadata.general_parameters.results");
+  const tooltips = {
+    measurements: "Measurements that were analyzed together",
+    results:
+      "Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters",
+    dataFitting:
+      "The details of how data fitting of the data to obtain the result was performed",
+    dataProcessing:
+      "Describe the steps in the data analysis prior to fitting (removing outliers in the raw data, applying data filter, placing data at same start time etc. )",
+  };
+
   const resultOptions = CreateOptions(
-    resultValue,
+    getIn(values, "metadata.general_parameters.results"),
     "Select Result, if applicable"
   );
 
-  const measurementValue = getIn(
-    values,
-    "metadata.method_specific_parameters.measurements"
-  );
   const measurementOptions = CreateOptions(
-    measurementValue,
+    getIn(values, "metadata.method_specific_parameters.measurements"),
     "Select Measurement, if applicable"
   );
 
@@ -34,13 +39,13 @@ function DataAnalysis({ name }) {
             name={name}
             label="Measurement"
             fieldName="measurements"
-            tooltip="Measurements that were analyzed together"
+            tooltip={tooltips.measurements}
             renderChild={({ arrayName, index }) => (
               <OptionField
                 name={`${arrayName}.${index}`}
                 label={`Measurement ${index + 1}`}
                 options={measurementOptions}
-                tooltip="Measurements that were analyzed together"
+                tooltip={tooltips.measurements}
               />
             )}
           />
@@ -50,13 +55,13 @@ function DataAnalysis({ name }) {
             name={name}
             label="Results"
             fieldName="results"
-            tooltip="Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters"
+            tooltip={tooltips.results}
             renderChild={({ arrayName, index }) => (
               <OptionField
                 name={`${arrayName}.${index}`}
                 label={`Result ${index + 1}`}
                 options={resultOptions}
-                tooltip="Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters"
+                tooltip={tooltips.results}
               />
             )}
           />
@@ -67,35 +72,33 @@ function DataAnalysis({ name }) {
           name={name}
           label="Data fitting"
           fieldName="data_fitting"
-          tooltip="The details of how data fitting of the data to obtain the result was performed"
+          tooltip={tooltips.dataFitting}
           renderChild={({ optionalFieldName }) => (
             <FormWrapper
               colorSchema="light"
               headline="Data fitting"
-              tooltip="The details of how data fitting of the data to obtain the result was performed"
+              tooltip={tooltips.dataFitting}
             >
               <DataFitting name={optionalFieldName} />
             </FormWrapper>
           )}
         />
       </div>
-      <div>
-        <ArrayField
-          name={name}
-          label="Data processing"
-          fieldName="data_processing"
-          tooltip="Describe the steps in the data analysis prior to fitting (removing outliers in the raw data, applying data filter, placing data at same start time etc. )"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              colorSchema="light"
-              headline={`Data processing step ${index + 1}`}
-              tooltip="Describe the steps in the data analysis prior to fitting (removing outliers in the raw data, applying data filter, placing data at same start time etc. )"
-            >
-              <DataProcessingStep name={`${arrayName}.${index}`} />
-            </FormWrapper>
-          )}
-        />
-      </div>
+      <ArrayField
+        name={name}
+        label="Data processing"
+        fieldName="data_processing"
+        tooltip={tooltips.dataProcessing}
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            colorSchema="light"
+            headline={`Data processing step ${index + 1}`}
+            tooltip={tooltips.dataProcessing}
+          >
+            <DataProcessingStep name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }

@@ -20,6 +20,9 @@ import CorrectionOfActiveConcentration from "../result/CorrectionOfActiveConcent
 function ResultTab({ name }) {
   const { values } = useFormikContext();
 
+  const tooltip =
+    "List of the results (parameters) that were derived by analyzing the raw data and which steps were taken to obtain them";
+
   const resultTabOptions = [
     { value: "Concentration", label: "Concentration" },
     { value: "Stoichiometry", label: "Stoichiometry" },
@@ -63,17 +66,14 @@ function ResultTab({ name }) {
         label="Result"
         fieldName="results"
         initialValue={{ type: "Concentration" }}
-        tooltip="List of the results (parameters) that were derived by analyzing the raw data and which steps were taken to obtain them"
+        tooltip={tooltip}
         renderChild={({ arrayName, index }) => {
           const actualValue = getIn(values, `${arrayName}.${index}`);
           if (!actualValue) {
             return null;
           }
           return (
-            <FormWrapper
-              headline={`Result ${index + 1}`}
-              tooltip="List of the results (parameters) that were derived by analyzing the raw data and which steps were taken to obtain them"
-            >
+            <FormWrapper headline={`Result ${index + 1}`} tooltip={tooltip}>
               <div className="mb-3">
                 <DynamicOptionField
                   name={`${arrayName}.${index}`}

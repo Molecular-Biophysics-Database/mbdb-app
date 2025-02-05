@@ -14,6 +14,9 @@ import DynamicOptionField from "../../buildingBlocks/DynamicOptionField";
 function Constituent({ name }) {
   const { values } = useFormikContext();
 
+  const tooltip =
+    "List of the constituents, excluding solvent components, that made up the chemical environment (i.e. buffer system, salts, surfactants, crowding agents, serum, etc.)";
+
   const ChemicalEnvironmentTabOptions = [
     { value: "Polymer", label: "Polymer" },
     { value: "Chemical", label: "Chemical" },
@@ -45,7 +48,7 @@ function Constituent({ name }) {
             label="Constituent"
             fieldName="constituents"
             initialValue={{ type: "Chemical" }}
-            tooltip="List of the constituents, excluding solvent components, that made up the chemical environment (i.e. buffer system, salts, surfactants, crowding agents, serum, etc.)"
+            tooltip={tooltip}
             renderChild={({ arrayName, index }) => {
               const actualValue = getIn(values, `${arrayName}.${index}`);
               if (!actualValue) {
@@ -55,7 +58,7 @@ function Constituent({ name }) {
                 <FormWrapper
                   colorSchema="light"
                   headline={`Constituent ${index + 1}`}
-                  tooltip="List of the constituents, excluding solvent components, that made up the chemical environment (i.e. buffer system, salts, surfactants, crowding agents, serum, etc.)"
+                  tooltip={tooltip}
                 >
                   <div className="mb-3">
                     <DynamicOptionField

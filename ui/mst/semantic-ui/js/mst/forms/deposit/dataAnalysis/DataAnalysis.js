@@ -12,18 +12,26 @@ import CreateOptions from "@mbdb_deposit/buildingBlocks/CreateOptions";
 function DataAnalysis({ name }) {
   const { values } = useFormikContext();
 
-  const resultsValue = getIn(values, `metadata.general_parameters.results`);
+  const tooltips = {
+    measurements:
+      "List of the measurements that were analyzed together for a specific parameter",
+    results:
+      "Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters",
+    fColdAndHot:
+      "If the data was analyzed with time windows corresponding to fluorescence before and after an IR laser was heating the sample the edges of the time windows can be specified here",
+    dataFitting:
+      "If the data was analyzed with time windows corresponding to fluorescence before and after an IR laser was heating the sample the edges of the time windows can be specified here",
+    dataProcessing:
+      "Describe the steps in the data analysis prior to fitting (removing outliers in the raw data, applying smoothing filters, etc.)",
+  };
+
   const resultOptions = CreateOptions(
-    resultsValue,
+    getIn(values, "metadata.general_parameters.results"),
     "Select Result, if applicable"
   );
 
-  const measurementValue = getIn(
-    values,
-    `metadata.method_specific_parameters.measurements`
-  );
   const measurementOptions = CreateOptions(
-    measurementValue,
+    getIn(values, "metadata.method_specific_parameters.measurements"),
     "Select Measurement, if applicable"
   );
 
@@ -35,13 +43,13 @@ function DataAnalysis({ name }) {
             name={name}
             label="Measurement"
             fieldName="measurements"
-            tooltip="List of the measurements that was analyzed together for a specific parameter"
+            tooltip={tooltips.measurements}
             renderChild={({ arrayName, index }) => (
               <OptionField
                 name={`${arrayName}.${index}`}
                 label={`Measurement ${index + 1}`}
                 options={measurementOptions}
-                tooltip="List of the measurements that was analyzed together for a specific parameter"
+                tooltip={tooltips.measurements}
               />
             )}
           />
@@ -51,13 +59,13 @@ function DataAnalysis({ name }) {
             name={name}
             label="Results"
             fieldName="results"
-            tooltip="Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters"
+            tooltip={tooltips.results}
             renderChild={({ arrayName, index }) => (
               <OptionField
                 name={`${arrayName}.${index}`}
                 options={resultOptions}
                 label={`Result ${index + 1}`}
-                tooltip="Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters"
+                tooltip={tooltips.results}
               />
             )}
           />
@@ -68,12 +76,12 @@ function DataAnalysis({ name }) {
           name={name}
           label="F cold and hot"
           fieldName="f_cold_and_hot"
-          tooltip="If the data was analyzed with time windows corresponding to fluorescence before and after an IR laser was heating the sample the edges of the time windows can be specified here"
+          tooltip={tooltips.fColdAndHot}
           renderChild={({ optionalFieldName }) => (
             <FormWrapper
               colorSchema="light"
               headline="F cold and hot"
-              tooltip="If the data was analyzed with time windows corresponding to fluorescence before and after an IR laser was heating the sample the edges of the time windows can be specified here"
+              tooltip={tooltips.fColdAndHot}
             >
               <FColdAndHot name={optionalFieldName} />
             </FormWrapper>
@@ -85,35 +93,34 @@ function DataAnalysis({ name }) {
           name={name}
           label="Data fitting"
           fieldName="data_fitting"
-          tooltip="If the data was analyzed with time windows corresponding to fluorescence before and after an IR laser was heating the sample the edges of the time windows can be specified here"
+          tooltip={tooltips.dataFitting}
           renderChild={({ optionalFieldName }) => (
             <FormWrapper
               colorSchema="light"
               headline="Data fitting"
-              tooltip="If the data was analyzed with time windows corresponding to fluorescence before and after an IR laser was heating the sample the edges of the time windows can be specified here"
+              tooltip={tooltips.dataFitting}
             >
               <DataFitting name={optionalFieldName} />
             </FormWrapper>
           )}
         />
       </div>
-      <div>
-        <ArrayField
-          name={name}
-          label="Data processing"
-          fieldName="data_processing"
-          tooltip="Describe the steps in the data analysis prior to fitting (removing outliers in the raw data, applying smoothing filters, etc.)"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              colorSchema="light"
-              headline={`Data processing step ${index + 1}`}
-              tooltip="Describe the steps in the data analysis prior to fitting (removing outliers in the raw data, applying smoothing filters, etc.)"
-            >
-              <DataProcessingStep name={`${arrayName}.${index}`} />
-            </FormWrapper>
-          )}
-        />
-      </div>
+
+      <ArrayField
+        name={name}
+        label="Data processing"
+        fieldName="data_processing"
+        tooltip={tooltips.dataProcessing}
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            colorSchema="light"
+            headline={`Data processing step ${index + 1}`}
+            tooltip={tooltips.dataProcessing}
+          >
+            <DataProcessingStep name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }

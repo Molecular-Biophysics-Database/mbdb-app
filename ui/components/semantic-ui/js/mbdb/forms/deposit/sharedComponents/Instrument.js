@@ -4,7 +4,7 @@ import { VocabularySelectField } from "@js/oarepo_vocabularies";
 import { FieldLabel } from "react-invenio-forms";
 import { useDepositApiClient } from "@js/oarepo_ui";
 
-function Instrument({ name }) {
+export default function Instrument({ name }) {
   const { values: recordMetadata } = useDepositApiClient();
 
   const resourceType =
@@ -38,5 +38,3 @@ function Instrument({ name }) {
     </>
   );
 }
-
-export default Instrument;

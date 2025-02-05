@@ -6,7 +6,7 @@ import StartTime from "@mbdb_deposit/sharedComponents/StartTime";
 import TimeLength from "@mbdb_deposit/sharedComponents/TimeLength";
 import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 
-function MeasurementProtocol({ name }) {
+export default function MeasurementProtocol({ name }) {
   CreateUuid(name);
 
   const typeOptions = [
@@ -32,30 +32,22 @@ function MeasurementProtocol({ name }) {
             width="w-[29rem]"
           />
         </div>
-        <div>
-          <OptionField
-            name={name}
-            label="Type"
-            fieldName="type"
-            required
-            options={typeOptions}
-            tooltip="Which type of step in the measurement protocol this refers to"
-          />
-        </div>
+        <OptionField
+          name={name}
+          label="Type"
+          fieldName="type"
+          required
+          options={typeOptions}
+          tooltip="Which type of step in the measurement protocol this refers to"
+        />
       </div>
       <div className="flex mb-3">
         <div className="mr-3">
           <StartTime name={`${name}.start_time`} colorSchema="light" />
         </div>
-        <div>
-          <TimeLength name={`${name}.time_length`} colorSchema="light" />
-        </div>
+        <TimeLength name={`${name}.time_length`} colorSchema="light" />
       </div>
-      <div>
-        <ShakingSpeed name={`${name}.shaking_speed`} colorSchema="light" />
-      </div>
+      <ShakingSpeed name={`${name}.shaking_speed`} colorSchema="light" />
     </>
   );
 }
-
-export default MeasurementProtocol;

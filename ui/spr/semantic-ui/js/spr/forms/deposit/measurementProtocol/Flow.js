@@ -8,6 +8,11 @@ import ArrayField from "@mbdb_deposit/buildingBlocks/ArrayField";
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
 
 function Flow({ colorSchema, name }) {
+  const tooltips = {
+    path: "list of the flow-path, in terms of measurement positions. Measurement positions that are connected by a flow running serially through them should be mentioned within the inner list, while parallel flows should be mentioned in the outer list",
+    direction: "Direction of the flow",
+  };
+
   const unitOptions = [
     { value: "mL/min", label: "mL/min" },
     { value: "µl/s", label: "µl/s" },
@@ -34,11 +39,11 @@ function Flow({ colorSchema, name }) {
               label="Path"
               fieldName="path"
               required
-              tooltip="list of the flow-path, in terms of measurement positions. Measurement positions that are connected by a flow running serially through them should be mentioned within the inner list, while parallel flows should be mentioned in the outer list"
+              tooltip={tooltips.path}
               renderChild={({ arrayName, index }) => (
                 <FormWrapper
                   headline={`Path ${index + 1}`}
-                  tooltip="list of the flow-path, in terms of measurement positions. Measurement positions that are connected by a flow running serially through them should be mentioned within the inner list, while parallel flows should be mentioned in the outer list"
+                  tooltip={tooltips.path}
                 >
                   <Path name={`${arrayName}.${index}`} />
                 </FormWrapper>
@@ -70,12 +75,12 @@ function Flow({ colorSchema, name }) {
               name={name}
               label="Direction"
               fieldName="direction"
-              tooltip="Direction of the flow"
+              tooltip={tooltips.direction}
               renderChild={({ optionalFieldName }) => (
                 <OptionField
                   name={optionalFieldName}
                   label="Direction"
-                  tooltip="Direction of the flow"
+                  tooltip={tooltips.direction}
                   options={directionOptions}
                 />
               )}

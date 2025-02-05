@@ -12,6 +12,11 @@ import CustomField from "../../buildingBlocks/CustomField";
 function CorrectionOfActiveConcentration({ name }) {
   CreateUuid(name);
 
+  const tooltips = {
+    entityInvolved:
+      "List of chemical or molecular assemblies the result describes and how many copies of each are involved",
+  };
+
   const unitOptions = [{ value: "unitless", label: "unitless" }];
 
   const fieldNameEntityInvolved = "entities_involved";
@@ -29,16 +34,15 @@ function CorrectionOfActiveConcentration({ name }) {
             tooltip="Descriptive name (id) of the result (e.g. Kd of Lysozyme and VHH2). Must be unique within a record"
           />
         </div>
-        <div>
-          <ValueUnit
-            options={unitOptions}
-            name={name}
-            valueRequired
-            unitRequired
-            tooltipValue="The correction of the deviations between nominal and true active concentration of the entity"
-            tooltipUnit="The correction of active concentration is unitless"
-          />
-        </div>
+
+        <ValueUnit
+          options={unitOptions}
+          name={name}
+          valueRequired
+          unitRequired
+          tooltipValue="The correction of the deviations between nominal and true active concentration of the entity"
+          tooltipUnit="The correction of active concentration is unitless"
+        />
       </div>
       <OptionalField
         name={name}
@@ -54,12 +58,12 @@ function CorrectionOfActiveConcentration({ name }) {
         label="Entity involved"
         fieldName={fieldNameEntityInvolved}
         required
-        tooltip="List of chemical or molecular assemblies the result describes and how many copies of each are involved"
+        tooltip={tooltips.entityInvolved}
         renderChild={({ arrayName, index }) => (
           <FormWrapper
             colorSchema="light"
             headline={`Entity involved ${index + 1}`}
-            tooltip="List of chemical or molecular assemblies the result describes and how many copies of each are involved"
+            tooltip={tooltips.entityInvolved}
           >
             <EntityInvolved name={`${arrayName}.${index}`} />
           </FormWrapper>

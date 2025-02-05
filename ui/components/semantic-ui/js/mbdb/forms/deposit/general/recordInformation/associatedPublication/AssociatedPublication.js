@@ -10,6 +10,9 @@ import DynamicOptionField from "../../../buildingBlocks/DynamicOptionField";
 function AssociatedPublication({ name }) {
   const { values } = useFormikContext();
 
+  const tooltip =
+    "If the data in this record is described in published literature (article, journal, thesis), information about the literature can be specified here";
+
   const associatedPublicationOptions = [
     { value: "Article", label: "Article" },
     { value: "Book", label: "Book" },
@@ -24,17 +27,14 @@ function AssociatedPublication({ name }) {
           label="Associated publication"
           fieldName="associated_publication"
           initialValue={{ type: "Article" }}
-          tooltip="If the data in this record is described in published literature (article, journal, thesis), information about the literature can be specified here"
+          tooltip={tooltip}
           renderChild={({ optionalFieldName }) => {
             const actualValue = getIn(values, optionalFieldName);
             if (!actualValue) {
               return null;
             }
             return (
-              <FormWrapper
-                headline="Associated publication"
-                tooltip="If the data in this record is described in published literature (article, journal, thesis), information about the literature can be specified here"
-              >
+              <FormWrapper headline="Associated publication" tooltip={tooltip}>
                 <div className="flex">
                   <div className="mr-3">
                     <DynamicOptionField

@@ -3,7 +3,7 @@ import CustomField from "./CustomField";
 import FormWrapper from "./FormWrapper";
 import RelativeErrors from "./RelativeErrors";
 
-function ValueError({ colorSchema, name }) {
+export default function ValueError({ colorSchema, name }) {
   return (
     <>
       <div className="flex">
@@ -40,5 +40,3 @@ function ValueError({ colorSchema, name }) {
     </>
   );
 }
-
-export default ValueError;

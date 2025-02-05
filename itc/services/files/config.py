@@ -14,6 +14,8 @@ from oarepo_runtime.services.config import (
 )
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 
+from common.services.files.synchronous_file_processing import SynchronousFileProcessorComponent
+
 from itc.records.api import ItcDraft, ItcRecord
 from itc.services.files.schema import ItcFileSchema
 from itc.services.records.permissions import ItcPermissionPolicy
@@ -92,7 +94,7 @@ class ItcFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
     @property
     def components(self):
 
-        return process_service_configs(self) + [CustomFieldsComponent]
+        return process_service_configs(self) + [CustomFieldsComponent, SynchronousFileProcessorComponent]
 
     model = "itc"
 

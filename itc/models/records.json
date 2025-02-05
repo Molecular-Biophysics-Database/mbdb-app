@@ -34,9 +34,12 @@
             "alias": "itc",
             "module": "itc.records.mappings",
             "index": "itc-itc-1.0.0",
-            "file": "itc/records/mappings/os-v2/itc/itc-1.0.0.json",
-            "index-field-args": []
+            "index-field-args": [
+                "search_alias=\"itc\""
+            ],
+            "file": "itc/records/mappings/os-v2/itc/itc-1.0.0.json"
         },
+        "searchable": true,
         "permissions": {
             "presets": [
                 "mbdb"
@@ -53,14 +56,14 @@
         "marshmallow": {
             "imports": [],
             "base-classes": [
-                "oarepo_runtime.services.schema.marshmallow.BaseRecordSchema"
+                "oarepo_runtime.services.schema.marshmallow.BaseRecordSchema",
+                "oarepo_runtime.services.schema.rdm.RDMRecordMixin"
             ],
             "generate": true,
             "module": "itc.services.records.schema",
             "class": "itc.services.records.schema.ItcSchema",
             "extra-code": ""
         },
-        "searchable": true,
         "pid": {
             "type": "itc",
             "provider-base-classes": [
@@ -102,8 +105,7 @@
         },
         "service": {
             "base-classes": [
-                "common.services.records.service.AddWorkflowServiceMixin",
-                "invenio_drafts_resources.services.RecordService"
+                "invenio_rdm_records.services.services.RDMRecordService"
             ],
             "imports": [],
             "generate": true,
@@ -124,14 +126,12 @@
                 "{{oarepo_communities.services.components.default_workflow.CommunityDefaultWorkflowComponent}}",
                 "{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
                 "{{oarepo_runtime.services.components.OwnersComponent}}",
-                "{{oarepo_runtime.services.files.FilesComponent}}",
-                "{{invenio_drafts_resources.services.records.components.DraftFilesComponent}}",
                 "{{oarepo_runtime.services.components.CustomFieldsComponent}}",
                 "{{oarepo_workflows.services.components.workflow.WorkflowComponent}}"
             ],
             "base-classes": [
                 "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
-                "invenio_drafts_resources.services.RecordServiceConfig{InvenioRecordDraftsServiceConfig}"
+                "invenio_rdm_records.services.config.RDMRecordServiceConfig"
             ],
             "generate": true,
             "config-key": "ITC_RECORD_SERVICE_CONFIG",
@@ -187,26 +187,6 @@
             "type": "draft_record",
             "properties": {},
             "searchable": true,
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            }
-        },
-        "tests": {
-            "extra-fixtures": [],
-            "extra-code": "",
-            "module": "tests"
-        },
-        "draft-files": {
-            "type": "draft-file",
-            "properties": {},
-            "searchable": true,
-            "resource": {
-                "base-classes": [
-                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
-                ]
-            },
             "tests": {
                 "extra-fixtures": [],
                 "extra-code": "",
@@ -370,6 +350,7 @@
                     }
                 }
             },
+            "searchable": true,
             "marshmallow": {
                 "imports": [
                     {
@@ -381,7 +362,6 @@
                     "InvenioFileSchema"
                 ]
             },
-            "searchable": true,
             "resource": {
                 "base-classes": [
                     "oarepo_ui.resources.file_resource.S3RedirectFileResource"
@@ -394,62 +374,37 @@
             },
             "label.en": ""
         },
+        "tests": {
+            "extra-fixtures": [],
+            "extra-code": "",
+            "module": "tests"
+        },
+        "draft-files": {
+            "type": "draft-file",
+            "properties": {},
+            "searchable": true,
+            "resource": {
+                "base-classes": [
+                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
+                ]
+            },
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
+        },
         "sample": {
             "file": "data/sample_data.yaml"
         },
         "ext-resource": {
-            "service-kwargs": {},
+            "service-kwargs": {
+                "pids_service": "{{invenio_rdm_records.services.pids.PIDsService}}(config_class, {{invenio_rdm_records.services.pids.PIDManager}})"
+            },
             "generate": true,
             "skip": false
         },
         "model-name": "Itc",
-        "record": {
-            "fields": {
-                "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')",
-                "state_timestamp": "{{oarepo_workflows.records.systemfields.state.RecordStateTimestampField}}()"
-            },
-            "base-classes": [
-                "invenio_drafts_resources.records.api.Record{InvenioRecord}"
-            ],
-            "generate": true,
-            "module": "itc.records.api",
-            "class": "itc.records.api.ItcRecord",
-            "imports": [],
-            "extra-code": ""
-        },
-        "draft-parent-record-metadata": {
-            "base-classes": [
-                "oarepo_workflows.records.models.RecordWorkflowParentModelMixin",
-                "invenio_db.db{db.Model}",
-                "invenio_records.models.RecordMetadataBase"
-            ],
-            "class": "itc.records.models.ItcParentMetadata",
-            "imports": [],
-            "table": "itc_parent_record_metadata",
-            "module": "itc.records.models",
-            "generate": true
-        },
-        "parent-record-marshmallow": {
-            "base-classes": [
-                "oarepo_workflows.services.records.schema.WorkflowParentSchema"
-            ],
-            "module": "itc.services.records.schema",
-            "class": "itc.services.records.schema.GeneratedParentSchema",
-            "generate": true
-        },
-        "resource": {
-            "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
-            ],
-            "generate": true,
-            "config-key": "ITC_RECORD_RESOURCE_CLASS",
-            "module": "itc.resources.records.resource",
-            "class": "itc.resources.records.resource.ItcResource",
-            "proxy": "current_resource",
-            "extra-code": "",
-            "imports": [],
-            "additional-args": []
-        },
         "record-resolver": {
             "generate": true,
             "module": "itc.records.requests.resolvers",
@@ -510,9 +465,53 @@
             "module": "itc.proxies",
             "generate": true
         },
-        "translations": {
-            "module": "itc.translations",
-            "alias": "itc"
+        "record": {
+            "fields": {
+                "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')",
+                "state_timestamp": "{{oarepo_workflows.records.systemfields.state.RecordStateTimestampField}}()",
+                "media_files": "FilesField(key=MediaFilesAttrConfig[\"_files_attr_key\"],bucket_id_attr=MediaFilesAttrConfig[\"_files_bucket_id_attr_key\"],bucket_attr=MediaFilesAttrConfig[\"_files_bucket_attr_key\"],store=False,dump=False,file_cls={{invenio_rdm_records.records.api.RDMMediaFileRecord}},create=False,delete=False,)"
+            },
+            "base-classes": [
+                "invenio_rdm_records.records.api.RDMRecord"
+            ],
+            "generate": true,
+            "module": "itc.records.api",
+            "class": "itc.records.api.ItcRecord",
+            "imports": [],
+            "extra-code": ""
+        },
+        "draft-parent-record-metadata": {
+            "base-classes": [
+                "oarepo_workflows.records.models.RecordWorkflowParentModelMixin",
+                "invenio_db.db{db.Model}",
+                "invenio_records.models.RecordMetadataBase"
+            ],
+            "class": "itc.records.models.ItcParentMetadata",
+            "imports": [],
+            "table": "itc_parent_record_metadata",
+            "module": "itc.records.models",
+            "generate": true
+        },
+        "parent-record-marshmallow": {
+            "base-classes": [
+                "oarepo_workflows.services.records.schema.WorkflowParentSchema"
+            ],
+            "module": "itc.services.records.schema",
+            "class": "itc.services.records.schema.GeneratedParentSchema",
+            "generate": true
+        },
+        "resource": {
+            "base-classes": [
+                "invenio_drafts_resources.resources.RecordResource"
+            ],
+            "generate": true,
+            "config-key": "ITC_RECORD_RESOURCE_CLASS",
+            "module": "itc.resources.records.resource",
+            "class": "itc.resources.records.resource.ItcResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
         },
         "json-serializer": {
             "module": "itc.resources.records.ui",
@@ -530,6 +529,10 @@
                 "\"identity\"": "{{ flask.g{g.identity} }}"
             }
         },
+        "translations": {
+            "module": "itc.translations",
+            "alias": "itc"
+        },
         "files-field": {
             "generate": true,
             "field-class": "invenio_records_resources.records.systemfields.FilesField",
@@ -538,6 +541,14 @@
                 "store=False"
             ],
             "imports": []
+        },
+        "json-schema-settings": {
+            "generate": true,
+            "alias": "itc",
+            "version": "1.0.0",
+            "module": "itc.records.jsonschemas",
+            "name": "itc-1.0.0.json",
+            "file": "itc/records/jsonschemas/itc-1.0.0.json"
         },
         "record-metadata": {
             "generate": true,
@@ -566,70 +577,6 @@
             "extensions": [
                 "{{oarepo_runtime.records.systemfields.mapping.SystemFieldDumperExt}}()",
                 "{{itc.records.dumpers.edtf.ItcEDTFIntervalDumperExt}}()"
-            ],
-            "imports": []
-        },
-        "json-schema-settings": {
-            "generate": true,
-            "alias": "itc",
-            "version": "1.0.0",
-            "module": "itc.records.jsonschemas",
-            "name": "itc-1.0.0.json",
-            "file": "itc/records/jsonschemas/itc-1.0.0.json"
-        },
-        "draft-parent-record": {
-            "class": "itc.records.api.ItcParentRecord",
-            "base-classes": [
-                "invenio_drafts_resources.records.api.ParentRecord"
-            ],
-            "imports": [],
-            "fields": {
-                "workflow": "{{oarepo_workflows.records.systemfields.workflow.WorkflowField}}()"
-            },
-            "module": "itc.records.api",
-            "generate": true
-        },
-        "draft-parent-record-state": {
-            "class": "itc.records.models.ItcParentState",
-            "base-classes": [
-                "invenio_db.db{db.Model}",
-                "invenio_drafts_resources.records.ParentRecordStateMixin"
-            ],
-            "imports": [],
-            "module": "itc.records.models",
-            "generate": true,
-            "table": "itc_parent_state_metadata"
-        },
-        "draft-parent-record-schema": {
-            "name": "parent-v1.0.0.json",
-            "file": "itc/records/jsonschemas/parent-v1.0.0.json",
-            "generate": true
-        },
-        "published-service-config": {
-            "config-key": "ITC_RECORD_PUBLISHED_SERVICE_CONFIG",
-            "module": "itc.services.records.published.config",
-            "class": "itc.services.records.published.config.ItcPublishedServiceConfig",
-            "extra-code": "",
-            "service-id": "published_itc",
-            "base-classes": [
-                "oarepo_published_service.services.config.PublishedServiceConfig",
-                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin"
-            ],
-            "components": [
-                "{{oarepo_runtime.services.files.FilesComponent}}",
-                "{{oarepo_published_service.services.records.components.bucket.CreatePublishedBucketComponent}}"
-            ],
-            "generate": true
-        },
-        "published-service": {
-            "generate": true,
-            "config-key": "ITC_RECORD_PUBLISHED_SERVICE_CLASS",
-            "proxy": "current_published_service",
-            "module": "itc.services.records.published.service",
-            "class": "itc.services.records.published.service.ItcPublishedService",
-            "extra-code": "",
-            "base-classes": [
-                "oarepo_published_service.services.service.PublishedService"
             ],
             "imports": []
         },
@@ -668,6 +615,34 @@
                 "{{oarepo_requests.services.results.RequestTypesComponent}}()"
             ],
             "imports": []
+        },
+        "draft-parent-record": {
+            "class": "itc.records.api.ItcParentRecord",
+            "base-classes": [
+                "invenio_rdm_records.records.api.RDMParent"
+            ],
+            "imports": [],
+            "fields": {
+                "workflow": "{{oarepo_workflows.records.systemfields.workflow.WorkflowField}}()"
+            },
+            "module": "itc.records.api",
+            "generate": true
+        },
+        "draft-parent-record-state": {
+            "class": "itc.records.models.ItcParentState",
+            "base-classes": [
+                "invenio_db.db{db.Model}",
+                "invenio_drafts_resources.records.ParentRecordStateMixin"
+            ],
+            "imports": [],
+            "module": "itc.records.models",
+            "generate": true,
+            "table": "itc_parent_state_metadata"
+        },
+        "draft-parent-record-schema": {
+            "name": "parent-v1.0.0.json",
+            "file": "itc/records/jsonschemas/parent-v1.0.0.json",
+            "generate": true
         },
         "requests": {
             "types": {},

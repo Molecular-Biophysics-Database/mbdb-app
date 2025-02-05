@@ -17,21 +17,19 @@ function Sample({ name }) {
 
   UseDefault(`${name}.analytes`, [{}]);
 
-  const measurementStepValue = getIn(
-    values,
-    `metadata.method_specific_parameters.measurement_protocol`
-  );
+  const tooltips = {
+    position: "Position of the sample within the sample holder",
+    temperature: "Temperature of the sample while being measured",
+    preparationProtocol: "List of steps taken to prepare the sample",
+  };
+
   const measurementStepOptions = CreateOptions(
-    measurementStepValue,
+    getIn(values, "metadata.method_specific_parameters.measurement_protocol"),
     "Select Measurement step, if applicable"
   );
 
-  const chemicalEnvironmentsValue = getIn(
-    values,
-    `metadata.general_parameters.chemical_environments`
-  );
   const chemicalEnvironmentsOptions = CreateOptions(
-    chemicalEnvironmentsValue,
+    getIn(values, "metadata.general_parameters.chemical_environments"),
     "Select Chemical environment, if applicable"
   );
 
@@ -61,61 +59,57 @@ function Sample({ name }) {
             name={name}
             label="Position"
             fieldName="position"
-            tooltip="Position of the sample within the sample holder"
+            tooltip={tooltips.position}
             renderChild={({ optionalFieldName }) => (
               <CustomField
                 name={optionalFieldName}
                 label="Position"
-                tooltip="Position of the sample within the sample holder"
+                tooltip={tooltips.position}
               />
             )}
           />
         </div>
       </div>
-      <div>
-        <OptionalField
-          name={name}
-          label="Temperature"
-          fieldName="temperature"
-          tooltip="Temperature of the sample while being measured"
-          renderChild={({ optionalFieldName }) => (
-            <Temperature
-              name={optionalFieldName}
-              tooltip="Temperature of the sample while being measured"
-            />
-          )}
-        />
-      </div>
-      <div>
-        <ArrayField
-          name={name}
-          label="Analytes"
-          fieldName="analytes"
-          required
-          tooltip="List of names (ids) of entities (from the entities of interest defined in the general parameters) that was used to alter the behavior of the target(s) or entities present at varying concentrations for a series of measurements"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper headline={`Analytes ${index + 1}`}>
-              <EntityAndConcentration name={`${arrayName}.${index}`} />
-            </FormWrapper>
-          )}
-        />
-      </div>
-      <div>
-        <ArrayField
-          name={name}
-          label="Preparation protocol"
-          fieldName="preparation_protocol"
-          tooltip="List of steps taken to prepare the sample"
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              headline={`Preparation protocol step ${index + 1}`}
-              tooltip="List of steps taken to prepare the sample"
-            >
-              <Protocol name={`${arrayName}.${index}`} />
-            </FormWrapper>
-          )}
-        />
-      </div>
+      <OptionalField
+        name={name}
+        label="Temperature"
+        fieldName="temperature"
+        tooltip={tooltips.temperature}
+        renderChild={({ optionalFieldName }) => (
+          <Temperature
+            name={optionalFieldName}
+            tooltip={tooltips.temperature}
+          />
+        )}
+      />
+
+      <ArrayField
+        name={name}
+        label="Analytes"
+        fieldName="analytes"
+        required
+        tooltip="List of names (ids) of entities (from the entities of interest defined in the general parameters) that was used to alter the behavior of the target(s) or entities present at varying concentrations for a series of measurements"
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper headline={`Analytes ${index + 1}`}>
+            <EntityAndConcentration name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
+
+      <ArrayField
+        name={name}
+        label="Preparation protocol"
+        fieldName="preparation_protocol"
+        tooltip={tooltips.preparationProtocol}
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            headline={`Preparation protocol step ${index + 1}`}
+            tooltip={tooltips.preparationProtocol}
+          >
+            <Protocol name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
     </>
   );
 }
