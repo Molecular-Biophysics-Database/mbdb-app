@@ -18,17 +18,21 @@ export default function Instrument({ name }) {
         tooltip="Information about the instrument being used to collect (measure) the raw data annotated by this record"
       >
         <div className="flex">
-          <VocabularySelectField
-            search={(options) => options}
-            type="instruments"
-            label={<FieldLabel htmlFor={name} icon="" />}
-            filterFunction={(opt) =>
-              opt.props?.technique.startsWith(resourceType)
-            }
-            fieldPath={name}
-            placeholder="Instrument"
-            clearable
-          />
+          <div>
+            <VocabularySelectField
+              search={(options) => options}
+              type="instruments"
+              label={<FieldLabel htmlFor={name} icon="" />}
+              filterFunction={(opt) => {
+                return opt.props?.technique
+                  ? opt.props.technique.startsWith(resourceType)
+                  : true;
+              }}
+              fieldPath={name}
+              placeholder="Instrument"
+              clearable
+            />
+          </div>
         </div>
       </FormWrapper>
     </>
