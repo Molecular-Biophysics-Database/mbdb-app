@@ -34,6 +34,9 @@ function FormFieldsContainer() {
 
   useEffect(() => {
     save(true);
+  }, []);
+
+  useEffect(() => {
     const selectedTab = location?.state?.selectedTab || "record-information";
     setState({ selected: selectedTab });
   }, [location]);
