@@ -24,14 +24,9 @@ function Instrument({ name }) {
               type="instruments"
               label={<FieldLabel htmlFor={name} icon="" />}
               filterFunction={(opt) => {
-                // filter on the props.technique field (which is only present when searching)...
-                if (opt.props) {
-                    return opt.props.technique.startsWith(resourceType);
-                }
-                // ... don't filter away anything if an element is already present in the field
-                else {
-                    return true
-                }
+                return opt.props?.technique
+                  ? opt.props.technique.startsWith(resourceType)
+                  : true;
               }}
               fieldPath={name}
               placeholder="Instrument"
