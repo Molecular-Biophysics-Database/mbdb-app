@@ -217,12 +217,13 @@ class PubChemService(AuthorityProvider):
         query = params.get("q", "")
 
         url = f"{self.search_url}{query}/property/{self.properties}/JSON?name_type=word"
-        chemicals = ApiGet(url).json["PropertyTable"]["Properties"]
+        chemicals = self.mod_api_get(url)
         chemicals = self.filter_hits(chemicals)
 
         total = len(chemicals)
         chemicals = [self.convert_pubchem_record(chem) for chem in chemicals]
-        start_pos = start_pos_api_page(params.get("page", 1), size, total)
+        # all records are returned on a single page
+        start_pos = start_pos_api_page(params.get("page", 1), size, (total or 1))
         return chemicals[start_pos : start_pos + size], total, size
 
     def get(self, identity, item_id, *, uow, value, **kwargs):
@@ -230,8 +231,7 @@ class PubChemService(AuthorityProvider):
             raise KeyError(f'item_id, "{item_id}", is not an InchIKey')
 
         url = f"{self.get_url}{item_id[9:]}/property/{self.properties}/JSON"
-        response = ApiGet(url).json
-        records = self.filter_hits(response["PropertyTable"]["Properties"])
+        records = self.filter_hits(self.mod_api_get(url))
         return self.convert_pubchem_record(records[0])
 
     def filter_hits(self, hits):
@@ -248,6 +248,13 @@ class PubChemService(AuthorityProvider):
             except KeyError:
                 continue
         return complete_records
+
+    def mod_api_get(self, url):
+        chemicals = ApiGet(url)
+        if chemicals.response.ok:
+            return chemicals.json["PropertyTable"]["Properties"]
+        else:
+            return {}
 
     @staticmethod
     def convert_pubchem_record(chemical):
