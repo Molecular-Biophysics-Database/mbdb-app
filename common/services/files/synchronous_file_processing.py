@@ -8,7 +8,7 @@ def extract_file_metadata_synchronous(service, file_record):
     ProcessorRunner(service.config.synchronous_file_processors).run(file_record)
 
 class SynchronousTaskOp(Operation):
-    """A celery task operation.
+    """A celery task operation to create synchronous tasks.
 
     Celery tasks are always execute after the entire commit phase.
     """
@@ -29,4 +29,10 @@ class SynchronousFileProcessorComponent(FileProcessorComponent):
         """Post commit file handler."""
         # Ship off a task to extract file metadata once a file is committed.
         service_id = current_service_registry.get_service_id(self.service)
-        self.uow.register(SynchronousTaskOp(extract_file_metadata_synchronous, self.service, record.files[file_key]))
+        self.uow.register(
+            SynchronousTaskOp(
+                extract_file_metadata_synchronous,
+                self.service,
+                record.files[file_key],
+            )
+        )

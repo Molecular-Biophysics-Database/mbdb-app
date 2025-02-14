@@ -2,8 +2,7 @@ import datetime
 from typing import List
 from flask import current_app
 
-
-####### <creators_functions>
+# <Converting MBDB depositors to DataCite creators>
 def add_optional_fields_creator(field: str, person: dict, creator: dict) -> None:
     options = {
         "affiliations": ("affiliation", to_affiliation),
@@ -59,7 +58,7 @@ def to_creator(person: dict) -> dict:
 def to_creators(depositors: dict) -> List[dict]:
     creators = [depositors["principal_contact"]]
 
-    # only add depositor if depositor is not identical to the principal_contact
+    # prevent duplication of names
     if depositors["depositor"] != depositors["principal_contact"]:
         creators += [depositors["depositor"]]
 
@@ -69,8 +68,8 @@ def to_creators(depositors: dict) -> List[dict]:
 
     return [to_creator(creator) for creator in creators]
 
+# </Converting MBDB depositors to DataCite creators>
 
-######## </creators_functions>
 def to_titles(title: str) -> List[dict]:
     return [{"title": title}]
 
@@ -153,7 +152,7 @@ class DataCiteMappingMBDB:
         # The tuple fields correspond to
         # (
         #   DataCite schema field name,
-        #   converter function,
+        #   function that maps MBDB schema to DataCiteSchema,
         #   data that will be converted,
         # )
         fields = (

@@ -18,6 +18,10 @@ if TYPE_CHECKING:
 
 
 class PublishAcceptedDraftRequestType(PublishDraftRequestType):
+    """
+    Custom publish draft request that allows using custom messages.
+    """
+
     type_id = "publish_accepted_draft"
     name = _("Publish")
 
@@ -39,8 +43,8 @@ class PublishAcceptedDraftRequestType(PublishDraftRequestType):
                 "By pressing 'Submit' you agree that the MBDB can distribute "
                 "your data under the "
                 """
-                <a 
-                  href='https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1' 
+                <a
+                  href='https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1'
                   target='_blank'
                 ><u>CCO license.</u></a>
                 """
@@ -49,13 +53,13 @@ class PublishAcceptedDraftRequestType(PublishDraftRequestType):
                 "rights together with all associated claims and causes of action "
                 "with respect to this work to the extent possible under the law.<br>"
                 "2) You have read and understand the terms and intended legal effect of CC0, "
-                "and hereby voluntarily elect to apply it to this work. " 
+                "and hereby voluntarily elect to apply it to this work. "
                 "will be placed in the public domain. <br><br> "
-                
+
                 "Furthermore, you hereby agree to MBDB's "
                 """
-                <a 
-                  href='https://molecular-biophysics-database.github.io/mbdb-docs/terms-and-conditions/users' 
+                <a
+                  href='https://molecular-biophysics-database.github.io/mbdb-docs/terms-and-conditions/users'
                   target='_blank'
                 ><u>terms and conditions,</u></a>
                 """
@@ -68,8 +72,7 @@ class PublishAcceptedDraftRequestType(PublishDraftRequestType):
                 if request_identity_matches(request.created_by, identity):
                     return _(
                         "The draft has been submitted for review. "
-                        "It is now locked and no further changes are possible. "
-                        "You will be notified about the decision by email."
+                        "It is now locked and no further changes are possible."
                     )
                 if request_identity_matches(request.receiver, identity):
                     return _(

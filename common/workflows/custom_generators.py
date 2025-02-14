@@ -13,7 +13,8 @@ class IfHasPreviousVersion(ConditionalGenerator):
 
     def _condition(self, record, **kwargs):
         try:
-            # null if never published (no previous version exists) otherwise it contains the id
+            # null if never published (no previous version exists) otherwise
+            # it contains the id
             latest = record.communities.latest_id
         except AttributeError:
             return False

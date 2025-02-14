@@ -29,7 +29,7 @@ Recommendation: Run Python outside of docker for this (you'll be prompted during
 1. Create an ORCID user account - https://orcid.org/register (it's free of charge)
 2. Register a public API https://info.orcid.org/documentation/integration-guide/registering-a-public-api-client/
 3. Add your domain(s) to list of the redirect URIs:
-   1. If you're only running locally, add https://127.0.0.1:5000/oauth/authorized/orcid4.
+   1. If you're only running locally, add https://127.0.0.1:5000/oauth/authorized/orcid/.
 
 #### Register the public API credentials in the mbdb-app
 
@@ -43,7 +43,8 @@ Change the 'changeme' to the ORCID public APIs Client ID and Client secret, resp
 
 ### DOI setup
 
-In order to mint DOIS the following environment variables needs to be set:
+In order to mint DOIs, the following environment variables needs to be set
+(e.g in `~/.envrc.local`):
 
 ```
 INVENIO_DOI_DATACITE_PASSWORD
@@ -77,6 +78,7 @@ the repository:
 ```bash
 ./nrp upgrade
 ```
+
 This will upgrade the dependencies of the repository to the latest
 versions (python and node dependencies). After upgrading, it will run the build
 via `nrp build --production` and `nrp test` to make sure that the dependencies
@@ -304,7 +306,7 @@ invenio oarepo fixtures load --no-system-fixtures sample_data/mst
 invenio oarepo index reindex
 ```
 
-#### REST API
+#### REST API (local development)
 
 ```bash
 # create user
