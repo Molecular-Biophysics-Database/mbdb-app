@@ -7,6 +7,10 @@ from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 from common.services.files.synchronous_file_processing import SynchronousFileProcessorComponent
 
 class BaseFileServiceConfigWithProcessors(PermissionsPresetsConfigMixin, FileServiceConfig):
+    """
+    Config of components for extractors. Inherit from this to
+    method specific configs
+    """
     components = [
         #*PermissionsPresetsConfigMixin.components,
         #FileMetadataComponent,

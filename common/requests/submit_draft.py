@@ -7,6 +7,11 @@ from oarepo_runtime.datastreams.utils import get_record_service_for_record
 # Request
 #
 class SubmitDraftRequestType(NonDuplicableOARepoRequestType):
+    """
+    Custom submit draft request that validates the draft upon submission. The
+    request is not created if validation fails.
+    """
+
     type_id = "submit_draft"
     name = _("Submit")
 
