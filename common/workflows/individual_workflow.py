@@ -27,7 +27,14 @@
 # published == record is published
 # deleting == record is in the process of being deleted (request filed but not yet accepted)
 #
-from invenio_records_permissions.generators import AnyUser, AuthenticatedUser, Disable
+from invenio_records_permissions.generators import (
+    AnyUser,
+    AuthenticatedUser,
+    Disable,
+    SystemProcess,
+)
+from invenio_users_resources.services.permissions import UserManager
+from invenio_rdm_records.services.generators import IfRecordDeleted
 
 from oarepo_runtime.services.permissions.generators import RecordOwners
 from oarepo_workflows import (
@@ -67,6 +74,18 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
             ],
         ),
     ]
+
+    can_read_deleted = [
+        IfRecordDeleted(
+            then_=[
+                UserManager,  # this is strange, but taken from RDM
+                UserWithRole("administrator"),
+                SystemProcess(),
+            ],
+            else_=can_read,
+        )
+    ]
+
 
     can_update = [
         # owners can edit drafts before submission
