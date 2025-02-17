@@ -48,10 +48,10 @@ export default function ChemicalEnvironment({ name }) {
         </div>
       </div>
       <div className="mb-3">
-        <Solvent name={name} />
+        <Constituent name={name} />
       </div>
 
-      <Constituent name={name} />
+      <Solvent name={name} />
     </>
   );
 }
