@@ -1,10 +1,12 @@
 {# def modifications #}
 
+{# Recordview template that renders information about modification from polymer modification (entities of interest) #}
+
 <INonEmpty d={modifications.biological_postprocessing}>
   <div class="font-JostBold mb-2">Biological postprocessing</div>
   <div class="ml-4">
     {%- for mod in array(modifications.biological_postprocessing) %}
-    <SubstanceModification mod={mod} />
+    <Modification mod={mod} />
     {%- endfor %}
   </div>
 </INonEmpty>
@@ -13,7 +15,7 @@
   <div class="font-JostBold mb-2">Chemical</div>
   <div class="ml-4">
     {%- for mod in array(modifications.chemical) %}
-    <SubstanceModification mod={mod} />
+    <Modification mod={mod} />
     {%- endfor %}
   </div>
 </INonEmpty>

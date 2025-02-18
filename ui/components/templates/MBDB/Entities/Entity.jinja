@@ -1,6 +1,10 @@
 {# def entity #}
 
-<div>
+{# Recordview template that renders the individual elements of the entities of
+interest section #}
+
+ <div>
+   {# render the shared fields of entities #}
     <IField label="Name" d={entity.name}>
         {{ entity.name }}
     </IField>
@@ -9,6 +13,7 @@
         {{ entity.type }}
     </IField>
 
+    {# render specific fields of the different entities depending on type #}
     {%- if field_value(entity.type) == "Chemical" %}
     <Chemical entity={ entity } />
     {%- elif field_value(entity.type) == "Complex substance of biological origin" %}

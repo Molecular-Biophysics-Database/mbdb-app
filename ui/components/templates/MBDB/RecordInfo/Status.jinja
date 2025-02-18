@@ -1,5 +1,7 @@
 {# def state #}
 
+{# Recordview template that renders the state of the record #}
+
 {% if state._ui_value in ("draft", "submitted", "accepted") %}
     <div class="text-26px flex text-accent font-JostMedium mb-4">
         {{ state | capitalize }}

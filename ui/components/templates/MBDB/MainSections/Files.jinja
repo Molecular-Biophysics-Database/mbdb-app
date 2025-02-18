@@ -1,8 +1,10 @@
 {# def files #}
 
+{# Recordview template that renders the content of the files section #}
+
 {% for file in files.entries %}
     {{file.metadata.description | truncate(length=100) }}
     {{file.metadata.context }}
-   <a class="flex justify-center w-fit py-2 px-4 text-18px bg-dark rounded-normal text-white hover:bg-secondary hover:text-dark transition-all"
+    <a class="flex justify-center w-fit py-2 px-4 text-18px bg-dark rounded-normal text-white hover:bg-secondary hover:text-dark transition-all"
     href="{{file.links.content}}" target="_blank">Download {{ file.key }}</a>
-{% endfor %} 
+{% endfor %}

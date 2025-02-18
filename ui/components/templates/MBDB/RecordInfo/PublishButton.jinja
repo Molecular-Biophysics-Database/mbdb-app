@@ -1,5 +1,10 @@
 {# def self_link, state #}
+
+{# Recordview template that creates the publish button id that is picked up by
+frontend #}
+
 {%- block page_body %}
+{# only create the publish button if the record is state the allows publication #}
     {% if state._ui_value == "accepted" %}
         <div>
             <div id="publish-button" data-selflink="{{self_link}}"></div>

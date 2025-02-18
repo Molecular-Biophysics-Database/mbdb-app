@@ -1,15 +1,25 @@
 {# def record, md, links, state, permissions #}
 
+{# Recordview template that renders the
+  1. The state (status) of the record (draft, submitted...)
+  2. The title of the record
+  3. The buttons (including requests) (delete, edit, download publish draft)
+ #}
+
+{# render the state of the record #}
 <Status state={ state } />
 
 <div class="flex justify-between mb-8">
+{# render the title of the record #}
   <div class="font-JostMedium text-30px lg:text-40px">
     <IValue value={ md.general_parameters.record_information.title } placeholder="(Record has no title)" />
   </div>
+{# render template (duplicate) button #}
   <div class="flex">
     <div class="mr-4">
       <TemplateButton self_link={ links.self } />
     </div>
+{# render download button #}
     <div class="mr-4">
       <a class="flex justify-center px-4 h-10 text-20px bg-dark rounded-normal text-white hover:text-dark hover:bg-primary transition-all"
         href="{{links.export_path}}/json" type="application/json" role="button">
@@ -18,6 +28,7 @@
         </button>
       </a>
     </div>
+{# render edit button if user has permission to edit the draft #}
     {% if permissions.can_update_draft %}
     <div class="mr-4">
       <a class="flex justify-center px-8 h-10 text-20px bg-dark rounded-normal text-white hover:text-dark hover:bg-primary transition-all"
@@ -28,9 +39,11 @@
       </a>
     </div>
     {% endif %}
+{# render all request buttons (via Oarepo template) #}
     <div class="mr-4">
       <RecordRequests record={ record } />
     </div>
+{# render delete button is user has permission to delete the draft #}
     {% if permissions.can_delete_draft %}
     <RemoveButton self_link={ links.self } state={ state } />
     {% endif %}
