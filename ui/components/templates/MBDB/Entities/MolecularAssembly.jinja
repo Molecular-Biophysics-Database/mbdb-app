@@ -1,6 +1,8 @@
 {# def entity #}
 
-<LabelledValueUnit label="Molecular Weight" obj={entity.molecular_weight} />
+<IField label="Molecular weight" d={entity.molecular_weight}>
+    <ValueUnit value={entity.molecular_weight} />
+</IField>
 
 {% for component in array(entity.components) %}
 {% set title='Component ' ~ loop.index %}

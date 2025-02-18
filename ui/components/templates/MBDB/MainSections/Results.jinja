@@ -1,32 +1,35 @@
 {# def gp #}
 
+{# Recordview template that renders the content of the results section #}
+
 <IValueList>
     {%- for result in array(gp.results, remove_empty=True) %}
-    {% set title='Result ' ~ loop.index %}
-    <div class="mb-4 pb-8 border-b-[.1px] border-b-dark last:border-b-0 last:mb-0">
-        <SubSection title={ title }>
-            <IField label="Name" d={result.name}>
-                {% if result.name %}
-                    {{ result.name._ui_value | truncate(100) }}
-                {% endif %}
-            </IField>
-            <IField label="Value" d={result.value} }>
-                {% if result.unit._is_empty %}
-                    {{ result.value }}
-                {% else %}
-                    {{ result.value ~ " " ~ result.unit }}
-                {% endif %}
-                <ValueError value_error={result.value_error} />
-            </IField>
-            <IField label="Result type" d={result.type} />
-            {%- for ent in array(result.entities_involved) %}
-                {% set ent_title='Entity ' ~ loop.index %}
-                <SubSection title={ ent_title }>
-                    <IField label="Name" d={ent.entity.name} />
-                    <IField label="copy number" d={ent.copy_number} />
-                </SubSection>
-            {% endfor %}
-        </SubSection>
-    </div>
+        {% set title='Result ' ~ loop.index %}
+        <div class="mb-4 pb-8 border-b-[.1px] border-b-dark last:border-b-0 last:mb-0">
+{# result name #}
+            <SubSection title={ title }>
+                <IField label="Name" d={result.name}>
+                    {% if result.name %}
+                        {{ result.name._ui_value | truncate(100) }}
+                    {% endif %}
+                </IField>
+{# result value, unit, and error #}
+                <IField label="Value" d={result.value} >
+                    <ValueUnit value={result} />
+                    <ValueError value_error={result.value_error} />
+                </IField>
+{# result type #}
+                <IField label="Result type" d={result.type} />
+
+{# result entities involved #}
+                    {%- for ent in array(result.entities_involved) %}
+                        {% set ent_title='Entity ' ~ loop.index %}
+                        <SubSection title={ ent_title }>
+                            <IField label="Name" d={ent.entity.name} />
+                            <IField label="copy number" d={ent.copy_number} />
+                        </SubSection>
+                    {% endfor %}
+            </SubSection>
+        </div>
     {% endfor %}
 </IValueList>

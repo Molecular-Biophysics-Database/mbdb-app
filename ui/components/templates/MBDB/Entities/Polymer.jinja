@@ -1,7 +1,14 @@
 {# def entity #}
 
-<LabelledValueUnit label="Molecular Weight" obj={entity.molecular_weight} />
-<OrganismField label="Source organism" value={entity.source_organism} />
+
+{# Recordview template that renders the content of Polymer objects (in entities of interest section) #}
+
+<IField label="Molecular weight" d={entity.molecular_weight}>
+    <ValueUnit value={entity.molecular_weight} />
+</IField>
+<IField label="Source organism" d={entity.source_organism}>
+    <Organism organism={entity.source_organism} />
+</IField>
 <PolymerSequence sequence={entity.sequence} />
 <IField label="Modifications" d={entity.modifications} >
     <PolymerModifications modifications={entity.modifications} />
