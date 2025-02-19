@@ -9,6 +9,21 @@ import { v4 as uuidv4 } from 'uuid';
 import { useEffect } from "react";
 import CustomField from "./CustomField";
 
+const CustomIdField = (prefix) => {
+  return (
+  <>
+    <div className="mb-6">
+      <CustomField
+        name='id'
+        label='ID'
+        prefix={prefix}
+        required
+      />
+   </div>
+  </>
+  )
+}
+
 const VocabularyFormFields = () => {
   const {
     formConfig: { vocabularyProps },
@@ -34,18 +49,13 @@ const VocabularyFormFields = () => {
           required
         />
       </div>
-      {type === "chemicals" &&
-      <>
-        <div className="mb-6">
-          <CustomField
-            name='id'
-            label='ID'
-            prefix='inchikey'
-            required
-          />
-        </div>
-      </>
-      }
+      {/* generate id fields with custom prefixes */}
+      {type === "chemicals" && CustomIdField("inchikey")}
+      {type === "instruments" && CustomIdField("ins")}
+      {type === "body_fluids" && CustomIdField("bf")}
+      {type === "cell_fractions" && CustomIdField("cf")}
+      {type === "environment_types" && CustomIdField("env")}
+      {type === "products" && CustomIdField("prod")}
       {hasPropFields && (
         <PropFieldsComponent vocabularyProps={vocabularyProps} />
       )}
