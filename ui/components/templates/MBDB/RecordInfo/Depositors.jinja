@@ -1,10 +1,18 @@
 {# def depositors #}
 
+{# Recordview template that renders the content of the depositors section #}
+
+{# The depositor can be the same as the principle contact, in which case we
+shouldn't render the same name twice, still attached all notation to a single name #}
 {% set dep_and_prince = (depositors.depositor == depositors.principal_contact) %}
+
 <div class="flex">
+    {# pass information to person whether the depositor is also principal contact #}
     {% if depositors.depositor %}
         <Person person={depositors.depositor} principal={dep_and_prince} />
     {% endif %}
+
+    {# render all the contributors #}
     {%- for person in array(depositors.contributors, remove_empty=True) -%}
         <div class="flex">
             <div class="mr-2">
@@ -14,6 +22,8 @@
         </div>
     {%- endfor -%}
 
+    {# If the principal contact is present and not equal to the depositor the
+    the principal contact is rendered individually as the last name #}
     {% if not (dep_and_prince and depositors.principal_contact) %}
         <div class="flex">
             <div class="mr-2">

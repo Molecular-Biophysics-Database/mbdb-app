@@ -1,5 +1,17 @@
 {# def d, gp #}
 
+{# Recordview template that renders the record information (at the beginning of
+the record view. This includes
+ 1. The DOI
+ 2. The MBDB id o
+ 3. The depositors
+ 4. The associated publication
+ 5. The license information
+ 6. The funding information
+ 7. The technique/method
+ 
+Note that title and state/status is not rendered by this component #}
+
 <IValueList>
     <IField d={gp.record_information.external_identifier} label="DOI"  />
     <IField d={d.id} label="Record ID"  />

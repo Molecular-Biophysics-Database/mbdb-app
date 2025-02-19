@@ -1,5 +1,8 @@
 {# def gp #}
 
+{# Recordview template to render and add meta tags.
+TODO: more items should likely get meta tags including title and depositors #}
+
 {% if gp.record_information.external_identifier %}
     <meta name="doi_citation" content={{ gp.record_information.external_identifier }} />
 {% endif %}

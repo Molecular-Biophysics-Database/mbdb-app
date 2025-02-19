@@ -1,9 +1,29 @@
 {# def person, principal=False #}
+
+{# Recordview template to render all information associated with a person (depositor) #}
+
 <div class="flex">
     {{person.given_name ~ " " ~ person.family_name}}
-    {%- if principal -%}
-        <span title="Principal contact">*</span>
+{# add affiliation titles (one on each line) #}
+    {% set affs=array(person.affiliations, remove_empty=True) | map(attribute="title") | join("\n") %}
+    {%- if affs -%}
+        <img
+            title="{{ affs }}"
+            src="/static/images/affiliation-symbol.svg"
+            alt="affiliations"
+            width="15px"
+        />
     {%- endif -%}
+{# add star and title to principal contact #}
+    {%- if principal -%}
+        <img
+            title="Principal contact"
+            src="/static/images/principal-contact.svg"
+            alt="princpal contact"
+            width="15px"
+        />
+    {%- endif -%}
+{# add identifier logos and link #}
     {%- for id in array(person.identifiers, remove_empty=True) -%}
         {%- if id._ui_value.startswith("orcid:") -%}
             <a href="https://orcid.org/{{ id._ui_value.removeprefix("orcid:") }}" target="_blank">

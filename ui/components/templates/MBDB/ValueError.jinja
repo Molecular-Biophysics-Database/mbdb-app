@@ -1,5 +1,6 @@
 {# def value_error #}
 
+{# Recordview template for rendering value errors (results) #}
 {% if not value_error._is_empty %}
     {% set error_type = " %" if value_error.is_relative else "" %}
     (+ {{ value_error.upper }}
