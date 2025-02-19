@@ -38,8 +38,9 @@ def exceeds_page(page: int, size: int, api_size: int) -> bool:
     return remaining_elements_on_api_page < 0
 
 
-class RORService(AuthorityProvider):
-    search_url = "https://api.ror.org/organizations"
+class RORServiceV1(AuthorityProvider):
+    """API v1 compatible version"""
+    search_url = "https://api.ror.org/v1/organizations"
     get_url = f"{search_url}/"
 
     def search(self, identity, params, **kwargs):
@@ -88,6 +89,26 @@ class RORService(AuthorityProvider):
             },
         }
         state = affiliation["addresses"][0].get("state")
+        if state:
+            aff_entry["props"]["state"] = state
+        return aff_entry
+
+
+class RORService(RORServiceV1):
+    search_url = "https://api.ror.org/v2/organizations"
+
+    @staticmethod
+    def convert_ror_record(affiliation):
+        """schema 2.1 compatible version conversion"""
+        aff_entry = {
+            "id": f"ror:{affiliation['id'].split('/')[-1]}",
+            "title": {"en": affiliation["names"][0]["value"]},
+            "props": {
+                "city": affiliation["locations"][0]["geonames_details"]["name"],
+                "country": affiliation["locations"][0]["geonames_details"]["country_name"],
+            },
+        }
+        state = affiliation["locations"][0]["geonames_details"].get("country_subdivision_name")
         if state:
             aff_entry["props"]["state"] = state
         return aff_entry
