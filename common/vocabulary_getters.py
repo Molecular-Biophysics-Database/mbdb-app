@@ -5,6 +5,7 @@ from oarepo_vocabularies.authorities.providers import AuthorityProvider
 
 
 class ApiGet:
+    """Helper class to get data from an api endpoint."""
     def __init__(self, url, params: dict = None):
         self.url = url
         self.params = params or {}
@@ -13,6 +14,8 @@ class ApiGet:
 
     @property
     def json(self):
+        """Returns the json response from the api endpoint.
+        Raises ConnectionError if response isn't ok."""
         if not self.response.ok:
             self.err_msg = f"status: {self.response.status_code}, content: {self.response.content}"
             raise ConnectionError(self.err_msg)
@@ -38,8 +41,9 @@ def exceeds_page(page: int, size: int, api_size: int) -> bool:
     return remaining_elements_on_api_page < 0
 
 
-class RORService(AuthorityProvider):
-    search_url = "https://api.ror.org/organizations"
+class RORServiceV1(AuthorityProvider):
+    """API v1 compatible ROR AuthorityProvider for affiliations"""
+    search_url = "https://api.ror.org/v1/organizations"
     get_url = f"{search_url}/"
 
     def search(self, identity, params, **kwargs):
@@ -79,6 +83,7 @@ class RORService(AuthorityProvider):
 
     @staticmethod
     def convert_ror_record(affiliation):
+        """Converts schema/API version 1 of a ROR record to a MBDB vocabulary record."""
         aff_entry = {
             "id": f"ror:{affiliation['id'].split('/')[-1]}",
             "title": {"en": affiliation["name"]},
@@ -93,7 +98,31 @@ class RORService(AuthorityProvider):
         return aff_entry
 
 
+class RORService(RORServiceV1):
+    """API v2 compatible ROR AuthorityProvider for affiliations"""
+    search_url = "https://api.ror.org/v2/organizations"
+
+    @staticmethod
+    def convert_ror_record(affiliation):
+        """Converts schema/API version 2.1 of a ROR record to a MBDB vocabulary record."""
+
+        # Information is only extracted from the first elements in titles and locations
+        aff_entry = {
+            "id": f"ror:{affiliation['id'].split('/')[-1]}",
+            "title": {"en": affiliation["names"][0]["value"]},
+            "props": {
+                "city": affiliation["locations"][0]["geonames_details"]["name"],
+                "country": affiliation["locations"][0]["geonames_details"]["country_name"],
+            },
+        }
+        state = affiliation["locations"][0]["geonames_details"].get("country_subdivision_name")
+        if state:
+            aff_entry["props"]["state"] = state
+        return aff_entry
+
+
 class NCBIService(AuthorityProvider):
+    """API v2 compatible NCBI AuthorityProvider for organisms"""
     base_url = "https://api.ncbi.nlm.nih.gov/datasets/v2/taxonomy"
     search_url = f"{base_url}/taxon_suggest/"
     get_url = f"{base_url}/taxon/"
@@ -129,6 +158,7 @@ class NCBIService(AuthorityProvider):
 
     @staticmethod
     def convert_ncbi_record(organism):
+        """Converts V2 of an NCBI record to a MBDB vocabulary record."""
         rank = organism.get("rank")
         if not rank:
             rank = "NO RANK"
@@ -144,7 +174,8 @@ class NCBIService(AuthorityProvider):
         }
 
 
-class OpenAireService(AuthorityProvider):  # noqa
+class OpenAireService(AuthorityProvider):
+    """OpenAire AuthorityProvider for grants"""
     search_url = "https://api.openaire.eu/search/projects"
     get_url = search_url
 
@@ -175,6 +206,7 @@ class OpenAireService(AuthorityProvider):  # noqa
 
     @staticmethod
     def convert_oa_record(hit):
+        """Converts an openAIRE record to a MBDB vocabulary record."""
         project = hit["metadata"]["oaf:entity"]["oaf:project"]
 
         try:
@@ -206,6 +238,13 @@ class OpenAireService(AuthorityProvider):  # noqa
 
 
 class PubChemService(AuthorityProvider):
+    """PubChem AuthorityProvider for chemicals"""
+
+    # The PUG-REST API of PubChem is full of idiosyncrasies and is poorly
+    # Documented which makes it rather difficult to work with. Hence, this
+    # class is help together with programming ducttape. Be careful when
+    # changing things.
+
     base_url = "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound"
     search_url = f"{base_url}/name/"
     get_url = f"{base_url}/InChIKey/"
@@ -217,7 +256,7 @@ class PubChemService(AuthorityProvider):
         query = params.get("q", "")
 
         url = f"{self.search_url}{query}/property/{self.properties}/JSON?name_type=word"
-        chemicals = self.mod_api_get(url)
+        chemicals = self.modified_api_get(url)
         chemicals = self.filter_hits(chemicals)
 
         total = len(chemicals)
@@ -231,15 +270,17 @@ class PubChemService(AuthorityProvider):
             raise KeyError(f'item_id, "{item_id}", is not an InchIKey')
 
         url = f"{self.get_url}{item_id[9:]}/property/{self.properties}/JSON"
-        records = self.filter_hits(self.mod_api_get(url))
+        records = self.filter_hits(self.modified_api_get(url))
         return self.convert_pubchem_record(records[0])
 
     def filter_hits(self, hits):
-        # Occasionally, multiple CID for the same compound (e.g. 5'-GMP)
+        """Helper function to remove incomplete Pubchem records."""
+        
+        # Occasionally, there are  multiple CID for the same compound (e.g. 5'-GMP)
         # even though this shouldn't happen. In those case there seem to
-        # be a single preferred record. The non-preferred are marked
-        # by being incomplete, especially the title are often missing. This
-        # function filters these away.
+        # be a single preferred record (explicit documentation of this has not
+        # been found). The non-preferred are marked by being incomplete,
+        # in particular, the (mandatory) title is often missing.
         complete_records = []
         for hit in hits:
             try:
@@ -249,15 +290,27 @@ class PubChemService(AuthorityProvider):
                 continue
         return complete_records
 
-    def mod_api_get(self, url):
+    @staticmethod
+    def modified_api_get(url):
+        """
+        Adapter function that catches the 404 error returned when no results
+        are found and returns an empty dict instead.
+        """
+
         chemicals = ApiGet(url)
         if chemicals.response.ok:
             return chemicals.json["PropertyTable"]["Properties"]
-        else:
+        # 404 means the no results were found. In case the endpoint
+        # changes this might unfortunately lead to silently catching this error
+        elif chemicals.response.status_code == 404:
             return {}
+        # Server errors and other problems will be handled by ApiGet as usual
+        else:
+            return chemicals.json
 
     @staticmethod
     def convert_pubchem_record(chemical):
+        """converts a PubChem record to a MBDB vocabulary record."""
         return {
             "id": f'inchikey:{chemical["InChIKey"]}',
             "title": {"en": chemical["Title"]},
