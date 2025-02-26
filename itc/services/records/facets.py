@@ -2567,3 +2567,7 @@ state_timestamp = DateTimeFacet(
 record_status = TermsFacet(field="record_status", label=_("record_status"))
 
 has_draft = TermsFacet(field="has_draft", label=_("has_draft"))
+
+expires_at = DateTimeFacet(field="expires_at", label=_("expires_at.label"))
+
+fork_version_id = TermsFacet(field="fork_version_id", label=_("fork_version_id.label"))

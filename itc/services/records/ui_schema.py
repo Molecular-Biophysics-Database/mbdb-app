@@ -6,14 +6,14 @@ from marshmallow.validate import OneOf
 from oarepo_requests.services.ui_schema import UIRequestsSerializationMixin
 from oarepo_runtime.services.schema.marshmallow import DictOnlySchema
 from oarepo_runtime.services.schema.ui import (
-    InvenioUISchema,
+    InvenioRDMUISchema,
     LocalizedDate,
     LocalizedDateTime,
 )
 from oarepo_vocabularies.services.ui_schema import VocabularyI18nStrUIField
 
 
-class ItcUISchema(UIRequestsSerializationMixin, InvenioUISchema):
+class ItcUISchema(UIRequestsSerializationMixin, InvenioRDMUISchema):
     class Meta:
         unknown = ma.RAISE
 
