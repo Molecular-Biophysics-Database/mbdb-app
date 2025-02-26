@@ -14,8 +14,6 @@ from oarepo_runtime.services.config import (
 )
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 
-from common.services.files.synchronous_file_processing import SynchronousFileProcessorComponent
-
 from bli.records.api import BliDraft, BliRecord
 from bli.services.files.schema import BliFileSchema
 from bli.services.records.permissions import BliPermissionPolicy
@@ -43,8 +41,7 @@ class BliFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
 
     @property
     def components(self):
-
-        return process_service_configs(self) + [CustomFieldsComponent]
+        return process_service_configs(self, CustomFieldsComponent)
 
     model = "bli"
 
@@ -93,9 +90,7 @@ class BliFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
 
     @property
     def components(self):
-
-        return process_service_configs(self) + [CustomFieldsComponent, SynchronousFileProcessorComponent]
-
+        return process_service_configs(self, CustomFieldsComponent)
 
     model = "bli"
 
