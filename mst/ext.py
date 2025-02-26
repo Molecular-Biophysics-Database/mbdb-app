@@ -41,6 +41,27 @@ class MstExt:
                 else:
                     app.config.setdefault(identifier, getattr(config, identifier))
 
+        rdm_model_config = {
+            "model_service": "mst.services.records.service.MstService",
+            "service_config": "mst.services.records.config.MstServiceConfig",
+            "ui_resource_config": "ui.mst.MstUIResourceConfig",
+            "api_resource_config": "mst.resources.records.config.MstResourceConfig",
+        }
+
+        app.config.setdefault("GLOBAL_SEARCH_MODELS", [])
+        for cfg in app.config["GLOBAL_SEARCH_MODELS"]:
+            if cfg["model_service"] == rdm_model_config["model_service"]:
+                break
+        else:
+            app.config["GLOBAL_SEARCH_MODELS"].append(rdm_model_config)
+
+        app.config.setdefault("RDM_MODELS", [])
+        for cfg in app.config["RDM_MODELS"]:
+            if cfg["model_service"] == rdm_model_config["model_service"]:
+                break
+        else:
+            app.config["RDM_MODELS"].append(rdm_model_config)
+
     def is_inherited(self):
         from importlib_metadata import entry_points
 
