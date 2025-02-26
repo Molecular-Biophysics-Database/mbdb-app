@@ -46,6 +46,14 @@ models:
   model_name: itc
   model_package: itc
   pid_type: itc
+- api_prefix: records/mp
+  base_model: *id001
+  features: [*id002, *id003, *id004, *id005, *id006, *id007, *id008]
+  model_description: ''
+  model_name: mp
+  model_package: mp
+  pid_type: mp
+
 repository:
   model_package: models
   oarepo_version: 12
@@ -74,6 +82,11 @@ uis:
   model: itc
   name: itc
   ui_serializer_class: itc.resources.records.ui.ItcUIJSONSerializer
+- api_service: mp
+  endpoint: /mp/
+  model: mp
+  name: mp
+  ui_serializer_class: mp.resources.records.ui.MpUIJSONSerializer
 - api_service: null
   endpoint: /tutorial
   model: null

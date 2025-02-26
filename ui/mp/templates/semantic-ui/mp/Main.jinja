@@ -1,0 +1,37 @@
+{# def record, metadata, ui, extra_context, d, context #}
+
+{% set md=d.metadata %}
+{% set gp=md.general_parameters %}
+{% set msp=md.method_specific_parameters %}
+
+<RecordHeader md={md} links={d.links} state={d.state} record={record} permissions={extra_context.permissions} />
+<RecordInformation d={d} gp={gp} />
+
+
+<div class="mt-8">
+
+    <Section title="Entities of interest">
+        <EntitiesOfInterest entities={gp.entities_of_interest} />
+    </Section>
+
+    <Section title="Results">
+        <Results gp={gp} />
+    </Section>
+
+    <Section title="Chemical environments (buffers)">
+        <ChemicalEnvironments chemical_environments={gp.chemical_environments} />
+    </Section>
+
+    <Section title="Measurements">
+        <mp.MP.Measurements gp={gp} msp={msp} />
+    </Section>
+
+    <Section title="Instrument">
+        <Instrument instrument={gp.instrument} />
+    </Section>
+
+    <Section title="Files">
+        <Files files={extra_context.files} />
+    </Section>
+
+</div>

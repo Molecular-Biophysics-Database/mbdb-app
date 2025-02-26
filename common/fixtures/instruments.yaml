@@ -387,3 +387,32 @@ title:
 props:
   manufacturer: 'TA Instruments'
   technique: "ITC"
+# MP instruments
+---
+id: 'ins:56'
+title:
+  en: 'OneMP'
+props:
+  manufacturer: 'Refeyn'
+  technique: "MP"
+---
+id: 'ins:57'
+title:
+  en: 'TwoMP'
+props:
+  manufacturer: 'Refeyn'
+  technique: "MP"
+---
+id: 'ins:58'
+title:
+  en: 'SamuxMP'
+props:
+  manufacturer: 'Refeyn'
+  technique: "MP"
+---
+id: 'ins:59'
+title:
+  en: 'SamuxMP'
+props:
+  manufacturer: 'Refeyn'
+  technique: "MP"

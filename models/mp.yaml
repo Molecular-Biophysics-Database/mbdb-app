@@ -1,0 +1,61 @@
+$defs:
+  use: ["./general_parameters-definitions.yaml", "./mp-definitions.yaml"]
+
+plugins:
+  builder:
+    disable:
+    - script_sample_data
+    - invenio_record_metadata_alembic_setup_cfg
+  packages:
+  - oarepo-model-builder-drafts-files
+  - oarepo-model-builder-relations
+  - oarepo-model-builder-files
+  - oarepo-model-builder-requests
+  - oarepo-model-builder-cf
+  - oarepo-model-builder-drafts
+  - oarepo-model-builder-ui
+  - oarepo-model-builder-polymorphic
+  - oarepo-model-builder-vocabularies
+  - oarepo-model-builder-communities>=5.0.0
+  - oarepo-model-builder-rdm
+profiles:
+- record
+- draft
+- files
+- draft_files
+record:
+  use: ["invenio"]
+  draft: {}
+  draft-files:
+    resource:
+      base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
+  files:
+    use: ['./files.yaml', 'invenio_files']
+    resource:
+      base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
+  module:
+    qualified: mp
+  permissions:
+    presets:
+    - mbdb
+  pid:
+    type: mp
+  properties:
+    metadata:
+      properties:
+        use: ["./mp-metadata.yaml"]
+  resource-config:
+    base-url: /records/mp/
+    base-html-url: /mp/
+  service:
+    base-classes:
+      - common.services.records.service.AddWorkflowServiceMixin
+      - invenio_rdm_records.services.services.RDMRecordService
+
+runtime-dependencies: {}
+
+settings:
+  i18n-languages: [en]
+  extension-elements: [ui_file_context]
+
+use: ["./settings.yaml"]
