@@ -41,6 +41,27 @@ class SprExt:
                 else:
                     app.config.setdefault(identifier, getattr(config, identifier))
 
+        rdm_model_config = {
+            "model_service": "spr.services.records.service.SprService",
+            "service_config": "spr.services.records.config.SprServiceConfig",
+            "ui_resource_config": "ui.spr.SprUIResourceConfig",
+            "api_resource_config": "spr.resources.records.config.SprResourceConfig",
+        }
+
+        app.config.setdefault("GLOBAL_SEARCH_MODELS", [])
+        for cfg in app.config["GLOBAL_SEARCH_MODELS"]:
+            if cfg["model_service"] == rdm_model_config["model_service"]:
+                break
+        else:
+            app.config["GLOBAL_SEARCH_MODELS"].append(rdm_model_config)
+
+        app.config.setdefault("RDM_MODELS", [])
+        for cfg in app.config["RDM_MODELS"]:
+            if cfg["model_service"] == rdm_model_config["model_service"]:
+                break
+        else:
+            app.config["RDM_MODELS"].append(rdm_model_config)
+
     def is_inherited(self):
         from importlib_metadata import entry_points
 

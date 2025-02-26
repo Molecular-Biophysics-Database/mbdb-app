@@ -39,7 +39,6 @@
             ],
             "file": "spr/records/mappings/os-v2/spr/spr-1.0.0.json"
         },
-        "searchable": true,
         "permissions": {
             "presets": [
                 "mbdb"
@@ -56,14 +55,14 @@
         "marshmallow": {
             "imports": [],
             "base-classes": [
-                "oarepo_runtime.services.schema.marshmallow.BaseRecordSchema",
-                "oarepo_runtime.services.schema.rdm.RDMRecordMixin"
+                "oarepo_runtime.services.schema.marshmallow.RDMBaseRecordSchema"
             ],
             "generate": true,
             "module": "spr.services.records.schema",
             "class": "spr.services.records.schema.SprSchema",
             "extra-code": ""
         },
+        "searchable": true,
         "pid": {
             "type": "spr",
             "provider-base-classes": [
@@ -87,22 +86,6 @@
             ],
             "extra-code": ""
         },
-        "ui": {
-            "marshmallow": {
-                "imports": [],
-                "base-classes": [
-                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
-                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
-                ],
-                "generate": true,
-                "module": "spr.services.records.ui_schema",
-                "class": "spr.services.records.ui_schema.SprUISchema",
-                "extra-code": ""
-            },
-            "module": "spr.models",
-            "file": "spr/models/ui.json",
-            "alias": "spr"
-        },
         "service": {
             "base-classes": [
                 "invenio_rdm_records.services.services.RDMRecordService"
@@ -125,7 +108,6 @@
                 "{{oarepo_doi.services.components.DoiComponent}}",
                 "{{oarepo_communities.services.components.default_workflow.CommunityDefaultWorkflowComponent}}",
                 "{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
-                "{{oarepo_runtime.services.components.OwnersComponent}}",
                 "{{oarepo_runtime.services.components.CustomFieldsComponent}}",
                 "{{oarepo_workflows.services.components.workflow.WorkflowComponent}}"
             ],
@@ -142,9 +124,25 @@
             "additional-args": [],
             "search-item-links-template-cls": "invenio_records_resources.services.LinksTemplate"
         },
+        "ui": {
+            "marshmallow": {
+                "imports": [],
+                "base-classes": [
+                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
+                    "oarepo_runtime.services.schema.ui.InvenioRDMUISchema"
+                ],
+                "generate": true,
+                "module": "spr.services.records.ui_schema",
+                "class": "spr.services.records.ui_schema.SprUISchema",
+                "extra-code": ""
+            },
+            "module": "spr.models",
+            "file": "spr/models/ui.json",
+            "alias": "spr"
+        },
         "search-options": {
             "base-classes": [
-                "common.services.records.search_options.RecordSearchOptions"
+                "oarepo_runtime.services.search.I18nRDMSearchOptions"
             ],
             "module": "spr.services.records.search",
             "class": "spr.services.records.search.SprSearchOptions",
@@ -152,7 +150,13 @@
             "extra-code": "",
             "imports": [],
             "fields": {},
-            "sort-options-field": "sort_options"
+            "sort-options-field": "sort_options",
+            "versions": {
+                "class": "spr.SprVersionsSearchOptions",
+                "base-classes": [
+                    "invenio_rdm_records.services.config.RDMSearchVersionsOptions"
+                ]
+            }
         },
         "resource-config": {
             "base-url": "/records/spr/",
@@ -182,16 +186,6 @@
             "suffix": "spr",
             "suffix-upper": "SPR",
             "suffix-snake": "spr"
-        },
-        "draft": {
-            "type": "draft_record",
-            "properties": {},
-            "searchable": true,
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            }
         },
         "files": {
             "type": "file",
@@ -350,7 +344,6 @@
                     }
                 }
             },
-            "searchable": true,
             "marshmallow": {
                 "imports": [
                     {
@@ -362,6 +355,7 @@
                     "InvenioFileSchema"
                 ]
             },
+            "searchable": true,
             "resource": {
                 "base-classes": [
                     "oarepo_ui.resources.file_resource.S3RedirectFileResource"
@@ -378,6 +372,16 @@
             "extra-fixtures": [],
             "extra-code": "",
             "module": "tests"
+        },
+        "draft": {
+            "type": "draft_record",
+            "properties": {},
+            "searchable": true,
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
         },
         "draft-files": {
             "type": "draft-file",
@@ -405,6 +409,19 @@
             "skip": false
         },
         "model-name": "Spr",
+        "resource": {
+            "base-classes": [
+                "invenio_drafts_resources.resources.RecordResource"
+            ],
+            "generate": true,
+            "config-key": "SPR_RECORD_RESOURCE_CLASS",
+            "module": "spr.resources.records.resource",
+            "class": "spr.resources.records.resource.SprResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
+        },
         "record-resolver": {
             "generate": true,
             "module": "spr.records.requests.resolvers",
@@ -500,19 +517,6 @@
             "class": "spr.services.records.schema.GeneratedParentSchema",
             "generate": true
         },
-        "resource": {
-            "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
-            ],
-            "generate": true,
-            "config-key": "SPR_RECORD_RESOURCE_CLASS",
-            "module": "spr.resources.records.resource",
-            "class": "spr.resources.records.resource.SprResource",
-            "proxy": "current_resource",
-            "extra-code": "",
-            "imports": [],
-            "additional-args": []
-        },
         "json-serializer": {
             "module": "spr.resources.records.ui",
             "class": "spr.resources.records.ui.SprUIJSONSerializer",
@@ -532,23 +536,6 @@
         "translations": {
             "module": "spr.translations",
             "alias": "spr"
-        },
-        "files-field": {
-            "generate": true,
-            "field-class": "invenio_records_resources.records.systemfields.FilesField",
-            "file-class": "spr.records.api.SprRecord",
-            "field-args": [
-                "store=False"
-            ],
-            "imports": []
-        },
-        "json-schema-settings": {
-            "generate": true,
-            "alias": "spr",
-            "version": "1.0.0",
-            "module": "spr.records.jsonschemas",
-            "name": "spr-1.0.0.json",
-            "file": "spr/records/jsonschemas/spr-1.0.0.json"
         },
         "record-metadata": {
             "generate": true,
@@ -579,6 +566,51 @@
                 "{{spr.records.dumpers.edtf.SprEDTFIntervalDumperExt}}()"
             ],
             "imports": []
+        },
+        "files-field": {
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "spr.records.api.SprRecord",
+            "field-args": [
+                "store=False"
+            ],
+            "imports": []
+        },
+        "json-schema-settings": {
+            "generate": true,
+            "alias": "spr",
+            "version": "1.0.0",
+            "module": "spr.records.jsonschemas",
+            "name": "spr-1.0.0.json",
+            "file": "spr/records/jsonschemas/spr-1.0.0.json"
+        },
+        "draft-parent-record": {
+            "class": "spr.records.api.SprParentRecord",
+            "base-classes": [
+                "invenio_rdm_records.records.api.RDMParent"
+            ],
+            "imports": [],
+            "fields": {
+                "workflow": "{{oarepo_workflows.records.systemfields.workflow.WorkflowField}}()"
+            },
+            "module": "spr.records.api",
+            "generate": true
+        },
+        "draft-parent-record-state": {
+            "class": "spr.records.models.SprParentState",
+            "base-classes": [
+                "invenio_db.db{db.Model}",
+                "invenio_drafts_resources.records.ParentRecordStateMixin"
+            ],
+            "imports": [],
+            "module": "spr.records.models",
+            "generate": true,
+            "table": "spr_parent_state_metadata"
+        },
+        "draft-parent-record-schema": {
+            "name": "parent-v1.0.0.json",
+            "file": "spr/records/jsonschemas/parent-v1.0.0.json",
+            "generate": true
         },
         "edtf-interval-dumper": {
             "generate": true,
@@ -612,37 +644,10 @@
             ],
             "components": [
                 "{{oarepo_requests.services.results.RequestsComponent}}()",
-                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
+                "{{oarepo_requests.services.results.RequestTypesComponent}}()",
+                "{{oarepo_communities.services.results.RecordCommunitiesComponent}}()"
             ],
             "imports": []
-        },
-        "draft-parent-record": {
-            "class": "spr.records.api.SprParentRecord",
-            "base-classes": [
-                "invenio_rdm_records.records.api.RDMParent"
-            ],
-            "imports": [],
-            "fields": {
-                "workflow": "{{oarepo_workflows.records.systemfields.workflow.WorkflowField}}()"
-            },
-            "module": "spr.records.api",
-            "generate": true
-        },
-        "draft-parent-record-state": {
-            "class": "spr.records.models.SprParentState",
-            "base-classes": [
-                "invenio_db.db{db.Model}",
-                "invenio_drafts_resources.records.ParentRecordStateMixin"
-            ],
-            "imports": [],
-            "module": "spr.records.models",
-            "generate": true,
-            "table": "spr_parent_state_metadata"
-        },
-        "draft-parent-record-schema": {
-            "name": "parent-v1.0.0.json",
-            "file": "spr/records/jsonschemas/parent-v1.0.0.json",
-            "generate": true
         },
         "requests": {
             "types": {},

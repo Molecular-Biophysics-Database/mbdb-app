@@ -7,9 +7,11 @@ from marshmallow.utils import get_value
 from marshmallow.validate import OneOf
 from marshmallow_utils.fields import SanitizedUnicode
 from oarepo_communities.schemas.parent import CommunitiesParentSchema
-from oarepo_runtime.services.schema.marshmallow import BaseRecordSchema, DictOnlySchema
+from oarepo_runtime.services.schema.marshmallow import (
+    DictOnlySchema,
+    RDMBaseRecordSchema,
+)
 from oarepo_runtime.services.schema.polymorphic import PolymorphicSchema
-from oarepo_runtime.services.schema.rdm import RDMRecordMixin
 from oarepo_runtime.services.schema.validation import validate_date, validate_datetime
 from oarepo_workflows.services.records.schema import WorkflowParentSchema
 
@@ -22,7 +24,7 @@ class GeneratedParentSchema(WorkflowParentSchema):
     communities = ma_fields.Nested(CommunitiesParentSchema)
 
 
-class SprSchema(BaseRecordSchema, RDMRecordMixin):
+class SprSchema(RDMBaseRecordSchema):
     class Meta:
         unknown = ma.RAISE
 
