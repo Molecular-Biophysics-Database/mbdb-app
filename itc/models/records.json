@@ -28,6 +28,62 @@
                             }
                         }
                     }
+                },
+                "mappings": {
+                    "dynamic_templates": [
+                        {
+                            "pids": {
+                                "path_match": "pids.*",
+                                "match_mapping_type": "object",
+                                "mapping": {
+                                    "type": "object",
+                                    "properties": {
+                                        "identifier": {
+                                            "type": "text",
+                                            "fields": {
+                                                "keyword": {
+                                                    "type": "keyword",
+                                                    "ignore_above": 256
+                                                }
+                                            }
+                                        },
+                                        "provider": {
+                                            "type": "keyword"
+                                        },
+                                        "client": {
+                                            "type": "keyword"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "parent_pids": {
+                                "path_match": "parent.pids.*",
+                                "match_mapping_type": "object",
+                                "mapping": {
+                                    "type": "object",
+                                    "properties": {
+                                        "identifier": {
+                                            "type": "text",
+                                            "fields": {
+                                                "keyword": {
+                                                    "type": "keyword",
+                                                    "ignore_above": 256
+                                                }
+                                            }
+                                        },
+                                        "provider": {
+                                            "type": "keyword"
+                                        },
+                                        "client": {
+                                            "type": "keyword"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
                 }
             },
             "generate": true,
@@ -747,6 +803,96 @@
                 },
                 "sample": {
                     "skip": true
+                }
+            },
+            "access": {
+                "type": "object",
+                "ui": {
+                    "marshmallow": {
+                        "generate": true,
+                        "read": false,
+                        "write": false,
+                        "class": "itc.services.records.ui_schema.AccessUISchema"
+                    }
+                },
+                "marshmallow": {
+                    "generate": false,
+                    "class": "invenio_rdm_records.services.schemas.access.AccessSchema",
+                    "field-class": "marshmallow_utils.fields.nestedattr.NestedAttribute"
+                },
+                "sample": {
+                    "skip": true
+                },
+                "properties": {
+                    "embargo": {
+                        "type": "object",
+                        "marshmallow": {
+                            "generate": true,
+                            "class": "itc.services.records.schema.EmbargoSchema"
+                        },
+                        "ui": {
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "itc.services.records.ui_schema.EmbargoUISchema"
+                            }
+                        },
+                        "properties": {
+                            "active": {
+                                "type": "boolean",
+                                "json-schema": {
+                                    "type": [
+                                        "boolean",
+                                        "null"
+                                    ]
+                                },
+                                "sample": {
+                                    "skip": true
+                                }
+                            },
+                            "reason": {
+                                "type": "fulltext",
+                                "json-schema": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "sample": {
+                                    "skip": true
+                                }
+                            },
+                            "until": {
+                                "type": "date",
+                                "json-schema": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "sample": {
+                                    "skip": true
+                                }
+                            }
+                        }
+                    },
+                    "files": {
+                        "type": "keyword",
+                        "sample": {
+                            "skip": true
+                        }
+                    },
+                    "record": {
+                        "type": "keyword",
+                        "sample": {
+                            "skip": true
+                        }
+                    },
+                    "status": {
+                        "type": "keyword",
+                        "sample": {
+                            "skip": true
+                        }
+                    }
                 }
             },
             "collected_default_search_fields": {
@@ -30215,6 +30361,43 @@
                             "facet": false
                         }
                     }
+                }
+            },
+            "pids": {
+                "type": "object",
+                "json-schema": {
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    },
+                    "type": "object",
+                    "uniqueItems": true,
+                    "additionalProperties": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "identifier": {
+                                "type": "string"
+                            },
+                            "provider": {
+                                "type": "string"
+                            },
+                            "client": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "ui": {
+                    "marshmallow": {
+                        "generate": true,
+                        "read": false,
+                        "write": false,
+                        "class": "itc.services.records.ui_schema.PidsUISchema"
+                    }
+                },
+                "marshmallow": {
+                    "generate": false,
+                    "field": "{{marshmallow.fields.Dict}}( keys={{marshmallow_utils.fields.SanitizedUnicode}}(validate={{invenio_rdm_records.services.schemas.record.validate_scheme}}),values={{marshmallow.fields.Nested}}({{invenio_rdm_records.services.schemas.pids.PIDSchema}}),)"
                 }
             },
             "state": {

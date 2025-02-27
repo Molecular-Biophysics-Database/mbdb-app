@@ -18,10 +18,10 @@ oarepo-doi==1.0.18
 oarepo-global-search==1.0.37
 oarepo-published-service==1.0.3
 oarepo-requests==2.3.19
-oarepo-runtime==1.5.97
-oarepo-ui==5.2.47
+oarepo-runtime==1.5.98
+oarepo-ui==5.2.48
 oarepo-vocabularies==2.1.18
-oarepo-workflows==1.1.8
+oarepo-workflows==1.1.9
 openpyxl==3.1.5
 orcid==1.0.3
 pandas==2.2.3

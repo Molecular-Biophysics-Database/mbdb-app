@@ -6,6 +6,20 @@ from oarepo_runtime.services.facets.date import DateTimeFacet
 from oarepo_runtime.services.facets.nested_facet import NestedLabeledFacet
 from oarepo_vocabularies.services.facets import VocabularyFacet
 
+access_embargo_active = TermsFacet(
+    field="access.embargo.active", label=_("access/embargo/active.label")
+)
+
+access_embargo_until = DateTimeFacet(
+    field="access.embargo.until", label=_("access/embargo/until.label")
+)
+
+access_files = TermsFacet(field="access.files", label=_("access/files.label"))
+
+access_record = TermsFacet(field="access.record", label=_("access/record.label"))
+
+access_status = TermsFacet(field="access.status", label=_("access/status.label"))
+
 metadata_general_parameters_associated_publication_journal = TermsFacet(
     field="metadata.general_parameters.associated_publication.journal",
     label=_("metadata/general_parameters/associated_publication/journal.label"),

@@ -12,6 +12,11 @@ class MstSearchOptions(I18nRDMSearchOptions):
     facet_groups = {}
 
     facets = {
+        "access_embargo_active": facets.access_embargo_active,
+        "access_embargo_until": facets.access_embargo_until,
+        "access_files": facets.access_files,
+        "access_record": facets.access_record,
+        "access_status": facets.access_status,
         "metadata_general_parameters_associated_publication_journal": (
             facets.metadata_general_parameters_associated_publication_journal
         ),
@@ -954,6 +959,11 @@ class MstDraftSearchOptions(I18nRDMDraftsSearchOptions):
     facet_groups = {}
 
     facets = {
+        "access_embargo_active": facets.access_embargo_active,
+        "access_embargo_until": facets.access_embargo_until,
+        "access_files": facets.access_files,
+        "access_record": facets.access_record,
+        "access_status": facets.access_status,
         "metadata_general_parameters_associated_publication_journal": (
             facets.metadata_general_parameters_associated_publication_journal
         ),
