@@ -293,6 +293,9 @@ invenio index init
 # initialise custom fields
 invenio oarepo cf init
 
+# initialise custom fields on communities
+invenio communities custom-fields init
+
 # configure file storage
 invenio files location create --default default s3://default
 
