@@ -35,7 +35,7 @@ def migrate_owners(table_name):
         json_data["access"] = {
             "links": [],
             "grants": [],
-            "owned_by": owner,
+            "owned_by": {"user": owner},
             "settings": {
                 "allow_user_requests": True,
                 "allow_guest_requests": True,
