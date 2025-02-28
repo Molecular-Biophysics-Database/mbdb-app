@@ -1,11 +1,15 @@
 import marshmallow as ma
+from invenio_rdm_records.services.schemas.access import AccessSchema
+from invenio_rdm_records.services.schemas.pids import PIDSchema
+from invenio_rdm_records.services.schemas.record import validate_scheme
 from invenio_vocabularies.services.schema import i18n_strings
 from marshmallow import Schema
 from marshmallow import fields as ma_fields
-from marshmallow.fields import String
+from marshmallow.fields import Dict, Nested, String
 from marshmallow.utils import get_value
 from marshmallow.validate import OneOf
 from marshmallow_utils.fields import SanitizedUnicode
+from marshmallow_utils.fields.nestedattr import NestedAttribute
 from oarepo_communities.schemas.parent import CommunitiesParentSchema
 from oarepo_runtime.services.schema.marshmallow import (
     DictOnlySchema,
@@ -28,7 +32,14 @@ class MpSchema(RDMBaseRecordSchema):
     class Meta:
         unknown = ma.RAISE
 
+    access = NestedAttribute(lambda: AccessSchema())
+
     metadata = ma_fields.Nested(lambda: MpMetadataSchema())
+
+    pids = Dict(
+        keys=SanitizedUnicode(validate=validate_scheme),
+        values=Nested(PIDSchema),
+    )
 
     state = ma_fields.String(dump_only=True)
 

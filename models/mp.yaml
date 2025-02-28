@@ -24,7 +24,9 @@ profiles:
 - files
 - draft_files
 record:
-  use: ["invenio"]
+  use:
+  - "invenio"
+  - "rdm"
   draft: {}
   draft-files:
     resource:
@@ -50,7 +52,7 @@ record:
   service:
     base-classes:
       - common.services.records.service.AddWorkflowServiceMixin
-      - invenio_rdm_records.services.services.RDMRecordService
+      - invenio_records_resources.services.RecordService{InvenioRecordService}
 
 runtime-dependencies: {}
 
