@@ -144,6 +144,7 @@
         },
         "service": {
             "base-classes": [
+                "common.services.records.service.AddWorkflowServiceMixin",
                 "invenio_rdm_records.services.services.RDMRecordService"
             ],
             "imports": [],
