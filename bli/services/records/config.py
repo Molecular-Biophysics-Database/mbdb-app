@@ -13,7 +13,6 @@ from oarepo_communities.services.links import CommunitiesLinks
 from oarepo_doi.services.components import DoiComponent
 from oarepo_runtime.services.components import (
     CustomFieldsComponent,
-    OwnersComponent,
     process_service_configs,
 )
 from oarepo_runtime.services.config import (
@@ -32,7 +31,7 @@ from bli.records.api import BliDraft, BliRecord
 from bli.services.records.permissions import BliPermissionPolicy
 from bli.services.records.results import BliRecordItem, BliRecordList
 from bli.services.records.schema import BliSchema
-from bli.services.records.search import BliSearchOptions
+from bli.services.records.search import BliDraftSearchOptions, BliSearchOptions
 
 
 class BliServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
@@ -58,20 +57,19 @@ class BliServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
 
     search_item_links_template = LinksTemplate
     draft_cls = BliDraft
-    search_drafts = BliSearchOptions
+    search_drafts = BliDraftSearchOptions
 
     @property
     def components(self):
-
-        return process_service_configs(self) + [
+        return process_service_configs(
+            self,
             AuthorityComponent,
             DoiComponent,
             CommunityDefaultWorkflowComponent,
             #CommunityInclusionComponent,
-            OwnersComponent,
             CustomFieldsComponent,
             WorkflowComponent,
-        ]
+        )
 
     model = "bli"
 

@@ -1,6 +1,5 @@
 from invenio_rdm_records.services.services import RDMRecordService
 
-from common.services.records.service import AddWorkflowServiceMixin
 
-class BliService(AddWorkflowServiceMixin, RDMRecordService):
+class BliService(RDMRecordService):
     """BliRecord service."""

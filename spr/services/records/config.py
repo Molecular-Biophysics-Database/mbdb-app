@@ -13,7 +13,6 @@ from oarepo_communities.services.links import CommunitiesLinks
 from oarepo_doi.services.components import DoiComponent
 from oarepo_runtime.services.components import (
     CustomFieldsComponent,
-    OwnersComponent,
     process_service_configs,
 )
 from oarepo_runtime.services.config import (
@@ -32,7 +31,7 @@ from spr.records.api import SprDraft, SprRecord
 from spr.services.records.permissions import SprPermissionPolicy
 from spr.services.records.results import SprRecordItem, SprRecordList
 from spr.services.records.schema import SprSchema
-from spr.services.records.search import SprSearchOptions
+from spr.services.records.search import SprDraftSearchOptions, SprSearchOptions
 
 
 class SprServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
@@ -58,20 +57,19 @@ class SprServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
 
     search_item_links_template = LinksTemplate
     draft_cls = SprDraft
-    search_drafts = SprSearchOptions
+    search_drafts = SprDraftSearchOptions
 
     @property
     def components(self):
-
-        return process_service_configs(self) + [
+        return process_service_configs(
+            self,
             AuthorityComponent,
             DoiComponent,
             CommunityDefaultWorkflowComponent,
             #CommunityInclusionComponent,
-            OwnersComponent,
             CustomFieldsComponent,
             WorkflowComponent,
-        ]
+        )
 
     model = "spr"
 

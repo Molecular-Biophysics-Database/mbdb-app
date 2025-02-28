@@ -13,7 +13,6 @@ from oarepo_communities.services.links import CommunitiesLinks
 from oarepo_doi.services.components import DoiComponent
 from oarepo_runtime.services.components import (
     CustomFieldsComponent,
-    OwnersComponent,
     process_service_configs,
 )
 from oarepo_runtime.services.config import (
@@ -32,7 +31,7 @@ from mst.records.api import MstDraft, MstRecord
 from mst.services.records.permissions import MstPermissionPolicy
 from mst.services.records.results import MstRecordItem, MstRecordList
 from mst.services.records.schema import MstSchema
-from mst.services.records.search import MstSearchOptions
+from mst.services.records.search import MstDraftSearchOptions, MstSearchOptions
 
 
 class MstServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
@@ -58,20 +57,19 @@ class MstServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
 
     search_item_links_template = LinksTemplate
     draft_cls = MstDraft
-    search_drafts = MstSearchOptions
+    search_drafts = MstDraftSearchOptions
 
     @property
     def components(self):
-
-        return process_service_configs(self) + [
+        return process_service_configs(
+            self,
             AuthorityComponent,
             DoiComponent,
             CommunityDefaultWorkflowComponent,
-           # CommunityInclusionComponent,
-            OwnersComponent,
+            #CommunityInclusionComponent,
             CustomFieldsComponent,
             WorkflowComponent,
-        ]
+        )
 
     model = "mst"
 

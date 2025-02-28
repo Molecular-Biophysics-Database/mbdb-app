@@ -24,7 +24,9 @@ profiles:
 - files
 - draft_files
 record:
-  use: ["invenio"]
+  use:
+  - "invenio"
+  - "rdm"
   draft: {}
   draft-files:
     resource:

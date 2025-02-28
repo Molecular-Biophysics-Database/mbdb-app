@@ -13,7 +13,6 @@ from oarepo_communities.services.links import CommunitiesLinks
 from oarepo_doi.services.components import DoiComponent
 from oarepo_runtime.services.components import (
     CustomFieldsComponent,
-    OwnersComponent,
     process_service_configs,
 )
 from oarepo_runtime.services.config import (
@@ -32,7 +31,7 @@ from itc.records.api import ItcDraft, ItcRecord
 from itc.services.records.permissions import ItcPermissionPolicy
 from itc.services.records.results import ItcRecordItem, ItcRecordList
 from itc.services.records.schema import ItcSchema
-from itc.services.records.search import ItcSearchOptions
+from itc.services.records.search import ItcDraftSearchOptions, ItcSearchOptions
 
 
 class ItcServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
@@ -58,20 +57,19 @@ class ItcServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
 
     search_item_links_template = LinksTemplate
     draft_cls = ItcDraft
-    search_drafts = ItcSearchOptions
+    search_drafts = ItcDraftSearchOptions
 
     @property
     def components(self):
-
-        return process_service_configs(self) + [
+        return process_service_configs(
+            self,
             AuthorityComponent,
             DoiComponent,
             CommunityDefaultWorkflowComponent,
             #CommunityInclusionComponent,
-            OwnersComponent,
             CustomFieldsComponent,
             WorkflowComponent,
-        ]
+        )
 
     model = "itc"
 

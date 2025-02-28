@@ -28,6 +28,62 @@
                             }
                         }
                     }
+                },
+                "mappings": {
+                    "dynamic_templates": [
+                        {
+                            "pids": {
+                                "path_match": "pids.*",
+                                "match_mapping_type": "object",
+                                "mapping": {
+                                    "type": "object",
+                                    "properties": {
+                                        "identifier": {
+                                            "type": "text",
+                                            "fields": {
+                                                "keyword": {
+                                                    "type": "keyword",
+                                                    "ignore_above": 256
+                                                }
+                                            }
+                                        },
+                                        "provider": {
+                                            "type": "keyword"
+                                        },
+                                        "client": {
+                                            "type": "keyword"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "parent_pids": {
+                                "path_match": "parent.pids.*",
+                                "match_mapping_type": "object",
+                                "mapping": {
+                                    "type": "object",
+                                    "properties": {
+                                        "identifier": {
+                                            "type": "text",
+                                            "fields": {
+                                                "keyword": {
+                                                    "type": "keyword",
+                                                    "ignore_above": 256
+                                                }
+                                            }
+                                        },
+                                        "provider": {
+                                            "type": "keyword"
+                                        },
+                                        "client": {
+                                            "type": "keyword"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
                 }
             },
             "generate": true,
@@ -39,7 +95,6 @@
             ],
             "file": "mst/records/mappings/os-v2/mst/mst-1.0.0.json"
         },
-        "searchable": true,
         "permissions": {
             "presets": [
                 "mbdb"
@@ -56,14 +111,14 @@
         "marshmallow": {
             "imports": [],
             "base-classes": [
-                "oarepo_runtime.services.schema.marshmallow.BaseRecordSchema",
-                "oarepo_runtime.services.schema.rdm.RDMRecordMixin"
+                "oarepo_runtime.services.schema.marshmallow.RDMBaseRecordSchema"
             ],
             "generate": true,
             "module": "mst.services.records.schema",
             "class": "mst.services.records.schema.MstSchema",
             "extra-code": ""
         },
+        "searchable": true,
         "pid": {
             "type": "mst",
             "provider-base-classes": [
@@ -87,24 +142,9 @@
             ],
             "extra-code": ""
         },
-        "ui": {
-            "marshmallow": {
-                "imports": [],
-                "base-classes": [
-                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
-                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
-                ],
-                "generate": true,
-                "module": "mst.services.records.ui_schema",
-                "class": "mst.services.records.ui_schema.MstUISchema",
-                "extra-code": ""
-            },
-            "module": "mst.models",
-            "file": "mst/models/ui.json",
-            "alias": "mst"
-        },
         "service": {
             "base-classes": [
+                "common.services.records.service.AddWorkflowServiceMixin",
                 "invenio_rdm_records.services.services.RDMRecordService"
             ],
             "imports": [],
@@ -125,7 +165,6 @@
                 "{{oarepo_doi.services.components.DoiComponent}}",
                 "{{oarepo_communities.services.components.default_workflow.CommunityDefaultWorkflowComponent}}",
                 "{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
-                "{{oarepo_runtime.services.components.OwnersComponent}}",
                 "{{oarepo_runtime.services.components.CustomFieldsComponent}}",
                 "{{oarepo_workflows.services.components.workflow.WorkflowComponent}}"
             ],
@@ -142,9 +181,25 @@
             "additional-args": [],
             "search-item-links-template-cls": "invenio_records_resources.services.LinksTemplate"
         },
+        "ui": {
+            "marshmallow": {
+                "imports": [],
+                "base-classes": [
+                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
+                    "oarepo_runtime.services.schema.ui.InvenioRDMUISchema"
+                ],
+                "generate": true,
+                "module": "mst.services.records.ui_schema",
+                "class": "mst.services.records.ui_schema.MstUISchema",
+                "extra-code": ""
+            },
+            "module": "mst.models",
+            "file": "mst/models/ui.json",
+            "alias": "mst"
+        },
         "search-options": {
             "base-classes": [
-                "common.services.records.search_options.RecordSearchOptions"
+                "oarepo_runtime.services.search.I18nRDMSearchOptions"
             ],
             "module": "mst.services.records.search",
             "class": "mst.services.records.search.MstSearchOptions",
@@ -152,7 +207,13 @@
             "extra-code": "",
             "imports": [],
             "fields": {},
-            "sort-options-field": "sort_options"
+            "sort-options-field": "sort_options",
+            "versions": {
+                "class": "mst.MstVersionsSearchOptions",
+                "base-classes": [
+                    "invenio_rdm_records.services.config.RDMSearchVersionsOptions"
+                ]
+            }
         },
         "resource-config": {
             "base-url": "/records/mst/",
@@ -182,16 +243,6 @@
             "suffix": "mst",
             "suffix-upper": "MST",
             "suffix-snake": "mst"
-        },
-        "draft": {
-            "type": "draft_record",
-            "properties": {},
-            "searchable": true,
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            }
         },
         "files": {
             "type": "file",
@@ -350,7 +401,6 @@
                     }
                 }
             },
-            "searchable": true,
             "marshmallow": {
                 "imports": [
                     {
@@ -362,6 +412,7 @@
                     "InvenioFileSchema"
                 ]
             },
+            "searchable": true,
             "service-config": {
                 "base-classes": [
                     "common.services.files.mst_metadata_extraction.MstFileServiceConfigWithProcessors"
@@ -383,6 +434,16 @@
             "extra-fixtures": [],
             "extra-code": "",
             "module": "tests"
+        },
+        "draft": {
+            "type": "draft_record",
+            "properties": {},
+            "searchable": true,
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
         },
         "draft-files": {
             "type": "draft-file",
@@ -415,6 +476,19 @@
             "skip": false
         },
         "model-name": "Mst",
+        "resource": {
+            "base-classes": [
+                "invenio_drafts_resources.resources.RecordResource"
+            ],
+            "generate": true,
+            "config-key": "MST_RECORD_RESOURCE_CLASS",
+            "module": "mst.resources.records.resource",
+            "class": "mst.resources.records.resource.MstResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
+        },
         "record-resolver": {
             "generate": true,
             "module": "mst.records.requests.resolvers",
@@ -510,19 +584,6 @@
             "class": "mst.services.records.schema.GeneratedParentSchema",
             "generate": true
         },
-        "resource": {
-            "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
-            ],
-            "generate": true,
-            "config-key": "MST_RECORD_RESOURCE_CLASS",
-            "module": "mst.resources.records.resource",
-            "class": "mst.resources.records.resource.MstResource",
-            "proxy": "current_resource",
-            "extra-code": "",
-            "imports": [],
-            "additional-args": []
-        },
         "json-serializer": {
             "module": "mst.resources.records.ui",
             "class": "mst.resources.records.ui.MstUIJSONSerializer",
@@ -542,23 +603,6 @@
         "translations": {
             "module": "mst.translations",
             "alias": "mst"
-        },
-        "files-field": {
-            "generate": true,
-            "field-class": "invenio_records_resources.records.systemfields.FilesField",
-            "file-class": "mst.records.api.MstRecord",
-            "field-args": [
-                "store=False"
-            ],
-            "imports": []
-        },
-        "json-schema-settings": {
-            "generate": true,
-            "alias": "mst",
-            "version": "1.0.0",
-            "module": "mst.records.jsonschemas",
-            "name": "mst-1.0.0.json",
-            "file": "mst/records/jsonschemas/mst-1.0.0.json"
         },
         "record-metadata": {
             "generate": true,
@@ -589,6 +633,51 @@
                 "{{mst.records.dumpers.edtf.MstEDTFIntervalDumperExt}}()"
             ],
             "imports": []
+        },
+        "files-field": {
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "mst.records.api.MstRecord",
+            "field-args": [
+                "store=False"
+            ],
+            "imports": []
+        },
+        "json-schema-settings": {
+            "generate": true,
+            "alias": "mst",
+            "version": "1.0.0",
+            "module": "mst.records.jsonschemas",
+            "name": "mst-1.0.0.json",
+            "file": "mst/records/jsonschemas/mst-1.0.0.json"
+        },
+        "draft-parent-record": {
+            "class": "mst.records.api.MstParentRecord",
+            "base-classes": [
+                "invenio_rdm_records.records.api.RDMParent"
+            ],
+            "imports": [],
+            "fields": {
+                "workflow": "{{oarepo_workflows.records.systemfields.workflow.WorkflowField}}()"
+            },
+            "module": "mst.records.api",
+            "generate": true
+        },
+        "draft-parent-record-state": {
+            "class": "mst.records.models.MstParentState",
+            "base-classes": [
+                "invenio_db.db{db.Model}",
+                "invenio_drafts_resources.records.ParentRecordStateMixin"
+            ],
+            "imports": [],
+            "module": "mst.records.models",
+            "generate": true,
+            "table": "mst_parent_state_metadata"
+        },
+        "draft-parent-record-schema": {
+            "name": "parent-v1.0.0.json",
+            "file": "mst/records/jsonschemas/parent-v1.0.0.json",
+            "generate": true
         },
         "edtf-interval-dumper": {
             "generate": true,
@@ -622,37 +711,10 @@
             ],
             "components": [
                 "{{oarepo_requests.services.results.RequestsComponent}}()",
-                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
+                "{{oarepo_requests.services.results.RequestTypesComponent}}()",
+                "{{oarepo_communities.services.results.RecordCommunitiesComponent}}()"
             ],
             "imports": []
-        },
-        "draft-parent-record": {
-            "class": "mst.records.api.MstParentRecord",
-            "base-classes": [
-                "invenio_rdm_records.records.api.RDMParent"
-            ],
-            "imports": [],
-            "fields": {
-                "workflow": "{{oarepo_workflows.records.systemfields.workflow.WorkflowField}}()"
-            },
-            "module": "mst.records.api",
-            "generate": true
-        },
-        "draft-parent-record-state": {
-            "class": "mst.records.models.MstParentState",
-            "base-classes": [
-                "invenio_db.db{db.Model}",
-                "invenio_drafts_resources.records.ParentRecordStateMixin"
-            ],
-            "imports": [],
-            "module": "mst.records.models",
-            "generate": true,
-            "table": "mst_parent_state_metadata"
-        },
-        "draft-parent-record-schema": {
-            "name": "parent-v1.0.0.json",
-            "file": "mst/records/jsonschemas/parent-v1.0.0.json",
-            "generate": true
         },
         "requests": {
             "types": {},
@@ -752,6 +814,96 @@
                 },
                 "sample": {
                     "skip": true
+                }
+            },
+            "access": {
+                "type": "object",
+                "ui": {
+                    "marshmallow": {
+                        "generate": true,
+                        "read": false,
+                        "write": false,
+                        "class": "mst.services.records.ui_schema.AccessUISchema"
+                    }
+                },
+                "marshmallow": {
+                    "generate": false,
+                    "class": "invenio_rdm_records.services.schemas.access.AccessSchema",
+                    "field-class": "marshmallow_utils.fields.nestedattr.NestedAttribute"
+                },
+                "sample": {
+                    "skip": true
+                },
+                "properties": {
+                    "embargo": {
+                        "type": "object",
+                        "marshmallow": {
+                            "generate": true,
+                            "class": "mst.services.records.schema.EmbargoSchema"
+                        },
+                        "ui": {
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "mst.services.records.ui_schema.EmbargoUISchema"
+                            }
+                        },
+                        "properties": {
+                            "active": {
+                                "type": "boolean",
+                                "json-schema": {
+                                    "type": [
+                                        "boolean",
+                                        "null"
+                                    ]
+                                },
+                                "sample": {
+                                    "skip": true
+                                }
+                            },
+                            "reason": {
+                                "type": "fulltext",
+                                "json-schema": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "sample": {
+                                    "skip": true
+                                }
+                            },
+                            "until": {
+                                "type": "date",
+                                "json-schema": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "sample": {
+                                    "skip": true
+                                }
+                            }
+                        }
+                    },
+                    "files": {
+                        "type": "keyword",
+                        "sample": {
+                            "skip": true
+                        }
+                    },
+                    "record": {
+                        "type": "keyword",
+                        "sample": {
+                            "skip": true
+                        }
+                    },
+                    "status": {
+                        "type": "keyword",
+                        "sample": {
+                            "skip": true
+                        }
+                    }
                 }
             },
             "collected_default_search_fields": {
@@ -29808,6 +29960,43 @@
                             "facet": false
                         }
                     }
+                }
+            },
+            "pids": {
+                "type": "object",
+                "json-schema": {
+                    "uniqueItems": true,
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "identifier": {
+                                "type": "string"
+                            },
+                            "provider": {
+                                "type": "string"
+                            },
+                            "client": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    }
+                },
+                "ui": {
+                    "marshmallow": {
+                        "generate": true,
+                        "read": false,
+                        "write": false,
+                        "class": "mst.services.records.ui_schema.PidsUISchema"
+                    }
+                },
+                "marshmallow": {
+                    "generate": false,
+                    "field": "{{marshmallow.fields.Dict}}( keys={{marshmallow_utils.fields.SanitizedUnicode}}(validate={{invenio_rdm_records.services.schemas.record.validate_scheme}}),values={{marshmallow.fields.Nested}}({{invenio_rdm_records.services.schemas.pids.PIDSchema}}),)"
                 }
             },
             "state": {

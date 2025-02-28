@@ -14,8 +14,6 @@ from oarepo_runtime.services.config import (
 )
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 
-from common.services.files.synchronous_file_processing import SynchronousFileProcessorComponent
-
 from spr.records.api import SprDraft, SprRecord
 from spr.services.files.schema import SprFileSchema
 from spr.services.records.permissions import SprPermissionPolicy
@@ -43,8 +41,7 @@ class SprFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
 
     @property
     def components(self):
-
-        return process_service_configs(self) + [CustomFieldsComponent]
+        return process_service_configs(self, CustomFieldsComponent)
 
     model = "spr"
 
@@ -93,9 +90,7 @@ class SprFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
 
     @property
     def components(self):
-
-        return process_service_configs(self) + [CustomFieldsComponent, SynchronousFileProcessorComponent]
-
+        return process_service_configs(self, CustomFieldsComponent)
 
     model = "spr"
 
