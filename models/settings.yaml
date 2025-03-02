@@ -27,10 +27,10 @@ record:
         read: false
         write: false
       mapping:
-          fields:
-            substringmatch:
-              type: text
-              analyzer: substring
+        fields:
+          substringmatch:
+            type: text
+            analyzer: substring
     id:
       type: keyword
       mapping:
@@ -43,5 +43,6 @@ record:
     components:
       - "{{oarepo_vocabularies.authorities.components.AuthorityComponent}}"
       - "{{oarepo_doi.services.components.DoiComponent}}"
+      - "exclude:{{oarepo_communities.services.components.include.CommunityInclusionComponent}}"
   search-options:
     base-classes: [common.services.records.search_options.RecordSearchOptions]

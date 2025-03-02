@@ -2353,10 +2353,10 @@
             }
         },
         "pids": {
-            "uniqueItems": true,
             "propertyNames": {
                 "pattern": "^[a-z_-][a-z0-9_-]*$"
             },
+            "uniqueItems": true,
             "type": "object",
             "additionalProperties": {
                 "type": "object",
