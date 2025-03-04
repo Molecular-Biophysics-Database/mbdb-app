@@ -66,7 +66,7 @@ class SprServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
             AuthorityComponent,
             DoiComponent,
             CommunityDefaultWorkflowComponent,
-            #CommunityInclusionComponent,
+            CommunityInclusionComponent,
             CustomFieldsComponent,
             WorkflowComponent,
         )

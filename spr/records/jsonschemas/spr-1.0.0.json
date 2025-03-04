@@ -2515,6 +2515,10 @@
             }
         },
         "pids": {
+            "propertyNames": {
+                "pattern": "^[a-z_-][a-z0-9_-]*$"
+            },
+            "uniqueItems": true,
             "additionalProperties": {
                 "type": "object",
                 "additionalProperties": false,
@@ -2530,10 +2534,6 @@
                     }
                 }
             },
-            "propertyNames": {
-                "pattern": "^[a-z_-][a-z0-9_-]*$"
-            },
-            "uniqueItems": true,
             "type": "object"
         },
         "state": {
