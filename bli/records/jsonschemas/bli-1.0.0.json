@@ -2466,11 +2466,11 @@
                     }
                 }
             },
+            "type": "object",
             "propertyNames": {
                 "pattern": "^[a-z_-][a-z0-9_-]*$"
             },
-            "uniqueItems": true,
-            "type": "object"
+            "uniqueItems": true
         },
         "state": {
             "type": "string"

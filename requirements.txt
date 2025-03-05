@@ -15,11 +15,11 @@ numpy==2.2.3
 oarepo-communities==5.1.10
 oarepo-dashboard==1.0.19
 oarepo-doi==1.0.18
-oarepo-global-search==1.0.37
+oarepo-global-search==1.0.38
 oarepo-published-service==1.0.3
 oarepo-requests==2.3.19
-oarepo-runtime==1.5.101
-oarepo-ui==5.2.48
+oarepo-runtime==1.5.102
+oarepo-ui==5.2.49
 oarepo-vocabularies==2.1.18
 oarepo-workflows==1.1.11
 openpyxl==3.1.5

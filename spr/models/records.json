@@ -3,32 +3,6 @@
         "type": "model",
         "mapping": {
             "template": {
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": [
-                        "collected_default_search_fields",
-                        "collected_default_search_fields.substringmatch"
-                    ],
-                    "analysis": {
-                        "analyzer": {
-                            "substring": {
-                                "tokenizer": "substringtokenizer"
-                            }
-                        },
-                        "tokenizer": {
-                            "substringtokenizer": {
-                                "type": "edge_ngram",
-                                "min_gram": 4,
-                                "max_gram": 8,
-                                "token_chars": [
-                                    "letter",
-                                    "digit"
-                                ]
-                            }
-                        }
-                    }
-                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -84,17 +58,42 @@
                             }
                         }
                     ]
+                },
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200,
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "edge_ngram",
+                                "min_gram": 4,
+                                "max_gram": 8,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
                 }
             },
             "generate": true,
             "alias": "spr",
             "module": "spr.records.mappings",
             "index": "spr-spr-1.0.0",
-            "index-field-args": [
-                "search_alias=\"spr\""
-            ],
-            "file": "spr/records/mappings/os-v2/spr/spr-1.0.0.json"
+            "file": "spr/records/mappings/os-v2/spr/spr-1.0.0.json",
+            "index-field-args": []
         },
+        "searchable": true,
         "permissions": {
             "presets": [
                 "mbdb"
@@ -118,7 +117,6 @@
             "class": "spr.services.records.schema.SprSchema",
             "extra-code": ""
         },
-        "searchable": true,
         "pid": {
             "type": "spr",
             "provider-base-classes": [
@@ -163,6 +161,7 @@
             "components": [
                 "{{oarepo_vocabularies.authorities.components.AuthorityComponent}}",
                 "{{oarepo_doi.services.components.DoiComponent}}",
+                "exclude:{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
                 "{{oarepo_communities.services.components.default_workflow.CommunityDefaultWorkflowComponent}}",
                 "{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
                 "{{oarepo_runtime.services.components.CustomFieldsComponent}}",
@@ -243,6 +242,16 @@
             "suffix": "spr",
             "suffix-upper": "SPR",
             "suffix-snake": "spr"
+        },
+        "draft": {
+            "type": "draft_record",
+            "properties": {},
+            "searchable": true,
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
         },
         "files": {
             "type": "file",
@@ -401,6 +410,7 @@
                     }
                 }
             },
+            "searchable": true,
             "marshmallow": {
                 "imports": [
                     {
@@ -412,7 +422,6 @@
                     "InvenioFileSchema"
                 ]
             },
-            "searchable": true,
             "resource": {
                 "base-classes": [
                     "oarepo_ui.resources.file_resource.S3RedirectFileResource"
@@ -429,16 +438,6 @@
             "extra-fixtures": [],
             "extra-code": "",
             "module": "tests"
-        },
-        "draft": {
-            "type": "draft_record",
-            "properties": {},
-            "searchable": true,
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            }
         },
         "draft-files": {
             "type": "draft-file",
@@ -466,19 +465,6 @@
             "skip": false
         },
         "model-name": "Spr",
-        "resource": {
-            "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
-            ],
-            "generate": true,
-            "config-key": "SPR_RECORD_RESOURCE_CLASS",
-            "module": "spr.resources.records.resource",
-            "class": "spr.resources.records.resource.SprResource",
-            "proxy": "current_resource",
-            "extra-code": "",
-            "imports": [],
-            "additional-args": []
-        },
         "record-resolver": {
             "generate": true,
             "module": "spr.records.requests.resolvers",
@@ -539,6 +525,19 @@
             "module": "spr.proxies",
             "generate": true
         },
+        "resource": {
+            "base-classes": [
+                "invenio_drafts_resources.resources.RecordResource"
+            ],
+            "generate": true,
+            "config-key": "SPR_RECORD_RESOURCE_CLASS",
+            "module": "spr.resources.records.resource",
+            "class": "spr.resources.records.resource.SprResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
+        },
         "record": {
             "fields": {
                 "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')",
@@ -594,6 +593,23 @@
             "module": "spr.translations",
             "alias": "spr"
         },
+        "json-schema-settings": {
+            "generate": true,
+            "alias": "spr",
+            "version": "1.0.0",
+            "module": "spr.records.jsonschemas",
+            "name": "spr-1.0.0.json",
+            "file": "spr/records/jsonschemas/spr-1.0.0.json"
+        },
+        "files-field": {
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "spr.records.api.SprRecord",
+            "field-args": [
+                "store=False"
+            ],
+            "imports": []
+        },
         "record-metadata": {
             "generate": true,
             "module": "spr.records.models",
@@ -623,51 +639,6 @@
                 "{{spr.records.dumpers.edtf.SprEDTFIntervalDumperExt}}()"
             ],
             "imports": []
-        },
-        "files-field": {
-            "generate": true,
-            "field-class": "invenio_records_resources.records.systemfields.FilesField",
-            "file-class": "spr.records.api.SprRecord",
-            "field-args": [
-                "store=False"
-            ],
-            "imports": []
-        },
-        "json-schema-settings": {
-            "generate": true,
-            "alias": "spr",
-            "version": "1.0.0",
-            "module": "spr.records.jsonschemas",
-            "name": "spr-1.0.0.json",
-            "file": "spr/records/jsonschemas/spr-1.0.0.json"
-        },
-        "draft-parent-record": {
-            "class": "spr.records.api.SprParentRecord",
-            "base-classes": [
-                "invenio_rdm_records.records.api.RDMParent"
-            ],
-            "imports": [],
-            "fields": {
-                "workflow": "{{oarepo_workflows.records.systemfields.workflow.WorkflowField}}()"
-            },
-            "module": "spr.records.api",
-            "generate": true
-        },
-        "draft-parent-record-state": {
-            "class": "spr.records.models.SprParentState",
-            "base-classes": [
-                "invenio_db.db{db.Model}",
-                "invenio_drafts_resources.records.ParentRecordStateMixin"
-            ],
-            "imports": [],
-            "module": "spr.records.models",
-            "generate": true,
-            "table": "spr_parent_state_metadata"
-        },
-        "draft-parent-record-schema": {
-            "name": "parent-v1.0.0.json",
-            "file": "spr/records/jsonschemas/parent-v1.0.0.json",
-            "generate": true
         },
         "edtf-interval-dumper": {
             "generate": true,
@@ -705,6 +676,34 @@
                 "{{oarepo_communities.services.results.RecordCommunitiesComponent}}()"
             ],
             "imports": []
+        },
+        "draft-parent-record": {
+            "class": "spr.records.api.SprParentRecord",
+            "base-classes": [
+                "invenio_rdm_records.records.api.RDMParent"
+            ],
+            "imports": [],
+            "fields": {
+                "workflow": "{{oarepo_workflows.records.systemfields.workflow.WorkflowField}}()"
+            },
+            "module": "spr.records.api",
+            "generate": true
+        },
+        "draft-parent-record-state": {
+            "class": "spr.records.models.SprParentState",
+            "base-classes": [
+                "invenio_db.db{db.Model}",
+                "invenio_drafts_resources.records.ParentRecordStateMixin"
+            ],
+            "imports": [],
+            "module": "spr.records.models",
+            "generate": true,
+            "table": "spr_parent_state_metadata"
+        },
+        "draft-parent-record-schema": {
+            "name": "parent-v1.0.0.json",
+            "file": "spr/records/jsonschemas/parent-v1.0.0.json",
+            "generate": true
         },
         "requests": {
             "types": {},
@@ -30702,10 +30701,11 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
+                    "type": "object",
+                    "uniqueItems": true,
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
                     },
-                    "uniqueItems": true,
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -30720,8 +30720,7 @@
                                 "type": "string"
                             }
                         }
-                    },
-                    "type": "object"
+                    }
                 },
                 "ui": {
                     "marshmallow": {
