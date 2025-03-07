@@ -71,15 +71,7 @@ class GeneralParametersUISchema(DictOnlySchema):
 
     instrument = ma_fields.Nested(lambda: InstrumentUISchema(), required=True)
 
-    record_information = ma_fields.Nested(
-        lambda: RecordInformationUISchema(), required=True
-    )
-
-    results = ma_fields.List(ma_fields.Nested(lambda: ResultsItemUISchema()))
-
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.11.0"])])
-
-    technique = ma_fields.String(
+    method = ma_fields.String(
         required=True,
         validate=[
             OneOf(
@@ -92,6 +84,14 @@ class GeneralParametersUISchema(DictOnlySchema):
             )
         ],
     )
+
+    record_information = ma_fields.Nested(
+        lambda: RecordInformationUISchema(), required=True
+    )
+
+    results = ma_fields.List(ma_fields.Nested(lambda: ResultsItemUISchema()))
+
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.12.0"])])
 
 
 class ChemicalEnvironmentsItemUISchema(DictOnlySchema):
@@ -910,7 +910,7 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: MeasurementsItemUISchema()), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.7"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.10.0"])])
 
     sensor = ma_fields.Nested(lambda: SensorUISchema(), required=True)
 
@@ -2608,9 +2608,7 @@ class FlowUISchema(DictOnlySchema):
         ma_fields.List(ma_fields.Nested(lambda: EntityUISchema())), required=True
     )
 
-    rate = ma_fields.Float(required=True)
-
-    unit = ma_fields.String(required=True, validate=[OneOf(["mL/min", "µl/s"])])
+    rate = ma_fields.Nested(lambda: RateUISchema(), required=True)
 
 
 class LigandUISchema(DictOnlySchema):
@@ -3147,6 +3145,15 @@ class PurityUISchema(DictOnlySchema):
     purity_percentage = ma_fields.String(
         required=True, validate=[OneOf(["<90 %", ">90 %", ">95 %", ">99 %"])]
     )
+
+
+class RateUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    unit = ma_fields.String(required=True, validate=[OneOf(["mL/min", "µl/s"])])
+
+    value = ma_fields.Float(required=True)
 
 
 class RestrictedUISchema(DictOnlySchema):

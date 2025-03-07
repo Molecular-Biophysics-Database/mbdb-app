@@ -61,7 +61,9 @@ class BliRecord(RDMRecord):
 
     schema = ConstantField("$schema", "local://bli-1.0.0.json")
 
-    index = IndexField("bli-bli-1.0.0", search_alias="bli")
+    index = IndexField(
+        "bli-bli-1.0.0",
+    )
 
     pid = PIDField(provider=BliIdProvider, context_cls=PIDFieldContext, create=True)
 

@@ -1879,6 +1879,9 @@
                                 }
                             }
                         },
+                        "method": {
+                            "type": "string"
+                        },
                         "record_information": {
                             "type": "object",
                             "properties": {
@@ -1990,9 +1993,6 @@
                             }
                         },
                         "schema_version": {
-                            "type": "string"
-                        },
-                        "technique": {
                             "type": "string"
                         }
                     }
@@ -2278,8 +2278,6 @@
             }
         },
         "pids": {
-            "uniqueItems": true,
-            "type": "object",
             "additionalProperties": {
                 "type": "object",
                 "additionalProperties": false,
@@ -2297,7 +2295,9 @@
             },
             "propertyNames": {
                 "pattern": "^[a-z_-][a-z0-9_-]*$"
-            }
+            },
+            "type": "object",
+            "uniqueItems": true
         },
         "state": {
             "type": "string"

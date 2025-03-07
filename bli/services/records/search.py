@@ -776,6 +776,7 @@ class BliSearchOptions(I18nRDMSearchOptions):
         "metadata_general_parameters_instrument": (
             facets.metadata_general_parameters_instrument
         ),
+        "metadata_general_parameters_method": facets.metadata_general_parameters_method,
         "metadata_general_parameters_record_information_access_rights": (
             facets.metadata_general_parameters_record_information_access_rights
         ),
@@ -841,9 +842,6 @@ class BliSearchOptions(I18nRDMSearchOptions):
         ),
         "metadata_general_parameters_schema_version": (
             facets.metadata_general_parameters_schema_version
-        ),
-        "metadata_general_parameters_technique": (
-            facets.metadata_general_parameters_technique
         ),
         "metadata_method_specific_parameters_data_analysis_data_fitting_model": (
             facets.metadata_method_specific_parameters_data_analysis_data_fitting_model
@@ -1786,6 +1784,7 @@ class BliDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_general_parameters_instrument": (
             facets.metadata_general_parameters_instrument
         ),
+        "metadata_general_parameters_method": facets.metadata_general_parameters_method,
         "metadata_general_parameters_record_information_access_rights": (
             facets.metadata_general_parameters_record_information_access_rights
         ),
@@ -1851,9 +1850,6 @@ class BliDraftSearchOptions(I18nRDMDraftsSearchOptions):
         ),
         "metadata_general_parameters_schema_version": (
             facets.metadata_general_parameters_schema_version
-        ),
-        "metadata_general_parameters_technique": (
-            facets.metadata_general_parameters_technique
         ),
         "metadata_method_specific_parameters_data_analysis_data_fitting_model": (
             facets.metadata_method_specific_parameters_data_analysis_data_fitting_model

@@ -7,7 +7,7 @@ import _get from "lodash/get";
 import { withState, buildUID } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 
-const ItemHeader = ({ title, searchUrl, selfLink, id, releasedDate, givenName, familyName, affiliationsTitle, technique, entitiesOfInterest, results}) => {
+const ItemHeader = ({ title, searchUrl, selfLink, id, releasedDate, givenName, familyName, affiliationsTitle, method, entitiesOfInterest, results}) => {
   return (
     <div className="lg:max-w-[1024px] lg:m-auto xl:max-w-[1280px] 2xl:max-w-[1440px] !my-10 !mx-6 pb-10 text-dark border-b-dark border-b-[.1px] first:!mt-16 md:!mx-12">
       <div className="flex justify-between flex-col lg:flex-row">
@@ -32,8 +32,8 @@ const ItemHeader = ({ title, searchUrl, selfLink, id, releasedDate, givenName, f
             <div className="my-2">{affiliationsTitle}</div>
           </div>
           <div className="flex">
-            <div className="my-2 font-JostMedium text-accent-secondary">Technique:</div>
-            <div className="my-2 !ml-2">{technique}</div>
+            <div className="my-2 font-JostMedium text-accent-secondary">Method:</div>
+            <div className="my-2 !ml-2">{method}</div>
           </div>
           <div className="flex">
             <div className="my-2 font-JostMedium text-accent-secondary">Results:</div>
@@ -60,7 +60,7 @@ export const ResultsListItemComponent = ({
   const generalParams = _get(result, "metadata.general_parameters");
   const title = _get(generalParams, "record_information.title", "<no title>");
   const releasedDate = _get(generalParams, "record_information.deposition_date", "");
-  const technique = _get(generalParams, "technique", "");
+  const method = _get(generalParams, "method", "");
   const id = _get(result, "id", "");
   const contactGivenName = _get(generalParams, "depositors.principal_contact.given_name", "");
   const contactFamilyName = _get(generalParams, "depositors.principal_contact.family_name", "");
@@ -86,7 +86,7 @@ export const ResultsListItemComponent = ({
             searchUrl={searchAppConfig.ui_endpoint}
             selfLink={result.links.self_html}
             releasedDate={releasedDate}
-            technique={technique}
+            method={method}
             id={id}
             givenName={contactGivenName}
             familyName={contactFamilyName}

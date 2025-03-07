@@ -2211,6 +2211,11 @@ metadata_general_parameters_instrument = VocabularyFacet(
     vocabulary="instruments",
 )
 
+metadata_general_parameters_method = TermsFacet(
+    field="metadata.general_parameters.method",
+    label=_("metadata/general_parameters/method.label"),
+)
+
 metadata_general_parameters_record_information_access_rights = TermsFacet(
     field="metadata.general_parameters.record_information.access_rights",
     label=_("metadata/general_parameters/record_information/access_rights.label"),
@@ -2326,11 +2331,6 @@ metadata_general_parameters_results_value_error_upper = TermsFacet(
 metadata_general_parameters_schema_version = TermsFacet(
     field="metadata.general_parameters.schema_version",
     label=_("metadata/general_parameters/schema_version.label"),
-)
-
-metadata_general_parameters_technique = TermsFacet(
-    field="metadata.general_parameters.technique",
-    label=_("metadata/general_parameters/technique.label"),
 )
 
 metadata_method_specific_parameters_data_analysis_data_fitting_model = TermsFacet(
@@ -2468,14 +2468,18 @@ metadata_method_specific_parameters_measurement_protocol_flow_direction = TermsF
     ),
 )
 
-metadata_method_specific_parameters_measurement_protocol_flow_rate = TermsFacet(
-    field="metadata.method_specific_parameters.measurement_protocol.flow.rate",
-    label=_("metadata/method_specific_parameters/measurement_protocol/flow/rate.label"),
+metadata_method_specific_parameters_measurement_protocol_flow_rate_unit = TermsFacet(
+    field="metadata.method_specific_parameters.measurement_protocol.flow.rate.unit",
+    label=_(
+        "metadata/method_specific_parameters/measurement_protocol/flow/rate/unit.label"
+    ),
 )
 
-metadata_method_specific_parameters_measurement_protocol_flow_unit = TermsFacet(
-    field="metadata.method_specific_parameters.measurement_protocol.flow.unit",
-    label=_("metadata/method_specific_parameters/measurement_protocol/flow/unit.label"),
+metadata_method_specific_parameters_measurement_protocol_flow_rate_value = TermsFacet(
+    field="metadata.method_specific_parameters.measurement_protocol.flow.rate.value",
+    label=_(
+        "metadata/method_specific_parameters/measurement_protocol/flow/rate/value.label"
+    ),
 )
 
 metadata_method_specific_parameters_measurement_protocol_id = TermsFacet(

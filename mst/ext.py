@@ -24,6 +24,10 @@ class MstExt:
         if not self.is_inherited():
             self.register_flask_extension(app)
 
+        for method in dir(self):
+            if method.startswith("init_app_callback_"):
+                getattr(self, method)(app)
+
     def register_flask_extension(self, app):
 
         app.extensions["mst"] = self
@@ -40,27 +44,6 @@ class MstExt:
                             app.config[identifier][k] = v
                 else:
                     app.config.setdefault(identifier, getattr(config, identifier))
-
-        rdm_model_config = {
-            "model_service": "mst.services.records.service.MstService",
-            "service_config": "mst.services.records.config.MstServiceConfig",
-            "ui_resource_config": "ui.mst.MstUIResourceConfig",
-            "api_resource_config": "mst.resources.records.config.MstResourceConfig",
-        }
-
-        app.config.setdefault("GLOBAL_SEARCH_MODELS", [])
-        for cfg in app.config["GLOBAL_SEARCH_MODELS"]:
-            if cfg["model_service"] == rdm_model_config["model_service"]:
-                break
-        else:
-            app.config["GLOBAL_SEARCH_MODELS"].append(rdm_model_config)
-
-        app.config.setdefault("RDM_MODELS", [])
-        for cfg in app.config["RDM_MODELS"]:
-            if cfg["model_service"] == rdm_model_config["model_service"]:
-                break
-        else:
-            app.config["RDM_MODELS"].append(rdm_model_config)
 
     def is_inherited(self):
         from importlib_metadata import entry_points
@@ -130,6 +113,28 @@ class MstExt:
             config=config.MST_RECORD_RESOURCE_CONFIG(),
             record_requests_config=DraftRequestTypesResourceConfig(),
         )
+
+    def init_app_callback_rdm_models(self, app):
+        rdm_model_config = {
+            "model_service": "mst.services.records.service.MstService",
+            "service_config": "mst.services.records.config.MstServiceConfig",
+            "ui_resource_config": "ui.mst.MstUIResourceConfig",
+            "api_resource_config": "mst.resources.records.config.MstResourceConfig",
+        }
+
+        app.config.setdefault("GLOBAL_SEARCH_MODELS", [])
+        for cfg in app.config["GLOBAL_SEARCH_MODELS"]:
+            if cfg["model_service"] == rdm_model_config["model_service"]:
+                break
+        else:
+            app.config["GLOBAL_SEARCH_MODELS"].append(rdm_model_config)
+
+        app.config.setdefault("RDM_MODELS", [])
+        for cfg in app.config["RDM_MODELS"]:
+            if cfg["model_service"] == rdm_model_config["model_service"]:
+                break
+        else:
+            app.config["RDM_MODELS"].append(rdm_model_config)
 
     @cached_property
     def service_files(self):

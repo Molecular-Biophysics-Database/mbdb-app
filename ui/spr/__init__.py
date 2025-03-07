@@ -16,7 +16,7 @@ class SprInitialValuesComponent(UIResourceComponent):
     def empty_record(self, *, resource_requestctx, empty_data: Dict, **kwargs):
         empty_data.update(
             make_fixed_values(
-                technique="Surface plasmon resonance (SPR)",
+                method="Surface plasmon resonance (SPR)",
                 resource_type="SPR",
             )
         )

@@ -4625,6 +4625,16 @@
                                 }
                             }
                         },
+                        "method": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "required": true,
+                            "help": "metadata/general_parameters/method.help",
+                            "label": "metadata/general_parameters/method.label",
+                            "hint": "metadata/general_parameters/method.hint",
+                            "enum": "metadata/general_parameters/method.enum",
+                            "facet": "metadata_general_parameters_method"
+                        },
                         "record_information": {
                             "detail": "polymorphic",
                             "input": "polymorphic",
@@ -4924,16 +4934,6 @@
                             "hint": "metadata/general_parameters/schema_version.hint",
                             "enum": "metadata/general_parameters/schema_version.enum",
                             "facet": "metadata_general_parameters_schema_version"
-                        },
-                        "technique": {
-                            "detail": "keyword",
-                            "input": "keyword",
-                            "required": true,
-                            "help": "metadata/general_parameters/technique.help",
-                            "label": "metadata/general_parameters/technique.label",
-                            "hint": "metadata/general_parameters/technique.hint",
-                            "enum": "metadata/general_parameters/technique.enum",
-                            "facet": "metadata_general_parameters_technique"
                         }
                     }
                 },

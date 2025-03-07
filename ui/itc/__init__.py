@@ -16,7 +16,7 @@ class ItcInitialValuesComponent(UIResourceComponent):
     def empty_record(self, *, resource_requestctx, empty_data: Dict, **kwargs):
         empty_data.update(
             make_fixed_values(
-                technique="Isothermal Titration Calorimetry (ITC)",
+                method="Isothermal Titration Calorimetry (ITC)",
                 resource_type="ITC",
             )
         )
