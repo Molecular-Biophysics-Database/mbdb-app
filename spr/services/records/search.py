@@ -776,6 +776,7 @@ class SprSearchOptions(I18nRDMSearchOptions):
         "metadata_general_parameters_instrument": (
             facets.metadata_general_parameters_instrument
         ),
+        "metadata_general_parameters_method": facets.metadata_general_parameters_method,
         "metadata_general_parameters_record_information_access_rights": (
             facets.metadata_general_parameters_record_information_access_rights
         ),
@@ -842,9 +843,6 @@ class SprSearchOptions(I18nRDMSearchOptions):
         "metadata_general_parameters_schema_version": (
             facets.metadata_general_parameters_schema_version
         ),
-        "metadata_general_parameters_technique": (
-            facets.metadata_general_parameters_technique
-        ),
         "metadata_method_specific_parameters_data_analysis_data_fitting_model": (
             facets.metadata_method_specific_parameters_data_analysis_data_fitting_model
         ),
@@ -908,11 +906,11 @@ class SprSearchOptions(I18nRDMSearchOptions):
         "metadata_method_specific_parameters_measurement_protocol_flow_direction": (
             facets.metadata_method_specific_parameters_measurement_protocol_flow_direction
         ),
-        "metadata_method_specific_parameters_measurement_protocol_flow_rate": (
-            facets.metadata_method_specific_parameters_measurement_protocol_flow_rate
+        "metadata_method_specific_parameters_measurement_protocol_flow_rate_unit": (
+            facets.metadata_method_specific_parameters_measurement_protocol_flow_rate_unit
         ),
-        "metadata_method_specific_parameters_measurement_protocol_flow_unit": (
-            facets.metadata_method_specific_parameters_measurement_protocol_flow_unit
+        "metadata_method_specific_parameters_measurement_protocol_flow_rate_value": (
+            facets.metadata_method_specific_parameters_measurement_protocol_flow_rate_value
         ),
         "metadata_method_specific_parameters_measurement_protocol_id": (
             facets.metadata_method_specific_parameters_measurement_protocol_id
@@ -1780,6 +1778,7 @@ class SprDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_general_parameters_instrument": (
             facets.metadata_general_parameters_instrument
         ),
+        "metadata_general_parameters_method": facets.metadata_general_parameters_method,
         "metadata_general_parameters_record_information_access_rights": (
             facets.metadata_general_parameters_record_information_access_rights
         ),
@@ -1846,9 +1845,6 @@ class SprDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_general_parameters_schema_version": (
             facets.metadata_general_parameters_schema_version
         ),
-        "metadata_general_parameters_technique": (
-            facets.metadata_general_parameters_technique
-        ),
         "metadata_method_specific_parameters_data_analysis_data_fitting_model": (
             facets.metadata_method_specific_parameters_data_analysis_data_fitting_model
         ),
@@ -1912,11 +1908,11 @@ class SprDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_method_specific_parameters_measurement_protocol_flow_direction": (
             facets.metadata_method_specific_parameters_measurement_protocol_flow_direction
         ),
-        "metadata_method_specific_parameters_measurement_protocol_flow_rate": (
-            facets.metadata_method_specific_parameters_measurement_protocol_flow_rate
+        "metadata_method_specific_parameters_measurement_protocol_flow_rate_unit": (
+            facets.metadata_method_specific_parameters_measurement_protocol_flow_rate_unit
         ),
-        "metadata_method_specific_parameters_measurement_protocol_flow_unit": (
-            facets.metadata_method_specific_parameters_measurement_protocol_flow_unit
+        "metadata_method_specific_parameters_measurement_protocol_flow_rate_value": (
+            facets.metadata_method_specific_parameters_measurement_protocol_flow_rate_value
         ),
         "metadata_method_specific_parameters_measurement_protocol_id": (
             facets.metadata_method_specific_parameters_measurement_protocol_id

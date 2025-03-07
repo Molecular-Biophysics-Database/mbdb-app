@@ -25,7 +25,7 @@ def schema_version(model: str) -> str:
     return yml[model]["properties"]["schema_version"]["enum"][0]
 
 
-def make_fixed_values(technique: str, resource_type: str) -> dict:
+def make_fixed_values(method: str, resource_type: str) -> dict:
     """
     Based on the technique, make_fixed_values constructs an initial
     metadata record with all the fixed values set
@@ -33,7 +33,7 @@ def make_fixed_values(technique: str, resource_type: str) -> dict:
     record = deepcopy(FIXED_RECORD_VALUES)
     metadata = record["metadata"]
     gp = metadata["general_parameters"]
-    gp["technique"] = technique
+    gp["method"] = method
     gp["record_information"]["resource_type"] = resource_type
     metadata["method_specific_parameters"] = {
         "schema_version": schema_version(resource_type)

@@ -2211,6 +2211,11 @@ metadata_general_parameters_instrument = VocabularyFacet(
     vocabulary="instruments",
 )
 
+metadata_general_parameters_method = TermsFacet(
+    field="metadata.general_parameters.method",
+    label=_("metadata/general_parameters/method.label"),
+)
+
 metadata_general_parameters_record_information_access_rights = TermsFacet(
     field="metadata.general_parameters.record_information.access_rights",
     label=_("metadata/general_parameters/record_information/access_rights.label"),
@@ -2326,11 +2331,6 @@ metadata_general_parameters_results_value_error_upper = TermsFacet(
 metadata_general_parameters_schema_version = TermsFacet(
     field="metadata.general_parameters.schema_version",
     label=_("metadata/general_parameters/schema_version.label"),
-)
-
-metadata_general_parameters_technique = TermsFacet(
-    field="metadata.general_parameters.technique",
-    label=_("metadata/general_parameters/technique.label"),
 )
 
 metadata_method_specific_parameters_data_analysis_data_fitting_model = TermsFacet(

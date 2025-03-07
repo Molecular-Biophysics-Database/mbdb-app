@@ -2383,6 +2383,10 @@
                                     }
                                 }
                             },
+                            "method": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
                             "record_information": {
                                 "type": "object",
                                 "properties": {
@@ -2509,10 +2513,6 @@
                                 }
                             },
                             "schema_version": {
-                                "type": "keyword",
-                                "ignore_above": 1024
-                            },
-                            "technique": {
                                 "type": "keyword",
                                 "ignore_above": 1024
                             }

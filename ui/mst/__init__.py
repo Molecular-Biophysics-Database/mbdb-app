@@ -16,7 +16,7 @@ class MstInitialValuesComponent(UIResourceComponent):
     def empty_record(self, *, resource_requestctx, empty_data: Dict, **kwargs):
         empty_data.update(
             make_fixed_values(
-                technique="Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
+                method="Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
                 resource_type="MST",
             )
         )

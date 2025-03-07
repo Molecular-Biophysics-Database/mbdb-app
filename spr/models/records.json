@@ -3,6 +3,32 @@
         "type": "model",
         "mapping": {
             "template": {
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200,
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "edge_ngram",
+                                "min_gram": 4,
+                                "max_gram": 8,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
+                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -58,32 +84,6 @@
                             }
                         }
                     ]
-                },
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": [
-                        "collected_default_search_fields",
-                        "collected_default_search_fields.substringmatch"
-                    ],
-                    "analysis": {
-                        "analyzer": {
-                            "substring": {
-                                "tokenizer": "substringtokenizer"
-                            }
-                        },
-                        "tokenizer": {
-                            "substringtokenizer": {
-                                "type": "edge_ngram",
-                                "min_gram": 4,
-                                "max_gram": 8,
-                                "token_chars": [
-                                    "letter",
-                                    "digit"
-                                ]
-                            }
-                        }
-                    }
                 }
             },
             "generate": true,
@@ -1623,7 +1623,7 @@
                                                                             }
                                                                         },
                                                                         "minItems": 1,
-                                                                        "help.en": "Modifications of the polymer made after synthesis (e.g. post-translational modifications, DNA methylation) by the organism where synthesis occurred (e.g. glycosylation)",
+                                                                        "help.en": "Modifications of the polymer after its synthesis (e.g. post-translational modifications and DNA methylation) by the organism where the synthesis occurred",
                                                                         "label.en": "Biological postprocessing",
                                                                         "marshmallow": {
                                                                             "validators": [
@@ -2770,7 +2770,7 @@
                                                                                                 }
                                                                                             },
                                                                                             "minItems": 1,
-                                                                                            "help.en": "Modifications of the polymer made after synthesis (e.g. post-translational modifications, DNA methylation) by the organism where synthesis occurred (e.g. glycosylation)",
+                                                                                            "help.en": "Modifications of the polymer after its synthesis (e.g. post-translational modifications and DNA methylation) by the organism where the synthesis occurred",
                                                                                             "label.en": "Biological postprocessing",
                                                                                             "marshmallow": {
                                                                                                 "validators": [
@@ -6605,7 +6605,7 @@
                                                                                                         }
                                                                                                     },
                                                                                                     "minItems": 1,
-                                                                                                    "help.en": "Modifications of the polymer made after synthesis (e.g. post-translational modifications, DNA methylation) by the organism where synthesis occurred (e.g. glycosylation)",
+                                                                                                    "help.en": "Modifications of the polymer after its synthesis (e.g. post-translational modifications and DNA methylation) by the organism where the synthesis occurred",
                                                                                                     "label.en": "Biological postprocessing",
                                                                                                     "marshmallow": {
                                                                                                         "validators": [
@@ -8363,7 +8363,7 @@
                                                             "biological_postprocessing": {
                                                                 "type": "array",
                                                                 "minItems": 1,
-                                                                "help.en": "Modifications of the polymer made after synthesis (e.g. post-translational modifications, DNA methylation) by the organism where synthesis occurred (e.g. glycosylation)",
+                                                                "help.en": "Modifications of the polymer after its synthesis (e.g. post-translational modifications and DNA methylation) by the organism where the synthesis occurred",
                                                                 "label.en": "Biological postprocessing",
                                                                 "marshmallow": {
                                                                     "validators": [
@@ -9978,7 +9978,7 @@
                                                                                         }
                                                                                     },
                                                                                     "minItems": 1,
-                                                                                    "help.en": "Modifications of the polymer made after synthesis (e.g. post-translational modifications, DNA methylation) by the organism where synthesis occurred (e.g. glycosylation)",
+                                                                                    "help.en": "Modifications of the polymer after its synthesis (e.g. post-translational modifications and DNA methylation) by the organism where the synthesis occurred",
                                                                                     "label.en": "Biological postprocessing",
                                                                                     "marshmallow": {
                                                                                         "validators": [
@@ -10917,7 +10917,7 @@
                                                                         "biological_postprocessing": {
                                                                             "type": "array",
                                                                             "minItems": 1,
-                                                                            "help.en": "Modifications of the polymer made after synthesis (e.g. post-translational modifications, DNA methylation) by the organism where synthesis occurred (e.g. glycosylation)",
+                                                                            "help.en": "Modifications of the polymer after its synthesis (e.g. post-translational modifications and DNA methylation) by the organism where the synthesis occurred",
                                                                             "label.en": "Biological postprocessing",
                                                                             "marshmallow": {
                                                                                 "validators": [
@@ -14718,7 +14718,7 @@
                                                                 }
                                                             },
                                                             "minItems": 1,
-                                                            "help.en": "Modifications of the polymer made after synthesis (e.g. post-translational modifications, DNA methylation) by the organism where synthesis occurred (e.g. glycosylation)",
+                                                            "help.en": "Modifications of the polymer after its synthesis (e.g. post-translational modifications and DNA methylation) by the organism where the synthesis occurred",
                                                             "label.en": "Biological postprocessing",
                                                             "marshmallow": {
                                                                 "validators": [
@@ -15765,7 +15765,7 @@
                                                                                     }
                                                                                 },
                                                                                 "minItems": 1,
-                                                                                "help.en": "Modifications of the polymer made after synthesis (e.g. post-translational modifications, DNA methylation) by the organism where synthesis occurred (e.g. glycosylation)",
+                                                                                "help.en": "Modifications of the polymer after its synthesis (e.g. post-translational modifications and DNA methylation) by the organism where the synthesis occurred",
                                                                                 "label.en": "Biological postprocessing",
                                                                                 "marshmallow": {
                                                                                     "validators": [
@@ -19300,7 +19300,7 @@
                                                                                             }
                                                                                         },
                                                                                         "minItems": 1,
-                                                                                        "help.en": "Modifications of the polymer made after synthesis (e.g. post-translational modifications, DNA methylation) by the organism where synthesis occurred (e.g. glycosylation)",
+                                                                                        "help.en": "Modifications of the polymer after its synthesis (e.g. post-translational modifications and DNA methylation) by the organism where the synthesis occurred",
                                                                                         "label.en": "Biological postprocessing",
                                                                                         "marshmallow": {
                                                                                             "validators": [
@@ -20905,7 +20905,7 @@
                                                 "biological_postprocessing": {
                                                     "type": "array",
                                                     "minItems": 1,
-                                                    "help.en": "Modifications of the polymer made after synthesis (e.g. post-translational modifications, DNA methylation) by the organism where synthesis occurred (e.g. glycosylation)",
+                                                    "help.en": "Modifications of the polymer after its synthesis (e.g. post-translational modifications and DNA methylation) by the organism where the synthesis occurred",
                                                     "label.en": "Biological postprocessing",
                                                     "marshmallow": {
                                                         "validators": [
@@ -22523,7 +22523,7 @@
                                                                             }
                                                                         },
                                                                         "minItems": 1,
-                                                                        "help.en": "Modifications of the polymer made after synthesis (e.g. post-translational modifications, DNA methylation) by the organism where synthesis occurred (e.g. glycosylation)",
+                                                                        "help.en": "Modifications of the polymer after its synthesis (e.g. post-translational modifications and DNA methylation) by the organism where the synthesis occurred",
                                                                         "label.en": "Biological postprocessing",
                                                                         "marshmallow": {
                                                                             "validators": [
@@ -23462,7 +23462,7 @@
                                                             "biological_postprocessing": {
                                                                 "type": "array",
                                                                 "minItems": 1,
-                                                                "help.en": "Modifications of the polymer made after synthesis (e.g. post-translational modifications, DNA methylation) by the organism where synthesis occurred (e.g. glycosylation)",
+                                                                "help.en": "Modifications of the polymer after its synthesis (e.g. post-translational modifications and DNA methylation) by the organism where the synthesis occurred",
                                                                 "label.en": "Biological postprocessing",
                                                                 "marshmallow": {
                                                                     "validators": [
@@ -26040,6 +26040,18 @@
                                     }
                                 }
                             },
+                            "method": {
+                                "type": "keyword",
+                                "required": true,
+                                "enum": [
+                                    "Bio-layer interferometry (BLI)",
+                                    "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
+                                    "Surface plasmon resonance (SPR)",
+                                    "Isothermal Titration Calorimetry (ITC)"
+                                ],
+                                "help.en": "The type of experimental method used for collecting the raw data annotated by this record",
+                                "label.en": "Method"
+                            },
                             "record_information": {
                                 "type": "polymorphic",
                                 "required": true,
@@ -26132,7 +26144,7 @@
                                             "resource_type": {
                                                 "type": "keyword",
                                                 "required": true,
-                                                "help.en": "DataCite item which shows type of dataset the record is and corresponds directly to which kind of technique was used (BLI/ITC/MST/SPR)",
+                                                "help.en": "DataCite item which shows type of dataset the record is and corresponds directly to which kind of method was used (BLI/ITC/MST/SPR)",
                                                 "label.en": "Resource type"
                                             },
                                             "external_identifier": {
@@ -26261,7 +26273,7 @@
                                             "resource_type": {
                                                 "type": "keyword",
                                                 "required": true,
-                                                "help.en": "DataCite item which shows type of dataset the record is and corresponds directly to which kind of technique was used (BLI/ITC/MST/SPR)",
+                                                "help.en": "DataCite item which shows type of dataset the record is and corresponds directly to which kind of method was used (BLI/ITC/MST/SPR)",
                                                 "label.en": "Resource type"
                                             },
                                             "external_identifier": {
@@ -26356,7 +26368,7 @@
                                             "resource_type": {
                                                 "type": "keyword",
                                                 "required": true,
-                                                "help.en": "DataCite item which shows type of dataset the record is and corresponds directly to which kind of technique was used (BLI/ITC/MST/SPR)",
+                                                "help.en": "DataCite item which shows type of dataset the record is and corresponds directly to which kind of method was used (BLI/ITC/MST/SPR)",
                                                 "label.en": "Resource type"
                                             },
                                             "external_identifier": {
@@ -26494,7 +26506,7 @@
                                     "resource_type": {
                                         "type": "keyword",
                                         "required": true,
-                                        "help.en": "DataCite item which shows type of dataset the record is and corresponds directly to which kind of technique was used (BLI/ITC/MST/SPR)",
+                                        "help.en": "DataCite item which shows type of dataset the record is and corresponds directly to which kind of method was used (BLI/ITC/MST/SPR)",
                                         "label.en": "Resource type"
                                     },
                                     "resource_type_general": {
@@ -28943,22 +28955,10 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.11.0"
+                                    "0.12.0"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"
-                            },
-                            "technique": {
-                                "type": "keyword",
-                                "required": true,
-                                "enum": [
-                                    "Bio-layer interferometry (BLI)",
-                                    "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
-                                    "Surface plasmon resonance (SPR)",
-                                    "Isothermal Titration Calorimetry (ITC)"
-                                ],
-                                "help.en": "The type of experimental technique used for collecting the raw data annotated by this record",
-                                "label.en": "Technique"
                             }
                         }
                     },
@@ -29112,7 +29112,7 @@
                                         "measurements": {
                                             "type": "array",
                                             "minItems": 1,
-                                            "help.en": "List of measurement links that was analyzed together",
+                                            "help.en": "List of measurement links that were analyzed together",
                                             "label.en": "Measurements",
                                             "marshmallow": {
                                                 "validators": [
@@ -29535,26 +29535,44 @@
                                                     }
                                                 },
                                                 "rate": {
-                                                    "type": "double",
+                                                    "type": "object",
                                                     "required": true,
-                                                    "minimum": 0.0,
-                                                    "help.en": "Numerical value of the flow-rate",
+                                                    "help.en": "The numerical value and unit of the flow-rate",
                                                     "label.en": "Rate",
                                                     "marshmallow": {
-                                                        "validators": [
-                                                            "ma.validate.Range(min=0.0)"
-                                                        ]
+                                                        "generate": true,
+                                                        "class": "spr.services.records.schema.RateSchema"
+                                                    },
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "generate": true,
+                                                            "class": "spr.services.records.ui_schema.RateUISchema"
+                                                        }
+                                                    },
+                                                    "properties": {
+                                                        "unit": {
+                                                            "type": "keyword",
+                                                            "required": true,
+                                                            "enum": [
+                                                                "mL/min",
+                                                                "µl/s"
+                                                            ],
+                                                            "help.en": "The unit of the flow-rate",
+                                                            "label.en": "Unit"
+                                                        },
+                                                        "value": {
+                                                            "type": "double",
+                                                            "required": true,
+                                                            "minimum": 0.0,
+                                                            "help.en": "Numerical value of the flow-rate",
+                                                            "label.en": "Value",
+                                                            "marshmallow": {
+                                                                "validators": [
+                                                                    "ma.validate.Range(min=0.0)"
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                },
-                                                "unit": {
-                                                    "type": "keyword",
-                                                    "required": true,
-                                                    "enum": [
-                                                        "mL/min",
-                                                        "µl/s"
-                                                    ],
-                                                    "help.en": "The unit of the flow-rate",
-                                                    "label.en": "Unit"
                                                 }
                                             }
                                         },
@@ -30534,7 +30552,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.9.7"
+                                    "0.10.0"
                                 ],
                                 "help.en": "The schema version used to annotate the SPR method specific parameters",
                                 "label.en": "Schema version"
@@ -30701,11 +30719,11 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "type": "object",
                     "uniqueItems": true,
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
                     },
+                    "type": "object",
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,

@@ -16,7 +16,7 @@ class BliInitialValuesComponent(UIResourceComponent):
     def empty_record(self, *, resource_requestctx, empty_data: Dict, **kwargs):
         empty_data.update(
             make_fixed_values(
-                technique="Bio-layer interferometry (BLI)",
+                method="Bio-layer interferometry (BLI)",
                 resource_type="BLI",
             )
         )

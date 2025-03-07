@@ -107,18 +107,7 @@ class GeneralParametersSchema(DictOnlySchema):
 
     instrument = ma_fields.Nested(lambda: InstrumentSchema(), required=True)
 
-    record_information = ma_fields.Nested(
-        lambda: RecordInformationSchema(), required=True
-    )
-
-    results = ma_fields.List(
-        ma_fields.Nested(lambda: ResultsItemSchema()),
-        validate=[ma.validate.Length(min=1)],
-    )
-
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.11.0"])])
-
-    technique = ma_fields.String(
+    method = ma_fields.String(
         required=True,
         validate=[
             OneOf(
@@ -131,6 +120,17 @@ class GeneralParametersSchema(DictOnlySchema):
             )
         ],
     )
+
+    record_information = ma_fields.Nested(
+        lambda: RecordInformationSchema(), required=True
+    )
+
+    results = ma_fields.List(
+        ma_fields.Nested(lambda: ResultsItemSchema()),
+        validate=[ma.validate.Length(min=1)],
+    )
+
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.12.0"])])
 
 
 class ChemicalEnvironmentsItemSchema(DictOnlySchema):
@@ -735,7 +735,7 @@ class MethodSpecificParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.9.7"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.10.0"])])
 
     sensor = ma_fields.Nested(lambda: SensorSchema(), required=True)
 
@@ -2439,9 +2439,7 @@ class FlowSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    rate = ma_fields.Float(required=True, validate=[ma.validate.Range(min=0.0)])
-
-    unit = ma_fields.String(required=True, validate=[OneOf(["mL/min", "µl/s"])])
+    rate = ma_fields.Nested(lambda: RateSchema(), required=True)
 
 
 class HomogeneitySchema(PolymorphicSchema):
@@ -2885,6 +2883,15 @@ class PurityYesSchema(DictOnlySchema):
     purity_percentage = ma_fields.String(
         required=True, validate=[OneOf(["<90 %", ">90 %", ">95 %", ">99 %"])]
     )
+
+
+class RateSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    unit = ma_fields.String(required=True, validate=[OneOf(["mL/min", "µl/s"])])
+
+    value = ma_fields.Float(required=True, validate=[ma.validate.Range(min=0.0)])
 
 
 class RestrictedSchema(DictOnlySchema):

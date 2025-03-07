@@ -8,8 +8,8 @@ the record view. This includes
  4. The associated publication
  5. The license information
  6. The funding information
- 7. The technique/method
- 
+ 7. The method
+
 Note that title and state/status is not rendered by this component #}
 
 <IValueList>
@@ -28,5 +28,5 @@ Note that title and state/status is not rendered by this component #}
     <IField d={gp.funding_references} >
         <Funding funding_refs={gp.funding_references} />
     </IField>
-    <IField d={gp.technique} />
+    <IField d={gp.methods} />
 </IValueList>

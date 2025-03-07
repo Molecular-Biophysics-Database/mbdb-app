@@ -4625,6 +4625,16 @@
                                 }
                             }
                         },
+                        "method": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "required": true,
+                            "help": "metadata/general_parameters/method.help",
+                            "label": "metadata/general_parameters/method.label",
+                            "hint": "metadata/general_parameters/method.hint",
+                            "enum": "metadata/general_parameters/method.enum",
+                            "facet": "metadata_general_parameters_method"
+                        },
                         "record_information": {
                             "detail": "polymorphic",
                             "input": "polymorphic",
@@ -4924,16 +4934,6 @@
                             "hint": "metadata/general_parameters/schema_version.hint",
                             "enum": "metadata/general_parameters/schema_version.enum",
                             "facet": "metadata_general_parameters_schema_version"
-                        },
-                        "technique": {
-                            "detail": "keyword",
-                            "input": "keyword",
-                            "required": true,
-                            "help": "metadata/general_parameters/technique.help",
-                            "label": "metadata/general_parameters/technique.label",
-                            "hint": "metadata/general_parameters/technique.hint",
-                            "enum": "metadata/general_parameters/technique.enum",
-                            "facet": "metadata_general_parameters_technique"
                         }
                     }
                 },
@@ -5378,23 +5378,33 @@
                                                 }
                                             },
                                             "rate": {
-                                                "detail": "double",
-                                                "input": "double",
+                                                "detail": false,
+                                                "input": false,
                                                 "required": true,
                                                 "help": "metadata/method_specific_parameters/measurement_protocol/flow/rate.help",
                                                 "label": "metadata/method_specific_parameters/measurement_protocol/flow/rate.label",
                                                 "hint": "metadata/method_specific_parameters/measurement_protocol/flow/rate.hint",
-                                                "facet": "metadata_method_specific_parameters_measurement_protocol_flow_rate"
-                                            },
-                                            "unit": {
-                                                "detail": "keyword",
-                                                "input": "keyword",
-                                                "required": true,
-                                                "help": "metadata/method_specific_parameters/measurement_protocol/flow/unit.help",
-                                                "label": "metadata/method_specific_parameters/measurement_protocol/flow/unit.label",
-                                                "hint": "metadata/method_specific_parameters/measurement_protocol/flow/unit.hint",
-                                                "enum": "metadata/method_specific_parameters/measurement_protocol/flow/unit.enum",
-                                                "facet": "metadata_method_specific_parameters_measurement_protocol_flow_unit"
+                                                "children": {
+                                                    "unit": {
+                                                        "detail": "keyword",
+                                                        "input": "keyword",
+                                                        "required": true,
+                                                        "help": "metadata/method_specific_parameters/measurement_protocol/flow/rate/unit.help",
+                                                        "label": "metadata/method_specific_parameters/measurement_protocol/flow/rate/unit.label",
+                                                        "hint": "metadata/method_specific_parameters/measurement_protocol/flow/rate/unit.hint",
+                                                        "enum": "metadata/method_specific_parameters/measurement_protocol/flow/rate/unit.enum",
+                                                        "facet": "metadata_method_specific_parameters_measurement_protocol_flow_rate_unit"
+                                                    },
+                                                    "value": {
+                                                        "detail": "double",
+                                                        "input": "double",
+                                                        "required": true,
+                                                        "help": "metadata/method_specific_parameters/measurement_protocol/flow/rate/value.help",
+                                                        "label": "metadata/method_specific_parameters/measurement_protocol/flow/rate/value.label",
+                                                        "hint": "metadata/method_specific_parameters/measurement_protocol/flow/rate/value.hint",
+                                                        "facet": "metadata_method_specific_parameters_measurement_protocol_flow_rate_value"
+                                                    }
+                                                }
                                             }
                                         }
                                     },

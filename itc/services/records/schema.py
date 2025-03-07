@@ -107,18 +107,7 @@ class GeneralParametersSchema(DictOnlySchema):
 
     instrument = ma_fields.Nested(lambda: InstrumentSchema(), required=True)
 
-    record_information = ma_fields.Nested(
-        lambda: RecordInformationSchema(), required=True
-    )
-
-    results = ma_fields.List(
-        ma_fields.Nested(lambda: ResultsItemSchema()),
-        validate=[ma.validate.Length(min=1)],
-    )
-
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.11.0"])])
-
-    technique = ma_fields.String(
+    method = ma_fields.String(
         required=True,
         validate=[
             OneOf(
@@ -131,6 +120,17 @@ class GeneralParametersSchema(DictOnlySchema):
             )
         ],
     )
+
+    record_information = ma_fields.Nested(
+        lambda: RecordInformationSchema(), required=True
+    )
+
+    results = ma_fields.List(
+        ma_fields.Nested(lambda: ResultsItemSchema()),
+        validate=[ma.validate.Length(min=1)],
+    )
+
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.12.0"])])
 
 
 class ChemicalEnvironmentsItemSchema(DictOnlySchema):

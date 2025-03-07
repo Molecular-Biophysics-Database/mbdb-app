@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-03-04T10:48:14.655326\n"
-"PO-Revision-Date: 2025-03-04T10:48:14.655329\n"
+"POT-Creation-Date: 2025-03-06T14:45:14.992361\n"
+"PO-Revision-Date: 2025-03-06T14:45:14.992363\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6927,6 +6927,32 @@ msgstr ""
 msgid "metadata/general_parameters/instrument/@v.hint"
 msgstr ""
 
+msgid "metadata/general_parameters/method.help"
+msgstr ""
+
+msgid "metadata/general_parameters/method.label"
+msgstr ""
+
+msgid "metadata/general_parameters/method.hint"
+msgstr ""
+
+msgid "metadata/general_parameters/method.enum.Bio-layer interferometry (BLI)"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/method.enum.Microscale "
+"thermophoresis/Temperature related intensity change (MST/TRIC)"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/method.enum.Surface plasmon resonance (SPR)"
+msgstr ""
+
+msgid ""
+"metadata/general_parameters/method.enum.Isothermal Titration Calorimetry "
+"(ITC)"
+msgstr ""
+
 msgid "metadata/general_parameters/record_information.help"
 msgstr ""
 
@@ -7431,34 +7457,7 @@ msgstr ""
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.11.0"
-msgstr ""
-
-msgid "metadata/general_parameters/technique.help"
-msgstr ""
-
-msgid "metadata/general_parameters/technique.label"
-msgstr ""
-
-msgid "metadata/general_parameters/technique.hint"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/technique.enum.Bio-layer interferometry (BLI)"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/technique.enum.Microscale "
-"thermophoresis/Temperature related intensity change (MST/TRIC)"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/technique.enum.Surface plasmon resonance (SPR)"
-msgstr ""
-
-msgid ""
-"metadata/general_parameters/technique.enum.Isothermal Titration Calorimetry "
-"(ITC)"
+msgid "metadata/general_parameters/schema_version.enum.0.12.0"
 msgstr ""
 
 msgid "metadata/method_specific_parameters.help"
@@ -7932,23 +7931,35 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurement_protocol/flow/unit.help"
+"metadata/method_specific_parameters/measurement_protocol/flow/rate/unit.help"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurement_protocol/flow/unit.label"
+"metadata/method_specific_parameters/measurement_protocol/flow/rate/unit.label"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurement_protocol/flow/unit.hint"
+"metadata/method_specific_parameters/measurement_protocol/flow/rate/unit.hint"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurement_protocol/flow/unit.enum.mL/min"
+"metadata/method_specific_parameters/measurement_protocol/flow/rate/unit.enum.mL/min"
 msgstr ""
 
 msgid ""
-"metadata/method_specific_parameters/measurement_protocol/flow/unit.enum.µl/s"
+"metadata/method_specific_parameters/measurement_protocol/flow/rate/unit.enum.µl/s"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/flow/rate/value.help"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/flow/rate/value.label"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurement_protocol/flow/rate/value.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/measurement_protocol/id.help"
@@ -8831,7 +8842,7 @@ msgstr ""
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.9.7"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.10.0"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/sensor.help"

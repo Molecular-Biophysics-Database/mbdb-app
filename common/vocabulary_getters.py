@@ -101,6 +101,7 @@ class RORServiceV1(AuthorityProvider):
 class RORService(RORServiceV1):
     """API v2 compatible ROR AuthorityProvider for affiliations"""
     search_url = "https://api.ror.org/v2/organizations"
+    get_url = f"{search_url}/"
 
     @staticmethod
     def convert_ror_record(affiliation):
