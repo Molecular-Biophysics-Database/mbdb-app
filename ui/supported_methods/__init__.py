@@ -2,12 +2,12 @@ from oarepo_ui.resources.config import TemplatePageUIResourceConfig
 from oarepo_ui.resources.resource import TemplatePageUIResource
 
 
-class SupportedTechniquesPageResourceConfig(TemplatePageUIResourceConfig):
+class SupportedMethodsPageResourceConfig(TemplatePageUIResourceConfig):
     url_prefix = "/"
-    blueprint_name = "supported_techniques"
+    blueprint_name = "supported_methods"
     template_folder = "templates"
     pages = {
-        "supported-techniques": "SupportedTechniquesPage",
+        "supported-methods": "SupportedMethodsPage",
         # add a new page here. The key is the URL path, the value is the name of the template
         # then put <name>.jinja into the templates folder
     }
@@ -15,4 +15,4 @@ class SupportedTechniquesPageResourceConfig(TemplatePageUIResourceConfig):
 
 def create_blueprint(app):
     """Register blueprint for this resource."""
-    return TemplatePageUIResource(SupportedTechniquesPageResourceConfig()).as_blueprint()
+    return TemplatePageUIResource(SupportedMethodsPageResourceConfig()).as_blueprint()
