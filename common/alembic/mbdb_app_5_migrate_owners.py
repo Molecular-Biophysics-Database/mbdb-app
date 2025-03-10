@@ -18,7 +18,7 @@ depends_on = None
 
 
 affected_tables = [
-    f"{model}_metadata_parent_record"
+    f"{model}_parent_record_metadata"
     for model in ("bli", "itc", "mst", "spr")
 ]
 
