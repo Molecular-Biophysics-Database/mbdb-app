@@ -1,6 +1,7 @@
 import datetime
 from typing import List
 from flask import current_app
+from oarepo_doi.doi_mapping_base import DataCiteMappingBase
 
 # <Converting MBDB depositors to DataCite creators>
 def add_optional_fields_creator(field: str, person: dict, creator: dict) -> None:
@@ -119,7 +120,7 @@ def add_schema(datacite_version):
     return datacite_version
 
 
-class DataCiteMappingMBDB:
+class DataCiteMappingMBDB(DataCiteMappingBase):
     """Interface between DataCite and MBDB data models"""
 
     def __init__(self):
@@ -169,15 +170,9 @@ class DataCiteMappingMBDB:
 
         return {field: func(data) for field, func, data in fields}
 
-    @staticmethod
-    def get_doi(record):
-        """Extract DOI from record metadata"""
-        return record["metadata"]["general_parameters"]["record_information"].get(
-            "external_identifier", None
-        )
-
-    def add_doi(self, record, data, doi_value):
+    def add_doi_value(self, record, data, doi_value):
         """Add the DOI to the record metadata"""
+        # add to metadata section
         info = data["metadata"]["general_parameters"]["record_information"]
         info.update(
             {
@@ -185,5 +180,15 @@ class DataCiteMappingMBDB:
                 "date_available": self.current_date.isoformat(),
             }
         )
+        # add to RDM field
+        pids = record.get('pids', {})
+        if pids is None:
+            pids = {}
+        pids["doi"] = {"provider": "datacite", "identifier": doi_value}
+        try:
+            data.pids = pids
+        except:
+            data["pids"] = pids
+
         record.update(data)
         record.commit()
