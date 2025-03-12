@@ -3,32 +3,6 @@
         "type": "model",
         "mapping": {
             "template": {
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": [
-                        "collected_default_search_fields",
-                        "collected_default_search_fields.substringmatch"
-                    ],
-                    "analysis": {
-                        "analyzer": {
-                            "substring": {
-                                "tokenizer": "substringtokenizer"
-                            }
-                        },
-                        "tokenizer": {
-                            "substringtokenizer": {
-                                "type": "edge_ngram",
-                                "min_gram": 4,
-                                "max_gram": 8,
-                                "token_chars": [
-                                    "letter",
-                                    "digit"
-                                ]
-                            }
-                        }
-                    }
-                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -84,6 +58,32 @@
                             }
                         }
                     ]
+                },
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200,
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "edge_ngram",
+                                "min_gram": 4,
+                                "max_gram": 8,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
                 }
             },
             "generate": true,
@@ -26047,7 +26047,8 @@
                                     "Bio-layer interferometry (BLI)",
                                     "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
                                     "Surface plasmon resonance (SPR)",
-                                    "Isothermal Titration Calorimetry (ITC)"
+                                    "Isothermal Titration Calorimetry (ITC)",
+                                    "Mass photometry (MP)"
                                 ],
                                 "help.en": "The type of experimental method used for collecting the raw data annotated by this record",
                                 "label.en": "Method"
@@ -28955,7 +28956,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.12.0"
+                                    "0.13.0"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"
@@ -30366,7 +30367,9 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "type": "object",
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    },
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -30383,9 +30386,7 @@
                         }
                     },
                     "uniqueItems": true,
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    }
+                    "type": "object"
                 },
                 "ui": {
                     "marshmallow": {

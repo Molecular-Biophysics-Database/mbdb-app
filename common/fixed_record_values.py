@@ -10,7 +10,7 @@ def schema_version(model: str) -> str:
     Note that it assumes models can be located in ../models
     """
     model_path = Path(__file__).parent.parent / "models"
-    models = ("General_parameters", "BLI", "ITC", "MST", "SPR")
+    models = ("General_parameters", "BLI", "ITC", "MST", "SPR", "MP")
 
     if model not in models:
         raise ValueError(f"model: '{model}' is not among the known models: {models}")
