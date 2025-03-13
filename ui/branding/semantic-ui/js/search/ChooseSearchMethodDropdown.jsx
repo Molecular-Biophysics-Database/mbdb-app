@@ -28,15 +28,16 @@ export default function ChooseSearchMethodDropdown() {
           </button>
         </div>
         <select
-          className="bg-dark rounded-lg h-[50px] w-[358px] p-4 flex justify-center sm:w-[130px] lg:w-[150px] text-primary"
-          value={method}
-          onChange={handleChange}
+            className="bg-dark rounded-lg h-[50px] w-[358px] p-4 flex justify-center sm:w-[130px] lg:w-[150px] text-primary"
+            value={method}
+            onChange={handleChange}
         >
           <option value="search/">All records</option>
-          <option value="mst">Only MST</option>
           <option value="bli">Only BLI</option>
-          <option value="spr">Only SPR</option>
           <option value="itc">Only ITC</option>
+          <option value="mp">Only MP</option>
+          <option value="mst">Only MST</option>
+          <option value="spr">Only SPR</option>
         </select>
       </form>
     </>

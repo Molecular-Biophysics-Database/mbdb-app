@@ -116,6 +116,7 @@ class GeneralParametersSchema(DictOnlySchema):
                     "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
                     "Surface plasmon resonance (SPR)",
                     "Isothermal Titration Calorimetry (ITC)",
+                    "Mass photometry (MP)",
                 ]
             )
         ],
@@ -130,7 +131,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.12.0"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.13.0"])])
 
 
 class ChemicalEnvironmentsItemSchema(DictOnlySchema):

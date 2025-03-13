@@ -17,11 +17,18 @@ function OptionField({
   tooltip,
   required,
   disabled,
+  initialValue,
 }) {
   const nameOptionField =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const [field, meta, helpers] = useField(nameOptionField);
   const { setFieldValue } = useFormikContext();
+
+  useEffect(() => {
+    if (initialValue !== undefined && !field.value) {
+      setFieldValue(nameOptionField, initialValue, false);
+    }
+  }, [initialValue, field.value, nameOptionField, setFieldValue]);
 
   const currentValue =
     typeof field.value === "object" ? field.value.name : field.value || "";

@@ -26057,7 +26057,8 @@
                                     "Bio-layer interferometry (BLI)",
                                     "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
                                     "Surface plasmon resonance (SPR)",
-                                    "Isothermal Titration Calorimetry (ITC)"
+                                    "Isothermal Titration Calorimetry (ITC)",
+                                    "Mass photometry (MP)"
                                 ],
                                 "help.en": "The type of experimental method used for collecting the raw data annotated by this record",
                                 "label.en": "Method"
@@ -28965,7 +28966,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.12.0"
+                                    "0.13.0"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"
@@ -29964,6 +29965,10 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    },
+                    "type": "object",
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -29979,10 +29984,6 @@
                             }
                         }
                     },
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
-                    "type": "object",
                     "uniqueItems": true
                 },
                 "ui": {
