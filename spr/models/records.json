@@ -143,7 +143,7 @@
         "service": {
             "base-classes": [
                 "common.services.records.service.AddWorkflowServiceMixin",
-                "invenio_rdm_records.services.services.RDMRecordService"
+                "oarepo_runtime.services.service.SearchAllRecordsService"
             ],
             "imports": [],
             "generate": true,
@@ -214,11 +214,24 @@
                 ]
             }
         },
+        "resource": {
+            "base-classes": [
+                "oarepo_runtime.resources.resource.BaseRecordResource"
+            ],
+            "generate": true,
+            "config-key": "SPR_RECORD_RESOURCE_CLASS",
+            "module": "spr.resources.records.resource",
+            "class": "spr.resources.records.resource.SprResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
+        },
         "resource-config": {
             "base-url": "/records/spr/",
             "base-html-url": "/spr/",
             "base-classes": [
-                "invenio_drafts_resources.resources.RecordResourceConfig"
+                "oarepo_runtime.resources.config.BaseRecordResourceConfig"
             ],
             "generate": true,
             "config-key": "SPR_RECORD_RESOURCE_CONFIG",
@@ -465,20 +478,6 @@
             "skip": false
         },
         "model-name": "Spr",
-        "record-resolver": {
-            "generate": true,
-            "module": "spr.records.requests.resolvers",
-            "class": "spr.records.requests.resolvers.SprResolver",
-            "base-classes": [
-                "oarepo_runtime.records.entity_resolvers.RecordResolver"
-            ],
-            "imports": [],
-            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
-        },
-        "ui-record-resolver": {
-            "generate": true,
-            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
-        },
         "config": {
             "generate": true,
             "module": "spr.config",
@@ -525,19 +524,6 @@
             "module": "spr.proxies",
             "generate": true
         },
-        "resource": {
-            "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
-            ],
-            "generate": true,
-            "config-key": "SPR_RECORD_RESOURCE_CLASS",
-            "module": "spr.resources.records.resource",
-            "class": "spr.resources.records.resource.SprResource",
-            "proxy": "current_resource",
-            "extra-code": "",
-            "imports": [],
-            "additional-args": []
-        },
         "record": {
             "fields": {
                 "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')",
@@ -572,6 +558,20 @@
             "module": "spr.services.records.schema",
             "class": "spr.services.records.schema.GeneratedParentSchema",
             "generate": true
+        },
+        "record-resolver": {
+            "generate": true,
+            "module": "spr.records.requests.resolvers",
+            "class": "spr.records.requests.resolvers.SprResolver",
+            "base-classes": [
+                "oarepo_runtime.records.entity_resolvers.RecordResolver"
+            ],
+            "imports": [],
+            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
+        },
+        "ui-record-resolver": {
+            "generate": true,
+            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
         },
         "json-serializer": {
             "module": "spr.resources.records.ui",
@@ -671,9 +671,9 @@
                 "oarepo_runtime.services.results.RecordItem"
             ],
             "components": [
+                "{{oarepo_communities.services.results.RecordCommunitiesComponent}}()",
                 "{{oarepo_requests.services.results.RequestsComponent}}()",
-                "{{oarepo_requests.services.results.RequestTypesComponent}}()",
-                "{{oarepo_communities.services.results.RecordCommunitiesComponent}}()"
+                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
             ],
             "imports": []
         },
@@ -30719,11 +30719,6 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "uniqueItems": true,
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
-                    "type": "object",
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -30738,6 +30733,11 @@
                                 "type": "string"
                             }
                         }
+                    },
+                    "type": "object",
+                    "uniqueItems": true,
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
                     }
                 },
                 "ui": {
