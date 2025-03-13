@@ -22,11 +22,6 @@ function DataAnalysis({ name }) {
       "Describe the steps in the data analysis prior to fitting (removing outliers in the raw data, applying data filter, placing data at same start time etc. )",
   };
 
-  const TypeOptions = [
-    { value: "Complex model", label: "Complex model" },
-    { value: "Simple model", label: "Simple model" },
-  ];
-
   const resultOptions = CreateOptions(
     getIn(values, "metadata.general_parameters.results"),
     "Select Result, if applicable"
@@ -39,50 +34,36 @@ function DataAnalysis({ name }) {
 
   return (
     <>
-      <div className="flex">
-        <div className="mr-3">
+      <ArrayField
+        name={name}
+        label="Measurement"
+        fieldName="measurements"
+        tooltip={tooltips.measurement}
+        renderChild={({ arrayName, index }) => (
           <OptionField
-            name={name}
-            label="Type"
-            fieldName="type"
-            options={TypeOptions}
-            required
-            tooltip={tooltips.type}
-          />
-        </div>
-        <div className="mr-3 -mt-3">
-          <ArrayField
-            name={name}
-            label="Measurement"
-            fieldName="measurements"
+            name={`${arrayName}.${index}`}
+            label={`Measurement ${index + 1}`}
+            options={measurementOptions}
             tooltip={tooltips.measurement}
-            renderChild={({ arrayName, index }) => (
-              <OptionField
-                name={`${arrayName}.${index}`}
-                label={`Measurement ${index + 1}`}
-                options={measurementOptions}
-                tooltip={tooltips.measurement}
-              />
-            )}
           />
-        </div>
-        <div className="-mt-3">
-          <ArrayField
-            name={name}
-            label="Results"
-            fieldName="results"
+        )}
+      />
+
+      <ArrayField
+        name={name}
+        label="Results"
+        fieldName="results"
+        tooltip={tooltips.results}
+        renderChild={({ arrayName, index }) => (
+          <OptionField
+            name={`${arrayName}.${index}`}
+            label={`Result ${index + 1}`}
+            options={resultOptions}
             tooltip={tooltips.results}
-            renderChild={({ arrayName, index }) => (
-              <OptionField
-                name={`${arrayName}.${index}`}
-                label={`Result ${index + 1}`}
-                options={resultOptions}
-                tooltip={tooltips.results}
-              />
-            )}
           />
-        </div>
-      </div>
+        )}
+      />
+
       <div className="mb-3">
         <OptionalField
           name={name}

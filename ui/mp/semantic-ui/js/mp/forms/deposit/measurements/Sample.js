@@ -9,7 +9,7 @@ import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
 import Protocol from "@mbdb_deposit/sharedComponents/Protocol";
 import EntityAndConcentration from "@mbdb_deposit/sharedComponents/EntityAndConcentration";
 
-function SampleInCell({ name, colorSchema }) {
+function Sample({ name, colorSchema }) {
   const { values } = useFormikContext();
   UseDefault(`${name}.targets`, [{}]);
 
@@ -32,7 +32,7 @@ function SampleInCell({ name, colorSchema }) {
   return (
     <>
       <FormWrapper
-        headline="Sample in cell"
+        headline="Sample"
         colorSchema={colorSchema}
         tooltip="Composition of the solution in the cell including targets and chemical environment"
       >
@@ -80,4 +80,4 @@ function SampleInCell({ name, colorSchema }) {
   );
 }
 
-export default SampleInCell;
+export default Sample;

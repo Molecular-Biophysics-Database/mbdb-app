@@ -145,7 +145,7 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
 
       <ArrayField
         name={name}
-        label="processing step"
+        label="Processing step"
         fieldName="metadata.processing_step"
         tooltip={tooltips.processingStep}
         renderChild={({ arrayName, index }) => (

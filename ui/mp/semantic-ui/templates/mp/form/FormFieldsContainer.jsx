@@ -14,6 +14,8 @@ import { useFormConfig, useDepositApiClient } from "@js/oarepo_ui";
 import { Button } from "semantic-ui-react";
 import RequestOnRecordView from "@mbdb_deposit/buttons/RequestsRecordView";
 import PreviewButton from "@mbdb_deposit/buttons/PreviewButton";
+import CalibrantsTab from "@mp_deposit/mpTabs/CalibrantsTab";
+import ModeTab from "@mp_deposit/mpTabs/ModeTab";
 
 function FormFieldsContainer() {
   const Tabs = [
@@ -24,6 +26,8 @@ function FormFieldsContainer() {
     { value: "instrument", label: "Instrument" },
     { value: "measurements", label: "Measurements" },
     { value: "result", label: "Results" },
+    { value: "calibrants", label: "Calibrants" },
+    { value: "mode", label: "Mode" },
     { value: "data-analysis", label: "Data analysis" },
   ];
 
@@ -31,6 +35,8 @@ function FormFieldsContainer() {
   const [state, setState] = useState({ selected: "record-information" });
   const { save, values: recordMetadata } = useDepositApiClient();
   const { values, setErrors } = useFormikContext();
+
+  console.log(recordMetadata);
 
   useEffect(() => {
     save(true);
@@ -154,6 +160,18 @@ function FormFieldsContainer() {
                     }`}
                   >
                     <MeasurementsTab name="metadata.method_specific_parameters" />
+                  </div>
+                  <div
+                    className={`${
+                      state.selected === "calibrants" ? "" : "hidden"
+                    }`}
+                  >
+                    <CalibrantsTab name="metadata.method_specific_parameters" />
+                  </div>
+                  <div
+                    className={`${state.selected === "mode" ? "" : "hidden"}`}
+                  >
+                    <ModeTab name="metadata.method_specific_parameters.mode" />
                   </div>
                   <div
                     className={`${

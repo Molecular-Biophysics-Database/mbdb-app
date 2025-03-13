@@ -1,14 +1,14 @@
 import React from "react";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import ArrayField from "@mbdb_deposit/buildingBlocks/ArrayField";
+import Calibrants from "../calibrants/Calibrants";
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
-import Measurements from "../measurements/Measurements";
 
-export default function MeasurementsTab({ name }) {
-  const fieldName = "measurements";
+export default function CalibrantsTab({ name }) {
+  const fieldName = "calibrants";
 
   const tooltip =
-    "List of the information about each measurement. This includes target(s), ligand(s), chemical environment, and the position of the sample within the instrument";
+    "List of objects that was used to create the calibration curve for converting contrast to molecular weight";
 
   UseDefault(`${name}.${fieldName}`, [{}]);
 
@@ -16,18 +16,18 @@ export default function MeasurementsTab({ name }) {
     <>
       <div className="mb-3 w-fit">
         <FormWrapper>
-          Information about the sample composition and measurement times
+          Information about the objects that were used for size calibration
         </FormWrapper>
       </div>
       <ArrayField
         name={name}
-        label="Measurement"
-        required
+        label="Calibrants"
         fieldName={fieldName}
         tooltip={tooltip}
+        required
         renderChild={({ arrayName, index }) => (
-          <FormWrapper headline={`Measurement ${index + 1}`} tooltip={tooltip}>
-            <Measurements name={`${arrayName}.${index}`} />
+          <FormWrapper headline={`Calibrant ${index + 1}`} tooltip={tooltip}>
+            <Calibrants name={`${arrayName}.${index}`} />
           </FormWrapper>
         )}
       />
