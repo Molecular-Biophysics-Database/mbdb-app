@@ -57,7 +57,7 @@ class MpResourceConfig(RecordsUIResourceConfig):
             identity,
             api_config,
             overrides=overrides or {},
-            endpoint="/api/user/records/mo/",
+            endpoint="/api/user/records/mp/",
             **kwargs,
         )
 
