@@ -2,8 +2,8 @@
 
 {# Recordview template that renders the record information (at the beginning of
 the record view. This includes
- 1. The DOI
- 2. The MBDB id o
+ 1. The DOI (or expected DOI if the record is not published yet)
+ 2. The MBDB id
  3. The depositors
  4. The associated publication
  5. The license information
@@ -13,7 +13,13 @@ the record view. This includes
 Note that title and state/status is not rendered by this component #}
 
 <IValueList>
-    <IField d={gp.record_information.external_identifier} label="DOI"  />
+    {% if d.state._ui_value == "published" %}
+        <IField d={gp.record_information.external_identifier} label="DOI"  />
+    {% else %}
+        <IField d={d.id} label="Expected DOI" >
+            <ExpectedDoi id={d.id} />
+        </IField>
+    {% endif %}
     <IField d={d.id} label="Record ID"  />
     <IField d={gp.record_information.date_available} label="Publication date"  />
     <IField d={gp.depositors}>
