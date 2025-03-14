@@ -1,15 +1,15 @@
 from typing import Dict
 
-from oarepo_ui.resources.components import FilesComponent
+from oarepo_ui.resources import BabelComponent, PermissionsComponent
+from oarepo_ui.resources.components import FilesComponent, UIResourceComponent
 from oarepo_ui.resources.config import RecordsUIResourceConfig
 from oarepo_ui.resources.resource import RecordsUIResource
-from oarepo_ui.resources.components import UIResourceComponent
-from oarepo_ui.resources import BabelComponent, PermissionsComponent
 from oarepo_vocabularies.ui.resources.config import (
     VocabularyFormDepositVocabularyOptionsComponent,
 )
 
 from common.fixed_record_values import make_fixed_values
+from common.ui.search_in_all import SearchInAllMixin
 
 
 class MstInitialValuesComponent(UIResourceComponent):
@@ -22,7 +22,7 @@ class MstInitialValuesComponent(UIResourceComponent):
         )
 
 
-class MstResourceConfig(RecordsUIResourceConfig):
+class MstResourceConfig(SearchInAllMixin, RecordsUIResourceConfig):
     template_folder = "templates"
     url_prefix = "/mst/"
     blueprint_name = "mst"
@@ -50,16 +50,6 @@ class MstResourceConfig(RecordsUIResourceConfig):
         "edit": "mst.Deposit",
         "create": "mst.Deposit",
     }
-
-    # TODO: will be removed when user dashboard gets implemented
-    def search_app_config(self, identity, api_config, overrides=None, **kwargs):
-        return super().search_app_config(
-            identity,
-            api_config,
-            overrides=overrides or {},
-            endpoint="/api/user/records/mst/",
-            **kwargs,
-        )
 
 
 class MstResource(RecordsUIResource):

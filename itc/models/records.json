@@ -143,7 +143,7 @@
         "service": {
             "base-classes": [
                 "common.services.records.service.AddWorkflowServiceMixin",
-                "invenio_rdm_records.services.services.RDMRecordService"
+                "oarepo_runtime.services.service.SearchAllRecordsService"
             ],
             "imports": [],
             "generate": true,
@@ -214,11 +214,24 @@
                 ]
             }
         },
+        "resource": {
+            "base-classes": [
+                "oarepo_runtime.resources.resource.BaseRecordResource"
+            ],
+            "generate": true,
+            "config-key": "ITC_RECORD_RESOURCE_CLASS",
+            "module": "itc.resources.records.resource",
+            "class": "itc.resources.records.resource.ItcResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
+        },
         "resource-config": {
             "base-url": "/records/itc/",
             "base-html-url": "/itc/",
             "base-classes": [
-                "invenio_drafts_resources.resources.RecordResourceConfig"
+                "oarepo_runtime.resources.config.BaseRecordResourceConfig"
             ],
             "generate": true,
             "config-key": "ITC_RECORD_RESOURCE_CONFIG",
@@ -524,19 +537,6 @@
         "proxy": {
             "module": "itc.proxies",
             "generate": true
-        },
-        "resource": {
-            "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
-            ],
-            "generate": true,
-            "config-key": "ITC_RECORD_RESOURCE_CLASS",
-            "module": "itc.resources.records.resource",
-            "class": "itc.resources.records.resource.ItcResource",
-            "proxy": "current_resource",
-            "extra-code": "",
-            "imports": [],
-            "additional-args": []
         },
         "record": {
             "fields": {
@@ -30367,9 +30367,7 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
+                    "uniqueItems": true,
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -30385,7 +30383,9 @@
                             }
                         }
                     },
-                    "uniqueItems": true,
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    },
                     "type": "object"
                 },
                 "ui": {

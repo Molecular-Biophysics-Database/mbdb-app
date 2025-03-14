@@ -2451,7 +2451,6 @@
             }
         },
         "pids": {
-            "type": "object",
             "propertyNames": {
                 "pattern": "^[a-z_-][a-z0-9_-]*$"
             },
@@ -2470,6 +2469,7 @@
                     }
                 }
             },
+            "type": "object",
             "uniqueItems": true
         },
         "state": {
