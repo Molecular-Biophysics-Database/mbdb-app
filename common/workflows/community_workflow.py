@@ -36,22 +36,24 @@
 # deleting == record is in the process of being deleted (request filed but not yet accepted)
 #
 
-from oarepo_communities.services.permissions.policy import CommunityDefaultWorkflowPermissions
-
 from invenio_records_permissions.generators import AnyUser, Disable
 from oarepo_communities.services.permissions.generators import (
     CommunityMembers,
     DefaultCommunityRole,
 )
+from oarepo_communities.services.permissions.policy import (
+    CommunityDefaultWorkflowPermissions,
+)
 from oarepo_runtime.services.permissions.generators import RecordOwners
 from oarepo_workflows import (
     AutoApprove,
+    AutoRequest,
     IfInState,
     WorkflowRequest,
     WorkflowRequestPolicy,
     WorkflowTransitions,
-    AutoRequest,
 )
+
 from .custom_generators import UserWithRole
 
 
@@ -83,6 +85,9 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
             ],
         ),
     ]
+
+    can_search_all_records = CommunityDefaultWorkflowPermissions.can_search
+    can_read_all_records = can_read
 
     can_update = [
         IfInState(
@@ -127,15 +132,18 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
     submit_draft = WorkflowRequest(
         # reviewers are notified when a draft is submitted
         requesters=[
-            IfInState("draft",
+            IfInState(
+                "draft",
                 then_=[
                     RecordOwners(),
                     DefaultCommunityRole("administrator"),
-                ]
+                ],
             ),
         ],
         recipients=[UserWithRole("reviewer")],
-        transitions=WorkflowTransitions(declined="draft", submitted="submitted", accepted="accepted"),
+        transitions=WorkflowTransitions(
+            declined="draft", submitted="submitted", accepted="accepted"
+        ),
     )
 
     delete_published_record = WorkflowRequest(
@@ -161,24 +169,23 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
         # is accepted, the record is deleted, if declined, it is published again.
         transitions=WorkflowTransitions(
             submitted="retracting", declined="published", accepted="deleted"
-        )
+        ),
     )
 
     assign_doi = WorkflowRequest(
         # Upon publication, a DOI assignment request is automatically generated
-        requesters=[
-            IfInState("published", then_=[AutoRequest()])
-        ],
+        requesters=[IfInState("published", then_=[AutoRequest()])],
         recipients=[AutoApprove()],
     )
 
     publish_accepted_draft = WorkflowRequest(
         requesters=[
-            IfInState("draft",
+            IfInState(
+                "draft",
                 then_=[
                     RecordOwners(),
                     DefaultCommunityRole("administrator"),
-                ]
+                ],
             ),
         ],
         recipients=[AutoApprove()],
