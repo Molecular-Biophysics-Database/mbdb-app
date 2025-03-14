@@ -49,10 +49,7 @@ record:
   resource-config:
     base-url: /records/mp/
     base-html-url: /mp/
-  service:
-    base-classes:
-      - common.services.records.service.AddWorkflowServiceMixin
-      - invenio_records_resources.services.RecordService{InvenioRecordService}
+
 
 runtime-dependencies: {}
 

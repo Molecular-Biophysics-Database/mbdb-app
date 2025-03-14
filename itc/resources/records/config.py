@@ -1,11 +1,11 @@
 import importlib_metadata
 from flask_resources import ResponseHandler
-from invenio_drafts_resources.resources import RecordResourceConfig
+from oarepo_runtime.resources.config import BaseRecordResourceConfig
 
 from itc.resources.records.ui import ItcUIJSONSerializer
 
 
-class ItcResourceConfig(RecordResourceConfig):
+class ItcResourceConfig(BaseRecordResourceConfig):
     """ItcRecord resource config."""
 
     blueprint_name = "itc"

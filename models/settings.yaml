@@ -38,12 +38,20 @@ record:
   service:
     base-classes:
       - common.services.records.service.AddWorkflowServiceMixin
-      - invenio_drafts_resources.services.RecordService
       - oarepo_runtime.services.service.SearchAllRecordsService
   service-config:
     components:
       - "{{oarepo_vocabularies.authorities.components.AuthorityComponent}}"
       - "{{oarepo_doi.services.components.DoiComponent}}"
       - "exclude:{{oarepo_communities.services.components.include.CommunityInclusionComponent}}"
+
+  resource-config:
+    base-classes:
+      - oarepo_runtime.resources.config.BaseRecordResourceConfig
+
+  resource:
+    base-classes:
+      - oarepo_runtime.resources.resource.BaseRecordResource
+
   search-options:
     base-classes: [common.services.records.search_options.RecordSearchOptions]

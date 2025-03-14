@@ -49,10 +49,7 @@ record:
   resource-config:
     base-url: /records/itc/
     base-html-url: /itc/
-  service:
-    base-classes:
-      - common.services.records.service.AddWorkflowServiceMixin
-      - invenio_records_resources.services.RecordService{InvenioRecordService}
+
 
 runtime-dependencies: {}
 

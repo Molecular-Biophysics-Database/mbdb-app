@@ -143,7 +143,6 @@
         "service": {
             "base-classes": [
                 "common.services.records.service.AddWorkflowServiceMixin",
-                "invenio_rdm_records.services.services.RDMRecordService",
                 "oarepo_runtime.services.service.SearchAllRecordsService"
             ],
             "imports": [],
@@ -215,11 +214,24 @@
                 ]
             }
         },
+        "resource": {
+            "base-classes": [
+                "oarepo_runtime.resources.resource.BaseRecordResource"
+            ],
+            "generate": true,
+            "config-key": "SPR_RECORD_RESOURCE_CLASS",
+            "module": "spr.resources.records.resource",
+            "class": "spr.resources.records.resource.SprResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
+        },
         "resource-config": {
             "base-url": "/records/spr/",
             "base-html-url": "/spr/",
             "base-classes": [
-                "invenio_drafts_resources.resources.RecordResourceConfig"
+                "oarepo_runtime.resources.config.BaseRecordResourceConfig"
             ],
             "generate": true,
             "config-key": "SPR_RECORD_RESOURCE_CONFIG",
@@ -525,19 +537,6 @@
         "proxy": {
             "module": "spr.proxies",
             "generate": true
-        },
-        "resource": {
-            "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
-            ],
-            "generate": true,
-            "config-key": "SPR_RECORD_RESOURCE_CLASS",
-            "module": "spr.resources.records.resource",
-            "class": "spr.resources.records.resource.SprResource",
-            "proxy": "current_resource",
-            "extra-code": "",
-            "imports": [],
-            "additional-args": []
         },
         "record": {
             "fields": {
@@ -30722,6 +30721,7 @@
                 "type": "object",
                 "json-schema": {
                     "uniqueItems": true,
+                    "type": "object",
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -30739,8 +30739,7 @@
                     },
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
-                    "type": "object"
+                    }
                 },
                 "ui": {
                     "marshmallow": {

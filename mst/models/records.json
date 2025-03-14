@@ -3,32 +3,6 @@
         "type": "model",
         "mapping": {
             "template": {
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": [
-                        "collected_default_search_fields",
-                        "collected_default_search_fields.substringmatch"
-                    ],
-                    "analysis": {
-                        "analyzer": {
-                            "substring": {
-                                "tokenizer": "substringtokenizer"
-                            }
-                        },
-                        "tokenizer": {
-                            "substringtokenizer": {
-                                "type": "edge_ngram",
-                                "min_gram": 4,
-                                "max_gram": 8,
-                                "token_chars": [
-                                    "letter",
-                                    "digit"
-                                ]
-                            }
-                        }
-                    }
-                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -84,6 +58,32 @@
                             }
                         }
                     ]
+                },
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200,
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "edge_ngram",
+                                "min_gram": 4,
+                                "max_gram": 8,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
                 }
             },
             "generate": true,
@@ -143,7 +143,6 @@
         "service": {
             "base-classes": [
                 "common.services.records.service.AddWorkflowServiceMixin",
-                "invenio_rdm_records.services.services.RDMRecordService",
                 "oarepo_runtime.services.service.SearchAllRecordsService"
             ],
             "imports": [],
@@ -215,11 +214,24 @@
                 ]
             }
         },
+        "resource": {
+            "base-classes": [
+                "oarepo_runtime.resources.resource.BaseRecordResource"
+            ],
+            "generate": true,
+            "config-key": "MST_RECORD_RESOURCE_CLASS",
+            "module": "mst.resources.records.resource",
+            "class": "mst.resources.records.resource.MstResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "imports": [],
+            "additional-args": []
+        },
         "resource-config": {
             "base-url": "/records/mst/",
             "base-html-url": "/mst/",
             "base-classes": [
-                "invenio_drafts_resources.resources.RecordResourceConfig"
+                "oarepo_runtime.resources.config.BaseRecordResourceConfig"
             ],
             "generate": true,
             "config-key": "MST_RECORD_RESOURCE_CONFIG",
@@ -535,19 +547,6 @@
         "proxy": {
             "module": "mst.proxies",
             "generate": true
-        },
-        "resource": {
-            "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
-            ],
-            "generate": true,
-            "config-key": "MST_RECORD_RESOURCE_CLASS",
-            "module": "mst.resources.records.resource",
-            "class": "mst.resources.records.resource.MstResource",
-            "proxy": "current_resource",
-            "extra-code": "",
-            "imports": [],
-            "additional-args": []
         },
         "record": {
             "fields": {
@@ -29966,10 +29965,6 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "type": "object",
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
                     "uniqueItems": true,
                     "additionalProperties": {
                         "type": "object",
@@ -29985,6 +29980,10 @@
                                 "type": "string"
                             }
                         }
+                    },
+                    "type": "object",
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
                     }
                 },
                 "ui": {

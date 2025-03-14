@@ -1,7 +1,7 @@
-from invenio_drafts_resources.resources import RecordResource
+from oarepo_runtime.resources.resource import BaseRecordResource
 
 
-class MpResource(RecordResource):
+class MpResource(BaseRecordResource):
     """MpRecord resource."""
 
     # here you can for example redefine

@@ -1,11 +1,11 @@
 import importlib_metadata
 from flask_resources import ResponseHandler
-from invenio_drafts_resources.resources import RecordResourceConfig
+from oarepo_runtime.resources.config import BaseRecordResourceConfig
 
 from bli.resources.records.ui import BliUIJSONSerializer
 
 
-class BliResourceConfig(RecordResourceConfig):
+class BliResourceConfig(BaseRecordResourceConfig):
     """BliRecord resource config."""
 
     blueprint_name = "bli"
