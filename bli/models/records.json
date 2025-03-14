@@ -143,7 +143,8 @@
         "service": {
             "base-classes": [
                 "common.services.records.service.AddWorkflowServiceMixin",
-                "invenio_rdm_records.services.services.RDMRecordService"
+                "invenio_rdm_records.services.services.RDMRecordService",
+                "oarepo_runtime.services.service.SearchAllRecordsService"
             ],
             "imports": [],
             "generate": true,
@@ -30433,10 +30434,8 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
+                    "uniqueItems": true,
                     "type": "object",
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -30452,7 +30451,9 @@
                             }
                         }
                     },
-                    "uniqueItems": true
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    }
                 },
                 "ui": {
                     "marshmallow": {

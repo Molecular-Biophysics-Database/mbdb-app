@@ -3,32 +3,6 @@
         "type": "model",
         "mapping": {
             "template": {
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": [
-                        "collected_default_search_fields",
-                        "collected_default_search_fields.substringmatch"
-                    ],
-                    "analysis": {
-                        "analyzer": {
-                            "substring": {
-                                "tokenizer": "substringtokenizer"
-                            }
-                        },
-                        "tokenizer": {
-                            "substringtokenizer": {
-                                "type": "edge_ngram",
-                                "min_gram": 4,
-                                "max_gram": 8,
-                                "token_chars": [
-                                    "letter",
-                                    "digit"
-                                ]
-                            }
-                        }
-                    }
-                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -84,6 +58,32 @@
                             }
                         }
                     ]
+                },
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200,
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "edge_ngram",
+                                "min_gram": 4,
+                                "max_gram": 8,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
                 }
             },
             "generate": true,
@@ -143,7 +143,8 @@
         "service": {
             "base-classes": [
                 "common.services.records.service.AddWorkflowServiceMixin",
-                "invenio_rdm_records.services.services.RDMRecordService"
+                "invenio_rdm_records.services.services.RDMRecordService",
+                "oarepo_runtime.services.service.SearchAllRecordsService"
             ],
             "imports": [],
             "generate": true,
@@ -30720,7 +30721,6 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "type": "object",
                     "uniqueItems": true,
                     "additionalProperties": {
                         "type": "object",
@@ -30739,7 +30739,8 @@
                     },
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    }
+                    },
+                    "type": "object"
                 },
                 "ui": {
                     "marshmallow": {

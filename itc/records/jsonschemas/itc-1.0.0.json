@@ -2356,6 +2356,7 @@
             "propertyNames": {
                 "pattern": "^[a-z_-][a-z0-9_-]*$"
             },
+            "type": "object",
             "additionalProperties": {
                 "type": "object",
                 "additionalProperties": false,
@@ -2371,8 +2372,7 @@
                     }
                 }
             },
-            "uniqueItems": true,
-            "type": "object"
+            "uniqueItems": true
         },
         "state": {
             "type": "string"
