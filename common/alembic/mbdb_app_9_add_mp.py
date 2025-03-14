@@ -30,7 +30,7 @@ def update_records(table_name):
         json_data = row["json"]
         if "metadata" not in json_data:
             continue
-        gp = json_data["metadata"]["general_parameters"]
+        gp = json_data["metadata"].setdefault("general_parameters", {})
 
         # update schema version
         gp["schema_version"] = "0.13.0"
@@ -47,7 +47,7 @@ def downgrade_records(table_name):
         json_data = row["json"]
         if "metadata" not in json_data:
             continue
-        gp = json_data["metadata"]["general_parameters"]
+        gp = json_data["metadata"].setdefault("general_parameters", {})
 
         # update schema version
         gp["schema_version"] = "0.12.0"
