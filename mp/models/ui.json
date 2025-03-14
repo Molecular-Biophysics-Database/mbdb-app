@@ -5572,33 +5572,13 @@
                                     }
                                 },
                                 "flow_cell": {
-                                    "detail": false,
-                                    "input": false,
+                                    "detail": "keyword",
+                                    "input": "keyword",
                                     "required": true,
                                     "help": "metadata/method_specific_parameters/mode/flow_cell.help",
                                     "label": "metadata/method_specific_parameters/mode/flow_cell.label",
                                     "hint": "metadata/method_specific_parameters/mode/flow_cell.hint",
-                                    "children": {
-                                        "unit": {
-                                            "detail": "keyword",
-                                            "input": "keyword",
-                                            "required": true,
-                                            "help": "metadata/method_specific_parameters/mode/flow_cell/unit.help",
-                                            "label": "metadata/method_specific_parameters/mode/flow_cell/unit.label",
-                                            "hint": "metadata/method_specific_parameters/mode/flow_cell/unit.hint",
-                                            "enum": "metadata/method_specific_parameters/mode/flow_cell/unit.enum",
-                                            "facet": "metadata_method_specific_parameters_mode_flow_cell_unit"
-                                        },
-                                        "value": {
-                                            "detail": "double",
-                                            "input": "double",
-                                            "required": true,
-                                            "help": "metadata/method_specific_parameters/mode/flow_cell/value.help",
-                                            "label": "metadata/method_specific_parameters/mode/flow_cell/value.label",
-                                            "hint": "metadata/method_specific_parameters/mode/flow_cell/value.hint",
-                                            "facet": "metadata_method_specific_parameters_mode_flow_cell_value"
-                                        }
-                                    }
+                                    "facet": "metadata_method_specific_parameters_mode_flow_cell"
                                 },
                                 "sample_flowrate": {
                                     "detail": false,

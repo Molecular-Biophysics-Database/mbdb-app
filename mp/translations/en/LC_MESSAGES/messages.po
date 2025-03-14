@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-03-14T10:52:33.750672\n"
-"PO-Revision-Date: 2025-03-14T10:52:33.750678\n"
+"POT-Creation-Date: 2025-03-14T17:23:53.952028\n"
+"PO-Revision-Date: 2025-03-14T17:23:53.952036\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8602,36 +8602,12 @@ msgid "metadata/method_specific_parameters/mode/buffer_flowrate/value.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/mode/flow_cell.help"
-msgstr "Numerical value of the sample rate"
+msgstr "Type (description) of the flow cell"
 
 msgid "metadata/method_specific_parameters/mode/flow_cell.label"
 msgstr "Flow cell"
 
 msgid "metadata/method_specific_parameters/mode/flow_cell.hint"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/unit.help"
-msgstr "The unit of the flow-rate"
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/unit.label"
-msgstr "Unit"
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/unit.hint"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/unit.enum.mL/min"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/unit.enum.µl/s"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/value.help"
-msgstr "Numerical value of the flow-rate"
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/value.label"
-msgstr "Value"
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/value.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/mode/sample_flowrate.help"
@@ -8808,7 +8784,7 @@ msgstr "Schema version"
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.1.0"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.2.0"
 msgstr ""
 
 msgid "metadata/version.label"

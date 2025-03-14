@@ -728,7 +728,7 @@ class MethodSpecificParametersSchema(DictOnlySchema):
 
     mode = ma_fields.Nested(lambda: ModeSchema(), required=True)
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.1.0"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.2.0"])])
 
 
 class QualityControlsSchema(DictOnlySchema):
@@ -2398,7 +2398,7 @@ class FlowSchema(DictOnlySchema):
 
     buffer_flowrate = ma_fields.Nested(lambda: BufferFlowrateSchema(), required=True)
 
-    flow_cell = ma_fields.Nested(lambda: BufferFlowrateSchema(), required=True)
+    flow_cell = ma_fields.String(required=True)
 
     sample_flowrate = ma_fields.Nested(lambda: BufferFlowrateSchema(), required=True)
 

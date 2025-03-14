@@ -3,6 +3,32 @@
         "type": "model",
         "mapping": {
             "template": {
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200,
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "edge_ngram",
+                                "min_gram": 4,
+                                "max_gram": 8,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
+                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -58,32 +84,6 @@
                             }
                         }
                     ]
-                },
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": [
-                        "collected_default_search_fields",
-                        "collected_default_search_fields.substringmatch"
-                    ],
-                    "analysis": {
-                        "analyzer": {
-                            "substring": {
-                                "tokenizer": "substringtokenizer"
-                            }
-                        },
-                        "tokenizer": {
-                            "substringtokenizer": {
-                                "type": "edge_ngram",
-                                "min_gram": 4,
-                                "max_gram": 8,
-                                "token_chars": [
-                                    "letter",
-                                    "digit"
-                                ]
-                            }
-                        }
-                    }
                 }
             },
             "generate": true,
@@ -198,7 +198,7 @@
         },
         "search-options": {
             "base-classes": [
-                "oarepo_runtime.services.search.I18nRDMSearchOptions"
+                "common.services.records.search_options.RecordSearchOptions"
             ],
             "module": "mp.services.records.search",
             "class": "mp.services.records.search.MpSearchOptions",
@@ -29782,44 +29782,10 @@
                                         "required": true,
                                         "properties": {
                                             "flow_cell": {
-                                                "type": "object",
+                                                "type": "keyword",
                                                 "required": true,
-                                                "properties": {
-                                                    "value": {
-                                                        "type": "double",
-                                                        "required": true,
-                                                        "minimum": 0.0,
-                                                        "help.en": "Numerical value of the flow-rate",
-                                                        "label.en": "Value",
-                                                        "marshmallow": {
-                                                            "validators": [
-                                                                "ma.validate.Range(min=0.0)"
-                                                            ]
-                                                        }
-                                                    },
-                                                    "unit": {
-                                                        "type": "keyword",
-                                                        "required": true,
-                                                        "enum": [
-                                                            "mL/min",
-                                                            "µl/s"
-                                                        ],
-                                                        "help.en": "The unit of the flow-rate",
-                                                        "label.en": "Unit"
-                                                    }
-                                                },
-                                                "help.en": "Numerical value of the sample rate",
-                                                "label.en": "Flow cell",
-                                                "marshmallow": {
-                                                    "generate": false,
-                                                    "class": "mp.services.records.schema.BufferFlowrateSchema"
-                                                },
-                                                "ui": {
-                                                    "marshmallow": {
-                                                        "generate": false,
-                                                        "class": "mp.services.records.ui_schema.BufferFlowrateUISchema"
-                                                    }
-                                                }
+                                                "help.en": "Type (description) of the flow cell",
+                                                "label.en": "Flow cell"
                                             },
                                             "sample_flowrate": {
                                                 "type": "object",
@@ -30115,44 +30081,10 @@
                                         }
                                     },
                                     "flow_cell": {
-                                        "type": "object",
+                                        "type": "keyword",
                                         "required": true,
-                                        "help.en": "Numerical value of the sample rate",
-                                        "label.en": "Flow cell",
-                                        "marshmallow": {
-                                            "generate": false,
-                                            "class": "mp.services.records.schema.BufferFlowrateSchema"
-                                        },
-                                        "ui": {
-                                            "marshmallow": {
-                                                "generate": false,
-                                                "class": "mp.services.records.ui_schema.BufferFlowrateUISchema"
-                                            }
-                                        },
-                                        "properties": {
-                                            "unit": {
-                                                "type": "keyword",
-                                                "required": true,
-                                                "enum": [
-                                                    "mL/min",
-                                                    "µl/s"
-                                                ],
-                                                "help.en": "The unit of the flow-rate",
-                                                "label.en": "Unit"
-                                            },
-                                            "value": {
-                                                "type": "double",
-                                                "required": true,
-                                                "minimum": 0.0,
-                                                "help.en": "Numerical value of the flow-rate",
-                                                "label.en": "Value",
-                                                "marshmallow": {
-                                                    "validators": [
-                                                        "ma.validate.Range(min=0.0)"
-                                                    ]
-                                                }
-                                            }
-                                        }
+                                        "help.en": "Type (description) of the flow cell",
+                                        "label.en": "Flow cell"
                                     },
                                     "sample_flowrate": {
                                         "type": "object",
@@ -30318,7 +30250,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.1.0"
+                                    "0.2.0"
                                 ],
                                 "help.en": "The schema version used to annotate the MP method specific parameters",
                                 "label.en": "Schema version"
@@ -30400,6 +30332,8 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
+                    "uniqueItems": true,
+                    "type": "object",
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -30415,11 +30349,9 @@
                             }
                         }
                     },
-                    "type": "object",
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
-                    "uniqueItems": true
+                    }
                 },
                 "ui": {
                     "marshmallow": {

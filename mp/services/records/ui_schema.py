@@ -905,7 +905,7 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
 
     mode = ma_fields.Nested(lambda: ModeUISchema(), required=True)
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.1.0"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.2.0"])])
 
 
 class PolymerUISchema(DictOnlySchema):
@@ -2068,7 +2068,7 @@ class ModeUISchema(DictOnlySchema):
 
     buffer_flowrate = ma_fields.Nested(lambda: BufferFlowrateUISchema(), required=True)
 
-    flow_cell = ma_fields.Nested(lambda: BufferFlowrateUISchema(), required=True)
+    flow_cell = ma_fields.String(required=True)
 
     sample_carrier = ma_fields.Nested(lambda: SampleCarrierUISchema())
 
@@ -2582,7 +2582,7 @@ class FlowUISchema(DictOnlySchema):
 
     buffer_flowrate = ma_fields.Nested(lambda: BufferFlowrateUISchema(), required=True)
 
-    flow_cell = ma_fields.Nested(lambda: BufferFlowrateUISchema(), required=True)
+    flow_cell = ma_fields.String(required=True)
 
     sample_flowrate = ma_fields.Nested(lambda: BufferFlowrateUISchema(), required=True)
 

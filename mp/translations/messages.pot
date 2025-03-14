@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-03-14T10:52:33.750704\n"
-"PO-Revision-Date: 2025-03-14T10:52:33.750706\n"
+"POT-Creation-Date: 2025-03-14T17:23:53.952062\n"
+"PO-Revision-Date: 2025-03-14T17:23:53.952064\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8256,30 +8256,6 @@ msgstr ""
 msgid "metadata/method_specific_parameters/mode/flow_cell.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/mode/flow_cell/unit.help"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/unit.label"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/unit.hint"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/unit.enum.mL/min"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/unit.enum.µl/s"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/value.help"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/value.label"
-msgstr ""
-
-msgid "metadata/method_specific_parameters/mode/flow_cell/value.hint"
-msgstr ""
-
 msgid "metadata/method_specific_parameters/mode/sample_flowrate.help"
 msgstr ""
 
@@ -8450,7 +8426,7 @@ msgstr ""
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.1.0"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.2.0"
 msgstr ""
 
 msgid "metadata/version.label"

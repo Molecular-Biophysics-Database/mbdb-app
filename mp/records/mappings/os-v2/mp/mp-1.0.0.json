@@ -2784,16 +2784,8 @@
                                         }
                                     },
                                     "flow_cell": {
-                                        "type": "object",
-                                        "properties": {
-                                            "unit": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
-                                            "value": {
-                                                "type": "double"
-                                            }
-                                        }
+                                        "type": "keyword",
+                                        "ignore_above": 1024
                                     },
                                     "sample_flowrate": {
                                         "type": "object",
