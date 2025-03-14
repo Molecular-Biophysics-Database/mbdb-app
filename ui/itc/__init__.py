@@ -51,16 +51,6 @@ class ItcResourceConfig(SearchInAllMixin, RecordsUIResourceConfig):
         "create": "itc.Deposit",
     }
 
-    # TODO: will be removed when user dashboard gets implemented
-    def search_app_config(self, identity, api_config, overrides=None, **kwargs):
-        return super().search_app_config(
-            identity,
-            api_config,
-            overrides=overrides or {},
-            endpoint="/api/user/records/itc/",
-            **kwargs,
-        )
-
 
 class ItcResource(RecordsUIResource):
 
