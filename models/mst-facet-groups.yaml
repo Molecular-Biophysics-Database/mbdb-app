@@ -27,10 +27,8 @@ facets:
       metadata.general_parameters.chemical_environments.constituents.components.expression_source_type: 46
       metadata.general_parameters.chemical_environments.constituents.components.external_databases: 47
       metadata.general_parameters.chemical_environments.constituents.components.modifications.biological_postprocessing.position: 48
-      ? metadata.general_parameters.chemical_environments.constituents.components.modifications.biological_postprocessing.protocol.description
-      : 49
-      ? metadata.general_parameters.chemical_environments.constituents.components.modifications.biological_postprocessing.protocol.name
-      : 50
+      metadata.general_parameters.chemical_environments.constituents.components.modifications.biological_postprocessing.protocol.description: 49
+      metadata.general_parameters.chemical_environments.constituents.components.modifications.biological_postprocessing.protocol.name: 50
       metadata.general_parameters.chemical_environments.constituents.components.modifications.biological_postprocessing.type: 51
       metadata.general_parameters.chemical_environments.constituents.components.modifications.chemical.position: 52
       metadata.general_parameters.chemical_environments.constituents.components.modifications.chemical.protocol.description: 53
@@ -39,14 +37,11 @@ facets:
       metadata.general_parameters.chemical_environments.constituents.components.name: 56
       metadata.general_parameters.chemical_environments.constituents.components.polymer_type: 57
       metadata.general_parameters.chemical_environments.constituents.components.quality_controls.homogeneity.assessed: 58
-      ? metadata.general_parameters.chemical_environments.constituents.components.quality_controls.homogeneity.expected_number_of_species
-      : 59
+      metadata.general_parameters.chemical_environments.constituents.components.quality_controls.homogeneity.expected_number_of_species: 59
       metadata.general_parameters.chemical_environments.constituents.components.quality_controls.homogeneity.method: 60
-      ? metadata.general_parameters.chemical_environments.constituents.components.quality_controls.homogeneity.number_of_species_observed
-      : 61
+      metadata.general_parameters.chemical_environments.constituents.components.quality_controls.homogeneity.number_of_species_observed: 61
       metadata.general_parameters.chemical_environments.constituents.components.quality_controls.identity.assessed: 62
-      ? metadata.general_parameters.chemical_environments.constituents.components.quality_controls.identity.by_fingerprinting.method
-      : 63
+      metadata.general_parameters.chemical_environments.constituents.components.quality_controls.identity.by_fingerprinting.method: 63
       metadata.general_parameters.chemical_environments.constituents.components.quality_controls.identity.by_intact_mass.method: 64
       metadata.general_parameters.chemical_environments.constituents.components.quality_controls.identity.by_sequencing.coverage: 65
       metadata.general_parameters.chemical_environments.constituents.components.quality_controls.identity.by_sequencing.method: 66
@@ -74,8 +69,7 @@ facets:
       metadata.general_parameters.chemical_environments.constituents.location.latitude: 94
       metadata.general_parameters.chemical_environments.constituents.location.longitude: 95
       metadata.general_parameters.chemical_environments.constituents.modifications.biological_postprocessing.position: 12
-      ? metadata.general_parameters.chemical_environments.constituents.modifications.biological_postprocessing.protocol.description
-      : 13
+      metadata.general_parameters.chemical_environments.constituents.modifications.biological_postprocessing.protocol.description: 13
       metadata.general_parameters.chemical_environments.constituents.modifications.biological_postprocessing.protocol.name: 14
       metadata.general_parameters.chemical_environments.constituents.modifications.biological_postprocessing.type: 15
       metadata.general_parameters.chemical_environments.constituents.modifications.chemical.position: 16
