@@ -8,9 +8,9 @@ class MpRecordItem(RecordItem):
 
     components = [
         *RecordItem.components,
+        RecordCommunitiesComponent(),
         RequestsComponent(),
         RequestTypesComponent(),
-        RecordCommunitiesComponent(),
     ]
 
 

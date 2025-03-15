@@ -2243,7 +2243,7 @@ metadata_general_parameters_record_information_external_identifier = TermsFacet(
 
 metadata_general_parameters_record_information_license_name = TermsFacet(
     field="metadata.general_parameters.record_information.license.name",
-    label=_("metadata/general_parameters/record_information/license/name.label"),
+    label=_("License name"),
 )
 
 metadata_general_parameters_record_information_license_url = TermsFacet(
@@ -2410,7 +2410,7 @@ metadata_method_specific_parameters_measurements_id = TermsFacet(
 
 metadata_method_specific_parameters_measurements_name = TermsFacet(
     field="metadata.method_specific_parameters.measurements.name",
-    label=_("metadata/method_specific_parameters/measurements/name.label"),
+    label=_("Measurement name"),
 )
 
 metadata_method_specific_parameters_experiment_type = TermsFacet(
@@ -2453,7 +2453,7 @@ metadata_method_specific_parameters_measurement_positions_ligand_immobilization_
 
 metadata_method_specific_parameters_measurement_positions_name = TermsFacet(
     field="metadata.method_specific_parameters.measurement_positions.name",
-    label=_("metadata/method_specific_parameters/measurement_positions/name.label"),
+    label=_("Measurement position"),
 )
 
 metadata_method_specific_parameters_measurement_positions_position = TermsFacet(
@@ -2489,7 +2489,7 @@ metadata_method_specific_parameters_measurement_protocol_id = TermsFacet(
 
 metadata_method_specific_parameters_measurement_protocol_name = TermsFacet(
     field="metadata.method_specific_parameters.measurement_protocol.name",
-    label=_("metadata/method_specific_parameters/measurement_protocol/name.label"),
+    label=_("Measurement protocol"),
 )
 
 metadata_method_specific_parameters_measurement_protocol_start_time_unit = TermsFacet(
@@ -2522,7 +2522,7 @@ metadata_method_specific_parameters_measurement_protocol_time_length_value = Ter
 
 metadata_method_specific_parameters_measurement_protocol_type = TermsFacet(
     field="metadata.method_specific_parameters.measurement_protocol.type",
-    label=_("metadata/method_specific_parameters/measurement_protocol/type.label"),
+    label=_("Measurement protocol type"),
 )
 
 metadata_method_specific_parameters_measurements_reference_samples_analytes_concentration_unit = TermsFacet(
@@ -2541,9 +2541,7 @@ metadata_method_specific_parameters_measurements_reference_samples_analytes_conc
 
 metadata_method_specific_parameters_measurements_reference_samples_position = TermsFacet(
     field="metadata.method_specific_parameters.measurements.reference_samples.position",
-    label=_(
-        "metadata/method_specific_parameters/measurements/reference_samples/position.label"
-    ),
+    label=_("Reference sample position"),
 )
 
 metadata_method_specific_parameters_measurements_reference_samples_preparation_protocol_description = TermsFacet(
@@ -2590,7 +2588,7 @@ metadata_method_specific_parameters_measurements_samples_analytes_concentration_
 
 metadata_method_specific_parameters_measurements_samples_position = TermsFacet(
     field="metadata.method_specific_parameters.measurements.samples.position",
-    label=_("metadata/method_specific_parameters/measurements/samples/position.label"),
+    label=_("Sample position"),
 )
 
 metadata_method_specific_parameters_measurements_samples_preparation_protocol_description = TermsFacet(
@@ -2643,7 +2641,7 @@ metadata_method_specific_parameters_sensor_sensor_initialization = TermsFacet(
 
 metadata_method_specific_parameters_sensor_supplier_catalog_number = TermsFacet(
     field="metadata.method_specific_parameters.sensor.supplier.catalog_number",
-    label=_("metadata/method_specific_parameters/sensor/supplier/catalog_number.label"),
+    label=_("Sensor catalog number"),
 )
 
 metadata_method_specific_parameters_sensor_supplier_further_information = TermsFacet(
@@ -2655,7 +2653,7 @@ metadata_method_specific_parameters_sensor_supplier_further_information = TermsF
 
 metadata_method_specific_parameters_sensor_supplier_name = TermsFacet(
     field="metadata.method_specific_parameters.sensor.supplier.name",
-    label=_("metadata/method_specific_parameters/sensor/supplier/name.label"),
+    label=_("Sensor supplier name"),
 )
 
 metadata_method_specific_parameters_sensor_surface_properties = TermsFacet(
@@ -2671,6 +2669,15 @@ state = TermsFacet(field="state", label=_("state.label"))
 
 state_timestamp = DateTimeFacet(
     field="state_timestamp", label=_("state_timestamp.label")
+)
+
+synthetic_fields_affiliations = TermsFacet(
+    field="synthetic_fields.affiliations",
+    label=_("synthetic_fields/affiliations.label"),
+)
+
+synthetic_fields_people = TermsFacet(
+    field="synthetic_fields.people", label=_("synthetic_fields/people.label")
 )
 
 

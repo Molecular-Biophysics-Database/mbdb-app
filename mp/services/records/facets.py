@@ -2243,7 +2243,7 @@ metadata_general_parameters_record_information_external_identifier = TermsFacet(
 
 metadata_general_parameters_record_information_license_name = TermsFacet(
     field="metadata.general_parameters.record_information.license.name",
-    label=_("metadata/general_parameters/record_information/license/name.label"),
+    label=_("License name"),
 )
 
 metadata_general_parameters_record_information_license_url = TermsFacet(
@@ -2460,7 +2460,7 @@ metadata_method_specific_parameters_measurements_id = TermsFacet(
 
 metadata_method_specific_parameters_measurements_name = TermsFacet(
     field="metadata.method_specific_parameters.measurements.name",
-    label=_("metadata/method_specific_parameters/measurements/name.label"),
+    label=_("Measurement name"),
 )
 
 metadata_method_specific_parameters_measurements_duration_unit = TermsFacet(
@@ -2606,6 +2606,15 @@ state = TermsFacet(field="state", label=_("state.label"))
 
 state_timestamp = DateTimeFacet(
     field="state_timestamp", label=_("state_timestamp.label")
+)
+
+synthetic_fields_affiliations = TermsFacet(
+    field="synthetic_fields.affiliations",
+    label=_("synthetic_fields/affiliations.label"),
+)
+
+synthetic_fields_people = TermsFacet(
+    field="synthetic_fields.people", label=_("synthetic_fields/people.label")
 )
 
 

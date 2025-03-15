@@ -2366,11 +2366,11 @@
                     }
                 }
             },
-            "type": "object",
+            "uniqueItems": true,
             "propertyNames": {
                 "pattern": "^[a-z_-][a-z0-9_-]*$"
             },
-            "uniqueItems": true
+            "type": "object"
         },
         "state": {
             "type": "string"
@@ -2378,6 +2378,17 @@
         "state_timestamp": {
             "type": "string",
             "format": "date-time"
+        },
+        "synthetic_fields": {
+            "type": "object",
+            "properties": {
+                "affiliations": {
+                    "type": "string"
+                },
+                "people": {
+                    "type": "string"
+                }
+            }
         },
         "updated": {
             "type": "string",

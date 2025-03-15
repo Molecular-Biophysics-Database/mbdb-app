@@ -21,6 +21,7 @@ from oarepo_runtime.records.relations import (
     PIDRelation,
     RelationsField,
 )
+from oarepo_runtime.records.systemfields import PathSelector, SyntheticSystemField
 from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
 from oarepo_vocabularies.records.api import Vocabulary
@@ -68,6 +69,28 @@ class ItcRecord(RDMRecord):
     pid = PIDField(provider=ItcIdProvider, context_cls=PIDFieldContext, create=True)
 
     dumper = ItcDumper()
+
+    people = SyntheticSystemField(
+        PathSelector(
+            "metadata.general_parameters.depositors.depositor",
+            "metadata.general_parameters.depositors.principal_contact",
+            "metadata.general_parameters.depositors.contributors",
+        ),
+        map=lambda x: ", ".join(
+            p for p in [x.get("family_name"), x.get("given_name")] if p
+        ),
+        key="synthetic_fields.people",
+    )
+
+    affiliations = SyntheticSystemField(
+        PathSelector(
+            "metadata.general_parameters.depositors.contributors.affiliations",
+            "metadata.general_parameters.depositors.depositor.affiliations",
+            "metadata.general_parameters.depositors.principal_contact.affiliations",
+        ),
+        map=lambda x: x.get("title", {}).get("en"),
+        key="synthetic_fields.affiliations",
+    )
 
     state = RecordStateField(initial="published")
 
@@ -509,6 +532,28 @@ class ItcDraft(RDMDraft):
     state = RecordStateField()
 
     state_timestamp = RecordStateTimestampField()
+
+    people = SyntheticSystemField(
+        PathSelector(
+            "metadata.general_parameters.depositors.depositor",
+            "metadata.general_parameters.depositors.principal_contact",
+            "metadata.general_parameters.depositors.contributors",
+        ),
+        map=lambda x: ", ".join(
+            p for p in [x.get("family_name"), x.get("given_name")] if p
+        ),
+        key="synthetic_fields.people",
+    )
+
+    affiliations = SyntheticSystemField(
+        PathSelector(
+            "metadata.general_parameters.depositors.contributors.affiliations",
+            "metadata.general_parameters.depositors.depositor.affiliations",
+            "metadata.general_parameters.depositors.principal_contact.affiliations",
+        ),
+        map=lambda x: x.get("title", {}).get("en"),
+        key="synthetic_fields.affiliations",
+    )
 
     media_files = FilesField(
         key=MediaFilesAttrConfig["_files_attr_key"],

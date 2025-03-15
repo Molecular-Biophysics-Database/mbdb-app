@@ -31,6 +31,8 @@ class MpUISchema(UIRequestsSerializationMixin, InvenioRDMUISchema):
 
     state_timestamp = LocalizedDateTime(dump_only=True)
 
+    synthetic_fields = ma_fields.Nested(lambda: SyntheticFieldsUISchema())
+
     version_id = ma_fields.Integer()
 
 
@@ -3192,6 +3194,15 @@ class SupplierUISchema(DictOnlySchema):
     further_information = ma_fields.List(ma_fields.String())
 
     name = ma_fields.String(required=True)
+
+
+class SyntheticFieldsUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    affiliations = ma_fields.String()
+
+    people = ma_fields.String()
 
 
 class TemperatureUISchema(DictOnlySchema):

@@ -44,6 +44,8 @@ class MstSchema(RDMBaseRecordSchema):
     state = ma_fields.String(dump_only=True)
 
     state_timestamp = ma_fields.String(dump_only=True, validate=[validate_datetime])
+
+    synthetic_fields = ma_fields.Nested(lambda: SyntheticFieldsSchema())
     parent = ma.fields.Nested(GeneratedParentSchema)
     files = ma.fields.Nested(
         lambda: FilesOptionsSchema(), load_default={"enabled": True}
@@ -2912,6 +2914,11 @@ class SizeSchema(DictOnlySchema):
     )
 
     upper = ma_fields.Float(validate=[ma.validate.Range(min=0.0)])
+
+
+class SyntheticFieldsSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
 
 
 class TemperatureSchema(DictOnlySchema):
