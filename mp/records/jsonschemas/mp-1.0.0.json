@@ -2255,15 +2255,7 @@
                                     }
                                 },
                                 "flow_cell": {
-                                    "type": "object",
-                                    "properties": {
-                                        "unit": {
-                                            "type": "string"
-                                        },
-                                        "value": {
-                                            "type": "number"
-                                        }
-                                    }
+                                    "type": "string"
                                 },
                                 "sample_flowrate": {
                                     "type": "object",
@@ -2351,6 +2343,8 @@
             }
         },
         "pids": {
+            "uniqueItems": true,
+            "type": "object",
             "additionalProperties": {
                 "type": "object",
                 "additionalProperties": false,
@@ -2366,11 +2360,9 @@
                     }
                 }
             },
-            "type": "object",
             "propertyNames": {
                 "pattern": "^[a-z_-][a-z0-9_-]*$"
-            },
-            "uniqueItems": true
+            }
         },
         "state": {
             "type": "string"

@@ -2521,14 +2521,9 @@ metadata_method_specific_parameters_mode_buffer_flowrate_value = TermsFacet(
     label=_("metadata/method_specific_parameters/mode/buffer_flowrate/value.label"),
 )
 
-metadata_method_specific_parameters_mode_flow_cell_unit = TermsFacet(
-    field="metadata.method_specific_parameters.mode.flow_cell.unit",
-    label=_("metadata/method_specific_parameters/mode/flow_cell/unit.label"),
-)
-
-metadata_method_specific_parameters_mode_flow_cell_value = TermsFacet(
-    field="metadata.method_specific_parameters.mode.flow_cell.value",
-    label=_("metadata/method_specific_parameters/mode/flow_cell/value.label"),
+metadata_method_specific_parameters_mode_flow_cell = TermsFacet(
+    field="metadata.method_specific_parameters.mode.flow_cell",
+    label=_("metadata/method_specific_parameters/mode/flow_cell.label"),
 )
 
 metadata_method_specific_parameters_mode_sample_flowrate_unit = TermsFacet(

@@ -1,12 +1,11 @@
-from oarepo_runtime.services.search import (
-    I18nRDMDraftsSearchOptions,
-    I18nRDMSearchOptions,
-)
+from oarepo_runtime.services.search import I18nRDMDraftsSearchOptions
+
+from common.services.records.search_options import RecordSearchOptions
 
 from . import facets
 
 
-class MpSearchOptions(I18nRDMSearchOptions):
+class MpSearchOptions(RecordSearchOptions):
     """MpRecord search options."""
 
     facet_groups = {}
@@ -933,11 +932,8 @@ class MpSearchOptions(I18nRDMSearchOptions):
         "metadata_method_specific_parameters_mode_buffer_flowrate_value": (
             facets.metadata_method_specific_parameters_mode_buffer_flowrate_value
         ),
-        "metadata_method_specific_parameters_mode_flow_cell_unit": (
-            facets.metadata_method_specific_parameters_mode_flow_cell_unit
-        ),
-        "metadata_method_specific_parameters_mode_flow_cell_value": (
-            facets.metadata_method_specific_parameters_mode_flow_cell_value
+        "metadata_method_specific_parameters_mode_flow_cell": (
+            facets.metadata_method_specific_parameters_mode_flow_cell
         ),
         "metadata_method_specific_parameters_mode_sample_flowrate_unit": (
             facets.metadata_method_specific_parameters_mode_sample_flowrate_unit
@@ -975,7 +971,7 @@ class MpSearchOptions(I18nRDMSearchOptions):
         "metadata_version": facets.metadata_version,
         "state": facets.state,
         "state_timestamp": facets.state_timestamp,
-        **getattr(I18nRDMSearchOptions, "facets", {}),
+        **getattr(RecordSearchOptions, "facets", {}),
         "record_status": facets.record_status,
         "has_draft": facets.has_draft,
     }
@@ -1908,11 +1904,8 @@ class MpDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_method_specific_parameters_mode_buffer_flowrate_value": (
             facets.metadata_method_specific_parameters_mode_buffer_flowrate_value
         ),
-        "metadata_method_specific_parameters_mode_flow_cell_unit": (
-            facets.metadata_method_specific_parameters_mode_flow_cell_unit
-        ),
-        "metadata_method_specific_parameters_mode_flow_cell_value": (
-            facets.metadata_method_specific_parameters_mode_flow_cell_value
+        "metadata_method_specific_parameters_mode_flow_cell": (
+            facets.metadata_method_specific_parameters_mode_flow_cell
         ),
         "metadata_method_specific_parameters_mode_sample_flowrate_unit": (
             facets.metadata_method_specific_parameters_mode_sample_flowrate_unit

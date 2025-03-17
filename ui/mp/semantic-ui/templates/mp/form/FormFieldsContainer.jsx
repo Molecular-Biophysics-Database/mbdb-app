@@ -24,10 +24,10 @@ function FormFieldsContainer() {
     { value: "chemical-environment", label: "Chemical environments" },
     { value: "raw-measurement-files", label: "Raw measurement files" },
     { value: "instrument", label: "Instrument" },
+    { value: "mode", label: "Mode" },
+    { value: "calibrants", label: "Calibrants" },
     { value: "measurements", label: "Measurements" },
     { value: "result", label: "Results" },
-    { value: "calibrants", label: "Calibrants" },
-    { value: "mode", label: "Mode" },
     { value: "data-analysis", label: "Data analysis" },
   ];
 
