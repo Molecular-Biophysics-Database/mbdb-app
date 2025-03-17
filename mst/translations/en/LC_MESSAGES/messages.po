@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-03-14T10:53:41.804621\n"
-"PO-Revision-Date: 2025-03-14T10:53:41.804628\n"
+"POT-Creation-Date: 2025-03-17T12:09:46.465025\n"
+"PO-Revision-Date: 2025-03-17T12:09:46.465031\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8870,6 +8870,33 @@ msgid "state_timestamp.label"
 msgstr ""
 
 msgid "state_timestamp.hint"
+msgstr ""
+
+msgid "synthetic_fields.help"
+msgstr ""
+
+msgid "synthetic_fields.label"
+msgstr ""
+
+msgid "synthetic_fields.hint"
+msgstr ""
+
+msgid "synthetic_fields/affiliations.label"
+msgstr "Affiliations"
+
+msgid "synthetic_fields/affiliations.help"
+msgstr ""
+
+msgid "synthetic_fields/affiliations.hint"
+msgstr ""
+
+msgid "synthetic_fields/people.label"
+msgstr "People"
+
+msgid "synthetic_fields/people.help"
+msgstr ""
+
+msgid "synthetic_fields/people.hint"
 msgstr ""
 
 msgid "updated.help"

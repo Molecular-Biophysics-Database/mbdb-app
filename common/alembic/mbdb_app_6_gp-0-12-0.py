@@ -7,8 +7,9 @@
 
 """migrate owners to access"""
 
-from alembic import op
 import json
+
+from alembic import op
 
 # revision identifiers, used by Alembic.
 revision = "mbdb_app_6"
@@ -28,7 +29,7 @@ def update_gp(table_name):
     conn = op.get_bind()
     for row in conn.execute("SELECT * FROM " + table_name):
         json_data = row["json"]
-        if "metadata" not in json_data:
+        if not json_data or "metadata" not in json_data:
             continue
         gp = json_data["metadata"]["general_parameters"]
 
@@ -51,7 +52,7 @@ def downgrade_gp(table_name):
     for row in conn.execute("SELECT * FROM " + table_name):
         json_data = row["json"]
 
-        if "metadata" not in json_data:
+        if not json_data or "metadata" not in json_data:
             continue
 
         gp = json_data["metadata"]["general_parameters"]

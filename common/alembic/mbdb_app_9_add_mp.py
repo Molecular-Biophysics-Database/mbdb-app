@@ -7,8 +7,9 @@
 
 """general parameters updated to accommodate mp model"""
 
-from alembic import op
 import json
+
+from alembic import op
 
 # revision identifiers, used by Alembic.
 revision = "mbdb_app_9"
@@ -28,7 +29,7 @@ def update_records(table_name):
     conn = op.get_bind()
     for row in conn.execute("SELECT * FROM " + table_name):
         json_data = row["json"]
-        if "metadata" not in json_data:
+        if not json_data or "metadata" not in json_data:
             continue
         gp = json_data["metadata"].setdefault("general_parameters", {})
 
@@ -45,7 +46,7 @@ def downgrade_records(table_name):
     conn = op.get_bind()
     for row in conn.execute("SELECT * FROM " + table_name):
         json_data = row["json"]
-        if "metadata" not in json_data:
+        if not json_data or "metadata" not in json_data:
             continue
         gp = json_data["metadata"].setdefault("general_parameters", {})
 
@@ -56,6 +57,7 @@ def downgrade_records(table_name):
             "UPDATE " + table_name + " SET json=%(js)s WHERE id=%(rowid)s",
             dict(js=json.dumps(json_data), rowid=row["id"]),
         )
+
 
 def upgrade():
     """Upgrade database."""
