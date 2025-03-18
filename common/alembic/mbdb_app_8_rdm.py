@@ -7,8 +7,9 @@
 
 """rdm fix"""
 
-from alembic import op
 import json
+
+from alembic import op
 
 # revision identifiers, used by Alembic.
 revision = "mbdb_app_8"
@@ -28,22 +29,26 @@ def update_records(table_name):
     conn = op.get_bind()
     for row in conn.execute("SELECT * FROM " + table_name):
         json_data = row["json"]
-        json_data.update({
-            "custom_fields": {},
-            "pids": {},
-            "media_files": {
-                "enabled": False,
-            },
-            "access":{
-                "files": "public",
-                "record": "public",
-                "embargo":{
-                    "active": False,
-                    "reason": None,
-                    "until": None,
+        if not json_data:
+            continue
+        json_data.update(
+            {
+                "custom_fields": {},
+                "pids": {},
+                "media_files": {
+                    "enabled": False,
                 },
-            },
-        })
+                "access": {
+                    "files": "public",
+                    "record": "public",
+                    "embargo": {
+                        "active": False,
+                        "reason": None,
+                        "until": None,
+                    },
+                },
+            }
+        )
 
         conn.execute(
             "UPDATE " + table_name + " SET json=%(js)s WHERE id=%(rowid)s",
@@ -55,7 +60,8 @@ def downgrade_records(table_name):
     conn = op.get_bind()
     for row in conn.execute("SELECT * FROM " + table_name):
         json_data = row["json"]
-
+        if not json_data:
+            continue
         for rdm_field in ("custom_fields", "media_files", "access", "pids"):
             del json_data[rdm_field]
 
@@ -63,6 +69,7 @@ def downgrade_records(table_name):
             "UPDATE " + table_name + " SET json=%(js)s WHERE id=%(rowid)s",
             dict(js=json.dumps(json_data), rowid=row["id"]),
         )
+
 
 def upgrade():
     """Upgrade database."""

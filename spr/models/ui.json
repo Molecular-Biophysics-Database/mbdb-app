@@ -6241,6 +6241,31 @@
             "hint": "state_timestamp.hint",
             "facet": "state_timestamp"
         },
+        "synthetic_fields": {
+            "detail": "synthetic_field",
+            "input": "synthetic_field",
+            "help": "synthetic_fields.help",
+            "label": "synthetic_fields.label",
+            "hint": "synthetic_fields.hint",
+            "children": {
+                "affiliations": {
+                    "detail": "keyword",
+                    "input": "keyword",
+                    "help": "synthetic_fields/affiliations.help",
+                    "label": "synthetic_fields/affiliations.label",
+                    "hint": "synthetic_fields/affiliations.hint",
+                    "facet": "synthetic_fields_affiliations"
+                },
+                "people": {
+                    "detail": "keyword",
+                    "input": "keyword",
+                    "help": "synthetic_fields/people.help",
+                    "label": "synthetic_fields/people.label",
+                    "hint": "synthetic_fields/people.hint",
+                    "facet": "synthetic_fields_people"
+                }
+            }
+        },
         "updated": {
             "detail": "datetime",
             "input": "datetime",

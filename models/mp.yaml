@@ -27,7 +27,11 @@ record:
   use:
   - "invenio"
   - "rdm"
-  draft: {}
+  - ./mp-facet-groups.yaml
+  - ./synthetic-fields.yaml
+  draft:
+    use:
+    - ./mp-facet-groups.yaml
   draft-files:
     resource:
       base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
@@ -49,6 +53,10 @@ record:
   resource-config:
     base-url: /records/mp/
     base-html-url: /mp/
+  facets:
+    facet-names:
+      metadata.general_parameters.record_information.license.name: License name
+      metadata.method_specific_parameters.measurements.name: Measurement name
 
 
 runtime-dependencies: {}

@@ -31,6 +31,8 @@ class ItcUISchema(UIRequestsSerializationMixin, InvenioRDMUISchema):
 
     state_timestamp = LocalizedDateTime(dump_only=True)
 
+    synthetic_fields = ma_fields.Nested(lambda: SyntheticFieldsUISchema())
+
     version_id = ma_fields.Integer()
 
 
@@ -3179,6 +3181,15 @@ class StirringSpeedUISchema(DictOnlySchema):
     unit = ma_fields.String(required=True, validate=[OneOf(["RPM"])])
 
     value = ma_fields.Integer(required=True)
+
+
+class SyntheticFieldsUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    affiliations = ma_fields.String()
+
+    people = ma_fields.String()
 
 
 class TemperatureUISchema(DictOnlySchema):

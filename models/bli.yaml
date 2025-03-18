@@ -27,7 +27,11 @@ record:
   use:
   - "invenio"
   - "rdm"
-  draft: {}
+  - ./bli-facet-groups.yaml
+  - ./synthetic-fields.yaml
+  draft:
+    use:
+    - ./bli-facet-groups.yaml
   draft-files:
     resource:
       base-classes: [ oarepo_ui.resources.file_resource.S3RedirectFileResource ]
@@ -49,6 +53,19 @@ record:
   resource-config:
     base-url: /records/bli/
     base-html-url: /bli/
+  facets:
+    facet-names:
+      metadata.method_specific_parameters.measurements.name: Measurement name
+      metadata.general_parameters.record_information.license.name: License name
+      metadata.method_specific_parameters.measurement_protocol.name: Protocol name
+      metadata.method_specific_parameters.measurement_protocol.type: Protocol type
+      metadata.method_specific_parameters.plates.name: Plate
+      metadata.method_specific_parameters.plates.supplier.name: Plate supplier
+      metadata.method_specific_parameters.plates.supplier.catalog_number: Plate catalog number
+      metadata.method_specific_parameters.plates.type: Plate type
+      metadata.method_specific_parameters.sensors.name: Sensor
+      metadata.method_specific_parameters.sensors.supplier.catalog_number: Sensor catalog number
+      metadata.method_specific_parameters.sensors.supplier.name: Sensor supplier
 
 runtime-dependencies: {}
 

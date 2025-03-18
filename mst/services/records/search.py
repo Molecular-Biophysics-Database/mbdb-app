@@ -1,15 +1,769 @@
-from oarepo_runtime.services.search import (
-    I18nRDMDraftsSearchOptions,
-    I18nRDMSearchOptions,
+
+from common.services.records.search_options import (
+    DraftSearchOptions,
+    RecordSearchOptions,
 )
 
 from . import facets
 
 
-class MstSearchOptions(I18nRDMSearchOptions):
+class MstSearchOptions(RecordSearchOptions):
     """MstRecord search options."""
 
-    facet_groups = {}
+    facet_groups = {
+        "default": {
+            "metadata_general_parameters_associated_publication_journal": (
+                facets.metadata_general_parameters_associated_publication_journal
+            ),
+            "synthetic_fields_people": facets.synthetic_fields_people,
+            "metadata_general_parameters_associated_publication_pid": (
+                facets.metadata_general_parameters_associated_publication_pid
+            ),
+            "synthetic_fields_affiliations": facets.synthetic_fields_affiliations,
+            "metadata_general_parameters_associated_publication_type": (
+                facets.metadata_general_parameters_associated_publication_type
+            ),
+            "metadata_general_parameters_associated_publication_publisher": (
+                facets.metadata_general_parameters_associated_publication_publisher
+            ),
+            "metadata_general_parameters_associated_publication_degree_type": (
+                facets.metadata_general_parameters_associated_publication_degree_type
+            ),
+            "metadata_general_parameters_chemical_environments_additional_specifications": (
+                facets.metadata_general_parameters_chemical_environments_additional_specifications
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_additional_specifications": (
+                facets.metadata_general_parameters_chemical_environments_constituents_additional_specifications
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_expression_organism": (
+                facets.metadata_general_parameters_chemical_environments_constituents_expression_organism
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_expression_source_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_expression_source_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_external_databases": (
+                facets.metadata_general_parameters_chemical_environments_constituents_external_databases
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_position": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_position
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_protocol_description": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_protocol_description
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_protocol_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_protocol_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_chemical_position": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_chemical_position
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_chemical_protocol_description": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_chemical_protocol_description
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_chemical_protocol_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_chemical_protocol_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_chemical_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_chemical_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_polymer_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_polymer_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_assessed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_assessed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_expected_number_of_species": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_expected_number_of_species
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_number_of_species_observed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_number_of_species_observed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_assessed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_assessed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_fingerprinting_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_fingerprinting_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_intact_mass_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_intact_mass_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_sequencing_coverage": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_sequencing_coverage
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_sequencing_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_sequencing_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_assessed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_assessed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_purity_percentage": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_purity_percentage
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_sequence": (
+                facets.metadata_general_parameters_chemical_environments_constituents_sequence
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_source_organism": (
+                facets.metadata_general_parameters_chemical_environments_constituents_source_organism
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_variant": (
+                facets.metadata_general_parameters_chemical_environments_constituents_variant
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_basic_information": (
+                facets.metadata_general_parameters_chemical_environments_constituents_basic_information
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_chemical_modifications_position": (
+                facets.metadata_general_parameters_chemical_environments_constituents_chemical_modifications_position
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_chemical_modifications_protocol_description": (
+                facets.metadata_general_parameters_chemical_environments_constituents_chemical_modifications_protocol_description
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_chemical_modifications_protocol_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_chemical_modifications_protocol_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_chemical_modifications_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_chemical_modifications_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_additional_specifications": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_additional_specifications
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_copy_number": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_copy_number
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_expression_organism": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_expression_organism
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_expression_source_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_expression_source_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_external_databases": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_external_databases
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_position": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_position
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_protocol_description": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_protocol_description
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_protocol_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_protocol_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_position": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_position
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_protocol_description": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_protocol_description
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_protocol_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_protocol_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_polymer_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_polymer_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_assessed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_assessed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_expected_number_of_species": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_expected_number_of_species
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_number_of_species_observed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_number_of_species_observed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_assessed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_assessed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_fingerprinting_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_fingerprinting_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_intact_mass_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_intact_mass_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_sequencing_coverage": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_sequencing_coverage
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_sequencing_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_sequencing_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_assessed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_assessed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_purity_percentage": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_purity_percentage
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_sequence": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_sequence
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_source_organism": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_source_organism
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_variant": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_variant
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_basic_information": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_basic_information
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_derived_from": (
+                facets.metadata_general_parameters_chemical_environments_constituents_derived_from
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_fluid": (
+                facets.metadata_general_parameters_chemical_environments_constituents_fluid
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_health_status": (
+                facets.metadata_general_parameters_chemical_environments_constituents_health_status
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_preparation_protocol_description": (
+                facets.metadata_general_parameters_chemical_environments_constituents_preparation_protocol_description
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_preparation_protocol_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_preparation_protocol_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_storage_storage_preparation_description": (
+                facets.metadata_general_parameters_chemical_environments_constituents_storage_storage_preparation_description
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_storage_storage_preparation_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_storage_storage_preparation_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_cell_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_cell_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_fraction": (
+                facets.metadata_general_parameters_chemical_environments_constituents_fraction
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_organ": (
+                facets.metadata_general_parameters_chemical_environments_constituents_organ
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_tissue": (
+                facets.metadata_general_parameters_chemical_environments_constituents_tissue
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_capsid_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_capsid_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_envelope_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_envelope_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_genetic_material": (
+                facets.metadata_general_parameters_chemical_environments_constituents_genetic_material
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_host_cell_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_host_cell_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_host_organism": (
+                facets.metadata_general_parameters_chemical_environments_constituents_host_organism
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_homogenized": (
+                facets.metadata_general_parameters_chemical_environments_constituents_homogenized
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_environment_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_environment_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_location_altitude": (
+                facets.metadata_general_parameters_chemical_environments_constituents_location_altitude
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_location_latitude": (
+                facets.metadata_general_parameters_chemical_environments_constituents_location_latitude
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_location_longitude": (
+                facets.metadata_general_parameters_chemical_environments_constituents_location_longitude
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_assembly_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_assembly_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_class": (
+                facets.metadata_general_parameters_chemical_environments_constituents_class
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_number_of_mono_layers": (
+                facets.metadata_general_parameters_chemical_environments_constituents_number_of_mono_layers
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_size_lower": (
+                facets.metadata_general_parameters_chemical_environments_constituents_size_lower
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_size_mean": (
+                facets.metadata_general_parameters_chemical_environments_constituents_size_mean
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_size_median": (
+                facets.metadata_general_parameters_chemical_environments_constituents_size_median
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_size_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_size_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_size_upper": (
+                facets.metadata_general_parameters_chemical_environments_constituents_size_upper
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_product": (
+                facets.metadata_general_parameters_chemical_environments_constituents_product
+            ),
+            "metadata_general_parameters_chemical_environments_name": (
+                facets.metadata_general_parameters_chemical_environments_name
+            ),
+            "metadata_general_parameters_chemical_environments_ph": (
+                facets.metadata_general_parameters_chemical_environments_ph
+            ),
+            "metadata_general_parameters_chemical_environments_solvent_additional_specifications": (
+                facets.metadata_general_parameters_chemical_environments_solvent_additional_specifications
+            ),
+            "metadata_general_parameters_chemical_environments_solvent_basic_information": (
+                facets.metadata_general_parameters_chemical_environments_solvent_basic_information
+            ),
+            "metadata_general_parameters_chemical_environments_solvent_name": (
+                facets.metadata_general_parameters_chemical_environments_solvent_name
+            ),
+            "metadata_general_parameters_chemical_environments_solvent_type": (
+                facets.metadata_general_parameters_chemical_environments_solvent_type
+            ),
+            "metadata_general_parameters_entities_of_interest_additional_specifications": (
+                facets.metadata_general_parameters_entities_of_interest_additional_specifications
+            ),
+            "metadata_general_parameters_entities_of_interest_expression_organism": (
+                facets.metadata_general_parameters_entities_of_interest_expression_organism
+            ),
+            "metadata_general_parameters_entities_of_interest_expression_source_type": (
+                facets.metadata_general_parameters_entities_of_interest_expression_source_type
+            ),
+            "metadata_general_parameters_entities_of_interest_external_databases": (
+                facets.metadata_general_parameters_entities_of_interest_external_databases
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_position": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_position
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_protocol_description": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_protocol_description
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_protocol_name": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_protocol_name
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_type": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_type
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_chemical_position": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_chemical_position
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_chemical_protocol_description": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_chemical_protocol_description
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_chemical_protocol_name": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_chemical_protocol_name
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_chemical_type": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_chemical_type
+            ),
+            "metadata_general_parameters_entities_of_interest_name": (
+                facets.metadata_general_parameters_entities_of_interest_name
+            ),
+            "metadata_general_parameters_entities_of_interest_polymer_type": (
+                facets.metadata_general_parameters_entities_of_interest_polymer_type
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_assessed": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_assessed
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_expected_number_of_species": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_expected_number_of_species
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_method": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_method
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_number_of_species_observed": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_number_of_species_observed
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_identity_assessed": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_identity_assessed
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_identity_by_fingerprinting_method": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_identity_by_fingerprinting_method
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_identity_by_intact_mass_method": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_identity_by_intact_mass_method
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_identity_by_sequencing_coverage": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_identity_by_sequencing_coverage
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_identity_by_sequencing_method": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_identity_by_sequencing_method
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_purity_assessed": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_purity_assessed
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_purity_method": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_purity_method
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_purity_purity_percentage": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_purity_purity_percentage
+            ),
+            "metadata_general_parameters_entities_of_interest_sequence": (
+                facets.metadata_general_parameters_entities_of_interest_sequence
+            ),
+            "metadata_general_parameters_entities_of_interest_source_organism": (
+                facets.metadata_general_parameters_entities_of_interest_source_organism
+            ),
+            "metadata_general_parameters_entities_of_interest_type": (
+                facets.metadata_general_parameters_entities_of_interest_type
+            ),
+            "metadata_general_parameters_entities_of_interest_variant": (
+                facets.metadata_general_parameters_entities_of_interest_variant
+            ),
+            "metadata_general_parameters_entities_of_interest_basic_information": (
+                facets.metadata_general_parameters_entities_of_interest_basic_information
+            ),
+            "metadata_general_parameters_entities_of_interest_chemical_modifications_position": (
+                facets.metadata_general_parameters_entities_of_interest_chemical_modifications_position
+            ),
+            "metadata_general_parameters_entities_of_interest_chemical_modifications_protocol_description": (
+                facets.metadata_general_parameters_entities_of_interest_chemical_modifications_protocol_description
+            ),
+            "metadata_general_parameters_entities_of_interest_chemical_modifications_protocol_name": (
+                facets.metadata_general_parameters_entities_of_interest_chemical_modifications_protocol_name
+            ),
+            "metadata_general_parameters_entities_of_interest_chemical_modifications_type": (
+                facets.metadata_general_parameters_entities_of_interest_chemical_modifications_type
+            ),
+            "metadata_general_parameters_entities_of_interest_components_additional_specifications": (
+                facets.metadata_general_parameters_entities_of_interest_components_additional_specifications
+            ),
+            "metadata_general_parameters_entities_of_interest_components_copy_number": (
+                facets.metadata_general_parameters_entities_of_interest_components_copy_number
+            ),
+            "metadata_general_parameters_entities_of_interest_components_expression_organism": (
+                facets.metadata_general_parameters_entities_of_interest_components_expression_organism
+            ),
+            "metadata_general_parameters_entities_of_interest_components_expression_source_type": (
+                facets.metadata_general_parameters_entities_of_interest_components_expression_source_type
+            ),
+            "metadata_general_parameters_entities_of_interest_components_external_databases": (
+                facets.metadata_general_parameters_entities_of_interest_components_external_databases
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_position": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_position
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_protocol_description": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_protocol_description
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_protocol_name": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_protocol_name
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_type": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_type
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_chemical_position": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_chemical_position
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_chemical_protocol_description": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_chemical_protocol_description
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_chemical_protocol_name": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_chemical_protocol_name
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_chemical_type": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_chemical_type
+            ),
+            "metadata_general_parameters_entities_of_interest_components_name": (
+                facets.metadata_general_parameters_entities_of_interest_components_name
+            ),
+            "metadata_general_parameters_entities_of_interest_components_polymer_type": (
+                facets.metadata_general_parameters_entities_of_interest_components_polymer_type
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_assessed": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_assessed
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_expected_number_of_species": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_expected_number_of_species
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_method": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_method
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_number_of_species_observed": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_number_of_species_observed
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_identity_assessed": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_identity_assessed
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_fingerprinting_method": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_fingerprinting_method
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_intact_mass_method": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_intact_mass_method
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_sequencing_coverage": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_sequencing_coverage
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_sequencing_method": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_sequencing_method
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_purity_assessed": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_purity_assessed
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_purity_method": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_purity_method
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_purity_purity_percentage": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_purity_purity_percentage
+            ),
+            "metadata_general_parameters_entities_of_interest_components_sequence": (
+                facets.metadata_general_parameters_entities_of_interest_components_sequence
+            ),
+            "metadata_general_parameters_entities_of_interest_components_source_organism": (
+                facets.metadata_general_parameters_entities_of_interest_components_source_organism
+            ),
+            "metadata_general_parameters_entities_of_interest_components_type": (
+                facets.metadata_general_parameters_entities_of_interest_components_type
+            ),
+            "metadata_general_parameters_entities_of_interest_components_variant": (
+                facets.metadata_general_parameters_entities_of_interest_components_variant
+            ),
+            "metadata_general_parameters_entities_of_interest_components_basic_information": (
+                facets.metadata_general_parameters_entities_of_interest_components_basic_information
+            ),
+            "metadata_general_parameters_entities_of_interest_derived_from": (
+                facets.metadata_general_parameters_entities_of_interest_derived_from
+            ),
+            "metadata_general_parameters_entities_of_interest_fluid": (
+                facets.metadata_general_parameters_entities_of_interest_fluid
+            ),
+            "metadata_general_parameters_entities_of_interest_health_status": (
+                facets.metadata_general_parameters_entities_of_interest_health_status
+            ),
+            "metadata_general_parameters_entities_of_interest_preparation_protocol_description": (
+                facets.metadata_general_parameters_entities_of_interest_preparation_protocol_description
+            ),
+            "metadata_general_parameters_entities_of_interest_preparation_protocol_name": (
+                facets.metadata_general_parameters_entities_of_interest_preparation_protocol_name
+            ),
+            "metadata_general_parameters_entities_of_interest_storage_storage_preparation_description": (
+                facets.metadata_general_parameters_entities_of_interest_storage_storage_preparation_description
+            ),
+            "metadata_general_parameters_entities_of_interest_storage_storage_preparation_name": (
+                facets.metadata_general_parameters_entities_of_interest_storage_storage_preparation_name
+            ),
+            "metadata_general_parameters_entities_of_interest_cell_type": (
+                facets.metadata_general_parameters_entities_of_interest_cell_type
+            ),
+            "metadata_general_parameters_entities_of_interest_fraction": (
+                facets.metadata_general_parameters_entities_of_interest_fraction
+            ),
+            "metadata_general_parameters_entities_of_interest_organ": (
+                facets.metadata_general_parameters_entities_of_interest_organ
+            ),
+            "metadata_general_parameters_entities_of_interest_tissue": (
+                facets.metadata_general_parameters_entities_of_interest_tissue
+            ),
+            "metadata_general_parameters_entities_of_interest_capsid_type": (
+                facets.metadata_general_parameters_entities_of_interest_capsid_type
+            ),
+            "metadata_general_parameters_entities_of_interest_envelope_type": (
+                facets.metadata_general_parameters_entities_of_interest_envelope_type
+            ),
+            "metadata_general_parameters_entities_of_interest_genetic_material": (
+                facets.metadata_general_parameters_entities_of_interest_genetic_material
+            ),
+            "metadata_general_parameters_entities_of_interest_host_cell_type": (
+                facets.metadata_general_parameters_entities_of_interest_host_cell_type
+            ),
+            "metadata_general_parameters_entities_of_interest_host_organism": (
+                facets.metadata_general_parameters_entities_of_interest_host_organism
+            ),
+            "metadata_general_parameters_entities_of_interest_homogenized": (
+                facets.metadata_general_parameters_entities_of_interest_homogenized
+            ),
+            "metadata_general_parameters_entities_of_interest_environment_type": (
+                facets.metadata_general_parameters_entities_of_interest_environment_type
+            ),
+            "metadata_general_parameters_entities_of_interest_location_altitude": (
+                facets.metadata_general_parameters_entities_of_interest_location_altitude
+            ),
+            "metadata_general_parameters_entities_of_interest_location_latitude": (
+                facets.metadata_general_parameters_entities_of_interest_location_latitude
+            ),
+            "metadata_general_parameters_entities_of_interest_location_longitude": (
+                facets.metadata_general_parameters_entities_of_interest_location_longitude
+            ),
+            "metadata_general_parameters_entities_of_interest_assembly_type": (
+                facets.metadata_general_parameters_entities_of_interest_assembly_type
+            ),
+            "metadata_general_parameters_entities_of_interest_class": (
+                facets.metadata_general_parameters_entities_of_interest_class
+            ),
+            "metadata_general_parameters_entities_of_interest_number_of_mono_layers": (
+                facets.metadata_general_parameters_entities_of_interest_number_of_mono_layers
+            ),
+            "metadata_general_parameters_entities_of_interest_size_lower": (
+                facets.metadata_general_parameters_entities_of_interest_size_lower
+            ),
+            "metadata_general_parameters_entities_of_interest_size_mean": (
+                facets.metadata_general_parameters_entities_of_interest_size_mean
+            ),
+            "metadata_general_parameters_entities_of_interest_size_median": (
+                facets.metadata_general_parameters_entities_of_interest_size_median
+            ),
+            "metadata_general_parameters_entities_of_interest_size_type": (
+                facets.metadata_general_parameters_entities_of_interest_size_type
+            ),
+            "metadata_general_parameters_entities_of_interest_size_upper": (
+                facets.metadata_general_parameters_entities_of_interest_size_upper
+            ),
+            "metadata_general_parameters_entities_of_interest_product": (
+                facets.metadata_general_parameters_entities_of_interest_product
+            ),
+            "metadata_general_parameters_funding_references": (
+                facets.metadata_general_parameters_funding_references
+            ),
+            "metadata_general_parameters_instrument": (
+                facets.metadata_general_parameters_instrument
+            ),
+            "metadata_general_parameters_method": (
+                facets.metadata_general_parameters_method
+            ),
+            "metadata_general_parameters_record_information_access_rights": (
+                facets.metadata_general_parameters_record_information_access_rights
+            ),
+            "metadata_general_parameters_record_information_copyright": (
+                facets.metadata_general_parameters_record_information_copyright
+            ),
+            "metadata_general_parameters_record_information_date_available": (
+                facets.metadata_general_parameters_record_information_date_available
+            ),
+            "metadata_general_parameters_record_information_deposition_date": (
+                facets.metadata_general_parameters_record_information_deposition_date
+            ),
+            "metadata_general_parameters_record_information_license_name": (
+                facets.metadata_general_parameters_record_information_license_name
+            ),
+            "metadata_general_parameters_record_information_publisher": (
+                facets.metadata_general_parameters_record_information_publisher
+            ),
+            "metadata_general_parameters_record_information_resource_type": (
+                facets.metadata_general_parameters_record_information_resource_type
+            ),
+            "metadata_general_parameters_record_information_resource_type_general": (
+                facets.metadata_general_parameters_record_information_resource_type_general
+            ),
+            "metadata_general_parameters_record_information_subject_category": (
+                facets.metadata_general_parameters_record_information_subject_category
+            ),
+            "metadata_general_parameters_results_entities_involved_copy_number": (
+                facets.metadata_general_parameters_results_entities_involved_copy_number
+            ),
+            "metadata_general_parameters_results_name": (
+                facets.metadata_general_parameters_results_name
+            ),
+            "metadata_general_parameters_results_type": (
+                facets.metadata_general_parameters_results_type
+            ),
+            "metadata_general_parameters_results_value_error_is_relative": (
+                facets.metadata_general_parameters_results_value_error_is_relative
+            ),
+            "metadata_general_parameters_results_value_error_lower": (
+                facets.metadata_general_parameters_results_value_error_lower
+            ),
+            "metadata_general_parameters_results_value_error_upper": (
+                facets.metadata_general_parameters_results_value_error_upper
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_fitting_model": (
+                facets.metadata_method_specific_parameters_data_analysis_data_fitting_model
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_fitting_quality": (
+                facets.metadata_method_specific_parameters_data_analysis_data_fitting_quality
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_fitting_quality_type": (
+                facets.metadata_method_specific_parameters_data_analysis_data_fitting_quality_type
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_fitting_software_name": (
+                facets.metadata_method_specific_parameters_data_analysis_data_fitting_software_name
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_fitting_software_version": (
+                facets.metadata_method_specific_parameters_data_analysis_data_fitting_software_version
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_processing_description": (
+                facets.metadata_method_specific_parameters_data_analysis_data_processing_description
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_processing_link_to_source_code": (
+                facets.metadata_method_specific_parameters_data_analysis_data_processing_link_to_source_code
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_processing_name": (
+                facets.metadata_method_specific_parameters_data_analysis_data_processing_name
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_processing_software_name": (
+                facets.metadata_method_specific_parameters_data_analysis_data_processing_software_name
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_processing_software_version": (
+                facets.metadata_method_specific_parameters_data_analysis_data_processing_software_version
+            ),
+            "metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_cold_end": (
+                facets.metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_cold_end
+            ),
+            "metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_cold_start": (
+                facets.metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_cold_start
+            ),
+            "metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_hot_end": (
+                facets.metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_hot_end
+            ),
+            "metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_hot_start": (
+                facets.metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_hot_start
+            ),
+            "metadata_method_specific_parameters_data_analysis_f_cold_and_hot_time_unit": (
+                facets.metadata_method_specific_parameters_data_analysis_f_cold_and_hot_time_unit
+            ),
+            "metadata_method_specific_parameters_excitation_led_color": (
+                facets.metadata_method_specific_parameters_excitation_led_color
+            ),
+            "metadata_method_specific_parameters_excitation_led_power": (
+                facets.metadata_method_specific_parameters_excitation_led_power
+            ),
+            "metadata_method_specific_parameters_experiment_type": (
+                facets.metadata_method_specific_parameters_experiment_type
+            ),
+            "metadata_method_specific_parameters_ir_mst_laser_power": (
+                facets.metadata_method_specific_parameters_ir_mst_laser_power
+            ),
+            "metadata_method_specific_parameters_measurements_name": (
+                facets.metadata_method_specific_parameters_measurements_name
+            ),
+            "metadata_method_specific_parameters_measurements_position": (
+                facets.metadata_method_specific_parameters_measurements_position
+            ),
+            "metadata_method_specific_parameters_measurements_sample_measurement_container": (
+                facets.metadata_method_specific_parameters_measurements_sample_measurement_container
+            ),
+            "metadata_method_specific_parameters_measurements_sample_preparation_protocol_description": (
+                facets.metadata_method_specific_parameters_measurements_sample_preparation_protocol_description
+            ),
+            "metadata_method_specific_parameters_measurements_sample_preparation_protocol_name": (
+                facets.metadata_method_specific_parameters_measurements_sample_preparation_protocol_name
+            ),
+            "metadata_method_specific_parameters_signal_type": (
+                facets.metadata_method_specific_parameters_signal_type
+            ),
+            **getattr(RecordSearchOptions, "facet_groups", {}).get("default", {}),
+        },
+    }
 
     facets = {
         "access_embargo_active": facets.access_embargo_active,
@@ -945,16 +1699,771 @@ class MstSearchOptions(I18nRDMSearchOptions):
         "metadata_version": facets.metadata_version,
         "state": facets.state,
         "state_timestamp": facets.state_timestamp,
-        **getattr(I18nRDMSearchOptions, "facets", {}),
+        "synthetic_fields_affiliations": facets.synthetic_fields_affiliations,
+        "synthetic_fields_people": facets.synthetic_fields_people,
+        **getattr(RecordSearchOptions, "facets", {}),
         "record_status": facets.record_status,
         "has_draft": facets.has_draft,
     }
 
 
-class MstDraftSearchOptions(I18nRDMDraftsSearchOptions):
+class MstDraftSearchOptions(DraftSearchOptions):
     """MstDraft search options."""
 
-    facet_groups = {}
+    facet_groups = {
+        "default": {
+            "metadata_general_parameters_associated_publication_journal": (
+                facets.metadata_general_parameters_associated_publication_journal
+            ),
+            "synthetic_fields_people": facets.synthetic_fields_people,
+            "metadata_general_parameters_associated_publication_pid": (
+                facets.metadata_general_parameters_associated_publication_pid
+            ),
+            "synthetic_fields_affiliations": facets.synthetic_fields_affiliations,
+            "metadata_general_parameters_associated_publication_type": (
+                facets.metadata_general_parameters_associated_publication_type
+            ),
+            "metadata_general_parameters_associated_publication_publisher": (
+                facets.metadata_general_parameters_associated_publication_publisher
+            ),
+            "metadata_general_parameters_associated_publication_degree_type": (
+                facets.metadata_general_parameters_associated_publication_degree_type
+            ),
+            "metadata_general_parameters_chemical_environments_additional_specifications": (
+                facets.metadata_general_parameters_chemical_environments_additional_specifications
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_additional_specifications": (
+                facets.metadata_general_parameters_chemical_environments_constituents_additional_specifications
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_expression_organism": (
+                facets.metadata_general_parameters_chemical_environments_constituents_expression_organism
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_expression_source_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_expression_source_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_external_databases": (
+                facets.metadata_general_parameters_chemical_environments_constituents_external_databases
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_position": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_position
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_protocol_description": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_protocol_description
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_protocol_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_protocol_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_biological_postprocessing_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_chemical_position": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_chemical_position
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_chemical_protocol_description": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_chemical_protocol_description
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_chemical_protocol_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_chemical_protocol_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_modifications_chemical_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_modifications_chemical_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_polymer_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_polymer_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_assessed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_assessed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_expected_number_of_species": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_expected_number_of_species
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_number_of_species_observed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_homogeneity_number_of_species_observed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_assessed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_assessed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_fingerprinting_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_fingerprinting_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_intact_mass_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_intact_mass_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_sequencing_coverage": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_sequencing_coverage
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_sequencing_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_identity_by_sequencing_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_assessed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_assessed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_purity_percentage": (
+                facets.metadata_general_parameters_chemical_environments_constituents_quality_controls_purity_purity_percentage
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_sequence": (
+                facets.metadata_general_parameters_chemical_environments_constituents_sequence
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_source_organism": (
+                facets.metadata_general_parameters_chemical_environments_constituents_source_organism
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_variant": (
+                facets.metadata_general_parameters_chemical_environments_constituents_variant
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_basic_information": (
+                facets.metadata_general_parameters_chemical_environments_constituents_basic_information
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_chemical_modifications_position": (
+                facets.metadata_general_parameters_chemical_environments_constituents_chemical_modifications_position
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_chemical_modifications_protocol_description": (
+                facets.metadata_general_parameters_chemical_environments_constituents_chemical_modifications_protocol_description
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_chemical_modifications_protocol_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_chemical_modifications_protocol_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_chemical_modifications_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_chemical_modifications_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_additional_specifications": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_additional_specifications
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_copy_number": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_copy_number
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_expression_organism": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_expression_organism
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_expression_source_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_expression_source_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_external_databases": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_external_databases
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_position": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_position
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_protocol_description": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_protocol_description
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_protocol_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_protocol_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_biological_postprocessing_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_position": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_position
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_protocol_description": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_protocol_description
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_protocol_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_protocol_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_modifications_chemical_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_polymer_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_polymer_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_assessed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_assessed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_expected_number_of_species": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_expected_number_of_species
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_number_of_species_observed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_homogeneity_number_of_species_observed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_assessed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_assessed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_fingerprinting_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_fingerprinting_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_intact_mass_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_intact_mass_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_sequencing_coverage": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_sequencing_coverage
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_sequencing_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_identity_by_sequencing_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_assessed": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_assessed
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_method": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_method
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_purity_percentage": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_quality_controls_purity_purity_percentage
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_sequence": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_sequence
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_source_organism": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_source_organism
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_variant": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_variant
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_components_basic_information": (
+                facets.metadata_general_parameters_chemical_environments_constituents_components_basic_information
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_derived_from": (
+                facets.metadata_general_parameters_chemical_environments_constituents_derived_from
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_fluid": (
+                facets.metadata_general_parameters_chemical_environments_constituents_fluid
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_health_status": (
+                facets.metadata_general_parameters_chemical_environments_constituents_health_status
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_preparation_protocol_description": (
+                facets.metadata_general_parameters_chemical_environments_constituents_preparation_protocol_description
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_preparation_protocol_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_preparation_protocol_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_storage_storage_preparation_description": (
+                facets.metadata_general_parameters_chemical_environments_constituents_storage_storage_preparation_description
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_storage_storage_preparation_name": (
+                facets.metadata_general_parameters_chemical_environments_constituents_storage_storage_preparation_name
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_cell_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_cell_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_fraction": (
+                facets.metadata_general_parameters_chemical_environments_constituents_fraction
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_organ": (
+                facets.metadata_general_parameters_chemical_environments_constituents_organ
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_tissue": (
+                facets.metadata_general_parameters_chemical_environments_constituents_tissue
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_capsid_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_capsid_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_envelope_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_envelope_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_genetic_material": (
+                facets.metadata_general_parameters_chemical_environments_constituents_genetic_material
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_host_cell_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_host_cell_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_host_organism": (
+                facets.metadata_general_parameters_chemical_environments_constituents_host_organism
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_homogenized": (
+                facets.metadata_general_parameters_chemical_environments_constituents_homogenized
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_environment_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_environment_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_location_altitude": (
+                facets.metadata_general_parameters_chemical_environments_constituents_location_altitude
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_location_latitude": (
+                facets.metadata_general_parameters_chemical_environments_constituents_location_latitude
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_location_longitude": (
+                facets.metadata_general_parameters_chemical_environments_constituents_location_longitude
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_assembly_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_assembly_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_class": (
+                facets.metadata_general_parameters_chemical_environments_constituents_class
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_number_of_mono_layers": (
+                facets.metadata_general_parameters_chemical_environments_constituents_number_of_mono_layers
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_size_lower": (
+                facets.metadata_general_parameters_chemical_environments_constituents_size_lower
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_size_mean": (
+                facets.metadata_general_parameters_chemical_environments_constituents_size_mean
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_size_median": (
+                facets.metadata_general_parameters_chemical_environments_constituents_size_median
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_size_type": (
+                facets.metadata_general_parameters_chemical_environments_constituents_size_type
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_size_upper": (
+                facets.metadata_general_parameters_chemical_environments_constituents_size_upper
+            ),
+            "metadata_general_parameters_chemical_environments_constituents_product": (
+                facets.metadata_general_parameters_chemical_environments_constituents_product
+            ),
+            "metadata_general_parameters_chemical_environments_name": (
+                facets.metadata_general_parameters_chemical_environments_name
+            ),
+            "metadata_general_parameters_chemical_environments_ph": (
+                facets.metadata_general_parameters_chemical_environments_ph
+            ),
+            "metadata_general_parameters_chemical_environments_solvent_additional_specifications": (
+                facets.metadata_general_parameters_chemical_environments_solvent_additional_specifications
+            ),
+            "metadata_general_parameters_chemical_environments_solvent_basic_information": (
+                facets.metadata_general_parameters_chemical_environments_solvent_basic_information
+            ),
+            "metadata_general_parameters_chemical_environments_solvent_name": (
+                facets.metadata_general_parameters_chemical_environments_solvent_name
+            ),
+            "metadata_general_parameters_chemical_environments_solvent_type": (
+                facets.metadata_general_parameters_chemical_environments_solvent_type
+            ),
+            "metadata_general_parameters_entities_of_interest_additional_specifications": (
+                facets.metadata_general_parameters_entities_of_interest_additional_specifications
+            ),
+            "metadata_general_parameters_entities_of_interest_expression_organism": (
+                facets.metadata_general_parameters_entities_of_interest_expression_organism
+            ),
+            "metadata_general_parameters_entities_of_interest_expression_source_type": (
+                facets.metadata_general_parameters_entities_of_interest_expression_source_type
+            ),
+            "metadata_general_parameters_entities_of_interest_external_databases": (
+                facets.metadata_general_parameters_entities_of_interest_external_databases
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_position": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_position
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_protocol_description": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_protocol_description
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_protocol_name": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_protocol_name
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_type": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_biological_postprocessing_type
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_chemical_position": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_chemical_position
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_chemical_protocol_description": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_chemical_protocol_description
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_chemical_protocol_name": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_chemical_protocol_name
+            ),
+            "metadata_general_parameters_entities_of_interest_modifications_chemical_type": (
+                facets.metadata_general_parameters_entities_of_interest_modifications_chemical_type
+            ),
+            "metadata_general_parameters_entities_of_interest_name": (
+                facets.metadata_general_parameters_entities_of_interest_name
+            ),
+            "metadata_general_parameters_entities_of_interest_polymer_type": (
+                facets.metadata_general_parameters_entities_of_interest_polymer_type
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_assessed": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_assessed
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_expected_number_of_species": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_expected_number_of_species
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_method": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_method
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_number_of_species_observed": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_homogeneity_number_of_species_observed
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_identity_assessed": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_identity_assessed
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_identity_by_fingerprinting_method": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_identity_by_fingerprinting_method
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_identity_by_intact_mass_method": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_identity_by_intact_mass_method
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_identity_by_sequencing_coverage": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_identity_by_sequencing_coverage
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_identity_by_sequencing_method": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_identity_by_sequencing_method
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_purity_assessed": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_purity_assessed
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_purity_method": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_purity_method
+            ),
+            "metadata_general_parameters_entities_of_interest_quality_controls_purity_purity_percentage": (
+                facets.metadata_general_parameters_entities_of_interest_quality_controls_purity_purity_percentage
+            ),
+            "metadata_general_parameters_entities_of_interest_sequence": (
+                facets.metadata_general_parameters_entities_of_interest_sequence
+            ),
+            "metadata_general_parameters_entities_of_interest_source_organism": (
+                facets.metadata_general_parameters_entities_of_interest_source_organism
+            ),
+            "metadata_general_parameters_entities_of_interest_type": (
+                facets.metadata_general_parameters_entities_of_interest_type
+            ),
+            "metadata_general_parameters_entities_of_interest_variant": (
+                facets.metadata_general_parameters_entities_of_interest_variant
+            ),
+            "metadata_general_parameters_entities_of_interest_basic_information": (
+                facets.metadata_general_parameters_entities_of_interest_basic_information
+            ),
+            "metadata_general_parameters_entities_of_interest_chemical_modifications_position": (
+                facets.metadata_general_parameters_entities_of_interest_chemical_modifications_position
+            ),
+            "metadata_general_parameters_entities_of_interest_chemical_modifications_protocol_description": (
+                facets.metadata_general_parameters_entities_of_interest_chemical_modifications_protocol_description
+            ),
+            "metadata_general_parameters_entities_of_interest_chemical_modifications_protocol_name": (
+                facets.metadata_general_parameters_entities_of_interest_chemical_modifications_protocol_name
+            ),
+            "metadata_general_parameters_entities_of_interest_chemical_modifications_type": (
+                facets.metadata_general_parameters_entities_of_interest_chemical_modifications_type
+            ),
+            "metadata_general_parameters_entities_of_interest_components_additional_specifications": (
+                facets.metadata_general_parameters_entities_of_interest_components_additional_specifications
+            ),
+            "metadata_general_parameters_entities_of_interest_components_copy_number": (
+                facets.metadata_general_parameters_entities_of_interest_components_copy_number
+            ),
+            "metadata_general_parameters_entities_of_interest_components_expression_organism": (
+                facets.metadata_general_parameters_entities_of_interest_components_expression_organism
+            ),
+            "metadata_general_parameters_entities_of_interest_components_expression_source_type": (
+                facets.metadata_general_parameters_entities_of_interest_components_expression_source_type
+            ),
+            "metadata_general_parameters_entities_of_interest_components_external_databases": (
+                facets.metadata_general_parameters_entities_of_interest_components_external_databases
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_position": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_position
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_protocol_description": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_protocol_description
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_protocol_name": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_protocol_name
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_type": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_biological_postprocessing_type
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_chemical_position": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_chemical_position
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_chemical_protocol_description": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_chemical_protocol_description
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_chemical_protocol_name": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_chemical_protocol_name
+            ),
+            "metadata_general_parameters_entities_of_interest_components_modifications_chemical_type": (
+                facets.metadata_general_parameters_entities_of_interest_components_modifications_chemical_type
+            ),
+            "metadata_general_parameters_entities_of_interest_components_name": (
+                facets.metadata_general_parameters_entities_of_interest_components_name
+            ),
+            "metadata_general_parameters_entities_of_interest_components_polymer_type": (
+                facets.metadata_general_parameters_entities_of_interest_components_polymer_type
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_assessed": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_assessed
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_expected_number_of_species": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_expected_number_of_species
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_method": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_method
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_number_of_species_observed": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_homogeneity_number_of_species_observed
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_identity_assessed": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_identity_assessed
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_fingerprinting_method": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_fingerprinting_method
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_intact_mass_method": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_intact_mass_method
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_sequencing_coverage": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_sequencing_coverage
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_sequencing_method": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_identity_by_sequencing_method
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_purity_assessed": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_purity_assessed
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_purity_method": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_purity_method
+            ),
+            "metadata_general_parameters_entities_of_interest_components_quality_controls_purity_purity_percentage": (
+                facets.metadata_general_parameters_entities_of_interest_components_quality_controls_purity_purity_percentage
+            ),
+            "metadata_general_parameters_entities_of_interest_components_sequence": (
+                facets.metadata_general_parameters_entities_of_interest_components_sequence
+            ),
+            "metadata_general_parameters_entities_of_interest_components_source_organism": (
+                facets.metadata_general_parameters_entities_of_interest_components_source_organism
+            ),
+            "metadata_general_parameters_entities_of_interest_components_type": (
+                facets.metadata_general_parameters_entities_of_interest_components_type
+            ),
+            "metadata_general_parameters_entities_of_interest_components_variant": (
+                facets.metadata_general_parameters_entities_of_interest_components_variant
+            ),
+            "metadata_general_parameters_entities_of_interest_components_basic_information": (
+                facets.metadata_general_parameters_entities_of_interest_components_basic_information
+            ),
+            "metadata_general_parameters_entities_of_interest_derived_from": (
+                facets.metadata_general_parameters_entities_of_interest_derived_from
+            ),
+            "metadata_general_parameters_entities_of_interest_fluid": (
+                facets.metadata_general_parameters_entities_of_interest_fluid
+            ),
+            "metadata_general_parameters_entities_of_interest_health_status": (
+                facets.metadata_general_parameters_entities_of_interest_health_status
+            ),
+            "metadata_general_parameters_entities_of_interest_preparation_protocol_description": (
+                facets.metadata_general_parameters_entities_of_interest_preparation_protocol_description
+            ),
+            "metadata_general_parameters_entities_of_interest_preparation_protocol_name": (
+                facets.metadata_general_parameters_entities_of_interest_preparation_protocol_name
+            ),
+            "metadata_general_parameters_entities_of_interest_storage_storage_preparation_description": (
+                facets.metadata_general_parameters_entities_of_interest_storage_storage_preparation_description
+            ),
+            "metadata_general_parameters_entities_of_interest_storage_storage_preparation_name": (
+                facets.metadata_general_parameters_entities_of_interest_storage_storage_preparation_name
+            ),
+            "metadata_general_parameters_entities_of_interest_cell_type": (
+                facets.metadata_general_parameters_entities_of_interest_cell_type
+            ),
+            "metadata_general_parameters_entities_of_interest_fraction": (
+                facets.metadata_general_parameters_entities_of_interest_fraction
+            ),
+            "metadata_general_parameters_entities_of_interest_organ": (
+                facets.metadata_general_parameters_entities_of_interest_organ
+            ),
+            "metadata_general_parameters_entities_of_interest_tissue": (
+                facets.metadata_general_parameters_entities_of_interest_tissue
+            ),
+            "metadata_general_parameters_entities_of_interest_capsid_type": (
+                facets.metadata_general_parameters_entities_of_interest_capsid_type
+            ),
+            "metadata_general_parameters_entities_of_interest_envelope_type": (
+                facets.metadata_general_parameters_entities_of_interest_envelope_type
+            ),
+            "metadata_general_parameters_entities_of_interest_genetic_material": (
+                facets.metadata_general_parameters_entities_of_interest_genetic_material
+            ),
+            "metadata_general_parameters_entities_of_interest_host_cell_type": (
+                facets.metadata_general_parameters_entities_of_interest_host_cell_type
+            ),
+            "metadata_general_parameters_entities_of_interest_host_organism": (
+                facets.metadata_general_parameters_entities_of_interest_host_organism
+            ),
+            "metadata_general_parameters_entities_of_interest_homogenized": (
+                facets.metadata_general_parameters_entities_of_interest_homogenized
+            ),
+            "metadata_general_parameters_entities_of_interest_environment_type": (
+                facets.metadata_general_parameters_entities_of_interest_environment_type
+            ),
+            "metadata_general_parameters_entities_of_interest_location_altitude": (
+                facets.metadata_general_parameters_entities_of_interest_location_altitude
+            ),
+            "metadata_general_parameters_entities_of_interest_location_latitude": (
+                facets.metadata_general_parameters_entities_of_interest_location_latitude
+            ),
+            "metadata_general_parameters_entities_of_interest_location_longitude": (
+                facets.metadata_general_parameters_entities_of_interest_location_longitude
+            ),
+            "metadata_general_parameters_entities_of_interest_assembly_type": (
+                facets.metadata_general_parameters_entities_of_interest_assembly_type
+            ),
+            "metadata_general_parameters_entities_of_interest_class": (
+                facets.metadata_general_parameters_entities_of_interest_class
+            ),
+            "metadata_general_parameters_entities_of_interest_number_of_mono_layers": (
+                facets.metadata_general_parameters_entities_of_interest_number_of_mono_layers
+            ),
+            "metadata_general_parameters_entities_of_interest_size_lower": (
+                facets.metadata_general_parameters_entities_of_interest_size_lower
+            ),
+            "metadata_general_parameters_entities_of_interest_size_mean": (
+                facets.metadata_general_parameters_entities_of_interest_size_mean
+            ),
+            "metadata_general_parameters_entities_of_interest_size_median": (
+                facets.metadata_general_parameters_entities_of_interest_size_median
+            ),
+            "metadata_general_parameters_entities_of_interest_size_type": (
+                facets.metadata_general_parameters_entities_of_interest_size_type
+            ),
+            "metadata_general_parameters_entities_of_interest_size_upper": (
+                facets.metadata_general_parameters_entities_of_interest_size_upper
+            ),
+            "metadata_general_parameters_entities_of_interest_product": (
+                facets.metadata_general_parameters_entities_of_interest_product
+            ),
+            "metadata_general_parameters_funding_references": (
+                facets.metadata_general_parameters_funding_references
+            ),
+            "metadata_general_parameters_instrument": (
+                facets.metadata_general_parameters_instrument
+            ),
+            "metadata_general_parameters_method": (
+                facets.metadata_general_parameters_method
+            ),
+            "metadata_general_parameters_record_information_access_rights": (
+                facets.metadata_general_parameters_record_information_access_rights
+            ),
+            "metadata_general_parameters_record_information_copyright": (
+                facets.metadata_general_parameters_record_information_copyright
+            ),
+            "metadata_general_parameters_record_information_date_available": (
+                facets.metadata_general_parameters_record_information_date_available
+            ),
+            "metadata_general_parameters_record_information_deposition_date": (
+                facets.metadata_general_parameters_record_information_deposition_date
+            ),
+            "metadata_general_parameters_record_information_license_name": (
+                facets.metadata_general_parameters_record_information_license_name
+            ),
+            "metadata_general_parameters_record_information_publisher": (
+                facets.metadata_general_parameters_record_information_publisher
+            ),
+            "metadata_general_parameters_record_information_resource_type": (
+                facets.metadata_general_parameters_record_information_resource_type
+            ),
+            "metadata_general_parameters_record_information_resource_type_general": (
+                facets.metadata_general_parameters_record_information_resource_type_general
+            ),
+            "metadata_general_parameters_record_information_subject_category": (
+                facets.metadata_general_parameters_record_information_subject_category
+            ),
+            "metadata_general_parameters_results_entities_involved_copy_number": (
+                facets.metadata_general_parameters_results_entities_involved_copy_number
+            ),
+            "metadata_general_parameters_results_name": (
+                facets.metadata_general_parameters_results_name
+            ),
+            "metadata_general_parameters_results_type": (
+                facets.metadata_general_parameters_results_type
+            ),
+            "metadata_general_parameters_results_value_error_is_relative": (
+                facets.metadata_general_parameters_results_value_error_is_relative
+            ),
+            "metadata_general_parameters_results_value_error_lower": (
+                facets.metadata_general_parameters_results_value_error_lower
+            ),
+            "metadata_general_parameters_results_value_error_upper": (
+                facets.metadata_general_parameters_results_value_error_upper
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_fitting_model": (
+                facets.metadata_method_specific_parameters_data_analysis_data_fitting_model
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_fitting_quality": (
+                facets.metadata_method_specific_parameters_data_analysis_data_fitting_quality
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_fitting_quality_type": (
+                facets.metadata_method_specific_parameters_data_analysis_data_fitting_quality_type
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_fitting_software_name": (
+                facets.metadata_method_specific_parameters_data_analysis_data_fitting_software_name
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_fitting_software_version": (
+                facets.metadata_method_specific_parameters_data_analysis_data_fitting_software_version
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_processing_description": (
+                facets.metadata_method_specific_parameters_data_analysis_data_processing_description
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_processing_link_to_source_code": (
+                facets.metadata_method_specific_parameters_data_analysis_data_processing_link_to_source_code
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_processing_name": (
+                facets.metadata_method_specific_parameters_data_analysis_data_processing_name
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_processing_software_name": (
+                facets.metadata_method_specific_parameters_data_analysis_data_processing_software_name
+            ),
+            "metadata_method_specific_parameters_data_analysis_data_processing_software_version": (
+                facets.metadata_method_specific_parameters_data_analysis_data_processing_software_version
+            ),
+            "metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_cold_end": (
+                facets.metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_cold_end
+            ),
+            "metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_cold_start": (
+                facets.metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_cold_start
+            ),
+            "metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_hot_end": (
+                facets.metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_hot_end
+            ),
+            "metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_hot_start": (
+                facets.metadata_method_specific_parameters_data_analysis_f_cold_and_hot_f_hot_start
+            ),
+            "metadata_method_specific_parameters_data_analysis_f_cold_and_hot_time_unit": (
+                facets.metadata_method_specific_parameters_data_analysis_f_cold_and_hot_time_unit
+            ),
+            "metadata_method_specific_parameters_excitation_led_color": (
+                facets.metadata_method_specific_parameters_excitation_led_color
+            ),
+            "metadata_method_specific_parameters_excitation_led_power": (
+                facets.metadata_method_specific_parameters_excitation_led_power
+            ),
+            "metadata_method_specific_parameters_experiment_type": (
+                facets.metadata_method_specific_parameters_experiment_type
+            ),
+            "metadata_method_specific_parameters_ir_mst_laser_power": (
+                facets.metadata_method_specific_parameters_ir_mst_laser_power
+            ),
+            "metadata_method_specific_parameters_measurements_name": (
+                facets.metadata_method_specific_parameters_measurements_name
+            ),
+            "metadata_method_specific_parameters_measurements_position": (
+                facets.metadata_method_specific_parameters_measurements_position
+            ),
+            "metadata_method_specific_parameters_measurements_sample_measurement_container": (
+                facets.metadata_method_specific_parameters_measurements_sample_measurement_container
+            ),
+            "metadata_method_specific_parameters_measurements_sample_preparation_protocol_description": (
+                facets.metadata_method_specific_parameters_measurements_sample_preparation_protocol_description
+            ),
+            "metadata_method_specific_parameters_measurements_sample_preparation_protocol_name": (
+                facets.metadata_method_specific_parameters_measurements_sample_preparation_protocol_name
+            ),
+            "metadata_method_specific_parameters_signal_type": (
+                facets.metadata_method_specific_parameters_signal_type
+            ),
+            **getattr(DraftSearchOptions, "facet_groups", {}).get("default", {}),
+        },
+    }
 
     facets = {
         "access_embargo_active": facets.access_embargo_active,
@@ -1890,9 +3399,11 @@ class MstDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_version": facets.metadata_version,
         "state": facets.state,
         "state_timestamp": facets.state_timestamp,
+        "synthetic_fields_affiliations": facets.synthetic_fields_affiliations,
+        "synthetic_fields_people": facets.synthetic_fields_people,
         "expires_at": facets.expires_at,
         "fork_version_id": facets.fork_version_id,
-        **getattr(I18nRDMDraftsSearchOptions, "facets", {}),
+        **getattr(DraftSearchOptions, "facets", {}),
         "record_status": facets.record_status,
         "has_draft": facets.has_draft,
     }
