@@ -12,7 +12,7 @@ export default function SampleFlowrate({ name, colorSchema }) {
     <>
       <FormWrapper
         headline="Sample flowrate"
-        tooltip="umerical value of the sample rate"
+        tooltip="Numerical value of the sample rate"
         colorSchema={colorSchema}
       >
         <ValueUnit
