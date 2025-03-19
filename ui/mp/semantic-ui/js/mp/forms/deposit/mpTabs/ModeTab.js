@@ -9,11 +9,11 @@ import { useEffect } from "react";
 export default function ModeTab({ name }) {
   const { values, setFieldValue } = useFormikContext();
 
-  const tooltip = `Wether the measurement was done on a a flowing sample ("Flow") or statically placed sample`;
+  const tooltip = `Wether the measurement was done on a flowing sample ("Flow") or statically placed sample`;
 
   const modeTabOptions = [
-    { value: "Flow", label: "Flow" },
     { value: "Static", label: "Static" },
+    { value: "Flow", label: "Flow" },
   ];
 
   const actualValue = getIn(values, name);
@@ -45,8 +45,8 @@ export default function ModeTab({ name }) {
             required
             fieldName="type"
             width="w-full"
-            tooltip={`Wether the measurement was done on a a flowing sample ("Flow") or statically placed sample`}
-            initialValue="Flow"
+            tooltip={`Wether the measurement was done on a flowing sample ("Flow") or statically placed sample`}
+            initialValue="Static"
           />
         </div>
 
