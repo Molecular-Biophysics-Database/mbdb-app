@@ -2,6 +2,7 @@ import React from "react";
 import Tooltip from "@material-ui/core/Tooltip";
 import { Typography } from "@material-ui/core";
 import { useFormikContext, useField } from "formik";
+import { useState } from "react";
 
 function FileField({
   name,
@@ -18,11 +19,12 @@ function FileField({
   const [meta] = useField(nameCustomField);
   const { values, setFieldValue } = useFormikContext();
   //console.log(index);
-  const handleOnClick = () => {
-    if (!values.id) {
-      save(true);
-    }
-  };
+  //const handleOnClick = () => {
+  //  console.log(values.id, "I doesnt exist");
+  //  if (!values.id) {
+  //    save({ saveWithoutDisplayingValidationErrors: true });
+  //  }
+  //};
 
   const handleChange = (e) => {
     let file = e.target.files[0];
@@ -80,7 +82,7 @@ function FileField({
               type="file"
               className="hidden"
               onChange={(e) => handleChange(e, index)}
-              onClick={handleOnClick}
+              //onClick={handleOnClick}
               size="small"
               error={meta.touched && !!meta.error}
             />

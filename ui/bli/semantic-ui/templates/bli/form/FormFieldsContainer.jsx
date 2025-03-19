@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import RawMeasurementFilesTab from "@mbdb_deposit/general/generalTabs/RawMeasurementFilesTab";
 import EntitiesOfInterestTab from "@mbdb_deposit/general/generalTabs/EntitiesOfInterestTab";
 import InstrumentTab from "@bli_deposit/bliTabs/InstrumentTab";
@@ -33,20 +32,16 @@ function FormFieldsContainer() {
     { value: "data-analysis", label: "Data analysis" },
   ];
 
-  const location = useLocation();
-  const [state, setState] = useState({ selected: "record-information" });
+  const [selectedTab, setSelectedTab] = useState("record-information");
   const { save, values: recordMetadata } = useDepositApiClient();
   const { values, setErrors } = useFormikContext();
 
   useEffect(() => {
-    save(true);
+    save({ saveWithoutDisplayingValidationErrors: true });
   }, []);
 
-  useEffect(() => {
-    const selectedTab = location?.state?.selectedTab || "record-information";
-    setState({ selected: selectedTab });
-  }, [location]);
   const { files: recordFiles } = useFormConfig();
+
   const filesInitialState = {
     files:
       recordFiles?.entries?.length > 0
@@ -64,7 +59,7 @@ function FormFieldsContainer() {
   };
 
   const handleSaveMetadataAndFiles = async () => {
-    save(true);
+    await save();
     handleUpload();
   };
 
@@ -88,11 +83,11 @@ function FormFieldsContainer() {
                 <button
                   key={tab.value}
                   className={`py-5 px-6 font-JostBold text-left cursor-pointer rounded-tl-normal rounded-bl-normal hover:bg-primary hover:text-dark ${
-                    state.selected === tab.value
+                    selectedTab === tab.value
                       ? "bg-primary text-dark"
                       : "text-white"
                   }`}
-                  onClick={() => setState({ selected: tab.value })}
+                  onClick={() => setSelectedTab(tab.value)}
                 >
                   {tab.label}
                 </button>
@@ -106,7 +101,7 @@ function FormFieldsContainer() {
                 <div className="m-6">
                   <div
                     className={`${
-                      state.selected === "raw-measurement-files" ? "" : "hidden"
+                      selectedTab === "raw-measurement-files" ? "" : "hidden"
                     }`}
                   >
                     <Formik initialValues={filesInitialState}>
@@ -123,7 +118,7 @@ function FormFieldsContainer() {
 
                   <div
                     className={`${
-                      state.selected === "record-information" ? "" : "hidden"
+                      selectedTab === "record-information" ? "" : "hidden"
                     }`}
                   >
                     <RecordInformationTab name="metadata.general_parameters" />
@@ -131,7 +126,7 @@ function FormFieldsContainer() {
 
                   <div
                     className={`${
-                      state.selected === "entities-of-interest" ? "" : "hidden"
+                      selectedTab === "entities-of-interest" ? "" : "hidden"
                     }`}
                   >
                     <EntitiesOfInterestTab name="metadata.general_parameters" />
@@ -139,56 +134,54 @@ function FormFieldsContainer() {
 
                   <div
                     className={`${
-                      state.selected === "chemical-environment" ? "" : "hidden"
+                      selectedTab === "chemical-environment" ? "" : "hidden"
                     }`}
                   >
                     <ChemicalEnvironmentTab name="metadata.general_parameters" />
                   </div>
 
                   <div
-                    className={`${state.selected === "result" ? "" : "hidden"}`}
+                    className={`${selectedTab === "result" ? "" : "hidden"}`}
                   >
                     <ResultTab name="metadata.general_parameters" />
                   </div>
 
                   <div
                     className={`${
-                      state.selected === "instrument" ? "" : "hidden"
+                      selectedTab === "instrument" ? "" : "hidden"
                     }`}
                   >
                     <InstrumentTab name="metadata.general_parameters" />
                   </div>
 
                   <div
-                    className={`${state.selected === "plates" ? "" : "hidden"}`}
+                    className={`${selectedTab === "plates" ? "" : "hidden"}`}
                   >
                     <PlatesTab name="metadata.method_specific_parameters" />
                   </div>
 
                   <div
-                    className={`${
-                      state.selected === "sensors" ? "" : "hidden"
-                    }`}
+                    className={`${selectedTab === "sensors" ? "" : "hidden"}`}
                   >
                     <SensorsTab name="metadata.method_specific_parameters" />
                   </div>
                   <div
                     className={`${
-                      state.selected === "measurement-protocol" ? "" : "hidden"
+                      selectedTab === "measurement-protocol" ? "" : "hidden"
                     }`}
                   >
                     <MeasurementProtocolStepTab name="metadata.method_specific_parameters" />
                   </div>
                   <div
                     className={`${
-                      state.selected === "measurements" ? "" : "hidden"
+                      selectedTab === "measurements" ? "" : "hidden"
                     }`}
                   >
                     <MeasurementsTab name="metadata.method_specific_parameters" />
                   </div>
                   <div
                     className={`${
-                      state.selected === "data-analysis" ? "" : "hidden"
+                      selectedTab === "data-analysis" ? "" : "hidden"
                     }`}
                   >
                     <DataAnalysisTab name="metadata.method_specific_parameters" />

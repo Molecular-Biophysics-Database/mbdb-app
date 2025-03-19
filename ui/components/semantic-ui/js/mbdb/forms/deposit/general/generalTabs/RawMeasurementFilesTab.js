@@ -4,6 +4,9 @@ import ArrayFieldCopyPaste from "../../buildingBlocks/ArrayFieldCopyPaste";
 import RawMeasurementFile from "../rawMeasurementFiles/RawMeasurementFile";
 import { useFormikContext, getIn } from "formik";
 import _isEqual from "lodash/isEqual";
+import { useState } from "react";
+import Spinner from "../../buildingBlocks/Spinner";
+import { useEffect } from "react";
 
 // There are completely separate end points for submitting record's metadata and for submitting files
 // therefore it will not be possible to just send file related things as part of record's metadata
@@ -12,8 +15,9 @@ import _isEqual from "lodash/isEqual";
 // (both record's metadata and its files), you can call save() (note that save must be taken from top formik provider)
 // and you can also call submitFiles function right after that will save the files
 
-async function SubmitFile(file, recordMetadata) {
+async function SubmitFile(file, recordMetadata, setIsPending) {
   if (!file) return { code: 400, errors: ["No file selected."] };
+  setIsPending(true);
 
   const fileName = file.name;
 
@@ -86,6 +90,9 @@ async function SubmitFile(file, recordMetadata) {
   }
 
   const res = await resp.json();
+
+  setIsPending(false);
+
   // update the page to place values in inside the form case extraction took place
   // also serves signal to let the user know that file uploading has completed
   setTimeout(() => {
@@ -129,9 +136,25 @@ async function replaceMetadata(file) {
 const RawMeasurementFilesTab = forwardRef(
   ({ name, save, recordMetadata }, ref) => {
     const { values, setFieldValue } = useFormikContext();
+    const [isPending, setIsPending] = useState(false);
+
     const files = getIn(values, name);
+
+    useEffect(() => {
+      if (isPending) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }, [isPending]);
+
     //console.log(ref);
     const submitFiles = async () => {
+      setIsPending(false);
       const filesList = files;
       const filesStatus = [];
       // before submitting one fetch to fetch current status of files from the server
@@ -150,7 +173,7 @@ const RawMeasurementFilesTab = forwardRef(
         }
         if (!uploadedFilesKeys.includes(file.key)) {
           // if file with such key does not exist on the server upload it and its metadata
-          const response = await SubmitFile(file, recordMetadata);
+          const response = await SubmitFile(file, recordMetadata, setIsPending);
           filesStatus.push(response);
         } else if (
           // if file with such key exits, but it has different metadata than the one
@@ -203,6 +226,14 @@ const RawMeasurementFilesTab = forwardRef(
             Submit files
           </Button>
         */}
+
+        {isPending && (
+          <div className="fixed inset-0 flex flex-col items-center justify-center bg-zinc-900 bg-opacity-50 z-[200]">
+            <Spinner />
+            <h2 className="text-primary mt-4">Saving metadata and files..</h2>
+          </div>
+        )}
+
         <div className="mb-3 w-fit">
           <FormWrapper>
             Information about the file(s) containing the raw data
@@ -221,16 +252,14 @@ const RawMeasurementFilesTab = forwardRef(
                 headline={`Raw measurement file ${index + 1}`}
                 tooltip="List of file(s) containing the raw measurements"
               >
-                <div>
-                  <RawMeasurementFile
-                    file={file}
-                    key={index}
-                    name={`${arrayName}.${index}`}
-                    index={index}
-                    save={save}
-                    onDeleteFile={handleDeleteFile}
-                  />
-                </div>
+                <RawMeasurementFile
+                  file={file}
+                  key={index}
+                  name={`${arrayName}.${index}`}
+                  index={index}
+                  save={save}
+                  onDeleteFile={handleDeleteFile}
+                />
               </FormWrapper>
             )}
           />
