@@ -95,10 +95,10 @@ async function SubmitFile(file, recordMetadata, setIsPending) {
 
   // update the page to place values in inside the form case extraction took place
   // also serves signal to let the user know that file uploading has completed
-  setTimeout(() => {
-    window.location.href = "/";
-  }, 1500); // 1.5 seconds delay
-  window.location.reload();
+  //setTimeout(() => {
+  //  window.location.href = "/";
+  //}, 1500); // 1.5 seconds delay
+  //window.location.reload();
   return res;
 }
 
