@@ -2,7 +2,6 @@ import React from "react";
 import Tooltip from "@material-ui/core/Tooltip";
 import { Typography } from "@material-ui/core";
 import { useFormikContext, useField } from "formik";
-import { useState } from "react";
 
 function FileField({
   name,
