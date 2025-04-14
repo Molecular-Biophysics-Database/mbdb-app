@@ -37,9 +37,6 @@ export default function Contact({ name }) {
 
   const [orcid, setOrcid] = useState(orcidNumbers);
 
-  console.log(orcid, 'Current orcid')
-  console.log([orcid?.length], 'Current orcid length')
-
   function handleRemove() {
     setOrcid([]);
     setIsUsingOrcid((ev) => !ev);
