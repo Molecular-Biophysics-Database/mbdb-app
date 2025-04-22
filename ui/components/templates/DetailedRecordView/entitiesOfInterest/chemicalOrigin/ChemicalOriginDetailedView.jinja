@@ -1,0 +1,13 @@
+{# def entity #}
+
+<IField label="Class" d={entity.class} />
+
+<IField label="Protocols" d={entity.preparation_protocol}>
+    <Protocol title="Preparation protocol step" protocols={entity.preparation_protocol} />
+</IField>
+
+<AdditionalSpecifications additional_specifications={entity.additional_specifications} />
+
+<Storage storage={entity.storage} />
+
+<Details details={entity} />

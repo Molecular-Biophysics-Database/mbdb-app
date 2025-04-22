@@ -1,0 +1,16 @@
+{# def storage #}
+
+<INonEmpty d={storage}>
+    <div class='flex mb-2'>
+        <IField label="Storage"/>
+        <div>
+            <IField label="Duration" d={storage.duration}>
+                <ValueUnit value={storage.duration} />
+            </IField>
+            <IField label="Temperature" d={storage.temperature}>
+                <ValueUnit value={storage.temperature} />
+            </IField>
+            <Protocol title="Storage preparation" protocols={storage.storage_preparation} />
+        </div>
+    </div>
+</INonEmpty>

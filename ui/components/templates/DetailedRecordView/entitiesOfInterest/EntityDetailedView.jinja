@@ -1,0 +1,26 @@
+{# def entity #}
+
+{# Recordview template that renders the individual elements of the entities of interest section #}
+<div>
+  {# render the shared fields of entities #}
+  <IField label="Name" d={entity.name} />
+
+  <IField label="Type" d={entity.type} />
+
+  {# render specific fields of the different entities depending on type #}
+  {%- if field_value(entity.type) == "Polymer" %}
+    <PolymerDetailedView entity={ entity } />
+  {%- elif field_value(entity.type) == "Chemical" %}
+    <ChemicalDetailedView entity={ entity } />
+  {%- elif field_value(entity.type) == "Molecular assembly" %}
+    <MolecularAssemblyDetailedView entity={ entity } />
+  {%- elif field_value(entity.type) == "Complex substance of biological origin" %}
+    <BiologicalOriginDetailedView entity={ entity } />
+  {%- elif field_value(entity.type) == "Complex substance of environmental origin" %}
+    <EnvironmentalOriginDetailedView entity={ entity } />
+  {%- elif field_value(entity.type) == "Complex substance of chemical origin" %}
+    <ChemicalOriginDetailedView entity={ entity } />
+  {%- elif field_value(entity.type) == "Complex substance of industrial origin" %}
+    <IndustrialOriginDetailedView entity={ entity } />
+  {%- endif %}
+</div>
