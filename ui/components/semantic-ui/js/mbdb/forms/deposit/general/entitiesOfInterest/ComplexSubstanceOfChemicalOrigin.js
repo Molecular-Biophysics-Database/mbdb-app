@@ -29,24 +29,25 @@ function ComplexSubstanceOfChemicalOrigin({ name }) {
 
   return (
     <>
-      <div className="flex mb-3">
-        <div className="mr-3">
-          <CustomField
-            name={name}
-            label="Name"
-            fieldName="name"
-            required
-            width="w-[44.5rem]"
-            tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample"
-          />
-        </div>
+      <div className="mb-3">
         <OptionField
           name={name}
           options={classOptions}
           label="Class"
           fieldName="class"
           required
+          width="w-full"
           tooltip="The chemical origin where the complex substance was derived from"
+        />
+      </div>
+      <div className="mb-3">
+        <CustomField
+          name={name}
+          label="Name"
+          fieldName="name"
+          required
+          width="w-full"
+          tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample"
         />
       </div>
       <div className="flex -mt-3">
@@ -99,7 +100,7 @@ function ComplexSubstanceOfChemicalOrigin({ name }) {
         />
       </div>
       <Details
-        name={`${name}.details`}
+        name={name}
         colorSchema="light"
         molecularWeightColorSchema="light"
         colorSchemaProtocol="light"

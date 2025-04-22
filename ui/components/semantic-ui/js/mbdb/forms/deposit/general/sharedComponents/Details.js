@@ -24,15 +24,14 @@ function Details({ name, colorSchema }) {
       <FormWrapper
         colorSchema={colorSchema}
         headline="Details"
-        tooltip="The chemical origin where the complex substance was derived from"
       >
         <div className="flex mb-3">
           <div className="mr-3">
             <OptionField
               name={name}
               options={detailsTypeOptions}
-              fieldName="type"
-              label="Type"
+              fieldName="assembly_type"
+              label="Assembly type"
               tooltip="The type of lipid assembly"
             />
           </div>
@@ -41,6 +40,7 @@ function Details({ name, colorSchema }) {
             name={name}
             fieldName="number_of_mono_layers"
             label="Number of mono layers"
+            type="number"
             tooltip="The number of lipid mono layers in the lipid assembly, -1 if unknown"
           />
         </div>

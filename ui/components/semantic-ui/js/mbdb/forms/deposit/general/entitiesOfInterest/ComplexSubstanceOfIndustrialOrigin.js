@@ -33,7 +33,7 @@ function ComplexSubstanceOfIndustrialOrigin({ name }) {
           label="Name"
           fieldName="name"
           required
-          width="w-[31.5rem]"
+          width="w-full"
           tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample"
         />
       </div>
@@ -52,38 +52,37 @@ function ComplexSubstanceOfIndustrialOrigin({ name }) {
         />
       </FormWrapper>
 
-      <div className="flex">
-        <ArrayField
-          name={name}
-          label="Preparation protocol"
-          fieldName={fieldNamePreparationProtocol}
-          required
-          tooltip={tooltips.preparationProtocol}
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              colorSchema="light"
-              headline={`Preparation protocol step ${index + 1}`}
-              tooltip={tooltips.preparationProtocol}
-            >
-              <Protocol name={`${arrayName}.${index}`} />
-            </FormWrapper>
-          )}
-        />
-        <ArrayField
-          name={name}
-          label="Additional specification"
-          fieldName="additional_specifications"
-          tooltip={tooltips.additionalSpecification}
-          renderChild={({ arrayName, index }) => (
-            <CustomField
-              name={`${arrayName}.${index}`}
-              label={`Additional specification ${index + 1}`}
-              width="w-[15rem]"
-              tooltip={tooltips.additionalSpecification}
-            />
-          )}
-        />
-      </div>
+      <ArrayField
+        name={name}
+        label="Additional specification"
+        fieldName="additional_specifications"
+        tooltip={tooltips.additionalSpecification}
+        renderChild={({ arrayName, index }) => (
+          <CustomField
+            name={`${arrayName}.${index}`}
+            label={`Additional specification ${index + 1}`}
+            width="w-[15rem]"
+            tooltip={tooltips.additionalSpecification}
+          />
+        )}
+      />
+
+      <ArrayField
+        name={name}
+        label="Preparation protocol"
+        fieldName={fieldNamePreparationProtocol}
+        required
+        tooltip={tooltips.preparationProtocol}
+        renderChild={({ arrayName, index }) => (
+          <FormWrapper
+            colorSchema="light"
+            headline={`Preparation protocol step ${index + 1}`}
+            tooltip={tooltips.preparationProtocol}
+          >
+            <Protocol name={`${arrayName}.${index}`} />
+          </FormWrapper>
+        )}
+      />
 
       <OptionalField
         name={name}

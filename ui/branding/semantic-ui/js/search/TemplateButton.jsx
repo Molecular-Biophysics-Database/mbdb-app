@@ -24,7 +24,7 @@ function dateFormater(date, sep="-") {
 // changes the template record in-place for fields that needs to be updated
 function updateRecord(templateRecord){
   let info = templateRecord.metadata.general_parameters.record_information
-  info.deposition_date = dateFormater(new Date);
+  info.deposition_date = dateFormater(new Date());
   delete info.date_available;
   delete info.external_identifier;
 }
@@ -95,7 +95,7 @@ export default function TemplateButton({ selfLink }) {
   }
 
   return (
-    <div className="flex justify-center h-10 text-20px bg-dark rounded-normal text-white hover:text-dark hover:bg-primary transition-all" role="button">
+    <div className="flex justify-center h-10 text-20px bg-dark rounded-normal text-white hover:bg-dark/75 transition-all" role="button">
       <button
         onClick={redirectRecord}
         className="px-8"

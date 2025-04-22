@@ -88,7 +88,7 @@ function Virion({ name }) {
           <OptionField
             name={name}
             options={geneticMaterialOptions}
-            label="Genetic Material"
+            label="Genetic material"
             fieldName="genetic_material"
             tooltip="The genetic material carried by the virions (None, virus genome, synthetic)"
           />
@@ -103,13 +103,15 @@ function Virion({ name }) {
           />
         </div>
 
-        <OptionField
-          name={name}
-          options={envelopeOptions}
-          label="Envelope type"
-          fieldName="envelope_type"
-          tooltip="The type of virion envelope (e.g. genetically engineered, None"
-        />
+        <div>
+          <OptionField
+            name={name}
+            options={envelopeOptions}
+            label="Envelope type"
+            fieldName="envelope_type"
+            tooltip="The type of virion envelope (e.g. genetically engineered, None"
+          />
+        </div>
       </div>
       <div className="flex mb-3">
         <div className="mr-3">

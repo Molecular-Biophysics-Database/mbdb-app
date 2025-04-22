@@ -21,7 +21,7 @@
     </div>
 {# render download button #}
     <div class="mr-4">
-      <a class="flex justify-center px-4 h-10 text-20px bg-dark rounded-normal text-white hover:text-dark hover:bg-primary transition-all"
+      <a class="flex justify-center px-4 h-10 text-20px bg-dark rounded-normal text-white hover:text-white hover:bg-dark/75 transition-all"
         href="{{links.export_path}}/json" type="application/json" role="button">
         <button class="px-4">
           Download
@@ -31,7 +31,7 @@
 {# render edit button if user has permission to edit the draft #}
     {% if permissions.can_update_draft %}
     <div class="mr-4">
-      <a class="flex justify-center px-8 h-10 text-20px bg-dark rounded-normal text-white hover:text-dark hover:bg-primary transition-all"
+      <a class="flex justify-center px-8 h-10 text-20px bg-dark rounded-normal text-white hover:text-white hover:bg-dark/75 transition-all"
         href="{{ links.edit_html or links.self_html }}" type="application/json" role="button">
         <button class="px-4">
           Edit

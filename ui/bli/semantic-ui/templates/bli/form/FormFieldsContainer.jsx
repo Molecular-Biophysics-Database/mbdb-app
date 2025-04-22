@@ -82,10 +82,10 @@ function FormFieldsContainer() {
               {Tabs.map((tab) => (
                 <button
                   key={tab.value}
-                  className={`py-5 px-6 font-JostBold text-left cursor-pointer rounded-tl-normal rounded-bl-normal hover:bg-primary hover:text-dark ${
+                  className={`py-5 px-6 font-JostBold text-left cursor-pointer rounded-tl-normal rounded-bl-normal hover:text-dark transition-all ${
                     selectedTab === tab.value
                       ? "bg-primary text-dark"
-                      : "text-white"
+                      : "hover:bg-primary/85 text-white"
                   }`}
                   onClick={() => setSelectedTab(tab.value)}
                 >

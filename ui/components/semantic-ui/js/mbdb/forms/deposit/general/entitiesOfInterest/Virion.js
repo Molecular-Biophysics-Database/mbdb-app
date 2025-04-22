@@ -108,14 +108,16 @@ function Virion({ name }) {
           />
         </div>
 
-        <OptionField
-          name={name}
-          options={envelopeOptions}
-          label="Envelope type"
-          fieldName="envelope_type"
-          required
-          tooltip="The type of virion envelope (e.g. genetically engineered, None"
-        />
+        <div>
+          <OptionField
+            name={name}
+            options={envelopeOptions}
+            label="Envelope type"
+            fieldName="envelope_type"
+            required
+            tooltip="The type of virion envelope (e.g. genetically engineered, None"
+          />
+        </div>
       </div>
       <div className="flex mb-3">
         <div className="mr-3">

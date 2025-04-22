@@ -14,10 +14,17 @@ function CustomField({
   multiline,
   required,
   disabled,
+  min,
+  max,
 }) {
   const nameCustomField =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
   const [field, meta] = useField(nameCustomField);
+
+  const inputProps = {};
+  if (min !== undefined) inputProps.min = min;
+  if (max !== undefined) inputProps.max = max;
+  if (type === "number") inputProps.step = 1;
 
   return (
     <>
@@ -45,6 +52,7 @@ function CustomField({
             {...(multiline && { multiline: true })}
             size="small"
             error={meta.touched && !!meta.error}
+            inputProps={inputProps}
           />
         </div>
         {required && (
