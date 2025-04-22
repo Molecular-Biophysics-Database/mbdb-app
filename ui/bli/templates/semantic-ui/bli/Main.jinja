@@ -9,28 +9,55 @@
 
 <div class="mt-8">
 
-    <Section title="Entities of interest">
-        <EntitiesOfInterest entities={gp.entities_of_interest} />
-    </Section>
+    <!-- Main Tabs Navigation -->
+    <div class="border-b border-gray-200">
+        <nav class="flex p-0 mb-2">
+            <button class="main-tab hover:text-gray-700 border-b-2 border-transparent hover:border-gray-300 py-2 px-6 mr-3 transition-all rounded-normal outline-none" data-main-tab="tab1">Record View</button>
+            <button class="main-tab hover:text-gray-700 border-b-2 border-transparent hover:border-gray-300 py-2 px-6 transition-all rounded-normal outline-none" data-main-tab="tab2">Detailed record view</button>
+        </nav>
+    </div>
 
-    <Section title="Results">
-        <Results gp={gp} />
-    </Section>
+    <!-- Main Tabs Content -->
+    <div class="mt-6">
+        <!-- First Tab -->
+        <div id="tab1" class="main-tab-content">
 
-    <Section title="Chemical environments (buffers)">
-        <ChemicalEnvironments chemical_environments={gp.chemical_environments} />
-    </Section>
+            <Section title="Entities of interest">
+                <EntitiesOfInterest entities={gp.entities_of_interest} />
+            </Section>
+        
+            <Section title="Results">
+                <Results gp={gp} />
+            </Section>
+        
+            <Section title="Chemical environments (buffers)">
+                <ChemicalEnvironments chemical_environments={gp.chemical_environments} />
+            </Section>
+        
+            <Section title="Measurements">
+                <bli.BLI.Measurements gp={gp} msp={msp} />
+            </Section>
+        
+            <Section title="Instrument">
+                <Instrument instrument={gp.instrument} />
+            </Section>
+        
+            <Section title="Files">
+                <Files files={extra_context.files} />
+            </Section>
 
-    <Section title="Measurements">
-        <bli.BLI.Measurements gp={gp} msp={msp} />
-    </Section>
+        </div>
 
-    <Section title="Instrument">
-        <Instrument instrument={gp.instrument} />
-    </Section>
+        <!-- Second Tab -->
+        <div id="tab2" class="main-tab-content hidden">
 
-    <Section title="Files">
-        <Files files={extra_context.files} />
-    </Section>
+            <Section title="Entities of interest">
+                <entitiesOfInterest.EntitiesOfInterestDetailedView entities={gp.entities_of_interest} />
+            </Section>
+
+        </div>
+
+    </div>
+
 
 </div>
