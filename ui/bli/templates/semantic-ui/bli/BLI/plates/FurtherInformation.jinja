@@ -1,0 +1,12 @@
+{# def further_information #}
+
+<INonEmpty d={further_information}>
+    <div class='flex mb-2'>
+        <IField label="Further information"/>
+        <div>
+            {%- for information in array(further_information)%}
+                <div>{{ information }}</div>
+            {%- endfor%}
+        </div>    
+    </div>
+</INonEmpty>

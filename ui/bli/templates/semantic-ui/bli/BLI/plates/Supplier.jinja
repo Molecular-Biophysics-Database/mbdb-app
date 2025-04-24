@@ -1,0 +1,13 @@
+{# def supplier #}
+
+<INonEmpty d={supplier}>
+    <div class="flex">
+        <IField label="Supplier" />
+    
+        <div>
+            <IField label="Name" d={supplier.name} />
+            <IField label="Catalog number" d={supplier.catalog_number} />
+            <FurtherInformation further_information={supplier.further_information} />
+        </div>
+    </div>
+</INonEmpty>
