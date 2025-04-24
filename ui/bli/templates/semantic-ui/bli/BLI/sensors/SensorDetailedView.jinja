@@ -1,0 +1,16 @@
+{# def sensor #}
+
+<IField label="Name" d={sensor.name} />
+
+<IField label="Surface properties" d={sensor.surface_properties} />
+
+<IField label="Sensor id" d={sensor.sensor_id} />
+
+<IField label="Previously used" d={sensor.previously_used} />
+
+<IField label="Hydration time" d={sensor.hydration_time}>
+    <ValueUnit value={sensor.hydration_time} />
+</IField>
+
+<Ligand ligand={sensor.ligand} />
+
