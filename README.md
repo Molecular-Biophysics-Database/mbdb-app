@@ -4,7 +4,7 @@
 
 This project is supported by:
 
-![EU, MSMT, EOSC Logo](ui/static/images/eu-msmt-eosc.svg)
+![EU, MSMT, EOSC Logo](ui/static/images/eu-msmt-eosc-bg-white.svg)
 
 ## Requirements
 
