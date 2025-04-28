@@ -1,5 +1,11 @@
 # Molecular Biophysics Database
 
+## Funding
+
+This project is supported by:
+
+![EU, MSMT, EOSC Logo](ui/static/images/eu-msmt-eosc.svg)
+
 ## Requirements
 
  * Linux or MacOS
