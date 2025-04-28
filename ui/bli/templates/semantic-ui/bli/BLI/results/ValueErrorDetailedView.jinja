@@ -1,0 +1,16 @@
+{# def value_error #}
+
+<IField label="Value error" d={value_error}>
+    <IField label="Lower" d={value_error.lower} />
+    
+    <IField label="Upper" d={value_error.upper} />
+    
+    <div class="flex">
+        <div class="mbdbv-name-value-item-name mb-1">Is relative</div>
+        {% if value_error.is_relative %}
+            <div class="mbdbv-name-value-item-value mb-1">Yes</div>
+        {% else %}
+            <div class="mbdbv-name-value-item-value mb-1">No</div>
+        {% endif %}
+    </div>
+</IField>

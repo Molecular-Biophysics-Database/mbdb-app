@@ -1,0 +1,20 @@
+{# def result #}
+
+<IField label="Name" d={result.name} />
+
+<div class="flex">
+    <div class="mr-2">
+        <IField d={result.type} />
+    </div>
+    {% if result.unit._is_empty %}
+        <INonEmpty d={result.value}>
+            {{ result.value }}
+        </INonEmpty>
+    {% else %}
+        {{ result.value ~ " " ~ result.unit }}
+    {% endif %}
+</div>
+
+<ValueErrorDetailedView value_error={result.value_error} />
+
+<EntityInvolved entities={result.entities_involved} />
