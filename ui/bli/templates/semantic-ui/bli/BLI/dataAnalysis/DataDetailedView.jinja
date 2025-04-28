@@ -1,0 +1,19 @@
+{# def data #}
+
+<INonEmpty d={data.measurements}>
+    {%- for measurement in array(data.measurements) %}
+        {% set title='Measurement ' ~ loop.index %}
+        <IField label={title} d={measurement.name} />
+    {%- endfor %}
+</INonEmpty>
+
+<INonEmpty d={data.results}>
+    {%- for result in array(data.results) %}
+        {% set title='Result ' ~ loop.index %}
+        <IField label={title} d={result.name} />
+    {%- endfor %}
+</INonEmpty>
+
+<DataFitting data={data.data_fitting} />
+
+<DataProcessing data={data.data_processing}/>

@@ -1,0 +1,14 @@
+{# def data #}
+
+<IField label="Data processing" d={data}>
+    {%- for step in array(data) %}
+        <div class="font-JostBold mb-2">Data processing step {{ loop.index }}</div>
+        <div class='ml-4'>
+            <IField label="Name" d={step.name}/>
+            <IField label="Description" d={step.description}/>
+            <IField label="Software name" d={step.software_name}/>
+            <IField label="Software version" d={step.software_version}/>
+            <IField label="Link to source code" d={step.link_to_source_code}/>
+        </div>
+    {%- endfor%}
+</IField>
