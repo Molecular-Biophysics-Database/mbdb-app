@@ -1,165 +1,161 @@
-import React from "react";
-import ArrayField from "../../../buildingBlocks/ArrayField";
-import CustomField from "../../../buildingBlocks/CustomField";
-import Identifier from "../../../buildingBlocks/Identifier";
-import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
-import { useFieldData } from "@js/oarepo_ui";
-import { RORInstitutionResultListItem } from "../../../buildingBlocks/RORInstitutionResultListItem";
-import FormWrapper from "../../../buildingBlocks/FormWrapper";
+import React, { useState } from "react";
+import ContactForm from "./ContactForm";
 import { useFormikContext, getIn } from "formik";
+import Spinner from "../../../buildingBlocks/Spinner";
+import OrcidInfo from "./OrcidInfo";
+import OrcidForm from "./OrcidForm";
 
-function Contact({ name, copyDepositor, copyPrincipalContact }) {
-  const { getFieldData } = useFieldData();
-  const { values, setFieldValue } = useFormikContext();
-
-  const tooltips = {
-    affiliation:
-      "The affiliation of the person. Note that this is based on the Research Organization Registry (ROR)",
-  };
-
-  const depositor = `metadata.general_parameters.depositors.depositor`;
-
-  const getDepositor = getIn(values, depositor);
-
-  const principalContact = `metadata.general_parameters.depositors.principal_contact`;
-
-  const getPrincipalContact = getIn(values, principalContact);
-
-  /*
-  
-  function CopyPaste(copy, paste, name) {
-    return (
-      <>
-        <div className="flex mb-3">
-          <input
-            className="mr-3 accent-dark"
-            type="checkbox"
-            onChange={(e) => {
-              if (e.target.checked) {
-                if (copy) {
-                  setFieldValue(paste, copy);
-                }
-              } else {
-                setFieldValue(paste, {});
-              }
-            }}
-          />
-          <div className="font-JostMedium">{`Same as ${name}`}</div>
-        </div>
-      </>
-    );
-  }
-  
-  */
-
+function UseOrcidButton({ onClick }) {
   return (
-    <>
-      {copyPrincipalContact && (
-        <>
-          <div className="flex mb-3">
-            <input
-              className="mr-3 accent-dark"
-              type="checkbox"
-              onChange={(e) => {
-                if (e.target.checked) {
-                  if (getPrincipalContact) {
-                    setFieldValue(depositor, getPrincipalContact);
-                  }
-                } else {
-                  setFieldValue(depositor, {});
-                }
-              }}
-            />
-            <div className="font-JostMedium">Same as principal contact</div>
-          </div>
-        </>
-      )}
-      {copyDepositor && (
-        <>
-          <div className="flex mb-3">
-            <input
-              className="mr-3 accent-dark"
-              type="checkbox"
-              onChange={(e) => {
-                if (e.target.checked) {
-                  if (getDepositor) {
-                    setFieldValue(principalContact, getDepositor);
-                  }
-                } else {
-                  setFieldValue(principalContact, {});
-                }
-              }}
-            />
-            <div className="font-JostMedium">Same as depositor</div>
-          </div>
-        </>
-      )}
-      <div className="flex">
-        <div className="mr-3">
-          <CustomField
-            name={name}
-            label="Given name"
-            fieldName="given_name"
-            required
-            tooltip="The given name(s), including middlename(s), of the person"
-          />
-        </div>
-
-        <CustomField
-          name={name}
-          label="Family name"
-          fieldName="family_name"
-          required
-          tooltip="The family name(s) of the person"
-        />
-      </div>
-      <div className="flex">
-        <div className="mr-3">
-          <ArrayField
-            name={name}
-            label="identifier"
-            fieldName="identifiers"
-            tooltip="Persistent personal identifiers, currently only ORCIDs are allowed"
-            renderChild={({ arrayName, index }) => (
-              <Identifier
-                name={`${arrayName}.${index}`}
-                label={`Identifier ${index + 1}`}
-              />
-            )}
-          />
-        </div>
-
-        <ArrayField
-          name={name}
-          label="affiliation"
-          fieldName="affiliations"
-          tooltip={tooltips.affiliation}
-          renderChild={({ arrayName, index }) => (
-            <FormWrapper
-              headline={`affiliation ${index + 1}`}
-              tooltip={tooltips.affiliation}
-              colorSchema="light"
-            >
-              <VocabularyRemoteSelectField
-                overriddenComponents={{
-                  "VocabularyRemoteSelect.ext.ResultsList.item":
-                    RORInstitutionResultListItem,
-                }}
-                vocabulary="affiliations"
-                fieldPath={`${arrayName}.${index}`}
-                modalHeader={
-                  getFieldData({
-                    fieldPath: `${arrayName}.${index}`,
-                    fieldRepresentation: "text",
-                  }).label
-                }
-              />
-            </FormWrapper>
-          )}
-        />
-      </div>
-    </>
+    <button
+      className="underline font-JostSemiBold hover:text-black mb-3"
+      onClick={onClick}
+    >
+      I want to use ORCID
+    </button>
   );
 }
 
-export default Contact;
+export default function Contact({ name }) {
+  const { values, setFieldValue } = useFormikContext();
+
+  const getField = (field) => getIn(values, `${name}.${field}`);
+
+  const [givenName, setGivenName] = useState(getField("given_name") || "");
+  const [familyName, setFamilyName] = useState(getField("family_name") || "");
+  const [isUsingOrcid, setIsUsingOrcid] = useState(true);
+  const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const identifiers = getField("identifiers");
+
+  const orcidNumbers = Array.isArray(identifiers)
+  ? identifiers
+    .filter((id) => typeof id === "string" && id.startsWith("orcid:"))
+    .map((id) => id.replace("orcid:", ""))
+  : [];
+
+  const [orcid, setOrcid] = useState(orcidNumbers);
+
+  console.log(orcid, 'Current orcid')
+  console.log([orcid?.length], 'Current orcid length')
+
+  function handleRemove() {
+    setOrcid([]);
+    setIsUsingOrcid((ev) => !ev);
+    setGivenName("");
+    setFamilyName("");
+    setError("");
+
+    setFieldValue(`${name}.given_name`, undefined);
+    setFieldValue(`${name}.family_name`, undefined);
+    setFieldValue(`${name}.identifiers`, undefined);
+  }
+
+  const handleSubmit = async (orcid) => {
+    const url = `https://pub.orcid.org/v3.0/${orcid}`;
+    setOrcid([orcid]);
+    setError("");
+    setIsLoading(true);
+
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        const message = `Error fetching ORCID data: ${response.status}`;
+        setError(message);
+        throw new Error(message);
+      }
+
+      const data = await response.json();
+      const givenName = data.person.name["given-names"]?.value || "N/A";
+      const familyName = data.person.name["family-name"]?.value || "N/A";
+
+      setGivenName(givenName);
+      setFamilyName(familyName);
+
+      if (givenName && familyName) {
+        setFieldValue(`${name}.given_name`, givenName);
+        setFieldValue(`${name}.family_name`, familyName);
+        setFieldValue(`${name}.identifiers`, [`orcid:${orcid}`]);
+      }
+
+      return { givenName, familyName };
+    } catch (error) {
+      console.log(error);
+      setOrcid([])
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  const hasValidOrcid =
+    Array.isArray(orcid) &&
+    orcid.length === 1 &&
+    typeof orcid[0] === "string" &&
+    givenName &&
+    familyName;
+
+  const hasContactData =
+    !!givenName ||
+    !!familyName ||
+    (Array.isArray(orcid) && orcid.length > 0);
+  
+  if(isLoading) return <Spinner/>
+
+  if (hasValidOrcid) {
+    return (
+      <OrcidInfo
+        orcid={orcid}
+        givenName={givenName}
+        familyName={familyName}
+        onRemove={handleRemove}
+        setUseOrcid={setIsUsingOrcid}
+      />
+    );
+  }
+
+  if (hasContactData) {
+    return (
+      <>
+        <UseOrcidButton 
+          onClick={() => {
+            handleRemove();
+            setIsUsingOrcid(true);
+          }}
+        />
+        <ContactForm name={name} />
+      </>
+    );
+  }
+
+  if (isUsingOrcid) {
+    return (
+      <OrcidForm
+        orcid={orcid}
+        setHasOrcid={setIsUsingOrcid}
+        handleSubmit={handleSubmit}
+        onRemove={handleRemove}
+        error={error}
+        isLoading={isLoading}
+      />
+    );
+  }
+
+  return (
+    <>
+      <UseOrcidButton 
+        onClick={() => {
+          handleRemove();
+          setIsUsingOrcid(true);
+        }}
+      />
+      <ContactForm name={name} />
+    </>
+  );
+}

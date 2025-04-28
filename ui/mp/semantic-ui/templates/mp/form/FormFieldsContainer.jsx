@@ -106,7 +106,6 @@ function FormFieldsContainer() {
                         <RawMeasurementFilesTab
                           ref={fileUploaderRef}
                           name="files"
-                          save={save}
                           recordMetadata={recordMetadata}
                         />
                       </React.Fragment>

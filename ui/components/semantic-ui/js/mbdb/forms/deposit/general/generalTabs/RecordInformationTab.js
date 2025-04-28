@@ -4,13 +4,9 @@ import Depositors from "../recordInformation/depositors/Depositors";
 import ArrayField from "../../buildingBlocks/ArrayField";
 import AssociatedPublication from "../recordInformation/associatedPublication/AssociatedPublication";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
-import { VocabularyRemoteSelectField } from "@js/oarepo_vocabularies";
-import { useFieldData } from "@js/oarepo_ui";
-import { OpenAireProjectResultListItem } from "../../buildingBlocks/OpenAireProjectResultListItem";
+import FundingReference from "../recordInformation/depositors/FundingReference";
 
 export default function RecordInformationTab({ name }) {
-  const { getFieldData } = useFieldData();
-
   const tooltip =
     "List of information about the grants that supported generation of the raw data annotated by this record. Note that this information is based on OpenAire Projects";
 
@@ -37,25 +33,11 @@ export default function RecordInformationTab({ name }) {
         fieldName="funding_references"
         tooltip={tooltip}
         renderChild={({ arrayName, index }) => (
-          <FormWrapper
-            headline={`funding reference ${index + 1}`}
+          <FundingReference
+            arrayName={arrayName}
+            index={index}
             tooltip={tooltip}
-          >
-            <VocabularyRemoteSelectField
-              overriddenComponents={{
-                "VocabularyRemoteSelect.ext.ResultsList.item":
-                  OpenAireProjectResultListItem,
-              }}
-              vocabulary="grants"
-              fieldPath={`${arrayName}.${index}`}
-              modalHeader={
-                getFieldData({
-                  fieldPath: `${arrayName}.${index}`,
-                  fieldRepresentation: "text",
-                }).label
-              }
-            />
-          </FormWrapper>
+          />
         )}
       />
     </>
