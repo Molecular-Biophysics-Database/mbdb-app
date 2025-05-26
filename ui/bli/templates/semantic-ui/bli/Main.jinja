@@ -59,6 +59,10 @@
                 <ChemicalEnvironmentDetailedView chemical_environments={gp.chemical_environments} />
             </Section>
 
+            <Section title="Instrument">
+                <InstrumentDetailedView instrument={gp.instrument} experimentType={msp.experiment_type} />
+            </Section>
+
             <Section title="Plates">
                 <PlatesDetailedView plates={msp.plates} />
             </Section>
