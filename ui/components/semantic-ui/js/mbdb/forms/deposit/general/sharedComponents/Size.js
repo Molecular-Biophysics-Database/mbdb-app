@@ -12,12 +12,13 @@ function Size({ name, colorSchema }) {
   };
 
   const typeOptions = [
-    { value: "Radius", label: "Radius" },
-    { value: "Diameter", label: "Diameter" },
-    { value: "Path length", label: "Path length" },
+    { value: "radius", label: "radius" },
+    { value: "diameter", label: "diameter" },
+    { value: "path length", label: "path length" },
   ];
 
   const unitOptions = [
+    { value: "Å", label: "Å" },
     { value: "nm", label: "nm" },
     { value: "μm", label: "μm" },
     { value: "mm", label: "mm" },
@@ -47,6 +48,7 @@ function Size({ name, colorSchema }) {
               name={name}
               fieldName="mean"
               label="Mean"
+              type="number"
               tooltip="The mean of the size"
             />
           </div>
@@ -70,6 +72,7 @@ function Size({ name, colorSchema }) {
                 <CustomField
                   name={optionalFieldName}
                   label="Median"
+                  type="number"
                   tooltip={tooltips.median}
                 />
               )}
@@ -85,6 +88,7 @@ function Size({ name, colorSchema }) {
                 <CustomField
                   name={optionalFieldName}
                   label="Upper"
+                  type="number"
                   tooltip={tooltips.upper}
                 />
               )}
@@ -100,6 +104,7 @@ function Size({ name, colorSchema }) {
               <CustomField
                 name={optionalFieldName}
                 label="Lower"
+                type="number"
                 tooltip={tooltips.lower}
               />
             )}

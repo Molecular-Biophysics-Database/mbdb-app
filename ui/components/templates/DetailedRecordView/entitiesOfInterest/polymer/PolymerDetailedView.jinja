@@ -1,0 +1,36 @@
+{# def entity #}
+
+
+{# Recordview template that renders the content of Polymer objects (in entities of interest section) #}
+
+<IField label="Polymer type" d={entity.polymer_type} />
+
+<IField label="Expression source" d={entity.expression_source_type} />
+
+<PolymerSequence sequence={entity.sequence} />
+
+<IField label="Variant" d={entity.variant} />
+
+<IField label="Source organism" d={entity.source_organism}>
+    <Organism organism={entity.source_organism} />
+</IField>
+
+<IField label="Expression organism" d={entity.expression_organism}>
+    <Organism organism={entity.expression_organism} />
+</IField>
+
+<ExternalDatabases external_databases={entity.external_databases} />
+
+<AdditionalSpecifications additional_specifications={entity.additional_specifications} />
+
+<IField label="Molecular weight" d={entity.molecular_weight}>
+    <ValueUnit value={entity.molecular_weight} />
+</IField>
+
+<IField label="Modifications" d={entity.modifications} >
+    <PolymerModificationsDetailedView modifications={entity.modifications} />
+</IField>
+
+<IField label="Quality controls" d={entity.quality_controls}>
+    <PolymerQualityControlsDetailedView entity={entity} />
+</IField>

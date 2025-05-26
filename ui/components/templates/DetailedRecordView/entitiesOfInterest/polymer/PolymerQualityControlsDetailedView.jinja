@@ -1,0 +1,76 @@
+{# def entity #}
+
+<INonEmpty d={entity.quality_controls.purity}>
+
+    <div class="font-JostBold mb-2">Purity</div>
+
+    <div class='ml-4 mb-6'>
+        <IField label="Assessed" d={entity.quality_controls.purity.assessed} />
+
+        <IField label="Method" d={entity.quality_controls.purity.method} />
+
+        <IField label="Purity percentage" d={entity.quality_controls.purity.purity_percentage} />
+    </div>
+
+</INonEmpty>
+
+<INonEmpty d={entity.quality_controls.identity}>
+
+    <div class="font-JostBold mb-2">Identity</div>
+
+    <div class='ml-4 mb-6'>
+        <IField label="Assessed" d={entity.quality_controls.identity.assessed} />
+
+        <INonEmpty d={entity.quality_controls.identity.by_intact_mass}>
+
+            <div class="font-JostBold mb-2">By intact mass</div>
+
+            <div class='ml-4'>
+                <IField label="Method" d={entity.quality_controls.identity.by_intact_mass.method} />
+    
+                <IField label="Deviation from expected mass" d={entity.quality_controls.identity.by_intact_mass.deviation_from_expected_mass}>
+                    <ValueUnit value={entity.quality_controls.identity.by_intact_mass.deviation_from_expected_mass} />
+                </IField>
+            </div>
+        
+        </INonEmpty>
+
+        <INonEmpty d={entity.quality_controls.identity.by_sequencing}>
+
+            <div class="font-JostBold mb-2">By sequencing</div>
+
+            <div class='ml-4'>
+                <IField label="Method" d={entity.quality_controls.identity.by_sequencing.method} />
+    
+                <IField label="Coverage" d={entity.quality_controls.identity.by_sequencing.coverage} />
+            </div>
+
+        </INonEmpty>
+
+        <INonEmpty d={entity.quality_controls.identity.by_fingerprinting}>
+
+            <div class="font-JostBold mb-2">By fingerprinting</div>
+
+            <div class='ml-4'>
+                <IField label="Method" d={entity.quality_controls.identity.by_fingerprinting.method} />
+            </div>
+
+        </INonEmpty>
+    </div>
+
+</INonEmpty>
+
+<INonEmpty d={entity.quality_controls.homogeneity}>
+
+    <div class="font-JostBold mb-2">Homogeneity</div>
+
+    <div class='ml-4 mb-6'>
+        <IField label="Assessed" d={entity.quality_controls.homogeneity.assessed} />
+
+        <IField label="Method" d={entity.quality_controls.homogeneity.method} />
+
+        <IField label="Expected number of spicies" d={entity.quality_controls.homogeneity.expected_number_of_species} />
+
+        <IField label="Number of spicies observed" d={entity.quality_controls.homogeneity.number_of_species_observed} />
+    </div>
+</INonEmpty>

@@ -15,7 +15,11 @@ export default function Location({ name, tooltip, colorSchema }) {
             name={name}
             label="Latitude"
             fieldName="latitude"
+            type="number"
             required
+            min={-90}
+            max={90}
+            width="w-40"
             tooltip="The latitude, from south to north, in degrees (decimal notation)"
           />
 
@@ -24,7 +28,11 @@ export default function Location({ name, tooltip, colorSchema }) {
               name={name}
               label="Longitude"
               fieldName="longitude"
+              type="number"
               required
+              min={-180}
+              max={180}
+              width="w-40"
               tooltip="The longitude, from west to east, in degrees (decimal notation)"
             />
           </div>
@@ -32,8 +40,11 @@ export default function Location({ name, tooltip, colorSchema }) {
           <CustomField
             name={name}
             label="Altitude"
-            fieldName="Altitude"
+            fieldName="altitude"
+            type="number"
             required
+            min={-6378100}
+            width="w-40"
             tooltip="The altitude, in meters, above mean sea-level (negative numbers are allowed)"
           />
         </div>

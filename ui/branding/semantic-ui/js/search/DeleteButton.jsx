@@ -48,7 +48,7 @@ export default function DeleteButton({ selfLink }) {
   }
 
   return (
-    <div className="flex justify-center h-10 text-20px bg-accent rounded-normal text-white hover:text-dark hover:bg-primary transition-all" role="button">
+    <div className="flex justify-center h-10 text-20px bg-accent rounded-normal text-white hover:bg-accent/75 transition-all" role="button">
       <button 
         onClick={popUp}
         className="px-4"
@@ -59,17 +59,17 @@ export default function DeleteButton({ selfLink }) {
       {showPopup && (
         <div className="fixed top-0 left-0 w-screen h-screen overflow-hidden flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-white p-6 rounded-normal">
-            <div className="mb-4">Are you sure you want to delete your record? This action cannot be undone.</div>
+            <div className="mb-4 text-dark">Are you sure you want to delete your record? This action cannot be undone.</div>
             <div className="flex justify-between">
               <button 
                 onClick={deleteRecord}
-                className="bg-accent text-white px-4 h-10 rounded-normal hover:text-dark hover:bg-primary transition-all"
+                className="bg-accent text-white px-4 h-10 rounded-normal hover:bg-accent/75 transition-all"
               >
                 Yes
               </button>
               <button 
                 onClick={() => setShowPopup(false)}
-                className="bg-dark text-primary px-4 h-10 rounded-normal hover:text-dark hover:bg-primary transition-all"
+                className="bg-dark text-primary px-4 h-10 rounded-normal hover:bg-dark/75 transition-all"
               >
                 No
               </button>

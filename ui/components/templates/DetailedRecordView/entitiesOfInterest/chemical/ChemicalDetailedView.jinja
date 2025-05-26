@@ -1,0 +1,11 @@
+{# def entity #}
+
+<IField label="Pubchem Title" d={entity.basic_information.title} />
+
+<IField label="InChI key" d={entity.basic_information}>
+    {% if entity.basic_information %}
+        {{ entity.basic_information.id._ui_value[9:] }}
+    {% endif %}
+</IField>
+
+<AdditionalSpecifications additional_specifications={entity.additional_specifications} />

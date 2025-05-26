@@ -1,0 +1,20 @@
+{# def solvents #}
+
+<INonEmpty d={solvents}>
+    <div class="flex">
+        <IField label='Solvents' />
+        <div>
+            {% for solvent in array(solvents) %}
+                <div class="font-JostBold mb-2">Solvent {{ loop.index }} / {{ solvent.name }}</div>
+                <div class="ml-4 mb-6">
+                    <IField label='Type' d={solvent.type} />
+                    <IField label='Compound' d={solvent.basic_information.title} />
+                    <IField label="Concentration" d={solvent.concentration}>
+                        <ValueUnit value={solvent.concentration} />
+                    </IField>
+                    <AdditionalSpecifications additional_specifications={solvent.additional_specifications} />
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</INonEmpty>

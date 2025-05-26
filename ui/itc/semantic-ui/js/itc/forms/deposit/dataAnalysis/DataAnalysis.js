@@ -69,7 +69,7 @@ function DataAnalysis({ name }) {
         <div className="-mt-3">
           <ArrayField
             name={name}
-            label="Results"
+            label="Result"
             fieldName="results"
             tooltip={tooltips.results}
             renderChild={({ arrayName, index }) => (

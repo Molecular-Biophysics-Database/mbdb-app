@@ -51,7 +51,7 @@ function DataAnalysis({ name }) {
 
       <ArrayField
         name={name}
-        label="Results"
+        label="Result"
         fieldName="results"
         tooltip={tooltips.results}
         renderChild={({ arrayName, index }) => (

@@ -1,0 +1,16 @@
+{# def chemical_environments #}
+
+{# Record view template that renders the contents of the chemical environments section #}
+
+{% for chemical_environment in array(chemical_environments, remove_empty=True) %}
+{% set title='Chemical environment ' ~ loop.index %}
+<div class="mb-4 pb-8 border-b-[.1px] border-b-dark last:border-b-0 last:mb-0">
+    <SubSection title={ title }>
+        <IField label="Name" d={chemical_environment.name} />
+        <IField label="pH" d={chemical_environment.ph} />
+        <AdditionalSpecifications additional_specifications={chemical_environment.additional_specifications} />
+        <Constituents constituents={chemical_environment.constituents} />
+        <Solvents solvents={chemical_environment.solvent}/>
+    </SubSection>
+</div>
+{% endfor  %}

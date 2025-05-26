@@ -1,0 +1,16 @@
+{# def ligand #}
+
+<INonEmpty d={ligand}>
+    <div class='flex mb-2'>
+
+        <IField label="Ligand"/>
+
+        <div>            
+            <IField label="Entity" d={ligand.entity.name} />
+            
+            <IField label="Immobilization chemistry" d={ligand.immobilization_chemistry} />
+            
+            <Protocol title="Ligand immobilization protocol" protocols={ligand.immobilization_protocol} />
+        </div>
+    </div>
+</INonEmpty>

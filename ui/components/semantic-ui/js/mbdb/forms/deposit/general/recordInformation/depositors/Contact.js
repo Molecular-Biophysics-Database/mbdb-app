@@ -30,15 +30,12 @@ export default function Contact({ name }) {
   const identifiers = getField("identifiers");
 
   const orcidNumbers = Array.isArray(identifiers)
-  ? identifiers
-    .filter((id) => typeof id === "string" && id.startsWith("orcid:"))
-    .map((id) => id.replace("orcid:", ""))
-  : [];
+    ? identifiers
+        .filter((id) => typeof id === "string" && id.startsWith("orcid:"))
+        .map((id) => id.replace("orcid:", ""))
+    : [];
 
   const [orcid, setOrcid] = useState(orcidNumbers);
-
-  console.log(orcid, 'Current orcid')
-  console.log([orcid?.length], 'Current orcid length')
 
   function handleRemove() {
     setOrcid([]);
@@ -88,11 +85,11 @@ export default function Contact({ name }) {
       return { givenName, familyName };
     } catch (error) {
       console.log(error);
-      setOrcid([])
+      setOrcid([]);
     } finally {
       setIsLoading(false);
     }
-  }
+  };
 
   const hasValidOrcid =
     Array.isArray(orcid) &&
@@ -102,11 +99,9 @@ export default function Contact({ name }) {
     familyName;
 
   const hasContactData =
-    !!givenName ||
-    !!familyName ||
-    (Array.isArray(orcid) && orcid.length > 0);
-  
-  if(isLoading) return <Spinner/>
+    !!givenName || !!familyName || (Array.isArray(orcid) && orcid.length > 0);
+
+  if (isLoading) return <Spinner />;
 
   if (hasValidOrcid) {
     return (
@@ -123,7 +118,7 @@ export default function Contact({ name }) {
   if (hasContactData) {
     return (
       <>
-        <UseOrcidButton 
+        <UseOrcidButton
           onClick={() => {
             handleRemove();
             setIsUsingOrcid(true);
@@ -149,7 +144,7 @@ export default function Contact({ name }) {
 
   return (
     <>
-      <UseOrcidButton 
+      <UseOrcidButton
         onClick={() => {
           handleRemove();
           setIsUsingOrcid(true);

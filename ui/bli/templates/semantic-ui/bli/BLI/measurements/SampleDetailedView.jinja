@@ -1,0 +1,22 @@
+{# def sample #}
+
+<IField label="Sample">
+
+    <IField label="Plate" d={sample.plate.name} />
+    
+    <IField label="Well position" d={sample.well_position} />
+    
+    <IField label="Chemical environment" d={sample.chemical_environment.name} />
+
+    <IField label="Temperature" d={sample.temperature}>
+        <ValueUnit value={sample.temperature} />
+    </IField>
+
+    <IField label="Analytes" d={sample.analytes}>
+        <Analytes title="Analyte" analytes={sample.analytes} />
+    </IField>
+
+    <IField label="Protocols" d={sample.preparation_protocol}>
+        <Protocol title="Preparation protocol step" protocols={sample.preparation_protocol} />
+    </IField>
+</IField>

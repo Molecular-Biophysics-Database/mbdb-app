@@ -1,0 +1,11 @@
+{# def title, protocols #}
+
+<INonEmpty d={protocols}>
+    {%- for protocol in array(protocols) %}
+        <div class="font-JostBold mb-2">{{ title }} {{ loop.index }}</div>
+        <div class='ml-4'>
+            <IField label="Name" d={protocol.name}/>
+            <IField label="Description" d={protocol.description} />
+        </div>
+    {%- endfor %}
+</INonEmpty>
