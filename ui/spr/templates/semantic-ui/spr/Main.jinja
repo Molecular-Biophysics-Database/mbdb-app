@@ -59,6 +59,10 @@
                 <ChemicalEnvironmentDetailedView chemical_environments={gp.chemical_environments} />
             </Section>
 
+            <Section title="Instrument">
+                <SPRInstrumentDetailedView instrument={gp.instrument} experimentType={msp.experiment_type} />
+            </Section>
+
             <Section title="Files">
                 <FilesDetailedView files={extra_context.files} />
             </Section>
