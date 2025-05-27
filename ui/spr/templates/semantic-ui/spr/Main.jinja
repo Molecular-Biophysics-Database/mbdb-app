@@ -63,6 +63,10 @@
                 <SPRInstrumentDetailedView instrument={gp.instrument} experimentType={msp.experiment_type} />
             </Section>
 
+            <Section title="Sensors">
+                <SPRSensorsDetailedView sensors={msp.sensor} />
+            </Section>
+
             <Section title="Files">
                 <FilesDetailedView files={extra_context.files} />
             </Section>
