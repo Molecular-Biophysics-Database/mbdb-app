@@ -70,7 +70,7 @@ function FileField({
           <div className="flex">
             <label
               htmlFor={`${name}.file-upload`}
-              className="rounded-normal font-JostMedium bg-dark text-white p-3 text-16px"
+              className="rounded-normal font-JostMedium bg-dark text-white p-3 text-16px cursor-pointer"
             >
               Choose file
             </label>

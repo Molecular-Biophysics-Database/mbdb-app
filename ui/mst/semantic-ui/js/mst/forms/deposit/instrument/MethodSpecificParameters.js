@@ -96,7 +96,11 @@ function MethodSpecificParameters({ name }) {
             <CustomField
               name={name}
               label="Excitation LED power"
+              type="number"
               fieldName="excitation_led_power"
+              min={0}
+              max={100}
+              width="w-[13rem]"
               required
               tooltip="The power, in percentage, of the excitation LED used in experiment"
             />
@@ -106,6 +110,10 @@ function MethodSpecificParameters({ name }) {
             name={name}
             label="IR MST laser power"
             fieldName="ir_mst_laser_power"
+            type="number"
+            min={0}
+            max={100}
+            width="w-[13rem]"
             required
             tooltip="The power of the infrared LASER used in the experiment in percentages. Even though a change in nomenclature occurred in Nanotemper's control software, the underlying data is still stored in percentages. Use the following conversion; Low = 20, Medium = 40, High = 60"
           />
