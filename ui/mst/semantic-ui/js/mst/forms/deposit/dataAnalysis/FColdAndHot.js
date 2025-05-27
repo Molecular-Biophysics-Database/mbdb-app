@@ -4,15 +4,15 @@ import OptionField from "@mbdb_deposit/buildingBlocks/OptionField";
 
 function FColdAndHot({ name }) {
   const unitOptions = [
-    { value: "Nanoseconds", label: "Nanoseconds" },
-    { value: "Microseconds", label: "Microseconds" },
-    { value: "Milliseconds", label: "Milliseconds" },
-    { value: "Seconds", label: "Seconds" },
-    { value: "Minutes", label: "Minutes" },
-    { value: "Gours", label: "Hours" },
-    { value: "Days", label: "Days" },
-    { value: "Months", label: "Months" },
-    { value: "Years", label: "Years" },
+    { value: "nanoseconds", label: "nanoseconds" },
+    { value: "microseconds", label: "microseconds" },
+    { value: "milliseconds", label: "milliseconds" },
+    { value: "seconds", label: "seconds" },
+    { value: "minutes", label: "minutes" },
+    { value: "hours", label: "hours" },
+    { value: "days", label: "days" },
+    { value: "months", label: "months" },
+    { value: "years", label: "years" },
   ];
 
   return (
