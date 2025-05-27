@@ -1,0 +1,41 @@
+{# def sample #}
+
+<IField label="Sample">
+
+    <IField label="Chemical environment" d={sample.chemical_environment.name} />
+    
+    <IField label="Measurement container" d={sample.measurement_container} />
+
+    <IField label="Protocols" d={sample.preparation_protocol}>
+        <Protocol title="Preparation protocol step" protocols={sample.preparation_protocol} />
+    </IField>
+
+    <IField label="Targets" d={sample.targets}>
+        <INonEmpty d={sample.targets}>
+            {%- for target in array(sample.targets) %}
+                <div class="font-JostBold mb-2">Target {{ loop.index }}</div>
+                <div class='ml-4'>
+                    <IField label="Entity" d={target.entity.name}/>
+                    <IField label="Concentration" d={target.concentration}>
+                        <ValueUnit value={target.concentration} />
+                    </IField>
+                </div>
+            {%- endfor%}
+        </INonEmpty>
+    </IField>
+
+    <IField label="Ligands" d={sample.ligands}>
+        <INonEmpty d={sample.ligands}>
+            {%- for ligand in array(sample.ligands) %}
+                <div class="font-JostBold mb-2">Ligand {{ loop.index }}</div>
+                <div class='ml-4'>
+                    <IField label="Entity" d={ligand.entity.name}/>
+                    <IField label="Concentration" d={ligand.concentration}>
+                        <ValueUnit value={ligand.concentration} />
+                    </IField>
+                </div>
+            {%- endfor%}
+        </INonEmpty>
+    </IField>
+
+</IField>

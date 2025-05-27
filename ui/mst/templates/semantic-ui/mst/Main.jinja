@@ -63,6 +63,10 @@
                 <MSTInstrumentDetailedView instrument={gp.instrument} msp={msp} />
             </Section>
 
+            <Section title="Measurements">
+                <MSTMeasurementsDetailedView measurements={msp.measurements} />
+            </Section>
+
             <Section title="Files">
                 <FilesDetailedView files={extra_context.files} />
             </Section>
