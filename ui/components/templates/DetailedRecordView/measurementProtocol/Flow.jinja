@@ -4,8 +4,9 @@
     <div class="flex">
         <IField label='Flow' />
         <div>
-            <IField label='Rate' d={flow.rate}/>
-            <IField label='Unit' d={flow.unit}/>
+            <IField label="Rate" d={flow.rate}>
+                <ValueUnit value={flow.rate} />
+            </IField>
             <IField label='Direction' d={flow.direction}/>
 
             {%- for path in array(flow.path) %}

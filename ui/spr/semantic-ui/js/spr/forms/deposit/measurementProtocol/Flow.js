@@ -1,11 +1,11 @@
 import React from "react";
-import CustomField from "@mbdb_deposit/buildingBlocks/CustomField";
 import OptionField from "@mbdb_deposit/buildingBlocks/OptionField";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 import OptionalField from "@mbdb_deposit/buildingBlocks/OptionalField";
 import Path from "./Path";
 import ArrayField from "@mbdb_deposit/buildingBlocks/ArrayField";
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
+import Rate from "./Rate";
 
 function Flow({ colorSchema, name }) {
   const tooltips = {
@@ -51,24 +51,7 @@ function Flow({ colorSchema, name }) {
             />
           </div>
           <div className="mr-3">
-            <CustomField
-              name={name}
-              fieldName="rate"
-              label="Rate"
-              required
-              tooltip="Numerical value of the flow-rate"
-              type="number"
-            />
-          </div>
-          <div className="mr-3">
-            <OptionField
-              name={name}
-              fieldName="unit"
-              label="Unit"
-              required
-              tooltip="The unit of the flow-rate"
-              options={unitOptions}
-            />
+            <Rate name={`${name}.rate`} />
           </div>
           <div className="-mt-3">
             <OptionalField
