@@ -120,6 +120,7 @@ class ItcExt:
             "service_config": "itc.services.records.config.ItcServiceConfig",
             "ui_resource_config": "ui.itc.ItcUIResourceConfig",
             "api_resource_config": "itc.resources.records.config.ItcResourceConfig",
+            "service_id": "itc",
         }
 
         app.config.setdefault("GLOBAL_SEARCH_MODELS", [])

@@ -120,6 +120,7 @@ class BliExt:
             "service_config": "bli.services.records.config.BliServiceConfig",
             "ui_resource_config": "ui.bli.BliUIResourceConfig",
             "api_resource_config": "bli.resources.records.config.BliResourceConfig",
+            "service_id": "bli",
         }
 
         app.config.setdefault("GLOBAL_SEARCH_MODELS", [])

@@ -1,0 +1,19 @@
+{# def sensor #}
+
+<IField label="Id" d={sensor.id} />
+
+<IField label="Surface properties" d={sensor.surface_properties} />
+
+<IField label="Sensor initialization" d={sensor.sensor_initialization} />
+
+<div class="flex">
+    <div class="mbdbv-name-value-item-name mb-1">Previously used</div>
+    {% if sensor.previously_used %}
+        <div class="mbdbv-name-value-item-value mb-1">Yes</div>
+    {% else %}
+        <div class="mbdbv-name-value-item-value mb-1">No</div>
+    {% endif %}
+</div>
+
+<Supplier supplier={sensor.supplier} />
+

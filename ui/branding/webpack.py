@@ -10,7 +10,6 @@ theme = WebpackThemeBundle(
                 "branding": "./js/branding.js"
             },
             "dependencies": {
-                "react-searchkit": "^2.0.0",
                 "semantic-ui-less": "^2.5.0",
             },
             "devDependencies": {

@@ -1,7 +1,7 @@
 from typing import Dict
 
 from oarepo_ui.resources import BabelComponent, PermissionsComponent
-from oarepo_ui.resources.components import FilesComponent, UIResourceComponent
+from oarepo_ui.resources.components import FilesComponent, UIResourceComponent, AllowedHtmlTagsComponent
 from oarepo_ui.resources.config import RecordsUIResourceConfig
 from oarepo_ui.resources.resource import RecordsUIResource
 from oarepo_vocabularies.ui.resources.config import (
@@ -31,6 +31,7 @@ class ItcResourceConfig(SearchInAllMixin, RecordsUIResourceConfig):
 
     components = [
         BabelComponent,
+        AllowedHtmlTagsComponent,
         FilesComponent,
         VocabularyFormDepositVocabularyOptionsComponent,
         ItcInitialValuesComponent,

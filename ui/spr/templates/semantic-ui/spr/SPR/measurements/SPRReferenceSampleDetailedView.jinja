@@ -1,0 +1,26 @@
+{# def samples #}
+
+{% for sample in array(samples, remove_empty=True) %}
+{% set title='Reference Sample ' ~ loop.index %}
+<div class="mb-4 pb-8 border-b-[.1px] border-b-dark last:border-b-0 last:mb-0">
+    <SubSection title={ title }>
+        <IField label="Measurement step" d={sample.measurement_step.name} />
+        
+        <IField label="Chemical environment" d={sample.chemical_environment.name} />
+
+        <IField label="Position" d={sample.position} />
+    
+        <IField label="Temperature" d={sample.temperature}>
+            <ValueUnit value={sample.temperature} />
+        </IField>
+    
+        <IField label="Analytes" d={sample.analytes}>
+            <Analytes title="Analyte" analytes={sample.analytes} />
+        </IField>
+    
+        <IField label="Protocols" d={sample.preparation_protocol}>
+            <Protocol title="Preparation protocol step" protocols={sample.preparation_protocol} />
+        </IField>
+    </SubSection>
+</div>
+{% endfor %}

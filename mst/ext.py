@@ -120,6 +120,7 @@ class MstExt:
             "service_config": "mst.services.records.config.MstServiceConfig",
             "ui_resource_config": "ui.mst.MstUIResourceConfig",
             "api_resource_config": "mst.resources.records.config.MstResourceConfig",
+            "service_id": "mst",
         }
 
         app.config.setdefault("GLOBAL_SEARCH_MODELS", [])

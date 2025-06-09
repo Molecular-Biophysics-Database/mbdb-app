@@ -120,6 +120,7 @@ class MpExt:
             "service_config": "mp.services.records.config.MpServiceConfig",
             "ui_resource_config": "ui.mp.MpUIResourceConfig",
             "api_resource_config": "mp.resources.records.config.MpResourceConfig",
+            "service_id": "mp",
         }
 
         app.config.setdefault("GLOBAL_SEARCH_MODELS", [])

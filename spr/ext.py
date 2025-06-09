@@ -120,6 +120,7 @@ class SprExt:
             "service_config": "spr.services.records.config.SprServiceConfig",
             "ui_resource_config": "ui.spr.SprUIResourceConfig",
             "api_resource_config": "spr.resources.records.config.SprResourceConfig",
+            "service_id": "spr",
         }
 
         app.config.setdefault("GLOBAL_SEARCH_MODELS", [])
