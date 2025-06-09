@@ -7,7 +7,7 @@ import _get from "lodash/get";
 import { withState, buildUID } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 
-const ItemHeader = ({ title, searchUrl, selfLink, id, releasedDate, givenName, familyName, affiliationsTitle, method, entitiesOfInterest, results}) => {
+const ItemHeader = ({ title, searchUrl, selfLink, id, releasedDate, givenName, familyName, affiliationsTitle, method, entitiesOfInterest, results, state}) => {
   return (
     <div className="lg:max-w-[1024px] lg:m-auto xl:max-w-[1280px] 2xl:max-w-[1440px] !my-10 !mx-6 pb-10 text-dark border-b-dark border-b-[.1px] first:!mt-16 md:!mx-12">
       <div className="flex justify-between flex-col lg:flex-row">
@@ -30,6 +30,10 @@ const ItemHeader = ({ title, searchUrl, selfLink, id, releasedDate, givenName, f
             <div className="my-2">{givenName} {familyName}</div>
             <div className="my-auto mx-2">/</div>
             <div className="my-2">{affiliationsTitle}</div>
+          </div>
+          <div className="flex">
+            <div className="my-2 font-JostMedium text-accent-secondary">State:</div>
+            <div className="my-2 !ml-2 capitalize">{state}</div>
           </div>
           <div className="flex">
             <div className="my-2 font-JostMedium text-accent-secondary">Method:</div>
@@ -72,6 +76,7 @@ export const ResultsListItemComponent = ({
   const entitiesOfInterestNames = entitiesOfInterest.map((eoi) => <div className="mbdbv-chemical-name inline ml-2">{eoi.name}</div>)
   const resultNames = results.map((result) => <div className="mbdbv-chemical-name inline ml-2">{result.name}</div>)
 
+  const state = result.state;
 
   return (
     <>
@@ -93,6 +98,7 @@ export const ResultsListItemComponent = ({
             affiliationsTitle={affiliationTitle}
             entitiesOfInterest={entitiesOfInterestNames}
             results={resultNames}
+            state={state}
           />
         </div>
       </Overridable>
