@@ -64,6 +64,10 @@
                 <ITCInstrumentDetailedView instrument={gp.instrument} msp={msp} />
             </Section>
 
+            <Section title="Measurements">
+                <ITCMeasurementsDetailedView measurements={msp.measurements} />
+            </Section>
+
             <Section title="Files">
                 <FilesDetailedView files={extra_context.files} />
             </Section>
