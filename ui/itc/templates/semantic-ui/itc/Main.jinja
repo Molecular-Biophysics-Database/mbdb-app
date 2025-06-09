@@ -60,6 +60,10 @@
                 <ChemicalEnvironmentDetailedView chemical_environments={gp.chemical_environments} />
             </Section>
 
+            <Section title="Instrument">
+                <ITCInstrumentDetailedView instrument={gp.instrument} msp={msp} />
+            </Section>
+
             <Section title="Files">
                 <FilesDetailedView files={extra_context.files} />
             </Section>
