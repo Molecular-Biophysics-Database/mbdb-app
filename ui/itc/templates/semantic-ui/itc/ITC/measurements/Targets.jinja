@@ -1,0 +1,13 @@
+{# def targets #}
+
+<INonEmpty d={targets}>
+    {%- for target in array(targets) %}
+        <div class="font-JostBold mb-2">Target {{ loop.index }}</div>
+        <div class='ml-4'>
+            <IField label="Entity" d={target.entity.name}/>
+            <IField label="Concentration" d={target.concentration}>
+                <ValueUnit value={target.concentration} />
+            </IField>
+        </div>
+    {%- endfor%}
+</INonEmpty>
