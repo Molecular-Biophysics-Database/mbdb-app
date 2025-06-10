@@ -25,7 +25,7 @@ export default function Measurements({ name }) {
       />
 
       <div className="my-3">
-        <Duration name={`${name}.duration`} colorSchema="light" />
+        <Duration name={`${name}.duration`} colorSchema="light" tooltip="Specify the duration of this measurement" />
       </div>
 
       <div className="mb-3">

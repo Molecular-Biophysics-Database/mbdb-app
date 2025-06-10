@@ -48,6 +48,7 @@ export default function Calibrants({ name }) {
           <FormWrapper
             headline={`Modification ${index + 1}`}
             colorSchema="light"
+            tooltip="If the calibrant had a modification, such as post-translational modification, chemical modification, or surface modification, it can be described here"
           >
             <Modification name={`${arrayName}.${index}`} />
           </FormWrapper>
