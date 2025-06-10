@@ -42,7 +42,7 @@ function Sample({ name, colorSchema }) {
           fieldName="chemical_environment"
           required
           options={chemicalEnvironmentsOptions}
-          tooltip="Name (id) of the chemical environment of the sample (from the chemical environments defined in the general parameters"
+          tooltip="Name (id) of the chemical environment of the sample (from the chemical environments defined in the general parameters)"
         />
 
         <ArrayField

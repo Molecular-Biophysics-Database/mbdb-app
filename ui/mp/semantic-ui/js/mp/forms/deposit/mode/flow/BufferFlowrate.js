@@ -12,7 +12,7 @@ export default function BufferFlowrate({ name, colorSchema }) {
     <>
       <FormWrapper
         headline="Buffer flowrate"
-        tooltip="Numerical value of the sample rate"
+        tooltip="Numerical value of the buffer rate"
         colorSchema={colorSchema}
       >
         <ValueUnit
