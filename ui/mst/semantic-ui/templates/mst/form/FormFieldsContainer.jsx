@@ -35,7 +35,12 @@ function FormFieldsContainer() {
   const { save, values: recordMetadata } = useDepositApiClient();
   const { values, setErrors } = useFormikContext();
 
+  console.log(recordMetadata, 'Record metadataaaaaaaa');
+
   useEffect(() => {
+    if(recordMetadata.id === "") {
+      recordMetadata.parent.communities.default = 'jfes'
+    }
     save({ saveWithoutDisplayingValidationErrors: true });
   }, []);
 

@@ -1,3 +1,4 @@
+{# def community="" #}
 {%- extends config.BASE_TEMPLATE %}
 
 {%- block page_body %}
@@ -13,7 +14,7 @@
                         <div class="font-JostMedium text-20px">MST</div>
                         <div class="font-JostMedium text-20px mb-3">Microscale thermophoresis</div>
                         <div class="mb-[50px]">Data from the Monolith series can be deposited here including MST/TRIC, initial flouresence, and Spectral shift. Please contact us if you used a different instrument</div>
-                        <a class="absolute bottom-3 left-3 flex justify-center w-[150px] h-[40px] text-20px bg-dark rounded-normal text-white hover:bg-secondary transition-all" href="/mst/_new">
+                        <a class="absolute bottom-3 left-3 flex justify-center w-[150px] h-[40px] text-20px bg-dark rounded-normal text-white hover:bg-secondary transition-all" href="/mst/_new{%if community %}?community={{community}}{%endif%}">
                             <button>
                                 Deposit MST
                             </button>
