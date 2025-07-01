@@ -5,6 +5,7 @@ from invenio_rdm_records.services.pids import PIDManager, PIDsService
 from oarepo_requests.proxies import current_oarepo_requests_service
 from oarepo_requests.resources.draft.config import DraftRecordRequestsResourceConfig
 from oarepo_requests.resources.draft.types.config import DraftRequestTypesResourceConfig
+from oarepo_runtime.config import build_config
 
 from itc import config
 
@@ -61,15 +62,11 @@ class ItcExt:
 
     @cached_property
     def service_records(self):
-        service_config = config.ITC_RECORD_SERVICE_CONFIG
-        if hasattr(service_config, "build"):
-            config_class = service_config.build(self.app)
-        else:
-            config_class = service_config()
+        service_config = build_config(config.ITC_RECORD_SERVICE_CONFIG, self.app)
 
         service_kwargs = {
-            "pids_service": PIDsService(config_class, PIDManager),
-            "config": config_class,
+            "pids_service": PIDsService(service_config, PIDManager),
+            "config": service_config,
         }
         return config.ITC_RECORD_SERVICE_CLASS(
             **service_kwargs,
@@ -81,7 +78,7 @@ class ItcExt:
     def resource_records(self):
         return config.ITC_RECORD_RESOURCE_CLASS(
             service=self.service_records,
-            config=config.ITC_RECORD_RESOURCE_CONFIG(),
+            config=build_config(config.ITC_RECORD_RESOURCE_CONFIG, self.app),
         )
 
     @cached_property
@@ -95,7 +92,7 @@ class ItcExt:
     def resource_record_requests(self):
         return config.ITC_REQUESTS_RESOURCE_CLASS(
             service=self.service_record_requests,
-            config=config.ITC_RECORD_RESOURCE_CONFIG(),
+            config=build_config(config.ITC_RECORD_RESOURCE_CONFIG, self.app),
             record_requests_config=DraftRecordRequestsResourceConfig(),
         )
 
@@ -110,42 +107,31 @@ class ItcExt:
     def resource_record_request_types(self):
         return config.ITC_REQUEST_TYPES_RESOURCE_CLASS(
             service=self.service_record_request_types,
-            config=config.ITC_RECORD_RESOURCE_CONFIG(),
+            config=build_config(config.ITC_RECORD_RESOURCE_CONFIG, self.app),
             record_requests_config=DraftRequestTypesResourceConfig(),
         )
 
     def init_app_callback_rdm_models(self, app):
-        rdm_model_config = {
-            "model_service": "itc.services.records.service.ItcService",
-            "service_config": "itc.services.records.config.ItcServiceConfig",
-            "ui_resource_config": "ui.itc.ItcUIResourceConfig",
-            "api_resource_config": "itc.resources.records.config.ItcResourceConfig",
-            "service_id": "itc",
-        }
 
         app.config.setdefault("GLOBAL_SEARCH_MODELS", [])
         for cfg in app.config["GLOBAL_SEARCH_MODELS"]:
-            if cfg["model_service"] == rdm_model_config["model_service"]:
+            if cfg["model_service"] == RDM_MODEL_CONFIG["model_service"]:
                 break
         else:
-            app.config["GLOBAL_SEARCH_MODELS"].append(rdm_model_config)
+            app.config["GLOBAL_SEARCH_MODELS"].append(RDM_MODEL_CONFIG)
 
         app.config.setdefault("RDM_MODELS", [])
         for cfg in app.config["RDM_MODELS"]:
-            if cfg["model_service"] == rdm_model_config["model_service"]:
+            if cfg["model_service"] == RDM_MODEL_CONFIG["model_service"]:
                 break
         else:
-            app.config["RDM_MODELS"].append(rdm_model_config)
+            app.config["RDM_MODELS"].append(RDM_MODEL_CONFIG)
 
     @cached_property
     def service_files(self):
-        service_config = config.ITC_FILES_SERVICE_CONFIG
-        if hasattr(service_config, "build"):
-            config_class = service_config.build(self.app)
-        else:
-            config_class = service_config()
+        service_config = build_config(config.ITC_FILES_SERVICE_CONFIG, self.app)
 
-        service_kwargs = {"config": config_class}
+        service_kwargs = {"config": service_config}
         return config.ITC_FILES_SERVICE_CLASS(
             **service_kwargs,
         )
@@ -154,18 +140,14 @@ class ItcExt:
     def resource_files(self):
         return config.ITC_FILES_RESOURCE_CLASS(
             service=self.service_files,
-            config=config.ITC_FILES_RESOURCE_CONFIG(),
+            config=build_config(config.ITC_FILES_RESOURCE_CONFIG, self.app),
         )
 
     @cached_property
     def service_draft_files(self):
-        service_config = config.ITC_DRAFT_FILES_SERVICE_CONFIG
-        if hasattr(service_config, "build"):
-            config_class = service_config.build(self.app)
-        else:
-            config_class = service_config()
+        service_config = build_config(config.ITC_DRAFT_FILES_SERVICE_CONFIG, self.app)
 
-        service_kwargs = {"config": config_class}
+        service_kwargs = {"config": service_config}
         return config.ITC_DRAFT_FILES_SERVICE_CLASS(
             **service_kwargs,
         )
@@ -174,5 +156,22 @@ class ItcExt:
     def resource_draft_files(self):
         return config.ITC_DRAFT_FILES_RESOURCE_CLASS(
             service=self.service_draft_files,
-            config=config.ITC_DRAFT_FILES_RESOURCE_CONFIG(),
+            config=build_config(config.ITC_DRAFT_FILES_RESOURCE_CONFIG, self.app),
         )
+
+
+RDM_MODEL_CONFIG = {  # allows merging stuff from other builders
+    "service_id": "itc",
+    # deprecated
+    "model_service": "itc.services.records.service.ItcService",
+    # deprecated
+    "service_config": "itc.services.records.config.ItcServiceConfig",
+    "api_service": "itc.services.records.service.ItcService",
+    "api_service_config": "itc.services.records.config.ItcServiceConfig",
+    "api_resource": "itc.resources.records.resource.ItcResource",
+    "api_resource_config": "itc.resources.records.config.ItcResourceConfig",
+    "ui_resource_config": "ui.itc.ItcUIResourceConfig",
+    "record_cls": "itc.records.api.ItcRecord",
+    "pid_type": "itc",
+    "draft_cls": "itc.records.api.ItcDraft",
+}

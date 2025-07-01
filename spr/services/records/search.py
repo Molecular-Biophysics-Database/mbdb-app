@@ -791,6 +791,10 @@ class SprSearchOptions(RecordSearchOptions):
     }
 
     facets = {
+        "record_status": facets.record_status,
+        "has_draft": facets.has_draft,
+        "expires_at": facets.expires_at,
+        "fork_version_id": facets.fork_version_id,
         "access_embargo_active": facets.access_embargo_active,
         "access_embargo_until": facets.access_embargo_until,
         "access_files": facets.access_files,
@@ -1784,8 +1788,6 @@ class SprSearchOptions(RecordSearchOptions):
         "synthetic_fields_affiliations": facets.synthetic_fields_affiliations,
         "synthetic_fields_people": facets.synthetic_fields_people,
         **getattr(RecordSearchOptions, "facets", {}),
-        "record_status": facets.record_status,
-        "has_draft": facets.has_draft,
     }
 
 
@@ -2573,6 +2575,10 @@ class SprDraftSearchOptions(DraftSearchOptions):
     }
 
     facets = {
+        "record_status": facets.record_status,
+        "has_draft": facets.has_draft,
+        "expires_at": facets.expires_at,
+        "fork_version_id": facets.fork_version_id,
         "access_embargo_active": facets.access_embargo_active,
         "access_embargo_until": facets.access_embargo_until,
         "access_files": facets.access_files,
@@ -3565,9 +3571,5 @@ class SprDraftSearchOptions(DraftSearchOptions):
         "state_timestamp": facets.state_timestamp,
         "synthetic_fields_affiliations": facets.synthetic_fields_affiliations,
         "synthetic_fields_people": facets.synthetic_fields_people,
-        "expires_at": facets.expires_at,
-        "fork_version_id": facets.fork_version_id,
         **getattr(DraftSearchOptions, "facets", {}),
-        "record_status": facets.record_status,
-        "has_draft": facets.has_draft,
     }

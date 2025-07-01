@@ -1,3 +1,8 @@
+from invenio_rdm_records.requests.entity_resolvers import RDMRecordServiceResultProxy
+from invenio_records_resources.references.entity_resolvers.results import (
+    ServiceResultResolver,
+)
+from oarepo_requests.resolvers.service_result import DraftServiceResultResolver
 from oarepo_requests.resolvers.ui import (
     RecordEntityDraftReferenceUIResolver,
     RecordEntityReferenceUIResolver,
@@ -6,6 +11,9 @@ from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
 from oarepo_requests.resources.draft.types.resource import DraftRequestTypesResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
 from oarepo_requests.services.draft.types.service import DraftRecordRequestTypesService
+from oarepo_runtime.records.entity_resolvers.proxies import (
+    WithDeletedServiceResultProxy,
+)
 
 from itc.files.api import ItcFile, ItcFileDraft
 from itc.files.requests.resolvers import ItcFileDraftResolver
@@ -60,6 +68,14 @@ ENTITY_REFERENCE_UI_RESOLVERS = {
     "itc_draft": RecordEntityDraftReferenceUIResolver("itc_draft"),
 }
 REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = []
+NOTIFICATIONS_ENTITY_RESOLVERS = [
+    ServiceResultResolver(
+        service_id="itc", type_key="itc", proxy_cls=WithDeletedServiceResultProxy
+    ),
+    DraftServiceResultResolver(
+        service_id="itc", type_key="itc_draft", proxy_cls=RDMRecordServiceResultProxy
+    ),
+]
 
 
 ITC_REQUEST_TYPES_RESOURCE_CLASS = DraftRequestTypesResource

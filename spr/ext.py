@@ -5,6 +5,7 @@ from invenio_rdm_records.services.pids import PIDManager, PIDsService
 from oarepo_requests.proxies import current_oarepo_requests_service
 from oarepo_requests.resources.draft.config import DraftRecordRequestsResourceConfig
 from oarepo_requests.resources.draft.types.config import DraftRequestTypesResourceConfig
+from oarepo_runtime.config import build_config
 
 from spr import config
 
@@ -61,15 +62,11 @@ class SprExt:
 
     @cached_property
     def service_records(self):
-        service_config = config.SPR_RECORD_SERVICE_CONFIG
-        if hasattr(service_config, "build"):
-            config_class = service_config.build(self.app)
-        else:
-            config_class = service_config()
+        service_config = build_config(config.SPR_RECORD_SERVICE_CONFIG, self.app)
 
         service_kwargs = {
-            "pids_service": PIDsService(config_class, PIDManager),
-            "config": config_class,
+            "pids_service": PIDsService(service_config, PIDManager),
+            "config": service_config,
         }
         return config.SPR_RECORD_SERVICE_CLASS(
             **service_kwargs,
@@ -81,7 +78,7 @@ class SprExt:
     def resource_records(self):
         return config.SPR_RECORD_RESOURCE_CLASS(
             service=self.service_records,
-            config=config.SPR_RECORD_RESOURCE_CONFIG(),
+            config=build_config(config.SPR_RECORD_RESOURCE_CONFIG, self.app),
         )
 
     @cached_property
@@ -95,7 +92,7 @@ class SprExt:
     def resource_record_requests(self):
         return config.SPR_REQUESTS_RESOURCE_CLASS(
             service=self.service_record_requests,
-            config=config.SPR_RECORD_RESOURCE_CONFIG(),
+            config=build_config(config.SPR_RECORD_RESOURCE_CONFIG, self.app),
             record_requests_config=DraftRecordRequestsResourceConfig(),
         )
 
@@ -110,42 +107,31 @@ class SprExt:
     def resource_record_request_types(self):
         return config.SPR_REQUEST_TYPES_RESOURCE_CLASS(
             service=self.service_record_request_types,
-            config=config.SPR_RECORD_RESOURCE_CONFIG(),
+            config=build_config(config.SPR_RECORD_RESOURCE_CONFIG, self.app),
             record_requests_config=DraftRequestTypesResourceConfig(),
         )
 
     def init_app_callback_rdm_models(self, app):
-        rdm_model_config = {
-            "model_service": "spr.services.records.service.SprService",
-            "service_config": "spr.services.records.config.SprServiceConfig",
-            "ui_resource_config": "ui.spr.SprUIResourceConfig",
-            "api_resource_config": "spr.resources.records.config.SprResourceConfig",
-            "service_id": "spr",
-        }
 
         app.config.setdefault("GLOBAL_SEARCH_MODELS", [])
         for cfg in app.config["GLOBAL_SEARCH_MODELS"]:
-            if cfg["model_service"] == rdm_model_config["model_service"]:
+            if cfg["model_service"] == RDM_MODEL_CONFIG["model_service"]:
                 break
         else:
-            app.config["GLOBAL_SEARCH_MODELS"].append(rdm_model_config)
+            app.config["GLOBAL_SEARCH_MODELS"].append(RDM_MODEL_CONFIG)
 
         app.config.setdefault("RDM_MODELS", [])
         for cfg in app.config["RDM_MODELS"]:
-            if cfg["model_service"] == rdm_model_config["model_service"]:
+            if cfg["model_service"] == RDM_MODEL_CONFIG["model_service"]:
                 break
         else:
-            app.config["RDM_MODELS"].append(rdm_model_config)
+            app.config["RDM_MODELS"].append(RDM_MODEL_CONFIG)
 
     @cached_property
     def service_files(self):
-        service_config = config.SPR_FILES_SERVICE_CONFIG
-        if hasattr(service_config, "build"):
-            config_class = service_config.build(self.app)
-        else:
-            config_class = service_config()
+        service_config = build_config(config.SPR_FILES_SERVICE_CONFIG, self.app)
 
-        service_kwargs = {"config": config_class}
+        service_kwargs = {"config": service_config}
         return config.SPR_FILES_SERVICE_CLASS(
             **service_kwargs,
         )
@@ -154,18 +140,14 @@ class SprExt:
     def resource_files(self):
         return config.SPR_FILES_RESOURCE_CLASS(
             service=self.service_files,
-            config=config.SPR_FILES_RESOURCE_CONFIG(),
+            config=build_config(config.SPR_FILES_RESOURCE_CONFIG, self.app),
         )
 
     @cached_property
     def service_draft_files(self):
-        service_config = config.SPR_DRAFT_FILES_SERVICE_CONFIG
-        if hasattr(service_config, "build"):
-            config_class = service_config.build(self.app)
-        else:
-            config_class = service_config()
+        service_config = build_config(config.SPR_DRAFT_FILES_SERVICE_CONFIG, self.app)
 
-        service_kwargs = {"config": config_class}
+        service_kwargs = {"config": service_config}
         return config.SPR_DRAFT_FILES_SERVICE_CLASS(
             **service_kwargs,
         )
@@ -174,5 +156,22 @@ class SprExt:
     def resource_draft_files(self):
         return config.SPR_DRAFT_FILES_RESOURCE_CLASS(
             service=self.service_draft_files,
-            config=config.SPR_DRAFT_FILES_RESOURCE_CONFIG(),
+            config=build_config(config.SPR_DRAFT_FILES_RESOURCE_CONFIG, self.app),
         )
+
+
+RDM_MODEL_CONFIG = {  # allows merging stuff from other builders
+    "service_id": "spr",
+    # deprecated
+    "model_service": "spr.services.records.service.SprService",
+    # deprecated
+    "service_config": "spr.services.records.config.SprServiceConfig",
+    "api_service": "spr.services.records.service.SprService",
+    "api_service_config": "spr.services.records.config.SprServiceConfig",
+    "api_resource": "spr.resources.records.resource.SprResource",
+    "api_resource_config": "spr.resources.records.config.SprResourceConfig",
+    "ui_resource_config": "ui.spr.SprUIResourceConfig",
+    "record_cls": "spr.records.api.SprRecord",
+    "pid_type": "spr",
+    "draft_cls": "spr.records.api.SprDraft",
+}

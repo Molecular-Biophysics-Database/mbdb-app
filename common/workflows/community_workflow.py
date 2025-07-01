@@ -40,6 +40,7 @@ from invenio_records_permissions.generators import AnyUser, Disable
 from oarepo_communities.services.permissions.generators import (
     CommunityMembers,
     DefaultCommunityRole,
+    PrimaryCommunityMembers,
 )
 from oarepo_communities.services.permissions.policy import (
     CommunityDefaultWorkflowPermissions,
@@ -60,7 +61,7 @@ from .custom_generators import UserWithRole
 # TODO: naming issue: DefaultWorkflowPermissions vs DefaultWorkflowPermissionPolicy
 class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
     can_create = [
-        CommunityMembers(),
+        PrimaryCommunityMembers(),
         UserWithRole("editor"),
     ]
 
@@ -94,7 +95,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
             "draft",
             then_=[
                 RecordOwners(),
-                CommunityMembers(),
+                PrimaryCommunityMembers(),
                 DefaultCommunityRole("administrator"),
                 UserWithRole("editor"),
                 UserWithRole("administrator"),
