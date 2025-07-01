@@ -30,6 +30,7 @@ class MstFileServiceConfig(MstFileServiceConfigWithProcessors):
     record_cls = MstRecord
 
     service_id = "mst_file"
+    indexer_queue_name = "mst_file"
 
     search_item_links_template = LinksTemplate
     allowed_mimetypes = []
@@ -44,16 +45,27 @@ class MstFileServiceConfig(MstFileServiceConfigWithProcessors):
 
     @property
     def file_links_list(self):
-        return {
+        try:
+            supercls_links = super().file_links_list
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             "self": RecordLink(
                 "{+api}/records/mst/{id}/files",
                 when=has_permission_file_service("list_files"),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def file_links_item(self):
-        return {
+        try:
+            supercls_links = super().file_links_item
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             "commit": FileLink(
                 "{+api}/records/mst/{id}/files/{key}/commit",
                 when=has_permission_file_service("commit_files"),
@@ -68,6 +80,7 @@ class MstFileServiceConfig(MstFileServiceConfigWithProcessors):
                 when=has_permission_file_service("read_files"),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
 
 class MstFileDraftServiceConfig(MstFileServiceConfigWithProcessors):
@@ -82,8 +95,10 @@ class MstFileDraftServiceConfig(MstFileServiceConfigWithProcessors):
     record_cls = MstDraft
 
     service_id = "mst_file_draft"
+    indexer_queue_name = "mst_file_draft"
 
     search_item_links_template = LinksTemplate
+    permission_action_prefix = "draft_"
 
     @property
     def components(self):
@@ -93,16 +108,27 @@ class MstFileDraftServiceConfig(MstFileServiceConfigWithProcessors):
 
     @property
     def file_links_list(self):
-        return {
+        try:
+            supercls_links = super().file_links_list
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             "self": RecordLink(
                 "{+api}/records/mst/{id}/draft/files",
-                when=has_file_permission("list_files"),
+                when=has_file_permission("read_files"),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def file_links_item(self):
-        return {
+        try:
+            supercls_links = super().file_links_item
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             "commit": FileLink(
                 "{+api}/records/mst/{id}/draft/files/{key}/commit",
                 when=has_file_permission("commit_files"),
@@ -117,3 +143,4 @@ class MstFileDraftServiceConfig(MstFileServiceConfigWithProcessors):
                 when=has_file_permission("read_files"),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}

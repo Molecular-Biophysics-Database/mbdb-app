@@ -17,10 +17,10 @@ from oarepo_runtime.services.schema.marshmallow import (
 )
 from oarepo_runtime.services.schema.polymorphic import PolymorphicSchema
 from oarepo_runtime.services.schema.validation import validate_date, validate_datetime
-from oarepo_workflows.services.records.schema import WorkflowParentSchema
+from oarepo_workflows.services.records.schema import RDMWorkflowParentSchema
 
 
-class GeneratedParentSchema(WorkflowParentSchema):
+class GeneratedParentSchema(RDMWorkflowParentSchema):
     """"""
 
     owners = ma.fields.List(ma.fields.Dict(), load_only=True)

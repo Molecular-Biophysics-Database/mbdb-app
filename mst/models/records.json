@@ -3,6 +3,32 @@
         "type": "model",
         "mapping": {
             "template": {
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200,
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "edge_ngram",
+                                "min_gram": 4,
+                                "max_gram": 8,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
+                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -58,32 +84,6 @@
                             }
                         }
                     ]
-                },
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": [
-                        "collected_default_search_fields",
-                        "collected_default_search_fields.substringmatch"
-                    ],
-                    "analysis": {
-                        "analyzer": {
-                            "substring": {
-                                "tokenizer": "substringtokenizer"
-                            }
-                        },
-                        "tokenizer": {
-                            "substringtokenizer": {
-                                "type": "edge_ngram",
-                                "min_gram": 4,
-                                "max_gram": 8,
-                                "token_chars": [
-                                    "letter",
-                                    "digit"
-                                ]
-                            }
-                        }
-                    }
                 }
             },
             "generate": true,
@@ -120,6 +120,7 @@
         "pid": {
             "type": "mst",
             "provider-base-classes": [
+                "oarepo_runtime.records.pid_providers.UniversalPIDMixin",
                 "invenio_drafts_resources.records.api.DraftRecordIdProviderV2"
             ],
             "imports": [
@@ -164,10 +165,13 @@
                 "exclude:{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
                 "{{oarepo_communities.services.components.default_workflow.CommunityDefaultWorkflowComponent}}",
                 "{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
+                "{{oarepo_communities.services.components.access.CommunityRecordAccessComponent}}",
                 "{{oarepo_runtime.services.components.CustomFieldsComponent}}",
+                "{{oarepo_requests.services.components.autorequest.AutorequestComponent}}",
                 "{{oarepo_workflows.services.components.workflow.WorkflowComponent}}"
             ],
             "base-classes": [
+                "oarepo_runtime.services.config.service.SearchAllConfigMixin",
                 "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
                 "invenio_rdm_records.services.config.RDMRecordServiceConfig"
             ],
@@ -563,6 +567,212 @@
             "suffix-upper": "MST",
             "suffix-snake": "mst"
         },
+        "files": {
+            "type": "file",
+            "properties": {
+                "content_type": {
+                    "type": "keyword",
+                    "required": true,
+                    "enum": [
+                        "text",
+                        "binary",
+                        "text and binary"
+                    ],
+                    "help.en": "Type of the file content in terms of how it can be read (text, binary, etc.)",
+                    "label.en": "Content type"
+                },
+                "context": {
+                    "type": "keyword",
+                    "required": true,
+                    "enum": [
+                        "raw measurement data",
+                        "derived measurement data",
+                        "quality control report"
+                    ],
+                    "help.en": "The context the file should be understood within (e.g. raw measurement data)",
+                    "label.en": "Context"
+                },
+                "originates_from": {
+                    "type": "keyword",
+                    "required": true,
+                    "enum": [
+                        "Instrument software",
+                        "User",
+                        "MBDB"
+                    ],
+                    "help.en": "What is the source of the file",
+                    "label.en": "Originates from"
+                },
+                "creation_date": {
+                    "type": "date",
+                    "required": true,
+                    "help.en": "The date when the file was created (e.g. the measurement date)",
+                    "label.en": "Creation date"
+                },
+                "description": {
+                    "type": "keyword",
+                    "help.en": "Short description of what the file contains",
+                    "label.en": "Description"
+                },
+                "recommended_software": {
+                    "type": "keyword",
+                    "help.en": "The name of the software recommended for opening and working with the file",
+                    "label.en": "Recommended software"
+                },
+                "processing_steps": {
+                    "type": "array",
+                    "required": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "keyword",
+                                "required": true,
+                                "help.en": "Short descriptive name of the processing step",
+                                "label.en": "Name"
+                            },
+                            "description": {
+                                "type": "keyword",
+                                "required": true,
+                                "help.en": "Description of what the processing step was",
+                                "label.en": "Description"
+                            },
+                            "software_name": {
+                                "type": "keyword",
+                                "help.en": "The name of the software that was used for the step (e.g. Excel)",
+                                "label.en": "Software name"
+                            },
+                            "software_version": {
+                                "type": "keyword",
+                                "help.en": "The version of the software that was used for the step",
+                                "label.en": "Software version"
+                            },
+                            "link_to_source_code": {
+                                "type": "url",
+                                "help.en": "If processing was performed with software where the source code is freely available a link can be specified here (e.g. self-written python script in a GitHub repository)",
+                                "label.en": "Link to source code"
+                            }
+                        },
+                        "label.en": "Processing step"
+                    },
+                    "minItems": 1,
+                    "help.en": "List of the processing steps performed on the file before it was deposited (e.g. exported to xlsx)",
+                    "label.en": "Processing steps"
+                },
+                "id": {
+                    "type": "keyword",
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    },
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "created": {
+                    "type": "date",
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "marshmallow": {
+                        "read": true,
+                        "write": false
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "updated": {
+                    "type": "date",
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "marshmallow": {
+                        "read": true,
+                        "write": false
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "$schema": {
+                    "type": "keyword",
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    },
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                }
+            },
+            "searchable": true,
+            "marshmallow": {
+                "imports": [
+                    {
+                        "import": "invenio_records_resources.services.files.schema.FileSchema",
+                        "alias": "InvenioFileSchema"
+                    }
+                ],
+                "base-classes": [
+                    "InvenioFileSchema"
+                ]
+            },
+            "service-config": {
+                "base-classes": [
+                    "common.services.files.mst_metadata_extraction.MstFileServiceConfigWithProcessors"
+                ]
+            },
+            "resource": {
+                "base-classes": [
+                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
+                ]
+            },
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            },
+            "label.en": ""
+        },
+        "draft-files": {
+            "type": "draft-file",
+            "properties": {},
+            "searchable": true,
+            "service-config": {
+                "base-classes": [
+                    "common.services.files.mst_metadata_extraction.MstFileServiceConfigWithProcessors"
+                ]
+            },
+            "resource": {
+                "base-classes": [
+                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
+                ]
+            },
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
+        },
         "draft": {
             "type": "draft_record",
             "properties": {},
@@ -841,242 +1051,22 @@
                 "module": "tests"
             }
         },
-        "files": {
-            "type": "file",
-            "properties": {
-                "content_type": {
-                    "type": "keyword",
-                    "required": true,
-                    "enum": [
-                        "text",
-                        "binary",
-                        "text and binary"
-                    ],
-                    "help.en": "Type of the file content in terms of how it can be read (text, binary, etc.)",
-                    "label.en": "Content type"
-                },
-                "context": {
-                    "type": "keyword",
-                    "required": true,
-                    "enum": [
-                        "raw measurement data",
-                        "derived measurement data",
-                        "quality control report"
-                    ],
-                    "help.en": "The context the file should be understood within (e.g. raw measurement data)",
-                    "label.en": "Context"
-                },
-                "originates_from": {
-                    "type": "keyword",
-                    "required": true,
-                    "enum": [
-                        "Instrument software",
-                        "User",
-                        "MBDB"
-                    ],
-                    "help.en": "What is the source of the file",
-                    "label.en": "Originates from"
-                },
-                "creation_date": {
-                    "type": "date",
-                    "required": true,
-                    "help.en": "The date when the file was created (e.g. the measurement date)",
-                    "label.en": "Creation date"
-                },
-                "description": {
-                    "type": "keyword",
-                    "help.en": "Short description of what the file contains",
-                    "label.en": "Description"
-                },
-                "recommended_software": {
-                    "type": "keyword",
-                    "help.en": "The name of the software recommended for opening and working with the file",
-                    "label.en": "Recommended software"
-                },
-                "processing_steps": {
-                    "type": "array",
-                    "required": true,
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "name": {
-                                "type": "keyword",
-                                "required": true,
-                                "help.en": "Short descriptive name of the processing step",
-                                "label.en": "Name"
-                            },
-                            "description": {
-                                "type": "keyword",
-                                "required": true,
-                                "help.en": "Description of what the processing step was",
-                                "label.en": "Description"
-                            },
-                            "software_name": {
-                                "type": "keyword",
-                                "help.en": "The name of the software that was used for the step (e.g. Excel)",
-                                "label.en": "Software name"
-                            },
-                            "software_version": {
-                                "type": "keyword",
-                                "help.en": "The version of the software that was used for the step",
-                                "label.en": "Software version"
-                            },
-                            "link_to_source_code": {
-                                "type": "url",
-                                "help.en": "If processing was performed with software where the source code is freely available a link can be specified here (e.g. self-written python script in a GitHub repository)",
-                                "label.en": "Link to source code"
-                            }
-                        },
-                        "label.en": "Processing step"
-                    },
-                    "minItems": 1,
-                    "help.en": "List of the processing steps performed on the file before it was deposited (e.g. exported to xlsx)",
-                    "label.en": "Processing steps"
-                },
-                "id": {
-                    "type": "keyword",
-                    "marshmallow": {
-                        "read": false,
-                        "write": false
-                    },
-                    "ui": {
-                        "marshmallow": {
-                            "read": false,
-                            "write": false
-                        }
-                    },
-                    "sample": {
-                        "skip": true
-                    }
-                },
-                "created": {
-                    "type": "date",
-                    "ui": {
-                        "marshmallow": {
-                            "read": false,
-                            "write": false
-                        }
-                    },
-                    "marshmallow": {
-                        "read": true,
-                        "write": false
-                    },
-                    "sample": {
-                        "skip": true
-                    }
-                },
-                "updated": {
-                    "type": "date",
-                    "ui": {
-                        "marshmallow": {
-                            "read": false,
-                            "write": false
-                        }
-                    },
-                    "marshmallow": {
-                        "read": true,
-                        "write": false
-                    },
-                    "sample": {
-                        "skip": true
-                    }
-                },
-                "$schema": {
-                    "type": "keyword",
-                    "marshmallow": {
-                        "read": false,
-                        "write": false
-                    },
-                    "ui": {
-                        "marshmallow": {
-                            "read": false,
-                            "write": false
-                        }
-                    },
-                    "sample": {
-                        "skip": true
-                    }
-                }
-            },
-            "searchable": true,
-            "marshmallow": {
-                "imports": [
-                    {
-                        "import": "invenio_records_resources.services.files.schema.FileSchema",
-                        "alias": "InvenioFileSchema"
-                    }
-                ],
-                "base-classes": [
-                    "InvenioFileSchema"
-                ]
-            },
-            "service-config": {
-                "base-classes": [
-                    "common.services.files.mst_metadata_extraction.MstFileServiceConfigWithProcessors"
-                ]
-            },
-            "resource": {
-                "base-classes": [
-                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
-                ]
-            },
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            },
-            "label.en": ""
-        },
         "tests": {
             "extra-fixtures": [],
             "extra-code": "",
             "module": "tests"
-        },
-        "draft-files": {
-            "type": "draft-file",
-            "properties": {},
-            "searchable": true,
-            "service-config": {
-                "base-classes": [
-                    "common.services.files.mst_metadata_extraction.MstFileServiceConfigWithProcessors"
-                ]
-            },
-            "resource": {
-                "base-classes": [
-                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
-                ]
-            },
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            }
         },
         "sample": {
             "file": "data/sample_data.yaml"
         },
         "ext-resource": {
             "service-kwargs": {
-                "pids_service": "{{invenio_rdm_records.services.pids.PIDsService}}(config_class, {{invenio_rdm_records.services.pids.PIDManager}})"
+                "pids_service": "{{invenio_rdm_records.services.pids.PIDsService}}(service_config, {{invenio_rdm_records.services.pids.PIDManager}})"
             },
             "generate": true,
             "skip": false
         },
         "model-name": "Mst",
-        "record-resolver": {
-            "generate": true,
-            "module": "mst.records.requests.resolvers",
-            "class": "mst.records.requests.resolvers.MstResolver",
-            "base-classes": [
-                "oarepo_runtime.records.entity_resolvers.RecordResolver"
-            ],
-            "imports": [],
-            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
-        },
-        "ui-record-resolver": {
-            "generate": true,
-            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
-        },
         "config": {
             "generate": true,
             "module": "mst.config",
@@ -1131,11 +1121,25 @@
         },
         "parent-record-marshmallow": {
             "base-classes": [
-                "oarepo_workflows.services.records.schema.WorkflowParentSchema"
+                "oarepo_workflows.services.records.schema.RDMWorkflowParentSchema"
             ],
             "module": "mst.services.records.schema",
             "class": "mst.services.records.schema.GeneratedParentSchema",
             "generate": true
+        },
+        "record-resolver": {
+            "generate": true,
+            "module": "mst.records.requests.resolvers",
+            "class": "mst.records.requests.resolvers.MstResolver",
+            "base-classes": [
+                "oarepo_runtime.records.entity_resolvers.RecordResolver"
+            ],
+            "imports": [],
+            "custom-proxy-class": "oarepo_runtime.records.entity_resolvers.RecordProxy"
+        },
+        "ui-record-resolver": {
+            "generate": true,
+            "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
         },
         "json-serializer": {
             "module": "mst.resources.records.ui",
@@ -1165,15 +1169,6 @@
             "name": "mst-1.0.0.json",
             "file": "mst/records/jsonschemas/mst-1.0.0.json"
         },
-        "files-field": {
-            "generate": true,
-            "field-class": "invenio_records_resources.records.systemfields.FilesField",
-            "file-class": "mst.records.api.MstRecord",
-            "field-args": [
-                "store=False"
-            ],
-            "imports": []
-        },
         "record-metadata": {
             "generate": true,
             "module": "mst.records.models",
@@ -1201,6 +1196,15 @@
             "extensions": [
                 "{{oarepo_runtime.records.systemfields.mapping.SystemFieldDumperExt}}()",
                 "{{mst.records.dumpers.edtf.MstEDTFIntervalDumperExt}}()"
+            ],
+            "imports": []
+        },
+        "files-field": {
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "mst.records.api.MstRecord",
+            "field-args": [
+                "store=False"
             ],
             "imports": []
         },
@@ -1273,7 +1277,10 @@
             "types": {},
             "additional-resolvers": [],
             "additional-ui-resolvers": {},
-            "ui-serialization-referenced-fields": []
+            "ui-serialization-referenced-fields": [],
+            "notification-resolver": [
+                "{{invenio_records_resources.references.entity_resolvers.results.ServiceResultResolver}}(service_id=\"mst\", type_key=\"mst\",proxy_cls={{oarepo_runtime.records.entity_resolvers.proxies.WithDeletedServiceResultProxy}})"
+            ]
         },
         "record-requests": {
             "api-blueprint": {
@@ -14410,7 +14417,7 @@
                                                             "detail": "vocabulary_item",
                                                             "edit": "vocabulary_item"
                                                         },
-                                                        "pid-field": "Vocabulary.pid.with_type_ctx(\"affiliations\")",
+                                                        "pid-field": "{{invenio_vocabularies.contrib.affiliations.api.Affiliation}}.pid",
                                                         "facets": {
                                                             "args": [
                                                                 "vocabulary='affiliations'"
@@ -14630,7 +14637,7 @@
                                                         "detail": "vocabulary_item",
                                                         "edit": "vocabulary_item"
                                                     },
-                                                    "pid-field": "Vocabulary.pid.with_type_ctx(\"affiliations\")",
+                                                    "pid-field": "{{invenio_vocabularies.contrib.affiliations.api.Affiliation}}.pid",
                                                     "facets": {
                                                         "args": [
                                                             "vocabulary='affiliations'"
@@ -14849,7 +14856,7 @@
                                                         "detail": "vocabulary_item",
                                                         "edit": "vocabulary_item"
                                                     },
-                                                    "pid-field": "Vocabulary.pid.with_type_ctx(\"affiliations\")",
+                                                    "pid-field": "{{invenio_vocabularies.contrib.affiliations.api.Affiliation}}.pid",
                                                     "facets": {
                                                         "args": [
                                                             "vocabulary='affiliations'"
@@ -30519,7 +30526,11 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    },
                     "type": "object",
+                    "uniqueItems": true,
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -30534,10 +30545,6 @@
                                 "type": "string"
                             }
                         }
-                    },
-                    "uniqueItems": true,
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
                     }
                 },
                 "ui": {

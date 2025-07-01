@@ -1,27 +1,32 @@
-from invenio_rdm_records.services.config import RDMRecordServiceConfig
+from invenio_rdm_records.services.config import RDMRecordServiceConfig, _groups_enabled
 from invenio_records_resources.services import (
     ConditionalLink,
     LinksTemplate,
     RecordLink,
     pagination_links,
 )
+from oarepo_communities.services.components.access import CommunityRecordAccessComponent
 from oarepo_communities.services.components.default_workflow import (
     CommunityDefaultWorkflowComponent,
 )
 from oarepo_communities.services.links import CommunitiesLinks
 from oarepo_doi.services.components import DoiComponent
+from oarepo_requests.services.components.autorequest import AutorequestComponent
 from oarepo_runtime.services.components import (
     CustomFieldsComponent,
     process_service_configs,
 )
 from oarepo_runtime.services.config import (
-    has_draft,
+    has_draft_permission,
     has_file_permission,
     has_permission,
     has_published_record,
     is_published_record,
 )
-from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
+from oarepo_runtime.services.config.service import (
+    PermissionsPresetsConfigMixin,
+    SearchAllConfigMixin,
+)
 from oarepo_runtime.services.records import pagination_links_html
 from oarepo_vocabularies.authorities.components import AuthorityComponent
 from oarepo_workflows.services.components.workflow import WorkflowComponent
@@ -33,7 +38,9 @@ from spr.services.records.schema import SprSchema
 from spr.services.records.search import SprDraftSearchOptions, SprSearchOptions
 
 
-class SprServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
+class SprServiceConfig(
+    SearchAllConfigMixin, PermissionsPresetsConfigMixin, RDMRecordServiceConfig
+):
     """SprRecord service config."""
 
     result_item_cls = SprRecordItem
@@ -53,6 +60,7 @@ class SprServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
     record_cls = SprRecord
 
     service_id = "spr"
+    indexer_queue_name = "spr"
 
     search_item_links_template = LinksTemplate
     draft_cls = SprDraft
@@ -65,7 +73,9 @@ class SprServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
             AuthorityComponent,
             DoiComponent,
             CommunityDefaultWorkflowComponent,
+            CommunityRecordAccessComponent,
             CustomFieldsComponent,
+            AutorequestComponent,
             WorkflowComponent,
         )
 
@@ -73,7 +83,18 @@ class SprServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
 
     @property
     def links_item(self):
-        return {
+        try:
+            supercls_links = super().links_item
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
+            "access_grants": RecordLink("{+api}/records/{id}/access/grants"),
+            "access_groups": RecordLink(
+                "{+api}/records/{id}/access/groups", when=_groups_enabled
+            ),
+            "access_links": RecordLink("{+api}/records/{id}/access/links"),
+            "access_users": RecordLink("{+api}/records/{id}/access/users"),
             "applicable-requests": ConditionalLink(
                 cond=is_published_record(),
                 if_=RecordLink("{+api}/records/spr/{id}/requests/applicable"),
@@ -86,21 +107,20 @@ class SprServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
                 }
             ),
             "draft": RecordLink(
-                "{+api}/records/spr/{id}/draft",
-                when=has_draft() & has_permission("read_draft"),
+                "{+api}/records/spr/{id}/draft", when=has_draft_permission("read_draft")
             ),
             "edit_html": RecordLink(
-                "{+ui}/spr/{id}/edit", when=has_draft() & has_permission("update")
+                "{+ui}/spr/{id}/edit", when=has_draft_permission("update_draft")
             ),
             "files": ConditionalLink(
                 cond=is_published_record(),
                 if_=RecordLink(
                     "{+api}/records/spr/{id}/files",
-                    when=has_file_permission("list_files"),
+                    when=has_file_permission("read_files"),
                 ),
                 else_=RecordLink(
                     "{+api}/records/spr/{id}/draft/files",
-                    when=has_file_permission("list_files"),
+                    when=has_file_permission("read_files"),
                 ),
             ),
             "latest": RecordLink(
@@ -141,10 +161,16 @@ class SprServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
                 when=has_permission("search_versions"),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def links_search_item(self):
-        return {
+        try:
+            supercls_links = super().links_search_item
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             "self": ConditionalLink(
                 cond=is_published_record(),
                 if_=RecordLink("{+api}/records/spr/{id}", when=has_permission("read")),
@@ -160,23 +186,42 @@ class SprServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
                 ),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def links_search(self):
-        return {
+        try:
+            supercls_links = super().links_search
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             **pagination_links("{+api}/records/spr/{?args*}"),
             **pagination_links_html("{+ui}/records/spr/{?args*}"),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def links_search_drafts(self):
-        return {
+        try:
+            supercls_links = super().links_search_drafts
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             **pagination_links("{+api}/user/records/spr/{?args*}"),
             **pagination_links_html("{+ui}/user/records/spr/{?args*}"),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def links_search_versions(self):
-        return {
+        try:
+            supercls_links = super().links_search_versions
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             **pagination_links("{+api}/records/spr/{id}/versions{?args*}"),
         }
+        return {k: v for k, v in links.items() if v is not None}

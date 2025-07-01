@@ -13,9 +13,11 @@ from invenio_rdm_records.records.api import (
 from invenio_records.systemfields import ConstantField, ModelField
 from invenio_records_resources.records.systemfields import FilesField, IndexField
 from invenio_records_resources.records.systemfields.pid import PIDField, PIDFieldContext
+from invenio_vocabularies.contrib.affiliations.api import Affiliation
 from oarepo_communities.records.systemfields.communities import (
     OARepoCommunitiesFieldContext,
 )
+from oarepo_runtime.records.pid_providers import UniversalPIDMixin
 from oarepo_runtime.records.relations import (
     InternalRelation,
     PIDRelation,
@@ -52,7 +54,7 @@ class MstParentRecord(RDMParent):
     )
 
 
-class MstIdProvider(DraftRecordIdProviderV2):
+class MstIdProvider(UniversalPIDMixin, DraftRecordIdProviderV2):
     pid_type = "mst"
 
 
@@ -236,7 +238,7 @@ class MstRecord(RDMRecord):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
+            pid_field=Affiliation.pid,
         ),
         depositor_affiliations=PIDRelation(
             "metadata.general_parameters.depositors.depositor.affiliations",
@@ -247,7 +249,7 @@ class MstRecord(RDMRecord):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
+            pid_field=Affiliation.pid,
         ),
         principal_contact_affiliations=PIDRelation(
             "metadata.general_parameters.depositors.principal_contact.affiliations",
@@ -258,7 +260,7 @@ class MstRecord(RDMRecord):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
+            pid_field=Affiliation.pid,
         ),
         entities_of_interest_Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.expression_organism",
@@ -690,7 +692,7 @@ class MstDraft(RDMDraft):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
+            pid_field=Affiliation.pid,
         ),
         depositor_affiliations=PIDRelation(
             "metadata.general_parameters.depositors.depositor.affiliations",
@@ -701,7 +703,7 @@ class MstDraft(RDMDraft):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
+            pid_field=Affiliation.pid,
         ),
         principal_contact_affiliations=PIDRelation(
             "metadata.general_parameters.depositors.principal_contact.affiliations",
@@ -712,7 +714,7 @@ class MstDraft(RDMDraft):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
+            pid_field=Affiliation.pid,
         ),
         entities_of_interest_Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.expression_organism",

@@ -6,6 +6,14 @@ from oarepo_runtime.services.facets.date import DateTimeFacet
 from oarepo_runtime.services.facets.nested_facet import NestedLabeledFacet
 from oarepo_vocabularies.services.facets import VocabularyFacet
 
+record_status = TermsFacet(field="record_status", label=_("record_status"))
+
+has_draft = TermsFacet(field="has_draft", label=_("has_draft"))
+
+expires_at = DateTimeFacet(field="expires_at", label=_("expires_at.label"))
+
+fork_version_id = TermsFacet(field="fork_version_id", label=_("fork_version_id.label"))
+
 access_embargo_active = TermsFacet(
     field="access.embargo.active", label=_("access/embargo/active.label")
 )
@@ -2585,12 +2593,3 @@ synthetic_fields_affiliations = TermsFacet(
 synthetic_fields_people = TermsFacet(
     field="synthetic_fields.people", label=_("synthetic_fields/people.label")
 )
-
-
-record_status = TermsFacet(field="record_status", label=_("record_status"))
-
-has_draft = TermsFacet(field="has_draft", label=_("has_draft"))
-
-expires_at = DateTimeFacet(field="expires_at", label=_("expires_at.label"))
-
-fork_version_id = TermsFacet(field="fork_version_id", label=_("fork_version_id.label"))

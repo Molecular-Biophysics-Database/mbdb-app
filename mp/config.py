@@ -1,3 +1,8 @@
+from invenio_rdm_records.requests.entity_resolvers import RDMRecordServiceResultProxy
+from invenio_records_resources.references.entity_resolvers.results import (
+    ServiceResultResolver,
+)
+from oarepo_requests.resolvers.service_result import DraftServiceResultResolver
 from oarepo_requests.resolvers.ui import (
     RecordEntityDraftReferenceUIResolver,
     RecordEntityReferenceUIResolver,
@@ -6,6 +11,9 @@ from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
 from oarepo_requests.resources.draft.types.resource import DraftRequestTypesResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
 from oarepo_requests.services.draft.types.service import DraftRecordRequestTypesService
+from oarepo_runtime.records.entity_resolvers.proxies import (
+    WithDeletedServiceResultProxy,
+)
 
 from mp.files.api import MpFile, MpFileDraft
 from mp.files.requests.resolvers import MpFileDraftResolver
@@ -60,6 +68,14 @@ ENTITY_REFERENCE_UI_RESOLVERS = {
     "mp_draft": RecordEntityDraftReferenceUIResolver("mp_draft"),
 }
 REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = []
+NOTIFICATIONS_ENTITY_RESOLVERS = [
+    ServiceResultResolver(
+        service_id="mp", type_key="mp", proxy_cls=WithDeletedServiceResultProxy
+    ),
+    DraftServiceResultResolver(
+        service_id="mp", type_key="mp_draft", proxy_cls=RDMRecordServiceResultProxy
+    ),
+]
 
 
 MP_REQUEST_TYPES_RESOURCE_CLASS = DraftRequestTypesResource
