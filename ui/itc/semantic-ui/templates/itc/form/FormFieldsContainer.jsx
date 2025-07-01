@@ -15,6 +15,8 @@ import RequestOnRecordView from "@mbdb_deposit/buttons/RequestsRecordView";
 import PreviewButton from "@mbdb_deposit/buttons/PreviewButton";
 
 function FormFieldsContainer() {
+  const community = new URLSearchParams(location.search).get('community');
+  
   const Tabs = [
     { value: "record-information", label: "Record information" },
     { value: "entities-of-interest", label: "Entities of interest" },
@@ -31,6 +33,9 @@ function FormFieldsContainer() {
   const { values, setErrors } = useFormikContext();
 
   useEffect(() => {
+    if(recordMetadata.id === "") {
+      recordMetadata.parent.communities.default = community
+    }
     save({ saveWithoutDisplayingValidationErrors: true });
   }, []);
 
