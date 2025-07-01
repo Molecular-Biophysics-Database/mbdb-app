@@ -1,5 +1,7 @@
 {% include "invenio_theme/javascript.html" %} {{ webpack["branding.js"] }}
 
+{{ webpack_optional('overrides-' ~ request.endpoint ~ '.js') }}
+
 <script>
   jQuery(".ui.multilingual-tabs>.menu>.item").tab();
 

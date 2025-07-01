@@ -165,6 +165,9 @@
         <a class="text-20px text-dark" href="/tutorial"> Tutorials </a>
       </div>
       <div class="font-bold mb-3">
+        <a class="text-20px text-dark" href="/communities">Communities</a>
+      </div>
+      <div class="font-bold mb-3">
         <a
           class="flex justify-center w-[120px] py-2 text-20px bg-dark rounded-normal text-white hover:bg-secondary hover:text-dark transition-all"
           href="/choose-method"
@@ -330,6 +333,14 @@
           Tutorials
         </a>
       </div>
+      <div class="mx-8 hover-animation">
+        <a
+          class="text-20px text-dark font-JostMedium hover:text-dark"
+          href="/communities"
+        >
+          Communities
+        </a>
+      </div>
     </div>
     <div class="flex">
       <a
@@ -411,7 +422,7 @@
       <div>
         <a
           class="flex"
-          href="{{url_for('invenio_oauthclient.login', remote_app='orcid')}}?next=/me/records/"
+          href="{{ url_for_security('login', next=request.path) }}"
         >
           <div class="my-auto mr-1">sign in with</div>
           <img

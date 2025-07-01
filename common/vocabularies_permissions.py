@@ -17,3 +17,4 @@ class FineGrainedVocabularyPermissionPolicy(ReadOnlyPermissionPolicy):
     can_create_languages = [SystemProcess()]
     can_create_organisms = [SystemProcess()]
     can_create_products = [AuthenticatedUser(), SystemProcess()]
+    can_create_communitytypes = [SystemProcess()]
