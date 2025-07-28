@@ -8,8 +8,7 @@ def transform_community_roles(
     user: User, current_roles: set[CommunityRole], new_roles: set[CommunityRole]
 ):
     """
-    Transform community roles based on the user's current roles and new roles.
-    This function is a placeholder for the actual implementation.
+    Always add the generic community role to user's communities.
     """
     community_metadata = (
         db.session.query(CommunityMetadata).filter_by(slug="generic").first()
