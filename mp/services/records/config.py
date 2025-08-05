@@ -74,8 +74,8 @@ class MpServiceConfig(
             DoiComponent,
             CommunityDefaultWorkflowComponent,
             CommunityRecordAccessComponent,
-            CustomFieldsComponent,
             AutorequestComponent,
+            CustomFieldsComponent,
             WorkflowComponent,
         )
 

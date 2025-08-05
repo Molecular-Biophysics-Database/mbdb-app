@@ -2226,6 +2226,33 @@
                                             }
                                         }
                                     },
+                                    "sample_dilution": {
+                                        "type": "object",
+                                        "properties": {
+                                            "dilution_buffer": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "chemical_environment": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            },
+                                                            "@v": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "dilution_factor": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    },
                                     "temperature": {
                                         "type": "object",
                                         "properties": {
@@ -2343,8 +2370,8 @@
             }
         },
         "pids": {
-            "type": "object",
             "uniqueItems": true,
+            "type": "object",
             "propertyNames": {
                 "pattern": "^[a-z_-][a-z0-9_-]*$"
             },

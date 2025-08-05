@@ -1686,6 +1686,9 @@ class MpSearchOptions(RecordSearchOptions):
         "metadata_method_specific_parameters_measurements_sample_targets_concentration_value": (
             facets.metadata_method_specific_parameters_measurements_sample_targets_concentration_value
         ),
+        "metadata_method_specific_parameters_measurements_sample_dilution_dilution_factor": (
+            facets.metadata_method_specific_parameters_measurements_sample_dilution_dilution_factor
+        ),
         "metadata_method_specific_parameters_measurements_temperature_unit": (
             facets.metadata_method_specific_parameters_measurements_temperature_unit
         ),
@@ -3421,6 +3424,9 @@ class MpDraftSearchOptions(DraftSearchOptions):
         ),
         "metadata_method_specific_parameters_measurements_sample_targets_concentration_value": (
             facets.metadata_method_specific_parameters_measurements_sample_targets_concentration_value
+        ),
+        "metadata_method_specific_parameters_measurements_sample_dilution_dilution_factor": (
+            facets.metadata_method_specific_parameters_measurements_sample_dilution_dilution_factor
         ),
         "metadata_method_specific_parameters_measurements_temperature_unit": (
             facets.metadata_method_specific_parameters_measurements_temperature_unit

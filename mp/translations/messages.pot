@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-06-24T14:54:35.037981\n"
-"PO-Revision-Date: 2025-06-24T14:54:35.037983\n"
+"POT-Creation-Date: 2025-08-05T15:06:02.933464\n"
+"PO-Revision-Date: 2025-08-05T15:06:02.933466\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7623,6 +7623,10 @@ msgid ""
 "metadata/method_specific_parameters/calibrants/type.enum.polypeptide(D)"
 msgstr ""
 
+msgid ""
+"metadata/method_specific_parameters/calibrants/type.enum.polypeptide(L)"
+msgstr ""
+
 msgid "metadata/method_specific_parameters/calibrants/type.enum.chemical"
 msgstr ""
 
@@ -8160,6 +8164,63 @@ msgid ""
 "metadata/method_specific_parameters/measurements/sample/targets/entity/@v.hint"
 msgstr ""
 
+msgid "metadata/method_specific_parameters/measurements/sample_dilution.help"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/measurements/sample_dilution.label"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/measurements/sample_dilution.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer.label"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer.help"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer/chemical_environment.help"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer/chemical_environment.label"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer/chemical_environment.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer/chemical_environment/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer/chemical_environment/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer/chemical_environment/@v.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_factor.help"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_factor.label"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_factor.hint"
+msgstr ""
+
 msgid "metadata/method_specific_parameters/measurements/temperature.help"
 msgstr ""
 
@@ -8426,7 +8487,7 @@ msgstr ""
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.2.0"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.3.0"
 msgstr ""
 
 msgid "metadata/version.label"

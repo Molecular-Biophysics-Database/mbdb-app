@@ -2754,6 +2754,36 @@
                                             }
                                         }
                                     },
+                                    "sample_dilution": {
+                                        "type": "object",
+                                        "properties": {
+                                            "dilution_buffer": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "chemical_environment": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "name": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "@v": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "dilution_factor": {
+                                                "type": "double"
+                                            }
+                                        }
+                                    },
                                     "temperature": {
                                         "type": "object",
                                         "properties": {

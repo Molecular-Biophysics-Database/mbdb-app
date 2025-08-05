@@ -14031,3 +14031,15 @@ msgstr ""
 
 msgid "metadata/method_specific_parameters/schema_version.enum.0.9.8"
 msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/ui/branding/templates/mbdb/login_user.html:26
+msgid "OR"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/ui/branding/templates/mbdb/login_user.html:39
+msgid "Forgot password?"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/ui/branding/templates/mbdb/login_user.html:45
+msgid "Resend confirmation email"
+msgstr ""

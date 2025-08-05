@@ -730,7 +730,7 @@ class MethodSpecificParametersSchema(DictOnlySchema):
 
     mode = ma_fields.Nested(lambda: ModeSchema(), required=True)
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.2.0"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.3.0"])])
 
 
 class QualityControlsSchema(DictOnlySchema):
@@ -830,6 +830,8 @@ class MeasurementsItemSchema(DictOnlySchema):
     name = ma_fields.String(required=True)
 
     sample = ma_fields.Nested(lambda: SampleSchema(), required=True)
+
+    sample_dilution = ma_fields.Nested(lambda: SampleDilutionSchema())
 
     temperature = ma_fields.Nested(lambda: TemperatureSchema())
 
@@ -1077,6 +1079,7 @@ class CalibrantsItemSchema(DictOnlySchema):
                 [
                     "polyribonucleotide",
                     "polypeptide(D)",
+                    "polypeptide(L)",
                     "chemical",
                     "molecular assembly",
                     "virion",
@@ -2083,6 +2086,17 @@ class ResultsItemConcentrationSchema(DictOnlySchema):
     value_error = ma_fields.Nested(lambda: ValueErrorSchema())
 
 
+class SampleDilutionSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    dilution_buffer = ma_fields.Nested(lambda: DilutionBufferSchema())
+
+    dilution_factor = ma_fields.Float(
+        required=True, validate=[ma.validate.Range(min=1.0)]
+    )
+
+
 class SampleSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -2383,6 +2397,13 @@ class DataAnalysisItemSchema(DictOnlySchema):
     results = ma_fields.List(
         ma_fields.Nested(lambda: EntitySchema()), validate=[ma.validate.Length(min=1)]
     )
+
+
+class DilutionBufferSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    chemical_environment = ma_fields.Nested(lambda: EntitySchema(), required=True)
 
 
 class EntitiesInvolvedItemSchema(DictOnlySchema):

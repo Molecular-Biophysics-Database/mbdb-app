@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-06-24T14:54:35.037956\n"
-"PO-Revision-Date: 2025-06-24T14:54:35.037965\n"
+"POT-Creation-Date: 2025-08-05T15:06:02.933423\n"
+"PO-Revision-Date: 2025-08-05T15:06:02.933433\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7952,6 +7952,10 @@ msgid ""
 "metadata/method_specific_parameters/calibrants/type.enum.polypeptide(D)"
 msgstr ""
 
+msgid ""
+"metadata/method_specific_parameters/calibrants/type.enum.polypeptide(L)"
+msgstr ""
+
 msgid "metadata/method_specific_parameters/calibrants/type.enum.chemical"
 msgstr ""
 
@@ -8514,6 +8518,70 @@ msgid ""
 "metadata/method_specific_parameters/measurements/sample/targets/entity/@v.hint"
 msgstr ""
 
+msgid "metadata/method_specific_parameters/measurements/sample_dilution.help"
+msgstr ""
+"Parameters describing how the sample was diluted within the measurement in "
+"flow mode"
+
+msgid "metadata/method_specific_parameters/measurements/sample_dilution.label"
+msgstr "Sample dilution"
+
+msgid "metadata/method_specific_parameters/measurements/sample_dilution.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer.label"
+msgstr "Dilution buffer"
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer.help"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer/chemical_environment.help"
+msgstr ""
+"Name (id) of the chemical environment that was used as the dilution buffer "
+"(from the chemical environment defined in the general parameters"
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer/chemical_environment.label"
+msgstr "Chemical environment"
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer/chemical_environment.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer/chemical_environment/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer/chemical_environment/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_buffer/chemical_environment/@v.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_factor.help"
+msgstr ""
+"F-fold dilution; F = Q_buffer / Q_sample, where Q_buffer is buffer flowrate,"
+" Q_sample is sample flowrate. For low dilution factors, use more  precise "
+"formula (Q_buffer + Q_sample) / (Q_sample)"
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_factor.label"
+msgstr "Dilution factor"
+
+msgid ""
+"metadata/method_specific_parameters/measurements/sample_dilution/dilution_factor.hint"
+msgstr ""
+
 msgid "metadata/method_specific_parameters/measurements/temperature.help"
 msgstr "The temperature the measurement was performed at"
 
@@ -8558,7 +8626,7 @@ msgid ""
 msgstr ""
 
 msgid "metadata/method_specific_parameters/mode.help"
-msgstr "The details of how data analysis was performed to obtain results"
+msgstr "The details of which mode of data acquisition (Flow or Static)"
 
 msgid "metadata/method_specific_parameters/mode.label"
 msgstr "Mode"
@@ -8567,7 +8635,7 @@ msgid "metadata/method_specific_parameters/mode.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/mode/buffer_flowrate.help"
-msgstr "Numerical value of the buffer flowrate"
+msgstr "Numerical value and unit of the buffer flow rate"
 
 msgid "metadata/method_specific_parameters/mode/buffer_flowrate.label"
 msgstr "Buffer flowrate"
@@ -8611,7 +8679,7 @@ msgid "metadata/method_specific_parameters/mode/flow_cell.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/mode/sample_flowrate.help"
-msgstr "Numerical value of the sample rate"
+msgstr "Numerical value and unit of the sample flow rate"
 
 msgid "metadata/method_specific_parameters/mode/sample_flowrate.label"
 msgstr "Sample flowrate"
@@ -8784,7 +8852,7 @@ msgstr "Schema version"
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.2.0"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.3.0"
 msgstr ""
 
 msgid "metadata/version.label"

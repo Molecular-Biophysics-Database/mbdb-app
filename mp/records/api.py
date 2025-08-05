@@ -474,6 +474,11 @@ class MpRecord(RDMRecord):
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
         ),
+        dilution_buffer_chemical_environment=InternalRelation(
+            "metadata.method_specific_parameters.measurements.sample_dilution.dilution_buffer.chemical_environment",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.chemical_environments",
+        ),
     )
 
     versions_model_cls = MpParentState
@@ -922,6 +927,11 @@ class MpDraft(RDMDraft):
             "metadata.method_specific_parameters.measurements.sample.targets.entity",
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        dilution_buffer_chemical_environment=InternalRelation(
+            "metadata.method_specific_parameters.measurements.sample_dilution.dilution_buffer.chemical_environment",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.chemical_environments",
         ),
     )
 
