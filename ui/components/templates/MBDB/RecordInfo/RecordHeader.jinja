@@ -29,7 +29,7 @@
       </a>
     </div>
 {# render edit button if user has permission to edit the draft #}
-    {% if permissions.can_update_draft %}
+    {% if permissions.can_update %}
     <div class="mr-4">
       <a class="flex justify-center px-8 h-10 text-20px bg-dark rounded-normal text-white hover:text-white hover:bg-dark/75 transition-all"
         href="{{ links.edit_html or links.self_html }}" type="application/json" role="button">
@@ -44,7 +44,7 @@
       <RecordRequests record={ record } />
     </div>
 {# render delete button is user has permission to delete the draft #}
-    {% if permissions.can_delete_draft %}
+    {% if permissions.can_delete %}
     <RemoveButton self_link={ links.self } state={ state } />
     {% endif %}
   </div>

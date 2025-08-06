@@ -763,6 +763,11 @@
                 "module": "tests"
             }
         },
+        "tests": {
+            "extra-fixtures": [],
+            "extra-code": "",
+            "module": "tests"
+        },
         "draft": {
             "type": "draft_record",
             "properties": {},
@@ -1041,11 +1046,6 @@
                 "module": "tests"
             }
         },
-        "tests": {
-            "extra-fixtures": [],
-            "extra-code": "",
-            "module": "tests"
-        },
         "sample": {
             "file": "data/sample_data.yaml"
         },
@@ -1229,9 +1229,9 @@
                 "oarepo_runtime.services.results.RecordItem"
             ],
             "components": [
+                "{{oarepo_communities.services.results.RecordCommunitiesComponent}}()",
                 "{{oarepo_requests.services.results.RequestsComponent}}()",
-                "{{oarepo_requests.services.results.RequestTypesComponent}}()",
-                "{{oarepo_communities.services.results.RecordCommunitiesComponent}}()"
+                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
             ],
             "imports": []
         },
@@ -1262,6 +1262,14 @@
             "name": "parent-v1.0.0.json",
             "file": "mp/records/jsonschemas/parent-v1.0.0.json",
             "generate": true
+        },
+        "parent-record-ui-marshmallow": {
+            "module": "mp.services.records.ui_schema",
+            "class": "mp.services.records.ui_schema.GeneratedParentUISchema",
+            "generate": false,
+            "base-classes": [
+                "invenio_drafts_resources.services.records.schema.ParentSchema"
+            ]
         },
         "requests": {
             "types": {},
@@ -29696,6 +29704,7 @@
                                             "enum": [
                                                 "polyribonucleotide",
                                                 "polypeptide(D)",
+                                                "polypeptide(L)",
                                                 "chemical",
                                                 "molecular assembly",
                                                 "virion"
@@ -30297,6 +30306,104 @@
                                                 }
                                             }
                                         },
+                                        "sample_dilution": {
+                                            "type": "object",
+                                            "help.en": "Parameters describing how the sample was diluted within the measurement in flow mode",
+                                            "label.en": "Sample dilution",
+                                            "marshmallow": {
+                                                "generate": true,
+                                                "class": "mp.services.records.schema.SampleDilutionSchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": true,
+                                                    "class": "mp.services.records.ui_schema.SampleDilutionUISchema"
+                                                }
+                                            },
+                                            "properties": {
+                                                "dilution_buffer": {
+                                                    "type": "object",
+                                                    "label.en": "Dilution buffer",
+                                                    "marshmallow": {
+                                                        "generate": true,
+                                                        "class": "mp.services.records.schema.DilutionBufferSchema"
+                                                    },
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "generate": true,
+                                                            "class": "mp.services.records.ui_schema.DilutionBufferUISchema"
+                                                        }
+                                                    },
+                                                    "properties": {
+                                                        "chemical_environment": {
+                                                            "type": "relation",
+                                                            "required": true,
+                                                            "model": "#chemical-environment",
+                                                            "keys": [
+                                                                "id",
+                                                                "name"
+                                                            ],
+                                                            "help.en": "Name (id) of the chemical environment that was used as the dilution buffer (from the chemical environment defined in the general parameters",
+                                                            "label.en": "Chemical environment",
+                                                            "marshmallow": {
+                                                                "unknown": "INCLUDE",
+                                                                "generate": false,
+                                                                "class": "mp.services.records.schema.EntitySchema"
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "unknown": "INCLUDE",
+                                                                    "generate": false,
+                                                                    "class": "mp.services.records.ui_schema.EntityUISchema"
+                                                                }
+                                                            },
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "keyword",
+                                                                    "required": true,
+                                                                    "help.en": "Unique ID for the chemical environment to be used as a link",
+                                                                    "label.en": "Id"
+                                                                },
+                                                                "name": {
+                                                                    "type": "keyword",
+                                                                    "required": true,
+                                                                    "help.en": "Name of the chemical environment (e.g. Measurement Buffer). The name must be unique within a record as it will be referred to the in method specific section when describing the composition of the individual samples or measurement steps",
+                                                                    "label.en": "Name"
+                                                                },
+                                                                "@v": {
+                                                                    "type": "keyword",
+                                                                    "marshmallow": {
+                                                                        "field-name": "_version",
+                                                                        "field-class": "marshmallow.fields.String"
+                                                                    },
+                                                                    "ui": {
+                                                                        "marshmallow": {
+                                                                            "field-name": "_version",
+                                                                            "field-class": "marshmallow.fields.String"
+                                                                        }
+                                                                    },
+                                                                    "facets": {
+                                                                        "facet": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "dilution_factor": {
+                                                    "type": "double",
+                                                    "required": true,
+                                                    "minimum": 1.0,
+                                                    "help.en": "F-fold dilution; F = Q_buffer / Q_sample, where Q_buffer is buffer flowrate, Q_sample is sample flowrate. For low dilution factors, use more  precise formula (Q_buffer + Q_sample) / (Q_sample)",
+                                                    "label.en": "Dilution factor",
+                                                    "marshmallow": {
+                                                        "validators": [
+                                                            "ma.validate.Range(min=1.0)"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        },
                                         "temperature": {
                                             "type": "object",
                                             "help.en": "The temperature the measurement was performed at",
@@ -30375,7 +30482,7 @@
                                                         "label.en": "Unit"
                                                     }
                                                 },
-                                                "help.en": "Numerical value of the sample rate",
+                                                "help.en": "Numerical value and unit of the sample flow rate",
                                                 "label.en": "Sample flowrate",
                                                 "marshmallow": {
                                                     "generate": false,
@@ -30415,7 +30522,7 @@
                                                         "label.en": "Unit"
                                                     }
                                                 },
-                                                "help.en": "Numerical value of the buffer flowrate",
+                                                "help.en": "Numerical value and unit of the buffer flow rate",
                                                 "label.en": "Buffer flowrate",
                                                 "marshmallow": {
                                                     "generate": true,
@@ -30588,7 +30695,7 @@
                                     }
                                 },
                                 "discriminator": "type",
-                                "help.en": "The details of how data analysis was performed to obtain results",
+                                "help.en": "The details of which mode of data acquisition (Flow or Static)",
                                 "label.en": "Mode",
                                 "marshmallow": {
                                     "generate": true,
@@ -30604,7 +30711,7 @@
                                     "buffer_flowrate": {
                                         "type": "object",
                                         "required": true,
-                                        "help.en": "Numerical value of the buffer flowrate",
+                                        "help.en": "Numerical value and unit of the buffer flow rate",
                                         "label.en": "Buffer flowrate",
                                         "marshmallow": {
                                             "generate": true,
@@ -30650,7 +30757,7 @@
                                     "sample_flowrate": {
                                         "type": "object",
                                         "required": true,
-                                        "help.en": "Numerical value of the sample rate",
+                                        "help.en": "Numerical value and unit of the sample flow rate",
                                         "label.en": "Sample flowrate",
                                         "marshmallow": {
                                             "generate": false,
@@ -30811,7 +30918,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.2.0"
+                                    "0.3.0"
                                 ],
                                 "help.en": "The schema version used to annotate the MP method specific parameters",
                                 "label.en": "Schema version"
@@ -30893,11 +31000,10 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "type": "object",
-                    "uniqueItems": true,
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
                     },
+                    "uniqueItems": true,
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -30912,7 +31018,8 @@
                                 "type": "string"
                             }
                         }
-                    }
+                    },
+                    "type": "object"
                 },
                 "ui": {
                     "marshmallow": {
