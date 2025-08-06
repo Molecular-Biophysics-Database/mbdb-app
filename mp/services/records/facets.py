@@ -2509,6 +2509,13 @@ metadata_method_specific_parameters_measurements_sample_targets_concentration_va
     ),
 )
 
+metadata_method_specific_parameters_measurements_sample_dilution_dilution_factor = TermsFacet(
+    field="metadata.method_specific_parameters.measurements.sample_dilution.dilution_factor",
+    label=_(
+        "metadata/method_specific_parameters/measurements/sample_dilution/dilution_factor.label"
+    ),
+)
+
 metadata_method_specific_parameters_measurements_temperature_unit = TermsFacet(
     field="metadata.method_specific_parameters.measurements.temperature.unit",
     label=_("metadata/method_specific_parameters/measurements/temperature/unit.label"),
