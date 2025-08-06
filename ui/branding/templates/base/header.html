@@ -435,4 +435,7 @@
       {% endif %}
     </div>
   </div>
+  {%- block banner %}
+    {% from 'invenio_banners/banner.html' import banner %} {{ banner() }}
+  {%- endblock banner %}
 </div>
