@@ -8,8 +8,9 @@ import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
 
 export default function Calibrants({ name }) {
   const typeOptions = [
-    { value: "polypeptide(D)", label: "polypeptide(D)" },
     { value: "polyribonucleotide", label: "polyribonucleotide" },
+    { value: "polypeptide(D)", label: "polypeptide(D)" },
+    { value: "polypeptide(L)", label: "polypeptide(L)" },
     { value: "chemical", label: "chemical" },
     { value: "molecular assembly", label: "molecular assembly" },
     { value: "virion", label: "virion" },
@@ -31,6 +32,7 @@ export default function Calibrants({ name }) {
           fieldName="type"
           label="Type"
           options={typeOptions}
+          tooltip="The type of the calibrant (Polymer)"
         />
       </div>
       <div className="mb-3">

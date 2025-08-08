@@ -5,6 +5,7 @@ import CreateUuid from "@mbdb_deposit/buildingBlocks/CreateUuid";
 import Duration from "@mbdb_deposit/sharedComponents/Duration";
 import OptionalField from "@mbdb_deposit/buildingBlocks/OptionalField";
 import Temperature from "@mbdb_deposit/sharedComponents/Temperature";
+import SampleDilution from "./SampleDilution";
 
 export default function Measurements({ name }) {
   CreateUuid(name);
@@ -44,7 +45,19 @@ export default function Measurements({ name }) {
         />
       </div>
 
-      <Sample name={`${name}.sample`} colorSchema="light" />
+      <div className="mb-3">
+        <Sample name={`${name}.sample`} colorSchema="light" />
+      </div>
+
+      <OptionalField
+        name={name}
+        fieldName="sample_dilution"
+        label="Sample dilution"
+        tooltip="Parameters describing how the sample was diluted within the measurement in flow mode"
+        renderChild={({ optionalFieldName }) => (
+          <SampleDilution name={optionalFieldName} colorSchema="light" />
+        )}
+      />
     </>
   );
 }
