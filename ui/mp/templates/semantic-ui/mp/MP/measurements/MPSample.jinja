@@ -1,0 +1,14 @@
+{# def sample #}
+
+<IField label="Sample" d={sample}>
+    <IField label="Chemical environment" d={sample.chemical_environment.name} />
+
+    <IField label="Targets" d={sample.targets}>
+        <Targets targets={sample.targets} />
+    </IField>
+
+    <IField label="Protocols" d={sample.preparation_protocol}>
+        <Protocol title="Preparation protocol step" protocols={sample.preparation_protocol} />
+    </IField>
+</IField>
+
