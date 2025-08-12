@@ -1,0 +1,18 @@
+{# def calibrant #}
+
+<IField label="Name" d={calibrant.name} />
+
+<IField label="Type" d={calibrant.type} />
+
+<IField label="Molecular weight" d={calibrant.molecular_weight}>
+    <ValueUnit value={calibrant.molecular_weight} />
+</IField>
+
+<INonEmpty d={calibrant.modifications}>
+  <div class="font-JostBold mb-2">Modification</div>
+  <div class="ml-4">
+    {%- for mod in array(calibrant.modifications) %}
+        <Modification mod={mod} />
+    {%- endfor %}
+  </div>
+</INonEmpty>

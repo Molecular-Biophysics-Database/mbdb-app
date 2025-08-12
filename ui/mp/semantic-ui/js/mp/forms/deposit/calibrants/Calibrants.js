@@ -43,9 +43,9 @@ export default function Calibrants({ name }) {
         />
       </div>
       <ArrayField
-        name={`${name}.modifications`}
+        name={name}
         label="Modification"
-        fieldName="modification"
+        fieldName="modifications"
         renderChild={({ arrayName, index }) => (
           <FormWrapper
             headline={`Modification ${index + 1}`}
