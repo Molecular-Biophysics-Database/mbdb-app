@@ -1,0 +1,21 @@
+{# def mode #}
+
+<IField label="Type" d={mode.type} />
+
+<div class="mb-4 pb-8 border-b-[.1px] border-b-dark last:border-b-0 last:mb-0">
+    <SubSection title="Sample carrier">
+        <IField label="Surface Modification" d={mode.sample_carrier.surface_modification} />
+        <IField label="Material" d={mode.sample_carrier.material} />
+
+        <IField d={mode.sample_carrier.supplier}>
+            <SubSection title="Supplier">
+                <IField label="Name" d={mode.sample_carrier.supplier.name} />
+                <IField label="Catalog number" d={mode.sample_carrier.supplier.catalog_number} />
+                <FurtherInformation further_information={mode.sample_carrier.supplier.further_information} />
+            </SubSection>
+        </IField>
+        <IField label="Cleaning protocol" d={mode.sample_carrier.cleaning_protocol}>
+            <Protocol title="Cleaning protocol step" protocols={mode.sample_carrier.cleaning_protocol} />
+        </IField>
+    </SubSection>
+</div>

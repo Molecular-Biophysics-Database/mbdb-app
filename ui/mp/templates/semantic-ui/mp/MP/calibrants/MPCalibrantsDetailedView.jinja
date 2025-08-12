@@ -1,0 +1,10 @@
+{# def calibrants #}
+
+{% for calibrant in array(calibrants, remove_empty=True) %}
+{% set title='Calibrant ' ~ loop.index %}
+<div class="mb-4 pb-8 border-b-[.1px] border-b-dark last:border-b-0 last:mb-0">
+    <SubSection title={ title }>
+        <MPCalibrantDetailedView calibrant={calibrant} />
+    </SubSection>
+</div>
+{% endfor %}
