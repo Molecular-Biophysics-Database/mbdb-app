@@ -68,7 +68,7 @@ export default function Static({ name, colorSchema }) {
               colorSchema="light"
               tooltip={tooltips.cleaningProtocol}
             >
-              <Protocol name={`${arrayName}.${index}.step`} />
+              <Protocol name={`${arrayName}.${index}`} />
             </FormWrapper>
           )}
         />

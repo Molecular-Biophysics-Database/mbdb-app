@@ -7,7 +7,6 @@ import { getIn, useFormikContext } from "formik";
 
 export default function SampleDilution({ name, colorSchema }) {
     const { values } = useFormikContext();
-    console.log(values, 'Valuuues bitch')
 
     const chemicalEnvironmentsValue = getIn(
         values,
