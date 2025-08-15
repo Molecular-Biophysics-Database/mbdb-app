@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-08-06 14:18+0200\n"
+"POT-Creation-Date: 2025-08-15 14:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1953,546 +1953,552 @@ msgstr ""
 #: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2341
 #: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2341
 #: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2341
+msgid "metadata/general_parameters/results/size_type.label"
+msgstr ""
+
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2346
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2346
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2346
 msgid "metadata/general_parameters/schema_version.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2347
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2347
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2347
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2352
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2352
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2352
 msgid ""
 "metadata/method_specific_parameters/data_analysis/data_fitting/model.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2354
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2354
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2354
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2359
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2359
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2359
 msgid ""
 "metadata/method_specific_parameters/data_analysis/data_fitting/quality.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2361
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2361
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2361
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2366
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2366
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2366
 msgid ""
 "metadata/method_specific_parameters/data_analysis/data_fitting/quality_type.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2368
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2368
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2368
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2373
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2373
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2373
 msgid ""
 "metadata/method_specific_parameters/data_analysis/data_fitting/software_name.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2375
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2375
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2375
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2380
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2380
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2380
 msgid ""
 "metadata/method_specific_parameters/data_analysis/data_fitting/software_version.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2382
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2382
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2382
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2387
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2387
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2387
 msgid ""
 "metadata/method_specific_parameters/data_analysis/data_processing/description.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2389
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2389
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2389
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2394
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2394
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2394
 msgid ""
 "metadata/method_specific_parameters/data_analysis/data_processing/link_to_source_code.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2396
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2396
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2396
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2401
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2401
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2401
 msgid ""
 "metadata/method_specific_parameters/data_analysis/data_processing/name.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2403
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2403
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2403
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2408
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2408
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2408
 msgid ""
 "metadata/method_specific_parameters/data_analysis/data_processing/software_name.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2410
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2410
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2410
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2415
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2415
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2415
 msgid ""
 "metadata/method_specific_parameters/data_analysis/data_processing/software_version.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2417
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2422
 msgid ""
 "metadata/method_specific_parameters/data_analysis/f_cold_and_hot/f_cold_end.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2424
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2429
 msgid ""
 "metadata/method_specific_parameters/data_analysis/f_cold_and_hot/f_cold_start.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2431
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2436
 msgid ""
 "metadata/method_specific_parameters/data_analysis/f_cold_and_hot/f_hot_end.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2438
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2443
 msgid ""
 "metadata/method_specific_parameters/data_analysis/f_cold_and_hot/f_hot_start.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2445
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2450
 msgid ""
 "metadata/method_specific_parameters/data_analysis/f_cold_and_hot/time_unit.label"
-msgstr ""
-
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2416
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2451
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2416
-msgid "metadata/method_specific_parameters/measurements/id.label"
 msgstr ""
 
 #: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2421
 #: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2456
 #: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2421
-msgid "Measurement name"
-msgstr ""
-
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2461
-msgid "metadata/method_specific_parameters/excitation_led_color.label"
-msgstr ""
-
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2466
-msgid "metadata/method_specific_parameters/excitation_led_power.label"
+msgid "metadata/method_specific_parameters/measurements/id.label"
 msgstr ""
 
 #: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2426
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2471
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2461
 #: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2426
+msgid "Measurement name"
+msgstr ""
+
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2466
+msgid "metadata/method_specific_parameters/excitation_led_color.label"
+msgstr ""
+
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2471
+msgid "metadata/method_specific_parameters/excitation_led_power.label"
+msgstr ""
+
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2431
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2476
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2431
 msgid "metadata/method_specific_parameters/experiment_type.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2476
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2481
 msgid "metadata/method_specific_parameters/ir_mst_laser_power.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2481
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2486
 msgid "metadata/method_specific_parameters/measurements/position.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2487
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2492
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/ligands/concentration/unit.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2494
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2499
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/ligands/concentration/value.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2501
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2506
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/measurement_container.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2512
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2508
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2517
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2513
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/preparation_protocol/description.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2519
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2515
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2524
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2520
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/preparation_protocol/name.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2522
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2527
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/targets/concentration/unit.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2529
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2534
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/targets/concentration/value.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2607
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2535
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2632
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2612
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2540
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2637
 msgid "metadata/method_specific_parameters/schema_version.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2540
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2545
 msgid "metadata/method_specific_parameters/signal_type.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2545
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2550
 msgid "metadata/method_specific_parameters/temperature/unit.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2550
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2555
 msgid "metadata/method_specific_parameters/temperature/value.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2674
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2554
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2673
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2679
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2559
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2678
 msgid "metadata/version.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2677
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2557
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2676
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2682
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2562
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2681
 msgid "state.label"
-msgstr ""
-
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2680
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2560
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2679
-msgid "state_timestamp.label"
 msgstr ""
 
 #: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2685
 #: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2565
 #: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2684
+msgid "state_timestamp.label"
+msgstr ""
+
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2690
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2570
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2689
 msgid "synthetic_fields/affiliations.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2689
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2569
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2688
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2694
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2574
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2693
 msgid "synthetic_fields/people.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2432
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2437
 msgid ""
 "metadata/method_specific_parameters/measurement_positions/flow_cell.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2438
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2443
 msgid "metadata/method_specific_parameters/measurement_positions/id.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2444
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2449
 msgid ""
 "metadata/method_specific_parameters/measurement_positions/ligand/immobilization_chemistry.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2451
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2456
 msgid ""
 "metadata/method_specific_parameters/measurement_positions/ligand/immobilization_protocol/description.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2458
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2463
 msgid ""
 "metadata/method_specific_parameters/measurement_positions/ligand/immobilization_protocol/name.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2464
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2469
 msgid "Measurement position"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2469
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2474
 msgid ""
 "metadata/method_specific_parameters/measurement_positions/position.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2475
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2480
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/flow/direction.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2482
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2487
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/flow/rate/unit.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2489
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2494
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/flow/rate/value.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2431
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2495
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2436
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2500
 msgid "metadata/method_specific_parameters/measurement_protocol/id.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2500
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2505
 msgid "Measurement protocol"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2456
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2506
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2461
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2511
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/start_time/unit.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2463
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2513
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2468
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2518
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/start_time/value.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2470
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2520
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2475
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2525
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/time_length/unit.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2477
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2527
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2482
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2532
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/time_length/value.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2533
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2538
 msgid "Measurement protocol type"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2539
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2544
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/analytes/concentration/unit.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2546
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2551
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/analytes/concentration/value.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2552
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2557
 msgid "Reference sample position"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2558
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2563
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/preparation_protocol/description.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2565
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2570
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/preparation_protocol/name.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2572
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2577
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/temperature/unit.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2579
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2584
 msgid ""
 "metadata/method_specific_parameters/measurements/reference_samples/temperature/value.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2586
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2591
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/analytes/concentration/unit.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2593
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2598
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/analytes/concentration/value.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2599
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2604
 msgid "Sample position"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2605
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2610
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/preparation_protocol/description.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2612
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2617
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/preparation_protocol/name.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2619
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2624
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/temperature/unit.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2626
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2631
 msgid ""
 "metadata/method_specific_parameters/measurements/samples/temperature/value.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2637
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2642
 msgid "metadata/method_specific_parameters/sensor/id.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2642
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2647
 msgid "metadata/method_specific_parameters/sensor/previously_used.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2647
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2652
 msgid "metadata/method_specific_parameters/sensor/sensor_initialization.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2653
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2652
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2658
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2657
 msgid "Sensor catalog number"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2658
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2663
 msgid ""
 "metadata/method_specific_parameters/sensor/supplier/further_information.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2664
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2669
 msgid "Sensor supplier name"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2669
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/spr/services/records/facets.py:2674
 msgid "metadata/method_specific_parameters/sensor/surface_properties.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2436
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2441
 msgid "Protocol name"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2442
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2447
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/shaking_speed/unit.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2449
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2454
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/shaking_speed/value.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2483
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2488
 msgid "Protocol type"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2489
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2494
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/analytes/concentration/unit.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2496
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2501
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/analytes/concentration/value.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2502
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2507
 msgid "metadata/method_specific_parameters/plates/id.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2506
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2511
 msgid "Plate"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2526
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2531
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/temperature/unit.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2533
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2538
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/temperature/value.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2540
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2545
 msgid ""
 "metadata/method_specific_parameters/measurements/sample/well_position.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2546
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2551
 msgid "metadata/method_specific_parameters/sensors/id.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2550
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2555
 msgid "Sensor"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2555
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2560
 msgid "metadata/method_specific_parameters/plates/sealing.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2560
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2565
 msgid "Plate catalog number"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2566
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2571
 msgid ""
 "metadata/method_specific_parameters/plates/supplier/further_information.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2572
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2577
 msgid "Plate supplier"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2578
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2583
 msgid ""
 "metadata/method_specific_parameters/plates/surface_modification/protocol/description.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2585
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2590
 msgid ""
 "metadata/method_specific_parameters/plates/surface_modification/protocol/name.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2592
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2597
 msgid ""
 "metadata/method_specific_parameters/plates/surface_modification/type.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2597
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2602
 msgid "Plate type"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2602
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2607
 msgid "metadata/method_specific_parameters/plates/wells.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2612
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2617
 msgid "metadata/method_specific_parameters/sensors/hydration_time/unit.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2617
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2622
 msgid "metadata/method_specific_parameters/sensors/hydration_time/value.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2623
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2628
 msgid ""
 "metadata/method_specific_parameters/sensors/ligand/immobilization_chemistry.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2630
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2635
 msgid ""
 "metadata/method_specific_parameters/sensors/ligand/immobilization_protocol/description.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2637
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2642
 msgid ""
 "metadata/method_specific_parameters/sensors/ligand/immobilization_protocol/name.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2643
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2648
 msgid "metadata/method_specific_parameters/sensors/previously_used.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2648
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2653
 msgid "metadata/method_specific_parameters/sensors/sensor_id.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2659
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2664
 msgid ""
 "metadata/method_specific_parameters/sensors/supplier/further_information.label"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2665
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2670
 msgid "Sensor supplier"
 msgstr ""
 
-#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2670
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/bli/services/records/facets.py:2675
 msgid "metadata/method_specific_parameters/sensors/surface_properties.label"
 msgstr ""
 

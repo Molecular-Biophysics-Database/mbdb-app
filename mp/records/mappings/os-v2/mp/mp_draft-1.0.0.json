@@ -2509,6 +2509,10 @@
                                                 "type": "double"
                                             }
                                         }
+                                    },
+                                    "size_type": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
                                     }
                                 }
                             },
@@ -2565,6 +2569,31 @@
                                     "name": {
                                         "type": "keyword",
                                         "ignore_above": 1024
+                                    },
+                                    "size": {
+                                        "type": "object",
+                                        "properties": {
+                                            "lower": {
+                                                "type": "double"
+                                            },
+                                            "mean": {
+                                                "type": "double"
+                                            },
+                                            "median": {
+                                                "type": "double"
+                                            },
+                                            "type": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "unit": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "upper": {
+                                                "type": "double"
+                                            }
+                                        }
                                     },
                                     "type": {
                                         "type": "keyword",

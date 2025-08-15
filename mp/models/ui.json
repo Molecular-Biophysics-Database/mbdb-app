@@ -4922,6 +4922,16 @@
                                                 "facet": "metadata_general_parameters_results_value_error_upper"
                                             }
                                         }
+                                    },
+                                    "size_type": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "required": true,
+                                        "help": "metadata/general_parameters/results/size_type.help",
+                                        "label": "metadata/general_parameters/results/size_type.label",
+                                        "hint": "metadata/general_parameters/results/size_type.hint",
+                                        "enum": "metadata/general_parameters/results/size_type.enum",
+                                        "facet": "metadata_general_parameters_results_size_type"
                                     }
                                 }
                             }
@@ -5030,7 +5040,6 @@
                                     "molecular_weight": {
                                         "detail": false,
                                         "input": false,
-                                        "required": true,
                                         "help": "metadata/method_specific_parameters/calibrants/molecular_weight.help",
                                         "label": "metadata/method_specific_parameters/calibrants/molecular_weight.label",
                                         "hint": "metadata/method_specific_parameters/calibrants/molecular_weight.hint",
@@ -5064,6 +5073,68 @@
                                         "label": "metadata/method_specific_parameters/calibrants/name.label",
                                         "hint": "metadata/method_specific_parameters/calibrants/name.hint",
                                         "facet": "metadata_method_specific_parameters_calibrants_name"
+                                    },
+                                    "size": {
+                                        "detail": false,
+                                        "input": false,
+                                        "help": "metadata/method_specific_parameters/calibrants/size.help",
+                                        "label": "metadata/method_specific_parameters/calibrants/size.label",
+                                        "hint": "metadata/method_specific_parameters/calibrants/size.hint",
+                                        "children": {
+                                            "lower": {
+                                                "detail": "double",
+                                                "input": "double",
+                                                "help": "metadata/method_specific_parameters/calibrants/size/lower.help",
+                                                "label": "metadata/method_specific_parameters/calibrants/size/lower.label",
+                                                "hint": "metadata/method_specific_parameters/calibrants/size/lower.hint",
+                                                "facet": "metadata_method_specific_parameters_calibrants_size_lower"
+                                            },
+                                            "mean": {
+                                                "detail": "double",
+                                                "input": "double",
+                                                "required": true,
+                                                "help": "metadata/method_specific_parameters/calibrants/size/mean.help",
+                                                "label": "metadata/method_specific_parameters/calibrants/size/mean.label",
+                                                "hint": "metadata/method_specific_parameters/calibrants/size/mean.hint",
+                                                "facet": "metadata_method_specific_parameters_calibrants_size_mean"
+                                            },
+                                            "median": {
+                                                "detail": "double",
+                                                "input": "double",
+                                                "help": "metadata/method_specific_parameters/calibrants/size/median.help",
+                                                "label": "metadata/method_specific_parameters/calibrants/size/median.label",
+                                                "hint": "metadata/method_specific_parameters/calibrants/size/median.hint",
+                                                "facet": "metadata_method_specific_parameters_calibrants_size_median"
+                                            },
+                                            "type": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "required": true,
+                                                "help": "metadata/method_specific_parameters/calibrants/size/type.help",
+                                                "label": "metadata/method_specific_parameters/calibrants/size/type.label",
+                                                "hint": "metadata/method_specific_parameters/calibrants/size/type.hint",
+                                                "enum": "metadata/method_specific_parameters/calibrants/size/type.enum",
+                                                "facet": "metadata_method_specific_parameters_calibrants_size_type"
+                                            },
+                                            "unit": {
+                                                "detail": "keyword",
+                                                "input": "keyword",
+                                                "required": true,
+                                                "help": "metadata/method_specific_parameters/calibrants/size/unit.help",
+                                                "label": "metadata/method_specific_parameters/calibrants/size/unit.label",
+                                                "hint": "metadata/method_specific_parameters/calibrants/size/unit.hint",
+                                                "enum": "metadata/method_specific_parameters/calibrants/size/unit.enum",
+                                                "facet": "metadata_method_specific_parameters_calibrants_size_unit"
+                                            },
+                                            "upper": {
+                                                "detail": "double",
+                                                "input": "double",
+                                                "help": "metadata/method_specific_parameters/calibrants/size/upper.help",
+                                                "label": "metadata/method_specific_parameters/calibrants/size/upper.label",
+                                                "hint": "metadata/method_specific_parameters/calibrants/size/upper.hint",
+                                                "facet": "metadata_method_specific_parameters_calibrants_size_upper"
+                                            }
+                                        }
                                     },
                                     "type": {
                                         "detail": "keyword",

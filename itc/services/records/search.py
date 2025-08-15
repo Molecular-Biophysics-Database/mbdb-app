@@ -1584,6 +1584,9 @@ class ItcSearchOptions(RecordSearchOptions):
         "metadata_general_parameters_results_value_error_upper": (
             facets.metadata_general_parameters_results_value_error_upper
         ),
+        "metadata_general_parameters_results_size_type": (
+            facets.metadata_general_parameters_results_size_type
+        ),
         "metadata_general_parameters_schema_version": (
             facets.metadata_general_parameters_schema_version
         ),
@@ -3286,6 +3289,9 @@ class ItcDraftSearchOptions(DraftSearchOptions):
         ),
         "metadata_general_parameters_results_value_error_upper": (
             facets.metadata_general_parameters_results_value_error_upper
+        ),
+        "metadata_general_parameters_results_size_type": (
+            facets.metadata_general_parameters_results_size_type
         ),
         "metadata_general_parameters_schema_version": (
             facets.metadata_general_parameters_schema_version

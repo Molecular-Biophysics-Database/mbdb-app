@@ -3,6 +3,32 @@
         "type": "model",
         "mapping": {
             "template": {
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200,
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "edge_ngram",
+                                "min_gram": 4,
+                                "max_gram": 8,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
+                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -58,32 +84,6 @@
                             }
                         }
                     ]
-                },
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": [
-                        "collected_default_search_fields",
-                        "collected_default_search_fields.substringmatch"
-                    ],
-                    "analysis": {
-                        "analyzer": {
-                            "substring": {
-                                "tokenizer": "substringtokenizer"
-                            }
-                        },
-                        "tokenizer": {
-                            "substringtokenizer": {
-                                "type": "edge_ngram",
-                                "min_gram": 4,
-                                "max_gram": 8,
-                                "token_chars": [
-                                    "letter",
-                                    "digit"
-                                ]
-                            }
-                        }
-                    }
                 }
             },
             "generate": true,
@@ -1277,7 +1277,7 @@
             "additional-ui-resolvers": {},
             "ui-serialization-referenced-fields": [],
             "notification-resolver": [
-                "{{invenio_records_resources.references.entity_resolvers.results.ServiceResultResolver}}(service_id=\"mp\", type_key=\"mp\",proxy_cls={{oarepo_runtime.records.entity_resolvers.proxies.WithDeletedServiceResultProxy}})"
+                "{{oarepo_requests.resolvers.service_result.RDMPIDServiceResultResolver}}(service_id=\"mp\", type_key=\"mp\",proxy_cls={{oarepo_runtime.records.entity_resolvers.proxies.WithDeletedServiceResultProxy}})"
             ]
         },
         "record-requests": {
@@ -27229,7 +27229,8 @@
                                                         "Change in entropy deltaS",
                                                         "Change in Gibbs free energy deltaG",
                                                         "Correction of active concentration",
-                                                        "Molecular weight"
+                                                        "Molecular weight",
+                                                        "Size of spherically represented entity"
                                                     ],
                                                     "help.en": "The type of physical parameter the result represents",
                                                     "label.en": "Type"
@@ -27347,7 +27348,8 @@
                                                         "Change in entropy deltaS",
                                                         "Change in Gibbs free energy deltaG",
                                                         "Correction of active concentration",
-                                                        "Molecular weight"
+                                                        "Molecular weight",
+                                                        "Size of spherically represented entity"
                                                     ],
                                                     "help.en": "The type of physical parameter the result represents",
                                                     "label.en": "Type"
@@ -27522,7 +27524,8 @@
                                                         "Change in entropy deltaS",
                                                         "Change in Gibbs free energy deltaG",
                                                         "Correction of active concentration",
-                                                        "Molecular weight"
+                                                        "Molecular weight",
+                                                        "Size of spherically represented entity"
                                                     ],
                                                     "help.en": "The type of physical parameter the result represents",
                                                     "label.en": "Type"
@@ -27697,7 +27700,8 @@
                                                         "Change in entropy deltaS",
                                                         "Change in Gibbs free energy deltaG",
                                                         "Correction of active concentration",
-                                                        "Molecular weight"
+                                                        "Molecular weight",
+                                                        "Size of spherically represented entity"
                                                     ],
                                                     "help.en": "The type of physical parameter the result represents",
                                                     "label.en": "Type"
@@ -27872,7 +27876,8 @@
                                                         "Change in entropy deltaS",
                                                         "Change in Gibbs free energy deltaG",
                                                         "Correction of active concentration",
-                                                        "Molecular weight"
+                                                        "Molecular weight",
+                                                        "Size of spherically represented entity"
                                                     ],
                                                     "help.en": "The type of physical parameter the result represents",
                                                     "label.en": "Type"
@@ -28040,7 +28045,8 @@
                                                         "Change in entropy deltaS",
                                                         "Change in Gibbs free energy deltaG",
                                                         "Correction of active concentration",
-                                                        "Molecular weight"
+                                                        "Molecular weight",
+                                                        "Size of spherically represented entity"
                                                     ],
                                                     "help.en": "The type of physical parameter the result represents",
                                                     "label.en": "Type"
@@ -28209,7 +28215,8 @@
                                                         "Change in entropy deltaS",
                                                         "Change in Gibbs free energy deltaG",
                                                         "Correction of active concentration",
-                                                        "Molecular weight"
+                                                        "Molecular weight",
+                                                        "Size of spherically represented entity"
                                                     ],
                                                     "help.en": "The type of physical parameter the result represents",
                                                     "label.en": "Type"
@@ -28378,7 +28385,8 @@
                                                         "Change in entropy deltaS",
                                                         "Change in Gibbs free energy deltaG",
                                                         "Correction of active concentration",
-                                                        "Molecular weight"
+                                                        "Molecular weight",
+                                                        "Size of spherically represented entity"
                                                     ],
                                                     "help.en": "The type of physical parameter the result represents",
                                                     "label.en": "Type"
@@ -28547,7 +28555,8 @@
                                                         "Change in entropy deltaS",
                                                         "Change in Gibbs free energy deltaG",
                                                         "Correction of active concentration",
-                                                        "Molecular weight"
+                                                        "Molecular weight",
+                                                        "Size of spherically represented entity"
                                                     ],
                                                     "help.en": "The type of physical parameter the result represents",
                                                     "label.en": "Type"
@@ -28718,7 +28727,8 @@
                                                         "Change in entropy deltaS",
                                                         "Change in Gibbs free energy deltaG",
                                                         "Correction of active concentration",
-                                                        "Molecular weight"
+                                                        "Molecular weight",
+                                                        "Size of spherically represented entity"
                                                     ],
                                                     "help.en": "The type of physical parameter the result represents",
                                                     "label.en": "Type"
@@ -28904,7 +28914,8 @@
                                                         "Change in entropy deltaS",
                                                         "Change in Gibbs free energy deltaG",
                                                         "Correction of active concentration",
-                                                        "Molecular weight"
+                                                        "Molecular weight",
+                                                        "Size of spherically represented entity"
                                                     ],
                                                     "help.en": "The type of physical parameter the result represents",
                                                     "label.en": "Type"
@@ -29072,7 +29083,8 @@
                                                         "Change in entropy deltaS",
                                                         "Change in Gibbs free energy deltaG",
                                                         "Correction of active concentration",
-                                                        "Molecular weight"
+                                                        "Molecular weight",
+                                                        "Size of spherically represented entity"
                                                     ],
                                                     "help.en": "The type of physical parameter the result represents",
                                                     "label.en": "Type"
@@ -29149,8 +29161,8 @@
                                             },
                                             "ui": {
                                                 "marshmallow": {
-                                                    "generate": false,
-                                                    "class": "mp.services.records.ui_schema.ResultsItemUISchema"
+                                                    "generate": true,
+                                                    "class": "mp.services.records.ui_schema.Hill_coefficientUISchema"
                                                 }
                                             }
                                         },
@@ -29240,7 +29252,8 @@
                                                         "Change in entropy deltaS",
                                                         "Change in Gibbs free energy deltaG",
                                                         "Correction of active concentration",
-                                                        "Molecular weight"
+                                                        "Molecular weight",
+                                                        "Size of spherically represented entity"
                                                     ],
                                                     "help.en": "The type of physical parameter the result represents",
                                                     "label.en": "Type"
@@ -29318,7 +29331,191 @@
                                             "ui": {
                                                 "marshmallow": {
                                                     "generate": false,
-                                                    "class": "mp.services.records.ui_schema.ResultsItemUISchema"
+                                                    "class": "mp.services.records.ui_schema.Hill_coefficientUISchema"
+                                                }
+                                            }
+                                        },
+                                        "Size of spherically represented entity": {
+                                            "type": "object",
+                                            "required": true,
+                                            "properties": {
+                                                "size_type": {
+                                                    "type": "keyword",
+                                                    "required": true,
+                                                    "enum": [
+                                                        "radius",
+                                                        "diameter"
+                                                    ],
+                                                    "help.en": "The type of size (radius or diameter)",
+                                                    "label.en": "Size type"
+                                                },
+                                                "value": {
+                                                    "type": "double",
+                                                    "required": true,
+                                                    "help.en": "Numerical value of the result",
+                                                    "label.en": "Value"
+                                                },
+                                                "value_error": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "lower": {
+                                                            "type": "double",
+                                                            "required": true,
+                                                            "help.en": "The lower error, i.e. the number that should be subtracted from the value to get the lower bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide them in fractional form (e.g.  0.01 for 1 %)",
+                                                            "label.en": "Lower"
+                                                        },
+                                                        "upper": {
+                                                            "type": "double",
+                                                            "required": true,
+                                                            "help.en": "The upper error, i.e. the number that should be added to the value to get the upper bound of the 95 % confidence interval. The same unit as the value being described is assumed. If relative errors are provided, please provide them in fractional form (e.g.  0.01 for 1 %)",
+                                                            "label.en": "Upper"
+                                                        },
+                                                        "is_relative": {
+                                                            "type": "boolean",
+                                                            "required": true,
+                                                            "help.en": "True if the error values should be interpreted as relative errors (fractional uncertainty)",
+                                                            "label.en": "Is relative"
+                                                        }
+                                                    },
+                                                    "help.en": "The expected error of the result in terms of a 95 % confidence interval",
+                                                    "label.en": "Value error",
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "mp.services.records.schema.ValueErrorSchema"
+                                                    },
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "generate": false,
+                                                            "class": "mp.services.records.ui_schema.ValueErrorUISchema"
+                                                        }
+                                                    }
+                                                },
+                                                "unit": {
+                                                    "type": "keyword",
+                                                    "required": true,
+                                                    "enum": [
+                                                        "Å",
+                                                        "nm",
+                                                        "μm",
+                                                        "mm",
+                                                        "cm",
+                                                        "m"
+                                                    ],
+                                                    "help.en": "Unit of the size of the entity",
+                                                    "label.en": "Unit"
+                                                },
+                                                "id": {
+                                                    "type": "keyword",
+                                                    "label.en": "Id"
+                                                },
+                                                "name": {
+                                                    "type": "keyword",
+                                                    "required": true,
+                                                    "mapping": {
+                                                        "copy_to": "collected_default_search_fields"
+                                                    },
+                                                    "help.en": "Descriptive name (id) of the result (e.g. Kd of Lysozyme and VHH2). Must be unique within a record",
+                                                    "label.en": "Name"
+                                                },
+                                                "type": {
+                                                    "type": "keyword",
+                                                    "required": true,
+                                                    "mapping": {
+                                                        "copy_to": "collected_default_search_fields"
+                                                    },
+                                                    "enum": [
+                                                        "Concentration",
+                                                        "Stoichiometry",
+                                                        "Constant of association KA",
+                                                        "Constant of dissociation KD",
+                                                        "Half maximal effective concentration EC50",
+                                                        "Hill coefficient",
+                                                        "Association rate kOn",
+                                                        "Dissociation rate kOff",
+                                                        "Change in enthalpy deltaH",
+                                                        "Change in entropy deltaS",
+                                                        "Change in Gibbs free energy deltaG",
+                                                        "Correction of active concentration",
+                                                        "Molecular weight",
+                                                        "Size of spherically represented entity"
+                                                    ],
+                                                    "help.en": "The type of physical parameter the result represents",
+                                                    "label.en": "Type"
+                                                },
+                                                "entities_involved": {
+                                                    "type": "array",
+                                                    "required": true,
+                                                    "items": {
+                                                        "type": "nested",
+                                                        "properties": {
+                                                            "entity": {
+                                                                "type": "relation",
+                                                                "required": true,
+                                                                "properties": {},
+                                                                "model": "#entity",
+                                                                "keys": [
+                                                                    "id",
+                                                                    "name"
+                                                                ],
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "label.en": "Entity",
+                                                                "marshmallow": {
+                                                                    "unknown": "INCLUDE",
+                                                                    "generate": false,
+                                                                    "class": "mp.services.records.schema.EntitySchema"
+                                                                },
+                                                                "ui": {
+                                                                    "marshmallow": {
+                                                                        "unknown": "INCLUDE",
+                                                                        "generate": false,
+                                                                        "class": "mp.services.records.ui_schema.EntityUISchema"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "copy_number": {
+                                                                "type": "double",
+                                                                "required": true,
+                                                                "minimum": -1.0,
+                                                                "help.en": "Number of copies of the entity that contribute to the result, -1 if unknown (e.g. if two metals ions binds independent of each other to a monomeric protein, the copy number would be be 2 and 1 for the metal ions and protein, respectively)",
+                                                                "label.en": "Copy number",
+                                                                "marshmallow": {
+                                                                    "validators": [
+                                                                        "ma.validate.Range(min=-1.0)"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "label.en": "Entity and stoichiometry",
+                                                        "marshmallow": {
+                                                            "generate": false,
+                                                            "class": "mp.services.records.schema.EntitiesInvolvedItemSchema"
+                                                        },
+                                                        "ui": {
+                                                            "marshmallow": {
+                                                                "generate": false,
+                                                                "class": "mp.services.records.ui_schema.EntitiesInvolvedItemUISchema"
+                                                            }
+                                                        }
+                                                    },
+                                                    "minItems": 1,
+                                                    "help.en": "List of chemical or molecular assemblies the result describes and how many copies of each are involved",
+                                                    "label.en": "Entities involved",
+                                                    "marshmallow": {
+                                                        "validators": [
+                                                            "ma.validate.Length(min=1)"
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            "label.en": "Result",
+                                            "marshmallow": {
+                                                "generate": true,
+                                                "class": "mp.services.records.schema.Size_of_spherically_represented_entitySchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": true,
+                                                    "class": "mp.services.records.ui_schema.Size_of_spherically_represented_entityUISchema"
                                                 }
                                             }
                                         }
@@ -29463,7 +29660,8 @@
                                                 "Change in entropy deltaS",
                                                 "Change in Gibbs free energy deltaG",
                                                 "Correction of active concentration",
-                                                "Molecular weight"
+                                                "Molecular weight",
+                                                "Size of spherically represented entity"
                                             ],
                                             "help.en": "The type of physical parameter the result represents",
                                             "label.en": "Type"
@@ -29472,15 +29670,20 @@
                                             "type": "keyword",
                                             "required": true,
                                             "enum": [
-                                                "unitless"
+                                                "Å",
+                                                "nm",
+                                                "μm",
+                                                "mm",
+                                                "cm",
+                                                "m"
                                             ],
-                                            "help.en": "The correction of active concentration is unitless",
+                                            "help.en": "Unit of the size of the entity",
                                             "label.en": "Unit"
                                         },
                                         "value": {
                                             "type": "double",
                                             "required": true,
-                                            "help.en": "The correction of the deviations between nominal and true active concentration of the entity",
+                                            "help.en": "Numerical value of the result",
                                             "label.en": "Value"
                                         },
                                         "value_error": {
@@ -29517,6 +29720,16 @@
                                                     "label.en": "Upper"
                                                 }
                                             }
+                                        },
+                                        "size_type": {
+                                            "type": "keyword",
+                                            "required": true,
+                                            "enum": [
+                                                "radius",
+                                                "diameter"
+                                            ],
+                                            "help.en": "The type of size (radius or diameter)",
+                                            "label.en": "Size type"
                                         }
                                     }
                                 }
@@ -29652,7 +29865,6 @@
                                         },
                                         "molecular_weight": {
                                             "type": "object",
-                                            "required": true,
                                             "help.en": "The molecular weight of the calibrant",
                                             "label.en": "Molecular weight",
                                             "marshmallow": {
@@ -29698,6 +29910,93 @@
                                             "help.en": "The name of the calibrant",
                                             "label.en": "Name"
                                         },
+                                        "size": {
+                                            "type": "object",
+                                            "help.en": "The size of the calibrant",
+                                            "label.en": "Size",
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "mp.services.records.schema.SizeSchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "generate": false,
+                                                    "class": "mp.services.records.ui_schema.SizeUISchema"
+                                                }
+                                            },
+                                            "properties": {
+                                                "lower": {
+                                                    "type": "double",
+                                                    "minimum": 0.0,
+                                                    "help.en": "The lower bound of the size",
+                                                    "label.en": "Lower",
+                                                    "marshmallow": {
+                                                        "validators": [
+                                                            "ma.validate.Range(min=0.0)"
+                                                        ]
+                                                    }
+                                                },
+                                                "mean": {
+                                                    "type": "double",
+                                                    "required": true,
+                                                    "minimum": 0.0,
+                                                    "help.en": "The mean of the size",
+                                                    "label.en": "Mean",
+                                                    "marshmallow": {
+                                                        "validators": [
+                                                            "ma.validate.Range(min=0.0)"
+                                                        ]
+                                                    }
+                                                },
+                                                "median": {
+                                                    "type": "double",
+                                                    "minimum": 0.0,
+                                                    "help.en": "The median of the size",
+                                                    "label.en": "Median",
+                                                    "marshmallow": {
+                                                        "validators": [
+                                                            "ma.validate.Range(min=0.0)"
+                                                        ]
+                                                    }
+                                                },
+                                                "type": {
+                                                    "type": "keyword",
+                                                    "required": true,
+                                                    "enum": [
+                                                        "radius",
+                                                        "diameter",
+                                                        "path length"
+                                                    ],
+                                                    "help.en": "The type of size (e.g. radius)",
+                                                    "label.en": "Type"
+                                                },
+                                                "unit": {
+                                                    "type": "keyword",
+                                                    "required": true,
+                                                    "enum": [
+                                                        "Å",
+                                                        "nm",
+                                                        "μm",
+                                                        "mm",
+                                                        "cm",
+                                                        "m"
+                                                    ],
+                                                    "help.en": "The unit of the size",
+                                                    "label.en": "Unit"
+                                                },
+                                                "upper": {
+                                                    "type": "double",
+                                                    "minimum": 0.0,
+                                                    "help.en": "The upper bound of the size",
+                                                    "label.en": "Upper",
+                                                    "marshmallow": {
+                                                        "validators": [
+                                                            "ma.validate.Range(min=0.0)"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        },
                                         "type": {
                                             "type": "keyword",
                                             "required": true,
@@ -29707,7 +30006,8 @@
                                                 "polypeptide(L)",
                                                 "chemical",
                                                 "molecular assembly",
-                                                "virion"
+                                                "virion",
+                                                "nanoparticle"
                                             ],
                                             "help.en": "The type of the calibrant (Polymer)",
                                             "label.en": "Type"
@@ -30918,7 +31218,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.3.0"
+                                    "0.4.0"
                                 ],
                                 "help.en": "The schema version used to annotate the MP method specific parameters",
                                 "label.en": "Schema version"
@@ -31000,10 +31300,11 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
+                    "uniqueItems": true,
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
                     },
-                    "uniqueItems": true,
+                    "type": "object",
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -31018,8 +31319,7 @@
                                 "type": "string"
                             }
                         }
-                    },
-                    "type": "object"
+                    }
                 },
                 "ui": {
                     "marshmallow": {

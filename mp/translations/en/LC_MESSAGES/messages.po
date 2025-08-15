@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-08-06T14:17:22.970618\n"
-"PO-Revision-Date: 2025-08-06T14:17:22.970630\n"
+"POT-Creation-Date: 2025-08-15T14:19:23.603693\n"
+"PO-Revision-Date: 2025-08-15T14:19:23.603701\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7560,6 +7560,11 @@ msgstr ""
 msgid "metadata/general_parameters/results/type.enum.Molecular weight"
 msgstr ""
 
+msgid ""
+"metadata/general_parameters/results/type.enum.Size of spherically "
+"represented entity"
+msgstr ""
+
 msgid "metadata/general_parameters/results/unit.help"
 msgstr "Unit of the concentration"
 
@@ -7772,6 +7777,39 @@ msgstr ""
 msgid "metadata/general_parameters/results/unit.enum.unitless"
 msgstr ""
 
+msgid "metadata/general_parameters/results/size_type.help"
+msgstr "The type of size (radius or diameter)"
+
+msgid "metadata/general_parameters/results/size_type.label"
+msgstr "Size type"
+
+msgid "metadata/general_parameters/results/size_type.hint"
+msgstr ""
+
+msgid "metadata/general_parameters/results/size_type.enum.radius"
+msgstr ""
+
+msgid "metadata/general_parameters/results/size_type.enum.diameter"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.Å"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.nm"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.μm"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.mm"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.cm"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.m"
+msgstr ""
+
 msgid "metadata/general_parameters/schema_version.help"
 msgstr ""
 "The schema version used to annotate the general parameters of the record"
@@ -7935,6 +7973,97 @@ msgstr "Name"
 msgid "metadata/method_specific_parameters/calibrants/name.hint"
 msgstr ""
 
+msgid "metadata/method_specific_parameters/calibrants/size.help"
+msgstr "The size of the calibrant"
+
+msgid "metadata/method_specific_parameters/calibrants/size.label"
+msgstr "Size"
+
+msgid "metadata/method_specific_parameters/calibrants/size.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/size/lower.help"
+msgstr "The lower bound of the size"
+
+msgid "metadata/method_specific_parameters/calibrants/size/lower.label"
+msgstr "Lower"
+
+msgid "metadata/method_specific_parameters/calibrants/size/lower.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/size/mean.help"
+msgstr "The mean of the size"
+
+msgid "metadata/method_specific_parameters/calibrants/size/mean.label"
+msgstr "Mean"
+
+msgid "metadata/method_specific_parameters/calibrants/size/mean.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/size/median.help"
+msgstr "The median of the size"
+
+msgid "metadata/method_specific_parameters/calibrants/size/median.label"
+msgstr "Median"
+
+msgid "metadata/method_specific_parameters/calibrants/size/median.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/size/type.help"
+msgstr "The type of size (e.g. radius)"
+
+msgid "metadata/method_specific_parameters/calibrants/size/type.label"
+msgstr "Type"
+
+msgid "metadata/method_specific_parameters/calibrants/size/type.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/size/type.enum.radius"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/size/type.enum.diameter"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/calibrants/size/type.enum.path length"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/size/unit.help"
+msgstr "The unit of the size"
+
+msgid "metadata/method_specific_parameters/calibrants/size/unit.label"
+msgstr "Unit"
+
+msgid "metadata/method_specific_parameters/calibrants/size/unit.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/size/unit.enum.Å"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/size/unit.enum.nm"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/size/unit.enum.μm"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/size/unit.enum.mm"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/size/unit.enum.cm"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/size/unit.enum.m"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/size/upper.help"
+msgstr "The upper bound of the size"
+
+msgid "metadata/method_specific_parameters/calibrants/size/upper.label"
+msgstr "Upper"
+
+msgid "metadata/method_specific_parameters/calibrants/size/upper.hint"
+msgstr ""
+
 msgid "metadata/method_specific_parameters/calibrants/type.help"
 msgstr "The type of the calibrant (Polymer)"
 
@@ -7964,6 +8093,9 @@ msgid ""
 msgstr ""
 
 msgid "metadata/method_specific_parameters/calibrants/type.enum.virion"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/calibrants/type.enum.nanoparticle"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/data_analysis.help"
@@ -8852,7 +8984,7 @@ msgstr "Schema version"
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.3.0"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.4.0"
 msgstr ""
 
 msgid "metadata/version.label"

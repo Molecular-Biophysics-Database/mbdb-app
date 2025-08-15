@@ -34,3 +34,7 @@
   font-family: Jost-Regular;
   letter-spacing: 0.04rem;
 }
+
+#banner-1 {
+  display: block;
+}

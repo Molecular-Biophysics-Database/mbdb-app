@@ -14043,3 +14043,42 @@ msgstr ""
 #: /Users/terezieprchalova/Documents/GitHub/mbdb-app/ui/branding/templates/mbdb/login_user.html:45
 msgid "Resend confirmation email"
 msgstr ""
+
+#: /Users/terezieprchalova/Documents/GitHub/mbdb-app/mst/services/records/facets.py:2341
+msgid "metadata/general_parameters/results/size_type.label"
+msgstr "Size type"
+
+msgid ""
+"metadata/general_parameters/results/type.enum.Size of spherically "
+"represented entity"
+msgstr ""
+
+msgid "metadata/general_parameters/results/size_type.help"
+msgstr "The type of size (radius or diameter)"
+
+msgid "metadata/general_parameters/results/size_type.hint"
+msgstr ""
+
+msgid "metadata/general_parameters/results/size_type.enum.radius"
+msgstr ""
+
+msgid "metadata/general_parameters/results/size_type.enum.diameter"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.Å"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.nm"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.μm"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.mm"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.cm"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.m"
+msgstr ""

@@ -4922,6 +4922,16 @@
                                                 "facet": "metadata_general_parameters_results_value_error_upper"
                                             }
                                         }
+                                    },
+                                    "size_type": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "required": true,
+                                        "help": "metadata/general_parameters/results/size_type.help",
+                                        "label": "metadata/general_parameters/results/size_type.label",
+                                        "hint": "metadata/general_parameters/results/size_type.hint",
+                                        "enum": "metadata/general_parameters/results/size_type.enum",
+                                        "facet": "metadata_general_parameters_results_size_type"
                                     }
                                 }
                             }
