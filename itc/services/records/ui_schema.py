@@ -1037,6 +1037,7 @@ class Association_rate_kOnUISchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -1199,6 +1200,7 @@ class Change_in_enthalpy_deltaHUISchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -1241,6 +1243,7 @@ class Change_in_entropy_deltaSUISchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -1703,6 +1706,7 @@ class Constant_of_association_KAUISchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -1752,6 +1756,7 @@ class Constant_of_dissociation_KDUISchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -1810,6 +1815,7 @@ class Dissociation_rate_kOffUISchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -2012,6 +2018,49 @@ class EntitiesOfInterestItemComplex_substance_of_industrial_originUISchema(
     )
 
 
+class Hill_coefficientUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma_fields.String(data_key="id", attribute="id")
+
+    entities_involved = ma_fields.List(
+        ma_fields.Nested(lambda: EntitiesInvolvedItemUISchema()), required=True
+    )
+
+    name = ma_fields.String(required=True)
+
+    type = ma_fields.String(
+        required=True,
+        validate=[
+            OneOf(
+                [
+                    "Concentration",
+                    "Stoichiometry",
+                    "Constant of association KA",
+                    "Constant of dissociation KD",
+                    "Half maximal effective concentration EC50",
+                    "Hill coefficient",
+                    "Association rate kOn",
+                    "Dissociation rate kOff",
+                    "Change in enthalpy deltaH",
+                    "Change in entropy deltaS",
+                    "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
+                    "Molecular weight",
+                    "Size of spherically represented entity",
+                ]
+            )
+        ],
+    )
+
+    unit = ma_fields.String(required=True, validate=[OneOf(["unitless"])])
+
+    value = ma_fields.Float(required=True)
+
+    value_error = ma_fields.Nested(lambda: ValueErrorUISchema())
+
+
 class IdentityUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -2098,6 +2147,7 @@ class Molecular_weightUISchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -2142,6 +2192,7 @@ class ResultsItemConcentrationUISchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -2193,47 +2244,9 @@ class ResultsItemUISchema(DictOnlySchema):
 
     name = ma_fields.String(required=True)
 
-    type = ma_fields.String(
-        required=True,
-        validate=[
-            OneOf(
-                [
-                    "Concentration",
-                    "Stoichiometry",
-                    "Constant of association KA",
-                    "Constant of dissociation KD",
-                    "Half maximal effective concentration EC50",
-                    "Hill coefficient",
-                    "Association rate kOn",
-                    "Dissociation rate kOff",
-                    "Change in enthalpy deltaH",
-                    "Change in entropy deltaS",
-                    "Change in Gibbs free energy deltaG",
-                    "Correction of active concentration",
-                    "Molecular weight",
-                ]
-            )
-        ],
+    size_type = ma_fields.String(
+        required=True, validate=[OneOf(["radius", "diameter"])]
     )
-
-    unit = ma_fields.String(required=True, validate=[OneOf(["unitless"])])
-
-    value = ma_fields.Float(required=True)
-
-    value_error = ma_fields.Nested(lambda: ValueErrorUISchema())
-
-
-class ResultsItemUISchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    _id = ma_fields.String(data_key="id", attribute="id")
-
-    entities_involved = ma_fields.List(
-        ma_fields.Nested(lambda: EntitiesInvolvedItemUISchema()), required=True
-    )
-
-    name = ma_fields.String(required=True)
 
     type = ma_fields.String(
         required=True,
@@ -2253,12 +2266,15 @@ class ResultsItemUISchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
     )
 
-    unit = ma_fields.String(required=True, validate=[OneOf(["unitless"])])
+    unit = ma_fields.String(
+        required=True, validate=[OneOf(["Å", "nm", "μm", "mm", "cm", "m"])]
+    )
 
     value = ma_fields.Float(required=True)
 
@@ -2278,6 +2294,55 @@ class SampleInCellUISchema(DictOnlySchema):
     targets = ma_fields.List(
         ma_fields.Nested(lambda: TargetsItemUISchema()), required=True
     )
+
+
+class Size_of_spherically_represented_entityUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma_fields.String(data_key="id", attribute="id")
+
+    entities_involved = ma_fields.List(
+        ma_fields.Nested(lambda: EntitiesInvolvedItemUISchema()), required=True
+    )
+
+    name = ma_fields.String(required=True)
+
+    size_type = ma_fields.String(
+        required=True, validate=[OneOf(["radius", "diameter"])]
+    )
+
+    type = ma_fields.String(
+        required=True,
+        validate=[
+            OneOf(
+                [
+                    "Concentration",
+                    "Stoichiometry",
+                    "Constant of association KA",
+                    "Constant of dissociation KD",
+                    "Half maximal effective concentration EC50",
+                    "Hill coefficient",
+                    "Association rate kOn",
+                    "Dissociation rate kOff",
+                    "Change in enthalpy deltaH",
+                    "Change in entropy deltaS",
+                    "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
+                    "Molecular weight",
+                    "Size of spherically represented entity",
+                ]
+            )
+        ],
+    )
+
+    unit = ma_fields.String(
+        required=True, validate=[OneOf(["Å", "nm", "μm", "mm", "cm", "m"])]
+    )
+
+    value = ma_fields.Float(required=True)
+
+    value_error = ma_fields.Nested(lambda: ValueErrorUISchema())
 
 
 class Solid_tissue_sampleUISchema(DictOnlySchema):
@@ -2395,6 +2460,7 @@ class StoichiometryUISchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],

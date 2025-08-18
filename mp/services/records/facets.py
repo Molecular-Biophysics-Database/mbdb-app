@@ -2336,6 +2336,11 @@ metadata_general_parameters_results_value_error_upper = TermsFacet(
     label=_("metadata/general_parameters/results/value_error/upper.label"),
 )
 
+metadata_general_parameters_results_size_type = TermsFacet(
+    field="metadata.general_parameters.results.size_type",
+    label=_("metadata/general_parameters/results/size_type.label"),
+)
+
 metadata_general_parameters_schema_version = TermsFacet(
     field="metadata.general_parameters.schema_version",
     label=_("metadata/general_parameters/schema_version.label"),
@@ -2384,6 +2389,36 @@ metadata_method_specific_parameters_calibrants_molecular_weight_value = TermsFac
 metadata_method_specific_parameters_calibrants_name = TermsFacet(
     field="metadata.method_specific_parameters.calibrants.name",
     label=_("metadata/method_specific_parameters/calibrants/name.label"),
+)
+
+metadata_method_specific_parameters_calibrants_size_lower = TermsFacet(
+    field="metadata.method_specific_parameters.calibrants.size.lower",
+    label=_("metadata/method_specific_parameters/calibrants/size/lower.label"),
+)
+
+metadata_method_specific_parameters_calibrants_size_mean = TermsFacet(
+    field="metadata.method_specific_parameters.calibrants.size.mean",
+    label=_("metadata/method_specific_parameters/calibrants/size/mean.label"),
+)
+
+metadata_method_specific_parameters_calibrants_size_median = TermsFacet(
+    field="metadata.method_specific_parameters.calibrants.size.median",
+    label=_("metadata/method_specific_parameters/calibrants/size/median.label"),
+)
+
+metadata_method_specific_parameters_calibrants_size_type = TermsFacet(
+    field="metadata.method_specific_parameters.calibrants.size.type",
+    label=_("metadata/method_specific_parameters/calibrants/size/type.label"),
+)
+
+metadata_method_specific_parameters_calibrants_size_unit = TermsFacet(
+    field="metadata.method_specific_parameters.calibrants.size.unit",
+    label=_("metadata/method_specific_parameters/calibrants/size/unit.label"),
+)
+
+metadata_method_specific_parameters_calibrants_size_upper = TermsFacet(
+    field="metadata.method_specific_parameters.calibrants.size.upper",
+    label=_("metadata/method_specific_parameters/calibrants/size/upper.label"),
 )
 
 metadata_method_specific_parameters_calibrants_type = TermsFacet(

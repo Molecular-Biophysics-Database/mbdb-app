@@ -946,6 +946,13 @@ class ResultsItemSchema(PolymorphicSchema):
         attribute="Molecular weight",
     )
 
+    Size_of_spherically_represented_entity = ma_fields.Nested(
+        lambda: Size_of_spherically_represented_entitySchema(),
+        required=True,
+        data_key="Size of spherically represented entity",
+        attribute="Size of spherically represented entity",
+    )
+
     Stoichiometry = ma_fields.Nested(lambda: StoichiometrySchema(), required=True)
 
     type_field = "type"
@@ -992,6 +999,7 @@ class Association_rate_kOnSchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -1164,6 +1172,7 @@ class Change_in_enthalpy_deltaHSchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -1208,6 +1217,7 @@ class Change_in_entropy_deltaSSchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -1622,6 +1632,7 @@ class Constant_of_association_KASchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -1673,6 +1684,7 @@ class Constant_of_dissociation_KDSchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -1736,6 +1748,7 @@ class Dissociation_rate_kOffSchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -1900,6 +1913,7 @@ class Hill_coefficientSchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -1972,6 +1986,7 @@ class Molecular_weightSchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -2031,6 +2046,7 @@ class ResultsItemConcentrationSchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],
@@ -2112,6 +2128,57 @@ class SampleSchema(DictOnlySchema):
         required=True,
         validate=[ma.validate.Length(min=1)],
     )
+
+
+class Size_of_spherically_represented_entitySchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma_fields.String(data_key="id", attribute="id")
+
+    entities_involved = ma_fields.List(
+        ma_fields.Nested(lambda: EntitiesInvolvedItemSchema()),
+        required=True,
+        validate=[ma.validate.Length(min=1)],
+    )
+
+    name = ma_fields.String(required=True)
+
+    size_type = ma_fields.String(
+        required=True, validate=[OneOf(["radius", "diameter"])]
+    )
+
+    type = ma_fields.String(
+        required=True,
+        validate=[
+            OneOf(
+                [
+                    "Concentration",
+                    "Stoichiometry",
+                    "Constant of association KA",
+                    "Constant of dissociation KD",
+                    "Half maximal effective concentration EC50",
+                    "Hill coefficient",
+                    "Association rate kOn",
+                    "Dissociation rate kOff",
+                    "Change in enthalpy deltaH",
+                    "Change in entropy deltaS",
+                    "Change in Gibbs free energy deltaG",
+                    "Correction of active concentration",
+                    "Molecular weight",
+                    "Size of spherically represented entity",
+                ]
+            )
+        ],
+    )
+
+    unit = ma_fields.String(
+        required=True, validate=[OneOf(["Å", "nm", "μm", "mm", "cm", "m"])]
+    )
+
+    value = ma_fields.Float(required=True)
+
+    value_error = ma_fields.Nested(lambda: ValueErrorSchema())
 
 
 class Solid_tissue_sampleSchema(DictOnlySchema):
@@ -2220,6 +2287,7 @@ class StoichiometrySchema(DictOnlySchema):
                     "Change in Gibbs free energy deltaG",
                     "Correction of active concentration",
                     "Molecular weight",
+                    "Size of spherically represented entity",
                 ]
             )
         ],

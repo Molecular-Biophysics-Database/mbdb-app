@@ -2509,6 +2509,10 @@
                                                 "type": "double"
                                             }
                                         }
+                                    },
+                                    "size_type": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
                                     }
                                 }
                             },

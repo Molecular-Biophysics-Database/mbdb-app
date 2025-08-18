@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-06-24T14:35:30.338211\n"
-"PO-Revision-Date: 2025-06-24T14:35:30.338212\n"
+"POT-Creation-Date: 2025-08-15T14:15:49.057165\n"
+"PO-Revision-Date: 2025-08-15T14:15:49.057167\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7250,6 +7250,11 @@ msgstr ""
 msgid "metadata/general_parameters/results/type.enum.Molecular weight"
 msgstr ""
 
+msgid ""
+"metadata/general_parameters/results/type.enum.Size of spherically "
+"represented entity"
+msgstr ""
+
 msgid "metadata/general_parameters/results/unit.help"
 msgstr ""
 
@@ -7449,6 +7454,39 @@ msgid "metadata/general_parameters/results/unit.enum.MDa"
 msgstr ""
 
 msgid "metadata/general_parameters/results/unit.enum.unitless"
+msgstr ""
+
+msgid "metadata/general_parameters/results/size_type.help"
+msgstr ""
+
+msgid "metadata/general_parameters/results/size_type.label"
+msgstr ""
+
+msgid "metadata/general_parameters/results/size_type.hint"
+msgstr ""
+
+msgid "metadata/general_parameters/results/size_type.enum.radius"
+msgstr ""
+
+msgid "metadata/general_parameters/results/size_type.enum.diameter"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.Å"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.nm"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.μm"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.mm"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.cm"
+msgstr ""
+
+msgid "metadata/general_parameters/results/unit.enum.m"
 msgstr ""
 
 msgid "metadata/general_parameters/schema_version.help"

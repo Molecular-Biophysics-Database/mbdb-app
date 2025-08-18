@@ -1605,6 +1605,9 @@ class MpSearchOptions(RecordSearchOptions):
         "metadata_general_parameters_results_value_error_upper": (
             facets.metadata_general_parameters_results_value_error_upper
         ),
+        "metadata_general_parameters_results_size_type": (
+            facets.metadata_general_parameters_results_size_type
+        ),
         "metadata_general_parameters_schema_version": (
             facets.metadata_general_parameters_schema_version
         ),
@@ -1628,6 +1631,24 @@ class MpSearchOptions(RecordSearchOptions):
         ),
         "metadata_method_specific_parameters_calibrants_name": (
             facets.metadata_method_specific_parameters_calibrants_name
+        ),
+        "metadata_method_specific_parameters_calibrants_size_lower": (
+            facets.metadata_method_specific_parameters_calibrants_size_lower
+        ),
+        "metadata_method_specific_parameters_calibrants_size_mean": (
+            facets.metadata_method_specific_parameters_calibrants_size_mean
+        ),
+        "metadata_method_specific_parameters_calibrants_size_median": (
+            facets.metadata_method_specific_parameters_calibrants_size_median
+        ),
+        "metadata_method_specific_parameters_calibrants_size_type": (
+            facets.metadata_method_specific_parameters_calibrants_size_type
+        ),
+        "metadata_method_specific_parameters_calibrants_size_unit": (
+            facets.metadata_method_specific_parameters_calibrants_size_unit
+        ),
+        "metadata_method_specific_parameters_calibrants_size_upper": (
+            facets.metadata_method_specific_parameters_calibrants_size_upper
         ),
         "metadata_method_specific_parameters_calibrants_type": (
             facets.metadata_method_specific_parameters_calibrants_type
@@ -3344,6 +3365,9 @@ class MpDraftSearchOptions(DraftSearchOptions):
         "metadata_general_parameters_results_value_error_upper": (
             facets.metadata_general_parameters_results_value_error_upper
         ),
+        "metadata_general_parameters_results_size_type": (
+            facets.metadata_general_parameters_results_size_type
+        ),
         "metadata_general_parameters_schema_version": (
             facets.metadata_general_parameters_schema_version
         ),
@@ -3367,6 +3391,24 @@ class MpDraftSearchOptions(DraftSearchOptions):
         ),
         "metadata_method_specific_parameters_calibrants_name": (
             facets.metadata_method_specific_parameters_calibrants_name
+        ),
+        "metadata_method_specific_parameters_calibrants_size_lower": (
+            facets.metadata_method_specific_parameters_calibrants_size_lower
+        ),
+        "metadata_method_specific_parameters_calibrants_size_mean": (
+            facets.metadata_method_specific_parameters_calibrants_size_mean
+        ),
+        "metadata_method_specific_parameters_calibrants_size_median": (
+            facets.metadata_method_specific_parameters_calibrants_size_median
+        ),
+        "metadata_method_specific_parameters_calibrants_size_type": (
+            facets.metadata_method_specific_parameters_calibrants_size_type
+        ),
+        "metadata_method_specific_parameters_calibrants_size_unit": (
+            facets.metadata_method_specific_parameters_calibrants_size_unit
+        ),
+        "metadata_method_specific_parameters_calibrants_size_upper": (
+            facets.metadata_method_specific_parameters_calibrants_size_upper
         ),
         "metadata_method_specific_parameters_calibrants_type": (
             facets.metadata_method_specific_parameters_calibrants_type

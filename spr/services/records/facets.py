@@ -2336,6 +2336,11 @@ metadata_general_parameters_results_value_error_upper = TermsFacet(
     label=_("metadata/general_parameters/results/value_error/upper.label"),
 )
 
+metadata_general_parameters_results_size_type = TermsFacet(
+    field="metadata.general_parameters.results.size_type",
+    label=_("metadata/general_parameters/results/size_type.label"),
+)
+
 metadata_general_parameters_schema_version = TermsFacet(
     field="metadata.general_parameters.schema_version",
     label=_("metadata/general_parameters/schema_version.label"),

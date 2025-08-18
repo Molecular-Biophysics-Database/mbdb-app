@@ -1988,6 +1988,9 @@
                                                 "type": "number"
                                             }
                                         }
+                                    },
+                                    "size_type": {
+                                        "type": "string"
                                     }
                                 }
                             }
@@ -2046,6 +2049,29 @@
                                     },
                                     "name": {
                                         "type": "string"
+                                    },
+                                    "size": {
+                                        "type": "object",
+                                        "properties": {
+                                            "lower": {
+                                                "type": "number"
+                                            },
+                                            "mean": {
+                                                "type": "number"
+                                            },
+                                            "median": {
+                                                "type": "number"
+                                            },
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "unit": {
+                                                "type": "string"
+                                            },
+                                            "upper": {
+                                                "type": "number"
+                                            }
+                                        }
                                     },
                                     "type": {
                                         "type": "string"
@@ -2370,10 +2396,11 @@
             }
         },
         "pids": {
+            "uniqueItems": true,
             "propertyNames": {
                 "pattern": "^[a-z_-][a-z0-9_-]*$"
             },
-            "uniqueItems": true,
+            "type": "object",
             "additionalProperties": {
                 "type": "object",
                 "additionalProperties": false,
@@ -2388,8 +2415,7 @@
                         "type": "string"
                     }
                 }
-            },
-            "type": "object"
+            }
         },
         "state": {
             "type": "string"

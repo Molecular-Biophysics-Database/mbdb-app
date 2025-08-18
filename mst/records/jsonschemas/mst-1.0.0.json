@@ -1988,6 +1988,9 @@
                                                 "type": "number"
                                             }
                                         }
+                                    },
+                                    "size_type": {
+                                        "type": "string"
                                     }
                                 }
                             }
@@ -2278,11 +2281,6 @@
             }
         },
         "pids": {
-            "propertyNames": {
-                "pattern": "^[a-z_-][a-z0-9_-]*$"
-            },
-            "type": "object",
-            "uniqueItems": true,
             "additionalProperties": {
                 "type": "object",
                 "additionalProperties": false,
@@ -2297,7 +2295,12 @@
                         "type": "string"
                     }
                 }
-            }
+            },
+            "propertyNames": {
+                "pattern": "^[a-z_-][a-z0-9_-]*$"
+            },
+            "type": "object",
+            "uniqueItems": true
         },
         "state": {
             "type": "string"

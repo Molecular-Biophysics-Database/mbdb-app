@@ -454,6 +454,11 @@ class BliRecord(RDMRecord):
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
         ),
+        Size_of_spherically_represented_entity_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
         measurements=InternalRelation(
             "metadata.method_specific_parameters.data_analysis.measurements",
             keys=["id", "name"],
@@ -919,6 +924,11 @@ class BliDraft(RDMDraft):
             related_part="metadata.general_parameters.entities_of_interest",
         ),
         Correction_of_active_concentration_entities_involved_entity=InternalRelation(
+            "metadata.general_parameters.results.entities_involved.entity",
+            keys=["id", "name"],
+            related_part="metadata.general_parameters.entities_of_interest",
+        ),
+        Size_of_spherically_represented_entity_entities_involved_entity=InternalRelation(
             "metadata.general_parameters.results.entities_involved.entity",
             keys=["id", "name"],
             related_part="metadata.general_parameters.entities_of_interest",
