@@ -16,6 +16,7 @@ import { getIn, useFormikContext } from "formik";
 import ChangeInGibbsFreeEnergyDeltaG from "../result/ChangeInGibbsFreeEnergyDeltaG";
 import DynamicOptionField from "../../buildingBlocks/DynamicOptionField";
 import CorrectionOfActiveConcentration from "../result/CorrectionOfActiveConcentration";
+import SizeSphericalRepresentation from "../result/SizeSphericalRepresentation";
 
 function ResultTab({ name }) {
   const { values } = useFormikContext();
@@ -51,6 +52,10 @@ function ResultTab({ name }) {
     {
       value: "Correction of active concentration",
       label: "Correction of active concentration",
+    },
+    {
+      value: "Size of spherically represented entity",
+      label: "Size of spherically represented entity",
     },
   ];
 
@@ -131,6 +136,9 @@ function ResultTab({ name }) {
                   <CorrectionOfActiveConcentration
                     name={`${arrayName}.${index}`}
                   />
+                )}
+                {actualValue.type === "Size of spherically represented entity" && (
+                  <SizeSphericalRepresentation name={`${arrayName}.${index}`} />
                 )}
               </div>
             </FormWrapper>
