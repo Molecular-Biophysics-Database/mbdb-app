@@ -94,7 +94,7 @@ class GeneralParametersUISchema(DictOnlySchema):
 
     results = ma_fields.List(ma_fields.Nested(lambda: ResultsItemUISchema()))
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.13.0"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.14.1"])])
 
 
 class ChemicalEnvironmentsItemUISchema(DictOnlySchema):
@@ -907,7 +907,7 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
 
     mode = ma_fields.Nested(lambda: ModeUISchema(), required=True)
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.4.0"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.4.1"])])
 
 
 class PolymerUISchema(DictOnlySchema):
@@ -2273,7 +2273,7 @@ class ResultsItemUISchema(DictOnlySchema):
     name = ma_fields.String(required=True)
 
     size_type = ma_fields.String(
-        required=True, validate=[OneOf(["radius", "diameter"])]
+        required=True, validate=[OneOf(["Radius", "Diameter"])]
     )
 
     type = ma_fields.String(
@@ -2346,7 +2346,7 @@ class Size_of_spherically_represented_entityUISchema(DictOnlySchema):
     name = ma_fields.String(required=True)
 
     size_type = ma_fields.String(
-        required=True, validate=[OneOf(["radius", "diameter"])]
+        required=True, validate=[OneOf(["Radius", "Diameter"])]
     )
 
     type = ma_fields.String(
