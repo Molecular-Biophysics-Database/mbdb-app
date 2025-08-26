@@ -141,6 +141,42 @@
             ],
             "extra-code": ""
         },
+        "record": {
+            "imports": [
+                {
+                    "import": "oarepo_runtime.records.systemfields.SyntheticSystemField"
+                },
+                {
+                    "import": "oarepo_runtime.records.systemfields.PathSelector"
+                },
+                {
+                    "import": "oarepo_runtime.records.systemfields.FilteredSelector"
+                },
+                {
+                    "import": "oarepo_runtime.records.systemfields.MultiSelector"
+                },
+                {
+                    "import": "oarepo_runtime.records.systemfields.FirstItemSelector"
+                },
+                {
+                    "import": "nr_metadata.records.synthetic_fields.KeywordsFieldSelector"
+                }
+            ],
+            "fields": {
+                "people": "SyntheticSystemField(\n    PathSelector(\"metadata.general_parameters.depositors.depositor\", \n                  \"metadata.general_parameters.depositors.principal_contact\",\n                  \"metadata.general_parameters.depositors.contributors\"),\n    map=lambda x: \", \".join(p for p in [x.get(\"family_name\"), x.get(\"given_name\")] if p),\n    key=\"synthetic_fields.people\",\n)\n",
+                "affiliations": "SyntheticSystemField(\n    PathSelector(\"metadata.general_parameters.depositors.contributors.affiliations\", \n                  \"metadata.general_parameters.depositors.depositor.affiliations\",\n                  \"metadata.general_parameters.depositors.principal_contact.affiliations\"),\n    map=lambda x: x.get('title', {}).get('en'),\n    key=\"synthetic_fields.affiliations\",\n)\n",
+                "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')",
+                "state_timestamp": "{{oarepo_workflows.records.systemfields.state.RecordStateTimestampField}}()",
+                "media_files": "FilesField(key=MediaFilesAttrConfig[\"_files_attr_key\"],bucket_id_attr=MediaFilesAttrConfig[\"_files_bucket_id_attr_key\"],bucket_attr=MediaFilesAttrConfig[\"_files_bucket_attr_key\"],store=False,dump=False,file_cls={{invenio_rdm_records.records.api.RDMMediaFileRecord}},create=False,delete=False,)"
+            },
+            "base-classes": [
+                "invenio_rdm_records.records.api.RDMRecord"
+            ],
+            "generate": true,
+            "module": "itc.records.api",
+            "class": "itc.records.api.ItcRecord",
+            "extra-code": ""
+        },
         "service": {
             "base-classes": [
                 "common.services.records.service.AddWorkflowServiceMixin",
@@ -183,42 +219,6 @@
             "service-id": "itc",
             "additional-args": [],
             "search-item-links-template-cls": "invenio_records_resources.services.LinksTemplate"
-        },
-        "record": {
-            "imports": [
-                {
-                    "import": "oarepo_runtime.records.systemfields.SyntheticSystemField"
-                },
-                {
-                    "import": "oarepo_runtime.records.systemfields.PathSelector"
-                },
-                {
-                    "import": "oarepo_runtime.records.systemfields.FilteredSelector"
-                },
-                {
-                    "import": "oarepo_runtime.records.systemfields.MultiSelector"
-                },
-                {
-                    "import": "oarepo_runtime.records.systemfields.FirstItemSelector"
-                },
-                {
-                    "import": "nr_metadata.records.synthetic_fields.KeywordsFieldSelector"
-                }
-            ],
-            "fields": {
-                "people": "SyntheticSystemField(\n    PathSelector(\"metadata.general_parameters.depositors.depositor\", \n                  \"metadata.general_parameters.depositors.principal_contact\",\n                  \"metadata.general_parameters.depositors.contributors\"),\n    map=lambda x: \", \".join(p for p in [x.get(\"family_name\"), x.get(\"given_name\")] if p),\n    key=\"synthetic_fields.people\",\n)\n",
-                "affiliations": "SyntheticSystemField(\n    PathSelector(\"metadata.general_parameters.depositors.contributors.affiliations\", \n                  \"metadata.general_parameters.depositors.depositor.affiliations\",\n                  \"metadata.general_parameters.depositors.principal_contact.affiliations\"),\n    map=lambda x: x.get('title', {}).get('en'),\n    key=\"synthetic_fields.affiliations\",\n)\n",
-                "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')",
-                "state_timestamp": "{{oarepo_workflows.records.systemfields.state.RecordStateTimestampField}}()",
-                "media_files": "FilesField(key=MediaFilesAttrConfig[\"_files_attr_key\"],bucket_id_attr=MediaFilesAttrConfig[\"_files_bucket_id_attr_key\"],bucket_attr=MediaFilesAttrConfig[\"_files_bucket_attr_key\"],store=False,dump=False,file_cls={{invenio_rdm_records.records.api.RDMMediaFileRecord}},create=False,delete=False,)"
-            },
-            "base-classes": [
-                "invenio_rdm_records.records.api.RDMRecord"
-            ],
-            "generate": true,
-            "module": "itc.records.api",
-            "class": "itc.records.api.ItcRecord",
-            "extra-code": ""
         },
         "ui": {
             "marshmallow": {
@@ -564,187 +564,6 @@
             "suffix-upper": "ITC",
             "suffix-snake": "itc"
         },
-        "files": {
-            "type": "file",
-            "properties": {
-                "content_type": {
-                    "type": "keyword",
-                    "required": true,
-                    "enum": [
-                        "text",
-                        "binary",
-                        "text and binary"
-                    ],
-                    "help.en": "Type of the file content in terms of how it can be read (text, binary, etc.)",
-                    "label.en": "Content type"
-                },
-                "context": {
-                    "type": "keyword",
-                    "required": true,
-                    "enum": [
-                        "raw measurement data",
-                        "derived measurement data",
-                        "quality control report"
-                    ],
-                    "help.en": "The context the file should be understood within (e.g. raw measurement data)",
-                    "label.en": "Context"
-                },
-                "originates_from": {
-                    "type": "keyword",
-                    "required": true,
-                    "enum": [
-                        "Instrument software",
-                        "User",
-                        "MBDB"
-                    ],
-                    "help.en": "What is the source of the file",
-                    "label.en": "Originates from"
-                },
-                "creation_date": {
-                    "type": "date",
-                    "required": true,
-                    "help.en": "The date when the file was created (e.g. the measurement date)",
-                    "label.en": "Creation date"
-                },
-                "description": {
-                    "type": "keyword",
-                    "help.en": "Short description of what the file contains",
-                    "label.en": "Description"
-                },
-                "recommended_software": {
-                    "type": "keyword",
-                    "help.en": "The name of the software recommended for opening and working with the file",
-                    "label.en": "Recommended software"
-                },
-                "processing_steps": {
-                    "type": "array",
-                    "required": true,
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "name": {
-                                "type": "keyword",
-                                "required": true,
-                                "help.en": "Short descriptive name of the processing step",
-                                "label.en": "Name"
-                            },
-                            "description": {
-                                "type": "keyword",
-                                "required": true,
-                                "help.en": "Description of what the processing step was",
-                                "label.en": "Description"
-                            },
-                            "software_name": {
-                                "type": "keyword",
-                                "help.en": "The name of the software that was used for the step (e.g. Excel)",
-                                "label.en": "Software name"
-                            },
-                            "software_version": {
-                                "type": "keyword",
-                                "help.en": "The version of the software that was used for the step",
-                                "label.en": "Software version"
-                            },
-                            "link_to_source_code": {
-                                "type": "url",
-                                "help.en": "If processing was performed with software where the source code is freely available a link can be specified here (e.g. self-written python script in a GitHub repository)",
-                                "label.en": "Link to source code"
-                            }
-                        },
-                        "label.en": "Processing step"
-                    },
-                    "minItems": 1,
-                    "help.en": "List of the processing steps performed on the file before it was deposited (e.g. exported to xlsx)",
-                    "label.en": "Processing steps"
-                },
-                "id": {
-                    "type": "keyword",
-                    "marshmallow": {
-                        "read": false,
-                        "write": false
-                    },
-                    "ui": {
-                        "marshmallow": {
-                            "read": false,
-                            "write": false
-                        }
-                    },
-                    "sample": {
-                        "skip": true
-                    }
-                },
-                "created": {
-                    "type": "date",
-                    "ui": {
-                        "marshmallow": {
-                            "read": false,
-                            "write": false
-                        }
-                    },
-                    "marshmallow": {
-                        "read": true,
-                        "write": false
-                    },
-                    "sample": {
-                        "skip": true
-                    }
-                },
-                "updated": {
-                    "type": "date",
-                    "ui": {
-                        "marshmallow": {
-                            "read": false,
-                            "write": false
-                        }
-                    },
-                    "marshmallow": {
-                        "read": true,
-                        "write": false
-                    },
-                    "sample": {
-                        "skip": true
-                    }
-                },
-                "$schema": {
-                    "type": "keyword",
-                    "marshmallow": {
-                        "read": false,
-                        "write": false
-                    },
-                    "ui": {
-                        "marshmallow": {
-                            "read": false,
-                            "write": false
-                        }
-                    },
-                    "sample": {
-                        "skip": true
-                    }
-                }
-            },
-            "searchable": true,
-            "marshmallow": {
-                "imports": [
-                    {
-                        "import": "invenio_records_resources.services.files.schema.FileSchema",
-                        "alias": "InvenioFileSchema"
-                    }
-                ],
-                "base-classes": [
-                    "InvenioFileSchema"
-                ]
-            },
-            "resource": {
-                "base-classes": [
-                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
-                ]
-            },
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            },
-            "label.en": ""
-        },
         "draft-files": {
             "type": "draft-file",
             "properties": {},
@@ -759,11 +578,6 @@
                 "extra-code": "",
                 "module": "tests"
             }
-        },
-        "tests": {
-            "extra-fixtures": [],
-            "extra-code": "",
-            "module": "tests"
         },
         "draft": {
             "type": "draft_record",
@@ -1038,6 +852,192 @@
                 "module": "tests"
             }
         },
+        "files": {
+            "type": "file",
+            "properties": {
+                "content_type": {
+                    "type": "keyword",
+                    "required": true,
+                    "enum": [
+                        "text",
+                        "binary",
+                        "text and binary"
+                    ],
+                    "help.en": "Type of the file content in terms of how it can be read (text, binary, etc.)",
+                    "label.en": "Content type"
+                },
+                "context": {
+                    "type": "keyword",
+                    "required": true,
+                    "enum": [
+                        "raw measurement data",
+                        "derived measurement data",
+                        "quality control report"
+                    ],
+                    "help.en": "The context the file should be understood within (e.g. raw measurement data)",
+                    "label.en": "Context"
+                },
+                "originates_from": {
+                    "type": "keyword",
+                    "required": true,
+                    "enum": [
+                        "Instrument software",
+                        "User",
+                        "MBDB"
+                    ],
+                    "help.en": "What is the source of the file",
+                    "label.en": "Originates from"
+                },
+                "creation_date": {
+                    "type": "date",
+                    "required": true,
+                    "help.en": "The date when the file was created (e.g. the measurement date)",
+                    "label.en": "Creation date"
+                },
+                "description": {
+                    "type": "keyword",
+                    "help.en": "Short description of what the file contains",
+                    "label.en": "Description"
+                },
+                "recommended_software": {
+                    "type": "keyword",
+                    "help.en": "The name of the software recommended for opening and working with the file",
+                    "label.en": "Recommended software"
+                },
+                "processing_steps": {
+                    "type": "array",
+                    "required": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "keyword",
+                                "required": true,
+                                "help.en": "Short descriptive name of the processing step",
+                                "label.en": "Name"
+                            },
+                            "description": {
+                                "type": "keyword",
+                                "required": true,
+                                "help.en": "Description of what the processing step was",
+                                "label.en": "Description"
+                            },
+                            "software_name": {
+                                "type": "keyword",
+                                "help.en": "The name of the software that was used for the step (e.g. Excel)",
+                                "label.en": "Software name"
+                            },
+                            "software_version": {
+                                "type": "keyword",
+                                "help.en": "The version of the software that was used for the step",
+                                "label.en": "Software version"
+                            },
+                            "link_to_source_code": {
+                                "type": "url",
+                                "help.en": "If processing was performed with software where the source code is freely available a link can be specified here (e.g. self-written python script in a GitHub repository)",
+                                "label.en": "Link to source code"
+                            }
+                        },
+                        "label.en": "Processing step"
+                    },
+                    "minItems": 1,
+                    "help.en": "List of the processing steps performed on the file before it was deposited (e.g. exported to xlsx)",
+                    "label.en": "Processing steps"
+                },
+                "id": {
+                    "type": "keyword",
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    },
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "created": {
+                    "type": "date",
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "marshmallow": {
+                        "read": true,
+                        "write": false
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "updated": {
+                    "type": "date",
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "marshmallow": {
+                        "read": true,
+                        "write": false
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "$schema": {
+                    "type": "keyword",
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    },
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                }
+            },
+            "searchable": true,
+            "marshmallow": {
+                "imports": [
+                    {
+                        "import": "invenio_records_resources.services.files.schema.FileSchema",
+                        "alias": "InvenioFileSchema"
+                    }
+                ],
+                "base-classes": [
+                    "InvenioFileSchema"
+                ]
+            },
+            "resource": {
+                "base-classes": [
+                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
+                ]
+            },
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            },
+            "label.en": ""
+        },
+        "tests": {
+            "extra-fixtures": [],
+            "extra-code": "",
+            "module": "tests"
+        },
         "sample": {
             "file": "data/sample_data.yaml"
         },
@@ -1151,6 +1151,15 @@
             "name": "itc-1.0.0.json",
             "file": "itc/records/jsonschemas/itc-1.0.0.json"
         },
+        "files-field": {
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "itc.records.api.ItcRecord",
+            "field-args": [
+                "store=False"
+            ],
+            "imports": []
+        },
         "record-metadata": {
             "generate": true,
             "module": "itc.records.models",
@@ -1178,15 +1187,6 @@
             "extensions": [
                 "{{oarepo_runtime.records.systemfields.mapping.SystemFieldDumperExt}}()",
                 "{{itc.records.dumpers.edtf.ItcEDTFIntervalDumperExt}}()"
-            ],
-            "imports": []
-        },
-        "files-field": {
-            "generate": true,
-            "field-class": "invenio_records_resources.records.systemfields.FilesField",
-            "file-class": "itc.records.api.ItcRecord",
-            "field-args": [
-                "store=False"
             ],
             "imports": []
         },
@@ -2617,7 +2617,7 @@
                                                                                         "type": "integer",
                                                                                         "required": true,
                                                                                         "minimum": 1,
-                                                                                        "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                                        "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                                         "label.en": "Expected number of species",
                                                                                         "marshmallow": {
                                                                                             "validators": [
@@ -3764,7 +3764,7 @@
                                                                                                             "type": "integer",
                                                                                                             "required": true,
                                                                                                             "minimum": 1,
-                                                                                                            "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                                                            "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                                                             "label.en": "Expected number of species",
                                                                                                             "marshmallow": {
                                                                                                                 "validators": [
@@ -4540,7 +4540,7 @@
                                                                                         "type": "integer",
                                                                                         "required": true,
                                                                                         "minimum": 1,
-                                                                                        "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                                        "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                                         "label.en": "Expected number of species",
                                                                                         "marshmallow": {
                                                                                             "validators": [
@@ -7599,7 +7599,7 @@
                                                                                                                     "type": "integer",
                                                                                                                     "required": true,
                                                                                                                     "minimum": 1,
-                                                                                                                    "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                                                                    "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                                                                     "label.en": "Expected number of species",
                                                                                                                     "marshmallow": {
                                                                                                                         "validators": [
@@ -9184,7 +9184,7 @@
                                                                                 "type": "integer",
                                                                                 "required": true,
                                                                                 "minimum": 1,
-                                                                                "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                                "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                                 "label.en": "Expected number of species",
                                                                                 "marshmallow": {
                                                                                     "validators": [
@@ -9283,7 +9283,7 @@
                                                                         "type": "integer",
                                                                         "required": true,
                                                                         "minimum": 1,
-                                                                        "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                        "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                         "label.en": "Expected number of species",
                                                                         "marshmallow": {
                                                                             "validators": [
@@ -10972,7 +10972,7 @@
                                                                                                     "type": "integer",
                                                                                                     "required": true,
                                                                                                     "minimum": 1,
-                                                                                                    "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                                                    "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                                                     "label.en": "Expected number of species",
                                                                                                     "marshmallow": {
                                                                                                         "validators": [
@@ -11738,7 +11738,7 @@
                                                                                             "type": "integer",
                                                                                             "required": true,
                                                                                             "minimum": 1,
-                                                                                            "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                                            "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                                             "label.en": "Expected number of species",
                                                                                             "marshmallow": {
                                                                                                 "validators": [
@@ -11837,7 +11837,7 @@
                                                                                     "type": "integer",
                                                                                     "required": true,
                                                                                     "minimum": 1,
-                                                                                    "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                                    "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                                     "label.en": "Expected number of species",
                                                                                     "marshmallow": {
                                                                                         "validators": [
@@ -14312,7 +14312,7 @@
                                     "contributors": {
                                         "type": "array",
                                         "minItems": 1,
-                                        "help.en": "List of other people who contributed to generating the deposited data, metadata, results , or the deposition itself",
+                                        "help.en": "List of other people who contributed to generating the deposited data, metadata, results, or the deposition itself",
                                         "label.en": "Contributors",
                                         "marshmallow": {
                                             "validators": [
@@ -15712,7 +15712,7 @@
                                                                             "type": "integer",
                                                                             "required": true,
                                                                             "minimum": 1,
-                                                                            "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                            "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                             "label.en": "Expected number of species",
                                                                             "marshmallow": {
                                                                                 "validators": [
@@ -16759,7 +16759,7 @@
                                                                                                 "type": "integer",
                                                                                                 "required": true,
                                                                                                 "minimum": 1,
-                                                                                                "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                                                "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                                                 "label.en": "Expected number of species",
                                                                                                 "marshmallow": {
                                                                                                     "validators": [
@@ -17535,7 +17535,7 @@
                                                                             "type": "integer",
                                                                             "required": true,
                                                                             "minimum": 1,
-                                                                            "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                            "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                             "label.en": "Expected number of species",
                                                                             "marshmallow": {
                                                                                 "validators": [
@@ -20294,7 +20294,7 @@
                                                                                                         "type": "integer",
                                                                                                         "required": true,
                                                                                                         "minimum": 1,
-                                                                                                        "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                                                        "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                                                         "label.en": "Expected number of species",
                                                                                                         "marshmallow": {
                                                                                                             "validators": [
@@ -21726,7 +21726,7 @@
                                                                     "type": "integer",
                                                                     "required": true,
                                                                     "minimum": 1,
-                                                                    "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                    "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                     "label.en": "Expected number of species",
                                                                     "marshmallow": {
                                                                         "validators": [
@@ -21825,7 +21825,7 @@
                                                             "type": "integer",
                                                             "required": true,
                                                             "minimum": 1,
-                                                            "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                            "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                             "label.en": "Expected number of species",
                                                             "marshmallow": {
                                                                 "validators": [
@@ -23517,7 +23517,7 @@
                                                                                         "type": "integer",
                                                                                         "required": true,
                                                                                         "minimum": 1,
-                                                                                        "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                                        "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                                         "label.en": "Expected number of species",
                                                                                         "marshmallow": {
                                                                                             "validators": [
@@ -24283,7 +24283,7 @@
                                                                                 "type": "integer",
                                                                                 "required": true,
                                                                                 "minimum": 1,
-                                                                                "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                                "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                                 "label.en": "Expected number of species",
                                                                                 "marshmallow": {
                                                                                     "validators": [
@@ -24382,7 +24382,7 @@
                                                                         "type": "integer",
                                                                         "required": true,
                                                                         "minimum": 1,
-                                                                        "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
+                                                                        "help.en": "The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)",
                                                                         "label.en": "Expected number of species",
                                                                         "marshmallow": {
                                                                             "validators": [
@@ -27242,7 +27242,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -27361,7 +27361,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -27537,7 +27537,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -27713,7 +27713,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -27889,7 +27889,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -28058,7 +28058,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -28228,7 +28228,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -28398,7 +28398,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -28568,7 +28568,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -28740,7 +28740,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -28927,7 +28927,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -29096,7 +29096,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -29265,7 +29265,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -29335,8 +29335,8 @@
                                                     "type": "keyword",
                                                     "required": true,
                                                     "enum": [
-                                                        "radius",
-                                                        "diameter"
+                                                        "Radius",
+                                                        "Diameter"
                                                     ],
                                                     "help.en": "The type of size (radius or diameter)",
                                                     "label.en": "Size type"
@@ -29449,7 +29449,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -29571,7 +29571,7 @@
                                                             "id",
                                                             "name"
                                                         ],
-                                                        "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                        "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                         "label.en": "Entity",
                                                         "marshmallow": {
                                                             "unknown": "INCLUDE",
@@ -29717,8 +29717,8 @@
                                             "type": "keyword",
                                             "required": true,
                                             "enum": [
-                                                "radius",
-                                                "diameter"
+                                                "Radius",
+                                                "Diameter"
                                             ],
                                             "help.en": "The type of size (radius or diameter)",
                                             "label.en": "Size type"
@@ -29730,7 +29730,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.13.0"
+                                    "0.14.1"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"
@@ -29740,7 +29740,7 @@
                     "method_specific_parameters": {
                         "type": "object",
                         "required": true,
-                        "help.en": "The parameters of the experiment that is specific to ITC",
+                        "help.en": "The parameters of the experiment that are specific to ITC",
                         "label.en": "Method specific parameters",
                         "marshmallow": {
                             "generate": true,
@@ -30022,7 +30022,7 @@
                                         "results": {
                                             "type": "array",
                                             "minItems": 1,
-                                            "help.en": "Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters",
+                                            "help.en": "Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the record",
                                             "label.en": "Results",
                                             "marshmallow": {
                                                 "validators": [
@@ -30505,7 +30505,7 @@
                                                         "id",
                                                         "name"
                                                     ],
-                                                    "help.en": "Name (id) of the chemical environment of the sample (from the chemical environments defined in the general parameters)",
+                                                    "help.en": "Name (id) of the chemical environment of the sample (from the chemical environments defined in the record)",
                                                     "label.en": "Chemical environment",
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
@@ -30593,7 +30593,7 @@
                                                     "type": "array",
                                                     "required": true,
                                                     "minItems": 1,
-                                                    "help.en": "List of names (ids), from the entities of interest defined in the general parameters, of directly measured entities",
+                                                    "help.en": "List of names (ids), from the entities of interest defined in the record, of directly measured entities",
                                                     "label.en": "Targets",
                                                     "marshmallow": {
                                                         "validators": [
@@ -30679,7 +30679,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -30754,7 +30754,7 @@
                                                         "id",
                                                         "name"
                                                     ],
-                                                    "help.en": "Name (id) of the chemical environment of the sample (from the chemical environments defined in the general parameters)",
+                                                    "help.en": "Name (id) of the chemical environment of the sample (from the chemical environments defined in the record)",
                                                     "label.en": "Chemical environment",
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
@@ -30842,7 +30842,7 @@
                                                     "type": "array",
                                                     "required": true,
                                                     "minItems": 1,
-                                                    "help.en": "List of names (ids), from the entities of interest defined in the general parameters, of directly measured entities",
+                                                    "help.en": "List of names (ids), from the entities of interest defined in the record, of directly measured entities",
                                                     "label.en": "Targets",
                                                     "marshmallow": {
                                                         "validators": [
@@ -30928,7 +30928,7 @@
                                                                     "id",
                                                                     "name"
                                                                 ],
-                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the general parameters)",
+                                                                "help.en": "Name (id) of the entity (from the entities of interest defined in the record)",
                                                                 "label.en": "Entity",
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -31020,7 +31020,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.1.0"
+                                    "0.1.1"
                                 ],
                                 "help.en": "The schema version used to annotate the ITC method specific parameters",
                                 "label.en": "Schema version"
@@ -31144,6 +31144,7 @@
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
                     },
+                    "uniqueItems": true,
                     "type": "object",
                     "additionalProperties": {
                         "type": "object",
@@ -31159,8 +31160,7 @@
                                 "type": "string"
                             }
                         }
-                    },
-                    "uniqueItems": true
+                    }
                 },
                 "ui": {
                     "marshmallow": {

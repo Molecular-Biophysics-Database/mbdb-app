@@ -133,7 +133,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.13.0"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.14.1"])])
 
 
 class ChemicalEnvironmentsItemSchema(DictOnlySchema):
@@ -738,7 +738,7 @@ class MethodSpecificParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.10.0"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.10.1"])])
 
     sensor = ma_fields.Nested(lambda: SensorSchema(), required=True)
 
@@ -2165,7 +2165,7 @@ class Size_of_spherically_represented_entitySchema(DictOnlySchema):
     name = ma_fields.String(required=True)
 
     size_type = ma_fields.String(
-        required=True, validate=[OneOf(["radius", "diameter"])]
+        required=True, validate=[OneOf(["Radius", "Diameter"])]
     )
 
     type = ma_fields.String(
