@@ -8,7 +8,7 @@ export default function CalibrantsTab({ name }) {
   const fieldName = "calibrants";
 
   const tooltip =
-    "List of objects that was used to create the calibration curve for converting contrast to molecular weight";
+    "List of objects that was used to create the calibration curve for converting contrast to molecular weight or converting the position of optimum contrast to particle size";
 
   UseDefault(`${name}.${fieldName}`, [{}]);
 
@@ -16,7 +16,7 @@ export default function CalibrantsTab({ name }) {
     <>
       <div className="mb-3 w-fit">
         <FormWrapper>
-          Information about the objects that were used for size calibration
+          Information about the objects that were used for molecular weight or size calibration
         </FormWrapper>
       </div>
       <ArrayField

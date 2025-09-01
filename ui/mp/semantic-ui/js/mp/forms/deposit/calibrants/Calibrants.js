@@ -34,7 +34,7 @@ export default function Calibrants({ name }) {
           fieldName="type"
           label="Type"
           options={typeOptions}
-          tooltip="The type of the calibrant (Polymer)"
+          tooltip="The type of the calibrant (e.g. polypeptide(L))"
         />
       </div>
       <div className="mb-3">
@@ -42,10 +42,12 @@ export default function Calibrants({ name }) {
           name={name}
           fieldName="size"
           label="Size"
+          tooltip="The size of the calibrant"
           renderChild={({ optionalFieldName }) => (
             <Size
                 name={optionalFieldName}
                 colorSchema="light"
+                tooltip="The size of the calibrant"
               />
           )}
         />

@@ -16,9 +16,9 @@ function Sample({ name, tooltip, colorSchema }) {
     preparationProtocol:
       "List of the steps performed during the preparation of the complex substance",
     target:
-      "List of names (ids), from the entities of interest defined in the general parameters, of directly measured entities",
+      "List of names (ids), from the entities of interest defined in the record, of directly measured entities",
     ligand:
-      "List of names (ids) of entities (from the entities of interest defined in the general parameters) that were used to alter the behavior of the target(s)",
+      "List of names (ids) of entities (from the entities of interest defined in the record) that were used to alter the behavior of the target(s)",
   };
 
   const measurementContainerOptions = [
@@ -84,7 +84,7 @@ function Sample({ name, tooltip, colorSchema }) {
               label="Chemical environment"
               options={chemicalEnvironmentOptions}
               required
-              tooltip="Name (id) of the chemical environment of the sample (from the chemical environments defined in the general parameters"
+              tooltip="Name (id) of the chemical environment of the sample (from the chemical environments defined in the record)"
               width="w-[14rem]"
             />
           </div>

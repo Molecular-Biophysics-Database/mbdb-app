@@ -20,7 +20,7 @@ export default function ExternalDatabase({ name, colorSchema }) {
             <ExternalDatabaseField
               name={`${arrayName}.${index}`}
               prefixTooltip="Name of the external database in lowercase letters (e.g., pdb)"
-              dbTooltip="the identifier on external database that you wish to refer to e.g. 1GWD"
+              dbTooltip="the identifier in the external database that you wish to refer to e.g. 1GWD"
             />
           </FormWrapper>
         )}

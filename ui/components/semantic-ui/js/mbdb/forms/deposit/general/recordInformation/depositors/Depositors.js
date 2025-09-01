@@ -6,7 +6,7 @@ import Contact from "./Contact";
 export default function Depositors({ name }) {
   const tooltips = {
     contributor:
-      "List of other people who contributed to generating the deposited data, metadata, results , or the deposition itself",
+      "List of other people who contributed to generating the deposited data, metadata, results, or the deposition itself",
   };
 
   return (

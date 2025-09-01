@@ -15,7 +15,7 @@ export default function DeviationFromExpectedMass({ name, colorSchema }) {
       <FormWrapper
         headline="Deviation from expected mass"
         colorSchema={colorSchema}
-        tooltip="The amount, including unit, by which the obtained intact mass deviated from the expected intact mass (e.g. 1kDa)"
+        tooltip="The amount, including unit, by which the obtained intact mass deviated from the expected intact mass (e.g. 1 kDa)"
       >
         <ValueUnit
           name={name}

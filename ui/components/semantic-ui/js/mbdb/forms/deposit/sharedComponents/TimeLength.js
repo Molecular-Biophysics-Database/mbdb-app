@@ -20,7 +20,7 @@ export default function TimeLength({ colorSchema, name }) {
       <FormWrapper
         colorSchema={colorSchema}
         headline="Time length"
-        tooltip="The numerical value of the total time of the measurement step took in the units defined in the general parameters"
+        tooltip="The numerical value of the total time of the measurement step"
       >
         <ValueUnit
           options={unitOptions}

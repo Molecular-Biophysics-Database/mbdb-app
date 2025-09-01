@@ -15,7 +15,7 @@ function DataAnalysis({ name }) {
     type: "Type of model used to obtain derived parameters",
     measurement: "Measurements that were analyzed together",
     results:
-      "Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters",
+      "Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the record",
     dataFitting:
       "The details of how data fitting of the data to obtain the result was performed",
     dataProcessing:

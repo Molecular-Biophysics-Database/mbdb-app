@@ -15,7 +15,7 @@ function Sample({ name, colorSchema }) {
   const tooltips = {
     temperature: "Temperature of the sample while being measured",
     analyte:
-      "List of names (ids) of entities (from the entities of interest defined in the general parameters) that was used to alter the behavior of the target(s) or entities present at varying concentrations for a series of measurements and their concentrations",
+      "List of names (ids) of entities (from the entities of interest defined in the record) that was used to alter the behavior of the target(s) or entities present at varying concentrations for a series of measurements and their concentrations",
     preparation_protocol: "List of steps taken to prepare the sample",
   };
 
@@ -64,7 +64,7 @@ function Sample({ name, colorSchema }) {
             fieldName="chemical_environment"
             options={chemicalEnvironmentsOptions}
             required
-            tooltip="Name (id) of the chemical environment of the sample (from the chemical environments defined in the general parameters"
+            tooltip="Name (id) of the chemical environment of the sample (from the chemical environments defined in the record)"
           />
         </div>
 

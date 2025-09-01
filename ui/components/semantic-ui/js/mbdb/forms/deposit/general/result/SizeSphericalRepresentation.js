@@ -28,8 +28,8 @@ function SizeSphericalRepresentation({ name }) {
   ];
 
   const sizeTypeOptions = [
-    { value: "radius", label: "radius" },
-    { value: "diameter", label: "diameter" },
+    { value: "Radius", label: "Radius" },
+    { value: "Diameter", label: "Diameter" },
   ]
 
   const fieldNameEntityInvolved = "entities_involved";

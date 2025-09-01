@@ -13,7 +13,7 @@ function MolecularAssembly({ name }) {
 
   const tooltips = {
     additionalSpecification:
-      "Additional information about the moleculer assembly can be specified here",
+      "Additional information about the molecular assembly can be specified here",
     chemicalModification:
       "List describing deliberate modifications made to the molecular assembly through chemical, biochemical, or physical means",
   };

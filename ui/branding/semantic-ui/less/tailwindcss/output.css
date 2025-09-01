@@ -1092,10 +1092,6 @@ video {
   width: 29rem;
 }
 
-.w-\[30\%\] {
-  width: 30%;
-}
-
 .w-\[300px\] {
   width: 300px;
 }
@@ -1114,6 +1110,10 @@ video {
 
 .w-\[45rem\] {
   width: 45rem;
+}
+
+.w-\[50\%\] {
+  width: 50%;
 }
 
 .w-\[50px\] {
@@ -1667,6 +1667,10 @@ video {
 * {
   font-family: Jost-Regular;
   letter-spacing: 0.04rem;
+}
+
+#banner-1 {
+  display: block;
 }
 
 .first\:\!mt-16:first-child {

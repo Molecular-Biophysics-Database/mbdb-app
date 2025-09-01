@@ -17,7 +17,7 @@ function Sample({ name, colorSchema }) {
     preparationProtocol:
       "List of steps taken to prepare the sample, ending at the point where it was placed in the measurement container. Information include operations like filtration and which filter material and pore-size was used should be added",
     target:
-      "List of names (ids), from the entities of interest defined in the general parameters, of directly measured entities",
+      "List of names (ids), from the entities of interest defined in the record, of directly measured entities",
   };
 
   const chemicalEnvironmentsValue = getIn(
@@ -42,7 +42,7 @@ function Sample({ name, colorSchema }) {
           fieldName="chemical_environment"
           required
           options={chemicalEnvironmentsOptions}
-          tooltip="Name (id) of the chemical environment of the sample (from the chemical environments defined in the general parameters)"
+          tooltip="Name (id) of the chemical environment of the sample (from the chemical environment defined in the record)"
         />
 
         <ArrayField

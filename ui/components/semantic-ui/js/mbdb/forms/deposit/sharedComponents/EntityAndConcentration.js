@@ -22,7 +22,7 @@ export default function EntityAndConcentration({ name }) {
             label="Entity"
             fieldName="entity"
             required
-            tooltip="Name (id) of the entity (from the entities of interest defined in the general parameters"
+            tooltip="Name (id) of the entity (from the entities of interest defined in the record)"
           />
         </div>
         <Concentration
