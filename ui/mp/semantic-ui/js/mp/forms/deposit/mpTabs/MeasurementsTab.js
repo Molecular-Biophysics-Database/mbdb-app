@@ -8,7 +8,7 @@ export default function MeasurementsTab({ name }) {
   const fieldName = "measurements";
 
   const tooltip =
-    "List of the information about each measurement. This includes target(s), ligand(s), chemical environment, and the position of the sample within the instrument";
+    "The list of measurements (not including calibration)";
 
   UseDefault(`${name}.${fieldName}`, [{}]);
 

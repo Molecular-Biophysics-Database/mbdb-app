@@ -64,6 +64,7 @@ function Details({ name, colorSchema }) {
           <Size
             name={`${name}.size`}
             colorSchema={colorSchema === "light" ? "" : "light"}
+            tooltip="The size of the lipid assembly"
           />
         </div>
 

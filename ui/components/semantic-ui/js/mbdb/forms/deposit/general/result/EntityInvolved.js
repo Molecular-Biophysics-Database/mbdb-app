@@ -22,7 +22,7 @@ export default function EntityInvolved({ name }) {
             options={entityOptions}
             fieldName="entity"
             label="Entity"
-            tooltip="Name (id) of the entity (from the entities of interest defined in the general parameters)"
+            tooltip="Name (id) of the entity (from the entities of interest defined in the record)"
           />
         </div>
 

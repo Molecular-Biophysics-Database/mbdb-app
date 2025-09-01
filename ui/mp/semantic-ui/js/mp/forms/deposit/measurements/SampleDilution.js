@@ -32,7 +32,7 @@ export default function SampleDilution({ name, colorSchema }) {
                             label="Dilution buffer"
                             required
                             options={chemicalEnvironmentsOptions}
-                            tooltip="Name (id) of the chemical environment that was used as the dilution buffer (from the chemical environment defined in the general parameters"
+                            tooltip="Name (id) of the chemical environment that was used as the dilution buffer (from the chemical environments defined in the record)"
                         />
                     </div>
                     <CustomField

@@ -11,13 +11,13 @@ export default function ShakingSpeed({ colorSchema, name }) {
         <FormWrapper
           colorSchema={colorSchema}
           headline="Shaking speed"
-          tooltip="The numerical value of the shaking speed of the plate during the measurement step in the units defined in the general parameters"
+          tooltip="The numerical value of the shaking speed of the plate during the measurement step"
         >
           <ValueUnit
             options={unitOptions}
             name={name}
-            tooltipValue="The numerical value of the shaking speed of the plate during the measurement step in the units defined in the general parameters"
-            tooltipUnit="The reported error of the value of the shaking speed (e.g. standard deviation, % error)"
+            tooltipValue="The numerical value of the shaking speed of the plate during the measurement step"
+            tooltipUnit="The unit of the shaking/stirring speed"
             valueRequired
             unitRequired
           />

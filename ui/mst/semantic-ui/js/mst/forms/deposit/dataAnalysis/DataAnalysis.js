@@ -16,7 +16,7 @@ function DataAnalysis({ name }) {
     measurements:
       "List of the measurements that were analyzed together for a specific parameter",
     results:
-      "Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the general parameters",
+      "Link to the result(s) that was obtained by the data analysis. The link is to the results defined in the record",
     fColdAndHot:
       "If the data was analyzed with time windows corresponding to fluorescence before and after an IR laser was heating the sample the edges of the time windows can be specified here",
     dataFitting:

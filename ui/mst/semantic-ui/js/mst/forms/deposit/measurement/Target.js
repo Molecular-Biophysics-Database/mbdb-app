@@ -22,7 +22,7 @@ export default function Target({ name }) {
             label="Entity"
             fieldName="entity"
             required
-            tooltip="List of names (ids), from the entities of interest defined in the general parameters, of directly measured entities"
+            tooltip="List of names (ids), from the entities of interest defined in the record, of directly measured entities"
           />
         </div>
 

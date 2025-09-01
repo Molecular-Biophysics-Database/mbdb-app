@@ -4,7 +4,7 @@ import FormWrapper from "../../buildingBlocks/FormWrapper";
 import OptionField from "../../buildingBlocks/OptionField";
 import OptionalField from "../../buildingBlocks/OptionalField";
 
-function Size({ name, colorSchema }) {
+function Size({ name, colorSchema, tooltip }) {
   const tooltips = {
     median: "The median of the size",
     upper: "The upper bound of the size",
@@ -30,7 +30,7 @@ function Size({ name, colorSchema }) {
     <>
       <FormWrapper
         headline="Size"
-        tooltip="The size of the lipid assembly"
+        tooltip={tooltip}
         colorSchema={colorSchema}
       >
         <div className="flex mb-3">

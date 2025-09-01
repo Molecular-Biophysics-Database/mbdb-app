@@ -61,7 +61,7 @@ function ExternalDatabaseField({
         </button>
       </div>
       <div className="flex">
-        <div className="w-[30%] mr-3">
+        <div className="w-[50%] mr-3">
           <TextField
             id="external_database"
             className={`rounded-lg p-2 text-16px w-full`}

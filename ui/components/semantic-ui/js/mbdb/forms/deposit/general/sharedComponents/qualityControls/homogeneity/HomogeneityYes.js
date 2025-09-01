@@ -32,7 +32,7 @@ export default function HomogeneityYes({ name }) {
             required
             fieldName="expected_number_of_species"
             label="Expected number of species"
-            tooltip="The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur as an equilibrium; large aggregates should always be considered as being unexpected in this regard)"
+            tooltip="The number of species that were expected to be present (e.g. 2 if monomers and dimers are expected to occur at an equilibrium; large aggregates should always be considered as being unexpected in this regard)"
             type="number"
           />
         </div>

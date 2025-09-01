@@ -22,7 +22,7 @@ export default function Ligand({ name }) {
             label="Entity"
             fieldName="entity"
             required
-            tooltip="List of names (ids) of entities (from the entities of interest defined in the general parameters) that were used to alter the behavior of the target(s)"
+            tooltip="List of names (ids) of entities (from the entities of interest defined in the record) that were used to alter the behavior of the target(s)"
           />
         </div>
         <Concentration

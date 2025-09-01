@@ -63,7 +63,7 @@ function ResultTab({ name }) {
     <>
       <div className="mb-3 w-fit">
         <FormWrapper>
-          The results derived from the measurements (i.e. KD)
+          The results derived from the measurements (e.g. MW)
         </FormWrapper>
       </div>
       <ArrayField

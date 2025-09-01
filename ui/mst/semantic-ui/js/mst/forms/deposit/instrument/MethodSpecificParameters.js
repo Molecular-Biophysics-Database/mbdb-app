@@ -59,7 +59,7 @@ function MethodSpecificParameters({ name }) {
     <>
       <FormWrapper
         headline="Method specific parameters"
-        tooltip="The parameters of the experiment that is specific to MST/TRIC/Spectral Shift"
+        tooltip="The parameters of the experiment that are specific to MST/TRIC/Spectral Shift"
       >
         <div className="flex mb-3">
           <OptionField

@@ -57,7 +57,7 @@ function Polymer({ name, colorSchema }) {
           fieldName="name"
           required
           width="w-full"
-          tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1). This name is referenced in the measurement description to identify the entities present in measured sample"
+          tooltip="Short descriptive name (id) given to the assembly component. The name must be unique within a record"
         />
       </div>
       <div className="flex mb-3">
