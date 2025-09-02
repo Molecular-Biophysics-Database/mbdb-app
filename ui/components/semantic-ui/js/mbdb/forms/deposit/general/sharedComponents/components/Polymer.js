@@ -88,7 +88,7 @@ function Polymer({ name, colorSchema }) {
           fieldName="copy_number"
           required
           type="number"
-          tooltip="The number of copies of the component within the assembly, -1 if unknown (e.g. for homodimer, the copy number would be 2)"
+          tooltip="The number of copies of the component within the assembly, –1 if unknown (e.g. for homodimer, the copy number would be 2)"
         />
       </div>
       <div className="mb-3">

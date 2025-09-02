@@ -104,7 +104,7 @@ function Virion({ name }) {
             label="Capsid type"
             fieldName="capsid_type"
             required
-            tooltip="The type of virion capsid (e.g. genetically engineered, None"
+            tooltip="The type of virion capsid"
           />
         </div>
 
@@ -115,7 +115,7 @@ function Virion({ name }) {
             label="Envelope type"
             fieldName="envelope_type"
             required
-            tooltip="The type of virion envelope (e.g. genetically engineered, None"
+            tooltip="The type of virion envelope"
           />
         </div>
       </div>

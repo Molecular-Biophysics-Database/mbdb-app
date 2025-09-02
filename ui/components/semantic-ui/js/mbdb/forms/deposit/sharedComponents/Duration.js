@@ -4,7 +4,9 @@ import FormWrapper from "../buildingBlocks/FormWrapper";
 
 export default function Duration({ name, tooltip, colorSchema }) {
   const unitOptions = [
-    { value: "miliseconds", label: "miliseconds" },
+    { value: "nanoseconds", label: "nanoseconds" },
+    { value: "microseconds", label: "microseconds" },
+    { value: "milliseconds", label: "milliseconds" },
     { value: "seconds", label: "seconds" },
     { value: "minutes", label: "minutes" },
     { value: "hours", label: "hours" },

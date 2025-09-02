@@ -35,7 +35,7 @@ export default function Concentration({ name, tooltip, colorSchema }) {
         <ValueUnit
           name={name}
           options={unitOptions}
-          tooltipValue="The numerical value of the concentration, -1 if unknown"
+          tooltipValue="The numerical value of the concentration, –1 if unknown"
           tooltipUnit="The unit of the concentration"
           valueRequired
           unitRequired

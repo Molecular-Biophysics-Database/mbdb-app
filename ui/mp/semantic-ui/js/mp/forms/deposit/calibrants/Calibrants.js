@@ -40,6 +40,21 @@ export default function Calibrants({ name }) {
       <div className="mb-3">
         <OptionalField
           name={name}
+          fieldName="molecular_weight"
+          label="Molecular weight"
+          tooltip="The molecular weight of the calibrant"
+          renderChild={({optionalFieldName}) => (
+            <MolecularWeight
+              name={optionalFieldName}
+              tooltip="The molecular weight of the calibrant"
+              colorSchema="light"
+            />
+          )}
+        />
+      </div>
+      <div className="mb-3">
+        <OptionalField
+          name={name}
           fieldName="size"
           label="Size"
           tooltip="The size of the calibrant"
@@ -50,13 +65,6 @@ export default function Calibrants({ name }) {
                 tooltip="The size of the calibrant"
               />
           )}
-        />
-      </div>
-      <div className="mb-3">
-        <MolecularWeight
-          name={`${name}.molecular_weight`}
-          tooltip="The molecular weight of the calibrant"
-          colorSchema="light"
         />
       </div>
       <ArrayField
