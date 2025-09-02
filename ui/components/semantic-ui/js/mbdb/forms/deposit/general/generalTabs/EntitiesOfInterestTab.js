@@ -74,7 +74,7 @@ function EntitiesOfInterestTab({ name }) {
                 <DynamicOptionField
                   name={`${arrayName}.${index}`}
                   options={entitiesOfInterestTabOptions}
-                  label="type"
+                  label="Type"
                   fieldName="type"
                   required
                   width="w-full"

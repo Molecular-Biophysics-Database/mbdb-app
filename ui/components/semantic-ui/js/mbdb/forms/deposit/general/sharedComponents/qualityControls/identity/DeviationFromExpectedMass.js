@@ -22,7 +22,7 @@ export default function DeviationFromExpectedMass({ name, colorSchema }) {
           unitRequired={true}
           valueRequired={true}
           options={unitOptions}
-          tooltipValue="The numerical value of the molecular weight, -1 if unknown"
+          tooltipValue="The numerical value of the molecular weight, –1 if unknown"
           tooltipUnit="The unit of the molecular weight"
         />
       </FormWrapper>

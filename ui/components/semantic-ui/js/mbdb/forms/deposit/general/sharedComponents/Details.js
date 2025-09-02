@@ -41,7 +41,7 @@ function Details({ name, colorSchema }) {
             fieldName="number_of_mono_layers"
             label="Number of mono layers"
             type="number"
-            tooltip="The number of lipid mono layers in the lipid assembly, -1 if unknown"
+            tooltip="The number of lipid mono layers in the lipid assembly, –1 if unknown"
           />
         </div>
         <div className="mb-3">

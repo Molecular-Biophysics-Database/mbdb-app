@@ -18,8 +18,8 @@ export default function Rate({ colorSchema, name, tooltip }) {
         <ValueUnit
           options={unitOptions}
           name={name}
-          tooltipValue="The numerical value of the flow-rate"
-          tooltipUnit="The unit of the flow-rate"
+          tooltipValue="The numerical value of the flowrate"
+          tooltipUnit="The unit of the flowrate"
           valueRequired
           unitRequired
         />
