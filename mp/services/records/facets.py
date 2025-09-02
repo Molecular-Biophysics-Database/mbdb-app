@@ -2346,6 +2346,13 @@ metadata_general_parameters_schema_version = TermsFacet(
     label=_("metadata/general_parameters/schema_version.label"),
 )
 
+metadata_method_specific_parameters_calibrants_additional_specifications = TermsFacet(
+    field="metadata.method_specific_parameters.calibrants.additional_specifications",
+    label=_(
+        "metadata/method_specific_parameters/calibrants/additional_specifications.label"
+    ),
+)
+
 metadata_method_specific_parameters_calibrants_modifications_position = TermsFacet(
     field="metadata.method_specific_parameters.calibrants.modifications.position",
     label=_(

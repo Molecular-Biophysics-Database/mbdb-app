@@ -1611,6 +1611,9 @@ class MpSearchOptions(RecordSearchOptions):
         "metadata_general_parameters_schema_version": (
             facets.metadata_general_parameters_schema_version
         ),
+        "metadata_method_specific_parameters_calibrants_additional_specifications": (
+            facets.metadata_method_specific_parameters_calibrants_additional_specifications
+        ),
         "metadata_method_specific_parameters_calibrants_modifications_position": (
             facets.metadata_method_specific_parameters_calibrants_modifications_position
         ),
@@ -3370,6 +3373,9 @@ class MpDraftSearchOptions(DraftSearchOptions):
         ),
         "metadata_general_parameters_schema_version": (
             facets.metadata_general_parameters_schema_version
+        ),
+        "metadata_method_specific_parameters_calibrants_additional_specifications": (
+            facets.metadata_method_specific_parameters_calibrants_additional_specifications
         ),
         "metadata_method_specific_parameters_calibrants_modifications_position": (
             facets.metadata_method_specific_parameters_calibrants_modifications_position

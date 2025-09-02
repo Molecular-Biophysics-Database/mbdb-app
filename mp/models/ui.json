@@ -4970,6 +4970,21 @@
                                 "label": "metadata/method_specific_parameters/calibrants.label",
                                 "hint": "metadata/method_specific_parameters/calibrants.hint",
                                 "children": {
+                                    "additional_specifications": {
+                                        "detail": "array",
+                                        "input": "array",
+                                        "help": "metadata/method_specific_parameters/calibrants/additional_specifications.help",
+                                        "label": "metadata/method_specific_parameters/calibrants/additional_specifications.label",
+                                        "hint": "metadata/method_specific_parameters/calibrants/additional_specifications.hint",
+                                        "child": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/method_specific_parameters/calibrants/additional_specifications.help",
+                                            "label": "metadata/method_specific_parameters/calibrants/additional_specifications.label",
+                                            "hint": "metadata/method_specific_parameters/calibrants/additional_specifications.hint",
+                                            "facet": "metadata_method_specific_parameters_calibrants_additional_specifications"
+                                        }
+                                    },
                                     "modifications": {
                                         "detail": "array",
                                         "input": "array",

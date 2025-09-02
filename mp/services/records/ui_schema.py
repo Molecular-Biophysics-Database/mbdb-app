@@ -94,7 +94,7 @@ class GeneralParametersUISchema(DictOnlySchema):
 
     results = ma_fields.List(ma_fields.Nested(lambda: ResultsItemUISchema()))
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.14.1"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.14.2"])])
 
 
 class ChemicalEnvironmentsItemUISchema(DictOnlySchema):
@@ -907,7 +907,7 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
 
     mode = ma_fields.Nested(lambda: ModeUISchema(), required=True)
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.4.1"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.5.1"])])
 
 
 class PolymerUISchema(DictOnlySchema):
@@ -1116,6 +1116,8 @@ class Body_fluidUISchema(DictOnlySchema):
 class CalibrantsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
+
+    additional_specifications = ma_fields.List(ma_fields.String())
 
     modifications = ma_fields.List(
         ma_fields.Nested(lambda: BiologicalPostprocessingItemUISchema())
