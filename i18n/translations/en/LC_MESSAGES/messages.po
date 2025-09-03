@@ -10147,7 +10147,7 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/flow/rate.help"
-msgstr "The numerical value and unit of the flow-rate"
+msgstr "The numerical value and unit of the flowrate"
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/flow/rate.hint"
@@ -14000,7 +14000,7 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/flow/rate/unit.help"
-msgstr "The unit of the flow-rate"
+msgstr "The unit of the flowrate"
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/flow/rate/unit.hint"
@@ -14016,7 +14016,7 @@ msgstr ""
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/flow/rate/value.help"
-msgstr "Numerical value of the flow-rate"
+msgstr "Numerical value of the flowrate"
 
 msgid ""
 "metadata/method_specific_parameters/measurement_protocol/flow/rate/value.hint"
@@ -14095,4 +14095,7 @@ msgid "metadata/method_specific_parameters/schema_version.enum.0.10.1"
 msgstr ""
 
 msgid "metadata/general_parameters/schema_version.enum.0.14.2"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/schema_version.enum.0.10.2"
 msgstr ""
