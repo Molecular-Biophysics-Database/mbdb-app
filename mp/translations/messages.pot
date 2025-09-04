@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-08-25T14:58:38.679723\n"
-"PO-Revision-Date: 2025-08-25T14:58:38.679725\n"
+"POT-Creation-Date: 2025-09-02T17:15:14.235568\n"
+"PO-Revision-Date: 2025-09-02T17:15:14.235570\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7498,7 +7498,7 @@ msgstr ""
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.14.1"
+msgid "metadata/general_parameters/schema_version.enum.0.14.2"
 msgstr ""
 
 msgid "metadata/method_specific_parameters.help"
@@ -7517,6 +7517,18 @@ msgid "metadata/method_specific_parameters/calibrants.label"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/calibrants.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/calibrants/additional_specifications.help"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/calibrants/additional_specifications.label"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/calibrants/additional_specifications.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/calibrants/modifications.help"
@@ -8619,7 +8631,7 @@ msgstr ""
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.4.1"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.5.1"
 msgstr ""
 
 msgid "metadata/version.label"

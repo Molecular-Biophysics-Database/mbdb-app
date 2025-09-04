@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-08-25T14:58:38.679656\n"
-"PO-Revision-Date: 2025-08-25T14:58:38.679682\n"
+"POT-Creation-Date: 2025-09-02T17:15:14.235530\n"
+"PO-Revision-Date: 2025-09-02T17:15:14.235537\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7820,7 +7820,7 @@ msgstr "Schema version"
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.14.1"
+msgid "metadata/general_parameters/schema_version.enum.0.14.2"
 msgstr ""
 
 msgid "metadata/method_specific_parameters.help"
@@ -7842,6 +7842,18 @@ msgid "metadata/method_specific_parameters/calibrants.label"
 msgstr "Calibrants"
 
 msgid "metadata/method_specific_parameters/calibrants.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/calibrants/additional_specifications.help"
+msgstr "Additional information about the calibrant can be specified here"
+
+msgid ""
+"metadata/method_specific_parameters/calibrants/additional_specifications.label"
+msgstr "Additional specifications"
+
+msgid ""
+"metadata/method_specific_parameters/calibrants/additional_specifications.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/calibrants/modifications.help"
@@ -8768,7 +8780,7 @@ msgid "metadata/method_specific_parameters/mode.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/mode/buffer_flowrate.help"
-msgstr "Numerical value and unit of the buffer flow rate"
+msgstr "Numerical value and unit of the buffer flowrate"
 
 msgid "metadata/method_specific_parameters/mode/buffer_flowrate.label"
 msgstr "Buffer flowrate"
@@ -8777,7 +8789,7 @@ msgid "metadata/method_specific_parameters/mode/buffer_flowrate.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/mode/buffer_flowrate/unit.help"
-msgstr "The unit of the flow-rate"
+msgstr "The unit of the flowrate"
 
 msgid "metadata/method_specific_parameters/mode/buffer_flowrate/unit.label"
 msgstr "Unit"
@@ -8794,7 +8806,7 @@ msgid ""
 msgstr ""
 
 msgid "metadata/method_specific_parameters/mode/buffer_flowrate/value.help"
-msgstr "Numerical value of the flow-rate"
+msgstr "Numerical value of the flowrate"
 
 msgid "metadata/method_specific_parameters/mode/buffer_flowrate/value.label"
 msgstr "Value"
@@ -8812,7 +8824,7 @@ msgid "metadata/method_specific_parameters/mode/flow_cell.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/mode/sample_flowrate.help"
-msgstr "Numerical value and unit of the sample flow rate"
+msgstr "Numerical value and unit of the sample flowrate"
 
 msgid "metadata/method_specific_parameters/mode/sample_flowrate.label"
 msgstr "Sample flowrate"
@@ -8821,7 +8833,7 @@ msgid "metadata/method_specific_parameters/mode/sample_flowrate.hint"
 msgstr ""
 
 msgid "metadata/method_specific_parameters/mode/sample_flowrate/unit.help"
-msgstr "The unit of the flow-rate"
+msgstr "The unit of the flowrate"
 
 msgid "metadata/method_specific_parameters/mode/sample_flowrate/unit.label"
 msgstr "Unit"
@@ -8838,7 +8850,7 @@ msgid ""
 msgstr ""
 
 msgid "metadata/method_specific_parameters/mode/sample_flowrate/value.help"
-msgstr "Numerical value of the flow-rate"
+msgstr "Numerical value of the flowrate"
 
 msgid "metadata/method_specific_parameters/mode/sample_flowrate/value.label"
 msgstr "Value"
@@ -8985,7 +8997,7 @@ msgstr "Schema version"
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.4.1"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.5.1"
 msgstr ""
 
 msgid "metadata/version.label"

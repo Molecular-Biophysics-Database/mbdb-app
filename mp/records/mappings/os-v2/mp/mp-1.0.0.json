@@ -2528,6 +2528,10 @@
                             "calibrants": {
                                 "type": "object",
                                 "properties": {
+                                    "additional_specifications": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
                                     "modifications": {
                                         "type": "object",
                                         "properties": {

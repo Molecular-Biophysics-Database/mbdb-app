@@ -3,6 +3,32 @@
         "type": "model",
         "mapping": {
             "template": {
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200,
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "edge_ngram",
+                                "min_gram": 4,
+                                "max_gram": 8,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
+                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -58,32 +84,6 @@
                             }
                         }
                     ]
-                },
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": [
-                        "collected_default_search_fields",
-                        "collected_default_search_fields.substringmatch"
-                    ],
-                    "analysis": {
-                        "analyzer": {
-                            "substring": {
-                                "tokenizer": "substringtokenizer"
-                            }
-                        },
-                        "tokenizer": {
-                            "substringtokenizer": {
-                                "type": "edge_ngram",
-                                "min_gram": 4,
-                                "max_gram": 8,
-                                "token_chars": [
-                                    "letter",
-                                    "digit"
-                                ]
-                            }
-                        }
-                    }
                 }
             },
             "generate": true,
@@ -29773,7 +29773,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.14.1"
+                                    "0.14.2"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"
@@ -30355,7 +30355,7 @@
                                                 "rate": {
                                                     "type": "object",
                                                     "required": true,
-                                                    "help.en": "The numerical value and unit of the flow-rate",
+                                                    "help.en": "The numerical value and unit of the flowrate",
                                                     "label.en": "Rate",
                                                     "marshmallow": {
                                                         "generate": true,
@@ -30375,14 +30375,14 @@
                                                                 "mL/min",
                                                                 "µl/s"
                                                             ],
-                                                            "help.en": "The unit of the flow-rate",
+                                                            "help.en": "The unit of the flowrate",
                                                             "label.en": "Unit"
                                                         },
                                                         "value": {
                                                             "type": "double",
                                                             "required": true,
                                                             "minimum": 0.0,
-                                                            "help.en": "Numerical value of the flow-rate",
+                                                            "help.en": "Numerical value of the flowrate",
                                                             "label.en": "Value",
                                                             "marshmallow": {
                                                                 "validators": [
@@ -31370,7 +31370,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.10.1"
+                                    "0.10.2"
                                 ],
                                 "help.en": "The schema version used to annotate the SPR method specific parameters",
                                 "label.en": "Schema version"
@@ -31537,6 +31537,11 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
+                    "type": "object",
+                    "uniqueItems": true,
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    },
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -31551,12 +31556,7 @@
                                 "type": "string"
                             }
                         }
-                    },
-                    "uniqueItems": true,
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
-                    "type": "object"
+                    }
                 },
                 "ui": {
                     "marshmallow": {

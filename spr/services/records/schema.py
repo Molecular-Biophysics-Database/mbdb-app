@@ -133,7 +133,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.14.1"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.14.2"])])
 
 
 class ChemicalEnvironmentsItemSchema(DictOnlySchema):
@@ -738,7 +738,7 @@ class MethodSpecificParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.10.1"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.10.2"])])
 
     sensor = ma_fields.Nested(lambda: SensorSchema(), required=True)
 

@@ -29775,7 +29775,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.14.1"
+                                    "0.14.2"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"
@@ -31252,7 +31252,6 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "uniqueItems": true,
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
                     },
@@ -31271,6 +31270,7 @@
                             }
                         }
                     },
+                    "uniqueItems": true,
                     "type": "object"
                 },
                 "ui": {

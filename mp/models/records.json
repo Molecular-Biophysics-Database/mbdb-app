@@ -3,32 +3,6 @@
         "type": "model",
         "mapping": {
             "template": {
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": [
-                        "collected_default_search_fields",
-                        "collected_default_search_fields.substringmatch"
-                    ],
-                    "analysis": {
-                        "analyzer": {
-                            "substring": {
-                                "tokenizer": "substringtokenizer"
-                            }
-                        },
-                        "tokenizer": {
-                            "substringtokenizer": {
-                                "type": "edge_ngram",
-                                "min_gram": 4,
-                                "max_gram": 8,
-                                "token_chars": [
-                                    "letter",
-                                    "digit"
-                                ]
-                            }
-                        }
-                    }
-                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -84,6 +58,32 @@
                             }
                         }
                     ]
+                },
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200,
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "edge_ngram",
+                                "min_gram": 4,
+                                "max_gram": 8,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
                 }
             },
             "generate": true,
@@ -29738,7 +29738,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.14.1"
+                                    "0.14.2"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"
@@ -29786,6 +29786,20 @@
                                         }
                                     },
                                     "properties": {
+                                        "additional_specifications": {
+                                            "type": "array",
+                                            "minItems": 1,
+                                            "help.en": "Additional information about the calibrant can be specified here",
+                                            "label.en": "Additional specifications",
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Length(min=1)"
+                                                ]
+                                            },
+                                            "items": {
+                                                "type": "keyword"
+                                            }
+                                        },
                                         "modifications": {
                                             "type": "array",
                                             "minItems": 1,
@@ -30763,7 +30777,7 @@
                                                         "type": "double",
                                                         "required": true,
                                                         "minimum": 0.0,
-                                                        "help.en": "Numerical value of the flow-rate",
+                                                        "help.en": "Numerical value of the flowrate",
                                                         "label.en": "Value",
                                                         "marshmallow": {
                                                             "validators": [
@@ -30778,11 +30792,11 @@
                                                             "mL/min",
                                                             "µl/s"
                                                         ],
-                                                        "help.en": "The unit of the flow-rate",
+                                                        "help.en": "The unit of the flowrate",
                                                         "label.en": "Unit"
                                                     }
                                                 },
-                                                "help.en": "Numerical value and unit of the sample flow rate",
+                                                "help.en": "Numerical value and unit of the sample flowrate",
                                                 "label.en": "Sample flowrate",
                                                 "marshmallow": {
                                                     "generate": false,
@@ -30803,7 +30817,7 @@
                                                         "type": "double",
                                                         "required": true,
                                                         "minimum": 0.0,
-                                                        "help.en": "Numerical value of the flow-rate",
+                                                        "help.en": "Numerical value of the flowrate",
                                                         "label.en": "Value",
                                                         "marshmallow": {
                                                             "validators": [
@@ -30818,11 +30832,11 @@
                                                             "mL/min",
                                                             "µl/s"
                                                         ],
-                                                        "help.en": "The unit of the flow-rate",
+                                                        "help.en": "The unit of the flowrate",
                                                         "label.en": "Unit"
                                                     }
                                                 },
-                                                "help.en": "Numerical value and unit of the buffer flow rate",
+                                                "help.en": "Numerical value and unit of the buffer flowrate",
                                                 "label.en": "Buffer flowrate",
                                                 "marshmallow": {
                                                     "generate": true,
@@ -31011,7 +31025,7 @@
                                     "buffer_flowrate": {
                                         "type": "object",
                                         "required": true,
-                                        "help.en": "Numerical value and unit of the buffer flow rate",
+                                        "help.en": "Numerical value and unit of the buffer flowrate",
                                         "label.en": "Buffer flowrate",
                                         "marshmallow": {
                                             "generate": true,
@@ -31031,14 +31045,14 @@
                                                     "mL/min",
                                                     "µl/s"
                                                 ],
-                                                "help.en": "The unit of the flow-rate",
+                                                "help.en": "The unit of the flowrate",
                                                 "label.en": "Unit"
                                             },
                                             "value": {
                                                 "type": "double",
                                                 "required": true,
                                                 "minimum": 0.0,
-                                                "help.en": "Numerical value of the flow-rate",
+                                                "help.en": "Numerical value of the flowrate",
                                                 "label.en": "Value",
                                                 "marshmallow": {
                                                     "validators": [
@@ -31057,7 +31071,7 @@
                                     "sample_flowrate": {
                                         "type": "object",
                                         "required": true,
-                                        "help.en": "Numerical value and unit of the sample flow rate",
+                                        "help.en": "Numerical value and unit of the sample flowrate",
                                         "label.en": "Sample flowrate",
                                         "marshmallow": {
                                             "generate": false,
@@ -31077,14 +31091,14 @@
                                                     "mL/min",
                                                     "µl/s"
                                                 ],
-                                                "help.en": "The unit of the flow-rate",
+                                                "help.en": "The unit of the flowrate",
                                                 "label.en": "Unit"
                                             },
                                             "value": {
                                                 "type": "double",
                                                 "required": true,
                                                 "minimum": 0.0,
-                                                "help.en": "Numerical value of the flow-rate",
+                                                "help.en": "Numerical value of the flowrate",
                                                 "label.en": "Value",
                                                 "marshmallow": {
                                                     "validators": [
@@ -31218,7 +31232,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.4.1"
+                                    "0.5.1"
                                 ],
                                 "help.en": "The schema version used to annotate the MP method specific parameters",
                                 "label.en": "Schema version"
@@ -31300,6 +31314,8 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
+                    "type": "object",
+                    "uniqueItems": true,
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
                     },
@@ -31317,9 +31333,7 @@
                                 "type": "string"
                             }
                         }
-                    },
-                    "uniqueItems": true,
-                    "type": "object"
+                    }
                 },
                 "ui": {
                     "marshmallow": {

@@ -2008,6 +2008,12 @@
                             "items": {
                                 "type": "object",
                                 "properties": {
+                                    "additional_specifications": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
                                     "modifications": {
                                         "type": "array",
                                         "items": {
@@ -2396,6 +2402,8 @@
             }
         },
         "pids": {
+            "type": "object",
+            "uniqueItems": true,
             "propertyNames": {
                 "pattern": "^[a-z_-][a-z0-9_-]*$"
             },
@@ -2413,9 +2421,7 @@
                         "type": "string"
                     }
                 }
-            },
-            "uniqueItems": true,
-            "type": "object"
+            }
         },
         "state": {
             "type": "string"

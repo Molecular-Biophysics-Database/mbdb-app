@@ -94,7 +94,7 @@ class GeneralParametersUISchema(DictOnlySchema):
 
     results = ma_fields.List(ma_fields.Nested(lambda: ResultsItemUISchema()))
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.14.1"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.14.2"])])
 
 
 class ChemicalEnvironmentsItemUISchema(DictOnlySchema):
@@ -913,7 +913,7 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: MeasurementsItemUISchema()), required=True
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.10.1"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.10.2"])])
 
     sensor = ma_fields.Nested(lambda: SensorUISchema(), required=True)
 
