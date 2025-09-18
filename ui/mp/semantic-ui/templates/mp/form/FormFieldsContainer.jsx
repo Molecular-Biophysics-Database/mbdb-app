@@ -68,13 +68,13 @@ function FormFieldsContainer() {
   return (
     <>
       <div className="flex mb-4 ml-3">
-        <PreviewButton />
         <Button
           style={{ backgroundColor: "#023850", color: "white" }}
           onClick={() => handleSaveMetadataAndFiles()}
         >
           Save
         </Button>
+        <PreviewButton />
         {values.id && RequestOnRecordView(values, setErrors, save)}
       </div>
       <div className="flex justify-center">
