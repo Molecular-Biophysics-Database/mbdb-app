@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-09-02T17:15:14.235530\n"
-"PO-Revision-Date: 2025-09-02T17:15:14.235537\n"
+"POT-Creation-Date: 2025-09-18T16:44:48.871167\n"
+"PO-Revision-Date: 2025-09-18T16:44:48.871174\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7820,7 +7820,7 @@ msgstr "Schema version"
 msgid "metadata/general_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/general_parameters/schema_version.enum.0.14.2"
+msgid "metadata/general_parameters/schema_version.enum.0.15.0"
 msgstr ""
 
 msgid "metadata/method_specific_parameters.help"
@@ -8988,6 +8988,61 @@ msgid ""
 "metadata/method_specific_parameters/mode/sample_carrier/surface_modification.hint"
 msgstr ""
 
+msgid "metadata/method_specific_parameters/primary_laser_wavelength.help"
+msgstr "The primary illumination laser wavelength used in the experiment"
+
+msgid "metadata/method_specific_parameters/primary_laser_wavelength.label"
+msgstr "Primary laser wavelength"
+
+msgid "metadata/method_specific_parameters/primary_laser_wavelength.hint"
+msgstr ""
+
+msgid "metadata/method_specific_parameters/primary_laser_wavelength/unit.help"
+msgstr "The unit of the wavelength"
+
+msgid ""
+"metadata/method_specific_parameters/primary_laser_wavelength/unit.label"
+msgstr "Unit"
+
+msgid "metadata/method_specific_parameters/primary_laser_wavelength/unit.hint"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/primary_laser_wavelength/unit.enum.Å"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/primary_laser_wavelength/unit.enum.nm"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/primary_laser_wavelength/unit.enum.μm"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/primary_laser_wavelength/unit.enum.mm"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/primary_laser_wavelength/unit.enum.cm"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/primary_laser_wavelength/unit.enum.m"
+msgstr ""
+
+msgid ""
+"metadata/method_specific_parameters/primary_laser_wavelength/value.help"
+msgstr "Numerical value of the wavelength"
+
+msgid ""
+"metadata/method_specific_parameters/primary_laser_wavelength/value.label"
+msgstr "Value"
+
+msgid ""
+"metadata/method_specific_parameters/primary_laser_wavelength/value.hint"
+msgstr ""
+
 msgid "metadata/method_specific_parameters/schema_version.help"
 msgstr "The schema version used to annotate the MP method specific parameters"
 
@@ -8997,7 +9052,7 @@ msgstr "Schema version"
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.5.1"
+msgid "metadata/method_specific_parameters/schema_version.enum.0.6.0"
 msgstr ""
 
 msgid "metadata/version.label"

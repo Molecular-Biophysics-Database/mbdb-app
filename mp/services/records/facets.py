@@ -2645,6 +2645,16 @@ metadata_method_specific_parameters_mode_sample_carrier_surface_modification = T
     ),
 )
 
+metadata_method_specific_parameters_primary_laser_wavelength_unit = TermsFacet(
+    field="metadata.method_specific_parameters.primary_laser_wavelength.unit",
+    label=_("metadata/method_specific_parameters/primary_laser_wavelength/unit.label"),
+)
+
+metadata_method_specific_parameters_primary_laser_wavelength_value = TermsFacet(
+    field="metadata.method_specific_parameters.primary_laser_wavelength.value",
+    label=_("metadata/method_specific_parameters/primary_laser_wavelength/value.label"),
+)
+
 metadata_method_specific_parameters_schema_version = TermsFacet(
     field="metadata.method_specific_parameters.schema_version",
     label=_("metadata/method_specific_parameters/schema_version.label"),

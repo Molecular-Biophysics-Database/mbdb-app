@@ -5871,6 +5871,34 @@
                                 }
                             }
                         },
+                        "primary_laser_wavelength": {
+                            "detail": false,
+                            "input": false,
+                            "help": "metadata/method_specific_parameters/primary_laser_wavelength.help",
+                            "label": "metadata/method_specific_parameters/primary_laser_wavelength.label",
+                            "hint": "metadata/method_specific_parameters/primary_laser_wavelength.hint",
+                            "children": {
+                                "unit": {
+                                    "detail": "keyword",
+                                    "input": "keyword",
+                                    "required": true,
+                                    "help": "metadata/method_specific_parameters/primary_laser_wavelength/unit.help",
+                                    "label": "metadata/method_specific_parameters/primary_laser_wavelength/unit.label",
+                                    "hint": "metadata/method_specific_parameters/primary_laser_wavelength/unit.hint",
+                                    "enum": "metadata/method_specific_parameters/primary_laser_wavelength/unit.enum",
+                                    "facet": "metadata_method_specific_parameters_primary_laser_wavelength_unit"
+                                },
+                                "value": {
+                                    "detail": "double",
+                                    "input": "double",
+                                    "required": true,
+                                    "help": "metadata/method_specific_parameters/primary_laser_wavelength/value.help",
+                                    "label": "metadata/method_specific_parameters/primary_laser_wavelength/value.label",
+                                    "hint": "metadata/method_specific_parameters/primary_laser_wavelength/value.hint",
+                                    "facet": "metadata_method_specific_parameters_primary_laser_wavelength_value"
+                                }
+                            }
+                        },
                         "schema_version": {
                             "detail": "keyword",
                             "input": "keyword",

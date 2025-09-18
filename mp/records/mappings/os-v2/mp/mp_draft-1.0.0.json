@@ -2911,6 +2911,18 @@
                                     }
                                 }
                             },
+                            "primary_laser_wavelength": {
+                                "type": "object",
+                                "properties": {
+                                    "unit": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "value": {
+                                        "type": "double"
+                                    }
+                                }
+                            },
                             "schema_version": {
                                 "type": "keyword",
                                 "ignore_above": 1024
