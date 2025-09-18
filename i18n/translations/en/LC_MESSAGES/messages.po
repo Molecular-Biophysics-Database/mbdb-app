@@ -14099,3 +14099,6 @@ msgstr ""
 
 msgid "metadata/method_specific_parameters/schema_version.enum.0.10.2"
 msgstr ""
+
+msgid "metadata/general_parameters/schema_version.enum.0.15.0"
+msgstr ""
