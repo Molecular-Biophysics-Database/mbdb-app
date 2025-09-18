@@ -29773,7 +29773,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.14.2"
+                                    "0.15.0"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"
@@ -31539,9 +31539,6 @@
                 "json-schema": {
                     "type": "object",
                     "uniqueItems": true,
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -31556,6 +31553,9 @@
                                 "type": "string"
                             }
                         }
+                    },
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
                     }
                 },
                 "ui": {
