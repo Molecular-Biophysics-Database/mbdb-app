@@ -2374,6 +2374,17 @@
                                 }
                             }
                         },
+                        "primary_laser_wavelength": {
+                            "type": "object",
+                            "properties": {
+                                "unit": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "number"
+                                }
+                            }
+                        },
                         "schema_version": {
                             "type": "string"
                         }
@@ -2402,8 +2413,6 @@
             }
         },
         "pids": {
-            "type": "object",
-            "uniqueItems": true,
             "propertyNames": {
                 "pattern": "^[a-z_-][a-z0-9_-]*$"
             },
@@ -2421,7 +2430,9 @@
                         "type": "string"
                     }
                 }
-            }
+            },
+            "type": "object",
+            "uniqueItems": true
         },
         "state": {
             "type": "string"

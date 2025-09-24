@@ -1758,6 +1758,12 @@ class MpSearchOptions(RecordSearchOptions):
         "metadata_method_specific_parameters_mode_sample_carrier_surface_modification": (
             facets.metadata_method_specific_parameters_mode_sample_carrier_surface_modification
         ),
+        "metadata_method_specific_parameters_primary_laser_wavelength_unit": (
+            facets.metadata_method_specific_parameters_primary_laser_wavelength_unit
+        ),
+        "metadata_method_specific_parameters_primary_laser_wavelength_value": (
+            facets.metadata_method_specific_parameters_primary_laser_wavelength_value
+        ),
         "metadata_method_specific_parameters_schema_version": (
             facets.metadata_method_specific_parameters_schema_version
         ),
@@ -3520,6 +3526,12 @@ class MpDraftSearchOptions(DraftSearchOptions):
         ),
         "metadata_method_specific_parameters_mode_sample_carrier_surface_modification": (
             facets.metadata_method_specific_parameters_mode_sample_carrier_surface_modification
+        ),
+        "metadata_method_specific_parameters_primary_laser_wavelength_unit": (
+            facets.metadata_method_specific_parameters_primary_laser_wavelength_unit
+        ),
+        "metadata_method_specific_parameters_primary_laser_wavelength_value": (
+            facets.metadata_method_specific_parameters_primary_laser_wavelength_value
         ),
         "metadata_method_specific_parameters_schema_version": (
             facets.metadata_method_specific_parameters_schema_version

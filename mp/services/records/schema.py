@@ -133,7 +133,7 @@ class GeneralParametersSchema(DictOnlySchema):
         validate=[ma.validate.Length(min=1)],
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.14.2"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.15.0"])])
 
 
 class ChemicalEnvironmentsItemSchema(DictOnlySchema):
@@ -730,7 +730,9 @@ class MethodSpecificParametersSchema(DictOnlySchema):
 
     mode = ma_fields.Nested(lambda: ModeSchema(), required=True)
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.5.1"])])
+    primary_laser_wavelength = ma_fields.Nested(lambda: PrimaryLaserWavelengthSchema())
+
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.6.0"])])
 
 
 class QualityControlsSchema(DictOnlySchema):
@@ -2920,6 +2922,17 @@ class NoSchema(DictOnlySchema):
         unknown = ma.RAISE
 
     assessed = ma_fields.String(required=True, validate=[OneOf(["Yes", "No"])])
+
+
+class PrimaryLaserWavelengthSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    unit = ma_fields.String(
+        required=True, validate=[OneOf(["Å", "nm", "μm", "mm", "cm", "m"])]
+    )
+
+    value = ma_fields.Float(required=True, validate=[ma.validate.Range(min=0.0)])
 
 
 class ProtocolItemSchema(DictOnlySchema):

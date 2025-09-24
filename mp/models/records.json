@@ -29738,7 +29738,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.14.2"
+                                    "0.15.0"
                                 ],
                                 "help.en": "The schema version used to annotate the general parameters of the record",
                                 "label.en": "Schema version"
@@ -31228,11 +31228,54 @@
                                     }
                                 }
                             },
+                            "primary_laser_wavelength": {
+                                "type": "object",
+                                "help.en": "The primary illumination laser wavelength used in the experiment",
+                                "label.en": "Primary laser wavelength",
+                                "marshmallow": {
+                                    "generate": true,
+                                    "class": "mp.services.records.schema.PrimaryLaserWavelengthSchema"
+                                },
+                                "ui": {
+                                    "marshmallow": {
+                                        "generate": true,
+                                        "class": "mp.services.records.ui_schema.PrimaryLaserWavelengthUISchema"
+                                    }
+                                },
+                                "properties": {
+                                    "unit": {
+                                        "type": "keyword",
+                                        "required": true,
+                                        "enum": [
+                                            "Å",
+                                            "nm",
+                                            "μm",
+                                            "mm",
+                                            "cm",
+                                            "m"
+                                        ],
+                                        "help.en": "The unit of the wavelength",
+                                        "label.en": "Unit"
+                                    },
+                                    "value": {
+                                        "type": "double",
+                                        "required": true,
+                                        "minimum": 0.0,
+                                        "help.en": "Numerical value of the wavelength",
+                                        "label.en": "Value",
+                                        "marshmallow": {
+                                            "validators": [
+                                                "ma.validate.Range(min=0.0)"
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
                             "schema_version": {
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "0.5.1"
+                                    "0.6.0"
                                 ],
                                 "help.en": "The schema version used to annotate the MP method specific parameters",
                                 "label.en": "Schema version"
@@ -31314,8 +31357,6 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "type": "object",
-                    "uniqueItems": true,
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
                     },
@@ -31333,7 +31374,9 @@
                                 "type": "string"
                             }
                         }
-                    }
+                    },
+                    "type": "object",
+                    "uniqueItems": true
                 },
                 "ui": {
                     "marshmallow": {
