@@ -5,9 +5,10 @@ import { getIn, useFormikContext } from "formik";
 import SingleInjection from "./SingleInjection";
 import Titration from "./Titration";
 import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
+import { useEffect } from "react";
 
 function InjectionMode({ name, colorSchema }) {
-  const { values } = useFormikContext();
+  const { values, setFieldValue } = useFormikContext();
 
   const fieldName = `${name}.type`;
   UseDefault(fieldName, "Single injection");
@@ -18,6 +19,11 @@ function InjectionMode({ name, colorSchema }) {
   ];
 
   const actualValue = getIn(values, fieldName);
+
+  useEffect(() => {
+    if (!actualValue) return;
+    setFieldValue(name, { type: actualValue }, false);
+  }, [actualValue, name, setFieldValue]);
 
   return (
     <>
