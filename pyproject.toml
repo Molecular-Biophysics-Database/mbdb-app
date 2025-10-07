@@ -11,7 +11,7 @@ dependencies = [
     "mbdb-parsing",
     "oarepo-communities>=5.3.0,<6.0.0",
     "oarepo-dashboard>=1.0.0,<2.0.0",
-    "oarepo-doi>=2.0.0,<3.0.0",
+    "oarepo-doi>=1.0.19,<2.0.0",
     "oarepo-global-search>=1.0.0,<2.0.0",
     "oarepo-oidc-einfra>=1.1.0,<2.0.0",
     "oarepo-published-service>=1.0.0,<2.0.0",
