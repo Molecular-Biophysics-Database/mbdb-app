@@ -3,9 +3,9 @@ import math
 from oarepo_vocabularies.authorities.providers import AuthorityProvider
 
 
-
 class ApiGet:
     """Helper class to get data from an api endpoint."""
+
     def __init__(self, url, params: dict = None):
         self.url = url
         self.params = params or {}
@@ -73,7 +73,64 @@ class RORServiceV1(AuthorityProvider):
 
         # construct the return object
         start_pos = start_pos_api_page(page, size, api_size)
-        return affiliations[start_pos : start_pos + size], total, size
+        return affiliations[start_pos: start_pos + size], total, size
+
+    def get(self, identity, item_id, *, uow, value, **kwargs):
+        if not item_id.startswith("ror:"):
+            raise KeyError(f'item_id, "{item_id}", is not a ROR id')
+        json = ApiGet(url=f"{self.get_url}{item_id[4:]}").json
+        return self.convert_ror_record(json)
+
+    @staticmethod
+    def convert_ror_record(affiliation):
+        """Converts schema/API version 1 of a ROR record to a MBDB vocabulary record."""
+        aff_entry = {
+            "id": f"ror:{affiliation['id'].split('/')[-1]}",
+            "title": {"en": affiliation["name"]},
+            "props": {
+                "city": affiliation["addresses"][0]["city"],
+                "country": affiliation["country"]["country_name"],
+            },
+        }
+        state = affiliation["addresses"][0].get("state")
+        if state:
+            aff_entry["props"]["state"] = state
+        return aff_entry
+
+
+class RORServiceV2(AuthorityProvider):
+    """API v2 compatible ROR AuthorityProvider for affiliations"""
+    search_url = "ttps://api.ror.org/v2/organizations"
+    get_url = f"{search_url}/"
+
+    def search(self, identity, params, **kwargs):
+        #  the size for this API is fixed to 20 so in the following cases we should
+        #  fetch multiple pages from the api:
+        #   1. size > api_size
+        #   2. when size > remaining element on the api_page where the page begins
+        page = params.get("page", 1)
+        size = params.get("size", 10)
+
+        api_size = 20
+        size_ratio = size / api_size
+        n_api_pages = math.ceil(size_ratio) + int(exceeds_page(page, size, api_size))
+        affiliations = []
+        total = 0
+
+        for offset in range(n_api_pages, 0, -1):
+            # the offset is the page offset from the last page we need to fetch,
+            # i.e. we fetch api_page e.g. 2, 3, 4 as offset is decreases with each iteration
+            api_page = math.ceil(page * size_ratio) - offset + 1
+
+            q_params = {"query": params.get("q", ""), "page": api_page}
+            json = ApiGet(url=self.search_url, params=q_params).json
+            total = json["number_of_results"]
+
+            affiliations += [self.convert_ror_record(aff) for aff in json["items"]]
+
+        # construct the return object
+        start_pos = start_pos_api_page(page, size, api_size)
+        return affiliations[start_pos: start_pos + size], total, size
 
     def get(self, identity, item_id, *, uow, value, **kwargs):
         if not item_id.startswith("ror:"):
@@ -147,7 +204,7 @@ class NCBIService(AuthorityProvider):
         organisms = [self.convert_ncbi_record(org) for org in organisms]
         start_pos = start_pos_api_page(params.get("page", 1), size, api_size)
 
-        return organisms[start_pos : start_pos + size], total, size
+        return organisms[start_pos: start_pos + size], total, size
 
     def get(self, identity, item_id, *, uow, value, **kwargs):
         if not item_id.startswith("taxid:"):
@@ -264,7 +321,7 @@ class PubChemService(AuthorityProvider):
         chemicals = [self.convert_pubchem_record(chem) for chem in chemicals]
         # all records are returned on a single page
         start_pos = start_pos_api_page(params.get("page", 1), size, (total or 1))
-        return chemicals[start_pos : start_pos + size], total, size
+        return chemicals[start_pos: start_pos + size], total, size
 
     def get(self, identity, item_id, *, uow, value, **kwargs):
         if not item_id.startswith("inchikey:"):
@@ -276,7 +333,7 @@ class PubChemService(AuthorityProvider):
 
     def filter_hits(self, hits):
         """Helper function to remove incomplete Pubchem records."""
-        
+
         # Occasionally, there are  multiple CID for the same compound (e.g. 5'-GMP)
         # even though this shouldn't happen. In those case there seem to
         # be a single preferred record (explicit documentation of this has not
