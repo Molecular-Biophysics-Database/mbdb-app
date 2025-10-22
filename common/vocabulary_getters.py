@@ -97,12 +97,6 @@ class RORServiceV1(AuthorityProvider):
             aff_entry["props"]["state"] = state
         return aff_entry
 
-
-class RORService(RORServiceV1):
-    """API v2 compatible ROR AuthorityProvider for affiliations"""
-    search_url = "https://api.ror.org/v2/organizations"
-    get_url = f"{search_url}/"
-
     @staticmethod
     def convert_ror_record(affiliation):
         """Converts schema/API version 2.1 of a ROR record to a MBDB vocabulary record."""
@@ -120,6 +114,81 @@ class RORService(RORServiceV1):
         if state:
             aff_entry["props"]["state"] = state
         return aff_entry
+
+class RORServiceV2(AuthorityProvider):
+    """API v2 compatible ROR AuthorityProvider for affiliations"""
+    search_url = "https://api.ror.org/v2/organizations"
+    get_url = f"{search_url}/"
+
+    def search(self, identity, params, **kwargs):
+        # ROR API uses a fixed page size of 20
+        page = params.get("page", 1)
+        size = params.get("size", 10)
+        api_size = 20
+
+        size_ratio = size / api_size
+        n_api_pages = math.ceil(size_ratio) + int(exceeds_page(page, size, api_size))
+        affiliations = []
+        total = 0
+
+        for offset in range(n_api_pages, 0, -1):
+            api_page = math.ceil(page * size_ratio) - offset + 1
+            q_params = {"query": params.get("q", ""), "page": api_page}
+
+            json = ApiGet(url=self.search_url, params=q_params).json
+            total = json.get("number_of_results", 0)
+            items = json.get("items", [])
+            affiliations += [self.convert_ror_record(aff) for aff in items]
+
+        start_pos = start_pos_api_page(page, size, api_size)
+        return affiliations[start_pos:start_pos + size], total, size
+
+    def get(self, identity, item_id, *, uow, value, **kwargs):
+        if not item_id.startswith("ror:"):
+            raise KeyError(f'item_id "{item_id}" is not a valid ROR id')
+        json = ApiGet(url=f"{self.get_url}{item_id[4:]}").json
+        return self.convert_ror_record(json)
+
+    @staticmethod
+    def convert_ror_record(affiliation):
+        """Converts schema/API version 2.1 of a ROR record to MBDB vocabulary format."""
+        try:
+            name = affiliation["names"][0]["value"]
+        except (KeyError, IndexError):
+            name = affiliation.get("name", "Unknown Organization")
+
+        try:
+            geo = affiliation["locations"][0]["geonames_details"]
+            city = geo.get("name")
+            country = geo.get("country_name")
+            state = geo.get("country_subdivision_name")
+        except (KeyError, IndexError, TypeError):
+            city = country = state = None
+            geo = {}
+
+        aff_entry = {
+            "id": f"ror:{affiliation['id'].split('/')[-1]}",
+            "title": {"en": name},
+            "props": {},
+        }
+
+        if city:
+            aff_entry["props"]["city"] = city
+        if country:
+            aff_entry["props"]["country"] = country
+        if state:
+            aff_entry["props"]["state"] = state
+
+        lat = geo.get("latitude")
+        lon = geo.get("longitude")
+        if lat is not None and lon is not None:
+            aff_entry["props"]["coordinates"] = {"lat": lat, "lon": lon}
+
+        return aff_entry
+
+class RORService(RORServiceV2):
+    """ROR AuthorityProvider for affiliations"""
+    pass
 
 
 class NCBIService(AuthorityProvider):
