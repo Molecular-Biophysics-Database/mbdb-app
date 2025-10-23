@@ -3,9 +3,9 @@ import math
 from oarepo_vocabularies.authorities.providers import AuthorityProvider
 
 
-
 class ApiGet:
     """Helper class to get data from an api endpoint."""
+
     def __init__(self, url, params: dict = None):
         self.url = url
         self.params = params or {}
@@ -73,7 +73,7 @@ class RORServiceV1(AuthorityProvider):
 
         # construct the return object
         start_pos = start_pos_api_page(page, size, api_size)
-        return affiliations[start_pos : start_pos + size], total, size
+        return affiliations[start_pos: start_pos + size], total, size
 
     def get(self, identity, item_id, *, uow, value, **kwargs):
         if not item_id.startswith("ror:"):
@@ -114,6 +114,30 @@ class RORServiceV1(AuthorityProvider):
         if state:
             aff_entry["props"]["state"] = state
         return aff_entry
+
+
+class RORService(RORServiceV1):
+    """API v2 compatible ROR AuthorityProvider for affiliations"""
+    search_url = "https://api.ror.org/v2/organizations"
+    get_url = f"{search_url}/"
+
+    @staticmethod
+    def convert_ror_record(affiliation):
+        """Converts schema/API version 2.1 of a ROR record to a MBDB vocabulary record."""
+        # Information is only extracted from the first elements in titles and locations
+        aff_entry = {
+            "id": f"ror:{affiliation['id'].split('/')[-1]}",
+            "title": {"en": affiliation["names"][0]["value"]},
+            "props": {
+                "city": affiliation["locations"][0]["geonames_details"]["name"],
+                "country": affiliation["locations"][0]["geonames_details"]["country_name"],
+            },
+        }
+        state = affiliation["locations"][0]["geonames_details"].get("country_subdivision_name")
+        if state:
+            aff_entry["props"]["state"] = state
+        return aff_entry
+
 
 class RORServiceV2(AuthorityProvider):
     """API v2 compatible ROR AuthorityProvider for affiliations"""
@@ -186,10 +210,6 @@ class RORServiceV2(AuthorityProvider):
 
         return aff_entry
 
-class RORService(RORServiceV2):
-    """ROR AuthorityProvider for affiliations"""
-    pass
-
 
 class NCBIService(AuthorityProvider):
     """API v2 compatible NCBI AuthorityProvider for organisms"""
@@ -216,7 +236,7 @@ class NCBIService(AuthorityProvider):
         organisms = [self.convert_ncbi_record(org) for org in organisms]
         start_pos = start_pos_api_page(params.get("page", 1), size, api_size)
 
-        return organisms[start_pos : start_pos + size], total, size
+        return organisms[start_pos: start_pos + size], total, size
 
     def get(self, identity, item_id, *, uow, value, **kwargs):
         if not item_id.startswith("taxid:"):
@@ -333,7 +353,7 @@ class PubChemService(AuthorityProvider):
         chemicals = [self.convert_pubchem_record(chem) for chem in chemicals]
         # all records are returned on a single page
         start_pos = start_pos_api_page(params.get("page", 1), size, (total or 1))
-        return chemicals[start_pos : start_pos + size], total, size
+        return chemicals[start_pos: start_pos + size], total, size
 
     def get(self, identity, item_id, *, uow, value, **kwargs):
         if not item_id.startswith("inchikey:"):
@@ -345,7 +365,7 @@ class PubChemService(AuthorityProvider):
 
     def filter_hits(self, hits):
         """Helper function to remove incomplete Pubchem records."""
-        
+
         # Occasionally, there are  multiple CID for the same compound (e.g. 5'-GMP)
         # even though this shouldn't happen. In those case there seem to
         # be a single preferred record (explicit documentation of this has not
