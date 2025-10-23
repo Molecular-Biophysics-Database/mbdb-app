@@ -25,7 +25,7 @@ invenio oarepo cf init
 invenio oarepo fixtures load
 invenio files location create --default default file:////tmp/data
 
-MODELS=(bli mst itc spr)
+MODELS=(bli mst itc spr mp)
 for model in ${MODELS[@]}
 do
     invenio oarepo fixtures load --no-system-fixtures sample_data/$model
