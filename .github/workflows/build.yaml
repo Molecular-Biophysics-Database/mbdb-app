@@ -30,11 +30,6 @@ jobs:
         ports:
           - 5432:5432
 
-      redis:
-        image: redis
-        ports:
-          - 6379:6379
-
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python 3.12
@@ -78,10 +73,11 @@ jobs:
         uses: supercharge/redis-github-action@1.8.0
         with:
           redis-version: ${{ matrix.redis-version }}
+          redis-port: 6379
 
       - name: Install uv
         run: |
-          pip install uv
+            pip install uv
 
       - name: Run tests
         run: |
