@@ -238,7 +238,8 @@ class BliRecord(RDMRecord):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Affiliation.pid,
+            # TODO: revert when with_type_ctx issue is fixed (discussion with Mirek, Oct 2026)
+            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
         ),
         depositor_affiliations=PIDRelation(
             "metadata.general_parameters.depositors.depositor.affiliations",
@@ -249,7 +250,8 @@ class BliRecord(RDMRecord):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Affiliation.pid,
+            # TODO: revert when with_type_ctx issue is fixed (discussion with Mirek, Oct 2026)
+            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
         ),
         principal_contact_affiliations=PIDRelation(
             "metadata.general_parameters.depositors.principal_contact.affiliations",
@@ -260,7 +262,8 @@ class BliRecord(RDMRecord):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Affiliation.pid,
+            # TODO: revert when with_type_ctx issue is fixed (discussion with Mirek, Oct 2026)
+            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
         ),
         entities_of_interest_Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.expression_organism",
@@ -712,7 +715,8 @@ class BliDraft(RDMDraft):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Affiliation.pid,
+            # TODO: revert when with_type_ctx issue is fixed (discussion with Mirek, Oct 2026)
+            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
         ),
         depositor_affiliations=PIDRelation(
             "metadata.general_parameters.depositors.depositor.affiliations",
@@ -723,7 +727,8 @@ class BliDraft(RDMDraft):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Affiliation.pid,
+            # TODO: revert when with_type_ctx issue is fixed (discussion with Mirek, Oct 2026)
+            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
         ),
         principal_contact_affiliations=PIDRelation(
             "metadata.general_parameters.depositors.principal_contact.affiliations",
@@ -734,7 +739,8 @@ class BliDraft(RDMDraft):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Affiliation.pid,
+            # TODO: revert when with_type_ctx issue is fixed (discussion with Mirek, Oct 2026)
+            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
         ),
         entities_of_interest_Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.expression_organism",
