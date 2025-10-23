@@ -14,8 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       INVENIO_SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://postgres:postgres@localhost:5432/mbdb
+      INVENIO_REDIS_PORT: "6379"
       INVENIO_CELERY_BROKER_URL: "redis://localhost:6379/0"
       INVENIO_BROKER_URL: "redis://localhost:6379/0"
+      CACHE_REDIS_URL: "redis://localhost:6379/0"
 
     services:
       postgres:
@@ -73,11 +75,10 @@ jobs:
         uses: supercharge/redis-github-action@1.8.0
         with:
           redis-version: ${{ matrix.redis-version }}
-          redis-port: 6379
 
       - name: Install uv
         run: |
-            pip install uv
+          pip install uv
 
       - name: Run tests
         run: |
