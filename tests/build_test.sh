@@ -9,6 +9,11 @@ echo "use_docker: false" > .oarepo-user.yaml
 
 set
 
+echo "---ENVIRONMENT VARIABLE---"
+printenv
+echo "----------"
+echo
+
 ./nrp upgrade
 
 source .venv/bin/activate
