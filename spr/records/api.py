@@ -59,7 +59,6 @@ class SprIdProvider(UniversalPIDMixin, DraftRecordIdProviderV2):
 
 
 class SprRecord(RDMRecord):
-
     model_cls = SprMetadata
 
     schema = ConstantField("$schema", "local://spr-1.0.0.json")
@@ -238,7 +237,8 @@ class SprRecord(RDMRecord):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Affiliation.pid,
+            # TODO: revert when with_type_ctx issue is fixed (discussion with Mirek, Oct 2026)
+            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
         ),
         depositor_affiliations=PIDRelation(
             "metadata.general_parameters.depositors.depositor.affiliations",
@@ -249,7 +249,8 @@ class SprRecord(RDMRecord):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Affiliation.pid,
+            # TODO: revert when with_type_ctx issue is fixed (discussion with Mirek, Oct 2026)
+            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
         ),
         principal_contact_affiliations=PIDRelation(
             "metadata.general_parameters.depositors.principal_contact.affiliations",
@@ -260,7 +261,8 @@ class SprRecord(RDMRecord):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Affiliation.pid,
+            # TODO: revert when with_type_ctx issue is fixed (discussion with Mirek, Oct 2026)
+            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
         ),
         entities_of_interest_Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.expression_organism",
@@ -553,7 +555,6 @@ class RDMRecordMediaFiles(SprRecord):
 
 
 class SprDraft(RDMDraft):
-
     model_cls = SprDraftMetadata
 
     schema = ConstantField("$schema", "local://spr-1.0.0.json")
@@ -732,7 +733,8 @@ class SprDraft(RDMDraft):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Affiliation.pid,
+            # TODO: revert when with_type_ctx issue is fixed (discussion with Mirek, Oct 2026)
+            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
         ),
         depositor_affiliations=PIDRelation(
             "metadata.general_parameters.depositors.depositor.affiliations",
@@ -743,7 +745,8 @@ class SprDraft(RDMDraft):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Affiliation.pid,
+            # TODO: revert when with_type_ctx issue is fixed (discussion with Mirek, Oct 2026)
+            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
         ),
         principal_contact_affiliations=PIDRelation(
             "metadata.general_parameters.depositors.principal_contact.affiliations",
@@ -754,7 +757,8 @@ class SprDraft(RDMDraft):
                 {"key": "props.state", "target": "state"},
                 {"key": "props.country", "target": "country"},
             ],
-            pid_field=Affiliation.pid,
+            # TODO: revert when with_type_ctx issue is fixed (discussion with Mirek, Oct 2026)
+            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
         ),
         entities_of_interest_Polymer_expression_organism=PIDRelation(
             "metadata.general_parameters.entities_of_interest.expression_organism",
