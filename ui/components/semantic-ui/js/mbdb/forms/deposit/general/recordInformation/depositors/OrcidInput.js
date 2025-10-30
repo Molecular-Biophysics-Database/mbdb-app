@@ -129,7 +129,7 @@ function OrcidInput({ length = 16, groupSize = 4, onComplete, orcid }) {
         </div>
       ))}
       {orcidDigits.every((digit) => digit !== "") && (
-        <button className="bg-dark text-primary rounded-normal font-JostSemiBold px-2 ml-2 hover:bg-dark/85 transition-all" onClick={() => onComplete(formatORCID(orcidDigits))}>Add</button>
+        <button className="bg-dark text-primary rounded-normal font-JostSemiBold px-2 ml-2 hover:bg-dark/85 transition-all" onClick={() => onComplete(formatORCID(orcidDigits))}>Prefill</button>
       )}
     </div>
   );
