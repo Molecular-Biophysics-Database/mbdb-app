@@ -3,32 +3,6 @@
         "type": "model",
         "mapping": {
             "template": {
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": [
-                        "collected_default_search_fields",
-                        "collected_default_search_fields.substringmatch"
-                    ],
-                    "analysis": {
-                        "analyzer": {
-                            "substring": {
-                                "tokenizer": "substringtokenizer"
-                            }
-                        },
-                        "tokenizer": {
-                            "substringtokenizer": {
-                                "type": "edge_ngram",
-                                "min_gram": 4,
-                                "max_gram": 8,
-                                "token_chars": [
-                                    "letter",
-                                    "digit"
-                                ]
-                            }
-                        }
-                    }
-                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -84,6 +58,32 @@
                             }
                         }
                     ]
+                },
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200,
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "edge_ngram",
+                                "min_gram": 4,
+                                "max_gram": 8,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
                 }
             },
             "generate": true,
@@ -141,42 +141,6 @@
             ],
             "extra-code": ""
         },
-        "record": {
-            "imports": [
-                {
-                    "import": "oarepo_runtime.records.systemfields.SyntheticSystemField"
-                },
-                {
-                    "import": "oarepo_runtime.records.systemfields.PathSelector"
-                },
-                {
-                    "import": "oarepo_runtime.records.systemfields.FilteredSelector"
-                },
-                {
-                    "import": "oarepo_runtime.records.systemfields.MultiSelector"
-                },
-                {
-                    "import": "oarepo_runtime.records.systemfields.FirstItemSelector"
-                },
-                {
-                    "import": "nr_metadata.records.synthetic_fields.KeywordsFieldSelector"
-                }
-            ],
-            "fields": {
-                "people": "SyntheticSystemField(\n    PathSelector(\"metadata.general_parameters.depositors.depositor\", \n                  \"metadata.general_parameters.depositors.principal_contact\",\n                  \"metadata.general_parameters.depositors.contributors\"),\n    map=lambda x: \", \".join(p for p in [x.get(\"family_name\"), x.get(\"given_name\")] if p),\n    key=\"synthetic_fields.people\",\n)\n",
-                "affiliations": "SyntheticSystemField(\n    PathSelector(\"metadata.general_parameters.depositors.contributors.affiliations\", \n                  \"metadata.general_parameters.depositors.depositor.affiliations\",\n                  \"metadata.general_parameters.depositors.principal_contact.affiliations\"),\n    map=lambda x: x.get('title', {}).get('en'),\n    key=\"synthetic_fields.affiliations\",\n)\n",
-                "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')",
-                "state_timestamp": "{{oarepo_workflows.records.systemfields.state.RecordStateTimestampField}}()",
-                "media_files": "FilesField(key=MediaFilesAttrConfig[\"_files_attr_key\"],bucket_id_attr=MediaFilesAttrConfig[\"_files_bucket_id_attr_key\"],bucket_attr=MediaFilesAttrConfig[\"_files_bucket_attr_key\"],store=False,dump=False,file_cls={{invenio_rdm_records.records.api.RDMMediaFileRecord}},create=False,delete=False,)"
-            },
-            "base-classes": [
-                "invenio_rdm_records.records.api.RDMRecord"
-            ],
-            "generate": true,
-            "module": "mst.records.api",
-            "class": "mst.records.api.MstRecord",
-            "extra-code": ""
-        },
         "service": {
             "base-classes": [
                 "common.services.records.service.AddWorkflowServiceMixin",
@@ -219,6 +183,42 @@
             "service-id": "mst",
             "additional-args": [],
             "search-item-links-template-cls": "invenio_records_resources.services.LinksTemplate"
+        },
+        "record": {
+            "imports": [
+                {
+                    "import": "oarepo_runtime.records.systemfields.SyntheticSystemField"
+                },
+                {
+                    "import": "oarepo_runtime.records.systemfields.PathSelector"
+                },
+                {
+                    "import": "oarepo_runtime.records.systemfields.FilteredSelector"
+                },
+                {
+                    "import": "oarepo_runtime.records.systemfields.MultiSelector"
+                },
+                {
+                    "import": "oarepo_runtime.records.systemfields.FirstItemSelector"
+                },
+                {
+                    "import": "nr_metadata.records.synthetic_fields.KeywordsFieldSelector"
+                }
+            ],
+            "fields": {
+                "people": "SyntheticSystemField(\n    PathSelector(\"metadata.general_parameters.depositors.depositor\", \n                  \"metadata.general_parameters.depositors.principal_contact\",\n                  \"metadata.general_parameters.depositors.contributors\"),\n    map=lambda x: \", \".join(p for p in [x.get(\"family_name\"), x.get(\"given_name\")] if p),\n    key=\"synthetic_fields.people\",\n)\n",
+                "affiliations": "SyntheticSystemField(\n    PathSelector(\"metadata.general_parameters.depositors.contributors.affiliations\", \n                  \"metadata.general_parameters.depositors.depositor.affiliations\",\n                  \"metadata.general_parameters.depositors.principal_contact.affiliations\"),\n    map=lambda x: x.get('title', {}).get('en'),\n    key=\"synthetic_fields.affiliations\",\n)\n",
+                "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')",
+                "state_timestamp": "{{oarepo_workflows.records.systemfields.state.RecordStateTimestampField}}()",
+                "media_files": "FilesField(key=MediaFilesAttrConfig[\"_files_attr_key\"],bucket_id_attr=MediaFilesAttrConfig[\"_files_bucket_id_attr_key\"],bucket_attr=MediaFilesAttrConfig[\"_files_bucket_attr_key\"],store=False,dump=False,file_cls={{invenio_rdm_records.records.api.RDMMediaFileRecord}},create=False,delete=False,)"
+            },
+            "base-classes": [
+                "invenio_rdm_records.records.api.RDMRecord"
+            ],
+            "generate": true,
+            "module": "mst.records.api",
+            "class": "mst.records.api.MstRecord",
+            "extra-code": ""
         },
         "ui": {
             "marshmallow": {
@@ -567,6 +567,192 @@
             "suffix-upper": "MST",
             "suffix-snake": "mst"
         },
+        "files": {
+            "type": "file",
+            "properties": {
+                "content_type": {
+                    "type": "keyword",
+                    "required": true,
+                    "enum": [
+                        "text",
+                        "binary",
+                        "text and binary"
+                    ],
+                    "help.en": "Type of the file content in terms of how it can be read (text, binary, etc.)",
+                    "label.en": "Content type"
+                },
+                "context": {
+                    "type": "keyword",
+                    "required": true,
+                    "enum": [
+                        "raw measurement data",
+                        "derived measurement data",
+                        "quality control report"
+                    ],
+                    "help.en": "The context the file should be understood within (e.g. raw measurement data)",
+                    "label.en": "Context"
+                },
+                "originates_from": {
+                    "type": "keyword",
+                    "required": true,
+                    "enum": [
+                        "Instrument software",
+                        "User",
+                        "MBDB"
+                    ],
+                    "help.en": "What is the source of the file",
+                    "label.en": "Originates from"
+                },
+                "creation_date": {
+                    "type": "date",
+                    "required": true,
+                    "help.en": "The date when the file was created (e.g. the measurement date)",
+                    "label.en": "Creation date"
+                },
+                "description": {
+                    "type": "keyword",
+                    "help.en": "Short description of what the file contains",
+                    "label.en": "Description"
+                },
+                "recommended_software": {
+                    "type": "keyword",
+                    "help.en": "The name of the software recommended for opening and working with the file",
+                    "label.en": "Recommended software"
+                },
+                "processing_steps": {
+                    "type": "array",
+                    "required": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "keyword",
+                                "required": true,
+                                "help.en": "Short descriptive name of the processing step",
+                                "label.en": "Name"
+                            },
+                            "description": {
+                                "type": "keyword",
+                                "required": true,
+                                "help.en": "Description of what the processing step was",
+                                "label.en": "Description"
+                            },
+                            "software_name": {
+                                "type": "keyword",
+                                "help.en": "The name of the software that was used for the step (e.g. Excel)",
+                                "label.en": "Software name"
+                            },
+                            "software_version": {
+                                "type": "keyword",
+                                "help.en": "The version of the software that was used for the step",
+                                "label.en": "Software version"
+                            },
+                            "link_to_source_code": {
+                                "type": "url",
+                                "help.en": "If processing was performed with software where the source code is freely available a link can be specified here (e.g. self-written python script in a GitHub repository)",
+                                "label.en": "Link to source code"
+                            }
+                        },
+                        "label.en": "Processing step"
+                    },
+                    "minItems": 1,
+                    "help.en": "List of the processing steps performed on the file before it was deposited (e.g. exported to xlsx)",
+                    "label.en": "Processing steps"
+                },
+                "id": {
+                    "type": "keyword",
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    },
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "created": {
+                    "type": "date",
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "marshmallow": {
+                        "read": true,
+                        "write": false
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "updated": {
+                    "type": "date",
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "marshmallow": {
+                        "read": true,
+                        "write": false
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "$schema": {
+                    "type": "keyword",
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    },
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                }
+            },
+            "searchable": true,
+            "marshmallow": {
+                "imports": [
+                    {
+                        "import": "invenio_records_resources.services.files.schema.FileSchema",
+                        "alias": "InvenioFileSchema"
+                    }
+                ],
+                "base-classes": [
+                    "InvenioFileSchema"
+                ]
+            },
+            "service-config": {
+                "base-classes": [
+                    "common.services.files.mst_metadata_extraction.MstFileServiceConfigWithProcessors"
+                ]
+            },
+            "resource": {
+                "base-classes": [
+                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
+                ]
+            },
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            },
+            "label.en": ""
+        },
         "draft-files": {
             "type": "draft-file",
             "properties": {},
@@ -586,6 +772,11 @@
                 "extra-code": "",
                 "module": "tests"
             }
+        },
+        "tests": {
+            "extra-fixtures": [],
+            "extra-code": "",
+            "module": "tests"
         },
         "draft": {
             "type": "draft_record",
@@ -865,197 +1056,6 @@
                 "module": "tests"
             }
         },
-        "files": {
-            "type": "file",
-            "properties": {
-                "content_type": {
-                    "type": "keyword",
-                    "required": true,
-                    "enum": [
-                        "text",
-                        "binary",
-                        "text and binary"
-                    ],
-                    "help.en": "Type of the file content in terms of how it can be read (text, binary, etc.)",
-                    "label.en": "Content type"
-                },
-                "context": {
-                    "type": "keyword",
-                    "required": true,
-                    "enum": [
-                        "raw measurement data",
-                        "derived measurement data",
-                        "quality control report"
-                    ],
-                    "help.en": "The context the file should be understood within (e.g. raw measurement data)",
-                    "label.en": "Context"
-                },
-                "originates_from": {
-                    "type": "keyword",
-                    "required": true,
-                    "enum": [
-                        "Instrument software",
-                        "User",
-                        "MBDB"
-                    ],
-                    "help.en": "What is the source of the file",
-                    "label.en": "Originates from"
-                },
-                "creation_date": {
-                    "type": "date",
-                    "required": true,
-                    "help.en": "The date when the file was created (e.g. the measurement date)",
-                    "label.en": "Creation date"
-                },
-                "description": {
-                    "type": "keyword",
-                    "help.en": "Short description of what the file contains",
-                    "label.en": "Description"
-                },
-                "recommended_software": {
-                    "type": "keyword",
-                    "help.en": "The name of the software recommended for opening and working with the file",
-                    "label.en": "Recommended software"
-                },
-                "processing_steps": {
-                    "type": "array",
-                    "required": true,
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "name": {
-                                "type": "keyword",
-                                "required": true,
-                                "help.en": "Short descriptive name of the processing step",
-                                "label.en": "Name"
-                            },
-                            "description": {
-                                "type": "keyword",
-                                "required": true,
-                                "help.en": "Description of what the processing step was",
-                                "label.en": "Description"
-                            },
-                            "software_name": {
-                                "type": "keyword",
-                                "help.en": "The name of the software that was used for the step (e.g. Excel)",
-                                "label.en": "Software name"
-                            },
-                            "software_version": {
-                                "type": "keyword",
-                                "help.en": "The version of the software that was used for the step",
-                                "label.en": "Software version"
-                            },
-                            "link_to_source_code": {
-                                "type": "url",
-                                "help.en": "If processing was performed with software where the source code is freely available a link can be specified here (e.g. self-written python script in a GitHub repository)",
-                                "label.en": "Link to source code"
-                            }
-                        },
-                        "label.en": "Processing step"
-                    },
-                    "minItems": 1,
-                    "help.en": "List of the processing steps performed on the file before it was deposited (e.g. exported to xlsx)",
-                    "label.en": "Processing steps"
-                },
-                "id": {
-                    "type": "keyword",
-                    "marshmallow": {
-                        "read": false,
-                        "write": false
-                    },
-                    "ui": {
-                        "marshmallow": {
-                            "read": false,
-                            "write": false
-                        }
-                    },
-                    "sample": {
-                        "skip": true
-                    }
-                },
-                "created": {
-                    "type": "date",
-                    "ui": {
-                        "marshmallow": {
-                            "read": false,
-                            "write": false
-                        }
-                    },
-                    "marshmallow": {
-                        "read": true,
-                        "write": false
-                    },
-                    "sample": {
-                        "skip": true
-                    }
-                },
-                "updated": {
-                    "type": "date",
-                    "ui": {
-                        "marshmallow": {
-                            "read": false,
-                            "write": false
-                        }
-                    },
-                    "marshmallow": {
-                        "read": true,
-                        "write": false
-                    },
-                    "sample": {
-                        "skip": true
-                    }
-                },
-                "$schema": {
-                    "type": "keyword",
-                    "marshmallow": {
-                        "read": false,
-                        "write": false
-                    },
-                    "ui": {
-                        "marshmallow": {
-                            "read": false,
-                            "write": false
-                        }
-                    },
-                    "sample": {
-                        "skip": true
-                    }
-                }
-            },
-            "searchable": true,
-            "marshmallow": {
-                "imports": [
-                    {
-                        "import": "invenio_records_resources.services.files.schema.FileSchema",
-                        "alias": "InvenioFileSchema"
-                    }
-                ],
-                "base-classes": [
-                    "InvenioFileSchema"
-                ]
-            },
-            "service-config": {
-                "base-classes": [
-                    "common.services.files.mst_metadata_extraction.MstFileServiceConfigWithProcessors"
-                ]
-            },
-            "resource": {
-                "base-classes": [
-                    "oarepo_ui.resources.file_resource.S3RedirectFileResource"
-                ]
-            },
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            },
-            "label.en": ""
-        },
-        "tests": {
-            "extra-fixtures": [],
-            "extra-code": "",
-            "module": "tests"
-        },
         "sample": {
             "file": "data/sample_data.yaml"
         },
@@ -1169,15 +1169,6 @@
             "name": "mst-1.0.0.json",
             "file": "mst/records/jsonschemas/mst-1.0.0.json"
         },
-        "files-field": {
-            "generate": true,
-            "field-class": "invenio_records_resources.records.systemfields.FilesField",
-            "file-class": "mst.records.api.MstRecord",
-            "field-args": [
-                "store=False"
-            ],
-            "imports": []
-        },
         "record-metadata": {
             "generate": true,
             "module": "mst.records.models",
@@ -1205,6 +1196,15 @@
             "extensions": [
                 "{{oarepo_runtime.records.systemfields.mapping.SystemFieldDumperExt}}()",
                 "{{mst.records.dumpers.edtf.MstEDTFIntervalDumperExt}}()"
+            ],
+            "imports": []
+        },
+        "files-field": {
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "mst.records.api.MstRecord",
+            "field-args": [
+                "store=False"
             ],
             "imports": []
         },
@@ -14404,12 +14404,9 @@
                                                                 }
                                                             }
                                                         },
+                                                        "pid-field": "Vocabulary.pid.with_type_ctx(\"affiliations\")",
                                                         "vocabulary-type": "affiliations",
-                                                        "imports": [
-                                                            {
-                                                                "import": "oarepo_vocabularies.records.api.Vocabulary"
-                                                            }
-                                                        ],
+                                                        "imports": [],
                                                         "model": "vocabularies",
                                                         "marshmallow": {
                                                             "unknown": "INCLUDE",
@@ -14425,7 +14422,6 @@
                                                             "detail": "vocabulary_item",
                                                             "edit": "vocabulary_item"
                                                         },
-                                                        "pid-field": "{{invenio_vocabularies.contrib.affiliations.api.Affiliation}}.pid",
                                                         "facets": {
                                                             "args": [
                                                                 "vocabulary='affiliations'"
@@ -14624,12 +14620,9 @@
                                                             }
                                                         }
                                                     },
+                                                    "pid-field": "Vocabulary.pid.with_type_ctx(\"affiliations\")",
                                                     "vocabulary-type": "affiliations",
-                                                    "imports": [
-                                                        {
-                                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
-                                                        }
-                                                    ],
+                                                    "imports": [],
                                                     "model": "vocabularies",
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
@@ -14645,7 +14638,6 @@
                                                         "detail": "vocabulary_item",
                                                         "edit": "vocabulary_item"
                                                     },
-                                                    "pid-field": "{{invenio_vocabularies.contrib.affiliations.api.Affiliation}}.pid",
                                                     "facets": {
                                                         "args": [
                                                             "vocabulary='affiliations'"
@@ -14843,12 +14835,9 @@
                                                             }
                                                         }
                                                     },
+                                                    "pid-field": "Vocabulary.pid.with_type_ctx(\"affiliations\")",
                                                     "vocabulary-type": "affiliations",
-                                                    "imports": [
-                                                        {
-                                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
-                                                        }
-                                                    ],
+                                                    "imports": [],
                                                     "model": "vocabularies",
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
@@ -14864,7 +14853,6 @@
                                                         "detail": "vocabulary_item",
                                                         "edit": "vocabulary_item"
                                                     },
-                                                    "pid-field": "{{invenio_vocabularies.contrib.affiliations.api.Affiliation}}.pid",
                                                     "facets": {
                                                         "args": [
                                                             "vocabulary='affiliations'"
@@ -30747,7 +30735,6 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "type": "object",
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -30763,6 +30750,7 @@
                             }
                         }
                     },
+                    "type": "object",
                     "uniqueItems": true,
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
