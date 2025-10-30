@@ -8,10 +8,12 @@ dependencies = [
     "invenio-drafts-resources>=1.0.4",
     "json5",
     "luqum",
+    "marshmallow-i18n-messages",
     "mbdb-parsing",
     "oarepo-communities>=5.3.0,<6.0.0",
     "oarepo-dashboard>=1.0.0,<2.0.0",
     "oarepo-doi>=1.0.19,<2.0.0",
+    "oarepo-glitchtip",
     "oarepo-global-search>=1.0.0,<2.0.0",
     "oarepo-oidc-einfra>=1.1.0,<2.0.0",
     "oarepo-published-service>=1.0.0,<2.0.0",
@@ -21,8 +23,6 @@ dependencies = [
     "oarepo-vocabularies>=2.2.0,<3.0.0",
     "oarepo-workflows>=1.2.0,<2.0.0",
     "oarepo[s3,rdm]==12.2.*",
-    "marshmallow-i18n-messages",
-    "oarepo-glitchtip",
     "python-dotenv",
 ]
 requires-python = ">=3.12,<3.13"
