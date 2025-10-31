@@ -5,8 +5,8 @@ import MolecularWeight from "@mbdb_deposit/general/sharedComponents/MolecularWei
 import Modification from "@mbdb_deposit/general/sharedComponents/modifications/Modification";
 import ArrayField from "@mbdb_deposit/buildingBlocks/ArrayField";
 import FormWrapper from "@mbdb_deposit/buildingBlocks/FormWrapper";
-import Size from "@mbdb_deposit/general/sharedComponents/Size";
 import OptionalField from "@mbdb_deposit/buildingBlocks/OptionalField";
+import SizeCalibrants from "./SizeCalibrants";
 
 export default function Calibrants({ name }) {
   const typeOptions = [
@@ -75,7 +75,7 @@ export default function Calibrants({ name }) {
           label="Size"
           tooltip="The size of the calibrant"
           renderChild={({ optionalFieldName }) => (
-            <Size
+            <SizeCalibrants
                 name={optionalFieldName}
                 colorSchema="light"
                 tooltip="The size of the calibrant"
