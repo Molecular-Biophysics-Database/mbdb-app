@@ -3,32 +3,6 @@
         "type": "model",
         "mapping": {
             "template": {
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": [
-                        "collected_default_search_fields",
-                        "collected_default_search_fields.substringmatch"
-                    ],
-                    "analysis": {
-                        "analyzer": {
-                            "substring": {
-                                "tokenizer": "substringtokenizer"
-                            }
-                        },
-                        "tokenizer": {
-                            "substringtokenizer": {
-                                "type": "edge_ngram",
-                                "min_gram": 4,
-                                "max_gram": 8,
-                                "token_chars": [
-                                    "letter",
-                                    "digit"
-                                ]
-                            }
-                        }
-                    }
-                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -84,6 +58,32 @@
                             }
                         }
                     ]
+                },
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200,
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "edge_ngram",
+                                "min_gram": 4,
+                                "max_gram": 8,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
                 }
             },
             "generate": true,
@@ -1590,12 +1590,15 @@
                     "general_parameters": {
                         "type": "object",
                         "required": true,
-                        "help.en": "The general parameter of the experiment",
-                        "label.en": "General parameters",
                         "marshmallow": {
+                            "base-classes": [
+                                "common.services.records.schema.VersionUpdateSchema"
+                            ],
                             "generate": true,
                             "class": "mp.services.records.schema.GeneralParametersSchema"
                         },
+                        "help.en": "The general parameter of the experiment",
+                        "label.en": "General parameters",
                         "ui": {
                             "marshmallow": {
                                 "generate": true,
@@ -29736,12 +29739,15 @@
                     "method_specific_parameters": {
                         "type": "object",
                         "required": true,
-                        "help.en": "The parameters of the experiment that are specific to MP",
-                        "label.en": "Method specific parameters",
                         "marshmallow": {
+                            "base-classes": [
+                                "common.services.records.schema.VersionUpdateSchema"
+                            ],
                             "generate": true,
                             "class": "mp.services.records.schema.MethodSpecificParametersSchema"
                         },
+                        "help.en": "The parameters of the experiment that are specific to MP",
+                        "label.en": "Method specific parameters",
                         "ui": {
                             "marshmallow": {
                                 "generate": true,
@@ -31345,10 +31351,10 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "type": "object",
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
                     },
+                    "type": "object",
                     "uniqueItems": true,
                     "additionalProperties": {
                         "type": "object",

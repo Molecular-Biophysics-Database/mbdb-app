@@ -1582,12 +1582,15 @@
                     "general_parameters": {
                         "type": "object",
                         "required": true,
-                        "help.en": "The general parameter of the experiment",
-                        "label.en": "General parameters",
                         "marshmallow": {
+                            "base-classes": [
+                                "common.services.records.schema.VersionUpdateSchema"
+                            ],
                             "generate": true,
                             "class": "itc.services.records.schema.GeneralParametersSchema"
                         },
+                        "help.en": "The general parameter of the experiment",
+                        "label.en": "General parameters",
                         "ui": {
                             "marshmallow": {
                                 "generate": true,
@@ -29728,12 +29731,15 @@
                     "method_specific_parameters": {
                         "type": "object",
                         "required": true,
-                        "help.en": "The parameters of the experiment that are specific to ITC",
-                        "label.en": "Method specific parameters",
                         "marshmallow": {
+                            "base-classes": [
+                                "common.services.records.schema.VersionUpdateSchema"
+                            ],
                             "generate": true,
                             "class": "itc.services.records.schema.MethodSpecificParametersSchema"
                         },
+                        "help.en": "The parameters of the experiment that are specific to ITC",
+                        "label.en": "Method specific parameters",
                         "ui": {
                             "marshmallow": {
                                 "generate": true,
@@ -31129,11 +31135,10 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
+                    "type": "object",
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
                     },
-                    "type": "object",
-                    "uniqueItems": true,
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -31148,7 +31153,8 @@
                                 "type": "string"
                             }
                         }
-                    }
+                    },
+                    "uniqueItems": true
                 },
                 "ui": {
                     "marshmallow": {
