@@ -5,6 +5,6 @@
 {% for file in files.entries %}
     {{file.metadata.description | truncate(length=100) }}
     {{file.metadata.context }}
-    <a class="flex justify-center w-fit py-2 px-4 mb-2 text-18px bg-dark rounded-normal text-white hover:bg-secondary hover:text-dark transition-all"
+    <a class="flex justify-center w-fit py-2 px-4 mb-2 text-18px bg-dark rounded-normal text-white hover:bg-dark/75 hover:text-white transition-all"
     href="{{file.links.content}}" target="_blank">Download {{ file.key }}</a>
 {% endfor %}
