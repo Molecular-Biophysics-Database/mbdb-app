@@ -43,7 +43,7 @@ function ResultTab({ name }) {
       value: "Change in gibbs free energy deltaG",
       label: "Change in Gibbs free energy deltaG",
     },
-    { value: "Molecular weight MW", label: "Molecular weight MW" },
+    { value: "Molecular weight", label: "Molecular weight" },
     {
       value: "Half maximal effective concentration EC50",
       label: "Half maximal effective concentration EC50",
@@ -120,7 +120,7 @@ function ResultTab({ name }) {
                     name={`${arrayName}.${index}`}
                   />
                 )}
-                {actualValue.type === "Molecular weight MW" && (
+                {actualValue.type === "Molecular weight" && (
                   <MolecularWeightMW name={`${arrayName}.${index}`} />
                 )}
                 {actualValue.type ===
