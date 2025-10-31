@@ -81,6 +81,8 @@ MST_specific_parameters:
       ^label.en: Data analysis
       use: '#/$defs/MST_data_analysis'
   label.en: Mst specific parameters
+  marshmallow:
+    base-classes: [common.services.records.schema.VersionUpdateSchema]
 MST_data_analysis:
   properties:
     results[]:
@@ -1385,6 +1387,7 @@ Person:
         - props.country
       vocabulary-type: affiliations
       type: vocabulary
+      pid-field: Vocabulary.pid.with_type_ctx("affiliations")
       extras:
         title:
           mapping:
