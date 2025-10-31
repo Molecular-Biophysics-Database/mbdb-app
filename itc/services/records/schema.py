@@ -19,6 +19,8 @@ from oarepo_runtime.services.schema.polymorphic import PolymorphicSchema
 from oarepo_runtime.services.schema.validation import validate_date, validate_datetime
 from oarepo_workflows.services.records.schema import RDMWorkflowParentSchema
 
+from common.services.records.schema import VersionUpdateSchema
+
 
 class GeneratedParentSchema(RDMWorkflowParentSchema):
     """"""
@@ -82,7 +84,7 @@ class ItcMetadataSchema(Schema):
     version = ma_fields.String()
 
 
-class GeneralParametersSchema(DictOnlySchema):
+class GeneralParametersSchema(VersionUpdateSchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -707,7 +709,7 @@ class PolymerSchema(DictOnlySchema):
     variant = ma_fields.String()
 
 
-class MethodSpecificParametersSchema(DictOnlySchema):
+class MethodSpecificParametersSchema(VersionUpdateSchema):
     class Meta:
         unknown = ma.RAISE
 
