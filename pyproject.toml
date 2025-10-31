@@ -77,6 +77,7 @@ mp_request_types = "mp.views.request_types.app:create_app_blueprint"
 mst_request_types = "mst.views.request_types.app:create_app_blueprint"
 itc_request_types = "itc.views.request_types.app:create_app_blueprint"
 spr_request_types = "spr.views.request_types.app:create_app_blueprint"
+invenio_app_rdm_administration = "invenio_app_rdm.administration.views:create_ui_blueprint"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"
@@ -181,6 +182,19 @@ mp = "mp.models:ui.json"
 [project.entry-points."invenio_requests.types"]
 submit-draft-request = "common.requests.submit_draft:SubmitDraftRequestType"
 publish-accepted-draft-request = "common.requests.publish_accepted_draft:PublishAcceptedDraftRequestType"
+
+[project.entry-points."invenio_administration.views"]
+
+invenio_users_resources_users_list = "invenio_app_rdm.administration.users:UsersListView"
+invenio_users_resources_users_details = "invenio_app_rdm.administration.users:UsersDetailView"
+# invenio_users_resources_domains_list = "invenio_app_rdm.administration.domains:DomainsListView"
+# invenio_users_resources_domains_edit = "invenio_app_rdm.administration.domains:DomainsEditView"
+# invenio_users_resources_domains_detail = "invenio_app_rdm.administration.domains:DomainsDetailView"
+# invenio_users_resources_domains_create = "invenio_app_rdm.administration.domains:DomainsCreateView"
+# invenio_requests_user_moderation_list = "invenio_app_rdm.administration.user_moderation:UserModerationListView"
+# invenio_requests_user_moderation_detail = "invenio_app_rdm.administration.user_moderation:UserModerationRequestDetailView"
+# invenio_app_rdm_records_list = "invenio_app_rdm.administration.records:RecordAdminListView"
+# invenio_app_rdm_drafts_list = "invenio_app_rdm.administration.records:DraftAdminListView"
 
 [project.optional-dependencies]
 tests = [
