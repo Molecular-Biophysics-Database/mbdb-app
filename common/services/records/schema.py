@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields, pre_load
 from marshmallow.validate import OneOf
 from marshmallow.exceptions import ValidationError
-from semver import parse_version_info
+from semver import Version
 
 
 class VersionUpdateSchema(Schema):
@@ -17,7 +17,7 @@ class VersionUpdateSchema(Schema):
 
         data_version = data.get('schema_version')
 
-        if data_version and parse_version_info(data_version) < parse_version_info(schema_version):
+        if data_version and Version.parse(data_version) < Version.parse(schema_version):
             data['schema_version'] = schema_version
 
         return data
