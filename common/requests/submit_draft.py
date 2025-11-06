@@ -1,3 +1,4 @@
+from marshmallow import ValidationError
 from invenio_access.permissions import system_identity
 from oarepo_runtime.i18n import lazy_gettext as _
 from oarepo_requests.types import ModelRefTypes
@@ -31,5 +32,19 @@ class SubmitDraftRequestType(NonDuplicableOARepoRequestType):
         if not topic.is_draft:
             raise ValueError("Trying to create publish request on published record")
         super().can_create(identity, data, receiver, topic, creator, *args, **kwargs)
+        draft = topic
+
+        # Enforce required file
+        has_files = (
+                getattr(draft, "files", None)
+                and getattr(draft.files, "entries", None)
+                and len(draft.files.entries) > 0
+        )
+        if not has_files:
+            raise ValidationError({"files.enabled": ["Missing uploaded files."]})
+
         topic_service = get_record_service_for_record(topic)
-        topic_service.validate_draft(system_identity, topic["id"])
+        errors = topic_service.validate_draft(identity, topic["id"])
+
+        if errors:
+            raise ValidationError(errors)
