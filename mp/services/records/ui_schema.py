@@ -911,7 +911,7 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
         lambda: PrimaryLaserWavelengthUISchema()
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.6.0"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["1.0.0"])])
 
 
 class PolymerUISchema(DictOnlySchema):
@@ -2131,7 +2131,7 @@ class ModeUISchema(DictOnlySchema):
 
     flow_cell = ma_fields.String(required=True)
 
-    sample_carrier = ma_fields.Nested(lambda: SampleCarrierUISchema())
+    sample_carrier = ma_fields.Nested(lambda: SampleCarrierUISchema(), required=True)
 
     sample_flowrate = ma_fields.Nested(lambda: BufferFlowrateUISchema(), required=True)
 
@@ -2477,7 +2477,7 @@ class StaticUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    sample_carrier = ma_fields.Nested(lambda: SampleCarrierUISchema())
+    sample_carrier = ma_fields.Nested(lambda: SampleCarrierUISchema(), required=True)
 
     type = ma_fields.String(required=True, validate=[OneOf(["Flow", "Static"])])
 
