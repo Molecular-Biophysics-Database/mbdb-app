@@ -734,7 +734,7 @@ class MethodSpecificParametersSchema(VersionUpdateSchema):
 
     primary_laser_wavelength = ma_fields.Nested(lambda: PrimaryLaserWavelengthSchema())
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["0.6.0"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["1.0.0"])])
 
 
 class QualityControlsSchema(DictOnlySchema):
@@ -2271,7 +2271,7 @@ class StaticSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    sample_carrier = ma_fields.Nested(lambda: SampleCarrierSchema())
+    sample_carrier = ma_fields.Nested(lambda: SampleCarrierSchema(), required=True)
 
     type = ma_fields.String(required=True, validate=[OneOf(["Flow", "Static"])])
 

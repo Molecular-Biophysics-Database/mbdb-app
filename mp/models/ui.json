@@ -5771,6 +5771,7 @@
                                 "sample_carrier": {
                                     "detail": false,
                                     "input": false,
+                                    "required": true,
                                     "help": "metadata/method_specific_parameters/mode/sample_carrier.help",
                                     "label": "metadata/method_specific_parameters/mode/sample_carrier.label",
                                     "hint": "metadata/method_specific_parameters/mode/sample_carrier.hint",

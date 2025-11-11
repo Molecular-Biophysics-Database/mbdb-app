@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-10-31T14:44:43.743613\n"
-"PO-Revision-Date: 2025-10-31T14:44:43.743621\n"
+"POT-Creation-Date: 2025-11-10T13:38:45.388267\n"
+"PO-Revision-Date: 2025-11-10T13:38:45.388275\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8875,11 +8875,11 @@ msgstr ""
 msgid "metadata/method_specific_parameters/mode/type.enum.Static"
 msgstr ""
 
+msgid "metadata/method_specific_parameters/mode/sample_carrier.help"
+msgstr "Properties and preparation of the sample carrier"
+
 msgid "metadata/method_specific_parameters/mode/sample_carrier.label"
 msgstr "Sample carrier"
-
-msgid "metadata/method_specific_parameters/mode/sample_carrier.help"
-msgstr ""
 
 msgid "metadata/method_specific_parameters/mode/sample_carrier.hint"
 msgstr ""
@@ -8978,7 +8978,7 @@ msgid ""
 "metadata/method_specific_parameters/mode/sample_carrier/surface_modification.help"
 msgstr ""
 "Information about coating or other types of surface modification of the "
-"coverslip"
+"coverslip, (\"None\" if not modified)"
 
 msgid ""
 "metadata/method_specific_parameters/mode/sample_carrier/surface_modification.label"
@@ -9052,7 +9052,7 @@ msgstr "Schema version"
 msgid "metadata/method_specific_parameters/schema_version.hint"
 msgstr ""
 
-msgid "metadata/method_specific_parameters/schema_version.enum.0.6.0"
+msgid "metadata/method_specific_parameters/schema_version.enum.1.0.0"
 msgstr ""
 
 msgid "metadata/version.label"
