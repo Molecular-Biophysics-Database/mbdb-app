@@ -14,6 +14,7 @@ export default function BufferFlowrate({ name, colorSchema }) {
         headline="Buffer flowrate"
         tooltip="Numerical value of the buffer flowrate"
         colorSchema={colorSchema}
+        required
       >
         <ValueUnit
           options={unitOptions}

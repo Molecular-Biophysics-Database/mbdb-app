@@ -14,6 +14,7 @@ export default function SampleFlowrate({ name, colorSchema }) {
         headline="Sample flowrate"
         tooltip="Numerical value of the sample flowrate"
         colorSchema={colorSchema}
+        required
       >
         <ValueUnit
           options={unitOptions}
