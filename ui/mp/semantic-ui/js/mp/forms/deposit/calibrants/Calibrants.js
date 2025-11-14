@@ -16,6 +16,7 @@ export default function Calibrants({ name }) {
     { value: "chemical", label: "chemical" },
     { value: "molecular assembly", label: "molecular assembly" },
     { value: "virion", label: "virion" },
+    { value: "nanoparticle", label: "nanoparticle" }
   ];
 
   return (
