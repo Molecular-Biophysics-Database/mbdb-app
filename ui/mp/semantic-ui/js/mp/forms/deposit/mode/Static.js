@@ -14,14 +14,19 @@ export default function Static({ name, colorSchema }) {
   };
 
   return (
-    <FormWrapper headline="Sample carrier" colorSchema={colorSchema}>
+    <FormWrapper
+      headline="Sample carrier"
+      colorSchema={colorSchema}
+      tooltip="Properties and preparation of the sample carrier"
+      required
+    >
       <div className="flex">
         <div className="mr-3">
           <CustomField
             name={name}
             fieldName="surface_modification"
             label="Surface modification"
-            tooltip="Information about coating or other types of surface modification of the coverslip"
+            tooltip={`Information about coating or other types of surface modification of the coverslip, ("None" if not modified)`}
             required
             width="w-[25rem]"
           />
