@@ -4,18 +4,7 @@ import { FormContext } from "./FormProvider"
 import { useDepositApiClient } from "@js/oarepo_ui";
 import RequestOnRecordView from "@mbdb_deposit/buttons/RequestsRecordView";
 
-const TABS = [
-    "chemical_environments",
-    "entities_of_interest",
-    "data_analysis",
-    "record_information",
-    "measurements",
-    'instrument',
-    'results',
-    'depositors',
-];
-
-function formatFieldPath(path) {
+function formatFieldPath(path, tabs) {
     const parts = path.split(".");
 
     if (parts[0] === "files") return parts[0];
@@ -29,14 +18,19 @@ function formatFieldPath(path) {
         return isNaN(num) ? replaced : num + 1;
     });
 
-    return TABS.includes(tab)
+    const tabKeys = [
+        ...(tabs ?? []).map(tab => tab.value.replace(/-/g, "_")),
+        'depositors',
+    ];
+
+    return tabKeys.includes(tab)
         ? cleanParts.join(" / ")
         : cleanParts[cleanParts.length - 1];
 }
 
 export default function ErrorsContainer() {
     const { values } = useFormikContext();
-    const { selectedTab, setSelectedTab, TABS_CONFIG, showErrors } = useContext(FormContext);
+    const { selectedTab, setSelectedTab, tabs, showErrors } = useContext(FormContext);
     
     const [openDropdown, setOpenDropdown] = useState(false);
     const [focusField, setFocusField] = useState(null);
@@ -47,7 +41,7 @@ export default function ErrorsContainer() {
         if (!errors) return [];
         return errors.map((e) => ({
             fieldPath: e.field,
-            fieldLabel: formatFieldPath(e.field),
+            fieldLabel: formatFieldPath(e.field, tabs),
             message: e.messages
         }));
     }, [errors]);
@@ -81,9 +75,9 @@ export default function ErrorsContainer() {
 
 
     function navigateToForm(field) {
-        const pathToTab = field.split(".", 3).join(".")
+        const pathToTab = field.split(".", 3).join(".");
         
-        const matchingTab = TABS_CONFIG.find((tab) => tab.fieldPaths?.includes(pathToTab));
+        const matchingTab = tabs.find((tab) => tab.fieldPaths?.includes(pathToTab));
 
         if (matchingTab) {
             setSelectedTab(matchingTab.value);

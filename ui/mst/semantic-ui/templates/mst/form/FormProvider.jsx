@@ -20,7 +20,7 @@ const TABS_CONFIG = [
         ]
     },
     {
-        value: "chemical-environment",
+        value: "chemical-environments",
         label: "Chemical environments",
         fieldPaths: [
             'metadata.general_parameters.chemical_environments'
@@ -76,7 +76,7 @@ export function FormProvider({ children }) {
         return {
             selectedTab,
             setSelectedTab,
-            Tabs: TABS_CONFIG,
+            tabs: TABS_CONFIG,
             showErrors,
             setShowErrors,
         };

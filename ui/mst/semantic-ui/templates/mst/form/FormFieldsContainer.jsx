@@ -24,8 +24,7 @@ const FormikStateLogger = () => {
 function FormFieldsContainer() {
   const community = new URLSearchParams(location.search).get('community');
 
-  const { Tabs, selectedTab, setSelectedTab } = useContext(FormContext);
-  // const [selectedTab, setSelectedTab] = useState("record-information");
+  const { tabs, selectedTab, setSelectedTab } = useContext(FormContext);
   const { save, values: recordMetadata } = useDepositApiClient();
   const { values, setErrors } = useFormikContext();
 
@@ -68,7 +67,7 @@ function FormFieldsContainer() {
         <div className="bg-primary border-dark border-solid border-[.1px] rounded-normal">
           <div className="flex justify-center w-fit h-[75vh] max-h-[900px]">
             <div className="bg-dark flex flex-col p-2 rounded-tl-[0.2rem] rounded-bl-[0.2rem]">
-              {Tabs.map((tab) => (
+              {tabs.map((tab) => (
                 <button
                   key={tab.value}
                   className={`py-3 pl-4 pr-6 mb-2 text-[.95rem] font-JostBold cursor-pointer rounded-normal text-left hover:bg-primary hover:text-dark ${
@@ -124,7 +123,7 @@ function FormFieldsContainer() {
 
                   <div
                     className={`${
-                      selectedTab === "chemical-environment" ? "" : "hidden"
+                      selectedTab === "chemical-environments" ? "" : "hidden"
                     }`}
                   >
                     <ChemicalEnvironmentTab name="metadata.general_parameters" />
