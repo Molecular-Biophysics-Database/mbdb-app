@@ -196,7 +196,7 @@ function Polymer({ name }) {
           )}
         />
       </div>
-      <div className="mb-3">
+      <div className="mb-3 w-fit">
         <MolecularWeight
           name={`${name}.molecular_weight`}
           colorSchema="light"

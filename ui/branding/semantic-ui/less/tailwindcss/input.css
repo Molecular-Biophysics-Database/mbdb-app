@@ -38,3 +38,22 @@
 #banner-1 {
   display: block;
 }
+
+.ui.grid {
+  margin-top: -1.5rem;
+  margin-bottom: -4rem;
+}
+
+.requests-create-request-buttons {
+  display: flex;
+}
+
+.ui.fluid.button {
+  width: auto;
+}
+
+.field-highlight {
+  border-color: #e43e2b !important;
+  border-style: solid !important;
+  border-width: .1rem !important;
+}

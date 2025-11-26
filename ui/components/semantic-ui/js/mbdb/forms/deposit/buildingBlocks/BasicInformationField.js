@@ -10,6 +10,7 @@ function BasicInformationField({ name, colorSchema }) {
   return (
     <>
       <FormWrapper
+        name={name}
         colorSchema={colorSchema}
         headline="Basic information"
         tooltip="Basic information about the chemical. Note that this information is based on PubChem records"

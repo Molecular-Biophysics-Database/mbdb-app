@@ -15,6 +15,7 @@ export default function Depositors({ name }) {
         <FormWrapper
           headline="Depositor"
           tooltip="The person who made the deposition to MBDB"
+          name={name}
         >
           <Contact name={`${name}.depositor`} />
         </FormWrapper>
