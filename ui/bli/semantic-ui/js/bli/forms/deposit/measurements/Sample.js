@@ -37,6 +37,7 @@ function Sample({ name, colorSchema }) {
         headline="Sample"
         colorSchema={colorSchema}
         tooltip="Sample the sensor was in contact with during the measurement"
+        name={name}
       >
         <div className="flex">
           <div className="mr-3">

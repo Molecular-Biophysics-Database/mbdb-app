@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import RawMeasurementFilesTab from "@mbdb_deposit/general/generalTabs/RawMeasurementFilesTab";
 import EntitiesOfInterestTab from "@mbdb_deposit/general/generalTabs/EntitiesOfInterestTab";
 import InstrumentTab from "@bli_deposit/bliTabs/InstrumentTab";
@@ -16,27 +16,17 @@ import { useFormConfig, useDepositApiClient } from "@js/oarepo_ui";
 import { Button } from "semantic-ui-react";
 import RequestOnRecordView from "@mbdb_deposit/buttons/RequestsRecordView";
 import PreviewButton from "@mbdb_deposit/buttons/PreviewButton";
+import FormButtons from "./FormButtons"
+import { FormContext } from "./FormProvider";
 
 function FormFieldsContainer() {
   const community = new URLSearchParams(location.search).get('community');
 
-  const Tabs = [
-    { value: "record-information", label: "Record information" },
-    { value: "entities-of-interest", label: "Entities of interest" },
-    { value: "chemical-environment", label: "Chemical environments" },
-    { value: "raw-measurement-files", label: "Raw measurement files" },
-    { value: "instrument", label: "Instrument" },
-    { value: "plates", label: "Plates" },
-    { value: "sensors", label: "Sensors" },
-    { value: "measurement-protocol", label: "Measurement protocol" },
-    { value: "measurements", label: "Measurements" },
-    { value: "result", label: "Results" },
-    { value: "data-analysis", label: "Data analysis" },
-  ];
-
-  const [selectedTab, setSelectedTab] = useState("record-information");
+  const { tabs, selectedTab, setSelectedTab } = useContext(FormContext);
   const { save, values: recordMetadata } = useDepositApiClient();
   const { values, setErrors } = useFormikContext();
+
+  console.log(values, 'values');
 
   useEffect(() => {
     if(recordMetadata.id === "") {
@@ -70,27 +60,20 @@ function FormFieldsContainer() {
 
   return (
     <>
-      <div className="flex mb-4 ml-3">
-        <Button
-          style={{ backgroundColor: "#023850", color: "white" }}
-          onClick={() => handleSaveMetadataAndFiles()}
-        >
-          Save
-        </Button>
-        <PreviewButton />
-        {values.id && RequestOnRecordView(values, setErrors, save)}
+      <div className="flex mb-2 ml-1">
+        <FormButtons handleSaveMetadataAndFiles={handleSaveMetadataAndFiles} />
       </div>
       <div className="flex justify-center">
         <div className="bg-primary border-dark border-solid border-[.1px] rounded-normal">
-          <div className="flex justify-center w-fit h-[90vh] max-h-[900px]">
-            <div className="bg-dark flex flex-col rounded-tl-normal rounded-bl-normal">
-              {Tabs.map((tab) => (
+          <div className="flex justify-center w-fit h-[75vh] max-h-[900px]">
+            <div className="bg-dark flex flex-col p-2 rounded-tl-[0.2rem] rounded-bl-[0.2rem]">
+              {tabs?.map((tab) => (
                 <button
                   key={tab.value}
-                  className={`py-5 px-6 font-JostBold text-left cursor-pointer rounded-tl-normal rounded-bl-normal hover:text-dark transition-all ${
+                  className={`py-3 pl-4 pr-6 mb-2 text-[.95rem] font-JostBold text-left cursor-pointer rounded-normal hover:bg-primary hover:text-dark transition-all ${
                     selectedTab === tab.value
                       ? "bg-primary text-dark"
-                      : "hover:bg-primary/85 text-white"
+                      : "text-white"
                   }`}
                   onClick={() => setSelectedTab(tab.value)}
                 >
@@ -99,11 +82,11 @@ function FormFieldsContainer() {
               ))}
             </div>
             <div className="overflow-y-scroll overflow-x-hidden">
-              <div className="flex flex-col w-[1200px]">
-                <div className="flex text-dark font-JostBold text-24px mt-4 ml-6">
+              <div className="flex flex-col w-[1019px] 3xl:w-[1217px]">
+                <div className="flex text-dark font-JostBold text-20px mt-4 ml-4">
                   You are depositing BLI data
                 </div>
-                <div className="m-6">
+                <div className="m-4">
                   <div
                     className={`${
                       selectedTab === "raw-measurement-files" ? "" : "hidden"
@@ -139,14 +122,14 @@ function FormFieldsContainer() {
 
                   <div
                     className={`${
-                      selectedTab === "chemical-environment" ? "" : "hidden"
+                      selectedTab === "chemical-environments" ? "" : "hidden"
                     }`}
                   >
                     <ChemicalEnvironmentTab name="metadata.general_parameters" />
                   </div>
 
                   <div
-                    className={`${selectedTab === "result" ? "" : "hidden"}`}
+                    className={`${selectedTab === "results" ? "" : "hidden"}`}
                   >
                     <ResultTab name="metadata.general_parameters" />
                   </div>

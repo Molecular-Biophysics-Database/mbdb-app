@@ -1,16 +1,16 @@
 import React from "react";
-import { Container } from "semantic-ui-react";
 import { BaseFormLayout } from "@js/oarepo_ui";
 import { FormValidationSchema } from "./FormValidationSchema";
+import { FormProvider } from "./FormProvider"
 
 export const FormAppLayout = () => {
   const formikProps = {
     validationSchema: FormValidationSchema,
   };
   return (
-    <Container fluid>
+    <FormProvider>
       <BaseFormLayout formikProps={formikProps} />
-    </Container>
+    </FormProvider>
   );
 };
 export default FormAppLayout;

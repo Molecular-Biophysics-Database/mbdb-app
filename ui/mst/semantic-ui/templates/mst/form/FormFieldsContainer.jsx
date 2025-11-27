@@ -130,7 +130,7 @@ function FormFieldsContainer() {
                   </div>
 
                   <div
-                    className={`${selectedTab === "result" ? "" : "hidden"}`}
+                    className={`${selectedTab === "results" ? "" : "hidden"}`}
                   >
                     <ResultTab name="metadata.general_parameters" />
                   </div>

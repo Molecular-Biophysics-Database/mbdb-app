@@ -21,6 +21,7 @@ export default function StartTime({ colorSchema, name }) {
         colorSchema={colorSchema}
         headline="Start time"
         tooltip="The numerical value of the start point of the measurement step relative to the beginning of the measurement"
+        name={name}
       >
         <ValueUnit
           options={unitOptions}

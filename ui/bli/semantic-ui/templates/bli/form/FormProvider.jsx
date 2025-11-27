@@ -1,5 +1,4 @@
-import React from "react"
-import { createContext, useState, useMemo } from "react";
+import React, { createContext, useState, useMemo } from "react"
 
 export const FormContext = createContext(null);
 
@@ -10,61 +9,78 @@ const TABS_CONFIG = [
         fieldPaths: [
             'metadata.general_parameters.record_information',
             'metadata.general_parameters.depositors'
-        ]
+        ],
     },
     {
         value: "entities-of-interest",
         label: "Entities of interest",
         fieldPaths: [
             'metadata.general_parameters.entities_of_interest'
-        ]
+        ],
     },
     {
         value: "chemical-environments",
         label: "Chemical environments",
         fieldPaths: [
             'metadata.general_parameters.chemical_environments'
-        ]    
+        ],
     },
     {
         value: "raw-measurement-files",
         label: "Raw measurement files",
         fieldPaths: [
             'files.enabled'
-        ]
+        ],
     },
     {
         value: "instrument",
         label: "Instrument",
         fieldPaths: [
             'metadata.general_parameters.instrument',
-            'metadata.method_specific_parameters.excitation_led_color',
-            'metadata.method_specific_parameters.excitation_led_power',
             'metadata.method_specific_parameters.experiment_type',
-            'metadata.method_specific_parameters.ir_mst_laser_power',
-            'metadata.method_specific_parameters.signal_type'
-        ]
+        ],
+    },
+    {
+        value: "plates",
+        label: "Plates",
+        fieldPaths: [
+            'metadata.method_specific_parameters.plates'
+        ],
+    },
+    {
+        value: "sensors",
+        label: "Sensors",
+        fieldPaths: [
+            'metadata.method_specific_parameters.sensors'
+        ],
+    },
+    {
+        value: "measurement-protocol",
+        label: "Measurement protocol",
+        fieldPaths: [
+            'metadata.method_specific_parameters.measurement_protocol'
+        ],
     },
     {
         value: "measurements",
         label: "Measurements",
         fieldPaths: [
             'metadata.method_specific_parameters.measurements'
-        ]
+        ],
     },
     {
         value: "results",
         label: "Results",
         fieldPaths: [
             'metadata.general_parameters.results'
-        ]
+        ],
     },
     {
         value: "data-analysis",
         label: "Data analysis",
         fieldPaths: [
             'metadata.method_specific_parameters.data_analysis'
-        ]
+        ],
     },
 ];
 
@@ -78,11 +94,11 @@ export function FormProvider({ children }) {
             setSelectedTab,
             tabs: TABS_CONFIG,
             showErrors,
-            setShowErrors,
+            setShowErrors
         };
     }, [selectedTab, showErrors]);
 
-    return(
+    return (
         <FormContext.Provider value={value}>
             {children}
         </FormContext.Provider>
