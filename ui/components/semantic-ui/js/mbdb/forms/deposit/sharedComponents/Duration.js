@@ -21,6 +21,7 @@ export default function Duration({ name, tooltip, colorSchema }) {
         colorSchema={colorSchema}
         headline="Duration"
         tooltip={tooltip}
+        name={name}
       >
         <ValueUnit
           options={unitOptions}

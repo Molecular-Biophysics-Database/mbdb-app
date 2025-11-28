@@ -25,7 +25,7 @@ export default function Measurements({ name }) {
         width="w-full"
       />
 
-      <div className="my-3">
+      <div className="my-3 w-fit">
         <Duration name={`${name}.duration`} colorSchema="light" tooltip="Specify the duration of this measurement" />
       </div>
 

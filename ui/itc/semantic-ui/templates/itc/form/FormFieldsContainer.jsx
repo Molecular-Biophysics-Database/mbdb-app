@@ -16,7 +16,7 @@ import { FormContext } from "./FormProvider";
 function FormFieldsContainer() {
   const community = new URLSearchParams(location.search).get('community');
 
-  const { tabs, selectedTab, setSelectedTab, showErrors } = useContext(FormContext);
+  const { tabs, selectedTab, setSelectedTab } = useContext(FormContext);
   const { save, values: recordMetadata } = useDepositApiClient();
   const { values, setErrors } = useFormikContext();
 
