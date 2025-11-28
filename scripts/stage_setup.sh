@@ -6,7 +6,10 @@
 set -e
 set -x
 
-DUMMY_PASSWORD='mosbrimbdb2025'
+if [ -z "$USERS_PASSWORD" ] ; then
+  echo "USERS_PASSWORD is not set"
+  exit 1
+fi
 
 ROLES=(reviewer editor administrator)
 
