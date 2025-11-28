@@ -1,5 +1,6 @@
 #!/bin/bash
-# Script to create users, assign system roles, and grant administration access to admin.
+# Script to create users, assign system roles, and grant administration access to administrator.
+# Requires the environment variable $USERS_PASSWORD to be set before running.
 
 set -e
 set -x
