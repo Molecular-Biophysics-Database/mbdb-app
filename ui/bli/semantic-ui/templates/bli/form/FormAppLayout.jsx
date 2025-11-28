@@ -1,7 +1,7 @@
 import React from "react";
 import { BaseFormLayout } from "@js/oarepo_ui";
 import { FormValidationSchema } from "./FormValidationSchema";
-import { FormProvider } from "./FormProvider"
+import { FormProvider } from "./FormProvider";
 
 export const FormAppLayout = () => {
   const formikProps = {

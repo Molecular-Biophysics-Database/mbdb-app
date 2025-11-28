@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-import { useState, useEffect, useContext } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import RawMeasurementFilesTab from "@mbdb_deposit/general/generalTabs/RawMeasurementFilesTab";
 import EntitiesOfInterestTab from "@mbdb_deposit/general/generalTabs/EntitiesOfInterestTab";
 import InstrumentTab from "@bli_deposit/bliTabs/InstrumentTab";
@@ -14,9 +13,7 @@ import DataAnalysisTab from "@bli_deposit/bliTabs/DataAnalysisTab";
 import { Formik, useFormikContext } from "formik";
 import { useFormConfig, useDepositApiClient } from "@js/oarepo_ui";
 import { Button } from "semantic-ui-react";
-import RequestOnRecordView from "@mbdb_deposit/buttons/RequestsRecordView";
-import PreviewButton from "@mbdb_deposit/buttons/PreviewButton";
-import FormButtons from "./FormButtons"
+import FormButtons from "./FormButtons";
 import { FormContext } from "./FormProvider";
 
 function FormFieldsContainer() {

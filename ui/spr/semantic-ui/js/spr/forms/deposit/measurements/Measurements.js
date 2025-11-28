@@ -67,7 +67,11 @@ function Measurements({ name }) {
         label="Samples"
         required
         renderChild={({ arrayName, index }) => (
-          <FormWrapper headline={`Sample ${index + 1}`} colorSchema="light">
+          <FormWrapper
+            headline={`Sample ${index + 1}`}
+            colorSchema="light"
+            name={arrayName}
+          >
             <Sample name={`${arrayName}.${index}`} />
           </FormWrapper>
         )}

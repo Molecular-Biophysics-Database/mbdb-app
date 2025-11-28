@@ -90,7 +90,10 @@ function Sample({ name }) {
         required
         tooltip="List of names (ids) of entities (from the entities of interest defined in the record) that was used to alter the behavior of the target(s) or entities present at varying concentrations for a series of measurements"
         renderChild={({ arrayName, index }) => (
-          <FormWrapper headline={`Analytes ${index + 1}`}>
+          <FormWrapper
+            headline={`Analytes ${index + 1}`}
+            name={arrayName}
+          >
             <EntityAndConcentration name={`${arrayName}.${index}`} />
           </FormWrapper>
         )}
