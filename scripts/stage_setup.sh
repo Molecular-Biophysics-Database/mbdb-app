@@ -26,7 +26,15 @@ for role in "${ROLES[@]}"; do
 
     PROFILE_JSON="{\"full_name\": \"$FULL_NAME\"}"
 
-    invenio users create -a -c "$EMAIL" --password "$DUMMY_PASSWORD" --profile "$PROFILE_JSON" &
+    if ! invenio users create -a -c "$EMAIL" --password "$USERS_PASSWORD" --profile "$PROFILE_JSON" 2>err.out; then
+        if grep -q "already associated with an account" err.out; then
+            echo "User '$EMAIL' already exists. Skipping."
+        else
+            echo "Error creating user '$EMAIL':"
+            cat err.out
+            exit 1
+        fi
+    fi
 
 done
 
