@@ -1,16 +1,18 @@
 #!/bin/bash
-#
-# Script to create users, assign system roles, and grant admin access.
-#
+# Script to create users, assign system roles, and grant administration access to administrator.
+# Requires the environment variable $USERS_PASSWORD to be set before running.
 
 set -e
 set -x
 
-DUMMY_PASSWORD='mosbrimbdb2025'
+if [ -z "$USERS_PASSWORD" ] ; then
+  echo "USERS_PASSWORD is not set"
+  exit 1
+fi
 
 ROLES=(reviewer editor administrator)
 
-
+# Create users (skip if they already exist)
 for role in "${ROLES[@]}"; do
 
     EMAIL="${role}@mbdb.org"
@@ -18,21 +20,29 @@ for role in "${ROLES[@]}"; do
     if [[ "$role" == "administrator" ]]; then
         FULL_NAME="Administrátor"
     else
-        FULL_NAME="$(tr '[:lower:]' '[:upper:]' <<< ${role:0:1})${role:1}"
+        FULL_NAME="${role^}"
     fi
 
     PROFILE_JSON="{\"full_name\": \"$FULL_NAME\"}"
 
-    invenio users create -a -c "$EMAIL" --password "$DUMMY_PASSWORD" --profile "$PROFILE_JSON" &
+    if ! invenio users create -a -c "$EMAIL" --password "$USERS_PASSWORD" --profile "$PROFILE_JSON" 2>err.out; then
+        if grep -q "already associated with an account" err.out; then
+            echo "User '$EMAIL' already exists. Skipping."
+        else
+            echo "Error creating user '$EMAIL':"
+            cat err.out
+            exit 1
+        fi
+    fi
 
 done
 
-wait
-
+# Assign each user their role
 for role in "${ROLES[@]}"; do
     EMAIL="${role}@mbdb.org"
-    invenio roles add "$EMAIL" "$role" &
-    invenio access allow administration-access role "$role" &
+    invenio roles add "$EMAIL" "$role" || echo "Role '$role' already assigned to '$EMAIL'. Skipping."
 done
 
-wait
+# Allow administration access to the admin role
+invenio access allow administration-access role administrator || \
+    echo "administrator already has administration-access assigned."
