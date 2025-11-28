@@ -1,7 +1,5 @@
 #!/bin/bash
-#
-# Script to create users, assign system roles, and grant admin access.
-#
+# Script to create users, assign system roles, and grant administration access to admin.
 
 set -e
 set -x
@@ -13,7 +11,7 @@ fi
 
 ROLES=(reviewer editor administrator)
 
-
+# Create users (skip if they already exist)
 for role in "${ROLES[@]}"; do
 
     EMAIL="${role}@mbdb.org"
@@ -38,16 +36,12 @@ for role in "${ROLES[@]}"; do
 
 done
 
-# ------------------------------------------------------
 # Assign each user their role
-# ------------------------------------------------------
 for role in "${ROLES[@]}"; do
     EMAIL="${role}@mbdb.org"
     invenio roles add "$EMAIL" "$role" || echo "Role '$role' already assigned to '$EMAIL'. Skipping."
 done
 
-# ------------------------------------------------------
 # Allow administration access to the admin role
-# ------------------------------------------------------
 invenio access allow administration-access role administrator || \
     echo "administrator already has administration-access assigned."
