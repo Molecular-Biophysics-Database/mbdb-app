@@ -37,28 +37,11 @@ const TABS_CONFIG = [
         label: "Instrument",
         fieldPaths: [
             'metadata.general_parameters.instrument',
-            'metadata.method_specific_parameters.experiment_type',
-        ],
-    },
-    {
-        value: "plates",
-        label: "Plates",
-        fieldPaths: [
-            'metadata.method_specific_parameters.plates'
-        ],
-    },
-    {
-        value: "sensors",
-        label: "Sensors",
-        fieldPaths: [
-            'metadata.method_specific_parameters.sensors'
-        ],
-    },
-    {
-        value: "measurement-protocol",
-        label: "Measurement protocol",
-        fieldPaths: [
-            'metadata.method_specific_parameters.measurement_protocol'
+            'metadata.method_specific_parameters.injection_mode',
+            'metadata.method_specific_parameters.cell_temperature',
+            'metadata.method_specific_parameters.cell_volume',
+            'metadata.method_specific_parameters.reference_power',
+            'metadata.method_specific_parameters.stirring_speed',
         ],
     },
     {
@@ -95,7 +78,7 @@ export function FormProvider({ children }) {
             tabs: TABS_CONFIG,
             showErrors,
             setShowErrors
-        };
+        }
     }, [selectedTab, showErrors]);
 
     return (

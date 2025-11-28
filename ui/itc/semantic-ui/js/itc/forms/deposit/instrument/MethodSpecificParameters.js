@@ -31,7 +31,6 @@ function MethodSpecificParameters({ name }) {
             name={name}
             fieldName="feedback_mode"
             label="Feedback mode"
-            required
             options={feedbackModeOptions}
             tooltip={tooltips.feedbackMode}
           />

@@ -14,6 +14,7 @@ export default function Volume({ colorSchema, name }) {
         colorSchema={colorSchema}
         headline="Volume"
         tooltip="Titrant volume injected into the cell"
+        name={name}
       >
         <ValueUnit
           options={unitOptions}

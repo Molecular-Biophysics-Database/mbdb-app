@@ -14,6 +14,8 @@ export default function ReferencePower({ colorSchema, name }) {
         colorSchema={colorSchema}
         headline="Reference power"
         tooltip="Energy supplied to the offset header of the reference cell to equilibrate the temperatures"
+        required
+        name={name}
       >
         <ValueUnit
           options={unitOptions}
