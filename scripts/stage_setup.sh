@@ -21,7 +21,7 @@ for role in "${ROLES[@]}"; do
     if [[ "$role" == "administrator" ]]; then
         FULL_NAME="Administrátor"
     else
-        FULL_NAME="$(tr '[:lower:]' '[:upper:]' <<< ${role:0:1})${role:1}"
+        FULL_NAME="${role^}"
     fi
 
     PROFILE_JSON="{\"full_name\": \"$FULL_NAME\"}"
