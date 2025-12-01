@@ -27,6 +27,7 @@ export default function Calibrants({ name }) {
             name={name}
             fieldName="name"
             label="Name"
+            required
             tooltip="The name of the calibrant"
           />
         </div>
@@ -35,6 +36,7 @@ export default function Calibrants({ name }) {
           fieldName="type"
           label="Type"
           options={typeOptions}
+          required
           tooltip="The type of the calibrant (e.g. polypeptide(L))"
         />
       </div>
