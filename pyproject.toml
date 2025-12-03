@@ -25,6 +25,7 @@ dependencies = [
     "oarepo[s3,rdm]==12.2.*",
     "python-dotenv",
     "semver",
+    "wkhtmltopdf"
 ]
 requires-python = ">=3.12,<3.13"
 
