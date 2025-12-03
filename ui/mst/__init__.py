@@ -71,8 +71,8 @@ class MstResource(RecordsUIResource):
     @request_read_args
     @request_view_args
     def pdf(self):
-        base_url = request.url.split("?")[0].replace("pdf", "")
-        url = f"{base_url}/pdf_embedded=true"
+        base_url = request.url.split("?")[0].replace("/pdf", "")
+        url = f"{base_url}?pdf_embedded=true"
 
         pid_value = request.view_args.get("pid_value", "record")
         record = self._get_record(request, allow_draft=True)
