@@ -1,3 +1,4 @@
+{% if not pdf_embedded and not embedded %}
 <div class="lg:hidden">
   <div class="flex justify-between m-8">
     <div class="w-[5rem]">
@@ -439,3 +440,4 @@
     {% from 'invenio_banners/banner.html' import banner %} {{ banner() }}
   {%- endblock banner %}
 </div>
+{% endif %}
