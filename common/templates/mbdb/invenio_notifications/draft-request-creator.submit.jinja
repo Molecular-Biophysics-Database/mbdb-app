@@ -1,0 +1,33 @@
+{% set request = notification.context.request %}
+{% set topic = request.topic %}
+{% set topic_id = request.topic.id %}
+{% set topic_title = topic.get("metadata", {}).get("title", topic_id) %}
+{% set request_html_page = request.links.self_html %}
+
+{%- block subject -%}
+    {{ _("Submission Confirmation: Record '{topic_title}' is Under Review").format(topic_title=topic_title) }}
+{%- endblock subject -%}
+
+{%- block html_body -%}
+    {% trans topic_title=topic_title, link=request_html_page %}
+    <p>
+    Thank you for submitting your record, **"{{topic_title}}"**, for review and publication.
+    </p>
+    <p>
+    Your submission is now with the relevant team for evaluation. We will notify you once a decision has been made.
+    </p>
+    <p>
+    You can view the status of your request here: <a href="{{ link }}">{{ link }}</a>
+    </p>
+    {% endtrans %}
+{%- endblock html_body -%}
+
+{%- block plain_body -%}
+    {% trans topic_title=topic_title, link=request_html_page %}
+    Thank you for submitting your record, "{{topic_title}}", for review and publication.
+
+    Your submission is now with the relevant team for evaluation. We will notify you once a decision has been made.
+
+    You can view the status of your request here: {{ link }}
+    {% endtrans %}
+{%- endblock plain_body -%}

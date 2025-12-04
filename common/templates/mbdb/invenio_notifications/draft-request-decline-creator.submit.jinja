@@ -1,0 +1,37 @@
+{% set request = notification.context.request %}
+{% set topic = request.topic %}
+{% set topic_id = topic.id %}
+{% set record_metadata = topic.get("metadata", {}) %}
+{% set topic_title = record_metadata.get("title", topic_id) %}
+{% set request_html_page = request.links.self_html %}
+
+
+{%- block subject -%}
+    {{ _("UPDATE: Your Publication Request for '{topic_title}' Has Been Rejected").format(topic_title=topic_title) }}
+{%- endblock subject -%}
+
+{%- block html_body -%}
+    {% trans topic_title=topic_title, link=request_html_page %}
+    <p>
+        <b>Important Update:</b>> Your request to publish the record <b>"{{topic_title}}"</b>> has been <b>rejected</b>.
+    </p>
+
+    <p>
+        The record cannot be published in its current form. <b>A separate email/notification containing the reviewer's specific feedback has also been sent, or is available on the request page.</b>
+    </p>
+
+    <p style="text-align:center;">
+        <a type="button" href='{{ link }}' style="display:inline-block;padding:10px 20px;background-color:#dc3545;color:#ffffff;text-decoration:none;border-radius:5px;">View Detailed Feedback & Status</a>
+    </p>
+    {% endtrans %}
+{%- endblock html_body -%}
+
+{%- block plain_body -%}
+    {% trans topic_title=topic_title, link=request_html_page %}
+    UPDATE: Your Publication Request for "{{topic_title}}" has been Rejected.
+
+    The submission cannot be published. Please check your system notifications or use the link below to view the reviewer's feedback and the reason for the decision:
+
+    View details: {{ link }}
+    {% endtrans %}
+{%- endblock plain_body -%}

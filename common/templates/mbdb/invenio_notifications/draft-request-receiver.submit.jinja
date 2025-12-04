@@ -1,0 +1,42 @@
+{% set request = notification.context.request %}
+{% set topic = request.topic %}
+{% set topic_id = request.topic.id %}
+{% set topic_title = topic.get("metadata", {}).get("title", topic_id) %}
+{% set method_shortcut = topic.metadata.general_parameters.record_information.resource_type %}
+{% set request_html_page = request.links.self_html %}
+
+{%- block subject -%}
+    {{ _("[{method}] Review Submission - '{topic_title}'").format(topic_title=topic_title, method=method_shortcut) }}
+{%- endblock subject -%}
+
+{%- block html_body -%}
+    {% trans topic_title=topic_title, link=request_html_page %}
+    <p>
+    A new record, **"{{topic_title}}"**, has been submitted and is awaiting your review for potential publication.
+    </p>
+    <p>
+    Please review the submission details and take the necessary action (Approve, Reject, or Request Changes) by clicking the button below:
+    </p>
+    <p>
+        <a type="button" href='{{link}}' style="display:inline-block;padding:10px 20px;background-color:#007bff;color:#ffffff;text-decoration:none;border-radius:5px;">Review Submission</a>
+    </p>
+    <p>
+    If the button above does not work, please copy and paste the following link into your browser: {{ link }}
+    </p>
+    {% endtrans %}
+
+    <table style="font-family:'Lato',Helvetica,Arial,sans-serif;border-spacing:15px">
+        <tr>
+            <td style="font-size:smaller">{{ _("This is an auto-generated message. To manage notifications, visit your")}} <a href="{{account_settings_link}}">{{ _("account settings")}}</a>.</td>
+        </tr>
+    </table>
+{%- endblock html_body -%}
+
+{%- block plain_body -%}
+    {% trans topic_title=topic_title, link=request_html_page %}
+    Action Required: A new record, "{{topic_title}}", has been submitted and is awaiting your review for publication.
+
+    Please review the submission and take action (Approve, Reject, or Request Changes) at the following link:
+    {{link}}
+    {% endtrans %}
+{%- endblock plain_body -%}
