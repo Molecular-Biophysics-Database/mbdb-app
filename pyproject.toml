@@ -25,6 +25,7 @@ dependencies = [
     "oarepo[s3,rdm]==12.2.*",
     "python-dotenv",
     "semver",
+    "oarepo-rdm"
 ]
 requires-python = ">=3.12,<3.13"
 
@@ -79,6 +80,7 @@ mst_request_types = "mst.views.request_types.app:create_app_blueprint"
 itc_request_types = "itc.views.request_types.app:create_app_blueprint"
 spr_request_types = "spr.views.request_types.app:create_app_blueprint"
 invenio_app_rdm_administration = "invenio_app_rdm.administration.views:create_ui_blueprint"
+mbdb_templates = "common.blueprints:templates_blueprint"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"
@@ -151,6 +153,7 @@ mp_request_types = "mp.views.request_types.api:create_api_blueprint"
 mst_request_types = "mst.views.request_types.api:create_api_blueprint"
 itc_request_types = "itc.views.request_types.api:create_api_blueprint"
 spr_request_types = "spr.views.request_types.api:create_api_blueprint"
+mbdb_templates = "common.blueprints:templates_blueprint"
 
 [project.entry-points."invenio_search.mappings"]
 mst = "mst.records.mappings"
