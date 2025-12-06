@@ -11,12 +11,14 @@ bypasslinks %} {%- block page_body %}
     </article>
 
     {# Sidebar #}
+      {% if not pdf_embedded and not embedded %}
     <aside
       class="sixteen wide tablet four wide computer column sidebar"
       aria-label="{{ _('Record details') }}"
     >
       {% block record_sidebar %} {% endblock record_sidebar %}
     </aside>
+      {% endif %}
   </div>
 
   {% endblock %}

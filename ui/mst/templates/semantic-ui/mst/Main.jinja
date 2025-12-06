@@ -1,14 +1,15 @@
-{# def record, metadata, ui, extra_context, d, context #}
+{# def record, metadata, ui, extra_context, d, context, embedded, pdf_embedded=false#}
+{% set pdf_embedded = request.args.get("pdf_embedded", "false")|lower == "true" %}
 
 {% set md=d.metadata %}
 {% set gp=md.general_parameters %}
 {% set msp=md.method_specific_parameters %}
 
-<RecordHeader md={md} links={d.links} state={d.state} record={record} permissions={extra_context.permissions} />
+<RecordHeader md={md} links={d.links} state={d.state} record={record} permissions={extra_context.permissions} embedded={embedded} pdf_embedded={pdf_embedded} />
 <RecordInformation d={d} gp={gp} />
 
 <div class="mt-8">
-
+{% if not pdf_embedded %}
     <!-- Main Tabs Navigation -->
     <div class="border-b border-gray-200">
         <nav class="flex p-0 mb-2">
@@ -47,10 +48,9 @@
             </Section>
 
         </div>
-
         <!-- Second Tab -->
         <div id="tab2" class="main-tab-content hidden">
-
+            {% endif %}
             <Section title="Entities of interest">
                 <entitiesOfInterest.EntitiesOfInterestDetailedView entities={gp.entities_of_interest} />
             </Section>
@@ -80,7 +80,7 @@
             </Section>
 
         </div>
-
+{% if not pdf_embedded %}
     </div>
-
 </div>
+{% endif %}
