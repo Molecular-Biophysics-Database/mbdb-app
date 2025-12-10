@@ -22,7 +22,7 @@ class BliInitialValuesComponent(UIResourceComponent):
         )
 
 
-class BliResourceConfig(SearchInAllMixin, RecordsUIResourceConfig):
+class BliUIResourceConfig(SearchInAllMixin, RecordsUIResourceConfig):
     template_folder = "templates"
     url_prefix = "/bli/"
     blueprint_name = "bli"
@@ -65,4 +65,4 @@ class BliResource(RecordsUIResource):
 
 def create_blueprint(app):
     """Register blueprint for this resource."""
-    return BliResource(BliResourceConfig()).as_blueprint()
+    return BliResource(BliUIResourceConfig()).as_blueprint()

@@ -2,6 +2,7 @@ from oarepo_requests.actions.generic import OARepoSubmitAction, OARepoAcceptActi
 from invenio_notifications.services.uow import NotificationOp
 from .custom_builders import *
 
+
 class SubmitDraftAction(OARepoSubmitAction):
     """Submit draft action."""
 
@@ -28,6 +29,7 @@ class SubmitDraftAction(OARepoSubmitAction):
         )
         return super().apply(identity, state, uow, *args, **kwargs)
 
+
 class AcceptDraftAction(OARepoAcceptAction):
     """Accept draft action."""
 
@@ -46,6 +48,7 @@ class AcceptDraftAction(OARepoAcceptAction):
             )
         )
         return super().apply(identity, state, uow, *args, **kwargs)
+
 
 class DeclineDraftAction(OARepoDeclineAction):
     """Decline draft action."""

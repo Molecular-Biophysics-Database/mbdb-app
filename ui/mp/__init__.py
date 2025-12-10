@@ -22,7 +22,7 @@ class MpInitialValuesComponent(UIResourceComponent):
         )
 
 
-class MpResourceConfig(SearchInAllMixin,RecordsUIResourceConfig):
+class MpUIResourceConfig(SearchInAllMixin,RecordsUIResourceConfig):
     template_folder = "templates"
     url_prefix = "/mp/"
     blueprint_name = "mp"
@@ -66,4 +66,4 @@ class MpResource(RecordsUIResource):
 
 def create_blueprint(app):
     """Register blueprint for this resource."""
-    return MpResource(MpResourceConfig()).as_blueprint()
+    return MpResource(MpUIResourceConfig()).as_blueprint()

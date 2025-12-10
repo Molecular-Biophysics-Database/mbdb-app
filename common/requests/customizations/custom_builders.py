@@ -34,15 +34,18 @@ class DraftRequestSubmitReceiverNotificationBuilder(OARepoRequestActionNotificat
     type = "draft-request-receiver.submit"
     recipients = [DynamicReviewerRecipient()]
 
+
 class DraftRequestSubmitCreatorNotificationBuilder(OARepoRequestActionNotificationBuilder):
     type = "draft-request-creator.submit"
     # User that created/sent the request (author of the record)
     recipients = [EntityRecipient(key="request.created_by")]
 
+
 class DraftRequestAcceptCreatorNotificationBuilder(OARepoRequestActionNotificationBuilder):
     type = "draft-request-accept-creator.submit"
     # Authors as recipients
     recipients = [EntityRecipient(key="request.created_by")]
+
 
 class DraftRequestDeclineCreatorNotificationBuilder(OARepoRequestActionNotificationBuilder):
     type = "draft-request-decline-creator.submit"

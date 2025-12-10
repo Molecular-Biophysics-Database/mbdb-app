@@ -3,7 +3,6 @@ from invenio_notifications.models import Recipient
 from invenio_accounts.models import Role
 
 
-
 def _extract_entity_email_data(entity):
     return {
         "email": entity.email,
@@ -22,12 +21,10 @@ class RoleRecipient(RecipientGenerator):
         if recipients is None:
             recipients = {}
 
-
         # --- 1) Load role
         role = Role.query.filter_by(name=self.role_name).first()
         if not role:
             return recipients
-
 
         # --- 2) Iterate users
         added = 0
