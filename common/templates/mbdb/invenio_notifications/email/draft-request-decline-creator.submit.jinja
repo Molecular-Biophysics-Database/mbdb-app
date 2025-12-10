@@ -7,17 +7,17 @@
 
 
 {%- block subject -%}
-    {{ _("UPDATE: Your Publication Request for '{topic_title}' Has Been Rejected").format(topic_title=topic_title) }}
+    {{ _("UPDATE: Your record '{topic_title}' requires revisions").format(topic_title=topic_title) }}
 {%- endblock subject -%}
 
 {%- block html_body -%}
     {% trans topic_title=topic_title, link=request_html_page %}
     <p>
-        <b>Important Update:</b>> Your request to publish the record <b>"{{topic_title}}"</b>> has been <b>rejected</b>.
+        <b>Important Update:</b>> Your record <b>"{{topic_title}}"</b>> has been <b>declined</b> to allow further editing.
     </p>
 
     <p>
-        The record cannot be published in its current form. <b>A separate email/notification containing the reviewer's specific feedback has also been sent, or is available on the request page.</b>
+        Some revisions are needed before the record can be accepted for publication. <b>Please refer to the reviewer's feedback that has been sent in a separate e-mail. The feedback is also available on the request page.</b>
     </p>
 
     <p style="text-align:center;">
@@ -28,9 +28,10 @@
 
 {%- block plain_body -%}
     {% trans topic_title=topic_title, link=request_html_page %}
-    UPDATE: Your Publication Request for "{{topic_title}}" has been Rejected.
+    UPDATE: Your record "{{topic_title}}" requires revisions.
 
-    The submission cannot be published. Please check your system notifications or use the link below to view the reviewer's feedback and the reason for the decision:
+    Your record "{{topic_title}}" has been declined to allow further editing.
+    Some revisions are needed before the record can be accepted for publication. Please refer to the reviewer's feedback that has been sent in a separate e-mail. The feedback is also available on the request page:
 
     View details: {{ link }}
     {% endtrans %}

@@ -6,16 +6,16 @@
 {% set request_html_page = request.links.self_html %}
 
 {%- block subject -%}
-    {{ _("[{method}] Review Submission - '{topic_title}'").format(topic_title=topic_title, method=method_shortcut) }}
+    {{ _("[{method}]: A new MBDB record submitted - '{topic_title}'").format(topic_title=topic_title, method=method_shortcut) }}
 {%- endblock subject -%}
 
 {%- block html_body -%}
     {% trans topic_title=topic_title, link=request_html_page %}
     <p>
-    A new record, **"{{topic_title}}"**, has been submitted and is awaiting your review for potential publication.
+    A new record, **"{{topic_title}}"**, has been submitted and is awaiting your review.
     </p>
     <p>
-    Please review the submission details and take the necessary action (Approve, Reject, or Request Changes) by clicking the button below:
+    Please check the request page (button below) to make sure that the record is not being reviewed by someone else. If you decide to review this record, leave a comment "The record is under review." on the request page:
     </p>
     <p>
         <a type="button" href='{{link}}' style="display:inline-block;padding:10px 20px;background-color:#007bff;color:#ffffff;text-decoration:none;border-radius:5px;">Review Submission</a>
@@ -24,6 +24,9 @@
     If the button above does not work, please copy and paste the following link into your browser: {{ link }}
     </p>
     {% endtrans %}
+    <p>
+    If revisions to the record are needed, please <b>decline</b> the record and leave a comment with the issues to be addressed by the depositor. If the record passes the review and is ready to get published, please <b>accept</b> the record.
+    </p>
 
     <table style="font-family:'Lato',Helvetica,Arial,sans-serif;border-spacing:15px">
         <tr>
@@ -34,9 +37,10 @@
 
 {%- block plain_body -%}
     {% trans topic_title=topic_title, link=request_html_page %}
-    Action Required: A new record, "{{topic_title}}", has been submitted and is awaiting your review for publication.
+    A new record, "{{topic_title}}", has been submitted and is awaiting your review.
 
-    Please review the submission and take action (Approve, Reject, or Request Changes) at the following link:
+    Please check the request page (link below) to make sure that the record is not being reviewed by someone else. If you decide to review this record, leave a comment "The record is under review." on the request page:
     {{link}}
+    If revisions to the record are needed, please decline the record and leave a comment with the issues to be addressed by the depositor. If the record passes the review and is ready to get published, please accept the record.
     {% endtrans %}
 {%- endblock plain_body -%}

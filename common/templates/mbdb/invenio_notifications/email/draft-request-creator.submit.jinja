@@ -5,16 +5,16 @@
 {% set request_html_page = request.links.self_html %}
 
 {%- block subject -%}
-    {{ _("Submission Confirmation: Record '{topic_title}' is Under Review").format(topic_title=topic_title) }}
+    {{ _("SUBMITTED: Your MBDB record '{topic_title}' has been submitted and is now under review").format(topic_title=topic_title) }}
 {%- endblock subject -%}
 
 {%- block html_body -%}
     {% trans topic_title=topic_title, link=request_html_page %}
     <p>
-    Thank you for submitting your record, **"{{topic_title}}"**, for review and publication.
+    Thank you for submitting your record, **"{{topic_title}}"**, to MBDB.
     </p>
     <p>
-    Your submission is now with the relevant team for evaluation. We will notify you once a decision has been made.
+    Your record is now under review. We will notify you if revisions to your record are needed or once the record has been accepted.
     </p>
     <p>
     You can view the status of your request here: <a href="{{ link }}">{{ link }}</a>
@@ -24,9 +24,9 @@
 
 {%- block plain_body -%}
     {% trans topic_title=topic_title, link=request_html_page %}
-    Thank you for submitting your record, "{{topic_title}}", for review and publication.
+    Thank you for submitting your record, "{{topic_title}}", to MBDB.
 
-    Your submission is now with the relevant team for evaluation. We will notify you once a decision has been made.
+    Your record is now under review. We will notify you if revisions to your record are needed or once the record has been accepted.
 
     You can view the status of your request here: {{ link }}
     {% endtrans %}

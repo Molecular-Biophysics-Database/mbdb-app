@@ -3,10 +3,10 @@
 {% set topic_id = topic.id %}
 {% set record_metadata = topic.get("metadata", {}) %}
 {% set topic_title = record_metadata.get("title", topic_id) %}
-{% set request_html_page = request.links.self_html %}
+{% set request_html_page = request.links.self_html %} {#Tim please adjust the link#}
 
 {%- block subject -%}
-    {{ _("APPROVED: Your submission '{topic_title}' has been accepted for publication")
+    {{ _("ACCEPTED: Your MBDB record '{topic_title}' has been accepted for publication")
         .format(topic_title=topic_title)
     }}
 {%- endblock subject -%}
@@ -14,10 +14,10 @@
 {%- block html_body -%}
     {% trans topic_title=topic_title, link=request_html_page %}
     <p>
-    🎉 **Great News!** Your record **"{{topic_title}}"** has successfully passed the review stage and has been **APPROVED for publication** by the repository staff.
+    🎉 **Great News!** Your record **"{{topic_title}}"** has successfully passed review and has been **ACCEPTED for publication**.
     </p>
     <p>
-    The submission is now in the **Accepted** state. Please visit the request page to view the final decision details and complete any final steps necessary to move your record to the public repository.
+    The record is now in the **Accepted** state. Once you are ready to publish your record, please click the "Publish draft" button on the record preview page:
     </p>
     <p>
         <a type="button" href='{{link}}' style="display:inline-block;padding:10px 20px;background-color:#28a745;color:#ffffff;text-decoration:none;border-radius:5px;">View Final Status & Publish</a>
@@ -27,9 +27,9 @@
 
 {%- block plain_body -%}
     {% trans topic_title=topic_title, link=request_html_page %}
-    Great News! Your record "{{topic_title}}" has successfully passed review and has been APPROVED FOR PUBLICATION by the repository staff.
+    Great News! Your record "{{topic_title}}" has successfully passed review and has been APPROVED FOR PUBLICATION.
 
-    The record is now in an 'Accepted' state. Please visit the request page to view the final status and complete any necessary steps to make the record public:
+    The record is now in an 'Accepted' state. Once you are ready to publish your record, please click the "Publish draft" button on the record preview page:
     {{link}}
     {% endtrans %}
 {%- endblock plain_body -%}
