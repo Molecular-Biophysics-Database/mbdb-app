@@ -11,6 +11,9 @@ from common.requests.customizations.custom_generators import DynamicReviewerReci
 
 
 class CustomCommentRequestEventCreateNotificationBuilder(CommentRequestEventCreateNotificationBuilder):
+    # TODO Define notification logic based on the comment creator's role. Implement conditional
+    #  notification builders or recipient filters to ensure the Request Creator is notified
+    #  only when the Reviewer comments, and vice-versa.
     recipients = [
         RequestParticipantsRecipient(key="request"),
         DynamicReviewerRecipient(),
