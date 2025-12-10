@@ -1,5 +1,4 @@
 from marshmallow import ValidationError
-from invenio_access.permissions import system_identity
 from oarepo_runtime.i18n import lazy_gettext as _
 from oarepo_requests.types import ModelRefTypes
 from oarepo_requests.types.generic import NonDuplicableOARepoRequestType
@@ -8,11 +7,12 @@ from oarepo_requests.actions.generic import OARepoSubmitAction, OARepoAcceptActi
 from invenio_notifications.services.uow import NotificationOp
 from oarepo_requests.notifications.generators import EntityRecipient
 from oarepo_requests.notifications.builders.oarepo import OARepoRequestActionNotificationBuilder
+from common.requests.custom_generators import DynamicReviewerRecipient
+
 
 class DraftRequestSubmitReceiverNotificationBuilder(OARepoRequestActionNotificationBuilder):
     type = "draft-request-receiver.submit"
-    # Receivers as recipients (reviewers)
-    recipients = [EntityRecipient(key="request.receiver")]
+    recipients = [DynamicReviewerRecipient()]
 
 class DraftRequestSubmitCreatorNotificationBuilder(OARepoRequestActionNotificationBuilder):
     type = "draft-request-creator.submit"
