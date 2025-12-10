@@ -36,7 +36,7 @@ class RoleRecipient(RecipientGenerator):
             if not user.email:
                 continue
 
-            recipients[user.email] = Recipient(data=_extract_entity_email_data(user))
+            recipients[str(user.id)] = Recipient(data=_extract_entity_email_data(user))
             added += 1
 
         return recipients
@@ -46,15 +46,23 @@ class DynamicReviewerRecipient(RecipientGenerator):
     def __call__(self, notification, recipients):
         ctx = notification.context
 
-        request = ctx["request"]
-        topic = request.get("topic")
+        request = ctx.get("request")
+        if not request:
+            return recipients
 
+        topic = request.get("topic")
         if not topic:
             return recipients
 
+        if isinstance(topic, dict) and "$ref" in topic:
+            return recipients
+
+        metadata = topic.get("metadata") if isinstance(topic, dict) else None
+        if not metadata:
+            return recipients
+
         method = (
-            topic.get("metadata", {})
-            .get("general_parameters", {})
+            metadata.get("general_parameters", {})
             .get("record_information", {})
             .get("resource_type")
         )
