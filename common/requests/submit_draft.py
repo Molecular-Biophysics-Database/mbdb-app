@@ -1,12 +1,13 @@
 from marshmallow import ValidationError
-from invenio_access.permissions import system_identity
 from oarepo_runtime.i18n import lazy_gettext as _
 from oarepo_requests.types import ModelRefTypes
 from oarepo_requests.types.generic import NonDuplicableOARepoRequestType
 from oarepo_runtime.datastreams.utils import get_record_service_for_record
+from common.requests.customizations.custom_actions import *
+
+
 
 # Request
-#
 class SubmitDraftRequestType(NonDuplicableOARepoRequestType):
     """
     Custom submit draft request that validates the draft upon submission. The
@@ -16,11 +17,17 @@ class SubmitDraftRequestType(NonDuplicableOARepoRequestType):
     type_id = "submit_draft"
     name = _("Submit")
 
+    # Modal popup
+    dangerous = True
+
     @classmethod
     @property
     def available_actions(cls):
         return {
             **super().available_actions,
+            "submit": SubmitDraftAction,
+            "accept": AcceptDraftAction,
+            "decline": DeclineDraftAction,
         }
 
     receiver_can_be_none = False

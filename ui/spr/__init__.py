@@ -24,7 +24,7 @@ class SprInitialValuesComponent(UIResourceComponent):
         )
 
 
-class SprResourceConfig(SearchInAllMixin, RecordsUIResourceConfig):
+class SprUIResourceConfig(SearchInAllMixin, RecordsUIResourceConfig):
     template_folder = "templates"
     url_prefix = "/spr/"
     blueprint_name = "spr"
@@ -85,4 +85,4 @@ class SprResource(RecordsUIResource):
 
 def create_blueprint(app):
     """Register blueprint for this resource."""
-    return SprResource(SprResourceConfig()).as_blueprint()
+    return SprResource(SprUIResourceConfig()).as_blueprint()

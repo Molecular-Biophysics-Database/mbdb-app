@@ -23,7 +23,7 @@ class MstInitialValuesComponent(UIResourceComponent):
         )
 
 
-class MstResourceConfig(SearchInAllMixin, RecordsUIResourceConfig):
+class MstUIResourceConfig(SearchInAllMixin, RecordsUIResourceConfig):
     template_folder = "templates"
     url_prefix = "/mst/"
     blueprint_name = "mst"
@@ -84,4 +84,4 @@ class MstResource(RecordsUIResource):
 
 def create_blueprint(app):
     """Register blueprint for this resource."""
-    return MstResource(MstResourceConfig()).as_blueprint()
+    return MstResource(MstUIResourceConfig()).as_blueprint()

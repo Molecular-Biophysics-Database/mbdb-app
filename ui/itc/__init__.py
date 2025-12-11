@@ -23,7 +23,7 @@ class ItcInitialValuesComponent(UIResourceComponent):
         )
 
 
-class ItcResourceConfig(SearchInAllMixin, RecordsUIResourceConfig):
+class ItcUIResourceConfig(SearchInAllMixin, RecordsUIResourceConfig):
     template_folder = "templates"
     url_prefix = "/itc/"
     blueprint_name = "itc"
@@ -83,4 +83,4 @@ class ItcResource(RecordsUIResource):
 
 def create_blueprint(app):
     """Register blueprint for this resource."""
-    return ItcResource(ItcResourceConfig()).as_blueprint()
+    return ItcResource(ItcUIResourceConfig()).as_blueprint()
