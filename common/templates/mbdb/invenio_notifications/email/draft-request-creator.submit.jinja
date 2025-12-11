@@ -1,33 +1,64 @@
 {% set request = notification.context.request %}
 {% set topic = request.topic %}
-{% set topic_id = request.topic.id %}
-{% set topic_title = topic.get("metadata", {}).get("title", topic_id) %}
+{% set rec_info = topic.metadata.general_parameters.record_information %}
+
+{% set topic_id = topic.id %}
+{% set topic_title = rec_info.title %}
+{% set method = rec_info.resource_type %}
+
 {% set request_html_page = request.links.self_html %}
+{% set record_html_page = topic.links.self_html %}
 
 {%- block subject -%}
-    {{ _("SUBMITTED: Your MBDB record '{topic_title}' has been submitted and is now under review").format(topic_title=topic_title) }}
+  {{ _("SUBMITTED: Your MBDB record '{topic_id}' has been submitted and is now under review")
+      .format(topic_id=topic_id) }}
 {%- endblock subject -%}
 
 {%- block html_body -%}
-    {% trans topic_title=topic_title, link=request_html_page %}
-    <p>
-    Thank you for submitting your record, **"{{topic_title}}"**, to MBDB.
-    </p>
-    <p>
-    Your record is now under review. We will notify you if revisions to your record are needed or once the record has been accepted.
-    </p>
-    <p>
-    You can view the status of your request here: <a href="{{ link }}">{{ link }}</a>
-    </p>
-    {% endtrans %}
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+           style="background-color:#f6f6f6; padding:20px 0;">
+        <tr>
+            <td align="center">
+                <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"
+                       style="background-color:#ffffff; padding:24px;
+                        border-radius:6px; font-family:Arial, sans-serif;
+                        font-size:14px; color:#333; line-height:1.5;">
+                    <tr>
+                        <td>
+                            {% trans topic_title=topic_title, request_html_page=request_html_page %}
+                                <p>
+                                    Thank you for submitting your record <b>"{{ topic_title }}"</b> to MBDB.
+                                </p>
+                                <p>
+                                    Your record is now under review. We will notify you if revisions to your record are
+                                    needed
+                                    or once the record has been accepted.
+                                </p>
+                                <p>
+                                    You can view the status of your request here:
+                                    <a href="{{ request_html_page }}">{{ request_html_page }}</a>
+                                </p>
+                            {% endtrans %}
+                        </td>
+                    </tr>
+                </table>
+
+                <div style="margin-top:20px;">
+                    {% include "mbdb/invenio_notifications/email/html-email-signature.jinja" %}
+                </div>
+            </td>
+        </tr>
+    </table>
 {%- endblock html_body -%}
 
 {%- block plain_body -%}
-    {% trans topic_title=topic_title, link=request_html_page %}
-    Thank you for submitting your record, "{{topic_title}}", to MBDB.
+{% trans topic_title=topic_title, request_html_page=request_html_page %}
+Thank you for submitting your record "{{ topic_title }}" to MBDB.
 
-    Your record is now under review. We will notify you if revisions to your record are needed or once the record has been accepted.
+Your record is now under review. We will notify you if revisions to your record are needed
+or once the record has been accepted.
 
-    You can view the status of your request here: {{ link }}
-    {% endtrans %}
+You can view the status of your request here: {{ request_html_page }}
+{% endtrans %}
+{% include "mbdb/invenio_notifications/email/plain-email-signature.jinja" %}
 {%- endblock plain_body -%}
