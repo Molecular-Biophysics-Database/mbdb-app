@@ -26,6 +26,7 @@ dependencies = [
     "python-dotenv",
     "semver",
     "oarepo-rdm"
+    "wkhtmltopdf"
 ]
 requires-python = ">=3.12,<3.13"
 

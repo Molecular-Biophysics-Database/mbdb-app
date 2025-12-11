@@ -1,4 +1,5 @@
-{# def record, metadata, ui, extra_context, d, context #}
+{# def record, metadata, ui, extra_context, d, context, embedded, pdf_embedded=false #}
+{% set pdf_embedded = request.args.get("pdf_embedded", "false")|lower == "true" %}
 {% extends "base/detail.html" %}
 
 {%- block javascript %}
@@ -18,5 +19,5 @@
 {%- endblock %}
 
 {% block record_main_content %}
-    <spr.Main metadata={metadata} ui={ui} extra_context={extra_context} record={record} d={d} context={context}/>
+    <spr.Main metadata={metadata} ui={ui} extra_context={extra_context} record={record} d={d} context={context} embedded={embedded} pdf_embedded={pdf_embedded}/>
 {% endblock %}

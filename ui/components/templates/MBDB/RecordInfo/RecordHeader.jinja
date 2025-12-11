@@ -1,4 +1,5 @@
-{# def record, md, links, state, permissions #}
+{# def record, md, links, state, permissions, embedded, pdf_embedded=false #}
+{% set pdf_embedded = request.args.get("pdf_embedded", "false")|lower == "true" %}
 
 {# Recordview template that renders the
   1. The state (status) of the record (draft, submitted...)
@@ -14,6 +15,7 @@
   <div class="font-JostMedium text-30px lg:text-40px">
     <IValue value={ md.general_parameters.record_information.title } placeholder="(Record has no title)" />
   </div>
+{% if not pdf_embedded and not embedded %}
 {# render template (duplicate) button #}
   <div class="flex">
     <div class="mr-4">
@@ -48,4 +50,5 @@
     <RemoveButton self_link={ links.self } state={ state } />
     {% endif %}
   </div>
+{% endif %}
 </div>
