@@ -35,10 +35,9 @@
     <tr>
         <td><strong>_</strong></td>
     </tr>
-    <tr>
-        <td style="font-size:smaller">{{ _("This is an auto-generated message. To manage notifications, visit your")}} <a href="{{account_settings_link}}">{{ _("account settings")}}</a>.</td>
-    </tr>
 </table>
+
+{% include "mbdb/invenio_notifications/email/html-email-signature.jinja" %}
 {%- endblock html_body %}
 
 {%- block plain_body -%}
@@ -47,6 +46,8 @@
 {{ request_event_content }}
 
 {{ _("Check out the request: {request_link}").format(request_link=request_link) }}
+
+{% include "mbdb/invenio_notifications/email/plain-email-signature.jinja" %}
 
 {%- endblock plain_body %}
 
