@@ -17,20 +17,41 @@ if [ -z "$USERS_PASSWORD" ] ; then
   exit 1
 fi
 
-DOMAIN="mbdb-data.org"
+DOMAIN="email.cz"
+METHODS=(mst bli spr itc mp)
 ROLES=(reviewer editor administrator)
 
 # Create users (skip if they already exist)
 echo -e "${CYAN}--- Creating users and profiles ---${NC}"
+
+for method in "${METHODS[@]}"; do
+
+    EMAIL="mbdb_reviewer_${method}@${DOMAIN}"
+
+    FULL_NAME="Reviewer ${method^}"
+
+
+    PROFILE_JSON="{\"full_name\": \"$FULL_NAME\"}"
+
+    if ! ERROR_OUTPUT=$(invenio users create -a -c "$EMAIL" --password "$USERS_PASSWORD" --profile "$PROFILE_JSON" 2>&1 >/dev/null); then
+        if echo "$ERROR_OUTPUT" | grep -q "already associated with an account"; then
+            echo -e "${YELLOW}User '$EMAIL' already exists. Skipping.${NC}"
+        else
+            echo -e "${RED}FATAL ERROR creating user '$EMAIL':${NC}" >&2
+            echo -e "${RED}$ERROR_OUTPUT${NC}" >&2
+            exit 1
+        fi
+    else
+        echo -e "${GREEN}User '$EMAIL' created successfully.${NC}"
+    fi
+
+done
+
 for role in "${ROLES[@]}"; do
 
-    EMAIL="${role}@${DOMAIN}"
+    EMAIL="mbdb_${role}@${DOMAIN}"
+    FULL_NAME="${role^}"
 
-    if [[ "$role" == "administrator" ]]; then
-        FULL_NAME="Administrátor"
-    else
-        FULL_NAME="${role^}"
-    fi
 
     PROFILE_JSON="{\"full_name\": \"$FULL_NAME\"}"
 
@@ -53,6 +74,12 @@ echo -e "${CYAN}--- Assigning roles ---${NC}"
 for role in "${ROLES[@]}"; do
     EMAIL="${role}@${DOMAIN}"
     invenio roles add "$EMAIL" "$role" 2>/dev/null || echo -e "${YELLOW}Role '$role' already assigned to '$EMAIL'. Skipping.${NC}"
+done
+
+# Assign method reviewers
+for method in "${METHODS[@]}"; do
+    EMAIL="mbdb_reviewer_${method}@${DOMAIN}"
+    invenio roles add "$EMAIL" "reviewer_$method" 2>/dev/null || echo -e "${YELLOW}Role Reviewer-'$method' already assigned to '$EMAIL'. Skipping.${NC}"
 done
 
 # Allow administration access to the admin role
