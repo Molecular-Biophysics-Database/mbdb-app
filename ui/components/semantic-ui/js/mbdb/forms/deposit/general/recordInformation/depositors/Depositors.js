@@ -24,6 +24,7 @@ export default function Depositors({ name }) {
         <FormWrapper
           headline="Principal contact"
           tooltip="The person responsible for the record and the one to contact for inquiries, this would typically be the principle investigator, group leader, or laboratory head"
+          name={`${name}.principal_contact`}
         >
           <Contact name={`${name}.principal_contact`} />
         </FormWrapper>

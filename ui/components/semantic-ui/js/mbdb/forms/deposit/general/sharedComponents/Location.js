@@ -9,6 +9,7 @@ export default function Location({ name, tooltip, colorSchema }) {
         headline="Location"
         colorSchema={colorSchema}
         tooltip={tooltip}
+        name={name}
       >
         <div className="flex">
           <CustomField
