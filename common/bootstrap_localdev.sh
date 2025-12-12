@@ -30,12 +30,21 @@ echo -e "${CYAN}USERS_PASSWORD has been set for this session.${NC}"
 
 echo -e "${CYAN}--- Creating system roles ---${NC}"
 ROLES=(reviewer editor administrator)
+METHODS=(mst bli spr itc mp)
 
 for role in "${ROLES[@]}"; do
     if invenio roles create "$role" 2>/dev/null; then
         echo -e "${RED}Created role '$role'${NC}"
     else
         echo -e "${YELLOW}Role '$role' already exists. Skipping.${NC}"
+    fi
+done
+
+for method in "${METHODS[@]}"; do
+    if invenio roles create "reviewer_$method" 2>/dev/null; then
+        echo -e "${RED}Created role 'reviewer_$method'${NC}"
+    else
+        echo -e "${YELLOW}Role reviewer_'$method' already exists. Skipping.${NC}"
     fi
 done
 
