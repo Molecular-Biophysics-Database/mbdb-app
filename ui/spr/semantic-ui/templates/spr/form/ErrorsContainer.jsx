@@ -1,8 +1,17 @@
 import React, { useContext, useState, useEffect, useMemo } from 'react';
 import { useFormikContext } from "formik";
-import { FormContext } from "./FormProvider"
-import { useDepositApiClient } from "@js/oarepo_ui";
-import RequestOnRecordView from "@mbdb_deposit/buttons/RequestsRecordView";
+import { FormContext } from "./FormProvider";
+
+function highlightFields(fields) {
+    document
+        .querySelectorAll(".field-highlight")
+        .forEach(el => el.classList.remove("field-highlight"));
+
+    fields.forEach(({ fieldPath }) => {
+        const el = document.querySelector(`[name="${fieldPath}"]`);
+        if (el) el.classList.add("field-highlight");
+    });
+}
 
 function formatFieldPath(path, tabs) {
     const parts = path.split(".");
@@ -37,28 +46,54 @@ export default function ErrorsContainer() {
     
     const errors = values.errors;
     
-    const fields = useMemo(() => {
-        if (!errors) return [];
-        return errors.map((e) => ({
-            fieldPath: e.field,
-            fieldLabel: formatFieldPath(e.field, tabs),
-            message: e.messages
-        }));
-    }, [errors]);
+    const orderedFields = useMemo(() => {
+        if (!errors?.length) return [];
+
+        const prefixToTab = new Map();
+
+        tabs.forEach((tab, tabIndex) => {
+            tab.fieldPaths.forEach((path) => {
+                const existing = prefixToTab.get(path);
+                if (existing === undefined || tabIndex < existing) {
+                    prefixToTab.set(path, tabIndex);
+                }
+            });
+        });
+
+        const getTabIndex = (fieldPath) => {
+            let bestIndex = Infinity;
+            let bestLength = 0;
+
+            for (const [prefix, tabIndex] of prefixToTab) {
+                if (fieldPath === prefix || fieldPath.startsWith(prefix + '.')) {
+                    const len = prefix.length;
+                    if (
+                        len > bestLength ||
+                        (len === bestLength && tabIndex < bestIndex)
+                    ) {
+                        bestLength = len;
+                        bestIndex = tabIndex;
+                    }
+                }
+            }
+
+            return bestIndex === Infinity ? tabs.length : bestIndex;
+        };
+
+        return [...errors]
+            .sort((a, b) => getTabIndex(a.field) - getTabIndex(b.field))
+            .map((e) => ({
+                fieldPath: e.field,
+                fieldLabel: formatFieldPath(e.field, tabs),
+                message: e.messages
+            }));
+    }, [errors, tabs]);
     
     useEffect(() => {
         if (!errors || !showErrors) return;
+        highlightFields(orderedFields);
 
-        document
-            .querySelectorAll('.field-highlight')
-            .forEach((el) => el.classList.remove('field-highlight'));
-
-        fields.map(({ fieldPath }) => {
-            const el = document.querySelector(`[name="${fieldPath}"]`);
-            if (el) el.classList.add("field-highlight");
-        })
-
-    }, [errors, selectedTab, showErrors, fields]);
+    }, [errors, selectedTab, showErrors, orderedFields]);
 
     useEffect(() => {
         if (!focusField) return;
@@ -75,9 +110,11 @@ export default function ErrorsContainer() {
 
 
     function navigateToForm(field) {
-        const pathToTab = field.split(".", 3).join(".");
-        
-        const matchingTab = tabs.find((tab) => tab.fieldPaths?.includes(pathToTab));
+        const pathPrefix = field.split(".", 3).join(".");
+
+        const matchingTab = tabs.find((tab) =>
+            tab.fieldPaths?.some(p => p === pathPrefix || field.startsWith(p + "."))
+        );
 
         if (matchingTab) {
             setSelectedTab(matchingTab.value);
@@ -108,7 +145,7 @@ export default function ErrorsContainer() {
                             </button>
                         </div>
                         <div className='mb-2'>Please correct the following issues. Click the box to navigate to the respective field</div>
-                        {fields.map(({ fieldPath, fieldLabel, message }) => (
+                        {orderedFields.map(({ fieldPath, fieldLabel, message }) => (
                             <div
                                 key={fieldPath}
                                 className='flex justify-between cursor-pointer bg-[#FEF6E8] border-[.1rem] rounded-normal border-[#EFE4D2] mb-2 p-2 first-letter:uppercase text-sm hover:underline hover:decoration-[#ee930d]'
