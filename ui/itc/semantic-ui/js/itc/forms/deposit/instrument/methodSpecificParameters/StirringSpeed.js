@@ -11,6 +11,8 @@ export default function StirringSpeed({ colorSchema, name }) {
         colorSchema={colorSchema}
         headline="Stirring speed"
         tooltip="Sample cell stirring speed in RPM"
+        required
+        name={name}
       >
         <ValueUnit
           options={unitOptions}

@@ -16,6 +16,7 @@ export default function MolecularWeight({ colorSchema, name, tooltip }) {
         colorSchema={colorSchema}
         headline="Molecular weight"
         tooltip={tooltip}
+        name={name}
       >
         <ValueUnit
           options={unitOptions}

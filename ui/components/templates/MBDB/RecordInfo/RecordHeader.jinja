@@ -18,11 +18,11 @@
 {% if not pdf_embedded and not embedded %}
 {# render template (duplicate) button #}
   <div class="flex">
-    <div class="mr-4">
+    <div class="mr-1">
       <TemplateButton self_link={ links.self } />
     </div>
 {# render download button #}
-    <div class="mr-4">
+    <div class="mr-1">
       <a class="flex justify-center px-4 h-10 text-20px bg-dark rounded-normal text-white hover:text-white hover:bg-dark/75 transition-all"
         href="{{links.export_path}}/json" type="application/json" role="button">
         <button class="px-4">
@@ -32,7 +32,7 @@
     </div>
 {# render edit button if user has permission to edit the draft #}
     {% if permissions.can_update %}
-    <div class="mr-4">
+    <div class="mr-1">
       <a class="flex justify-center px-8 h-10 text-20px bg-dark rounded-normal text-white hover:text-white hover:bg-dark/75 transition-all"
         href="{{ links.edit_html or links.self_html }}" type="application/json" role="button">
         <button class="px-4">
@@ -42,9 +42,7 @@
     </div>
     {% endif %}
 {# render all request buttons (via Oarepo template) #}
-    <div class="mr-4">
-      <RecordRequests record={ record } />
-    </div>
+    <RecordRequests record={ record } />
 {# render delete button is user has permission to delete the draft #}
     {% if permissions.can_delete %}
     <RemoveButton self_link={ links.self } state={ state } />

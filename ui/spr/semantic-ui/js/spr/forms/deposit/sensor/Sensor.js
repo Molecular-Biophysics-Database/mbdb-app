@@ -27,7 +27,11 @@ function Sensor({ name }) {
 
   return (
     <>
-      <FormWrapper headline="Sensor" tooltip="Sensor used for the measurements">
+      <FormWrapper
+        headline="Sensor"
+        tooltip="Sensor used for the measurements"
+        name={name}
+      >
         <div className="flex -mt-3 mb-3">
           <OptionalField
             name={name}

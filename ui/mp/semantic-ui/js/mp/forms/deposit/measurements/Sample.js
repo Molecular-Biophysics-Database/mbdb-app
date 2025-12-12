@@ -35,6 +35,7 @@ function Sample({ name, colorSchema }) {
         headline="Sample"
         colorSchema={colorSchema}
         tooltip="Composition of the solution in the cell including targets and chemical environment"
+        name={name}
       >
         <OptionField
           name={name}

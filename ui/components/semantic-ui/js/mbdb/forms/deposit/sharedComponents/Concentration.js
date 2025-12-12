@@ -31,6 +31,7 @@ export default function Concentration({ name, tooltip, colorSchema }) {
         colorSchema={colorSchema}
         headline="Concentration"
         tooltip={tooltip}
+        name={name}
       >
         <ValueUnit
           name={name}

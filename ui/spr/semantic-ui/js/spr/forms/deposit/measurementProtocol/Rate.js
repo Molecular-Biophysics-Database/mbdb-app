@@ -14,6 +14,7 @@ export default function Rate({ colorSchema, name, tooltip }) {
         colorSchema={colorSchema}
         headline="Rate"
         tooltip={tooltip}
+        name={name}
       >
         <ValueUnit
           options={unitOptions}

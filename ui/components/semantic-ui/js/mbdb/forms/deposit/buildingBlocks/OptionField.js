@@ -45,7 +45,7 @@ function OptionField({
 
   return (
     <div className="flex">
-      <div className={`${width} rounded-lg relative border min-w-[178px]`}>
+      <div name={nameOptionField} className={`${width} rounded-lg relative border min-w-[178px]`}>
         <FormControl fullWidth>
           <InputLabel>{label}</InputLabel>
           <Select

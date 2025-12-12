@@ -15,6 +15,8 @@ export default function CellTemperature({ colorSchema, name }) {
         colorSchema={colorSchema}
         headline="Cell temperature"
         tooltip="Temperature of the cell in which the sample is measured"
+        required
+        name={name}
       >
         <ValueUnit
           options={unitOptions}

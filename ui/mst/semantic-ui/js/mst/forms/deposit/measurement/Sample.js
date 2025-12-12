@@ -75,6 +75,7 @@ function Sample({ name, tooltip, colorSchema }) {
         colorSchema={colorSchema}
         headline="Sample"
         tooltip={tooltip}
+        name={name}
       >
         <div className="flex mb-3">
           <div className="mr-3">
@@ -125,6 +126,7 @@ function Sample({ name, tooltip, colorSchema }) {
             <FormWrapper
               headline={`Target ${index + 1}`}
               tooltip={tooltips.target}
+              name={arrayName}
             >
               <Target name={`${arrayName}.${index}`} />
             </FormWrapper>
@@ -141,6 +143,7 @@ function Sample({ name, tooltip, colorSchema }) {
             <FormWrapper
               headline={`Ligand ${index + 1}`}
               tooltip={tooltips.ligand}
+              name={arrayName}
             >
               <Ligand name={`${arrayName}.${index}`} />
             </FormWrapper>

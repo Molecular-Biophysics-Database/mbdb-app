@@ -2,10 +2,11 @@ import React from "react";
 import Tooltip from "@material-ui/core/Tooltip";
 import { Typography } from "@material-ui/core";
 
-function FormWrapper({ headline, children, colorSchema, tooltip, required }) {
+function FormWrapper({ headline, children, colorSchema, tooltip, required, name }) {
   return (
     <>
       <div
+        name={name}
         className={`${
           colorSchema === "light" ? "bg-primary" : "bg-white"
         } p-3 rounded-lg text-dark font-JostMedium`}

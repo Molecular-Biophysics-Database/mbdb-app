@@ -32,6 +32,7 @@ function CustomField({
         <div className={`${width}`}>
           <TextField
             {...field}
+            name={nameCustomField}
             className={`rounded-lg p-2 text-16px ${width}`}
             sx={{
               "& .MuiInputLabel-root": { color: "#034459" }, //styles the label

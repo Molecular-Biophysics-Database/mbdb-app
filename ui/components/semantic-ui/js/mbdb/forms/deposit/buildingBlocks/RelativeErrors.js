@@ -26,7 +26,7 @@ function RelativeErrors({ name, required, disabled }) {
 
   return (
     <div className="flex">
-      <div className="rounded-lg relative border w-[12rem]">
+      <div name={nameRelativeField} className="rounded-lg relative border w-[12rem]">
         <FormControl fullWidth>
           <InputLabel>Errors are relative</InputLabel>
           <Select

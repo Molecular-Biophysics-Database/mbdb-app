@@ -31,6 +31,7 @@ function Flow({ colorSchema, name }) {
         colorSchema={colorSchema}
         headline="Flow"
         tooltip="Information about the liquid flow during the measurement step"
+        name={name}
       >
         <div className="flex">
           <div className="-mt-3 mr-3">
@@ -44,6 +45,7 @@ function Flow({ colorSchema, name }) {
                 <FormWrapper
                   headline={`Path ${index + 1}`}
                   tooltip={tooltips.path}
+                  name={arrayName}
                 >
                   <Path name={`${arrayName}.${index}`} />
                 </FormWrapper>

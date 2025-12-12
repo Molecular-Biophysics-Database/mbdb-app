@@ -35,6 +35,8 @@ function SampleInSyringe({ name, colorSchema }) {
         headline="Sample in syringe"
         colorSchema={colorSchema}
         tooltip="Composition of the solution in the syringe including targets and chemical environment"
+        required
+        name={name}
       >
         <OptionField
           name={name}

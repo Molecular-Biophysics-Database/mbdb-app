@@ -40,7 +40,7 @@ function ResultTab({ name }) {
     { value: "Change in enthalpy deltaH", label: "Change in enthalpy deltaH" },
     { value: "Change in entropy deltaS", label: "Change in entropy deltaS" },
     {
-      value: "Change in gibbs free energy deltaG",
+      value: "Change in Gibbs free energy deltaG",
       label: "Change in Gibbs free energy deltaG",
     },
     { value: "Molecular weight", label: "Molecular weight" },
@@ -115,7 +115,7 @@ function ResultTab({ name }) {
                 {actualValue.type === "Change in entropy deltaS" && (
                   <ChangeInEntropyDeltaS name={`${arrayName}.${index}`} />
                 )}
-                {actualValue.type === "Change in gibbs free energy deltaG" && (
+                {actualValue.type === "Change in Gibbs free energy deltaG" && (
                   <ChangeInGibbsFreeEnergyDeltaG
                     name={`${arrayName}.${index}`}
                   />

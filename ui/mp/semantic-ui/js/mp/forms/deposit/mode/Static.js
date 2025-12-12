@@ -19,6 +19,7 @@ export default function Static({ name, colorSchema }) {
       colorSchema={colorSchema}
       tooltip="Properties and preparation of the sample carrier"
       required
+      name={name}
     >
       <div className="flex">
         <div className="mr-3">

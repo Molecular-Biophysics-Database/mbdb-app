@@ -71,6 +71,7 @@ function MolecularWeightMW({ name }) {
             colorSchema="light"
             headline={`Entity involved ${index + 1}`}
             tooltip={tooltips.entityInvolved}
+            name={arrayName}
           >
             <EntityInvolved name={`${arrayName}.${index}`} />
           </FormWrapper>

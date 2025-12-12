@@ -11,7 +11,7 @@ export default function RecordInformation({ name }) {
           fieldName="title"
           label="Title"
           required
-          width="w-[1110px]"
+          width="w-full"
           tooltip="Short descriptive title of the record"
         />
       </FormWrapper>

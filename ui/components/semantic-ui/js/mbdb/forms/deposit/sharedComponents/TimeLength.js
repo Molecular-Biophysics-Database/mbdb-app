@@ -21,6 +21,7 @@ export default function TimeLength({ colorSchema, name }) {
         colorSchema={colorSchema}
         headline="Time length"
         tooltip="The numerical value of the total time of the measurement step"
+        name={name}
       >
         <ValueUnit
           options={unitOptions}
