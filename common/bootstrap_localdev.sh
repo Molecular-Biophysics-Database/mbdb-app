@@ -11,27 +11,38 @@ NC='\033[0m'
 
 unset USERS_PASSWORD
 
-echo -e "${CYAN}--- User Password Setup ---${NC}"
-echo -e "Please enter the password to be used for the default users (reviewer, editor, administrator):"
-
-# Read the password without displaying it (silent mode: -s)
-read -r -s USERS_PASSWORD
-
-echo
-
-# Check if the user entered anything
+# Password Setup
 if [ -z "$USERS_PASSWORD" ]; then
-    echo -e "${RED}ERROR: Password cannot be empty. Exiting.${NC}" >&2
-    exit 1
-fi
+  echo -e "${RED}ERROR: USERS_PASSWORD is not set${NC}" >&2
+  echo -e "${CYAN}--- User Password Setup ---${NC}"
+  echo -e "Please enter the password for default users (reviewer, editor, administrator):"
 
-export USERS_PASSWORD
-echo -e "${CYAN}USERS_PASSWORD has been set for this session.${NC}"
+  while true; do
+    read -r -s -p "Password: " USERS_PASSWORD
+    echo
+    read -r -s -p "Confirm password: " USERS_PASSWORD_CONFIRM
+    echo
+
+    if [ -z "$USERS_PASSWORD" ]; then
+      echo -e "${RED}Password cannot be empty.${NC}"
+      continue
+    fi
+
+    if [ "$USERS_PASSWORD" != "$USERS_PASSWORD_CONFIRM" ]; then
+      echo -e "${RED}Passwords do not match. Try again.${NC}"
+      continue
+    fi
+
+    break
+  done
+
+  export USERS_PASSWORD
+fi
 
 echo -e "${CYAN}--- Creating system roles ---${NC}"
 ROLES=(reviewer editor administrator)
-METHODS=(mst bli spr itc mp)
 
+# Create roles if they do not exist locally
 for role in "${ROLES[@]}"; do
     if invenio roles create "$role" 2>/dev/null; then
         echo -e "${RED}Created role '$role'${NC}"
@@ -40,13 +51,6 @@ for role in "${ROLES[@]}"; do
     fi
 done
 
-for method in "${METHODS[@]}"; do
-    if invenio roles create "reviewer_$method" 2>/dev/null; then
-        echo -e "${RED}Created role 'reviewer_$method'${NC}"
-    else
-        echo -e "${YELLOW}Role reviewer_'$method' already exists. Skipping.${NC}"
-    fi
-done
 
 # Run stage setup script afterwards
 echo -e "${CYAN}--- Running stage setup (user creation) script ---${NC}"
