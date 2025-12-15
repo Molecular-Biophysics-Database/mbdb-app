@@ -1,5 +1,5 @@
 oarepo[s3,rdm]==12.2.31
-cachetools==6.2.2
+cachetools==6.2.3
 deepmerge==2.0
 et-xmlfile==2.0.0
 flask-babelex==0.9.4
@@ -14,7 +14,7 @@ numpy==2.4.0rc1
 oarepo-communities==5.4.5
 oarepo-dashboard==1.0.26
 oarepo-doi==1.0.19
-oarepo-glitchtip==1.0.1
+oarepo-glitchtip==1.1.0
 oarepo-global-search==1.0.45
 oarepo-oidc-einfra==1.3.4
 oarepo-published-service==1.0.3
@@ -25,9 +25,9 @@ oarepo-ui==5.2.87
 oarepo-vocabularies==2.2.5
 oarepo-workflows==1.2.1
 openpyxl==3.1.5
-opentelemetry-api==1.39.0
-opentelemetry-sdk==1.39.0
-opentelemetry-semantic-conventions==0.60b0
+opentelemetry-api==1.39.1
+opentelemetry-sdk==1.39.1
+opentelemetry-semantic-conventions==0.60b1
 orcid==1.0.3
 pandas==3.0.0rc0
 python-dotenv==1.2.1
