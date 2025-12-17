@@ -65,11 +65,11 @@ class DynamicReviewerRecipient(RecipientGenerator):
         )
 
         mapping = {
-            "MST": "mst_reviewer",
-            "SPR": "spr_reviewer",
-            "ITC": "itc_reviewer",
-            "BLI": "bli_reviewer",
-            "MP": "mp_reviewer",
+            "MST": "reviewer_mst",
+            "SPR": "reviewer_spr",
+            "ITC": "reviewer_itc",
+            "BLI": "reviewer_bli",
+            "MP": "reviewer_mp",
         }
 
         role = mapping.get(method, "reviewer")
