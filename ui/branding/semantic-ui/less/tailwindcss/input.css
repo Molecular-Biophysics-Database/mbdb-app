@@ -33,6 +33,7 @@
 * {
   font-family: Jost-Regular;
   letter-spacing: 0.04rem;
+  scroll-behavior: smooth;
 }
 
 #banner-1 {
