@@ -10,7 +10,7 @@
 {% set record_html_page = topic.links.self_html %}
 
 {%- block subject -%}
-  {{ _("SUBMITTED: Your MBDB record '{topic_id}' has been submitted and is now under review")
+    {{ _("SUBMITTED: Your MBDB record '{topic_id}' has been submitted and is now under review")
       .format(topic_id=topic_id) }}
 {%- endblock subject -%}
 
@@ -42,23 +42,35 @@
                         </td>
                     </tr>
                 </table>
+            </td>
+        </tr>
+    </table>
 
-                <div style="margin-top:20px;">
-                    {% include "mbdb/invenio_notifications/email/html-email-signature.jinja" %}
-                </div>
+    <!-- spacer -->
+    <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td style="line-height:20px; font-size:1px;">&nbsp;</td>
+        </tr>
+    </table>
+
+    <!-- signature (centered + same width) -->
+    <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td style="padding:0 0 20px 0;">
+                {% include "mbdb/invenio_notifications/email/html-email-signature.jinja" %}
             </td>
         </tr>
     </table>
 {%- endblock html_body -%}
 
 {%- block plain_body -%}
-{% trans topic_title=topic_title, request_html_page=request_html_page %}
-Thank you for submitting your record "{{ topic_title }}" to MBDB.
+    {% trans topic_title=topic_title, request_html_page=request_html_page %}
+        Thank you for submitting your record "{{ topic_title }}" to MBDB.
 
-Your record is now under review. We will notify you if revisions to your record are needed
-or once the record has been accepted.
+        Your record is now under review. We will notify you if revisions to your record are needed
+        or once the record has been accepted.
 
-You can view the status of your request here: {{ request_html_page }}
-{% endtrans %}
-{% include "mbdb/invenio_notifications/email/plain-email-signature.jinja" %}
+        You can view the status of your request here: {{ request_html_page }}
+    {% endtrans %}
+    {% include "mbdb/invenio_notifications/email/plain-email-signature.jinja" %}
 {%- endblock plain_body -%}
