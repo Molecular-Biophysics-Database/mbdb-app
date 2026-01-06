@@ -9,7 +9,7 @@ echo "use_docker: false" > .oarepo-user.yaml
 
 set
 
-./nrp upgrade
+./nrp upgrade || true
 
 source .venv/bin/activate
 
