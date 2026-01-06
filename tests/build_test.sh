@@ -11,6 +11,7 @@ set
 
 ./nrp upgrade || true
 
+cat .venv/var/instance/assets/package.json
 source .venv/bin/activate
 
 invenio db init
