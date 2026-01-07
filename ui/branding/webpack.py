@@ -11,7 +11,7 @@ theme = WebpackThemeBundle(
             },
             "dependencies": {
                 "semantic-ui-less": "^2.5.0",
-                "react-error-boundary": "5.0.0"
+                "react-error-boundary": "6.0.0"
             },
             "devDependencies": {
                 "tailwindcss": "^3.3.5"
