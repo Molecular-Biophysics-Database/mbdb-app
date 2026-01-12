@@ -53,7 +53,7 @@ function FormFieldsContainer() {
   };
   return (
     <>
-      <div className="flex mb-2 ml-1">
+      <div className="flex ml-1">
         <FormButtons handleSaveMetadataAndFiles={handleSaveMetadataAndFiles} />
       </div>
       <div className="flex justify-center">

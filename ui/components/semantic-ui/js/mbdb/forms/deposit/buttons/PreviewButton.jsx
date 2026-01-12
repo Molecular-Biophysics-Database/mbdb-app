@@ -1,6 +1,5 @@
 import React from "react";
 import { useDepositApiClient } from "@js/oarepo_ui";
-import { Button } from "semantic-ui-react";
 
 export default function PreviewButton() {
   const { save, values: recordMetadata } = useDepositApiClient();
@@ -18,11 +17,11 @@ export default function PreviewButton() {
   }
 
   return (
-      <Button
-        style={{ backgroundColor: "#023850", color: "white" }}
+      <button
+        className="transition-all bg-dark text-white px-6 h-[36px] rounded-normal font-JostMedium hover:bg-dark/75"
         onClick={preview}
       >
         Preview
-      </Button>
+      </button>
   );
 }
