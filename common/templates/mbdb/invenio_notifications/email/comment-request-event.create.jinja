@@ -1,72 +1,66 @@
+{% import "mbdb/invenio_notifications/email/_layout.jinja" as layout %}
+{% import "mbdb/invenio_notifications/email/_macros.jinja" as m %}
+
 {% set invenio_request = notification.context.request %}
 {% set invenio_request_event = notification.context.request_event %}
-
-{# created_by is either a resolved user or an email (for guests) #}
-{% set event_creator_name = invenio_request_event.created_by.username or invenio_request_event.created_by %}
+{% set created_by = invenio_request_event.created_by %}
+{% set event_creator_name =
+    (created_by.get("profile", {}).get("full_name") if created_by is mapping else none)
+    or (created_by.get("username") if created_by is mapping else none)
+    or (created_by.get("email") if created_by is mapping else none)
+    or (created_by.username if created_by is not mapping and created_by is not string and created_by.username is defined else none)
+    or (created_by.profile.full_name if created_by is not mapping and created_by is not string and created_by.profile is defined and created_by.profile.full_name is defined else none)
+    or (created_by.email if created_by is not mapping and created_by is not string and created_by.email is defined else none)
+    or (created_by if created_by is string else _("Someone"))
+%}
 {% set request_id = invenio_request.id %}
 {% set request_event_content = invenio_request_event.payload.content | safe %}
 {% set request_title = invenio_request.title | safe %}
 
-{# TODO: use request.links.self_html when issue issue is resolved: https://github.com/inveniosoftware/invenio-rdm-records/issues/1327 #}
-{% set request_link = "{ui}/me/requests/{id}".format(
-    ui=config.SITE_UI_URL, id=request_id
-    )
-%}
-{% set account_settings_link = "{ui}/account/settings/notifications".format(
-    ui=config.SITE_UI_URL
-    )
-%}
+{# TODO: use request.links.self_html when issue is resolved: https://github.com/inveniosoftware/invenio-rdm-records/issues/1327 #}
+{% set request_link = "{ui}/me/requests/{id}".format(ui=config.SITE_UI_URL, id=request_id) %}
+
 
 {%- block subject -%}
 {{ _("💬 New comment on '{request_title}'").format(request_title=request_title) }}
 {%- endblock subject -%}
 
 {%- block html_body -%}
-<table style="font-family:'Lato',Helvetica,Arial,sans-serif;border-spacing:15px">
-    <tr>
-        <td>{{ _("'@{user_name}' commented on '{request_title}':").format(user_name=event_creator_name, request_title=request_title) }}</td>
-    </tr>
-    <tr>
-        <td><em>{{ request_event_content }}</em></td>
-    </tr>
-    <tr>
-        <td><a href="{{ request_link }}" class="button">{{ _("Check out the request")}}</a></td>
-    </tr>
-    <tr>
-        <td><strong>_</strong></td>
-    </tr>
-</table>
+  {% set body %}
+    <p>
+      {{ _("'@{user_name}' commented on your request '{request_title}' for record id: '{record_id}':").format(
+          user_name=event_creator_name,
+          request_title=request_title, record_id=notification.context.request.topic.parent.id
+      ) }}
+    </p>
 
-    <!-- spacer -->
-    <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-            <td style="line-height:20px; font-size:1px;">&nbsp;</td>
-        </tr>
-    </table>
+    <p><em>{{ request_event_content }}</em></p>
 
-    <!-- signature (centered + same width) -->
-    <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-            <td style="padding:0 0 20px 0;">
-                {% include "mbdb/invenio_notifications/email/html-email-signature.jinja" %}
-            </td>
-        </tr>
-    </table>
+    {{ m.button(request_link, _("Check out the request"), bg="#007bff") }}
 
+    <p>
+      {{ _("If the button does not work, copy and paste this link into your browser:") }}<br>
+      <a href="{{ request_link }}">{{ request_link }}</a>
+    </p>
+  {% endset %}
 
-
-{%- endblock html_body %}
+  {{ layout.render_html(body, text_align="center") }}
+{%- endblock html_body -%}
 
 {%- block plain_body -%}
-{{ _("@{user_name} commented on '{request_title}'").format(user_name=event_creator_name, request_title=request_title) }}.
+  {% set body %}
+{{ _("@{user_name} commented on '{request_title}'").format(
+    user_name=event_creator_name,
+    request_title=request_title
+) }}.
 
 {{ request_event_content }}
 
 {{ _("Check out the request: {request_link}").format(request_link=request_link) }}
+  {% endset %}
 
-{% include "mbdb/invenio_notifications/email/plain-email-signature.jinja" %}
-
-{%- endblock plain_body %}
+  {{ layout.render_plain(body) }}
+{%- endblock plain_body -%}
 
 {# Markdown for Slack/Mattermost/chat #}
 {%- block md_body -%}
@@ -74,5 +68,5 @@
 
 {{ request_event_content }}
 
-[{{_("Check out the request")}}]({{request_link}})
-{%- endblock md_body %}
+[{{ _("Check out the request") }}]({{ request_link }})
+{%- endblock md_body -%}
