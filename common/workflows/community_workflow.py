@@ -122,6 +122,12 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
                 UserWithRole("administrator"),
             ],
         ),
+        IfInState(
+            "retracting",
+            then_=[
+                UserWithRole("administrator"),
+            ]
+        )
     ]
 
     can_manage_files = [
