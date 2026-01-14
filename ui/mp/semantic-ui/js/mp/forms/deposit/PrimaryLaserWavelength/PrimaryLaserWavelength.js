@@ -12,7 +12,10 @@ export default function PrimaryLaserWavelength({ name }) {
         { value: "m", label: "m" },
     ];
     return (
-        <FormWrapper headline="Primary laser wavelenght">
+        <FormWrapper
+            headline="Primary laser wavelength"
+            tooltip="if it is not defined, Wavelength of the laser used for measurement of the mass photometry signal"    
+        >
             <ValueUnit
                 options={unitOptions}
                 name={name}
