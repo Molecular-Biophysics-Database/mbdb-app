@@ -20,6 +20,7 @@ export default function Protocol({ name }) {
           label="Description"
           tooltip="Short description of the step"
           required
+          width="w-80"
         />
       </div>
     </>
