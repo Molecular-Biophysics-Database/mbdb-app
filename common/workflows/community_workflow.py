@@ -80,7 +80,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
             ],
         ),
         IfInState(
-            "submitted",
+            ["submitted", "accepted"],
             then_=[
                 UserWithRole("reviewer"),
             ],
