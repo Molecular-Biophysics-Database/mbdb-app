@@ -66,7 +66,7 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
             ],
         ),
         IfInState(
-            "submitted",
+            ["submitted", "accepted"],
             then_=[
                 UserWithRole("reviewer"),
             ],
