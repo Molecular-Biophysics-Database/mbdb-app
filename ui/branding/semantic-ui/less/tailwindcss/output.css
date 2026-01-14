@@ -958,6 +958,10 @@ video {
   height: 133.25px;
 }
 
+.h-\[36px\] {
+  height: 36px;
+}
+
 .h-\[40px\] {
   height: 40px;
 }
@@ -1730,6 +1734,10 @@ video {
   border-color: #e43e2b !important;
   border-style: solid !important;
   border-width: .1rem !important;
+}
+
+#request-detail {
+  margin-top: 1rem;
 }
 
 .first-letter\:uppercase::first-letter {

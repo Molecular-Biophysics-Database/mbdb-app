@@ -58,3 +58,7 @@
   border-style: solid !important;
   border-width: .1rem !important;
 }
+
+#request-detail {
+  margin-top: 1rem;
+}
