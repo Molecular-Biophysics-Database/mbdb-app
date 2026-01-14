@@ -100,6 +100,7 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
 
     can_delete = [
         # draft can be directly deleted, published record must be deleted via request
+        # TODO Check with JD who is supposed to delete published records
         IfInState(
             "draft",
             then_=[
@@ -121,7 +122,13 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
                 UserWithRole("administrator"),
             ],
         ),
-    ]
+        IfInState(
+            "retracting",
+            then_=[
+                UserWithRole("administrator"),
+            ]
+        )]
+
     can_manage_files = [
         Disable(),
     ]
