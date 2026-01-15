@@ -28,7 +28,7 @@ class ItcFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
 
     base_permission_policy_cls = ItcPermissionPolicy
 
-    schema = ItcFileSchema
+    file_schema = ItcFileSchema
 
     record_cls = ItcRecord
 
@@ -93,7 +93,7 @@ class ItcFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
 
     url_prefix = "/records/itc/<pid_value>/draft"
 
-    schema = ItcFileSchema
+    file_schema = ItcFileSchema
 
     record_cls = ItcDraft
 

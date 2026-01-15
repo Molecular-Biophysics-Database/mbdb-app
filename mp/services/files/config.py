@@ -28,7 +28,7 @@ class MpFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
 
     base_permission_policy_cls = MpPermissionPolicy
 
-    schema = MpFileSchema
+    file_schema = MpFileSchema
 
     record_cls = MpRecord
 
@@ -93,7 +93,7 @@ class MpFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig)
 
     url_prefix = "/records/mp/<pid_value>/draft"
 
-    schema = MpFileSchema
+    file_schema = MpFileSchema
 
     record_cls = MpDraft
 
