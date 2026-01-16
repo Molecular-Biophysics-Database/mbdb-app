@@ -12,6 +12,7 @@ from invenio_records_resources.resources.records.resource import request_read_ar
 from flask import request
 from common.utils.pdf_utils import generate_pdf_response
 from common.utils.filename_utils import build_pdf_filename
+from invenio_rdm_records.services.errors import RecordDeletedException
 
 class BliInitialValuesComponent(UIResourceComponent):
     def empty_record(self, *, resource_requestctx, empty_data: Dict, **kwargs):
@@ -61,11 +62,13 @@ class BliUIResourceConfig(SearchInAllMixin, RecordsUIResourceConfig):
 class BliResource(RecordsUIResource):
 
     # TODO: will be removed when user dashboard gets implemented
-    def _get_record(self, resource_requestctx, allow_draft=False):
+    def _get_record(self, resource_requestctx, allow_draft=False, include_deleted=False):
         try:
-            return super()._get_record(resource_requestctx, allow_draft=False)
+            return super()._get_record(resource_requestctx, allow_draft=False, include_deleted=include_deleted)
+        except RecordDeletedException:
+            raise
         except:
-            return super()._get_record(resource_requestctx, allow_draft=True)
+            return super()._get_record(resource_requestctx, allow_draft=True, include_deleted=include_deleted)
 
     @request_read_args
     @request_view_args
