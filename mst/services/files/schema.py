@@ -34,7 +34,7 @@ class MstFileMetadataSchema(ma.Schema):
 
     processing_steps = ma_fields.List(
         ma_fields.Nested(lambda: ProcessingStepsItemSchema()),
-        required=True,
+        required=False,
         validate=[ma.validate.Length(min=1)],
     )
 
