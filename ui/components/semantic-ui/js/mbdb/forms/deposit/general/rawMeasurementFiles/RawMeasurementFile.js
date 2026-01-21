@@ -25,15 +25,15 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
   ];
 
   const contextOptions = [
-    { value: "Raw measurement data", label: "Raw measurement data" },
-    { value: "Derived measurement data", label: "Derived measurement data" },
-    { value: "Quality control report", label: "Quality control report" },
+    { value: "raw measurement data", label: "raw measurement data" },
+    { value: "derived measurement data", label: "derived measurement data" },
+    { value: "quality control report", label: "quality control report" },
   ];
 
   const contentTypeOptions = [
-    { value: "Text", label: "Text" },
-    { value: "Binary", label: "Binary" },
-    { value: "Text and binary", label: "Text and binary" },
+    { value: "text", label: "text" },
+    { value: "binary", label: "binary" },
+    { value: "text and binary", label: "text and binary" },
   ];
 
   return (
@@ -146,7 +146,7 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
       <ArrayField
         name={name}
         label="Processing step"
-        fieldName="metadata.processing_step"
+        fieldName="metadata.processing_steps"
         tooltip={tooltips.processingStep}
         renderChild={({ arrayName, index }) => (
           <FormWrapper
