@@ -150,7 +150,9 @@ class CSLJSONSchema(Schema):
         """Get issued dates."""
         try:
             metadata = obj["metadata"]
-            date_issued = metadata.get("dateIssued")
+            date_issued = (metadata.get("general_parameters", {})
+                         .get("record_information", {})
+                         .get("deposition_date", ""))
             parsed = parse_edtf(date_issued)
         except EDTFParseException:
             return missing
