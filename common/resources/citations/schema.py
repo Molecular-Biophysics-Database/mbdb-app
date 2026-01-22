@@ -63,6 +63,7 @@ def map_resource_type_to_csl(resource_type):
         "Conference proceeding": "chapter",
         "Conference programme": "pamphlet",
         "Conservation report": "report",
+        "Dataset": "dataset",
         "Educational material": "pamphlet",
         "Exhibition catalogue or guide": "pamphlet",
         "Field report": "report",
