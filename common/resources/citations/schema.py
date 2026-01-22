@@ -139,9 +139,11 @@ class CSLJSONSchema(Schema):
 
     def get_resource_type(self, obj):
         """Map our resource type to CSL"""
-        resource_type = (
-            obj["metadata"].get("resourceType", {}).get("title", {}).get("en", "")
-        )
+        metadata = obj["metadata"]
+        resource_type = (metadata.get("general_parameters", {})
+                         .get("record_information", {})
+                         .get("resource_type_general", ""))
+
         return map_resource_type_to_csl(resource_type)
 
     def get_issued(self, obj):
