@@ -108,7 +108,7 @@ class CSLJSONSchema(Schema):
                  .get("record_information", {})
                  .get("title", ""))
         sanitized = SanitizedUnicode()._deserialize(
-            obj["metadata"].get("title", ""), None, None
+            title, None, None
         )
         return sanitized
 
