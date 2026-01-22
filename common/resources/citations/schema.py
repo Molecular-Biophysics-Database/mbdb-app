@@ -187,7 +187,8 @@ class CSLJSONSchema(Schema):
 
     def get_url(self, obj):
         """Get URL."""
-        object_ids = obj["metadata"].get("objectIdentifiers", [])
+        metadata = obj["metadata"]
+        object_ids = metadata.get("pids", {})
         doi = next(
             (o["identifier"] for o in object_ids if o["scheme"].lower() == "doi"), None
         )
