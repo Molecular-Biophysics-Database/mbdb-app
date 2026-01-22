@@ -101,6 +101,11 @@ class CSLJSONSchema(Schema):
 
     def get_title(self, obj):
         """Get title."""
+        metadata = obj["metadata"]
+        title = (metadata.
+                 get("general_parameters", {})
+                 .get("record_information", {})
+                 .get("title", ""))
         sanitized = SanitizedUnicode()._deserialize(
             obj["metadata"].get("title", ""), None, None
         )
