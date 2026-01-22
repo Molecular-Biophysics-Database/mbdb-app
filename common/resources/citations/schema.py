@@ -86,9 +86,7 @@ class CSLJSONSchema(Schema):
     type = fields.Method("get_resource_type")
     title = fields.Method("get_title")
     abstract = fields.Method("get_abstract")
-    author = fields.List(
-        fields.Nested(CSLCreatorSchema()), attribute="metadata.creators"
-    )
+    author = fields.Method("get_authors")
     issued = fields.Method("get_issued")
     language = fields.Method("get_language")
     version = SanitizedUnicode(attribute="metadata.version")
@@ -106,6 +104,38 @@ class CSLJSONSchema(Schema):
             title, None, None
         )
         return sanitized
+
+    def get_authors(self, obj):
+        metadata = obj.get("metadata", {})
+        depositors = (
+            metadata.get("general_parameters", {})
+                    .get("depositors", {})
+        )
+
+        # In logic of MBDB all depositors are considered authors
+        all_authors = []
+        all_authors.extend(depositors.get("contributors", []) or [])
+
+        depositor = depositors.get("depositor")
+        if depositor:
+            all_authors.append(depositor)
+
+        principal_contact = depositors.get("principal_contact")
+        if principal_contact:
+            all_authors.append(principal_contact)
+
+        # Optional: de-dup by (family, given) to avoid repeats
+        seen = set()
+        unique = []
+        for a in all_authors:
+            key = (a.get("family_name"), a.get("given_name"))
+            if key in seen:
+                continue
+            seen.add(key)
+            unique.append(a)
+
+        dumped = CSLCreatorSchema(many=True).dump(unique)
+        return dumped if dumped else missing
 
     def get_publisher(self, obj):
         """Get publisher."""
