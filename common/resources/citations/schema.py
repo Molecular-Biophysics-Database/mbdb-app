@@ -16,21 +16,16 @@ from marshmallow_utils.fields import SanitizedUnicode
 
 class CSLCreatorSchema(Schema):
     """Creator/contributor common schema."""
-
+    given = fields.Str(attribute="given_name", missing=None)
+    family = fields.Str(attribute="family_name", missing=None)
     literal = fields.Method("get_literal")
-    given = fields.Str(attribute="person_or_org.given_name", missing=None)
-    family = fields.Str(attribute="person_or_org.family_name", missing=None)
 
     def get_literal(self, obj):
-        """Get creator's name."""
-        if obj.get("person_or_org", {}).get("name"):
-            return obj["person_or_org"]["name"]
-        elif obj.get("person_or_org", {}).get("family_name") and obj.get(
-            "person_or_org", {}
-        ).get("given_name"):
-            return f"{obj['person_or_org']['familyName']}, {obj['person_or_org']['givenName']}"
-        else:
-            return obj.get("role", {}).get("title")
+        family = obj.get("family_name")
+        given = obj.get("given_name")
+        if family and given:
+            return f"{family}, {given}"
+        return family or given or missing
 
 
 def add_if_not_none(year, month, day):
