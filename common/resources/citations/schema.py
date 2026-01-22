@@ -115,8 +115,12 @@ class CSLJSONSchema(Schema):
     def get_publisher(self, obj):
         """Get publisher."""
         metadata = obj["metadata"]
+        publisher = (metadata
+                     .get("general_parameters", {})
+                     .get("record_information", {})
+                     .get("publisher", ""))
         sanitized = SanitizedUnicode()._deserialize(
-            metadata.get("publishers", [""])[0], None, None
+            publisher, None, None
         )
         return sanitized if sanitized else missing
 
