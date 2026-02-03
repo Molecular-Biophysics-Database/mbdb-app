@@ -2,44 +2,36 @@
 
 {% extends config.THEME_ERROR_TEMPLATE %}
 {% block page_body %}
-    <div class="ui container centered rel-pt-2">
-        <h1 class="ui header inline-block">
-            <i class="icon lightning" aria-hidden="true"></i>
-            <div class="content pl-0 rel-pr-1">
-                {{ _('Gone') }}
-            </div>
+    <div class="p-4" style="padding-top: 4rem">
+        <h1 class="text-32px font-bold text-center mb-2">
+            Record removed
         </h1>
 
-        <p>
-            {%- trans sitename=config.THEME_SITENAME %}
-                The record you are trying to access was removed. The
-                metadata of the record is kept for archival purposes.
-            {%- endtrans %}
+        <p class="text-center mb-8">
+            The record you are trying to access was removed. The
+            metadata of the record is kept for archival purposes. 
         </p>
-        {% if tombstone %}
-            <table class="ui table">
-                <tbody>
+        <div class="p-4">
+            {% if tombstone %}
                 {% for key, value in tombstone.items() %}
                     {% if key and value %}
-                        <tr>
-                            <th class="left aligned pl-5">{{ _(key) }}:</th>
-                            <td>
+                        <div class="flex mb-2">
+                            <div class="font-bold" style="width: 15%">{{ _(key) }}:</div>
+                            <div style="width: 85%">
                                 {% if key == "URL" %}
-                                    <a href="{{ value }}" target="_blank" rel="noopener noreferrer">
+                                    <a href="{{ value }}" class="hover:underline" target="_blank" rel="noopener noreferrer">
                                         {{ value }}
                                     </a>
-                                    <ClipboardCopyButton copyText="{{ value }}"/>
                                 {% else %}
                                     {{ value }}
                                 {% endif %}
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
                     {% endif %}
                 {% endfor %}
-                </tbody>
-            </table>
-        {% else %}
-            <p>No tombstone (e.g. removal reason, note) available.</p>
-        {% endif %}
+            {% else %}
+                <p>No tombstone (e.g. removal reason, note) available.</p>
+            {% endif %}
+        </div>
     </div>
 {% endblock page_body %}
