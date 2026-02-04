@@ -39,15 +39,16 @@ function formatFieldPath(path, tabs) {
 
 export default function ErrorsContainer() {
     const { values } = useFormikContext();
+    const { errors: formikErrors } = useFormikContext();
     const { selectedTab, setSelectedTab, tabs, showErrors } = useContext(FormContext);
     
     const [openDropdown, setOpenDropdown] = useState(false);
     const [focusField, setFocusField] = useState(null);
-    
-    const errors = values.errors;
-    
+
+    const errors = formikErrors.BEvalidationErrors?.errors;
+
     const orderedFields = useMemo(() => {
-        if (!errors?.length) return [];
+        if (!errors) return [];
 
         const prefixToTab = new Map();
 
@@ -90,7 +91,7 @@ export default function ErrorsContainer() {
     }, [errors, tabs]);
     
     useEffect(() => {
-        if (!errors || !showErrors) return;
+        if (!showErrors) return;
         highlightFields(orderedFields);
 
     }, [errors, selectedTab, showErrors, orderedFields]);
@@ -123,11 +124,16 @@ export default function ErrorsContainer() {
         }
     }
     
-    if (!errors?.length || !showErrors) return null;
+    if (errors === undefined) return null;
+
+    if (!errors || !showErrors) return null;
 
     return (
         <>
-            <div className='cursor-pointer flex w-fit bg-[#FEF6E8] border-[.1rem] border-[#EFE4D2] ml-1 mb-2 py-2 px-4 mx-3 rounded-normal font-bold' onClick={() => setOpenDropdown((state) => !state)}>
+            <div
+                className='cursor-pointer flex w-fit bg-[#FEF6E8] border-[.1rem] border-[#EFE4D2] ml-1 mb-2 py-2 px-4 mx-3 rounded-normal font-bold'
+                onClick={() => setOpenDropdown((state) => !state)}
+            >
                 <div className='mr-2 my-auto'>
                     Record saved with validation errors. Please correct the issues and try again.
                 </div>
