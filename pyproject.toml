@@ -26,7 +26,8 @@ dependencies = [
     "python-dotenv",
     "semver",
     "oarepo-rdm",
-    "wkhtmltopdf"
+    "wkhtmltopdf",
+    "oarepo-citations"
 ]
 requires-python = ">=3.12,<3.13"
 
@@ -200,6 +201,21 @@ invenio_users_resources_users_details = "invenio_app_rdm.administration.users:Us
 # invenio_requests_user_moderation_detail = "invenio_app_rdm.administration.user_moderation:UserModerationRequestDetailView"
 # invenio_app_rdm_records_list = "invenio_app_rdm.administration.records:RecordAdminListView"
 # invenio_app_rdm_drafts_list = "invenio_app_rdm.administration.records:DraftAdminListView"
+
+[project.entry-points."invenio.mst.response_handlers"]
+csl_citation = "common.resources.citations:citations_response_handlers"
+
+[project.entry-points."invenio.itc.response_handlers"]
+csl_citation = "common.resources.citations:citations_response_handlers"
+
+[project.entry-points."invenio.spr.response_handlers"]
+csl_citation = "common.resources.citations:citations_response_handlers"
+
+[project.entry-points."invenio.bli.response_handlers"]
+csl_citation = "common.resources.citations:citations_response_handlers"
+
+[project.entry-points."invenio.mp.response_handlers"]
+csl_citation = "common.resources.citations:citations_response_handlers"
 
 [project.optional-dependencies]
 tests = [

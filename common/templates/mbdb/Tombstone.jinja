@@ -1,0 +1,37 @@
+{# def pid, tombstone #}
+
+{% extends config.THEME_ERROR_TEMPLATE %}
+{% block page_body %}
+    <div class="p-4" style="padding-top: 4rem">
+        <h1 class="text-32px font-bold text-center mb-2">
+            Record removed
+        </h1>
+
+        <p class="text-center mb-8">
+            The record you are trying to access was removed. The
+            metadata of the record is kept for archival purposes. 
+        </p>
+        <div class="p-4">
+            {% if tombstone %}
+                {% for key, value in tombstone.items() %}
+                    {% if key and value %}
+                        <div class="flex mb-2">
+                            <div class="font-bold" style="width: 15%">{{ _(key) }}:</div>
+                            <div style="width: 85%">
+                                {% if key == "URL" %}
+                                    <a href="{{ value }}" class="hover:underline" target="_blank" rel="noopener noreferrer">
+                                        {{ value }}
+                                    </a>
+                                {% else %}
+                                    {{ value }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <p>No tombstone (e.g. removal reason, note) available.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock page_body %}

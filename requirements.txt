@@ -11,6 +11,7 @@ langcodes==3.5.1
 marshmallow-i18n-messages==0.1.1
 mbdb-parsing==0.2.1
 numpy==2.4.1
+oarepo-citations==1.0.2
 oarepo-communities==5.4.5
 oarepo-dashboard==1.0.26
 oarepo-doi==1.0.19
@@ -29,7 +30,7 @@ opentelemetry-api==1.39.1
 opentelemetry-sdk==1.39.1
 opentelemetry-semantic-conventions==0.60b1
 orcid==1.0.3
-pandas==3.0.0rc1
+pandas==3.0.0rc2
 python-dotenv==1.2.1
 semver==3.0.4
 sentry-sdk==3.0.0a7
