@@ -123,6 +123,12 @@ export default function ErrorsContainer() {
             setOpenDropdown(false);
         }
     }
+
+    if (!errors && showErrors) return (
+        <div className='cursor-pointer flex w-full bg-[#e7f6d5] border-[.1rem] border-lime-500 ml-1 mb-2 py-2 px-4 mx-3 rounded-normal font-JostMedium'>
+            Saved successfully
+        </div>
+    )
     
     if (errors === undefined) return null;
 
@@ -131,10 +137,10 @@ export default function ErrorsContainer() {
     return (
         <>  
             <div
-                className='cursor-pointer flex w-fit bg-[#FEF6E8] border-[.1rem] border-[#EFE4D2] ml-1 mb-2 py-2 px-4 mx-3 rounded-normal font-bold'
+                className='cursor-pointer flex w-fit bg-[#FEF6E8] border-[.1rem] border-[#EFE4D2] ml-1 mb-2 py-2 px-4 mx-3 rounded-normal'
                 onClick={() => setOpenDropdown((state) => !state)}
             >
-                <div className='mr-2 my-auto'>
+                <div className='mr-2 my-auto font-JostMedium'>
                     Record saved with validation errors. Please correct the issues and try again.
                 </div>
                 <button className='px-2 py-1 rounded-normal bg-[#ee930d] text-white hover:bg-[#ee930d]/80 transition-colors'>
