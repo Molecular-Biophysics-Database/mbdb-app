@@ -37,3 +37,4 @@ sentry-sdk==3.0.0a7
 urnparse==0.2.2
 whitenoise==6.11.0
 wkhtmltopdf==0.2
+setuptools<82.0.0
