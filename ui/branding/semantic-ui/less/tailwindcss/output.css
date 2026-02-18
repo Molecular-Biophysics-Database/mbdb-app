@@ -1351,6 +1351,11 @@ video {
   border-color: rgb(2 56 80 / var(--tw-border-opacity));
 }
 
+.border-lime-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(132 204 22 / var(--tw-border-opacity));
+}
+
 .border-transparent {
   border-color: transparent;
 }
@@ -1363,6 +1368,11 @@ video {
 .bg-\[\#FEF6E8\] {
   --tw-bg-opacity: 1;
   background-color: rgb(254 246 232 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#e7f6d5\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(231 246 213 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#ee930d\] {
