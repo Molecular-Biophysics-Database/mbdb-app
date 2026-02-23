@@ -9,7 +9,7 @@ export const PublishButton = ({ newChildItemParentId }) => {
   return (
     <button
       onClick={() => createOrUpdate()}
-      class="flex justify-center w-[100px] -my-4 py-1 text-20px bg-dark rounded-normal text-white hover:bg-secondary hover:text-dark transition-all"
+      class="flex justify-center w-[100px] -my-4 py-1 text-20px bg-dark rounded-normal text-white hover:bg-dark/75 hover:text-white transition-all"
       type="button"
     >{i18next.t("save")}</button>
   );
