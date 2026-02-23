@@ -60,7 +60,7 @@ function FormFieldsContainer() {
       <div className="flex ml-1">
         <FormButtons handleSaveMetadataAndFiles={handleSaveMetadataAndFiles} />
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center -mb-16">
         <div className="bg-primary border-dark border-solid border-[.1px] rounded-normal">
           <div className="flex justify-center w-fit h-[75vh] max-h-[900px]">
             <div className="bg-dark flex flex-col p-2 rounded-tl-[0.2rem] rounded-bl-[0.2rem]">

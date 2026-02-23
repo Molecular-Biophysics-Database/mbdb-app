@@ -40,10 +40,6 @@
   display: block;
 }
 
-.ui.grid {
-  margin-bottom: -4rem;
-}
-
 .requests-create-request-buttons {
   display: flex;
 }

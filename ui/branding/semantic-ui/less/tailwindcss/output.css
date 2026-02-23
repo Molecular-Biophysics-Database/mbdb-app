@@ -774,6 +774,10 @@ video {
   margin-left: 0.5rem !important;
 }
 
+.-mb-16 {
+  margin-bottom: -4rem;
+}
+
 .-mb-6 {
   margin-bottom: -1.5rem;
 }
@@ -1729,10 +1733,6 @@ video {
 
 #banner-1 {
   display: block;
-}
-
-.ui.grid {
-  margin-bottom: -4rem;
 }
 
 .requests-create-request-buttons {
