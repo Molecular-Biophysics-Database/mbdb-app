@@ -62,6 +62,7 @@ function ComplexSubstanceOfChemicalOrigin({ name }) {
               colorSchema="light"
               headline={`Preparation protocol step ${index + 1}`}
               tooltip={tooltips.preparationProtocol}
+              name={arrayName}
             >
               <Protocol name={`${arrayName}.${index}`} />
             </FormWrapper>
