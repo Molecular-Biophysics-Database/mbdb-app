@@ -52,8 +52,8 @@ function FormFieldsContainer() {
   }, []);
 
   const handleSaveMetadataAndFiles = useCallback(async () => {
-    await save();
     await handleUpload();
+    await save();
   }, [save, handleUpload]);
 
   useEffect(() => {
