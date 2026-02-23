@@ -33,6 +33,7 @@ function Details({ name, colorSchema }) {
               fieldName="assembly_type"
               label="Assembly type"
               tooltip="The type of lipid assembly"
+              required
             />
           </div>
 

@@ -20,7 +20,7 @@ export default function ChooseSearchMethodDropdown() {
             placeholder="Search"
           />
           <button
-            className="w-[50px] h-[50px] bg-dark rounded-lg ml-2 hover:bg-secondary transition-all sm:mx-2"
+            className="w-[50px] h-[50px] bg-dark rounded-lg ml-2 hover:bg-dark/75 hover:text-white transition-all sm:mx-2"
             type="submit"
             aria-label="{{ _('Search') }}"
           >
