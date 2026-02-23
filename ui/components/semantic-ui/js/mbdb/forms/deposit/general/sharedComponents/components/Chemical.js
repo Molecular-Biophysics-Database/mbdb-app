@@ -22,6 +22,17 @@ export default function Chemical({ name, colorSchema }) {
         />
       </div>
 
+      <div className="mb-3">
+        <CustomField
+          name={name}
+          label="Copy number"
+          fieldName="copy_number"
+          required
+          type="number"
+          tooltip="The number of copies of the component within the assembly, –1 if unknown (e.g. for homodimer, the copy number would be 2)"
+        />
+      </div>
+
       <BasicInformationField
         name={`${name}.basic_information`}
         colorSchema={colorSchema}
