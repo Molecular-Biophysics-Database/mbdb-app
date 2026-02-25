@@ -26,7 +26,7 @@ export default function CalibrantsTab({ name }) {
         tooltip={tooltip}
         required
         renderChild={({ arrayName, index }) => (
-          <FormWrapper headline={`Calibrant ${index + 1}`} tooltip={tooltip} required name={arrayName}>
+          <FormWrapper headline={`Calibrant ${index + 1}`} tooltip={tooltip} name={arrayName}>
             <Calibrants name={`${arrayName}.${index}`} />
           </FormWrapper>
         )}

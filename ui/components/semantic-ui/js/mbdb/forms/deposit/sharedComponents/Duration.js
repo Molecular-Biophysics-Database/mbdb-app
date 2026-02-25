@@ -28,6 +28,8 @@ export default function Duration({ name, tooltip, colorSchema }) {
           name={name}
           tooltipValue="The numerical value of the time point or duration"
           tooltipUnit="The unit of the time duration"
+          valueRequired
+          unitRequired
         />
       </FormWrapper>
     </>

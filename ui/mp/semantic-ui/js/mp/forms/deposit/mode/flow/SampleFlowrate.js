@@ -15,13 +15,14 @@ export default function SampleFlowrate({ name, colorSchema }) {
         tooltip="Numerical value of the sample flowrate"
         colorSchema={colorSchema}
         name={name}
-        required
       >
         <ValueUnit
           options={unitOptions}
           name={name}
           tooltipValue="Numerical value of the flowrate"
           tooltipUnit="The unit of the flowrate"
+          valueRequired
+          unitRequired
         />
       </FormWrapper>
     </>
