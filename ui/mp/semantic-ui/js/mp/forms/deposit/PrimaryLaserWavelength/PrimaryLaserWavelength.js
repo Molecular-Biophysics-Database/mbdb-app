@@ -14,7 +14,7 @@ export default function PrimaryLaserWavelength({ name }) {
     return (
         <FormWrapper
             headline="Primary laser wavelength"
-            tooltip="if it is not defined, Wavelength of the laser used for measurement of the mass photometry signal"    
+            tooltip="Wavelength of the laser used for measurement of the mass photometry signal"    
         >
             <ValueUnit
                 options={unitOptions}
