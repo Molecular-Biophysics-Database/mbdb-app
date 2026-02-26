@@ -911,7 +911,7 @@ class MethodSpecificParametersUISchema(DictOnlySchema):
         lambda: PrimaryLaserWavelengthUISchema()
     )
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["1.0.0"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["1.0.1"])])
 
 
 class PolymerUISchema(DictOnlySchema):

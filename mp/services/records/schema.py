@@ -734,7 +734,7 @@ class MethodSpecificParametersSchema(VersionUpdateSchema):
 
     primary_laser_wavelength = ma_fields.Nested(lambda: PrimaryLaserWavelengthSchema())
 
-    schema_version = ma_fields.String(required=True, validate=[OneOf(["1.0.0"])])
+    schema_version = ma_fields.String(required=True, validate=[OneOf(["1.0.1"])])
 
 
 class QualityControlsSchema(DictOnlySchema):

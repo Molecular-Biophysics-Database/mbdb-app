@@ -14102,3 +14102,244 @@ msgstr ""
 
 msgid "metadata/general_parameters/schema_version.enum.0.15.0"
 msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/comment-request-event.create.jinja:14
+msgid "Someone"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/comment-request-event.create.jinja:25
+#, python-brace-format
+msgid "💬 New comment on '{request_title}'"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/comment-request-event.create.jinja:31
+#, python-brace-format
+msgid ""
+"'@{user_name}' commented on your request '{request_title}' for record id: "
+"'{record_id}':"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/comment-request-event.create.jinja:39
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/comment-request-event.create.jinja:71
+msgid "Check out the request"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/comment-request-event.create.jinja:42
+msgid ""
+"If the button does not work, copy and paste this link into your browser:"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/comment-request-event.create.jinja:52
+#, python-brace-format
+msgid "@{user_name} commented on '{request_title}'"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/comment-request-event.create.jinja:59
+#, python-brace-format
+msgid "Check out the request: {request_link}"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/comment-request-event.create.jinja:67
+#, python-brace-format
+msgid "*@{user_name}* commented on *{request_title}*"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-accept-creator.submit.jinja:13
+#, python-brace-format
+msgid ""
+"ACCEPTED: Your MBDB record '{topic_id}' has been accepted for publication"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-accept-creator.submit.jinja:18
+#, python-format
+msgid ""
+"\n"
+"      <p>🎉 <b>Great News!</b> Your record <b>\"%(topic_title)s\"</b> has successfully passed review and has been <b>ACCEPTED</b> for publication.</p>\n"
+"      <p>The record is now in the <i>Accepted</i> state. Once you are ready to publish your record, please click the <b>\"Publish draft\"</b> button on the record preview page.</p>\n"
+"    "
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-accept-creator.submit.jinja:23
+msgid "View Record &amp; Publish"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-accept-creator.submit.jinja:31
+#, python-format
+msgid ""
+"\n"
+"        Great News! Your record \"%(topic_title)s\" has successfully passed review and has been ACCEPTED for publication.\n"
+"\n"
+"        The record is now in the 'Accepted' state. Once you are ready to publish your record,\n"
+"        please click the \"Publish draft\" button on the record preview page:\n"
+"\n"
+"        %(record_html_page)s\n"
+"        "
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-creator.submit.jinja:13
+#, python-brace-format
+msgid ""
+"SUBMITTED: Your MBDB record '{topic_id}' has been submitted and is now under"
+" review"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-creator.submit.jinja:18
+#, python-format
+msgid ""
+"\n"
+"          <p>Thank you for submitting your record <b>\"%(topic_title)s\"</b> to MBDB.</p>\n"
+"          <p>Your record is now under review. We will notify you if revisions to your record are needed or once the record has been accepted.</p>\n"
+"        "
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-creator.submit.jinja:23
+msgid "View request status"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-creator.submit.jinja:25
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-receiver.submit.jinja:30
+#, python-format
+msgid ""
+"\n"
+"            If the button does not work, copy and paste this link into your browser:<br>\n"
+"            <a href=\"%(request_html_page)s\">%(request_html_page)s</a>\n"
+"          "
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-creator.submit.jinja:36
+#, python-format
+msgid ""
+"\n"
+"        Thank you for submitting your record \"%(topic_title)s\" to MBDB.\n"
+"\n"
+"        Your record is now under review. We will notify you if revisions to your record are needed\n"
+"        or once the record has been accepted.\n"
+"\n"
+"        You can view the status of your request here:\n"
+"        %(request_html_page)s\n"
+"        "
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-decline-creator.submit.jinja:13
+#, python-brace-format
+msgid "UPDATE: Your record '{topic_id}' requires revisions"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-decline-creator.submit.jinja:18
+#, python-format
+msgid ""
+"\n"
+"          <p><b>Important Update:</b> Your record <b>\"%(topic_title)s\"</b> has been <b>declined</b> to allow further editing.</p>\n"
+"          <p>\n"
+"            Some revisions are needed before the record can be accepted for publication.\n"
+"            <b>Please refer to the reviewer's feedback sent in a separate email. The feedback is also available on the request page.</b>\n"
+"          </p>\n"
+"        "
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-decline-creator.submit.jinja:26
+msgid "View detailed feedback &amp; status"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-decline-creator.submit.jinja:34
+#, python-format
+msgid ""
+"\n"
+"        Your record \"%(topic_title)s\" has been declined to allow further editing.\n"
+"\n"
+"        Some revisions are needed before the record can be accepted for publication.\n"
+"        Please refer to the reviewer's feedback that has been sent in a separate e-mail.\n"
+"        The feedback is also available on the request page:\n"
+"\n"
+"        %(request_html_page)s\n"
+"        "
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-receiver.submit.jinja:13
+#, python-brace-format
+msgid "[{method}]: A new MBDB record submitted - '{topic_title}'"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-receiver.submit.jinja:18
+#, python-format
+msgid ""
+"\n"
+"          <p>A new record, <b>\"%(topic_title)s\"</b>, has been submitted and is awaiting your review.</p>\n"
+"\n"
+"          <p>\n"
+"            Please check the request page to make sure that the record is not being reviewed by someone else.\n"
+"            If you decide to review this record, leave a comment <b>\"The record is under review.\"</b> on the request page.\n"
+"          </p>\n"
+"        "
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-receiver.submit.jinja:27
+msgid "Review submission"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-receiver.submit.jinja:36
+msgid ""
+"\n"
+"          <p>\n"
+"            If revisions are needed, please <b>decline</b> the record and leave a comment with the issues to be addressed by the depositor.\n"
+"            If the record passes the review and is ready to be published, please <b>accept</b> the record.\n"
+"          </p>\n"
+"        "
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/draft-request-receiver.submit.jinja:48
+#, python-format
+msgid ""
+"\n"
+"        A new record \"%(topic_title)s\" has been submitted and is awaiting your review.\n"
+"\n"
+"        Please check the request page (link below) to make sure that the record is not being\n"
+"        reviewed by someone else. If you decide to review this record, leave a comment\n"
+"        \"The record is under review.\" on the request page:\n"
+"\n"
+"        %(request_html_page)s\n"
+"\n"
+"        If revisions to the record are needed, please decline the record and leave a comment\n"
+"        with the issues to be addressed by the depositor. If the record passes the review and\n"
+"        is ready to be published, please accept the record.\n"
+"        "
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/html-email-signature.jinja:8
+msgid "This is an auto-generated message."
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/publish-draft-request-event.accept.jinja:13
+#, python-brace-format
+msgid "PUBLISHED: Your MBDB record '{topic_id}' has been published"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/publish-draft-request-event.accept.jinja:18
+#, python-format
+msgid ""
+"\n"
+"          <p><b>Congratulations!</b> Your record <b>\"%(topic_title)s\"</b> has been successfully <b>PUBLISHED</b>.</p>\n"
+"          <p>The record is now available here: <a href=\"%(record_html_page)s\">%(record_html_page)s</a></p>\n"
+"        "
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/publish-draft-request-event.accept.jinja:23
+msgid "View published record"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/publish-draft-request-event.accept.jinja:25
+msgid "Thank you for your contribution!"
+msgstr ""
+
+#: /home/plucarovaj/git/mbdb-app/common/templates/mbdb/invenio_notifications/email/publish-draft-request-event.accept.jinja:32
+#, python-format
+msgid ""
+"\n"
+"        Congratulations! Your record \"%(topic_title)s\" has been successfully PUBLISHED.\n"
+"\n"
+"        The record is now available here:\n"
+"        %(record_html_page)s\n"
+"\n"
+"        Thank you for your contribution!\n"
+"        "
+msgstr ""
