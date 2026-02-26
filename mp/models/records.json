@@ -3,32 +3,6 @@
         "type": "model",
         "mapping": {
             "template": {
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200,
-                    "index.query.default_field": [
-                        "collected_default_search_fields",
-                        "collected_default_search_fields.substringmatch"
-                    ],
-                    "analysis": {
-                        "analyzer": {
-                            "substring": {
-                                "tokenizer": "substringtokenizer"
-                            }
-                        },
-                        "tokenizer": {
-                            "substringtokenizer": {
-                                "type": "edge_ngram",
-                                "min_gram": 4,
-                                "max_gram": 8,
-                                "token_chars": [
-                                    "letter",
-                                    "digit"
-                                ]
-                            }
-                        }
-                    }
-                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -84,6 +58,32 @@
                             }
                         }
                     ]
+                },
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200,
+                    "index.query.default_field": [
+                        "collected_default_search_fields",
+                        "collected_default_search_fields.substringmatch"
+                    ],
+                    "analysis": {
+                        "analyzer": {
+                            "substring": {
+                                "tokenizer": "substringtokenizer"
+                            }
+                        },
+                        "tokenizer": {
+                            "substringtokenizer": {
+                                "type": "edge_ngram",
+                                "min_gram": 4,
+                                "max_gram": 8,
+                                "token_chars": [
+                                    "letter",
+                                    "digit"
+                                ]
+                            }
+                        }
+                    }
                 }
             },
             "generate": true,
@@ -177,6 +177,22 @@
             "class": "mp.records.api.MpRecord",
             "extra-code": ""
         },
+        "ui": {
+            "marshmallow": {
+                "imports": [],
+                "base-classes": [
+                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
+                    "oarepo_runtime.services.schema.ui.InvenioRDMUISchema"
+                ],
+                "generate": true,
+                "module": "mp.services.records.ui_schema",
+                "class": "mp.services.records.ui_schema.MpUISchema",
+                "extra-code": ""
+            },
+            "module": "mp.models",
+            "file": "mp/models/ui.json",
+            "alias": "mp"
+        },
         "service": {
             "base-classes": [
                 "common.services.records.service.AddWorkflowServiceMixin",
@@ -219,22 +235,6 @@
             "service-id": "mp",
             "additional-args": [],
             "search-item-links-template-cls": "invenio_records_resources.services.LinksTemplate"
-        },
-        "ui": {
-            "marshmallow": {
-                "imports": [],
-                "base-classes": [
-                    "oarepo_requests.services.ui_schema.UIRequestsSerializationMixin",
-                    "oarepo_runtime.services.schema.ui.InvenioRDMUISchema"
-                ],
-                "generate": true,
-                "module": "mp.services.records.ui_schema",
-                "class": "mp.services.records.ui_schema.MpUISchema",
-                "extra-code": ""
-            },
-            "module": "mp.models",
-            "file": "mp/models/ui.json",
-            "alias": "mp"
         },
         "search-options": {
             "base-classes": [
@@ -31228,7 +31228,7 @@
                             },
                             "primary_laser_wavelength": {
                                 "type": "object",
-                                "help.en": "The primary illumination laser wavelength used in the experiment",
+                                "help.en": "Wavelength of the laser used for measurement of the mass photometry signal",
                                 "label.en": "Primary laser wavelength",
                                 "marshmallow": {
                                     "generate": true,
@@ -31273,7 +31273,7 @@
                                 "type": "keyword",
                                 "required": true,
                                 "enum": [
-                                    "1.0.0"
+                                    "1.0.1"
                                 ],
                                 "help.en": "The schema version used to annotate the MP method specific parameters",
                                 "label.en": "Schema version"
@@ -31355,6 +31355,11 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
+                    "uniqueItems": true,
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    },
+                    "type": "object",
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -31369,12 +31374,7 @@
                                 "type": "string"
                             }
                         }
-                    },
-                    "type": "object",
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
-                    "uniqueItems": true
+                    }
                 },
                 "ui": {
                     "marshmallow": {
