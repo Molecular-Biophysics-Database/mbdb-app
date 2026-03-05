@@ -34,6 +34,7 @@ class SprFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
 
     service_id = "spr_file"
     indexer_queue_name = "spr_file"
+    max_files_count = 255
 
     search_item_links_template = LinksTemplate
     allowed_mimetypes = []
@@ -99,6 +100,7 @@ class SprFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
 
     service_id = "spr_file_draft"
     indexer_queue_name = "spr_file_draft"
+    max_files_count = 255
 
     search_item_links_template = LinksTemplate
     permission_action_prefix = "draft_"

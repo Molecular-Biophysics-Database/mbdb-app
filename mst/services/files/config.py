@@ -31,6 +31,7 @@ class MstFileServiceConfig(MstFileServiceConfigWithProcessors):
 
     service_id = "mst_file"
     indexer_queue_name = "mst_file"
+    max_files_count = 255
 
     search_item_links_template = LinksTemplate
     allowed_mimetypes = []
@@ -96,6 +97,7 @@ class MstFileDraftServiceConfig(MstFileServiceConfigWithProcessors):
 
     service_id = "mst_file_draft"
     indexer_queue_name = "mst_file_draft"
+    max_files_count = 255
 
     search_item_links_template = LinksTemplate
     permission_action_prefix = "draft_"
