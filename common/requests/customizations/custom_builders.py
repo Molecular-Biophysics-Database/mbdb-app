@@ -5,34 +5,7 @@ from oarepo_requests.notifications.builders.oarepo import OARepoRequestActionNot
 from common.requests.customizations.custom_generators import DynamicReviewerRecipient
 from invenio_notifications.services.filters import RecipientFilter
 from invenio_notifications.services.generators import RecipientGenerator
-
-
-class ExcludeEventCreatorFilter(RecipientFilter):
-    """Filter that removes the person who triggered the event from recipients."""
-
-    def __call__(self, notification, recipients):
-        event = notification.context.get("request_event", {})
-        creator_id = None
-        print(event)
-        if isinstance(event, dict):
-            created_by = event.get("created_by", {})
-            creator_id = created_by.get("id") or created_by.get("user")
-            print(creator_id)
-
-        else:
-            created_by = getattr(event, "created_by", {})
-            if isinstance(created_by, dict):
-                creator_id = created_by.get("id") or created_by.get("user")
-            else:
-                creator_id = getattr(created_by, "id", None) or getattr(created_by, "user", None)
-
-        if creator_id:
-            recipients.pop(str(creator_id), None)
-            print(recipients)
-
-        return recipients
-
-
+from invenio_notifications.registry import EntityResolverRegistry
 
 
 class ForceBackendRecipient(RecipientGenerator):
@@ -43,19 +16,17 @@ class ForceBackendRecipient(RecipientGenerator):
             notification.context["backend_ids"] = ["email"]
         return recipients
 
-
-from invenio_notifications.registry import EntityResolverRegistry
-
-
 class CustomCommentRequestEventCreateNotificationBuilder(CommentRequestEventCreateNotificationBuilder):
+    type = "comment-request-event.create"
+
     recipients = [
+        ForceBackendRecipient(),
         EntityRecipient(key="request.created_by"),
         DynamicReviewerRecipient(),
     ]
 
     recipient_filters = [
         UserPreferencesRecipientFilter(),
-        ExcludeEventCreatorFilter(),
     ]
 
     @classmethod
@@ -69,7 +40,6 @@ class CustomCommentRequestEventCreateNotificationBuilder(CommentRequestEventCrea
                 "backend_ids": ["email"],
             },
         )
-
 
 class DraftRequestSubmitReceiverNotificationBuilder(OARepoRequestActionNotificationBuilder):
     type = "draft-request-receiver.submit"
