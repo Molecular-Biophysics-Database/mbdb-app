@@ -16,6 +16,7 @@ function Supplier({ name, colorSchema, tooltip }) {
         headline="Supplier"
         colorSchema={colorSchema}
         tooltip={tooltip}
+        name={name}
       >
         <div className="flex">
           <div className="mr-3">
