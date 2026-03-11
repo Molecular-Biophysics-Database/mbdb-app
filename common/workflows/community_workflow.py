@@ -74,7 +74,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
         # administrator can see everything
         UserWithRole("administrator"),
         IfInState(
-            "published",
+            ["published"],
             then_=[
                 AnyUser(),
             ],
@@ -85,6 +85,10 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
                 UserWithRole("reviewer"),
             ],
         ),
+    ]
+
+    can_read_deleted = [
+                AnyUser(),
     ]
 
     can_search_all_records = CommunityDefaultWorkflowPermissions.can_search
@@ -147,6 +151,7 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
                 ],
             ),
         ],
+        # TODO Try to implement dynamic reviewer here
         recipients=[UserWithRole("reviewer")],
         transitions=WorkflowTransitions(
             declined="draft", submitted="submitted", accepted="accepted"
