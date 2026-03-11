@@ -42,27 +42,20 @@ class RoleRecipient(RecipientGenerator):
 class DynamicReviewerRecipient(RecipientGenerator):
     def __call__(self, notification, recipients):
         ctx = notification.context
-
         request = ctx.get("request")
         if not request:
             return recipients
 
         topic = request.get("topic")
-        if not topic:
-            return recipients
+        method = None
 
-        if isinstance(topic, dict) and "$ref" in topic:
-            return recipients
-
-        metadata = topic.get("metadata") if isinstance(topic, dict) else None
-        if not metadata:
-            return recipients
-
-        method = (
-            metadata.get("general_parameters", {})
-            .get("record_information", {})
-            .get("resource_type")
-        )
+        if topic and isinstance(topic, dict):
+            metadata = topic.get("metadata", {})
+            method = (
+                metadata.get("general_parameters", {})
+                .get("record_information", {})
+                .get("resource_type")
+            )
 
         mapping = {
             "MST": "reviewer_mst",
@@ -72,6 +65,10 @@ class DynamicReviewerRecipient(RecipientGenerator):
             "MP": "reviewer_mp",
         }
 
-        role = mapping.get(method, "reviewer")
+        role_to_fetch = mapping.get(method)
 
-        return RoleRecipient(role)(notification, recipients)
+        if not role_to_fetch:
+            receiver = request.get("receiver", {})
+            role_to_fetch = receiver.get("group", "reviewer")
+
+        return RoleRecipient(role_to_fetch)(notification, recipients)
