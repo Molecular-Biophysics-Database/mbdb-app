@@ -18,7 +18,7 @@
 {% set request_title = invenio_request.title | safe %}
 
 {# TODO: use request.links.self_html when issue is resolved: https://github.com/inveniosoftware/invenio-rdm-records/issues/1327 #}
-{% set request_link = "{ui}/me/requests/{id}".format(ui=config.SITE_UI_URL, id=request_id) %}
+{% set request_link = "{ui}/requests/{id}".format(ui=config.SITE_UI_URL, id=request_id) %}
 
 
 {%- block subject -%}
