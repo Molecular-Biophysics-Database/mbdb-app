@@ -25,10 +25,6 @@ class CustomCommentRequestEventCreateNotificationBuilder(CommentRequestEventCrea
         DynamicReviewerRecipient(),
     ]
 
-    recipient_filters = [
-        UserPreferencesRecipientFilter(),
-    ]
-
     @classmethod
     def build(cls, request, request_event):
         """Build notification matching the base class pattern + backend_ids."""
