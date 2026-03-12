@@ -28,7 +28,7 @@
 {%- block html_body -%}
   {% set body %}
     <p>
-      {{ _("'@{user_name}' commented on your request '{request_title}' for record id: '{record_id}':").format(
+      {{ _("'@{user_name}' commented on request '{request_title}' for record id: '{record_id}':").format(
           user_name=event_creator_name,
           request_title=request_title, record_id=notification.context.request.topic.parent.id
       ) }}
