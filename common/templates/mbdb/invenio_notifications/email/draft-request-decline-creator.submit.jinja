@@ -15,15 +15,22 @@
 
 {%- block html_body -%}
     {% set body %}
-        {% trans topic_title=topic_title %}
-          <p><b>Important Update:</b> Your record <b>"{{ topic_title }}"</b> has been <b>declined</b> to allow further editing.</p>
+        {% trans topic_id=topic_id, topic_title=topic_title %}
+          <p><b>Important Update:</b> Your record [{{topic_id}}] <b>"{{ topic_title }}"</b> has been <b>declined</b> to allow further editing.</p>
           <p>
             Some revisions are needed before the record can be accepted for publication.
-            <b>Please refer to the reviewer's feedback sent in a separate email. The feedback is also available on the request page.</b>
+            <b>Please refer to the reviewer's feedback sent in a separate email. The feedback is also available on the request page. You can leave answers to the feedback and other comments on the request page.</b>
           </p>
         {% endtrans %}
 
         {{ m.button(request_html_page, _("View detailed feedback &amp; status"), bg="#007bff") }}
+
+        <p>
+          {% trans request_html_page=request_html_page %}
+            If the button does not work, copy and paste this link into your browser:<br>
+            <a href="{{ request_html_page }}">{{ request_html_page }}</a>
+          {% endtrans %}
+        </p>
     {% endset %}
 
     {{ layout.render_html(body, text_align="center") }}
@@ -31,12 +38,13 @@
 
 {%- block plain_body -%}
     {% set body %}
-        {% trans topic_title=topic_title, request_html_page=request_html_page %}
-        Your record "{{ topic_title }}" has been declined to allow further editing.
+        {% trans topic_id=topic_id, topic_title=topic_title, request_html_page=request_html_page %}
+        Your record [{{ topic_id }}] "{{ topic_title }}" has been declined to allow further editing.
 
         Some revisions are needed before the record can be accepted for publication.
         Please refer to the reviewer's feedback that has been sent in a separate e-mail.
-        The feedback is also available on the request page:
+        The feedback is also available on the request page.
+        You can leave answers to the feedback and other comments on the request page:
 
         {{ request_html_page }}
         {% endtrans %}

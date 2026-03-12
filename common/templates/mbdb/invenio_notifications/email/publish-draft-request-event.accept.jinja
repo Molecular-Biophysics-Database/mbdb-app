@@ -15,8 +15,8 @@
 
 {%- block html_body -%}
     {% set body %}
-        {% trans topic_title=topic_title, record_html_page=record_html_page %}
-          <p><b>Congratulations!</b> Your record <b>"{{ topic_title }}"</b> has been successfully <b>PUBLISHED</b>.</p>
+        {% trans topic_id=topic_id, topic_title=topic_title, record_html_page=record_html_page %}
+          <p><b>Congratulations!</b> Your record [{{ topic_id }}] <b>"{{ topic_title }}"</b> has been successfully <b>PUBLISHED</b>.</p>
           <p>The record is now available here: <a href="{{ record_html_page }}">{{ record_html_page }}</a></p>
         {% endtrans %}
 
@@ -29,8 +29,8 @@
 
 {%- block plain_body -%}
     {% set body %}
-        {% trans topic_title=topic_title, record_html_page=record_html_page %}
-        Congratulations! Your record "{{ topic_title }}" has been successfully PUBLISHED.
+        {% trans topic_id=topic_id, topic_title=topic_title, record_html_page=record_html_page %}
+        Congratulations! Your record [{{ topic_id }}] "{{ topic_title }}" has been successfully PUBLISHED.
 
         The record is now available here:
         {{ record_html_page }}

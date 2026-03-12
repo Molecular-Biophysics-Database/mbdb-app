@@ -14,6 +14,7 @@
     or (created_by if created_by is string else _("Someone"))
 %}
 {% set request_id = invenio_request.id %}
+{% set record_id = notification.context.request.topic.parent.id %}
 {% set request_event_content = invenio_request_event.payload.content | safe %}
 {% set request_title = invenio_request.title | safe %}
 
@@ -28,13 +29,15 @@
 {%- block html_body -%}
   {% set body %}
     <p>
-      {{ _("'@{user_name}' commented on your request '{request_title}' for record id: '{record_id}':").format(
+      {{ _("'@{user_name}' commented on your request '{request_title}' for record id: '{record_id}'").format(
           user_name=event_creator_name,
-          request_title=request_title, record_id=notification.context.request.topic.parent.id
+          request_title=request_title, record_id=record_id
       ) }}
     </p>
 
     <p><em>{{ request_event_content }}</em></p>
+
+    <p>{{ _("You can leave answer to the comment on the request page.") }}</p>
 
     {{ m.button(request_link, _("Check out the request"), bg="#007bff") }}
 
@@ -49,12 +52,15 @@
 
 {%- block plain_body -%}
   {% set body %}
-{{ _("@{user_name} commented on '{request_title}'").format(
+{{ _("@{user_name} commented on your request '{request_title}' for record id: '{record_id}'").format(
     user_name=event_creator_name,
-    request_title=request_title
+    request_title=request_title,
+    record_id=record_id
 ) }}.
 
 {{ request_event_content }}
+
+{{ _("You can leave answer to the comment on the request page.") }}
 
 {{ _("Check out the request: {request_link}").format(request_link=request_link) }}
   {% endset %}
@@ -64,9 +70,11 @@
 
 {# Markdown for Slack/Mattermost/chat #}
 {%- block md_body -%}
-{{ _("*@{user_name}* commented on *{request_title}*").format(user_name=event_creator_name, request_title=request_title) }}.
+{{ _("*@{user_name}* commented on your request *{request_title}* for record id: *{record_id}*").format(user_name=event_creator_name, request_title=request_title, record_id=record_id) }}.
 
 {{ request_event_content }}
+
+{{ _("You can leave answer to the comment on the request page.") }}
 
 [{{ _("Check out the request") }}]({{ request_link }})
 {%- endblock md_body -%}
