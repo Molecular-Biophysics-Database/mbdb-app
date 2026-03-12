@@ -236,7 +236,7 @@ const RawMeasurementFilesTab = forwardRef(
 
         <div className="mb-3 w-fit">
           <FormWrapper>
-            Information about the file(s) containing the raw data
+            Information about the file(s) containing the raw data. Maximum number of uploaded files is 255.
           </FormWrapper>
         </div>
         <div>
