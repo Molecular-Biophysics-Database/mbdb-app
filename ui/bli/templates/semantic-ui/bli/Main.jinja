@@ -26,24 +26,25 @@
             <Section title="Entities of interest">
                 <EntitiesOfInterest entities={gp.entities_of_interest} />
             </Section>
-        
+
             <Section title="Results">
                 <Results gp={gp} />
             </Section>
-        
+
             <Section title="Chemical environments (buffers)">
                 <ChemicalEnvironments chemical_environments={gp.chemical_environments} />
             </Section>
-        
+
             <Section title="Measurements">
                 <bli.BLI.Measurements gp={gp} msp={msp} />
             </Section>
-        
+
             <Section title="Instrument">
                 <Instrument instrument={gp.instrument} />
             </Section>
-        
+
             <Section title="Files">
+                {{ extra_context.files.entries | length }} file(s) available
                 <Files files={extra_context.files} />
             </Section>
 
@@ -89,6 +90,7 @@
             </Section>
 
             <Section title="Files">
+                {{ extra_context.files.entries | length }} file(s) available
                 <FilesDetailedView files={extra_context.files} />
             </Section>
 
