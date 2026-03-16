@@ -44,6 +44,7 @@
             </Section>
         
             <Section title="Files">
+                {{ extra_context.files.entries | length }} file(s) available
                 <Files files={extra_context.files} />
             </Section>
 
@@ -76,6 +77,7 @@
             </Section>
 
             <Section title="Files">
+                {{ extra_context.files.entries | length }} file(s) available
                 <FilesDetailedView files={extra_context.files} />
             </Section>
 
