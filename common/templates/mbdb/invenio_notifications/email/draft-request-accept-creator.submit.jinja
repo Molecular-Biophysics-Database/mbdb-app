@@ -15,12 +15,19 @@
 
 {%- block html_body -%}
   {% set body %}
-    {% trans topic_title=topic_title %}
-      <p>🎉 <b>Great News!</b> Your record <b>"{{ topic_title }}"</b> has successfully passed review and has been <b>ACCEPTED</b> for publication.</p>
+    {% trans topic_id=topic_id, topic_title=topic_title %}
+      <p>🎉 <b>Great News!</b> Your record [{{ topic_id }}] <b>"{{ topic_title }}"</b> has successfully passed review and has been <b>ACCEPTED</b> for publication.</p>
       <p>The record is now in the <i>Accepted</i> state. Once you are ready to publish your record, please click the <b>"Publish draft"</b> button on the record preview page.</p>
     {% endtrans %}
 
     {{ m.button(record_html_page, _("View Record &amp; Publish"), bg="#28a745") }}
+
+    <p>
+      {% trans record_html_page=record_html_page %}
+        If the button does not work, copy and paste this link into your browser:<br>
+        <a href="{{ record_html_page }}">{{ record_html_page }}</a>
+      {% endtrans %}
+    </p>
   {% endset %}
 
   {{ layout.render_html(body, text_align="center") }}
@@ -28,8 +35,8 @@
 
 {%- block plain_body -%}
     {% set body %}
-        {% trans topic_title=topic_title, record_html_page=record_html_page %}
-        Great News! Your record "{{ topic_title }}" has successfully passed review and has been ACCEPTED for publication.
+        {% trans topic_id=topic_id, topic_title=topic_title, record_html_page=record_html_page %}
+        Great News! Your record [{{ topic_id }}] "{{ topic_title }}" has successfully passed review and has been ACCEPTED for publication.
 
         The record is now in the 'Accepted' state. Once you are ready to publish your record,
         please click the "Publish draft" button on the record preview page:
