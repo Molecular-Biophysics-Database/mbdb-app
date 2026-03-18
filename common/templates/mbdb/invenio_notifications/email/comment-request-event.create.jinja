@@ -17,6 +17,10 @@
 {% set record_id = notification.context.request.topic.parent.id %}
 {% set request_event_content = invenio_request_event.payload.content | safe %}
 {% set request_title = invenio_request.title | safe %}
+{% set request = notification.context.request %}
+{% set topic = request.topic %}
+{% set topic_id = topic.id %}
+
 
 {# TODO: use request.links.self_html when issue is resolved: https://github.com/inveniosoftware/invenio-rdm-records/issues/1327 #}
 {% set request_link = "{ui}/requests/{id}".format(ui=config.SITE_UI_URL, id=request_id) %}
@@ -29,9 +33,9 @@
 {%- block html_body -%}
   {% set body %}
     <p>
-      {{ _("'@{user_name}' commented on your request '{request_title}' for record id: '{record_id}'").format(
+      {{ _("'@{user_name}' commented on request '{request_title}' for record id: '{topic_id}'").format(
           user_name=event_creator_name,
-          request_title=request_title, record_id=record_id
+          request_title=request_title, topic_id=topic_id
       ) }}
     </p>
 
@@ -52,10 +56,10 @@
 
 {%- block plain_body -%}
   {% set body %}
-{{ _("@{user_name} commented on your request '{request_title}' for record id: '{record_id}'").format(
+{{ _("@{user_name} commented on request '{request_title}' for record id: '{topic_id}'").format(
     user_name=event_creator_name,
     request_title=request_title,
-    record_id=record_id
+    topic_id=topic_id
 ) }}.
 
 {{ request_event_content }}
@@ -70,7 +74,7 @@
 
 {# Markdown for Slack/Mattermost/chat #}
 {%- block md_body -%}
-{{ _("*@{user_name}* commented on your request *{request_title}* for record id: *{record_id}*").format(user_name=event_creator_name, request_title=request_title, record_id=record_id) }}.
+{{ _("*@{user_name}* commented on request *{request_title}* for record id: *{topic_id}*").format(user_name=event_creator_name, request_title=request_title, topic_id=topic_id) }}.
 
 {{ request_event_content }}
 
