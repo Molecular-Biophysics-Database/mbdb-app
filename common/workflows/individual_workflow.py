@@ -71,11 +71,6 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
                 UserWithRole("reviewer"),
             ],
         ),
-        IfInState(
-            ["deleted"],
-            then_=[
-                AnyUser(),
-            ],)
     ]
 
     can_read_deleted = [

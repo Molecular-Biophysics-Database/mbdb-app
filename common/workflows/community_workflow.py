@@ -87,10 +87,6 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
         ),
     ]
 
-    can_read_deleted = [
-                AnyUser(),
-    ]
-
     can_search_all_records = CommunityDefaultWorkflowPermissions.can_search
     can_read_all_records = can_read
 
