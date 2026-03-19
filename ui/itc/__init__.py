@@ -86,4 +86,7 @@ class ItcResource(RecordsUIResource):
 
 def create_blueprint(app):
     """Register blueprint for this resource."""
-    return ItcResource(ItcUIResourceConfig()).as_blueprint()
+    from common.utils.tombstone import record_tombstone_error
+    blueprint = ItcResource(ItcUIResourceConfig()).as_blueprint()
+    blueprint.register_error_handler(RecordDeletedException, record_tombstone_error)
+    return blueprint

@@ -86,4 +86,7 @@ class BliResource(RecordsUIResource):
 
 def create_blueprint(app):
     """Register blueprint for this resource."""
-    return BliResource(BliUIResourceConfig()).as_blueprint()
+    from common.utils.tombstone import record_tombstone_error
+    blueprint = BliResource(BliUIResourceConfig()).as_blueprint()
+    blueprint.register_error_handler(RecordDeletedException, record_tombstone_error)
+    return blueprint

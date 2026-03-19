@@ -88,4 +88,7 @@ class SprResource(RecordsUIResource):
 
 def create_blueprint(app):
     """Register blueprint for this resource."""
-    return SprResource(SprUIResourceConfig()).as_blueprint()
+    from common.utils.tombstone import record_tombstone_error
+    blueprint = SprResource(SprUIResourceConfig()).as_blueprint()
+    blueprint.register_error_handler(RecordDeletedException, record_tombstone_error)
+    return blueprint
