@@ -74,7 +74,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
         # administrator can see everything
         UserWithRole("administrator"),
         IfInState(
-            "published",
+            ["published"],
             then_=[
                 AnyUser(),
             ],
