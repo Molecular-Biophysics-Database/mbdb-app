@@ -45,6 +45,7 @@ function BodyFluid({ name }) {
         <div className="mr-3">
           <FormWrapper
             headline="Source organism"
+            name={`${name}.source_organism`}
             colorSchema="light"
             tooltip="Identification of the organism to the lowest taxonomic rank possible e.g. strain. Note that this is based on the NCBI taxonomy"
           >

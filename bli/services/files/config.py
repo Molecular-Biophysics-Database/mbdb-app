@@ -34,6 +34,7 @@ class BliFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
 
     service_id = "bli_file"
     indexer_queue_name = "bli_file"
+    max_files_count = 255
 
     search_item_links_template = LinksTemplate
     allowed_mimetypes = []
@@ -99,6 +100,7 @@ class BliFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
 
     service_id = "bli_file_draft"
     indexer_queue_name = "bli_file_draft"
+    max_files_count = 255
 
     search_item_links_template = LinksTemplate
     permission_action_prefix = "draft_"

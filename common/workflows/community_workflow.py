@@ -55,7 +55,7 @@ from oarepo_workflows import (
     WorkflowTransitions,
 )
 
-from .custom_generators import UserWithRole
+from .custom_generators import UserWithRole, DynamicReviewer
 
 
 # TODO: naming issue: DefaultWorkflowPermissions vs DefaultWorkflowPermissionPolicy
@@ -82,7 +82,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
         IfInState(
             ["submitted", "accepted"],
             then_=[
-                UserWithRole("reviewer"),
+                DynamicReviewer(),
             ],
         ),
     ]
@@ -147,8 +147,7 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
                 ],
             ),
         ],
-        # TODO Try to implement dynamic reviewer here
-        recipients=[UserWithRole("reviewer")],
+        recipients=[DynamicReviewer()],
         transitions=WorkflowTransitions(
             declined="draft", submitted="submitted", accepted="accepted"
         ),

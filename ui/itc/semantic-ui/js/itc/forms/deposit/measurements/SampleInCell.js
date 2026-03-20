@@ -72,6 +72,7 @@ function SampleInCell({ name, colorSchema }) {
             <FormWrapper
               headline={`Target ${index + 1}`}
               tooltip={tooltips.target}
+              name={arrayName}
             >
               <EntityAndConcentration name={`${arrayName}.${index}`} />
             </FormWrapper>
