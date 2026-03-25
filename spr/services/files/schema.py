@@ -8,47 +8,47 @@ from oarepo_runtime.services.schema.marshmallow import DictOnlySchema
 from oarepo_runtime.services.schema.validation import validate_date
 
 
-class SprFileSchema(InvenioFileSchema):
+class SprFileMetadataSchema(ma.Schema):
     class Meta:
         unknown = ma.RAISE
 
     content_type = ma_fields.String(
-        required=True, validate=[OneOf(["text", "binary", "text and binary"])]
+        required=True, validate=OneOf(["text", "binary", "text and binary"])
     )
 
     context = ma_fields.String(
         required=True,
-        validate=[
-            OneOf(
-                [
-                    "raw measurement data",
-                    "derived measurement data",
-                    "quality control report",
-                ]
-            )
-        ],
+        validate=OneOf([
+            "raw measurement data",
+            "derived measurement data",
+            "quality control report",
+        ]),
     )
 
-    created = ma_fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
-
-    creation_date = ma_fields.String(
-        required=True, validate=[validate_date("%Y-%m-%d")]
-    )
+    creation_date = ma_fields.String(required=True, validate=[validate_date("%Y-%m-%d")])
 
     description = ma_fields.String()
 
     originates_from = ma_fields.String(
-        required=True, validate=[OneOf(["Instrument software", "User", "MBDB"])]
+        required=True, validate=OneOf(["Instrument software", "User", "MBDB"])
     )
 
     processing_steps = ma_fields.List(
         ma_fields.Nested(lambda: ProcessingStepsItemSchema()),
-        required=True,
+        required=False,
         validate=[ma.validate.Length(min=1)],
     )
 
     recommended_software = ma_fields.String()
 
+
+class SprFileSchema(InvenioFileSchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    metadata = ma_fields.Nested(SprFileMetadataSchema, required=True)
+
+    created = ma_fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
     updated = ma_fields.String(dump_only=True, validate=[validate_date("%Y-%m-%d")])
 
 
