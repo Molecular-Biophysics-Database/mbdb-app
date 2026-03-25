@@ -1,37 +1,41 @@
-from invenio_notifications.services.filters import KeyRecipientFilter
-from invenio_users_resources.notifications.filters import (
-    UserPreferencesRecipientFilter,
-)
+from invenio_users_resources.notifications.filters import UserPreferencesRecipientFilter
 from invenio_requests.notifications.builders import CommentRequestEventCreateNotificationBuilder
 from oarepo_requests.notifications.generators import EntityRecipient
 from oarepo_requests.notifications.builders.oarepo import OARepoRequestActionNotificationBuilder
-from invenio_requests.notifications.filters import UserRecipientFilter
-from invenio_requests.notifications.generators import RequestParticipantsRecipient
 from common.requests.customizations.custom_generators import DynamicReviewerRecipient
+from invenio_notifications.services.filters import RecipientFilter
+from invenio_notifications.services.generators import RecipientGenerator
+from invenio_notifications.registry import EntityResolverRegistry
 
+
+class ForceBackendRecipient(RecipientGenerator):
+    """Ensures backend_ids is ALWAYS in the context when this runs."""
+
+    def __call__(self, notification, recipients):
+        if "backend_ids" not in notification.context:
+            notification.context["backend_ids"] = ["email"]
+        return recipients
 
 class CustomCommentRequestEventCreateNotificationBuilder(CommentRequestEventCreateNotificationBuilder):
-    # TODO Define notification logic based on the comment creator's role. Implement conditional
-    #  notification builders or recipient filters to ensure the Request Creator is notified
-    #  only when the Reviewer comments, and vice-versa.
-    recipients = [
-        RequestParticipantsRecipient(key="request"),
-        DynamicReviewerRecipient(),
-    ]
+    type = "comment-request-event.create"
 
-    recipient_filters = [
-        KeyRecipientFilter(key="request_event.created_by"),
-        UserRecipientFilter(key="request_event.created_by"),
-        UserPreferencesRecipientFilter(),
+    recipients = [
+        ForceBackendRecipient(),
+        EntityRecipient(key="request.created_by"),
+        DynamicReviewerRecipient(),
     ]
 
     @classmethod
     def build(cls, request, request_event):
-        notif = super().build(request, request_event)
-        notif.context["backend_ids"] = ["email"]
-
-        return notif
-
+        """Build notification matching the base class pattern + backend_ids."""
+        return cls.notification_cls(
+            type=cls.type,
+            context={
+                "request": EntityResolverRegistry.reference_entity(request),
+                "request_event": EntityResolverRegistry.reference_entity(request_event),
+                "backend_ids": ["email"],
+            },
+        )
 
 class DraftRequestSubmitReceiverNotificationBuilder(OARepoRequestActionNotificationBuilder):
     type = "draft-request-receiver.submit"

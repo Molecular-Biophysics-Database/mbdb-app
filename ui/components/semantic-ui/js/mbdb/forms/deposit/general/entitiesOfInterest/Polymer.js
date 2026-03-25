@@ -52,17 +52,17 @@ function Polymer({ name }) {
 
   return (
     <>
-      <div className="flex mb-3">
-        <div className="mr-3">
-          <CustomField
-            name={name}
-            label="Name"
-            fieldName="name"
-            required
-            width="w-[29rem]"
-            tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1, Ligand A). This name is referenced in the measurement description to identify the entities present in the measured sample"
-          />
-        </div>
+      <div className="mb-3">
+        <CustomField
+          name={name}
+          label="Name"
+          fieldName="name"
+          required
+          width="w-full"
+          tooltip="Short descriptive name (id) of the entity; must be unique within a record (e.g. Lysozyme, Serum from Patient 1, Ligand A). This name is referenced in the measurement description to identify the entities present in the measured sample"
+        />
+      </div>
+      <div className="flex">
         <div className="mr-3">
           <OptionField
             name={name}

@@ -5,18 +5,19 @@
 {% set topic = request.topic %}
 {% set rec_info = topic.metadata.general_parameters.record_information %}
 
+{% set topic_id = topic.id %}
 {% set topic_title = rec_info.title %}
 {% set method = rec_info.resource_type %}
 {% set request_html_page = request.links.self_html %}
 
 {%- block subject -%}
-{{ _("[{method}]: A new MBDB record submitted - '{topic_title}'").format(topic_title=topic_title, method=method) }}
+{{ _("[{method}]: A new MBDB record submitted - '{topic_id}'").format(topic_id=topic_id, method=method) }}
 {%- endblock subject -%}
 
 {%- block html_body -%}
     {% set body %}
-        {% trans topic_title=topic_title %}
-          <p>A new record, <b>"{{ topic_title }}"</b>, has been submitted and is awaiting your review.</p>
+        {% trans topic_id=topic_id, topic_title=topic_title %}
+          <p>A new record, [{{ topic_id}}] <b>"{{ topic_title }}"</b>, has been submitted and is awaiting your review.</p>
 
           <p>
             Please check the request page to make sure that the record is not being reviewed by someone else.
@@ -45,8 +46,8 @@
 
 {%- block plain_body -%}
     {% set body %}
-        {% trans topic_title=topic_title, request_html_page=request_html_page %}
-        A new record "{{ topic_title }}" has been submitted and is awaiting your review.
+        {% trans topic_id=topic_id, topic_title=topic_title, request_html_page=request_html_page %}
+        A new record [{{ topic_id }}] "{{ topic_title }}" has been submitted and is awaiting your review.
 
         Please check the request page (link below) to make sure that the record is not being
         reviewed by someone else. If you decide to review this record, leave a comment

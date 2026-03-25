@@ -49,6 +49,7 @@ from oarepo_workflows import (
 )
 
 from .custom_generators import UserWithRole
+from .custom_generators import DynamicReviewer
 
 
 class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
@@ -68,7 +69,7 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
         IfInState(
             ["submitted", "accepted"],
             then_=[
-                UserWithRole("reviewer"),
+                DynamicReviewer(),
             ],
         ),
     ]
@@ -140,7 +141,7 @@ class IndividualWorkflowRequests(WorkflowRequestPolicy):
         requesters=[
             IfInState("draft", then_=[RecordOwners()]),
         ],
-        recipients=[UserWithRole("reviewer")],
+        recipients=[DynamicReviewer()],
         transitions=WorkflowTransitions(
             declined="draft", submitted="submitted", accepted="accepted"
         ),

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useContext } from "react";
+import React, { useRef, useState, useEffect, useContext, useCallback } from "react";
 import RawMeasurementFilesTab from "@mbdb_deposit/general/generalTabs/RawMeasurementFilesTab";
 import EntitiesOfInterestTab from "@mbdb_deposit/general/generalTabs/EntitiesOfInterestTab";
 import ChemicalEnvironmentTab from "@mbdb_deposit/general/generalTabs/ChemicalEnvironmentTab";
@@ -19,7 +19,7 @@ import { FormContext } from "./FormProvider";
 function FormFieldsContainer() {
   const community = new URLSearchParams(location.search).get('community');
 
-  const { tabs, selectedTab, setSelectedTab } = useContext(FormContext);
+  const { tabs, selectedTab, setSelectedTab, setShowErrors } = useContext(FormContext);
   const { save, values: recordMetadata } = useDepositApiClient();
   const { values, setErrors } = useFormikContext();
 
@@ -41,24 +41,43 @@ function FormFieldsContainer() {
 
   const fileUploaderRef = useRef(null);
 
-  const handleUpload = async () => {
-    console.log(fileUploaderRef);
+  const handleUpload = useCallback(async () => {
     if (fileUploaderRef.current) {
       await fileUploaderRef.current.submitFiles();
     }
-  };
+  }, []);
 
-  const handleSaveMetadataAndFiles = async () => {
-    await save(true);
-    handleUpload();
-  };
+  const handleSaveMetadataAndFiles = useCallback(async () => {
+    await handleUpload();
+    await save();
+  }, [save, handleUpload]);
+
+  useEffect(() => {
+    const handleKeyDown = async (e) => {
+      if (e.key !== "Enter") return;
+      
+      const target = e.target;
+      const tag = target?.tagName?.toLowerCase();
+      if (tag === "textarea" || target?.isContentEditable) return;
+      
+      e.preventDefault();
+      await handleSaveMetadataAndFiles();
+      setShowErrors(true);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleSaveMetadataAndFiles, setShowErrors]);
 
   return (
     <>
       <div className="flex ml-1">
         <FormButtons handleSaveMetadataAndFiles={handleSaveMetadataAndFiles} />
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center -mb-16">
         <div className="bg-primary border-dark border-solid border-[.1px] rounded-normal">
           <div className="flex justify-center w-fit h-[75vh] max-h-[900px]">
             <div className="bg-dark flex flex-col p-2 rounded-tl-[0.2rem] rounded-bl-[0.2rem]">

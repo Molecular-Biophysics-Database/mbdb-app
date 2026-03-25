@@ -14,13 +14,15 @@ export default function BufferFlowrate({ name, colorSchema }) {
         headline="Buffer flowrate"
         tooltip="Numerical value of the buffer flowrate"
         colorSchema={colorSchema}
-        required
+        name={name}
       >
         <ValueUnit
           options={unitOptions}
           name={name}
           tooltipValue="Numerical value of the flowrate"
           tooltipUnit="The unit of the flowrate"
+          valueRequired
+          unitRequired
         />
       </FormWrapper>
     </>

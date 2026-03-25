@@ -55,7 +55,7 @@ from oarepo_workflows import (
     WorkflowTransitions,
 )
 
-from .custom_generators import UserWithRole
+from .custom_generators import UserWithRole, DynamicReviewer
 
 
 # TODO: naming issue: DefaultWorkflowPermissions vs DefaultWorkflowPermissionPolicy
@@ -74,7 +74,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
         # administrator can see everything
         UserWithRole("administrator"),
         IfInState(
-            "published",
+            ["published"],
             then_=[
                 AnyUser(),
             ],
@@ -82,7 +82,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
         IfInState(
             ["submitted", "accepted"],
             then_=[
-                UserWithRole("reviewer"),
+                DynamicReviewer(),
             ],
         ),
     ]
@@ -147,7 +147,7 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
                 ],
             ),
         ],
-        recipients=[UserWithRole("reviewer")],
+        recipients=[DynamicReviewer()],
         transitions=WorkflowTransitions(
             declined="draft", submitted="submitted", accepted="accepted"
         ),

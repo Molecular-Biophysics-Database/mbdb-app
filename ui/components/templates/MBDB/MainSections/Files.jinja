@@ -1,10 +1,11 @@
 {# def files #}
 
-{# Recordview template that renders the content of the files section #}
-
 {% for file in files.entries %}
-    {{file.metadata.description | truncate(length=100) }}
-    {{file.metadata.context }}
-    <a class="flex justify-center w-fit py-2 px-4 mb-2 text-18px bg-dark rounded-normal text-white hover:bg-dark/75 hover:text-white transition-all"
-    href="{{file.links.content}}" target="_blank">Download {{ file.key }}</a>
+    <div class="mb-4 border-b-[.1px] border-b-dark last:border-b-0 last:mb-0">
+        <SubSection title={ file.metadata.context }>
+            <a class="flex justify-center w-fit py-2 px-4 mb-2 text-18px bg-dark rounded-normal text-white hover:text-white hover:bg-dark/75 transition-all" href="{{file.links.content}}" target="_blank">
+                Download {{ file.key }}
+            </a>
+        </SubSection>
+    </div>
 {% endfor %}

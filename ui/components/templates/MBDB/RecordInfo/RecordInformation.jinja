@@ -14,7 +14,7 @@ Note that title and state/status is not rendered by this component #}
 
 <IValueList>
     {% if d.state._ui_value == "published" %}
-        <IField d={gp.record_information.external_identifier} label="DOI"  />
+        <Doi id={d.links.doi} />
     {% else %}
         <IField d={d.id} label="Expected DOI" >
             <ExpectedDoi id={d.id} />
