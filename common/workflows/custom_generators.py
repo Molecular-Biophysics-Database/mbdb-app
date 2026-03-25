@@ -1,6 +1,7 @@
 from oarepo_workflows.requests import RecipientGeneratorMixin
 from oarepo_runtime.services.permissions.generators import UserWithRole
 from invenio_records_permissions.generators import ConditionalGenerator
+from flask_principal import RoleNeed
 
 class UserWithRole(UserWithRole, RecipientGeneratorMixin):
     def reference_receivers(self, **kwargs):
@@ -9,21 +10,19 @@ class UserWithRole(UserWithRole, RecipientGeneratorMixin):
 class DynamicReviewer(UserWithRole, RecipientGeneratorMixin):
     """Resolve reviewer group dynamically from record/request metadata."""
 
-    def __init__(self, default_role="reviewer"):
-        self.default_role = default_role
-        super().__init__(default_role)
+    def __init__(self):
+        # We no longer pass a default role to the parent
+        super().__init__()
 
     def _resolve_role(self, **kwargs):
-        request = kwargs.get("request")
-        record = kwargs.get("record")
-        topic = kwargs.get("topic")
+        # topic is usually the record associated with a request
+        obj = kwargs.get("topic") or kwargs.get("record")
 
-        # Try to get the topic/record metadata in the most direct way available
-        obj = topic or record
+        if obj is None:
+            return None
 
-        metadata = {}
-        if obj is not None:
-            metadata = getattr(obj, "metadata", None) or obj.get("metadata", {}) if isinstance(obj, dict) else {}
+        # Handle both record objects and dicts
+        metadata = getattr(obj, "metadata", obj.get("metadata", {})) if obj else {}
 
         method = (
             metadata.get("general_parameters", {})
@@ -39,12 +38,19 @@ class DynamicReviewer(UserWithRole, RecipientGeneratorMixin):
             "MP": "reviewer_mp",
         }
 
-        return mapping.get(method, self.default_role)
+        resolved = mapping.get(method)
+        return resolved
+
+    def needs(self, **kwargs):
+        """Used for checking permissions (can_read, can_update)."""
+        role = self._resolve_role(**kwargs)
+        # If no role is resolved, return empty list (access denied)
+        return [RoleNeed(role)] if role else []
 
     def reference_receivers(self, **kwargs):
+        """Used for workflow notifications."""
         role = self._resolve_role(**kwargs)
-        return [{"group": role}]
-
+        return [{"group": role}] if role else []
 
 class IfHasPreviousVersion(ConditionalGenerator):
     def __init__(self, then_):
