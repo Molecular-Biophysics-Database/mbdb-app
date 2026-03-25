@@ -80,7 +80,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
             ],
         ),
         IfInState(
-            ["submitted", "accepted"],
+            ["submitted", "accepted", "returned_draft"],
             then_=[
                 DynamicReviewer(),
             ],
@@ -92,7 +92,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
 
     can_update = [
         IfInState(
-            "draft",
+            ["draft", "returned_draft"],
             then_=[
                 RecordOwners(),
                 PrimaryCommunityMembers(),
@@ -114,7 +114,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
     can_delete = [
         # draft can be deleted, published record must be deleted via request
         IfInState(
-            "draft",
+            ["draft", "returned_draft"],
             then_=[
                 RecordOwners(),
                 DefaultCommunityRole("administrator"),
@@ -140,7 +140,7 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
         # reviewers are notified when a draft is submitted
         requesters=[
             IfInState(
-                "draft",
+                ["draft", "returned_draft"],
                 then_=[
                     RecordOwners(),
                     DefaultCommunityRole("administrator"),
@@ -149,7 +149,7 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
         ],
         recipients=[DynamicReviewer()],
         transitions=WorkflowTransitions(
-            declined="draft", submitted="submitted", accepted="accepted"
+            declined="returned_draft", submitted="submitted", accepted="accepted"
         ),
     )
 
