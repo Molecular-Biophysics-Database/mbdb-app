@@ -44,7 +44,17 @@
             </Section>
 
             <Section title="Files">
-                {{ extra_context.files.entries | length }} file(s) available
+                <div class="flex items-center mb-4">
+                    <span class="text-gray-700">
+                        {{ extra_context.files.entries | length }} file(s) available
+                    </span>
+
+                    <a class="flex justify-center items-center w-fit py-2 px-4 text-18px bg-dark rounded-normal text-white hover:text-white hover:bg-dark/75 transition-all ml-4"
+                       href="{{ d.links.archive }}"
+                       target="_blank">
+                        Download All Files
+                    </a>
+                </div>
                 <Files files={extra_context.files} />
             </Section>
 
@@ -90,7 +100,15 @@
             </Section>
 
             <Section title="Files">
-                {{ extra_context.files.entries | length }} file(s) available
+                <div class="flex items-center mb-4">
+                    <span class="text-gray-700">{{ extra_context.files.entries | length }} file(s) available</span>
+
+                    <a class="flex justify-center items-center w-fit py-2 px-4 text-18px bg-dark rounded-normal text-white hover:text-white hover:bg-dark/75 transition-all ml-4"
+                       href="{{ d.links.archive }}"
+                       target="_blank">
+                        Download All Files
+                    </a>
+                </div>
                 <FilesDetailedView files={extra_context.files} />
             </Section>
 
