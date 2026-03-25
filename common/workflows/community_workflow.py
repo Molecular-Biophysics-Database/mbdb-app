@@ -188,7 +188,7 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
     publish_accepted_draft = WorkflowRequest(
         requesters=[
             IfInState(
-                "draft",
+                ["draft", "returned_draft"],
                 then_=[
                     RecordOwners(),
                     DefaultCommunityRole("administrator"),
