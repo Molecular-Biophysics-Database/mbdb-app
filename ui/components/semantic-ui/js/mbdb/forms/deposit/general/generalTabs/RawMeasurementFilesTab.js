@@ -27,7 +27,7 @@ async function SubmitFile(file, recordMetadata, setIsPending) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify([{ key: file.key, metadata: file.metadata }]),
+    body: JSON.stringify([{ key: file.key, metadata: file.metadata || {} }]),
   });
 
   if (!resp.ok) {
