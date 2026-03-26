@@ -13,7 +13,7 @@ NC='\033[0m'
 # ---- Config that MUST match stage_setup.sh ----
 DOMAIN="email.cz"
 METHODS=(mst bli spr itc mp)
-BASE_ROLES=(reviewer editor administrator)
+BASE_ROLES=(editor administrator)
 
 # Helper to run command quietly - suppress stdout+stderr
 quiet() { "$@" >/dev/null 2>&1; }
@@ -32,7 +32,7 @@ unset USERS_PASSWORD
 if [ -z "${USERS_PASSWORD:-}" ]; then
   echo -e "${RED}ERROR: USERS_PASSWORD is not set${NC}" >&2
   echo -e "${CYAN}--- User Password Setup ---${NC}"
-  echo -e "Please enter the password for default users (reviewer, editor, administrator):"
+  echo -e "Please enter the password for default users (reviewers, editor, administrator):"
 
   while true; do
     read -r -s -p "Password: " USERS_PASSWORD; echo
@@ -55,7 +55,7 @@ if [ -z "${USERS_PASSWORD:-}" ]; then
 fi
 
 echo -e "${CYAN}--- Creating system roles ---${NC}"
-ROLES=(reviewer editor administrator)
+ROLES=(editor administrator)
 
 # Create roles if they do not exist locally (quiet Invenio output)
 for role in "${ROLES[@]}"; do
@@ -119,10 +119,10 @@ for email in "${USERS[@]}"; do
 
   # Create token quietly but capture output (the token itself)
   token=""
-  if token=$(invenio tokens create -n resttest -u "$email" 2>/dev/null); then
+  if token=$(invenio tokens create -n "$token_name" -u "$email" 2>/dev/null); then
     {
       echo "User: $email"
-      echo "$token"
+      echo "export REPOTOKEN=\"$token\""
       echo "echo \$REPOTOKEN"
       echo
     } >> "$OUTPUT_FILE"
@@ -133,3 +133,28 @@ for email in "${USERS[@]}"; do
 done
 
 echo -e "${GREEN}Token instructions written to:${NC} $OUTPUT_FILE"
+
+echo -e "${CYAN}--- Granting administration access to administrator for local dev ---${NC}"
+if ! err=$(invenio access allow administration-access role administrator 2>&1 >/dev/null); then
+  if echo "$err" | grep -qiE "already|exists"; then
+    echo -e "${YELLOW}Administrator already has administration-access assigned. Skipping.${NC}"
+  else
+    echo -e "${RED}FATAL ERROR granting administration-access:${NC}" >&2
+    echo -e "${RED}$err${NC}" >&2
+    exit 1
+  fi
+else
+  echo -e "${GREEN}Granted administration-access to role 'administrator'.${NC}"
+fi
+
+if ! err=$(invenio access allow administration-moderation role administrator 2>&1 >/dev/null); then
+  if echo "$err" | grep -qiE "already|exists"; then
+    echo -e "${YELLOW}Administrator already has administration-moderation assigned. Skipping.${NC}"
+  else
+    echo -e "${RED}FATAL ERROR granting administration-moderation:${NC}" >&2
+    echo -e "${RED}$err${NC}" >&2
+    exit 1
+  fi
+else
+  echo -e "${GREEN}Granted administration-moderation to role 'administrator'.${NC}"
+fi
