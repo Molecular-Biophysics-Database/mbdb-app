@@ -12,15 +12,15 @@ class MstFileMetadataSchema(ma.Schema):
         unknown = ma.RAISE
 
     content_type = ma_fields.String(
-        required=True, validate=OneOf(["text", "binary", "text and binary"])
+        required=True, validate=OneOf(["Text", "Binary", "Text and binary"])
     )
 
     context = ma_fields.String(
         required=True,
         validate=OneOf([
-            "raw measurement data",
-            "derived measurement data",
-            "quality control report",
+            "Raw measurement data",
+            "Derived measurement data",
+            "Quality control report",
         ]),
     )
 
