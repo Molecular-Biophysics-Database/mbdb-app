@@ -5,6 +5,9 @@
 {% set gp=md.general_parameters %}
 {% set msp=md.method_specific_parameters %}
 
+{% set count = extra_context.files.entries | length %}
+{% set file_title = "File" ~ ("s" if count != 1 else "") ~ " (" ~ count ~ ")" %}
+
 <RecordHeader md={md} links={d.links} state={d.state} record={record} permissions={extra_context.permissions} embedded={embedded} pdf_embedded={pdf_embedded} />
 <RecordInformation d={d} gp={gp} />
 
@@ -43,19 +46,21 @@
                 <Instrument instrument={gp.instrument} />
             </Section>
 
-            <Section title="Files">
-                <div class="flex items-center mb-4">
-                    <span class="text-gray-700">{{ extra_context.files.entries | length }} file(s) available</span>
-
-                    <a class="flex justify-center items-center w-fit py-2 px-4 text-18px bg-dark rounded-normal text-white hover:text-white hover:bg-dark/75 transition-all ml-4"
-                       href="{{ d.links.archive }}"
-                       target="_blank">
-                        Download All Files
-                    </a>
-                </div>
-
+            <Section title={file_title}>
+                {% if count != 0 %}
+                    <div class="flex items-center mb-4">
+                        <a
+                            class="flex justify-center items-center w-fit py-2 px-4 text-18px bg-dark rounded-normal text-white hover:text-white hover:bg-dark/75 transition-all ml-4"
+                            href="{{ d.links.archive }}"
+                            target="_blank"
+                        >
+                            Download All Files
+                        </a>
+                    </div>
+                {% endif %}
                 <Files files={extra_context.files} />
             </Section>
+            
         </div>
 
         <!-- Second Tab -->
