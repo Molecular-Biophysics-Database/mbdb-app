@@ -74,6 +74,12 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
         # administrator can see everything
         UserWithRole("administrator"),
         IfInState(
+            "draft",
+            then_=[
+                DynamicReviewer(),
+            ],
+        ),
+        IfInState(
             ["published"],
             then_=[
                 AnyUser(),
