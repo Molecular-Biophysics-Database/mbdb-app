@@ -25,15 +25,15 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
   ];
 
   const contextOptions = [
-    { value: "raw measurement data", label: "raw measurement data" },
-    { value: "derived measurement data", label: "derived measurement data" },
-    { value: "quality control report", label: "quality control report" },
+    { value: "Raw measurement data", label: "Raw measurement data" },
+    { value: "Derived measurement data", label: "Derived measurement data" },
+    { value: "Quality control report", label: "Quality control report" },
   ];
 
   const contentTypeOptions = [
-    { value: "text", label: "text" },
-    { value: "binary", label: "binary" },
-    { value: "text and binary", label: "text and binary" },
+    { value: "Text", label: "Text" },
+    { value: "Binary", label: "Binary" },
+    { value: "Text and binary", label: "Text and binary" },
   ];
 
   return (
