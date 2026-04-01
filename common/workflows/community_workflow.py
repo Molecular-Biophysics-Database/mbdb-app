@@ -80,7 +80,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
             ],
         ),
         IfInState(
-            ["submitted", "accepted", "returned_draft"],
+            ["submitted", "accepted"],
             then_=[
                 DynamicReviewer(),
             ],
@@ -92,7 +92,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
 
     can_update = [
         IfInState(
-            ["draft", "returned_draft"],
+            ["draft"],
             then_=[
                 RecordOwners(),
                 PrimaryCommunityMembers(),
@@ -114,7 +114,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
     can_delete = [
         # draft can be deleted, published record must be deleted via request
         IfInState(
-            ["draft", "returned_draft"],
+            ["draft"],
             then_=[
                 RecordOwners(),
                 DefaultCommunityRole("administrator"),
@@ -140,7 +140,7 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
         # reviewers are notified when a draft is submitted
         requesters=[
             IfInState(
-                ["draft", "returned_draft"],
+                ["draft"],
                 then_=[
                     RecordOwners(),
                     DefaultCommunityRole("administrator"),
@@ -149,7 +149,7 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
         ],
         recipients=[DynamicReviewer()],
         transitions=WorkflowTransitions(
-            declined="returned_draft", submitted="submitted", accepted="accepted"
+            declined="draft", submitted="submitted", accepted="accepted"
         ),
     )
 
@@ -188,7 +188,7 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
     publish_accepted_draft = WorkflowRequest(
         requesters=[
             IfInState(
-                ["draft", "returned_draft"],
+                ["draft"],
                 then_=[
                     RecordOwners(),
                     DefaultCommunityRole("administrator"),
