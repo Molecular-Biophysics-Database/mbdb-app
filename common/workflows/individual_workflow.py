@@ -72,6 +72,12 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
                 DynamicReviewer(),
             ],
         ),
+        IfInState(
+            ["deleted"],
+            then_=[
+                AnyUser(),
+            ],
+        ),
     ]
 
     can_read_deleted = [
