@@ -61,6 +61,12 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
         UserWithRole("administrator"),
         UserWithRole("editor"),
         IfInState(
+            "draft",
+            then_=[
+                DynamicReviewer(),
+            ],
+        ),
+        IfInState(
             "published",
             then_=[
                 AnyUser(),
