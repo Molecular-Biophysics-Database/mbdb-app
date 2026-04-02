@@ -11,7 +11,7 @@ NC='\033[0m'
 if [ -z "${USERS_PASSWORD:-}" ]; then
   echo -e "${RED}ERROR: USERS_PASSWORD is not set${NC}" >&2
   echo -e "${CYAN}--- User Password Setup ---${NC}"
-  echo -e "Please enter the password for default users (reviewer, editor, administrator):"
+  echo -e "Please enter the password for default users (reviewers, editor, administrator):"
 
   while true; do
     read -r -s -p "Password: " USERS_PASSWORD; echo
@@ -27,7 +27,7 @@ fi
 
 DOMAIN="email.cz"
 METHODS=(mst bli spr itc mp)
-ROLES=(reviewer editor administrator)
+ROLES=(editor administrator)
 
 add_role() {
   local email="$1"
@@ -87,7 +87,6 @@ for method in "${METHODS[@]}"; do
   fi
 
   add_role "$EMAIL" "reviewer_$method"
-  add_role "$EMAIL" "reviewer"
 done
 
 for role in "${ROLES[@]}"; do
@@ -112,18 +111,5 @@ echo -e "${CYAN}--- Assigning base roles ---${NC}"
 for role in "${ROLES[@]}"; do
   add_role "mbdb_${role}@${DOMAIN}" "$role"
 done
-
-echo -e "${CYAN}--- Granting administration access ---${NC}"
-if ! err=$(invenio access allow administration-access role administrator 2>&1 >/dev/null); then
-  if echo "$err" | grep -qiE "already|exists"; then
-    echo -e "${YELLOW}Administrator already has administration-access assigned. Skipping.${NC}"
-  else
-    echo -e "${RED}FATAL ERROR granting administration-access:${NC}" >&2
-    echo -e "${RED}$err${NC}" >&2
-    exit 1
-  fi
-else
-  echo -e "${GREEN}Granted administration-access to role 'administrator'.${NC}"
-fi
 
 echo -e "${CYAN}--- Script finished successfully ---${NC}"

@@ -61,6 +61,12 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
         UserWithRole("administrator"),
         UserWithRole("editor"),
         IfInState(
+            "draft",
+            then_=[
+                DynamicReviewer(),
+            ],
+        ),
+        IfInState(
             "published",
             then_=[
                 AnyUser(),
@@ -70,6 +76,12 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
             ["submitted", "accepted"],
             then_=[
                 DynamicReviewer(),
+            ],
+        ),
+        IfInState(
+            ["deleted"],
+            then_=[
+                AnyUser(),
             ],
         ),
     ]
@@ -91,7 +103,7 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
     can_update = [
         # owners can edit drafts before submission
         IfInState(
-            "draft",
+            ["draft"],
             then_=[
                 RecordOwners(),
                 UserWithRole("editor"),
@@ -103,7 +115,7 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
         # draft can be directly deleted, published record must be deleted via request
         # TODO Check with JD who is supposed to delete published records
         IfInState(
-            "draft",
+            ["draft"],
             then_=[
                 RecordOwners(),
                 UserWithRole("administrator"),
@@ -139,7 +151,7 @@ class IndividualWorkflowRequests(WorkflowRequestPolicy):
     submit_draft = WorkflowRequest(
         # reviewers are notified when a draft is submitted
         requesters=[
-            IfInState("draft", then_=[RecordOwners()]),
+            IfInState(["draft"], then_=[RecordOwners()]),
         ],
         recipients=[DynamicReviewer()],
         transitions=WorkflowTransitions(

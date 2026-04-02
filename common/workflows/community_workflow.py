@@ -74,6 +74,12 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
         # administrator can see everything
         UserWithRole("administrator"),
         IfInState(
+            "draft",
+            then_=[
+                DynamicReviewer(),
+            ],
+        ),
+        IfInState(
             ["published"],
             then_=[
                 AnyUser(),
@@ -92,7 +98,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
 
     can_update = [
         IfInState(
-            "draft",
+            ["draft"],
             then_=[
                 RecordOwners(),
                 PrimaryCommunityMembers(),
@@ -114,7 +120,7 @@ class CommunityWorkflowPermissions(CommunityDefaultWorkflowPermissions):
     can_delete = [
         # draft can be deleted, published record must be deleted via request
         IfInState(
-            "draft",
+            ["draft"],
             then_=[
                 RecordOwners(),
                 DefaultCommunityRole("administrator"),
@@ -140,7 +146,7 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
         # reviewers are notified when a draft is submitted
         requesters=[
             IfInState(
-                "draft",
+                ["draft"],
                 then_=[
                     RecordOwners(),
                     DefaultCommunityRole("administrator"),
@@ -188,7 +194,7 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
     publish_accepted_draft = WorkflowRequest(
         requesters=[
             IfInState(
-                "draft",
+                ["draft"],
                 then_=[
                     RecordOwners(),
                     DefaultCommunityRole("administrator"),

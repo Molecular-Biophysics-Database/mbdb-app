@@ -5,6 +5,9 @@
 {% set gp=md.general_parameters %}
 {% set msp=md.method_specific_parameters %}
 
+{% set count = extra_context.files.entries | length %}
+{% set file_title = "File" ~ ("s" if count != 1 else "") ~ " (" ~ count ~ ")" %}
+
 <RecordHeader md={md} links={d.links} state={d.state} record={record} permissions={extra_context.permissions} embedded={embedded} pdf_embedded={pdf_embedded} />
 <RecordInformation d={d} gp={gp} />
 
@@ -26,27 +29,38 @@
             <Section title="Entities of interest">
                 <EntitiesOfInterest entities={gp.entities_of_interest} />
             </Section>
-        
+
             <Section title="Results">
                 <Results gp={gp} />
             </Section>
-        
+
             <Section title="Chemical environments (buffers)">
                 <ChemicalEnvironments chemical_environments={gp.chemical_environments} />
             </Section>
-        
+
             <Section title="Measurements">
                 <mp.MP.Measurements gp={gp} msp={msp} />
             </Section>
-        
+
             <Section title="Instrument">
                 <Instrument instrument={gp.instrument} />
             </Section>
-        
-            <Section title="Files">
-                {{ extra_context.files | length }} file(s) available
+
+            <Section title={file_title}>
+                {% if count != 0 %}
+                    <div class="flex items-center mb-4">
+                        <a
+                            class="flex justify-center items-center w-fit py-2 px-4 text-18px bg-dark rounded-normal text-white hover:text-white hover:bg-dark/75 transition-all ml-4"
+                            href="{{ d.links.archive }}"
+                            target="_blank"
+                        >
+                            Download All Files
+                        </a>
+                    </div>
+                {% endif %}
                 <Files files={extra_context.files} />
             </Section>
+
         </div>
 
         <!-- Second Tab -->
@@ -84,9 +98,19 @@
                 <DataAnalysisDetailedView dataAnalysis={msp.data_analysis} />
             </Section>
 
-            <Section title="Files">
-                {{ extra_context.files.entries | length }} file(s) available
-                <FilesDetailedView files={extra_context.files} />
+            <Section title={file_title}>
+                {% if count != 0 %}
+                    <div class="flex items-center mb-4">
+                        <a
+                            class="flex justify-center items-center w-fit py-2 px-4 text-18px bg-dark rounded-normal text-white hover:text-white hover:bg-dark/75 transition-all ml-4"
+                            href="{{ d.links.archive }}"
+                            target="_blank"
+                        >
+                            Download All Files
+                        </a>
+                    </div>
+                {% endif %}
+                <Files files={extra_context.files} />
             </Section>
 
         </div>

@@ -1,9 +1,8 @@
-
 from common.services.records.search_options import (
     DraftSearchOptions,
     RecordSearchOptions,
 )
-
+from oarepo_runtime.i18n import lazy_gettext as _
 from . import facets
 
 
@@ -1793,6 +1792,14 @@ class SprSearchOptions(RecordSearchOptions):
         **getattr(RecordSearchOptions, "facets", {}),
     }
 
+    sort_options = {
+        **RecordSearchOptions.sort_options,
+        "title": dict(
+            title=_("By Title"),
+            fields=["metadata.general_parameters.record_information.title"],  # ES defaults to desc on `_score` field
+        ),
+    }
+
 
 class SprDraftSearchOptions(DraftSearchOptions):
     """SprDraft search options."""
@@ -3578,4 +3585,12 @@ class SprDraftSearchOptions(DraftSearchOptions):
         "synthetic_fields_affiliations": facets.synthetic_fields_affiliations,
         "synthetic_fields_people": facets.synthetic_fields_people,
         **getattr(DraftSearchOptions, "facets", {}),
+    }
+
+    sort_options = {
+        **DraftSearchOptions.sort_options,
+        "title": dict(
+            title=_("By Title"),
+            fields=["metadata.general_parameters.record_information.title"],  # ES defaults to desc on `_score` field
+        ),
     }

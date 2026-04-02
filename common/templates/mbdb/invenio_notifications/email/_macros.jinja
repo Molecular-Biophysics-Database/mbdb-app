@@ -1,8 +1,8 @@
 {# Email-safe button macro #}
-{% macro button(url, label, bg="#007bff") -%}
+{% macro button(url, label, bg="#023850", font='#ffffff') -%}
   <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:20px auto;">
     <tr>
-      <td style="background-color: {{ bg }}; padding:12px 24px; border-radius:4px; text-align:center;">
+      <td style="background-color: {{ bg }}; font: {{ font }}; padding:12px 24px; border-radius:4px; text-align:center;">
         <a href="{{ url }}"
            style="font-family:Arial, sans-serif; font-size:14px; color:#ffffff; text-decoration:none; display:inline-block;">
           {{ label }}

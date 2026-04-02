@@ -52,7 +52,6 @@ class AcceptDraftAction(OARepoAcceptAction):
 
 class DeclineDraftAction(OARepoDeclineAction):
     """Decline draft action."""
-
     def apply(
             self,
             identity,
