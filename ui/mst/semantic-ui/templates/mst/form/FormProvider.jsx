@@ -30,7 +30,8 @@ const TABS_CONFIG = [
         value: "raw-measurement-files",
         label: "Raw measurement files",
         fieldPaths: [
-            'files.enabled'
+            'files.enabled',
+            'files'
         ]
     },
     {
@@ -71,6 +72,7 @@ const TABS_CONFIG = [
 export function FormProvider({ children }) {
     const [selectedTab, setSelectedTab] = useState(TABS_CONFIG[0].value);
     const [showErrors, setShowErrors] = useState(false);
+    const [fileUploadErrors, setFileUploadErrors] = useState([]);
 
     const value = useMemo(() => {
         return {
@@ -79,8 +81,10 @@ export function FormProvider({ children }) {
             tabs: TABS_CONFIG,
             showErrors,
             setShowErrors,
+            fileUploadErrors,
+            setFileUploadErrors,
         };
-    }, [selectedTab, showErrors]);
+    }, [selectedTab, showErrors, fileUploadErrors]);
 
     return(
         <FormContext.Provider value={value}>

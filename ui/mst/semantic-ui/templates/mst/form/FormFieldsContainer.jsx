@@ -23,7 +23,7 @@ const FormikStateLogger = () => {
 function FormFieldsContainer() {
   const community = new URLSearchParams(location.search).get('community');
 
-  const { tabs, selectedTab, setSelectedTab, setShowErrors } = useContext(FormContext);
+  const { tabs, selectedTab, setSelectedTab, setShowErrors, setFileUploadErrors } = useContext(FormContext);
   const { save, values: recordMetadata } = useDepositApiClient();
   const { values, setErrors } = useFormikContext();
 
@@ -117,6 +117,7 @@ function FormFieldsContainer() {
                           name="files"
                           save={save}
                           recordMetadata={recordMetadata}
+                          setFileUploadErrors={setFileUploadErrors}
                         />
                         {/* <FormikStateLogger /> */}
                       </React.Fragment>
