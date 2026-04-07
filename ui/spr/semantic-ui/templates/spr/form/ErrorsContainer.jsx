@@ -2,6 +2,14 @@ import React, { useContext, useState, useEffect, useMemo } from 'react';
 import { useFormikContext } from "formik";
 import { FormContext } from "./FormProvider";
 
+function normalizeFieldPath(path) {
+  if (/^\d+\.metadata/.test(path)) {
+    return `files.${path}`;
+  }
+
+  return path;
+}
+
 function highlightFields(fields) {
     document
         .querySelectorAll(".field-highlight")
@@ -16,7 +24,34 @@ function highlightFields(fields) {
 function formatFieldPath(path, tabs) {
     const parts = path.split(".");
 
-    if (parts[0] === "files") return parts[0];
+    if (!isNaN(Number(parts[0])) && parts[1] === "metadata") {
+        const fileIndex = Number(parts[0]) + 1;
+        const rest = parts.slice(2);
+
+        const cleanParts = rest.map((part) => {
+            const replaced = part.replace(/_/g, " ");
+            const num = Number(part);
+            return isNaN(num) ? replaced : num + 1;
+        });
+
+        return `file ${fileIndex} / ${cleanParts.join(" / ")}`;
+    }
+
+    if (parts[0] === "files") {
+        const rest = parts.slice(2);
+
+        if (parts[1] && !isNaN(Number(parts[1])) && parts[2] === "metadata") {
+        const cleanParts = parts.slice(3).map((part) => {
+            const replaced = part.replace(/_/g, " ");
+            const num = Number(part);
+            return isNaN(num) ? replaced : num + 1;
+        });
+
+        return `files / ${cleanParts.join(" / ")}`;
+        }
+
+        return parts[0];
+    }
 
     const sliced = parts.slice(2);
     const tab = sliced[0];
@@ -38,17 +73,18 @@ function formatFieldPath(path, tabs) {
 }
 
 export default function ErrorsContainer() {
-    const { values } = useFormikContext();
     const { errors: formikErrors } = useFormikContext();
-    const { selectedTab, setSelectedTab, tabs, showErrors } = useContext(FormContext);
+    const { selectedTab, setSelectedTab, tabs, showErrors, fileUploadErrors } = useContext(FormContext);
     
     const [openDropdown, setOpenDropdown] = useState(false);
     const [focusField, setFocusField] = useState(null);
 
-    const errors = formikErrors.BEvalidationErrors?.errors;
+    const beErrors = formikErrors.BEvalidationErrors?.errors || [];
+    const uploadErrors = fileUploadErrors || [];
+    const errors = [...beErrors, ...uploadErrors];
 
     const orderedFields = useMemo(() => {
-        if (!errors) return [];
+        if (!errors.length) return [];
 
         const prefixToTab = new Map();
 
@@ -62,11 +98,13 @@ export default function ErrorsContainer() {
         });
 
         const getTabIndex = (fieldPath) => {
+            const normalized = normalizeFieldPath(fieldPath);
+
             let bestIndex = Infinity;
             let bestLength = 0;
 
             for (const [prefix, tabIndex] of prefixToTab) {
-                if (fieldPath === prefix || fieldPath.startsWith(prefix + '.')) {
+                if (normalized === prefix || normalized.startsWith(prefix + ".")) {
                     const len = prefix.length;
                     if (
                         len > bestLength ||
@@ -84,17 +122,17 @@ export default function ErrorsContainer() {
         return [...errors]
             .sort((a, b) => getTabIndex(a.field) - getTabIndex(b.field))
             .map((e) => ({
-                fieldPath: e.field,
+                rawFieldPath: e.field,
+                fieldPath: normalizeFieldPath(e.field),
                 fieldLabel: formatFieldPath(e.field, tabs),
-                message: e.messages
+                message: Array.isArray(e.messages) ? e.messages.join(", ") : e.messages,
             }));
     }, [errors, tabs]);
     
     useEffect(() => {
         if (!showErrors) return;
         highlightFields(orderedFields);
-
-    }, [errors, selectedTab, showErrors, orderedFields]);
+    }, [selectedTab, showErrors, orderedFields]);
 
     useEffect(() => {
         if (!focusField) return;
@@ -111,28 +149,33 @@ export default function ErrorsContainer() {
 
 
     function navigateToForm(field) {
-        const pathPrefix = field.split(".", 3).join(".");
+        const normalizedField = normalizeFieldPath(field);
 
         const matchingTab = tabs.find((tab) =>
-            tab.fieldPaths?.some(p => p === pathPrefix || field.startsWith(p + "."))
+            tab.fieldPaths?.some(
+                (p) =>
+                    normalizedField === p ||
+                    normalizedField.startsWith(p + ".")
+            )
         );
 
         if (matchingTab) {
             setSelectedTab(matchingTab.value);
-            setFocusField(field);
+            setFocusField(normalizedField);
             setOpenDropdown(false);
         }
     }
 
-    if (!errors && showErrors) return (
-        <div className='cursor-pointer flex w-full bg-[#e7f6d5] border-[.1rem] border-lime-500 ml-1 mb-2 py-2 px-4 mx-3 rounded-normal font-JostMedium'>
-            Saved successfully
-        </div>
-    )
-    
-    if (errors === undefined) return null;
+    if (showErrors && errors.length === 0) {
+        return (
+            <div className="cursor-pointer flex w-full bg-[#e7f6d5] border-[.1rem] border-lime-500 ml-1 mb-2 py-2 px-4 mx-3 rounded-normal font-JostMedium">
+                Saved successfully
+            </div>
+        );
+    }
 
-    if (!errors || !showErrors) return null;
+    if (!showErrors) return null;
+    if (errors.length === 0) return null;
 
     return (
         <>
@@ -157,13 +200,13 @@ export default function ErrorsContainer() {
                             </button>
                         </div>
                         <div className='mb-2'>Please correct the following issues. Click the box to navigate to the respective field</div>
-                        {orderedFields.map(({ fieldPath, fieldLabel, message }) => (
+                        {orderedFields.map(({ rawFieldPath ,fieldPath, fieldLabel, message }) => (
                             <div
-                                key={fieldPath}
+                                key={`${rawFieldPath}-${message}`}
                                 className='flex justify-between cursor-pointer bg-[#FEF6E8] border-[.1rem] rounded-normal border-[#EFE4D2] mb-2 p-2 first-letter:uppercase text-sm hover:underline hover:decoration-[#ee930d]'
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    navigateToForm(fieldPath);
+                                    navigateToForm(rawFieldPath);
                                 }}
                             >
                                 <div className='flex'>
