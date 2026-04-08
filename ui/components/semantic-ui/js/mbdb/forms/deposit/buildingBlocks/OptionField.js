@@ -18,6 +18,7 @@ function OptionField({
   required,
   disabled,
   initialValue,
+  highlightName
 }) {
   const nameOptionField =
     fieldName !== undefined ? `${name}.${fieldName}` : `${name}`;
@@ -45,7 +46,7 @@ function OptionField({
 
   return (
     <div className="flex">
-      <div name={nameOptionField} className={`${width} rounded-lg relative border min-w-[178px]`}>
+      <div name={highlightName ? highlightName : nameOptionField} className={`${width} rounded-lg relative border min-w-[178px]`}>
         <FormControl fullWidth>
           <InputLabel>{label}</InputLabel>
           <Select

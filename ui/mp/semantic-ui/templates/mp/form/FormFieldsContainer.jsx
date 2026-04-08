@@ -18,7 +18,7 @@ import { FormContext } from "./FormProvider";
 function FormFieldsContainer() {
   const community = new URLSearchParams(location.search).get('community');
 
-  const { tabs, selectedTab, setSelectedTab, setShowErrors } = useContext(FormContext);
+  const { tabs, selectedTab, setSelectedTab, setShowErrors, setFileUploadErrors } = useContext(FormContext);
   const { save, values: recordMetadata } = useDepositApiClient();
   const { values, setErrors } = useFormikContext();
 
@@ -111,6 +111,7 @@ function FormFieldsContainer() {
                           ref={fileUploaderRef}
                           name="files"
                           recordMetadata={recordMetadata}
+                          setFileUploadErrors={setFileUploadErrors}
                         />
                       </React.Fragment>
                     </Formik>

@@ -28,7 +28,7 @@ class BliFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
 
     base_permission_policy_cls = BliPermissionPolicy
 
-    schema = BliFileSchema
+    file_schema = BliFileSchema
 
     record_cls = BliRecord
 
@@ -94,7 +94,7 @@ class BliFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
 
     url_prefix = "/records/bli/<pid_value>/draft"
 
-    schema = BliFileSchema
+    file_schema = BliFileSchema
 
     record_cls = BliDraft
 

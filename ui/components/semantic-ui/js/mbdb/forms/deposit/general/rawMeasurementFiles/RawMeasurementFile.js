@@ -51,7 +51,7 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
         />
       </div>
       <div className="w-[25rem] mr-7 mb-3">
-        <FormWrapper colorSchema="light">
+        <FormWrapper name={`files.${index}.metadata.creation_date`} colorSchema="light">
           <div className="flex">
             <div className="flex">
               <div className="mr-3 my-auto text-dark">Creation date</div>
@@ -87,6 +87,7 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
           width="w-[25rem]"
           tooltip="What is the source of the file"
           required
+          highlightName={`files.${index}.metadata.originates_from`}
         />
       </div>
       <div className="mb-3">
@@ -98,6 +99,7 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
           options={contextOptions}
           width="w-[25rem]"
           required
+          highlightName={`files.${index}.metadata.context`}
         />
       </div>
       <div className="mb-3">
@@ -109,6 +111,7 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
           tooltip="Type of the file content in terms of how it can be read (text, binary, etc.)"
           width="w-[25rem]"
           required
+          highlightName={`files.${index}.metadata.content_type`}
         />
       </div>
       <div className="mb-3">
@@ -146,7 +149,7 @@ function RawMeasurementFile({ name, index, save, onDeleteFile, file }) {
       <ArrayField
         name={name}
         label="Processing step"
-        fieldName="metadata.processing_step"
+        fieldName="metadata.processing_steps"
         tooltip={tooltips.processingStep}
         renderChild={({ arrayName, index }) => (
           <FormWrapper

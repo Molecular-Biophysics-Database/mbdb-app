@@ -1,12 +1,11 @@
-import React, { forwardRef, useImperativeHandle } from "react";
+import React, { forwardRef, useImperativeHandle, useEffect, useState } from "react";
 import FormWrapper from "../../buildingBlocks/FormWrapper";
 import ArrayFieldCopyPaste from "../../buildingBlocks/ArrayFieldCopyPaste";
 import RawMeasurementFile from "../rawMeasurementFiles/RawMeasurementFile";
 import { useFormikContext, getIn } from "formik";
 import _isEqual from "lodash/isEqual";
-import { useState } from "react";
 import Spinner from "../../buildingBlocks/Spinner";
-import { useEffect } from "react";
+import UseDefault from "@mbdb_deposit/buildingBlocks/UseDefault";
 
 // There are completely separate end points for submitting record's metadata and for submitting files
 // therefore it will not be possible to just send file related things as part of record's metadata
@@ -14,6 +13,15 @@ import { useEffect } from "react";
 // hold the information about the files and their metadata. Then when you wish to save
 // (both record's metadata and its files), you can call save() (note that save must be taken from top formik provider)
 // and you can also call submitFiles function right after that will save the files
+
+function remapFileErrors(errors, index) {
+  return errors.map((error) => ({
+    ...error,
+    field: error.field?.startsWith("0.")
+      ? error.field.replace(/^0\./, `${index}.`)
+      : error.field,
+  }));
+}
 
 async function SubmitFile(file, recordMetadata, setIsPending) {
   if (!file) return { code: 400, errors: ["No file selected."] };
@@ -27,18 +35,22 @@ async function SubmitFile(file, recordMetadata, setIsPending) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify([{ key: file.key, metadata: file.metadata }]),
+    body: JSON.stringify([{ key: file.key, metadata: file.metadata || {} }]),
   });
 
+  const data = await resp.json().catch(() => null);
+
   if (!resp.ok) {
+    setIsPending(false);
     return {
       code: resp.status,
-      errors: [`Failed to submit file "${fileName}": ${resp.statusText}`],
+      message: data?.message || `Failed to submit file "${file.name}"`,
+      errors: data?.errors || [],
+      raw: data,
     };
   }
 
-  const response = await resp.json();
-  const fileObject = response.entries.find((f) => f.key === file.key);
+  const fileObject = data.entries.find((f) => f.key === file.key);
 
   // Upload the file content
   resp = await fetch(fileObject.links.content, {
@@ -64,6 +76,7 @@ async function SubmitFile(file, recordMetadata, setIsPending) {
     });
 
     if (!retryResp.ok) {
+      setIsPending(false);
       return {
         code: retryResp.status,
         errors: [
@@ -99,7 +112,10 @@ async function SubmitFile(file, recordMetadata, setIsPending) {
   //  window.location.href = "/";
   //}, 1500); // 1.5 seconds delay
   //window.location.reload();
-  return res;
+  return {
+    code: resp.status,
+    data: res,
+  };
 }
 
 async function deleteFile(file) {
@@ -134,10 +150,11 @@ async function replaceMetadata(file) {
 }
 
 const RawMeasurementFilesTab = forwardRef(
-  ({ name, save, recordMetadata }, ref) => {
+  ({ name, save, recordMetadata, setFileUploadErrors }, ref) => {
     const { values, setFieldValue } = useFormikContext();
     const [isPending, setIsPending] = useState(false);
 
+    UseDefault(name, [{ key: "" }]);
     const files = getIn(values, name);
 
     useEffect(() => {
@@ -154,9 +171,13 @@ const RawMeasurementFilesTab = forwardRef(
 
     //console.log(ref);
     const submitFiles = async () => {
+      setFileUploadErrors([]);
       setIsPending(false);
+
       const filesList = files;
       const filesStatus = [];
+      const allErrors = [];
+
       // before submitting one fetch to fetch current status of files from the server
       const serverFilesState = await fetch(recordMetadata?.links?.files).then(
         (response) => response.json()
@@ -166,7 +187,7 @@ const RawMeasurementFilesTab = forwardRef(
       );
       // forEach was introduced before async await, so async await does not work very well
       // with it. Using for of instead
-      for (const file of filesList) {
+      for (const [index, file] of filesList.entries()) {
         // If file has no key it cannot be uploaded so pass
         if (!file?.key) {
           continue;
@@ -174,7 +195,16 @@ const RawMeasurementFilesTab = forwardRef(
         if (!uploadedFilesKeys.includes(file.key)) {
           // if file with such key does not exist on the server upload it and its metadata
           const response = await SubmitFile(file, recordMetadata, setIsPending);
-          filesStatus.push(response);
+
+          if (response?.errors?.length) {
+            allErrors.push(...remapFileErrors(response.errors, index));
+            filesStatus.push(file);
+            continue;
+          }
+
+          if (response?.data) {
+            filesStatus.push(response.data);
+          }
         } else if (
           // if file with such key exits, but it has different metadata than the one
           // on the server make put to replace the metadata
@@ -191,7 +221,8 @@ const RawMeasurementFilesTab = forwardRef(
           filesStatus.push(file);
         }
       }
-
+  
+      setFileUploadErrors(allErrors);
       setFieldValue("files", filesStatus);
     };
     //console.log(ref);
@@ -251,6 +282,7 @@ const RawMeasurementFilesTab = forwardRef(
               <FormWrapper
                 headline={`Raw measurement file ${index + 1}`}
                 tooltip="List of file(s) containing the raw measurements"
+                name={`${name}.enabled`}
               >
                 <RawMeasurementFile
                   file={file}

@@ -28,7 +28,7 @@ class SprFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
 
     base_permission_policy_cls = SprPermissionPolicy
 
-    schema = SprFileSchema
+    file_schema = SprFileSchema
 
     record_cls = SprRecord
 
@@ -94,7 +94,7 @@ class SprFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
 
     url_prefix = "/records/spr/<pid_value>/draft"
 
-    schema = SprFileSchema
+    file_schema = SprFileSchema
 
     record_cls = SprDraft
 

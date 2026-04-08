@@ -6,7 +6,13 @@ export default function UseDefault(name, content) {
 
   useEffect(() => {
     const existingValue = getIn(values, name);
-    if (existingValue === undefined) {
+    
+    const shouldSetDefault =
+      existingValue === undefined ||
+      existingValue === null ||
+      (Array.isArray(existingValue) && existingValue.length === 0);
+
+    if (shouldSetDefault) {
       setFieldValue(name, content);
     }
   }, [content, name, setFieldValue, values]);

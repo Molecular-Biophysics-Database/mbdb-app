@@ -25,7 +25,7 @@ class MstFileServiceConfig(MstFileServiceConfigWithProcessors):
 
     base_permission_policy_cls = MstPermissionPolicy
 
-    schema = MstFileSchema
+    file_schema = MstFileSchema
 
     record_cls = MstRecord
 
@@ -91,7 +91,7 @@ class MstFileDraftServiceConfig(MstFileServiceConfigWithProcessors):
 
     url_prefix = "/records/mst/<pid_value>/draft"
 
-    schema = MstFileSchema
+    file_schema = MstFileSchema
 
     record_cls = MstDraft
 
