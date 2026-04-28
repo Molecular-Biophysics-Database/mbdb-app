@@ -19,7 +19,7 @@ AFFECTED_METHODS = ("spr", "mst", "bli", "itc", "mp")
 GP_SCHEMA_VERSION = "0.15.0"
 
 def tables_constructor(method):
-    return [f"{method}_metadata", f"{method}_metadata_draft"]
+    return [f"{method}_metadata", f"{method}_draft_metadata"]
 
 def get_upgrade_msp_schema_version(method):
     if method == "spr":
