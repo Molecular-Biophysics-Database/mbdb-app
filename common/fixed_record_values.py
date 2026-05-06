@@ -35,6 +35,7 @@ def make_fixed_values(method: str, resource_type: str) -> dict:
     gp = metadata["general_parameters"]
     gp["method"] = method
     gp["record_information"]["resource_type"] = resource_type
+    gp["record_information"]["deposition_date"] = date.today().isoformat()
     metadata["method_specific_parameters"] = {
         "schema_version": schema_version(resource_type)
     }
@@ -49,7 +50,6 @@ FIXED_RECORD_VALUES = {
                 "access_rights": "open",
                 "publisher": "MBDB",
                 "resource_type_general": "Dataset",
-                "deposition_date": date.today().isoformat(),
                 "subject_category": "Biophysics",
                 "copyright": "Anyone is free to distribute the data and metadata",
                 "license": {
