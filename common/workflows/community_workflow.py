@@ -155,7 +155,7 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
         ],
         recipients=[DynamicReviewer()],
         transitions=WorkflowTransitions(
-            declined="draft", submitted="submitted", accepted="accepted"
+            declined="draft", submitted="submitted", accepted="accepted", cancelled="draft"
         ),
     )
 
