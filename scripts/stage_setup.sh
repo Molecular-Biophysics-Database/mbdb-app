@@ -7,6 +7,9 @@ YELLOW='\033[0;33m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
+# Helper to run command quietly - suppress stdout+stderr
+quiet() { "$@" >/dev/null 2>&1; }
+
 # Password setup
 if [ -z "${USERS_PASSWORD:-}" ]; then
   echo -e "${RED}ERROR: USERS_PASSWORD is not set${NC}" >&2
@@ -23,6 +26,13 @@ if [ -z "${USERS_PASSWORD:-}" ]; then
   done
 
   export USERS_PASSWORD
+fi
+
+echo -e "${CYAN}--- Creating test user ---${NC}"
+if quiet invenio users create --password "$USERS_PASSWORD" -a -c mbdb_user@email.cz; then
+  echo -e "${GREEN}Created user 'mbdb_user@email.cz'${NC}"
+else
+  echo -e "${YELLOW}User 'mbdb_user@email.cz' already exists. Skipping.${NC}"
 fi
 
 DOMAIN="email.cz"
