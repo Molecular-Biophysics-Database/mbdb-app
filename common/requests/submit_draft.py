@@ -23,12 +23,18 @@ class SubmitDraftRequestType(NonDuplicableOARepoRequestType):
     @classmethod
     @property
     def available_actions(cls):
-        return {
-            **super().available_actions,
+        actions = dict(super().available_actions)
+
+        # remove inherited cancel action
+        actions.pop("cancel", None)
+
+        # override/add custom actions
+        actions.update({
             "submit": SubmitDraftAction,
             "accept": AcceptDraftAction,
             "decline": DeclineDraftAction,
-        }
+        })
+        return actions
 
     receiver_can_be_none = False
     creator_can_be_none = False
@@ -55,3 +61,23 @@ class SubmitDraftRequestType(NonDuplicableOARepoRequestType):
 
         if errors:
             raise ValidationError(errors)
+
+    def stateful_name(self, identity, *, topic, request=None, **kwargs):
+        return self.string_by_state(
+            identity,
+            topic=topic,
+            request=request,
+
+            create=_("Submit for review"),
+            create_autoapproved=_("Submit for review"),
+            cancelled=_("Draft request cancelled"),
+            submit=_("Submit for review"),
+
+            submitted_receiver=_("Draft sumbitted for review"),
+            submitted_creator=_("Submitted for review"),
+            submitted_others=_("Submitted"),
+
+            accepted=_("Accepted"),
+            declined=_("Draft declined"),
+            created=_("Draft request created"),
+        )
