@@ -181,7 +181,7 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
         # the record comes to the state of retracting when the request is submitted. If the request
         # is accepted, the record is deleted, if declined, it is published again.
         transitions=WorkflowTransitions(
-            submitted="retracting", declined="published", accepted="deleted"
+            submitted="retracting", declined="published", accepted="deleted", cancelled="published"
         ),
     )
 
