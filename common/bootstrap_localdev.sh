@@ -67,13 +67,6 @@ for role in "${ROLES[@]}"; do
   fi
 done
 
-echo -e "${CYAN}--- Creating test user ---${NC}"
-if quiet invenio users create --password "$USERS_PASSWORD" -a -c test@test.org; then
-  echo -e "${GREEN}Created user 'test@test.org'${NC}"
-else
-  echo -e "${YELLOW}User 'test@test.org' already exists. Skipping.${NC}"
-fi
-
 echo -e "${CYAN}--- Running stage setup (user creation) script ---${NC}"
 bash -e "$(dirname "$0")/../scripts/stage_setup.sh"
 echo -e "${CYAN}--- Role and User setup complete ---${NC}"
@@ -89,7 +82,7 @@ chmod 600 "$OUTPUT_FILE"
 
 # Build the list of users that exist after stage_setup.sh
 declare -a USERS=()
-USERS+=("test@test.org")
+USERS+=("mbdb_user@email.cz")
 
 for m in "${METHODS[@]}"; do
   USERS+=("mbdb_reviewer_${m}@${DOMAIN}")
