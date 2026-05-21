@@ -81,6 +81,17 @@ function FormFieldsContainer() {
       <div className="flex ml-1">
         <FormButtons handleSaveMetadataAndFiles={handleSaveMetadataAndFiles} />
       </div>
+
+      <div
+          className="mt-3 mb-4 ml-1 mr-1 rounded-normal border border-yellow-300 bg-yellow-50 px-4 py-3 text-sm text-yellow-900">
+        <div className="font-JostBold mb-1">
+          Do not forget to SAVE
+        </div>
+        <div>
+          Please save your draft regularly while filling in the form, especially before switching tabs, uploading files, leaving the page, and before you submit for review.
+        </div>
+      </div>
+
       <div className="flex justify-center -mb-16">
         <div className="bg-primary border-dark border-solid border-[.1px] rounded-normal">
           <div className="flex justify-center w-fit h-[75vh] max-h-[900px]">
