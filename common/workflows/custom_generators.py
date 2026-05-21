@@ -2,6 +2,8 @@ from oarepo_workflows.requests import RecipientGeneratorMixin
 from oarepo_runtime.services.permissions.generators import UserWithRole
 from invenio_records_permissions.generators import ConditionalGenerator
 from flask_principal import RoleNeed
+from invenio_records_permissions.generators import Generator
+from oarepo_runtime.services.permissions.generators import RecordOwners
 
 class UserWithRole(UserWithRole, RecipientGeneratorMixin):
     def reference_receivers(self, **kwargs):
@@ -51,6 +53,22 @@ class DynamicReviewer(UserWithRole, RecipientGeneratorMixin):
         """Used for workflow notifications."""
         role = self._resolve_role(**kwargs)
         return [{"group": role}] if role else []
+
+class RecordOwnerWithRequiredSubmissionContent(Generator):
+    def needs(self, record=None, **kwargs):
+        if not record:
+            return []
+
+        metadata = record.get("metadata") or {}
+        general = metadata.get("general_parameters") or {}
+        msp = metadata.get("method_specific_parameters") or {}
+        record_info = general.get("record_information") or {}
+        has_title = bool(record_info.get("title"))
+
+        if not has_title:
+            return []
+
+        return RecordOwners().needs(record=record, **kwargs)
 
 class IfHasPreviousVersion(ConditionalGenerator):
     def __init__(self, then_):

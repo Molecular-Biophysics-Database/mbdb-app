@@ -55,7 +55,7 @@ from oarepo_workflows import (
     WorkflowTransitions,
 )
 
-from .custom_generators import UserWithRole, DynamicReviewer
+from .custom_generators import UserWithRole, DynamicReviewer, RecordOwnerWithRequiredSubmissionContent
 
 
 # TODO: naming issue: DefaultWorkflowPermissions vs DefaultWorkflowPermissionPolicy
@@ -148,7 +148,7 @@ class CommunityWorkflowRequests(WorkflowRequestPolicy):
             IfInState(
                 ["draft"],
                 then_=[
-                    RecordOwners(),
+                    RecordOwnerWithRequiredSubmissionContent(),
                     DefaultCommunityRole("administrator"),
                 ],
             ),

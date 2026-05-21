@@ -48,8 +48,7 @@ from oarepo_workflows import (
     WorkflowTransitions,
 )
 
-from .custom_generators import UserWithRole
-from .custom_generators import DynamicReviewer
+from .custom_generators import UserWithRole, DynamicReviewer, RecordOwnerWithRequiredSubmissionContent
 
 
 class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
@@ -149,13 +148,20 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
 
 class IndividualWorkflowRequests(WorkflowRequestPolicy):
     submit_draft = WorkflowRequest(
-        # reviewers are notified when a draft is submitted
         requesters=[
-            IfInState(["draft"], then_=[RecordOwners()]),
+            IfInState(
+                ["draft"],
+                then_=[
+                    RecordOwnerWithRequiredSubmissionContent(),
+                ],
+            ),
         ],
         recipients=[DynamicReviewer()],
         transitions=WorkflowTransitions(
-            declined="draft", submitted="submitted", accepted="accepted", cancelled="draft"
+            declined="draft",
+            submitted="submitted",
+            accepted="accepted",
+            cancelled="draft",
         ),
     )
 
