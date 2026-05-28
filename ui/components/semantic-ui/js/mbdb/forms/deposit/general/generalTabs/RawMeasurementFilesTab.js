@@ -23,19 +23,40 @@ function remapFileErrors(errors, index) {
   }));
 }
 
+const MULTIPART_LIMIT = 20 * 1024 * 1024;
+const PART_SIZE = 10 * 1024 * 1024;
+
 async function SubmitFile(file, recordMetadata, setIsPending) {
   if (!file) return { code: 400, errors: ["No file selected."] };
   setIsPending(true);
 
   const fileName = file.name;
 
-  // Submit the file name
+  const browserFile = file.fileContent;
+  const useMultipart = browserFile.size > MULTIPART_LIMIT;
+  const parts = Math.ceil(browserFile.size / PART_SIZE);
+
+  const payload = {
+    key: file.key,
+    metadata: file.metadata || {},
+  };
+
+  if (useMultipart) {
+    payload.size = browserFile.size;
+    payload.transfer = {
+      type: "M",
+      parts: parts,
+      part_size: PART_SIZE,
+    };
+  }
+
+// Submit the file name
   let resp = await fetch(recordMetadata?.links?.files, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify([{ key: file.key, metadata: file.metadata || {} }]),
+    body: JSON.stringify([payload]),
   });
 
   const data = await resp.json().catch(() => null);
@@ -53,39 +74,61 @@ async function SubmitFile(file, recordMetadata, setIsPending) {
   const fileObject = data.entries.find((f) => f.key === file.key);
 
   // Upload the file content
-  resp = await fetch(fileObject.links.content, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/octet-stream",
-    },
-    body: file.fileContent,
-  });
+  if (useMultipart) {
+    const partLinks = fileObject.links?.parts;
 
-  if (!resp.ok) {
-    console.error(
-      `Failed to upload file "${fileName}": ${resp.statusText}, retrying...`
-    );
-
-    // Retry the upload once
-    const retryResp = await fetch(fileObject.links.content, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/octet-stream",
-      },
-      body: file.fileContent,
-    });
-
-    if (!retryResp.ok) {
+    if (!partLinks || !partLinks.length) {
       setIsPending(false);
       return {
-        code: retryResp.status,
+        code: 500,
         errors: [
-          `Failed to upload content of file "${fileName}" after retry: ${retryResp.statusText}`,
+          `Multipart upload was requested, but no part links were returned for "${fileName}".`,
         ],
       };
     }
 
-    return retryResp;
+    for (const partLink of partLinks) {
+      const partNumber = partLink.part;
+      const start = (partNumber - 1) * PART_SIZE;
+      const end = Math.min(start + PART_SIZE, browserFile.size);
+      const blobPart = browserFile.slice(start, end);
+
+      const partResp = await fetch(partLink.url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/octet-stream",
+        },
+        body: blobPart,
+      });
+
+      if (!partResp.ok) {
+        setIsPending(false);
+        return {
+          code: partResp.status,
+          errors: [
+            `Failed to upload part ${partNumber} of file "${fileName}": ${partResp.statusText}`,
+          ],
+        };
+      }
+    }
+  } else {
+    resp = await fetch(fileObject.links.content, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/octet-stream",
+      },
+      body: browserFile,
+    });
+
+    if (!resp.ok) {
+      setIsPending(false);
+      return {
+        code: resp.status,
+        errors: [
+          `Failed to upload content of file "${fileName}": ${resp.statusText}`,
+        ],
+      };
+    }
   }
 
   // Commit the result
