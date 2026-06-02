@@ -123,6 +123,17 @@ class MstServiceConfig(
                     when=has_file_permission("read_files"),
                 ),
             ),
+            "archive": ConditionalLink(
+                cond=is_published_record(),
+                if_=RecordLink(
+                    "{+api}/records/mst/{id}/files-archive",
+                    when=has_file_permission("read_files"),
+                ),
+                else_=RecordLink(
+                    "{+api}/records/mst/{id}/draft/files-archive",
+                    when=has_file_permission("read_files"),
+                ),
+            ),
             "latest": RecordLink(
                 "{+api}/records/mst/{id}/versions/latest", when=has_permission("read")
             ),
