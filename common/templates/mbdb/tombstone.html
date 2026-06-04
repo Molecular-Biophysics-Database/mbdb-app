@@ -42,11 +42,7 @@ under the terms of the MIT License; see LICENSE file for more details.
                 <strong>{{ _("Deletion Policy:") }}</strong> {{ record.ui.tombstone.deletion_policy }}
             </p>
             {%- endif %}
-            {%- if record.ui.tombstone.note %}
-            <p>
-                <strong>{{ _("Removal note:") }}</strong> {{ record.ui.tombstone.note }}
-            </p>
-            {%- endif %}
+
             {% set parts = record.ui.tombstone.removal_date_l10n_medium.split(' ') %}
             {% set months = {
             'Jan': '01','Feb': '02','Mar': '03','Apr': '04','May': '05','Jun': '06',

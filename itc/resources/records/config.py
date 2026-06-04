@@ -4,7 +4,8 @@ from invenio_records_resources.resources.records.headers import etag_headers
 from oarepo_runtime.i18n import lazy_gettext as _
 from oarepo_runtime.resources.config import BaseRecordResourceConfig
 from oarepo_runtime.resources.responses import ExportableResponseHandler
-
+from invenio_rdm_records.services.errors import RecordDeletedException
+from common.utils.tombstone import record_deleted_without_note_error_handler
 from itc.resources.records.ui import ItcUIJSONSerializer
 
 
@@ -41,7 +42,11 @@ class ItcResourceConfig(BaseRecordResourceConfig):
             group="invenio.itc_record.error_handlers"
         ):
             entrypoint_error_handlers.update(x.load())
-        return {**super().error_handlers, **entrypoint_error_handlers}
+        return {
+            **super().error_handlers,
+            **entrypoint_error_handlers,
+            RecordDeletedException: record_deleted_without_note_error_handler,
+        }
 
     @property
     def request_body_parsers(self):

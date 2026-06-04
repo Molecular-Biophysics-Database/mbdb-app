@@ -189,6 +189,7 @@ mp = "mp.models:ui.json"
 [project.entry-points."invenio_requests.types"]
 submit-draft-request = "common.requests.submit_draft:SubmitDraftRequestType"
 publish-accepted-draft-request = "common.requests.publish_accepted_draft:PublishAcceptedDraftRequestType"
+delete_published_record = "common.requests.delete_published_record:CustomDeletePublishedRecordRequestType"
 
 [project.entry-points."invenio_administration.views"]
 invenio_users_resources_users_list = "invenio_app_rdm.administration.users:UsersListView"
