@@ -1,5 +1,5 @@
 oarepo[s3,rdm]==12.2.31
-cachetools==7.1.1
+cachetools==7.1.4
 deepmerge==2.0
 et-xmlfile==2.0.0
 flask-babelex==0.9.4
@@ -10,7 +10,7 @@ json5==0.14.0
 langcodes==3.5.1
 marshmallow-i18n-messages==0.4.0
 mbdb-parsing==0.2.1
-numpy==2.4.4
+numpy==2.5.0rc1
 oarepo-citations==1.0.2
 oarepo-communities==5.4.5
 oarepo-dashboard==1.0.26
@@ -27,7 +27,7 @@ oarepo-vocabularies==2.2.6
 oarepo-workflows==1.2.1
 openpyxl==3.1.5
 orcid==1.0.3
-pandas==3.0.2
+pandas==3.0.3
 python-dotenv==1.2.2
 semver==3.0.4
 sentry-sdk==1.45.1
