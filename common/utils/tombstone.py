@@ -1,7 +1,7 @@
-from flask import render_template
+from flask import render_template, jsonify
 from invenio_app_rdm.records_ui.views.records import not_found_error
 from invenio_rdm_records.resources.serializers import UIJSONSerializer
-
+from oarepo_runtime.i18n import lazy_gettext as _
 
 def record_tombstone_error(error):
     """Tombstone page."""
@@ -27,3 +27,17 @@ def record_tombstone_error(error):
         ),
         410,
     )
+
+
+def record_deleted_without_note_error_handler(e):
+    """Return public tombstone API response without private tombstone note."""
+    tombstone = e.record.tombstone.dump()
+    tombstone.pop("note", None)
+
+    response = jsonify(
+        status=410,
+        message=str(_("Record deleted")),
+        tombstone=tombstone,
+    )
+    response.status_code = 410
+    return response
