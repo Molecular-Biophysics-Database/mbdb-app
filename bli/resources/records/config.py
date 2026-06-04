@@ -4,9 +4,9 @@ from invenio_records_resources.resources.records.headers import etag_headers
 from oarepo_runtime.i18n import lazy_gettext as _
 from oarepo_runtime.resources.config import BaseRecordResourceConfig
 from oarepo_runtime.resources.responses import ExportableResponseHandler
-
 from bli.resources.records.ui import BliUIJSONSerializer
-
+from invenio_rdm_records.services.errors import RecordDeletedException
+from common.utils.tombstone import record_deleted_without_note_error_handler
 
 class BliResourceConfig(BaseRecordResourceConfig):
     """BliRecord resource config."""
@@ -41,7 +41,12 @@ class BliResourceConfig(BaseRecordResourceConfig):
             group="invenio.bli_record.error_handlers"
         ):
             entrypoint_error_handlers.update(x.load())
-        return {**super().error_handlers, **entrypoint_error_handlers}
+
+        return {
+            **super().error_handlers,
+            **entrypoint_error_handlers,
+            RecordDeletedException: record_deleted_without_note_error_handler,
+        }
 
     @property
     def request_body_parsers(self):
