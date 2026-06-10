@@ -15,7 +15,7 @@ function DataFitting({ name }) {
   const qualityOptions = [
     { value: "R^2", label: "R^2" },
     { value: "SEM", label: "SEM" },
-    { value: "Red. Chi^2", label: "Red. Chi^2" },
+    { value: "red. Chi^2", label: "red. Chi^2" },
     { value: "1sigma", label: "1sigma" },
     { value: "2sigma", label: "2sigma" },
     { value: "3sigma", label: "3sigma" },
