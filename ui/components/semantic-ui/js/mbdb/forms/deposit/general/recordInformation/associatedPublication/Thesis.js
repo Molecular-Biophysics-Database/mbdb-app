@@ -4,10 +4,10 @@ import OptionField from "../../../buildingBlocks/OptionField";
 
 export default function Thesis({ name }) {
   const degreeTypeOptions = [
-    { value: "phd", label: "PhD" },
-    { value: "habilitation", label: "Habilitation" },
-    { value: "master", label: "Master" },
-    { value: "bachelor", label: "Bachelor" },
+    { value: "PhD", label: "PhD" },
+    { value: "Habilitation", label: "Habilitation" },
+    { value: "Master", label: "Master" },
+    { value: "Bachelor", label: "Bachelor" },
   ];
 
   return (
