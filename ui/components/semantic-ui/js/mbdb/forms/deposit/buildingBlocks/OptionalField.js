@@ -31,7 +31,7 @@ function OptionalField({
 
   return (
     <>
-      {(value || value === "") && (
+      {(value || value === "" || value === 0) && (
         <div className="flex mt-3">
           <div className="mr-3">{renderChild({ optionalFieldName })}</div>
           <Button
