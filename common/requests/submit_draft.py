@@ -73,7 +73,7 @@ class SubmitDraftRequestType(NonDuplicableOARepoRequestType):
             cancelled=_("Draft request cancelled"),
             submit=_("Submit for review"),
 
-            submitted_receiver=_("Draft sumbitted for review"),
+            submitted_receiver=_("Draft submitted for review"),
             submitted_creator=_("Submitted for review"),
             submitted_others=_("Submitted"),
 
