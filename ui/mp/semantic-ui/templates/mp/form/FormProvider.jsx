@@ -80,20 +80,24 @@ const TABS_CONFIG = [
 
 export function FormProvider({ children }) {
     const [selectedTab, setSelectedTab] = useState(TABS_CONFIG[0].value);
-    const [showErrors, setShowErrors] = useState(false);
     const [fileUploadErrors, setFileUploadErrors] = useState([]);
+    const [savedAt, setSavedAt] = useState(null);
+    const [isSaving, setIsSaving] = useState(false);
 
     const value = useMemo(() => {
         return {
             selectedTab,
             setSelectedTab,
             tabs: TABS_CONFIG,
-            showErrors,
-            setShowErrors,
+            showErrors: savedAt !== null,
             fileUploadErrors,
             setFileUploadErrors,
+            savedAt,
+            setSavedAt,
+            isSaving,
+            setIsSaving,
         };
-    }, [selectedTab, showErrors, fileUploadErrors]);
+    }, [selectedTab, fileUploadErrors, savedAt, isSaving]);
 
     return (
         <FormContext.Provider value={value}>
