@@ -74,14 +74,20 @@ function formatFieldPath(path, tabs) {
 
 export default function ErrorsContainer() {
     const { errors: formikErrors } = useFormikContext();
-    const { selectedTab, setSelectedTab, tabs, showErrors, fileUploadErrors } = useContext(FormContext);
+    const { selectedTab, setSelectedTab, tabs, showErrors, fileUploadErrors, savedAt, isSaving } = useContext(FormContext);
     
     const [openDropdown, setOpenDropdown] = useState(false);
     const [focusField, setFocusField] = useState(null);
+    const [lastSaveErrors, setLastSaveErrors] = useState([]);
 
-    const beErrors = formikErrors.BEvalidationErrors?.errors || [];
+    // Field edits can revalidate the form and wipe BEvalidationErrors, so only refresh on an actual save.
+    useEffect(() => {
+        if (savedAt === null) return;
+        setLastSaveErrors(formikErrors.BEvalidationErrors?.errors || []);
+    }, [savedAt]);
+
     const uploadErrors = fileUploadErrors || [];
-    const errors = [...beErrors, ...uploadErrors];
+    const errors = [...lastSaveErrors, ...uploadErrors];
 
     const orderedFields = useMemo(() => {
         if (!errors.length) return [];
@@ -166,9 +172,14 @@ export default function ErrorsContainer() {
         }
     }
 
+    if (isSaving) return null;
+
     if (showErrors && errors.length === 0) {
         return (
-            <div className="cursor-pointer flex w-full bg-[#e7f6d5] border-[.1rem] border-lime-500 ml-1 mb-2 py-2 px-4 mx-3 rounded-normal font-JostMedium">
+            <div
+                key={savedAt}
+                className="cursor-pointer flex w-full bg-[#e7f6d5] border-[.1rem] border-lime-500 ml-1 mb-2 py-2 px-4 mx-3 rounded-normal font-JostMedium animate-flashSuccess"
+            >
                 Saved successfully
             </div>
         );
