@@ -8,15 +8,17 @@ import { FormContext } from "./FormProvider";
 export default function FormButtons({ handleSaveMetadataAndFiles }) {
     const { values, setErrors } = useFormikContext();
     const { save } = useDepositApiClient();
-    const { setShowErrors } = useContext(FormContext);
+    const { setSavedAt, setIsSaving } = useContext(FormContext);
 
     return (
         <>
             <button
                 className="transition-all bg-dark text-white px-6 h-[36px] rounded-normal mr-1 font-JostMedium hover:bg-dark/75"
                 onClick={async () => {
+                    setIsSaving(true);
                     await handleSaveMetadataAndFiles();
-                    setShowErrors(true);
+                    setSavedAt(Date.now());
+                    setIsSaving(false);
                 }}
             >
                 Save
