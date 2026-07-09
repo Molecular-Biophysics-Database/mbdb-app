@@ -71,10 +71,10 @@ function ArrayFieldCopyPaste({
               : [],
         };
       } else if (method === "file") {
-        const metadata = previousArray?.metadata;
+        const { processing_steps, ...metadata } = previousArray?.metadata || {};
         return {
           id: uuidv4(),
-          metadata: { ...metadata },
+          metadata,
         };
       }
     };
