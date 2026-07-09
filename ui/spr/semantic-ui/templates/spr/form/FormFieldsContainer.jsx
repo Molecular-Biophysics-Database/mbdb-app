@@ -19,7 +19,7 @@ import { FormContext } from "./FormProvider";
 function FormFieldsContainer() {
   const community = new URLSearchParams(location.search).get('community');
 
-  const { tabs, selectedTab, setSelectedTab, setShowErrors, setFileUploadErrors } = useContext(FormContext);
+  const { tabs, selectedTab, setSelectedTab, setFileUploadErrors, setSavedAt, setIsSaving } = useContext(FormContext);
   const { save, values: recordMetadata } = useDepositApiClient();
   const { values, setErrors } = useFormikContext();
 
@@ -61,8 +61,10 @@ function FormFieldsContainer() {
       if (tag === "textarea" || target?.isContentEditable) return;
       
       e.preventDefault();
+      setIsSaving(true);
       await handleSaveMetadataAndFiles();
-      setShowErrors(true);
+      setSavedAt(Date.now());
+      setIsSaving(false);
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -70,7 +72,7 @@ function FormFieldsContainer() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [handleSaveMetadataAndFiles, setShowErrors]);
+  }, [handleSaveMetadataAndFiles, setSavedAt, setIsSaving]);
 
   return (
     <>
