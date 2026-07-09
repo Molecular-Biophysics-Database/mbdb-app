@@ -143,6 +143,16 @@ module.exports = {
         "2colMethod": "repeat(2, 400px);",
         "3colMethod": "repeat(3, 400px)",
       },
+
+      keyframes: {
+        flashSuccess: {
+          "0%": { opacity: "0.3", transform: "scale(0.98)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+      },
+      animation: {
+        flashSuccess: "flashSuccess 0.4s ease-out",
+      },
     },
   },
   plugins: [],
