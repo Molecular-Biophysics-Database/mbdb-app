@@ -73,6 +73,11 @@ jobs:
           sudo sysctl -w fs.file-max=262144
           sudo sysctl -w vm.max_map_count=262144
 
+      - name: Run Docker Prerequisites Script
+        run: |
+          chmod +x ./scripts/docker_prerequisites.sh
+          sudo -E ./scripts/docker_prerequisites.sh
+
       - name: Runs Opensearch
         uses: ankane/setup-opensearch@v1
         with:
