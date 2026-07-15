@@ -27,7 +27,8 @@ Recommendation: Run Python outside of docker for this (you'll be prompted during
    at `https://127.0.0.1:5000/`) and shut it down. This will create the database and initialize all the containers
 4. run `source .venv/bin/activate` to activate the virtual environment
 5. run `invenio oarepo fixtures load` to load the vocabularies
-6. set up ORCID authentication (see below)
+6. run `bash common/bootstrap_localdev.sh` to load local users
+7. set up ORCID authentication (see below)
 
 ### Setting up ORCID authentication
 
