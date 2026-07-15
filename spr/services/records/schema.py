@@ -2871,7 +2871,7 @@ class FundingReferencesItemSchema(DictOnlySchema):
 
 class InstrumentSchema(DictOnlySchema):
     class Meta:
-        unknown = ma.INCLUDE
+        unknown = ma.EXCLUDE
 
     _id = String(data_key="id", attribute="id")
 

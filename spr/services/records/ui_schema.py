@@ -3115,7 +3115,7 @@ class HomogeneityUISchema(DictOnlySchema):
 
 class InstrumentUISchema(DictOnlySchema):
     class Meta:
-        unknown = ma.INCLUDE
+        unknown = ma.EXCLUDE
 
     _id = String(data_key="id", attribute="id")
 
