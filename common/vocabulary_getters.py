@@ -193,7 +193,8 @@ class OpenAireService(AuthorityProvider):
         hits = ApiGet(url=self.search_url, params=q_params).json["response"]
         total = int(hits["header"]["total"]["$"])
 
-        grants = [self.convert_oa_record(hit) for hit in hits["results"]["result"]]
+        results = hits["results"] or {}
+        grants = [self.convert_oa_record(hit) for hit in results.get("result", [])]
 
         return grants, total, size
 
