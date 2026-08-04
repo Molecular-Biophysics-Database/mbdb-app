@@ -253,6 +253,13 @@ props:
   manufacturer: 'Sartorius'
   technique: "BLI"
 ---
+id: 'ins:60'
+title:
+  en: 'Octet R8e (Eight-Channel System)'
+props:
+  manufacturer: 'Sartorius'
+  technique: "BLI"
+---
 # SPR instruments
 id: 'ins:36'
 title:
