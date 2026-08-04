@@ -1096,6 +1096,7 @@ class CalibrantsItemSchema(DictOnlySchema):
             OneOf(
                 [
                     "polyribonucleotide",
+                    "polydeoxyribonucleotide",
                     "polypeptide(D)",
                     "polypeptide(L)",
                     "chemical",

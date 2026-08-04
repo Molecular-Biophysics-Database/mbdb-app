@@ -10,7 +10,8 @@ import SizeCalibrants from "./SizeCalibrants";
 
 export default function Calibrants({ name }) {
   const typeOptions = [
-    { value: "polyribonucleotide", label: "polyribonucleotide" },
+      { value: "polyribonucleotide", label: "polyribonucleotide" },
+    { value: "polydeoxyribonucleotide", label: "polydeoxyribonucleotide" },
     { value: "polypeptide(D)", label: "polypeptide(D)" },
     { value: "polypeptide(L)", label: "polypeptide(L)" },
     { value: "chemical", label: "chemical" },
