@@ -25,6 +25,53 @@ function remapFileErrors(errors, index) {
 
 const MULTIPART_LIMIT = 20 * 1024 * 1024;
 const PART_SIZE = 10 * 1024 * 1024;
+const PART_UPLOAD_CONCURRENCY = 4;
+
+async function uploadPart(partLink, browserFile, fileName) {
+  const partNumber = partLink.part;
+  const start = (partNumber - 1) * PART_SIZE;
+  const end = Math.min(start + PART_SIZE, browserFile.size);
+  const blobPart = browserFile.slice(start, end);
+
+  const partResp = await fetch(partLink.url, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/octet-stream",
+    },
+    body: blobPart,
+  });
+
+  if (!partResp.ok) {
+    const error = new Error(
+      `Failed to upload part ${partNumber} of file "${fileName}": ${partResp.statusText}`
+    );
+    error.status = partResp.status;
+    throw error;
+  }
+}
+
+// Uploads parts of a single file concurrently (bounded pool), instead of one at a time,
+// since sequential PUTs left most of the upload time waiting on round-trips rather than transferring data.
+async function uploadPartsConcurrently(partLinks, browserFile, fileName) {
+  const queue = [...partLinks];
+  let firstError = null;
+
+  async function worker() {
+    while (queue.length && !firstError) {
+      const partLink = queue.shift();
+      try {
+        await uploadPart(partLink, browserFile, fileName);
+      } catch (error) {
+        if (!firstError) firstError = error;
+      }
+    }
+  }
+
+  const workerCount = Math.min(PART_UPLOAD_CONCURRENCY, partLinks.length);
+  await Promise.all(Array.from({ length: workerCount }, worker));
+
+  return firstError;
+}
 
 async function SubmitFile(file, recordMetadata, setIsPending) {
   if (!file) return { code: 400, errors: ["No file selected."] };
@@ -87,29 +134,18 @@ async function SubmitFile(file, recordMetadata, setIsPending) {
       };
     }
 
-    for (const partLink of partLinks) {
-      const partNumber = partLink.part;
-      const start = (partNumber - 1) * PART_SIZE;
-      const end = Math.min(start + PART_SIZE, browserFile.size);
-      const blobPart = browserFile.slice(start, end);
+    const partError = await uploadPartsConcurrently(
+      partLinks,
+      browserFile,
+      fileName
+    );
 
-      const partResp = await fetch(partLink.url, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/octet-stream",
-        },
-        body: blobPart,
-      });
-
-      if (!partResp.ok) {
-        setIsPending(false);
-        return {
-          code: partResp.status,
-          errors: [
-            `Failed to upload part ${partNumber} of file "${fileName}": ${partResp.statusText}`,
-          ],
-        };
-      }
+    if (partError) {
+      setIsPending(false);
+      return {
+        code: partError.status || 500,
+        errors: [partError.message],
+      };
     }
   } else {
     resp = await fetch(fileObject.links.content, {
