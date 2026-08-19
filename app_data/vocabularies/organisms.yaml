@@ -1,0 +1,500 @@
+- id: taxid:1
+  props:
+    rank: no rank
+  title:
+    en: root
+- id: taxid:9606
+  props:
+    rank: species
+  title:
+    en: Homo sapiens
+- id: taxid:562
+  props:
+    rank: species
+  title:
+    en: Escherichia coli
+- id: taxid:10090
+  props:
+    rank: species
+  title:
+    en: Mus musculus
+- id: taxid:10239
+  props:
+    rank: superkingdom
+  title:
+    en: Viruses
+- id: taxid:131567
+  props:
+    rank: no rank
+  title:
+    en: cellular organisms
+- id: taxid:2787823
+  props:
+    rank: no rank
+  title:
+    en: unclassified entries
+- id: taxid:2787854
+  props:
+    rank: no rank
+  title:
+    en: other entries
+- id: taxid:10472
+  props:
+    rank: family
+  title:
+    en: Plasmaviridae
+- id: taxid:10474
+  props:
+    rank: family
+  title:
+    en: Fuselloviridae
+- id: taxid:10556
+  props:
+    rank: genus
+  title:
+    en: Rhizidiovirus
+- id: taxid:12333
+  props:
+    rank: no rank
+  title:
+    en: unclassified bacterial viruses
+- id: taxid:12429
+  props:
+    rank: no rank
+  title:
+    en: unclassified viruses
+- id: taxid:12877
+  props:
+    rank: clade
+  title:
+    en: Satellites
+- id: taxid:185751
+  props:
+    rank: family
+  title:
+    en: Pospiviroidae
+- id: taxid:185752
+  props:
+    rank: family
+  title:
+    en: Avsunviroidae
+- id: taxid:186616
+  props:
+    rank: no rank
+  title:
+    en: environmental samples
+- id: taxid:292638
+  props:
+    rank: family
+  title:
+    en: Globuloviridae
+- id: taxid:324686
+  props:
+    rank: family
+  title:
+    en: Guttaviridae
+- id: taxid:423358
+  props:
+    rank: family
+  title:
+    en: Bicaudaviridae
+- id: taxid:451344
+  props:
+    rank: no rank
+  title:
+    en: unclassified archaeal viruses
+- id: taxid:552364
+  props:
+    rank: no rank
+  title:
+    en: unclassified virophages
+- id: taxid:573053
+  props:
+    rank: family
+  title:
+    en: Ampullaviridae
+- id: taxid:687329
+  props:
+    rank: family
+  title:
+    en: Anelloviridae
+- id: taxid:1232647
+  props:
+    rank: genus
+  title:
+    en: Dinodnavirus
+- id: taxid:1232737
+  props:
+    rank: family
+  title:
+    en: Clavaviridae
+- id: taxid:1458186
+  props:
+    rank: family
+  title:
+    en: Alphasatellitidae
+- id: taxid:1511855
+  props:
+    rank: family
+  title:
+    en: Spiraviridae
+- id: taxid:1993640
+  props:
+    rank: family
+  title:
+    en: Tolecusatellitidae
+- id: taxid:2080735
+  props:
+    rank: clade
+  title:
+    en: DNA viruses
+- id: taxid:2169572
+  props:
+    rank: family
+  title:
+    en: Portogloboviridae
+- id: taxid:2559587
+  props:
+    rank: clade
+  title:
+    en: Riboviria
+- id: taxid:2560062
+  props:
+    rank: family
+  title:
+    en: Ovaliviridae
+- id: taxid:2731341
+  props:
+    rank: clade
+  title:
+    en: Duplodnaviria
+- id: taxid:2731342
+  props:
+    rank: clade
+  title:
+    en: Monodnaviria
+- id: taxid:2732004
+  props:
+    rank: clade
+  title:
+    en: Varidnaviria
+- id: taxid:2732901
+  props:
+    rank: family
+  title:
+    en: Finnlakeviridae
+- id: taxid:2732902
+  props:
+    rank: family
+  title:
+    en: Halspiviridae
+- id: taxid:2732903
+  props:
+    rank: family
+  title:
+    en: Thaspiviridae
+- id: taxid:2840022
+  props:
+    rank: clade
+  title:
+    en: Adnaviria
+- id: taxid:2840056
+  props:
+    rank: class
+  title:
+    en: Naldaviricetes
+- id: taxid:2842242
+  props:
+    rank: clade
+  title:
+    en: Ribozyviria
+- id: taxid:2946196
+  props:
+    rank: family
+  title:
+    en: Polydnaviriformidae
+- id: taxid:3044460
+  props:
+    rank: family
+  title:
+    en: Bartogtaviriformidae
+- id: taxid:3044461
+  props:
+    rank: family
+  title:
+    en: Brachygtaviriformidae
+- id: taxid:3044475
+  props:
+    rank: family
+  title:
+    en: Rhodogtaviriformidae
+- id: taxid:2
+  props:
+    rank: superkingdom
+  title:
+    en: Bacteria
+- id: taxid:2157
+  props:
+    rank: superkingdom
+  title:
+    en: Archaea
+- id: taxid:2759
+  props:
+    rank: superkingdom
+  title:
+    en: Eukaryota
+- id: taxid:12908
+  props:
+    rank: no rank
+  title:
+    en: unclassified sequences
+- id: taxid:28384
+  props:
+    rank: no rank
+  title:
+    en: other sequences
+- id: taxid:10473
+  props:
+    rank: genus
+  title:
+    en: Plasmavirus
+- id: taxid:10475
+  props:
+    rank: genus
+  title:
+    en: Alphafusellovirus
+- id: taxid:693626
+  props:
+    rank: no rank
+  title:
+    en: unclassified Fuselloviridae
+- id: taxid:1299307
+  props:
+    rank: genus
+  title:
+    en: Betafusellovirus
+- id: taxid:12340
+  props:
+    rank: species
+  title:
+    en: Enterobacteria phage 933J
+- id: taxid:12347
+  props:
+    rank: species
+  title:
+    en: Actinophage JHJ-1
+- id: taxid:12366
+  props:
+    rank: species
+  title:
+    en: Streptococcus pyogenes phage H4489A
+- id: taxid:12371
+  props:
+    rank: species
+  title:
+    en: Phage h30
+- id: taxid:12374
+  props:
+    rank: species
+  title:
+    en: Lactococcus phage
+- id: taxid:12375
+  props:
+    rank: species
+  title:
+    en: Lactococcus phage (ISOLATE 7-9)
+- id: taxid:12386
+  props:
+    rank: species
+  title:
+    en: Lactococcus phage mi7-9
+- id: taxid:12388
+  props:
+    rank: species
+  title:
+    en: Mycobacterium phage FRAT1
+- id: taxid:12392
+  props:
+    rank: species
+  title:
+    en: Lactobacillus phage mv4
+- id: taxid:12403
+  props:
+    rank: species
+  title:
+    en: Leuconostoc phage P32
+- id: taxid:12404
+  props:
+    rank: species
+  title:
+    en: Leuconostoc phage P37
+- id: taxid:12405
+  props:
+    rank: species
+  title:
+    en: Leuconostoc phage P54
+- id: taxid:12406
+  props:
+    rank: species
+  title:
+    en: Leuconostocphage PAt5-12
+- id: taxid:12408
+  props:
+    rank: species
+  title:
+    en: Leuconostoc phage PZt11-15
+- id: taxid:12409
+  props:
+    rank: species
+  title:
+    en: Clostridium phage d-16 phi
+- id: taxid:12412
+  props:
+    rank: species
+  title:
+    en: Staphylococcus phage phi-42
+- id: taxid:12420
+  props:
+    rank: species
+  title:
+    en: Filamentous phage
+- id: taxid:12424
+  props:
+    rank: species
+  title:
+    en: Phage 13
+- id: taxid:12425
+  props:
+    rank: species
+  title:
+    en: Phage 16
+- id: taxid:12427
+  props:
+    rank: species
+  title:
+    en: Lactococcus lactis phage phi 197
+- id: taxid:12428
+  props:
+    rank: species
+  title:
+    en: Retronphage phi R73
+- id: taxid:28368
+  props:
+    rank: species
+  title:
+    en: Corynebacterium diphtheriae phage
+- id: taxid:31760
+  props:
+    rank: species
+  title:
+    en: Colitis phage
+- id: taxid:33768
+  props:
+    rank: species
+  title:
+    en: Leuconostoc phage L10
+- id: taxid:33769
+  props:
+    rank: species
+  title:
+    en: Lactobacillus phage mv1
+- id: taxid:38018
+  props:
+    rank: species
+  title:
+    en: Bacteriophage sp.
+- id: taxid:39425
+  props:
+    rank: species
+  title:
+    en: Streptococcus phage T270
+- id: taxid:39943
+  props:
+    rank: species
+  title:
+    en: Actinophage JHJ-3
+- id: taxid:41669
+  props:
+    rank: species
+  title:
+    en: Phage LM4
+- id: taxid:42171
+  props:
+    rank: species
+  title:
+    en: Phage N 209
+- id: taxid:42172
+  props:
+    rank: species
+  title:
+    en: Phage 3/14
+- id: taxid:42173
+  props:
+    rank: species
+  title:
+    en: Phage Cz
+- id: taxid:45331
+  props:
+    rank: species
+  title:
+    en: Phage fuse 5
+- id: taxid:45332
+  props:
+    rank: species
+  title:
+    en: Prevotella phage phi AR29
+- id: taxid:48224
+  props:
+    rank: species
+  title:
+    en: Phage E
+- id: taxid:53480
+  props:
+    rank: species
+  title:
+    en: Virus-like particle CAK1
+- id: taxid:54392
+  props:
+    rank: species
+  title:
+    en: Leuconostoc phage 10MC
+- id: taxid:57476
+  props:
+    rank: species
+  title:
+    en: Bacillus phage 12826
+- id: taxid:60457
+  props:
+    rank: species
+  title:
+    en: Bartonella henselae phage 60457
+- id: taxid:63117
+  props:
+    rank: species
+  title:
+    en: Vibrio cholerae V86 phage
+- id: taxid:65388
+  props:
+    rank: species
+  title:
+    en: Mycobacterium phage Ms6
+- id: taxid:73492
+  props:
+    rank: species
+  title:
+    en: Streptococcus pyogenes phage
+- id: taxid:76262
+  props:
+    rank: species
+  title:
+    en: Rhizobium phage phiU
+- id: taxid:77920
+  props:
+    rank: species
+  title:
+    en: 'Phage #D'
+- id: taxid:86065
+  props:
+    rank: species
+  title:
+    en: Streptococcus pyogenes phage H10403

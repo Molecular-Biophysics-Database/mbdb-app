@@ -1,0 +1,11 @@
+# Changes here will be overwritten by Copier
+_commit: d292869
+_src_path: https://github.com/oarepo/nrp-app-copier
+languages: ''
+repository_description: |
+        Molecular Biophysics Database collects raw data produced in experiments with biomolecular samples,
+        biological material or other material, using molecular biophysics methods,
+        such as Microscale Thermophoresis (MST), Biolayer interferometry (BLI),
+        Surface Plasmon Resonance (SPR) and others.
+repository_human_name: Molecular Biophysics Database
+use_ccmm: false

@@ -1,0 +1,736 @@
+- id: aa
+  title:
+    cs: "afar\u0161tina"
+    en: Afar
+- id: ab
+  title:
+    cs: "abch\xE1z\u0161tina"
+    en: Abkhazian
+- id: af
+  title:
+    cs: "afrik\xE1n\u0161tina"
+    en: Afrikaans
+- id: ak
+  title:
+    cs: "akan\u0161tina"
+    en: Akan
+- id: am
+  title:
+    cs: "amhar\u0161tina"
+    en: Amharic
+- id: ar
+  title:
+    cs: "arab\u0161tina"
+    en: Arabic
+- id: an
+  title:
+    cs: "aragon\u0161tina"
+    en: Aragonese
+- id: as
+  title:
+    cs: "\xE1s\xE1m\u0161tina"
+    en: Assamese
+- id: av
+  title:
+    cs: "avar\u0161tina"
+    en: Avaric
+- id: ae
+  title:
+    cs: "avest\xE1n\u0161tina"
+    en: Avestan
+- id: ay
+  title:
+    cs: "ajmar\u0161tina"
+    en: Aymara
+- id: az
+  title:
+    cs: "\xE1zerb\xE1jd\u017E\xE1n\u0161tina"
+    en: Azerbaijani
+- id: ba
+  title:
+    cs: "ba\u0161kir\u0161tina"
+    en: Bashkir
+- id: bm
+  title:
+    cs: "bambar\u0161tina"
+    en: Bambara
+- id: be
+  title:
+    cs: "b\u011Bloru\u0161tina"
+    en: Belarusian
+- id: bn
+  title:
+    cs: "beng\xE1l\u0161tina"
+    en: Bangla
+- id: bi
+  title:
+    cs: "bislam\u0161tina"
+    en: Bislama
+- id: bo
+  title:
+    cs: "tibet\u0161tina"
+    en: Tibetan
+- id: bs
+  title:
+    cs: "bosen\u0161tina"
+    en: Bosnian
+- id: br
+  title:
+    cs: "breton\u0161tina"
+    en: Breton
+- id: bg
+  title:
+    cs: "bulhar\u0161tina"
+    en: Bulgarian
+- id: ca
+  title:
+    cs: "katal\xE1n\u0161tina"
+    en: Catalan
+- id: cs
+  title:
+    cs: "\u010De\u0161tina"
+    en: Czech
+- id: ch
+  title:
+    cs: "\u010Damoro"
+    en: Chamorro
+- id: ce
+  title:
+    cs: "\u010De\u010Den\u0161tina"
+    en: Chechen
+- id: cu
+  title:
+    cs: "staroslov\u011Bn\u0161tina"
+    en: Church Slavic
+- id: cv
+  title:
+    cs: "\u010Duva\u0161tina"
+    en: Chuvash
+- id: kw
+  title:
+    cs: "korn\u0161tina"
+    en: Cornish
+- id: co
+  title:
+    cs: "korsi\u010Dtina"
+    en: Corsican
+- id: cr
+  title:
+    cs: "kr\xEDj\u0161tina"
+    en: Cree
+- id: cy
+  title:
+    cs: "vel\u0161tina"
+    en: Welsh
+- id: da
+  title:
+    cs: "d\xE1n\u0161tina"
+    en: Danish
+- id: de
+  title:
+    cs: "n\u011Bm\u010Dina"
+    en: German
+- id: dv
+  title:
+    cs: "malediv\u0161tina"
+    en: Divehi
+- id: dz
+  title:
+    cs: "dzongk\xE4"
+    en: Dzongkha
+- id: el
+  title:
+    cs: "\u0159e\u010Dtina"
+    en: Greek
+- id: en
+  title:
+    cs: "angli\u010Dtina"
+    en: English
+- id: eo
+  title:
+    cs: esperanto
+    en: Esperanto
+- id: et
+  title:
+    cs: "eston\u0161tina"
+    en: Estonian
+- id: eu
+  title:
+    cs: "baski\u010Dtina"
+    en: Basque
+- id: ee
+  title:
+    cs: "ewe\u0161tina"
+    en: Ewe
+- id: fo
+  title:
+    cs: "faer\u0161tina"
+    en: Faroese
+- id: fa
+  title:
+    cs: "per\u0161tina"
+    en: Persian
+- id: fj
+  title:
+    cs: "fid\u017Eij\u0161tina"
+    en: Fijian
+- id: fi
+  title:
+    cs: "fin\u0161tina"
+    en: Finnish
+- id: fr
+  title:
+    cs: "francouz\u0161tina"
+    en: French
+- id: fy
+  title:
+    cs: "fr\xED\u0161tina (z\xE1padn\xED)"
+    en: Western Frisian
+- id: ff
+  title:
+    cs: "fulb\u0161tina"
+    en: Fulah
+- id: gd
+  title:
+    cs: "skotsk\xE1 gael\u0161tina"
+    en: Scottish Gaelic
+- id: ga
+  title:
+    cs: "ir\u0161tina"
+    en: Irish
+- id: gl
+  title:
+    cs: "galicij\u0161tina"
+    en: Galician
+- id: gv
+  title:
+    cs: "man\u0161tina"
+    en: Manx
+- id: gn
+  title:
+    cs: "guaran\u0161tina"
+    en: Guarani
+- id: gu
+  title:
+    cs: "gud\u017Ear\xE1t\u0161tina"
+    en: Gujarati
+- id: ht
+  title:
+    cs: "hait\u0161tina"
+    en: Haitian Creole
+- id: ha
+  title:
+    cs: "hau\u0161tina"
+    en: Hausa
+- id: sh
+  title:
+    cs: "srbochorvat\u0161tina"
+    en: Serbo-Croatian
+- id: he
+  title:
+    cs: "hebrej\u0161tina"
+    en: Hebrew
+- id: hz
+  title:
+    cs: "herer\u0161tina"
+    en: Herero
+- id: hi
+  title:
+    cs: "hind\u0161tina"
+    en: Hindi
+- id: ho
+  title:
+    cs: hiri motu
+    en: Hiri Motu
+- id: hr
+  title:
+    cs: "chorvat\u0161tina"
+    en: Croatian
+- id: hu
+  title:
+    cs: "ma\u010Far\u0161tina"
+    en: Hungarian
+- id: hy
+  title:
+    cs: "arm\xE9n\u0161tina"
+    en: Armenian
+- id: ig
+  title:
+    cs: "igbo\u0161tina"
+    en: Igbo
+- id: io
+  title:
+    cs: ido
+    en: Ido
+- id: ii
+  title:
+    cs: "i\u0161tina (se\u010Du\xE1nsk\xE1)"
+    en: Sichuan Yi
+- id: iu
+  title:
+    cs: "inuktitut\u0161tina"
+    en: Inuktitut
+- id: ie
+  title:
+    cs: interlingue
+    en: Interlingue
+- id: ia
+  title:
+    cs: interlingua
+    en: Interlingua
+- id: id
+  title:
+    cs: "indon\xE9\u0161tina"
+    en: Indonesian
+- id: ik
+  title:
+    cs: "inupiak\u0161tina"
+    en: Inupiaq
+- id: is
+  title:
+    cs: "island\u0161tina"
+    en: Icelandic
+- id: it
+  title:
+    cs: "ital\u0161tina"
+    en: Italian
+- id: jv
+  title:
+    cs: "jav\xE1n\u0161tina"
+    en: Javanese
+- id: ja
+  title:
+    cs: "japon\u0161tina"
+    en: Japanese
+- id: kl
+  title:
+    cs: "gr\xF3n\u0161tina"
+    en: Kalaallisut
+- id: kn
+  title:
+    cs: "kannad\u0161tina"
+    en: Kannada
+- id: ks
+  title:
+    cs: "ka\u0161m\xEDr\u0161tina"
+    en: Kashmiri
+- id: ka
+  title:
+    cs: "gruz\xEDn\u0161tina"
+    en: Georgian
+- id: kr
+  title:
+    cs: kanuri
+    en: Kanuri
+- id: kk
+  title:
+    cs: "kaza\u0161tina"
+    en: Kazakh
+- id: km
+  title:
+    cs: "khm\xE9r\u0161tina"
+    en: Khmer
+- id: ki
+  title:
+    cs: "kikuj\u0161tina"
+    en: Kikuyu
+- id: rw
+  title:
+    cs: "ki\u0148arwand\u0161tina"
+    en: Kinyarwanda
+- id: ky
+  title:
+    cs: "kyrgyz\u0161tina"
+    en: Kyrgyz
+- id: kv
+  title:
+    cs: "komij\u0161tina"
+    en: Komi
+- id: kg
+  title:
+    cs: "kon\u017E\u0161tina"
+    en: Kongo
+- id: ko
+  title:
+    cs: "korej\u0161tina"
+    en: Korean
+- id: kj
+  title:
+    cs: "kua\u0148am\u0161tina"
+    en: Kuanyama
+- id: ku
+  title:
+    cs: "kurd\u0161tina"
+    en: Kurdish
+- id: lo
+  title:
+    cs: "lao\u0161tina"
+    en: Lao
+- id: la
+  title:
+    cs: latina
+    en: Latin
+- id: lv
+  title:
+    cs: "loty\u0161tina"
+    en: Latvian
+- id: li
+  title:
+    cs: "limbur\u0161tina"
+    en: Limburgish
+- id: ln
+  title:
+    cs: "lingal\u0161tina"
+    en: Lingala
+- id: lt
+  title:
+    cs: "litev\u0161tina"
+    en: Lithuanian
+- id: lb
+  title:
+    cs: "lucembur\u0161tina"
+    en: Luxembourgish
+- id: lu
+  title:
+    cs: "lubu-katan\u017E\u0161tina"
+    en: Luba-Katanga
+- id: lg
+  title:
+    cs: "gand\u0161tina"
+    en: Ganda
+- id: mh
+  title:
+    cs: "mar\u0161\xE1l\u0161tina"
+    en: Marshallese
+- id: ml
+  title:
+    cs: "malaj\xE1lam\u0161tina"
+    en: Malayalam
+- id: mr
+  title:
+    cs: "mar\xE1th\u0161tina"
+    en: Marathi
+- id: mk
+  title:
+    cs: "makedon\u0161tina"
+    en: Macedonian
+- id: mg
+  title:
+    cs: "malga\u0161tina"
+    en: Malagasy
+- id: mt
+  title:
+    cs: "malt\u0161tina"
+    en: Maltese
+- id: mn
+  title:
+    cs: "mongol\u0161tina"
+    en: Mongolian
+- id: mi
+  title:
+    cs: "maor\u0161tina"
+    en: Maori
+- id: ms
+  title:
+    cs: "malaj\u0161tina"
+    en: Malay
+- id: my
+  title:
+    cs: "barm\u0161tina"
+    en: Burmese
+- id: na
+  title:
+    cs: "naur\u0161tina"
+    en: Nauru
+- id: nv
+  title:
+    cs: "nava\u017E\u0161tina"
+    en: Navajo
+- id: nr
+  title:
+    cs: "ndebele (Ji\u017En\xED Afrika)"
+    en: South Ndebele
+- id: nd
+  title:
+    cs: ndebele (Zimbabwe)
+    en: North Ndebele
+- id: ng
+  title:
+    cs: "ndond\u0161tina"
+    en: Ndonga
+- id: ne
+  title:
+    cs: "nep\xE1l\u0161tina"
+    en: Nepali
+- id: nl
+  title:
+    cs: "nizozem\u0161tina"
+    en: Dutch
+- id: nn
+  title:
+    cs: "nor\u0161tina (nynorsk)"
+    en: Norwegian Nynorsk
+- id: nb
+  title:
+    cs: "nor\u0161tina (bokm\xE5l)"
+    en: "Norwegian Bokm\xE5l"
+- id: 'no'
+  title:
+    cs: "nor\u0161tina"
+    en: Norwegian
+- id: ny
+  title:
+    cs: "\u0148and\u017E\u0161tina"
+    en: Nyanja
+- id: oc
+  title:
+    cs: "okcit\xE1n\u0161tina"
+    en: Occitan
+- id: oj
+  title:
+    cs: "od\u017Eibvej\u0161tina"
+    en: Ojibwa
+- id: or
+  title:
+    cs: "urij\u0161tina"
+    en: Odia
+- id: om
+  title:
+    cs: "orom\u0161tina"
+    en: Oromo
+- id: os
+  title:
+    cs: "oset\u0161tina"
+    en: Ossetic
+- id: pa
+  title:
+    cs: "pa\u0148d\u017E\xE1b\u0161tina"
+    en: Punjabi
+- id: pi
+  title:
+    cs: "p\xE1l\xED"
+    en: Pali
+- id: pl
+  title:
+    cs: "pol\u0161tina"
+    en: Polish
+- id: pt
+  title:
+    cs: "portugal\u0161tina"
+    en: Portuguese
+- id: ps
+  title:
+    cs: "pa\u0161t\u0161tina"
+    en: Pashto
+- id: qu
+  title:
+    cs: "ke\u010Du\xE1n\u0161tina"
+    en: Quechua
+- id: rm
+  title:
+    cs: "r\xE9torom\xE1n\u0161tina"
+    en: Romansh
+- id: ro
+  title:
+    cs: "rumun\u0161tina"
+    en: Romanian
+- id: rn
+  title:
+    cs: "kirund\u0161tina"
+    en: Rundi
+- id: ru
+  title:
+    cs: "ru\u0161tina"
+    en: Russian
+- id: sg
+  title:
+    cs: "sang\u0161tina"
+    en: Sango
+- id: sa
+  title:
+    cs: sanskrt
+    en: Sanskrit
+- id: si
+  title:
+    cs: "sinh\xE1l\u0161tina"
+    en: Sinhala
+- id: sk
+  title:
+    cs: "sloven\u0161tina"
+    en: Slovak
+- id: sl
+  title:
+    cs: "slovin\u0161tina"
+    en: Slovenian
+- id: se
+  title:
+    cs: "s\xE1m\u0161tina (severn\xED)"
+    en: Northern Sami
+- id: sm
+  title:
+    cs: "samoj\u0161tina"
+    en: Samoan
+- id: sn
+  title:
+    cs: "\u0161on\u0161tina"
+    en: Shona
+- id: sd
+  title:
+    cs: "sindh\u0161tina"
+    en: Sindhi
+- id: so
+  title:
+    cs: "som\xE1l\u0161tina"
+    en: Somali
+- id: st
+  title:
+    cs: "sot\u0161tina (ji\u017En\xED)"
+    en: Southern Sotho
+- id: es
+  title:
+    cs: "\u0161pan\u011Bl\u0161tina"
+    en: Spanish
+- id: sq
+  title:
+    cs: "alb\xE1n\u0161tina"
+    en: Albanian
+- id: sc
+  title:
+    cs: "sard\u0161tina"
+    en: Sardinian
+- id: sr
+  title:
+    cs: "srb\u0161tina"
+    en: Serbian
+- id: ss
+  title:
+    cs: "siswat\u0161tina"
+    en: Swati
+- id: su
+  title:
+    cs: "sund\u0161tina"
+    en: Sundanese
+- id: sw
+  title:
+    cs: "svahil\u0161tina"
+    en: Swahili
+- id: sv
+  title:
+    cs: "\u0161v\xE9d\u0161tina"
+    en: Swedish
+- id: ty
+  title:
+    cs: "tahit\u0161tina"
+    en: Tahitian
+- id: ta
+  title:
+    cs: "tamil\u0161tina"
+    en: Tamil
+- id: tt
+  title:
+    cs: "tatar\u0161tina"
+    en: Tatar
+- id: te
+  title:
+    cs: "telug\u0161tina"
+    en: Telugu
+- id: tg
+  title:
+    cs: "t\xE1d\u017Ei\u010Dtina"
+    en: Tajik
+- id: tl
+  title:
+    cs: tagalog
+    en: Tagalog
+- id: th
+  title:
+    cs: "thaj\u0161tina"
+    en: Thai
+- id: ti
+  title:
+    cs: "tigrinij\u0161tina"
+    en: Tigrinya
+- id: to
+  title:
+    cs: "tong\xE1n\u0161tina"
+    en: Tongan
+- id: tn
+  title:
+    cs: "setswan\u0161tina"
+    en: Tswana
+- id: ts
+  title:
+    cs: tsonga
+    en: Tsonga
+- id: tk
+  title:
+    cs: "turkmen\u0161tina"
+    en: Turkmen
+- id: tr
+  title:
+    cs: "ture\u010Dtina"
+    en: Turkish
+- id: tw
+  title:
+    cs: twi
+    en: Twi
+- id: ug
+  title:
+    cs: "ujgur\u0161tina"
+    en: Uyghur
+- id: uk
+  title:
+    cs: "ukrajin\u0161tina"
+    en: Ukrainian
+- id: ur
+  title:
+    cs: "urd\u0161tina"
+    en: Urdu
+- id: uz
+  title:
+    cs: "uzbe\u010Dtina"
+    en: Uzbek
+- id: ve
+  title:
+    cs: venda
+    en: Venda
+- id: vi
+  title:
+    cs: "vietnam\u0161tina"
+    en: Vietnamese
+- id: vo
+  title:
+    cs: "volap\xFCk"
+    en: "Volap\xFCk"
+- id: wa
+  title:
+    cs: "valon\u0161tina"
+    en: Walloon
+- id: wo
+  title:
+    cs: "wolof\u0161tina"
+    en: Wolof
+- id: xh
+  title:
+    cs: "xho\u0161tina"
+    en: Xhosa
+- id: yi
+  title:
+    cs: "jidi\u0161"
+    en: Yiddish
+- id: yo
+  title:
+    cs: "jorub\u0161tina"
+    en: Yoruba
+- id: za
+  title:
+    cs: "\u010Duang\u0161tina"
+    en: Zhuang
+- id: zh
+  title:
+    cs: "\u010D\xEDn\u0161tina"
+    en: Chinese
+- id: zu
+  title:
+    cs: "zulu\u0161tina"
+    en: Zulu
