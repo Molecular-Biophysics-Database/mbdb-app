@@ -1,0 +1,33 @@
+- id: bf:1
+  title:
+    en: Blood
+- id: bf:2
+  title:
+    en: Serum
+- id: bf:3
+  title:
+    en: Saliva
+- id: bf:4
+  title:
+    en: Semen
+- id: bf:5
+  title:
+    en: Fecal matter
+- id: bf:6
+  title:
+    en: Urine
+- id: bf:7
+  title:
+    en: Plasma
+- id: bf:8
+  title:
+    en: Bile
+- id: bf:9
+  title:
+    en: Pancreatic juice
+- id: bf:10
+  title:
+    en: Phloem sap
+- id: bf:11
+  title:
+    en: Xylem sap

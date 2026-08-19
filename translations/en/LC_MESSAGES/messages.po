@@ -1,0 +1,23 @@
+#
+msgid ""
+msgstr ""
+
+#: /Users/timkadlec/PycharmProjects/mbdb-app/common/workflows/default.py:360
+msgid "state:draft"
+msgstr ""
+
+#: /Users/timkadlec/PycharmProjects/mbdb-app/common/workflows/default.py:361
+msgid "state:published"
+msgstr ""
+
+#: /Users/timkadlec/PycharmProjects/mbdb-app/common/workflows/default.py:362
+msgid "state:submitted"
+msgstr ""
+
+#: /Users/timkadlec/PycharmProjects/mbdb-app/common/workflows/default.py:363
+msgid "state:retracting"
+msgstr ""
+
+#: /Users/timkadlec/PycharmProjects/mbdb-app/common/workflows/default.py:364
+msgid "state:deleted"
+msgstr ""

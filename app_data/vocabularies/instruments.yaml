@@ -1,0 +1,360 @@
+- id: ins:1
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith X
+- id: ins:2
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith NT.115 RED
+- id: ins:3
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith NT.115 Pico RED
+- id: ins:4
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith NT.115 BLUE
+- id: ins:5
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith NT.115 RED/BLUE
+- id: ins:6
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith NT.115 RED/GREEN
+- id: ins:7
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith NT.115 BLUE/GREEN
+- id: ins:8
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith NT.115 Pico RED/BLUE
+- id: ins:9
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith NT.115 Pico RED/GREEN
+- id: ins:10
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith NT.Labelfree
+- id: ins:11
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith RED/BLUE
+- id: ins:12
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith RED/GREEN
+- id: ins:13
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith BLUE/GREEN
+- id: ins:14
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith Labelfree
+- id: ins:15
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith RED/LabelFree
+- id: ins:16
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith Pico RED
+- id: ins:17
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith Pico RED/BLUE
+- id: ins:18
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith Pico RED/LabelFree
+- id: ins:19
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith Nt Automated Nano BLUE/GREEN
+- id: ins:20
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith Nt Automated Nano BLUE/RED
+- id: ins:21
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith Nt Automated Nano GREEN/RED
+- id: ins:22
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith Nt Automated Pico RED
+- id: ins:23
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith Nt Automated LabelFree
+- id: ins:24
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith Nt Automated Nano BLUE/GREEN - LabelFree
+- id: ins:25
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith Nt Automated Nano BLUE/RED - LabelFree
+- id: ins:26
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith Nt Automated Nano GREEN/RED - LabelFree
+- id: ins:27
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith Nt Automated Pico RED - nano BLUE/GREEN
+- id: ins:28
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Monolith Nt Automated Pico RED / LabelFree
+- id: ins:29
+  props:
+    manufacturer: Nanotemper
+    technique: MST
+  title:
+    en: Dianthus
+- id: ins:30
+  props:
+    manufacturer: Sartorius
+    technique: BLI
+  title:
+    en: Octet R2 (Two-Channel System)
+- id: ins:31
+  props:
+    manufacturer: Sartorius
+    technique: BLI
+  title:
+    en: Octet R4 (Four-Channel System)
+- id: ins:32
+  props:
+    manufacturer: Sartorius
+    technique: BLI
+  title:
+    en: Octet R8 (Eight-Channel System)
+- id: ins:33
+  props:
+    manufacturer: Sartorius
+    technique: BLI
+  title:
+    en: Octet RH96 (96-Channel Ultra High Throughput Octet System)
+- id: ins:34
+  props:
+    manufacturer: Sartorius
+    technique: BLI
+  title:
+    en: Octet RH16 (16-Channel High Throughput Octet System)
+- id: ins:35
+  props:
+    manufacturer: Sartorius
+    technique: BLI
+  title:
+    en: Octet N1 (Personal Assay System)
+- id: ins:55
+  props:
+    manufacturer: Sartorius
+    technique: BLI
+  title:
+    en: Octet RED384
+- id: ins:60
+  props:
+    manufacturer: Sartorius
+    technique: BLI
+  title:
+    en: Octet R8e (Eight-Channel System)
+- id: ins:36
+  props:
+    manufacturer: Cytiva
+    technique: SPR
+  title:
+    en: Biacore T200
+- id: ins:37
+  props:
+    manufacturer: Cytiva
+    technique: SPR
+  title:
+    en: Biacore S200
+- id: ins:38
+  props:
+    manufacturer: Cytiva
+    technique: SPR
+  title:
+    en: Biacore X100
+- id: ins:39
+  props:
+    manufacturer: Cytiva
+    technique: SPR
+  title:
+    en: Biacore 8K+
+- id: ins:40
+  props:
+    manufacturer: Cytiva
+    technique: SPR
+  title:
+    en: Biacore 8K
+- id: ins:41
+  props:
+    manufacturer: Cytiva
+    technique: SPR
+  title:
+    en: Biacore 4000 SPR system
+- id: ins:42
+  props:
+    manufacturer: Cytiva
+    technique: SPR
+  title:
+    en: Biacore 3000 SPR system
+- id: ins:43
+  props:
+    manufacturer: Cytiva
+    technique: SPR
+  title:
+    en: Biacore 1S+
+- id: ins:44
+  props:
+    manufacturer: Cytiva
+    technique: SPR
+  title:
+    en: Biacore 1K+
+- id: ins:45
+  props:
+    manufacturer: Cytiva
+    technique: SPR
+  title:
+    en: Biacore 1K
+- id: ins:46
+  props:
+    manufacturer: Nicoya
+    technique: SPR
+  title:
+    en: OpenSPR
+- id: ins:47
+  props:
+    manufacturer: Nicoya
+    technique: SPR
+  title:
+    en: OpenSPR-XT
+- id: ins:48
+  props:
+    manufacturer: Malvern Panalytical
+    technique: ITC
+  title:
+    en: MicroCal VP-ITC
+- id: ins:49
+  props:
+    manufacturer: Malvern Panalytical
+    technique: ITC
+  title:
+    en: MicroCal ITC200
+- id: ins:50
+  props:
+    manufacturer: Malvern Panalytical
+    technique: ITC
+  title:
+    en: MicroCal PEAQ-ITC
+- id: ins:51
+  props:
+    manufacturer: Malvern Panalytical
+    technique: ITC
+  title:
+    en: MicroCal Auto-ITC200
+- id: ins:52
+  props:
+    manufacturer: Malvern Panalytical
+    technique: ITC
+  title:
+    en: MicroCal PEAQ-ITC Automated
+- id: ins:53
+  props:
+    manufacturer: TA Instruments
+    technique: ITC
+  title:
+    en: Nano ITC
+- id: ins:54
+  props:
+    manufacturer: TA Instruments
+    technique: ITC
+  title:
+    en: Affinity ITC
+- id: ins:56
+  props:
+    manufacturer: Refeyn
+    technique: MP
+  title:
+    en: OneMP
+- id: ins:57
+  props:
+    manufacturer: Refeyn
+    technique: MP
+  title:
+    en: TwoMP
+- id: ins:58
+  props:
+    manufacturer: Refeyn
+    technique: MP
+  title:
+    en: SamuxMP
+- id: ins:59
+  props:
+    manufacturer: Refeyn
+    technique: MP
+  title:
+    en: KaritroMP
