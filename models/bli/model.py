@@ -1,0 +1,51 @@
+"""
+A generic dataset model
+
+"""
+from __future__ import annotations
+
+from invenio_i18n import lazy_gettext as _
+from oarepo_model.api import model
+from oarepo_model.customizations import AddMetadataExport
+from oarepo_model.datatypes.registry import from_yaml
+from oarepo_model.presets.records_resources import records_resources_preset
+from oarepo_model.presets.ui_links import ui_links_preset
+
+from .serializers import DataCiteJSONSerializer
+
+# TODO: Consider letting users add an image/icon for the model,
+# so that the deposit model selection page is more visually appealing.
+bli_model = model(
+    "bli",
+    version="1.0.0",
+    description="A generic dataset model\n",
+    presets=[
+
+        records_resources_preset,
+        ui_links_preset,
+
+    ],
+    types=[
+        from_yaml("metadata.yaml", __file__)
+    ],
+    metadata_type="Metadata",
+    customizations=[
+        # Add your customizations here, such as custom exports and class mixins. 
+        # The list of available extensions is at https://github.com/oarepo/oarepo-model.
+        # If you do not find a customization that suits your needs or need a
+        # help with using customizations, please contact us at support@cesnet.cz and
+        # specify the keyword "Invenio repository development" inside the subject or
+        # mail body of the request.
+
+        # export for datacite
+        AddMetadataExport(
+            code="datacite",
+            name=_("Datacite export"),
+            mimetype="application/vnd.datacite.datacite+json",
+            serializer=DataCiteJSONSerializer()
+        ),
+    ],
+    configuration={
+        "ui_blueprint_name": "bli_ui"
+    }
+)
