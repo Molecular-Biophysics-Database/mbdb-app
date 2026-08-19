@@ -1,6 +1,0 @@
-from oarepo_citations.resources import create_citation_response_handlers
-
-from .schema import CSLJSONSchema
-
-
-citations_response_handlers = create_citation_response_handlers(CSLJSONSchema)

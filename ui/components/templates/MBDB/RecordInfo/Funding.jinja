@@ -1,8 +1,0 @@
-{# def funding_refs #}
-
-{# Recordview template to render funding information (from vocabulary)  #}
-
-{% for ref in array(funding_refs, remove_empty=True) %}
-    {%- if not loop.first -%} ,{% endif %}
-    {{ ref.title ~ " (" ~ ref.funder_name ~ ": " ~ ref.grant_id ~ ")" }}
-{%- endfor %}

@@ -1,9 +1,0 @@
-{# def measurement_protocol #}
-
-{% for step in array(measurement_protocol) %}
-    <div>
-        {{ step.name }}
-        {{ step.type }}
-        <ValueUnit value={step.time_length} />
-    </div>
-{% endfor %}

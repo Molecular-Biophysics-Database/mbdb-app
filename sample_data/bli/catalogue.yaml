@@ -1,4 +1,0 @@
-bli_data:
-  - writer: service
-    service: bli
-  - source: BLI.json

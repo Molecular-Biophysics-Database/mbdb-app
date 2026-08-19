@@ -1,7 +1,0 @@
-{# def mode #}
-
-{%- if field_value(mode.type) == "Static" %}
-    <StaticModeDetailedView mode={mode} />
-{%- elif field_value(mode.type) == "Flow" %}
-    <FlowModeDetailedView mode={mode} />
-{%- endif%}

@@ -1,9 +1,0 @@
-{# def value #}
-
-{# Recordview template for rendering value/unit pairs  #}
-
-{% if value.unit._is_empty %}
-    {{ value.value }}
-{% else %}
-    {{ value.value ~ " " ~ value.unit }}
-{% endif %}

@@ -1,4 +1,0 @@
-spr_data:
-  - writer: service
-    service: spr
-  - source: SPR.json
