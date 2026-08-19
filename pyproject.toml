@@ -15,6 +15,7 @@ i18n = "i18n.webpack:theme"
 components = "ui.components.webpack:theme"
 ui_mst = "ui.mst.webpack:theme"
 ui_spr = "ui.spr.webpack:theme"
+ui_itc = "ui.itc.webpack:theme"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"
@@ -25,10 +26,12 @@ repository = "common:alembic"
 [project.entry-points."invenio_base.blueprints"]
 ui_mst = "ui.mst:create_blueprint"
 ui_spr = "ui.spr:create_blueprint"
+ui_itc = "ui.itc:create_blueprint"
 
 [project.entry-points."invenio_base.finalize_app"]
 ui_mst = "ui.mst:finalize_app"
 ui_spr = "ui.spr:finalize_app"
+ui_itc = "ui.itc:finalize_app"
 
 [tool.uv.build-backend]
 module-root = ""

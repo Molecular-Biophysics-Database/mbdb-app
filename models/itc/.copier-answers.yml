@@ -1,0 +1,6 @@
+# Changes here will be overwritten by Copier
+_commit: 6f7b3f7
+_src_path: https://github.com/oarepo/nrp-model-copier
+base_model: empty
+model_description: Isothermal Titration Calorimetry (ITC)
+model_human_name: Isothermal Titration Calorimetry (ITC)
