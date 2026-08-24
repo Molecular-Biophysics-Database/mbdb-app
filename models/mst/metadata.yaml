@@ -2,10 +2,14 @@
 # add the ccmm_preset instead.
 Metadata:
   properties:
-    title:
-      type: fulltext+keyword
-    languages:
-      type: array
-      items:
-        type: vocabulary
-        vocabulary-type: languages
+    general_parameters:
+      help.en: The general parameter of the experiment
+      required: true
+      label.en: General parameters
+      type: General_parameters
+    method_specific_parameters:
+      help.en: The parameters of the experiment that are specific to
+        MST/TRIC/Spectral Shift
+      required: true
+      label.en: Method specific parameters
+      type: MST_specific_parameters

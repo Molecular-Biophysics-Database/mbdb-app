@@ -1,0 +1,1733 @@
+{
+  "$schema": "local://mst-1.0.0.json",
+  "access": {
+    "embargo": {
+      "active": false,
+      "reason": null
+    },
+    "files": "public",
+    "record": "public",
+    "status": "open"
+  },
+  "created": "2026-08-06T14:16:23.127181+00:00",
+  "custom_fields": {},
+  "deletion_status": {
+    "is_deleted": false,
+    "status": "P"
+  },
+  "expanded": {
+    "parent": {
+      "access": {
+        "owned_by": {
+          "active": null,
+          "blocked_at": null,
+          "confirmed_at": null,
+          "email": "",
+          "id": "76",
+          "is_current_user": false,
+          "links": {
+            "avatar": "https://mbdb-data.org/api/users/76/avatar.svg",
+            "records_html": "https://mbdb-data.org/search/records?q=parent.access.owned_by.user:76",
+            "self": "https://mbdb-data.org/api/users/76"
+          },
+          "profile": {
+            "affiliations": "",
+            "full_name": ""
+          },
+          "username": null,
+          "verified_at": null
+        }
+      }
+    },
+    "request_types": [],
+    "requests": []
+  },
+  "files": {
+    "enabled": true
+  },
+  "id": "6g5wd-zxy65",
+  "is_draft": false,
+  "is_published": true,
+  "links": {
+    "access": "https://mbdb-data.org/api/records/6g5wd-zxy65/access",
+    "access_grants": "https://mbdb-data.org/api/records/6g5wd-zxy65/access/grants",
+    "access_groups": "https://mbdb-data.org/api/records/6g5wd-zxy65/access/groups",
+    "access_links": "https://mbdb-data.org/api/records/6g5wd-zxy65/access/links",
+    "access_request": "https://mbdb-data.org/api/records/6g5wd-zxy65/access/request",
+    "access_users": "https://mbdb-data.org/api/records/6g5wd-zxy65/access/users",
+    "applicable-requests": "https://mbdb-data.org/api/records/mst/6g5wd-zxy65/requests/applicable",
+    "archive": "https://mbdb-data.org/api/records/mst/6g5wd-zxy65/files-archive",
+    "archive_media": "https://mbdb-data.org/api/records/6g5wd-zxy65/media-files-archive",
+    "communities": {},
+    "communities-suggestions": "https://mbdb-data.org/api/records/6g5wd-zxy65/communities-suggestions",
+    "doi": "https://doi.org/10.71479/6g5wd-zxy65",
+    "files": "https://mbdb-data.org/api/records/mst/6g5wd-zxy65/files",
+    "latest": "https://mbdb-data.org/api/records/mst/6g5wd-zxy65/versions/latest",
+    "latest_html": "https://mbdb-data.org/mst/6g5wd-zxy65/latest",
+    "media_files": "https://mbdb-data.org/api/records/6g5wd-zxy65/media-files",
+    "parent": "https://mbdb-data.org/api/records/dx9qj-9fa93",
+    "parent_html": "https://mbdb-data.org/records/dx9qj-9fa93",
+    "record": "https://mbdb-data.org/api/records/mst/6g5wd-zxy65",
+    "requests": "https://mbdb-data.org/api/records/mst/6g5wd-zxy65/requests",
+    "reserve_doi": "https://mbdb-data.org/api/records/6g5wd-zxy65/draft/pids/doi",
+    "self": "https://mbdb-data.org/api/records/mst/6g5wd-zxy65",
+    "self_doi": "https://mbdb-data.org/doi/10.71479/6g5wd-zxy65",
+    "self_html": "https://mbdb-data.org/mst/6g5wd-zxy65",
+    "self_iiif_manifest": "https://mbdb-data.org/api/iiif/record:6g5wd-zxy65/manifest",
+    "self_iiif_sequence": "https://mbdb-data.org/api/iiif/record:6g5wd-zxy65/sequence/default",
+    "versions": "https://mbdb-data.org/api/records/mst/6g5wd-zxy65/versions"
+  },
+  "media_files": {
+    "count": 0,
+    "enabled": false,
+    "entries": {},
+    "order": [],
+    "total_bytes": 0
+  },
+  "metadata": {
+    "general_parameters": {
+      "chemical_environments": [
+        {
+          "constituents": [
+            {
+              "basic_information": {
+                "@v": "a3a6ea14-97fc-49c6-8668-8edae35cbd44::1",
+                "additional_identifiers": [
+                  "cid:516951"
+                ],
+                "chemical_formula": "KH2PO4",
+                "id": "inchikey:GNSKLFRGEWLPPA-UHFFFAOYSA-M",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 136.086
+                },
+                "title": {
+                  "en": "Potassium dihydrogen phosphate"
+                }
+              },
+              "concentration": {
+                "unit": "mM",
+                "value": 16.9
+              },
+              "name": "KH\u2082PO\u2084",
+              "type": "Chemical"
+            },
+            {
+              "basic_information": {
+                "@v": "310584e6-9d89-49c4-98db-19b42c8376a8::1",
+                "additional_identifiers": [
+                  "cid:24450"
+                ],
+                "chemical_formula": "K2HPO4",
+                "id": "inchikey:ZPWVASYFFYYZEW-UHFFFAOYSA-L",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 174.176
+                },
+                "title": {
+                  "en": "Dispotassium hydrogen phosphate"
+                }
+              },
+              "concentration": {
+                "unit": "mM",
+                "value": 33.1
+              },
+              "name": "K\u2082HPO\u2084",
+              "type": "Chemical"
+            },
+            {
+              "basic_information": {
+                "@v": "73da2ba6-ea73-4f16-b924-ca5cd659d440::1",
+                "additional_identifiers": [
+                  "cid:5234"
+                ],
+                "chemical_formula": "ClNa",
+                "id": "inchikey:FAPWRFPIFSIZLT-UHFFFAOYSA-M",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 58.44
+                },
+                "title": {
+                  "en": "Sodium Chloride"
+                }
+              },
+              "concentration": {
+                "unit": "mM",
+                "value": 100.0
+              },
+              "name": "NaCl",
+              "type": "Chemical"
+            },
+            {
+              "basic_information": {
+                "@v": "a8e92fa5-e8ec-49d0-b637-3a5e3a36bb66::1",
+                "chemical_formula": "(C3H6O.C2H4O)x",
+                "id": "inchikey: OQNWUUGFAWNUME-UHFFFAOYSA-N",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 164.2
+                },
+                "title": {
+                  "en": "Pluronic F-127"
+                }
+              },
+              "concentration": {
+                "unit": "w/v %",
+                "value": 0.05
+              },
+              "name": "Pluronic F-127, MW ~12600",
+              "type": "Chemical"
+            },
+            {
+              "basic_information": {
+                "@v": "f96d6b06-ccaa-4f4e-a2d8-63a6778f5cab::1",
+                "additional_identifiers": [
+                  "cid:439196"
+                ],
+                "chemical_formula": "C4H10O2S2",
+                "id": "inchikey:VHJLVAABSRFDPM-IMJSIDKUSA-N",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 154.3
+                },
+                "title": {
+                  "en": "Dithiothreitol"
+                }
+              },
+              "concentration": {
+                "unit": "mM",
+                "value": 0.5
+              },
+              "name": "DTT",
+              "type": "Chemical"
+            }
+          ],
+          "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+          "name": "potassium phosphate buffer pH 7.5",
+          "ph": 7.5,
+          "solvent": [
+            {
+              "basic_information": {
+                "@v": "7dc20ce5-6d90-4593-9849-08a15fd8d90c::1",
+                "additional_identifiers": [
+                  "cid:962"
+                ],
+                "chemical_formula": "H2O",
+                "id": "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 18.02
+                },
+                "title": {
+                  "en": "Water"
+                }
+              },
+              "concentration": {
+                "unit": "v/v %",
+                "value": 100.0
+              },
+              "name": "water",
+              "type": "Chemical"
+            }
+          ]
+        }
+      ],
+      "entities_of_interest": [
+        {
+          "additional_specifications": [
+            "Expressed in E. coli using Cloning vector pBSURNAP (GeneBank: MT459825)  ",
+            "Subunits beta and beta' covalently linked by 9 amino acids (LARHGGSGA)."
+          ],
+          "components": [
+            {
+              "copy_number": 2.0,
+              "expression_organism": {
+                "@v": "b0de7c2a-9400-4bb4-816a-7ca8dddf0cc8::1",
+                "id": "taxid:469008",
+                "rank": "STRAIN",
+                "title": {
+                  "en": "Escherichia coli BL21(DE3)"
+                }
+              },
+              "expression_source_type": "Recombinantly",
+              "external_databases": [
+                "uniprot:P20429"
+              ],
+              "molecular_weight": {
+                "unit": "kDa",
+                "value": 34.8
+              },
+              "name": "RNA polymerase alpha subunit",
+              "polymer_type": "polypeptide(L)",
+              "sequence": "MIEIEKPKIETVEISDDAKFGKFVVEPLERGYGTTLGNSLRRILLSSLPGAAVTSIQIDGVLHEFSTIEGVVEDVTTIILHIKKLALKIYSDEEKTLEIDVQGEGTVTAADITHDSDVEILNPDLHIATLGENASFRVRLTAQRGRGYTPADANKRDDQPIGVIPIDSIYTPVSRVSYQVENTRVGQVANYDKLTLDVWTDGSTGPKEAIALGSKILTEHLNIFVGLTDEAQHAEIMVEKEEDQKEKVLEMTIEELDLSVRSYNCLKRAGINTVQELANKTEEDMMKVRNLGRKSLEEVKAKLEELGLGLRKDD",
+              "source_organism": {
+                "@v": "4d5092db-bdd9-4a94-9b86-e87ece995cf7::1",
+                "id": "taxid:1423",
+                "rank": "SPECIES",
+                "title": {
+                  "en": "Bacillus subtilis"
+                }
+              },
+              "type": "Polymer"
+            },
+            {
+              "copy_number": 1.0,
+              "expression_organism": {
+                "@v": "b0de7c2a-9400-4bb4-816a-7ca8dddf0cc8::1",
+                "id": "taxid:469008",
+                "rank": "STRAIN",
+                "title": {
+                  "en": "Escherichia coli BL21(DE3)"
+                }
+              },
+              "expression_source_type": "Recombinantly",
+              "external_databases": [
+                "uniprot:P37870"
+              ],
+              "molecular_weight": {
+                "unit": "kDa",
+                "value": 134.49
+              },
+              "name": "RNA polymerase beta subunit",
+              "polymer_type": "polypeptide(L)",
+              "sequence": "MTGQLVQYGRHRQRRSYARISEVLELPNLIEIQTSSYQWFLDEGLREMFQDISPIEDFTGNLSLEFIDYSLGEPKYPVEESKERDVTYSAPLRVKVRLINKETGEVKDQDVFMGDFPIMTDTGTFIINGAERVIVSQLVRSPSVYFSGKVDKNGKKGFTATVIPNRGAWLEYETDAKDVVYVRIDRTRKLPVTVLLRALGFGSDQEILDLIGENEYLRNTLDKDNTENSDKALLEIYERLRPGEPPTVENAKSLLDSRFFDPKRYDLANVGRYKINKKLHIKNRLFNQRLAETLVDPETGEILAEKGQILDRRTLDKVLPYLENGIGFRKLYPNGGVVEDEVTLQSIKIFAPTDQEGEQVINVIGNAYIEEEIKNITPADIISSISYFFNLLHGVGDTDDIDHLGNRRLRSVGELLQNQFRIGLSRMERVVRERMSIQDTNTITPQQLINIRPVIASIKEFFGSSQLSQFMDQTNPLAELTHKRRLSALGPGGLTRERAGMEVRDVHYSHYGRMCPIETPEGPNIGLINSLSSYAKVNRFGFIETPYRRVDPETGKVTGRIDYLTADEEDNYVVAQANARLDDEGAFIDDSIVARFRGENTVVSRNRVDYMDVSPKQVVSAATACIPFLENDDSNRALMGANMQRQAVPLMQPEAPFVGTGMEYVSGKDSGAAVICKHPGIVERVEAKNVWVRRYEEVDGQKVKGNLDKYSLLKFVRSNQGTCYNQRPIVSVGDEVVKGEILADGPSMELGELALGRNVMVGFMTWDGYNYEDAIIMSERLVKDDVYTSIHIEEYESEARDTKLGPEEITRDIPNVGEDALRNLDDRGIIRIGAEVKDGDLLVGKVTPKGVTELTAEERLLHAIFGEKAREVRDTSLRVPHGGGGIIHDVKVFNREDGDELPPGVNQLVRVYIVQKRKISEGDKMAGRHGNKGVISKILPEEDMPYLPDGTPIDIMLNPLGVPSRMNIGQVLELHMGMAARYLGIHIASPVFDGAREEDVWETLEEAGMSRDAKTVLYDGRTGEPFDNRVSVGIMYMIKLAHMVDDKLHARSTGPYSLVTQQPLGGKAQFGGQRFGEMEVWALEAYGAAYTLQEILTVKSDDVVGRVKTYEAIVKGDNVPEPGVPESFKVLIKELQSLGMDVKILSGDEEEIEMRDLEDEEDAKQADGLALSGDEEPEETASADVERDVVTKELARHGGSGA",
+              "source_organism": {
+                "@v": "4d5092db-bdd9-4a94-9b86-e87ece995cf7::1",
+                "id": "taxid:1423",
+                "rank": "SPECIES",
+                "title": {
+                  "en": "Bacillus subtilis"
+                }
+              },
+              "type": "Polymer",
+              "variant": "Nine amino acids (LARHGGSGA) at the C-terminus covalently linking beta and beta' subunits."
+            },
+            {
+              "copy_number": 1.0,
+              "expression_organism": {
+                "@v": "b0de7c2a-9400-4bb4-816a-7ca8dddf0cc8::1",
+                "id": "taxid:469008",
+                "rank": "STRAIN",
+                "title": {
+                  "en": "Escherichia coli BL21(DE3)"
+                }
+              },
+              "expression_source_type": "Recombinantly",
+              "external_databases": [
+                "uniprot:P37871"
+              ],
+              "molecular_weight": {
+                "unit": "kDa",
+                "value": 135.35
+              },
+              "name": "RNA polymerase beta' subunit",
+              "polymer_type": "polypeptide(L)",
+              "sequence": "MLDVNNFEYMNIGLASPDKIRSWSFGEVKKPETINYRTLKPEKDGLFCERIFGPTKDWECHCGKYKRVRYKGVVCDRCGVEVTRAKVRRERMGHIELAAPVSHIWYFKGIPSRMGLVLDMSPRALEEVIYFASYVVTDPANTPLEKKQLLSEKEYRAYLDKYGNKFQASMGAEAIHKLLQDIDLVKEVDMLKEELKTSQGQRRTRAIKRLEVLEAFRNSGNKPSWMILDVLPVIPPELRPMVQLDGGRFATSDLNDLYRRVINRNNRLKRLLDLGAPSIIVQNEKRMLQEAVDALIDNGRRGRPVTGPGNRPLKSLSHMLKGKQGRFRQNLLGKRVDYSGRSVIVVGPHLKMYQCGLPKEMALELFKPFVMKELVEKGLAHNIKSAKRKIERVQPEVWDVLESVIKEHPVLLNRAPTLHRLGIQAFEPTLVEGRAIRLHPLVCTAYNADFDGDQMAVHVPLSAEAQAEARILMLAAQNILNPKDGKPVVTPSQDMVLGNYYLTLERAGAVGEGMVFKNTDEALLAYQNGYVHLHTRVAVAANSLKNVTFTEEQRSKLLITTVGKLVFNEILPESFPYMNEPTKSNIEEKTPDRFFLEKGADVKAVIAQQPINAPFKKGILGKIIAEIFKRFHITETSKMLDRMKNLGFKYSTKAGITVGVSDIVVLDDKQEILEEAQSKVDNVMKQFRRGLITEEERYERVISIWSAAKDVIQGKLMKSLDELNPIYMMSDSGARGNASNFTQLAGMRGLMANPAGRIIELPIKSSFREGLTVLEYFISTHGARKGLADTALKTADSGYLTRRLVDVAQDVIIRETDCGTDRGILAKPLKEGTETIERLEERLIGRFARKQVKHPETGEVLVNENELIDEDKALEIVEAGIEEVWIRSAFTCNTPHGVCKRCYGRNLATGSDVEVGEAVGIIAAQSIGEPGTQLTMRTFHTGGVAGDDITQGLPRIQELFEARNPKGQATITEIDGTVVEINEVRDKQQEIVVQGAVETRSYTAPYNSRLKVAEGDKITRGQVLTEGSIDPKELLKVTDLTTVQEYLLHEVQKVYRMQGVEIGDKHVEVMVRQMLRKVRVIDAGDTDVLPGTLLDIHQFTEANKKVLLEGNRPATGRPVLLGITKASLETDSFLSAASFQETTRVLTDAAIKGKRDELLGLKENVIIGKLVPAGTGMMKYRKVKPVSNVQPTDDMVPVEHHHHHHHH",
+              "source_organism": {
+                "@v": "4d5092db-bdd9-4a94-9b86-e87ece995cf7::1",
+                "id": "taxid:1423",
+                "rank": "SPECIES",
+                "title": {
+                  "en": "Bacillus subtilis"
+                }
+              },
+              "type": "Polymer",
+              "variant": "C-terminal 8xHis tag"
+            },
+            {
+              "copy_number": 1.0,
+              "expression_organism": {
+                "@v": "b0de7c2a-9400-4bb4-816a-7ca8dddf0cc8::1",
+                "id": "taxid:469008",
+                "rank": "STRAIN",
+                "title": {
+                  "en": "Escherichia coli BL21(DE3)"
+                }
+              },
+              "expression_source_type": "Recombinantly",
+              "external_databases": [
+                "uniprot:O35011"
+              ],
+              "molecular_weight": {
+                "unit": "kDa",
+                "value": 7.75
+              },
+              "name": "omega subunit of RNA polymerase",
+              "polymer_type": "polypeptide(L)",
+              "sequence": "MLDPSIDSLMNKLDSKYTLVTVSARRAREMQIKKDQMIEHTISHKYVGKALEEIDAGLLSFEKEDRE",
+              "source_organism": {
+                "@v": "4d5092db-bdd9-4a94-9b86-e87ece995cf7::1",
+                "id": "taxid:1423",
+                "rank": "SPECIES",
+                "title": {
+                  "en": "Bacillus subtilis"
+                }
+              },
+              "type": "Polymer"
+            },
+            {
+              "copy_number": 1.0,
+              "expression_organism": {
+                "@v": "b0de7c2a-9400-4bb4-816a-7ca8dddf0cc8::1",
+                "id": "taxid:469008",
+                "rank": "STRAIN",
+                "title": {
+                  "en": "Escherichia coli BL21(DE3)"
+                }
+              },
+              "expression_source_type": "Recombinantly",
+              "external_databases": [
+                "uniprot:O31718"
+              ],
+              "molecular_weight": {
+                "unit": "kDa",
+                "value": 8.25
+              },
+              "name": "epsilon subunit of RNA polymerase",
+              "polymer_type": "polypeptide(L)",
+              "sequence": "MIYKVFYQEKADEVPVREKTDSLYIEGVSERDVRTKLKEKKFNIEFITPVDGAFLEYEQQSENFKVLEL",
+              "source_organism": {
+                "@v": "4d5092db-bdd9-4a94-9b86-e87ece995cf7::1",
+                "id": "taxid:1423",
+                "rank": "SPECIES",
+                "title": {
+                  "en": "Bacillus subtilis"
+                }
+              },
+              "type": "Polymer"
+            },
+            {
+              "copy_number": 1.0,
+              "expression_organism": {
+                "@v": "b0de7c2a-9400-4bb4-816a-7ca8dddf0cc8::1",
+                "id": "taxid:469008",
+                "rank": "STRAIN",
+                "title": {
+                  "en": "Escherichia coli BL21(DE3)"
+                }
+              },
+              "expression_source_type": "Recombinantly",
+              "external_databases": [
+                "uniprot:P12464"
+              ],
+              "molecular_weight": {
+                "unit": "kDa",
+                "value": 20.4
+              },
+              "name": "DNA-directed RNA polymerase subunit delta",
+              "polymer_type": "polypeptide(L)",
+              "sequence": "MGIKQYSQEELKEMALVEIAHELFEEHKKPVPFQELLNEIASLLGVKKEELGDRIAQFYTDLNIDGRFLALSDQTWGLRSWYPYDQLDEETQPTVKAKKKKAKKAVEEDLDLDEFEEIDEDDLDLDEVEEELDLEADDFDEEDLDEDDDDLEIEEDIIDEDDEDYDDEEEEIK",
+              "source_organism": {
+                "@v": "4d5092db-bdd9-4a94-9b86-e87ece995cf7::1",
+                "id": "taxid:1423",
+                "rank": "SPECIES",
+                "title": {
+                  "en": "Bacillus subtilis"
+                }
+              },
+              "type": "Polymer"
+            }
+          ],
+          "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+          "molecular_weight": {
+            "unit": "kDa",
+            "value": 375.7
+          },
+          "name": "RNA polymerase",
+          "type": "Molecular assembly"
+        },
+        {
+          "expression_organism": {
+            "@v": "b0de7c2a-9400-4bb4-816a-7ca8dddf0cc8::1",
+            "id": "taxid:469008",
+            "rank": "STRAIN",
+            "title": {
+              "en": "Escherichia coli BL21(DE3)"
+            }
+          },
+          "expression_source_type": "Recombinantly",
+          "external_databases": [
+            "uniprot:P06224"
+          ],
+          "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+          "molecular_weight": {
+            "unit": "kDa",
+            "value": 42.95
+          },
+          "name": "RNA polymerase sigma factor SigA",
+          "polymer_type": "polypeptide(L)",
+          "sequence": "MADKQTHETELTFDQVKEQLTESGKKRGVLTYEEIAERMSSFEIESDQMDEYYEFLGEQGVELISENEETEDPNIQQLAKAEEEFDLNDLSVPPGVKINDPVRMYLKEIGRVNLLSAKEEIAYAQKIEEGDEESKRRLAEANLRLVVSIAKRYVGRGMLFLDLIQEGNMGLMKAVEKFDYRKGYKFSTYATWWIRQAITRAIADQARTIRIPVHMVETINKLIRVQRQLLQDLGREPTPEEIAEDMDLTPEKVREILKIAQEPVSLETPIGEEDDSHLGDFIEDQEATSPSDHAAYELLKEQLEDVLDTLTDREENVLRLRFGLDDGRTRTLEEVGKVFGVTRERIRQIEAKALRKLRHPSRSKRLKDFLE",
+          "source_organism": {
+            "@v": "4d5092db-bdd9-4a94-9b86-e87ece995cf7::1",
+            "id": "taxid:1423",
+            "rank": "SPECIES",
+            "title": {
+              "en": "Bacillus subtilis"
+            }
+          },
+          "type": "Polymer"
+        }
+      ],
+      "funding_references": [
+      ],
+      "instrument": {
+        "@v": "4b563b9f-97d1-4927-b2ad-67824980ff9a::1",
+        "id": "ins:6",
+        "props": {
+          "manufacturer": "Nanotemper"
+        },
+        "title": {
+          "en": "Monolith NT.115 RED/GREEN"
+        }
+      },
+      "method": "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
+      "record_information": {
+        "access_rights": "open",
+        "copyright": "Anyone is free to distribute the data and metadata",
+        "date_available": "2026-08-06",
+        "deposition_date": "2026-07-23",
+        "external_identifier": "10.71479/6g5wd-zxy65",
+        "license": {
+          "name": "CC0 1.0 Universal",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "publisher": "MBDB",
+        "resource_type": "MST",
+        "resource_type_general": "Dataset",
+        "subject_category": "Biophysics",
+        "title": "Interaction of RNA polymerase from Bacillus subtilis with \u03c3A factor"
+      },
+      "schema_version": "0.15.0"
+    },
+    "method_specific_parameters": {
+      "excitation_led_color": "RED (ex 605-645nm, em 660-720nm)",
+      "excitation_led_power": 40.0,
+      "experiment_type": "Affinity",
+      "ir_mst_laser_power": 60.0,
+      "measurements": [
+        {
+          "id": "4d2fb7b1-3356-43fc-81f2-e732b792752a",
+          "name": "1st titration (2 technical replicates)",
+          "position": "1",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 26000.0
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "preparation_protocol": [
+              {
+                "description": "Immediate 2nd measurement with the same samples in same capillaries.",
+                "name": "Technical replicates"
+              }
+            ],
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "f305f4c9-7cda-4618-bce7-3dd9b4ffd81d",
+          "name": "1st titration (2 technical replicates)",
+          "position": "2",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 13000.0
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "0a48e6e2-73f9-429d-b991-ac7f91e4343a",
+          "name": "1st titration (2 technical replicates)",
+          "position": "3",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 6500.0
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "d2a2c6b6-2d84-4824-9f7c-ecd79ac19f07",
+          "name": "1st titration (2 technical replicates)",
+          "position": "4",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 3250.0
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "a318379d-4ce8-42d1-8d84-8d429e0dc7cc",
+          "name": "1st titration (2 technical replicates)",
+          "position": "5",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 1625.0
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "9a02c416-05ff-421b-9b92-872ec11340fa",
+          "name": "1st titration (2 technical replicates)",
+          "position": "6",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 812.5
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "08825d4c-147c-45d0-9160-24438152b700",
+          "name": "1st titration (2 technical replicates)",
+          "position": "7",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 406.3
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "b50dae87-1c7c-49c2-a1bd-e0940bddf188",
+          "name": "1st titration (2 technical replicates)",
+          "position": "8",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 203.1
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "25aa545e-07fc-437d-b622-b5a3bd97bdf5",
+          "name": "1st titration (2 technical replicates)",
+          "position": "9",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 101.6
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "08c6f63a-bc63-45f7-855d-e3382a85ec40",
+          "name": "1st titration (2 technical replicates)",
+          "position": "10",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.8
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "af30d656-ee44-43ab-ab30-3fbb85c465a3",
+          "name": "1st titration (2 technical replicates)",
+          "position": "11",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.4
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "1039efc6-9776-41b1-9d87-4f89d36117e2",
+          "name": "1st titration (2 technical replicates)",
+          "position": "12",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 12.7
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "e0ced389-bb0e-4f2f-9164-f6866806360d",
+          "name": "1st titration (2 technical replicates)",
+          "position": "13",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 6.3
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "55940a59-05f2-4b11-96ca-e90997a59bcd",
+          "name": "1st titration (2 technical replicates)",
+          "position": "14",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 3.2
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "3adebf67-1bd8-495d-bc72-c45a94b2b4f4",
+          "name": "1st titration (2 technical replicates)",
+          "position": "15",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 1.6
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "85b3fafe-2ea8-496b-99dd-bd3304b4cad9",
+          "name": "1st titration (2 technical replicates)",
+          "position": "16",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 0.8
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "5703c0c1-4aac-4085-8df3-16f27eb3c05f",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "1",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 26000.0
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "preparation_protocol": [
+              {
+                "description": "Immediate 2nd measurement with the same samples in same  capillaries.",
+                "name": "Technical replicates"
+              }
+            ],
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "e931449f-b8b7-48f1-8326-114ec378727f",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "2",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 13000.0
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "986330cf-31cf-447b-ae1d-dedd963ef0aa",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "3",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 6500.0
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "bc234e66-6869-4579-935d-acb8f8b8b018",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "4",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 3250.0
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "774e4d4e-f756-4c69-83bc-173cb3bc38c5",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "5",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 1625.0
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "cefa8a6b-1d00-42ce-b4d2-de660bad581b",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "6",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 812.5
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "4b7adffe-cb00-41bf-ae5b-97100110035e",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "7",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 406.3
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "882de43b-894c-4551-a216-c07f7a8b02d7",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "8",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 203.1
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "c66bd691-0028-4480-87d9-048fdb177224",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "9",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 101.6
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "7ff640d0-082f-46f4-a23f-4d28e77b878c",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "10",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.8
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "33fbd1ac-4ead-426c-98f2-59d36545f3c3",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "11",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.4
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "495a0f8b-f952-48a6-864a-33290ae71907",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "12",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 12.7
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "ad1a5305-1a95-40d0-9b18-1f6b1ee3bee3",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "13",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 6.3
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "0a95efb0-5336-421c-bd36-902b0fd9b029",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "14",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 3.2
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "5c791557-b847-46de-9c2b-7d77406bab5d",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "15",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 1.6
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "6fcb678b-78c5-4cd6-a4cf-46f788ce1620",
+          "name": "2nd titration (2 technical replicates)",
+          "position": "16",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "potassium phosphate buffer pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 0.8
+                },
+                "entity": {
+                  "id": "7555ef26-4ad0-4f6f-9a64-d521c5d06ce0",
+                  "name": "RNA polymerase sigma factor SigA"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25.0
+                },
+                "entity": {
+                  "id": "bb3a1259-2d23-4bdf-95db-6726457f1e5c",
+                  "name": "RNA polymerase"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "schema_version": "0.9.12",
+      "signal_type": "TRIC/MST",
+      "temperature": {
+        "unit": "\u00b0C",
+        "value": 21.0
+      }
+    }
+  },
+  "parent": {
+    "access": {
+      "grants": [],
+      "links": [],
+      "owned_by": {
+        "user": "76"
+      },
+      "settings": {
+        "accept_conditions_text": null,
+        "allow_guest_requests": true,
+        "allow_user_requests": true,
+        "secret_link_expiration": 0
+      }
+    },
+    "communities": {},
+    "id": "dx9qj-9fa93",
+    "is_verified": false,
+    "pids": {},
+    "workflow": "individual"
+  },
+  "pids": {
+    "doi": {
+      "identifier": "10.71479/6g5wd-zxy65",
+      "provider": "datacite"
+    }
+  },
+  "revision_id": 6,
+  "state": "published",
+  "state_timestamp": "2026-08-06T14:16:23.132455+00:00",
+  "stats": {
+    "all_versions": {
+      "data_volume": 0.0,
+      "downloads": 0,
+      "unique_downloads": 0,
+      "unique_views": 0,
+      "views": 0
+    },
+    "this_version": {
+      "data_volume": 0.0,
+      "downloads": 0,
+      "unique_downloads": 0,
+      "unique_views": 0,
+      "views": 0
+    }
+  },
+  "status": "published",
+  "updated": "2026-08-06T14:16:24.584124+00:00",
+  "versions": {
+    "index": 1,
+    "is_latest": true,
+    "is_latest_draft": true
+  }
+}
