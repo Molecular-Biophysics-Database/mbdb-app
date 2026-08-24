@@ -1,0 +1,475 @@
+SPR_specific_parameters:
+  properties:
+    schema_version:
+      type: keyword
+      enum:
+        - 0.10.2
+      help.en: The schema version used to annotate the SPR method specific 
+        parameters
+      required: true
+      label.en: Schema version
+    experiment_type:
+      type: keyword
+      enum:
+        - Affinity
+        - Quantification
+        - Other
+      help.en: Which type of parameter is sought with the measurements
+      required: true
+      label.en: Experiment type
+    sensor:
+      help.en: Sensor used for the measurements
+      required: true
+      label.en: Sensor
+      type: Sensor
+    measurement_positions:
+      minItems: 1
+      help.en: Information about each of the positions where data was collected 
+        including reference positions
+      required: true
+      label.en: Measurement positions
+      items:
+        type: Measurement_position
+      type: array
+    measurement_protocol:
+      minItems: 1
+      help.en: List of the steps in the measurement protocol
+      required: true
+      label.en: Measurement protocol
+      items:
+        type: Measurement_step
+      type: array
+    measurements:
+      minItems: 1
+      help.en: List of measurements where the complete output from a single 
+        sensor going through the measurement protocol is considered a separate 
+        measurement
+      required: true
+      label.en: Measurements
+      items:
+        type: Measurement
+      type: array
+    data_analysis:
+      minItems: 1
+      help.en: The details of how data analysis was performed to obtain results
+      label.en: Data analysis
+      items:
+        type: SPR_data_analysis
+      type: array
+  label.en: Spr specific parameters
+  marshmallow:
+    base-classes: [common.services.records.schema.VersionUpdateSchema]
+SPR_data_analysis:
+  properties:
+    results:
+      minItems: 1
+      help.en: Link to a result that was defined in the record
+      label.en: Results
+      items:
+        type: internal-relation
+        target: general_parameters.results
+        keys:
+          - id
+          - name
+      type: array
+    measurements:
+      minItems: 1
+      help.en: List of measurement links that were analyzed together
+      label.en: Measurements
+      items:
+        type: internal-relation
+        target: method_specific_parameters.measurements
+        keys:
+          - id
+          - name
+      type: array
+    data_processing:
+      minItems: 1
+      help.en: Describe the steps in the data analysis prior to fitting 
+        (removing outliers in the raw data, applying data filter, placing data 
+        at same start time etc. )
+      label.en: Data processing
+      items:
+        type: Processing_step
+      type: array
+    data_fitting:
+      help.en: The details of how data fitting was performed to obtain the 
+        result
+      label.en: Data fitting
+      type: Data_fitting
+  label.en: Spr data analysis
+Measurement:
+  properties:
+    id:
+      help.en: Unique ID to be used as a link target
+      required: true
+      label.en: Id
+      type: keyword
+    name:
+      type: keyword
+      help.en: Name (id) of the measurement which must be unique within a record
+        (i.e. triplicates must be named individually in the raw data file). The 
+        name must allow location of the measurement data within the raw data 
+        file as well as processed data files if these are present
+      required: true
+      label.en: Name
+    measurement_position:
+      help.en: Name (id) of the measurement position
+      required: true
+      label.en: Measurement position
+      type: internal-relation
+      target: method_specific_parameters.measurement_positions
+      keys:
+        - id
+        - name
+    reference_measurement_position:
+      help.en: Name (id) of the measurement position
+      label.en: Reference measurement position
+      type: internal-relation
+      target: method_specific_parameters.measurement_positions
+      keys:
+        - id
+        - name
+    samples:
+      minItems: 1
+      help.en: List of samples that went across a measurement position during 
+        data collection
+      required: true
+      label.en: Samples
+      items:
+        type: Sample
+      type: array
+    reference_samples:
+      minItems: 1
+      help.en: List of samples that went across the reference measurement 
+        position during data collection
+      label.en: Reference samples
+      items:
+        type: Sample
+      type: array
+  id: spr-measurement
+  label.en: Measurement
+Sample:
+  properties:
+    measurement_step:
+      help.en: Name (id) of the measurement step in the measurement protocol 
+        where the sample was measured
+      required: true
+      label.en: Measurement step
+      type: internal-relation
+      target: method_specific_parameters.measurement_protocol
+      keys:
+        - id
+        - name
+    position:
+      type: keyword
+      help.en: Position of the sample within the sample holder
+      label.en: Position
+    chemical_environment:
+      help.en: Name (id) of the chemical environment of the sample (from the 
+        chemical environments defined in the record)
+      required: true
+      label.en: Chemical environment
+      type: internal-relation
+      target: general_parameters.chemical_environments
+      keys:
+        - id
+        - name
+    analytes:
+      minItems: 1
+      help.en: List of names (ids) of entities (from the entities of interest 
+        defined in the record) that was used to alter the behavior of the 
+        target(s) or entities present at varying concentrations for a series of 
+        measurements
+      required: true
+      label.en: Analytes
+      items:
+        type: Entity_constituent
+      type: array
+    temperature:
+      help.en: Temperature of the sample while being measured
+      label.en: Temperature
+      type: Temperature
+    preparation_protocol:
+      minItems: 1
+      help.en: List of steps taken to prepare the sample
+      label.en: Preparation protocol
+      items:
+        type: Step
+      type: array
+  label.en: Sample
+Measurement_step:
+  properties:
+    id:
+      help.en: id to be used as a link target
+      required: true
+      label.en: Id
+      type: keyword
+    name:
+      type: keyword
+      help.en: Descriptive name (id) of the step in the measurement protocol 
+        which must be unique within a record
+      required: true
+      label.en: Name
+    type:
+      type: keyword
+      enum:
+        - Association
+        - Baseline
+        - Dissociation
+        - Regeneration
+        - Load
+        - Wash
+        - Activation
+        - Enhancement
+      help.en: Which type of step in the measurement protocol this refers to
+      required: true
+      label.en: Type
+    start_time:
+      help.en: The numerical value of the start point of the measurement step 
+        relative to the beginning of the measurement
+      required: true
+      label.en: Start time
+      type: Time_duration
+    time_length:
+      help.en: The numerical value of the total time of the measurement step
+      required: true
+      label.en: Time length
+      type: Time_duration
+    flow:
+      help.en: Information about the liquid flow during the measurement step
+      required: true
+      label.en: Flow
+      type: Flow
+  id: spr-measurement-step
+  label.en: Measurement step
+Measurement_position:
+  properties:
+    id:
+      help.en: id to be used as a link target
+      required: true
+      label.en: Id
+      type: keyword
+    name:
+      type: keyword
+      help.en: Name of measurement spot
+      required: true
+      label.en: Name
+    flow_cell:
+      type: keyword
+      help.en: The flow cell where the measurement spot is located
+      required: true
+      label.en: Flow cell
+    position:
+      type: keyword
+      help.en: Position of the measurement spot within the flow cell
+      label.en: Position
+    ligand:
+      help.en: Information about the ligand and how it was immobilized
+      label.en: Ligand
+      type: Ligand_information
+  id: spr-measurement-position
+  label.en: Measurement position
+Ligand_information:
+  properties:
+    entity:
+      help.en: Name (id) of the ligand (entity that is immobilized, from the 
+        list of entities of interest defined in the record)
+      label.en: Entity
+      type: internal-relation
+      target: general_parameters.entities_of_interest
+      keys:
+        - id
+        - name
+    immobilization_chemistry:
+      type: keyword
+      help.en: The type of chemistry on the ligands that allows for 
+        immobilization on the sensor
+      label.en: Immobilization chemistry
+    immobilization_protocol:
+      minItems: 1
+      help.en: List of steps for immobilizing the ligand on the surface of the 
+        sensor
+      label.en: Immobilization protocol
+      items:
+        type: Step
+      type: array
+  label.en: Ligand information
+Sensor:
+  properties:
+    id:
+      type: keyword
+      help.en: The id of the sensor as given by the supplier
+      label.en: Id
+    surface_properties:
+      type: keyword
+      help.en: The type surface properties the sensor has. e.g. Protein A
+      label.en: Surface properties
+    supplier:
+      help.en: Information about the supplier of the sensor
+      required: true
+      label.en: Supplier
+      type: Supplier
+    sensor_initialization:
+      type: keyword
+      enum:
+        - Air
+        - Glycerol
+      help.en: How the initialization of the sensor was performed
+      label.en: Sensor initialization
+    previously_used:
+      type: boolean
+      help.en: Whether or not the sensor was used in previous measurements
+      label.en: Previously used
+  label.en: Sensor
+Flow:
+  properties:
+    rate:
+      help.en: The numerical value and unit of the flowrate
+      required: true
+      label.en: Rate
+      type: Flow_rate
+    direction:
+      type: keyword
+      enum:
+        - Vertical
+        - Horizontal
+      help.en: Direction of the flow
+      label.en: Direction
+    path:
+      minItems: 1
+      help.en: list of the flow-path, in terms of measurement positions. 
+        Measurement positions that are connected by a flow running serially 
+        through them should be mentioned within the inner list, while parallel 
+        flows should be mentioned in the outer list
+      required: true
+      label.en: Path
+      items:
+        minItems: 1
+        items:
+          type: internal-relation
+          target: method_specific_parameters.measurement_positions
+          keys:
+            - id
+            - name
+        type: array
+      type: array
+  label.en: Flow
+Entity_constituent:
+  properties:
+    entity:
+      help.en: Name (id) of the entity (from the entities of interest defined in
+        the record)
+      required: true
+      label.en: Entity
+      type: internal-relation
+      target: general_parameters.entities_of_interest
+      keys:
+        - id
+        - name
+    concentration:
+      help.en: Concentration of the entity
+      required: true
+      label.en: Concentration
+      type: Concentration
+  label.en: Entity constituent
+Data_fitting:
+  properties:
+    model:
+      type: keyword
+      help.en: Description of the model (e.g. 1:1 binding)
+      required: true
+      label.en: Model
+    software_name:
+      type: keyword
+      help.en: The name of the software that was used for doing the data fitting
+        (e.g. Excel)
+      label.en: Software name
+    software_version:
+      type: keyword
+      help.en: The version of the software that was used for the step
+      label.en: Software version
+    quality:
+      type: double
+      help.en: Numerical value representing the quality estimate of the result
+      label.en: Quality
+    quality_type:
+      type: keyword
+      enum:
+        - R^2
+        - SEM
+        - red. Chi^2
+        - 1sigma
+        - 2sigma
+        - 3sigma
+        - 5sigma
+        - Skewness
+      help.en: Type of the quality estimate
+      label.en: Quality type
+  label.en: Data fitting
+Processing_step:
+  properties:
+    name:
+      type: keyword
+      help.en: Short descriptive name of the processing step
+      required: true
+      label.en: Name
+    description:
+      type: keyword
+      help.en: Description of what the processing step was
+      required: true
+      label.en: Description
+    software_name:
+      type: keyword
+      help.en: The name of the software that was used for the step (e.g. Excel)
+      label.en: Software name
+    software_version:
+      type: keyword
+      help.en: The version of the software that was used for the step
+      label.en: Software version
+    link_to_source_code:
+      type: keyword
+      help.en: If processing was performed with software where the source code 
+        is freely available a link can be specified here (e.g. self-written 
+        python script in a GitHub repository)
+      label.en: Link to source code
+  label.en: Processing step
+Flow_rate:
+  properties:
+    value:
+      type: double
+      minimum: 0.0
+      help.en: Numerical value of the flowrate
+      required: true
+      label.en: Value
+    unit:
+      help.en: The unit of the flowrate
+      required: true
+      label.en: Unit
+      type: FLOWRATE_UNITS
+  label.en: Flow rate
+Supplier:
+  properties:
+    name:
+      type: keyword
+      help.en: Name of the supplier
+      required: true
+      label.en: Name
+    catalog_number:
+      type: keyword
+      help.en: The catalog number or identifier of the item
+      label.en: Catalog number
+    further_information:
+      minItems: 1
+      help.en: Further information e.g. batch number
+      label.en: Further information
+      items:
+        type: keyword
+      type: array
+  label.en: Supplier
+FLOWRATE_UNITS:
+  type: keyword
+  enum:
+    - mL/min
+    - µl/s
+  label.en: Flowrate units

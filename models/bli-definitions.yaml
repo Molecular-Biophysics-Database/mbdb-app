@@ -1,0 +1,468 @@
+BLI_specific_parameters:
+  properties:
+    schema_version:
+      type: keyword
+      enum:
+        - 0.9.9
+      help.en: The schema version used to annotate the BLI method specific 
+        parameters
+      required: true
+      label.en: Schema version
+    experiment_type:
+      type: keyword
+      enum:
+        - Affinity
+        - Quantification
+        - Other
+      help.en: Which type of parameter is sought with the measurements
+      required: true
+      label.en: Experiment type
+    plates:
+      minItems: 1
+      help.en: Information about the plates used for the measurements
+      required: true
+      label.en: Plates
+      items:
+        type: Plate
+      type: array
+    sensors:
+      minItems: 1
+      help.en: List of the sensors used for the measurements, reference sensors 
+        included
+      required: true
+      label.en: Sensors
+      items:
+        type: Sensor
+      type: array
+    measurement_protocol:
+      minItems: 1
+      help.en: List of the steps in the measurement protocol
+      required: true
+      label.en: Measurement protocol
+      items:
+        type: BLI_protocol_step
+      type: array
+    measurements:
+      minItems: 1
+      help.en: List of measurement where each step from each sensor is 
+        considered a single measurement
+      required: true
+      label.en: Measurements
+      items:
+        type: BLI_Measurement
+      type: array
+    data_analysis:
+      minItems: 1
+      help.en: The details of how data analysis was performed to obtain results
+      label.en: Data analysis
+      items:
+        type: BLI_data_analysis
+      type: array
+  label.en: Bli specific parameters
+  marshmallow:
+    base-classes: [common.services.records.schema.VersionUpdateSchema]
+BLI_Measurement:
+  properties:
+    id:
+      help.en: Unique ID to be used as a link target
+      required: true
+      label.en: Id
+      type: keyword
+    name:
+      type: keyword
+      help.en: Name (id) of the measurement which must be unique within a record
+        (i.e. triplicates must be named individually in the raw data file). The 
+        name must allow location of the measurement data within the raw data 
+        file as well as processed data files if these are present
+      required: true
+      label.en: Name
+    sensor:
+      help.en: link to the sensor used for the measurement
+      required: true
+      label.en: Sensor
+      type: internal-relation
+      target: method_specific_parameters.sensors
+      keys:
+        - id
+        - name
+    measurement_protocol_step:
+      help.en: link to one of the measurement steps
+      required: true
+      label.en: Measurement protocol step
+      type: internal-relation
+      target: method_specific_parameters.measurement_protocol
+      keys:
+        - id
+        - name
+    sample:
+      help.en: Sample the sensor was in contact with during the measurement
+      required: true
+      label.en: Sample
+      type: Sample
+  id: bli-measurement
+  label.en: Bli measurement
+Sample:
+  properties:
+    plate:
+      help.en: link to one of the plates
+      required: true
+      label.en: Plate
+      type: internal-relation
+      target: method_specific_parameters.plates
+      keys:
+        - id
+        - name
+    well_position:
+      type: keyword
+      help.en: The position the well (in the plate) where the sample was during 
+        the measurement
+      required: true
+      label.en: Well position
+    chemical_environment:
+      help.en: Name (id) of the chemical environment of the sample (from the 
+        chemical environments defined in the record)
+      required: true
+      label.en: Chemical environment
+      type: internal-relation
+      target: general_parameters.chemical_environments
+      keys:
+        - id
+        - name
+    analytes:
+      minItems: 1
+      help.en: List of names (ids) of entities (from the entities of interest 
+        defined in the record) that was used to alter the behavior of the 
+        target(s) or entities present at varying concentrations for a series of 
+        measurements and their concentrations
+      label.en: Analytes
+      items:
+        type: Entity_constituent
+      type: array
+    temperature:
+      help.en: Temperature of the sample while being measured
+      label.en: Temperature
+      type: Temperature
+    preparation_protocol:
+      minItems: 1
+      help.en: List of steps taken to prepare the sample
+      label.en: Preparation protocol
+      items:
+        type: Step
+      type: array
+  label.en: Sample
+BLI_protocol_step:
+  properties:
+    id:
+      help.en: id to be used for internal links
+      required: true
+      label.en: Id
+      type: keyword
+    name:
+      type: keyword
+      help.en: Descriptive name (id) of the a step in the measurement protocol 
+        which must be unique within a record
+      required: true
+      label.en: Name
+    type:
+      type: keyword
+      enum:
+        - Association
+        - Baseline
+        - Dissociation
+        - Regeneration
+        - Load
+        - Wash
+        - Activation
+      help.en: Which type of step in the measurement protocol this refers to
+      required: true
+      label.en: Type
+    start_time:
+      help.en: The numerical value of the start point of the measurement step 
+        relative to the beginning of the measurement
+      required: true
+      label.en: Start time
+      type: Time_duration
+    time_length:
+      help.en: The numerical value of the total time of the measurement step
+      required: true
+      label.en: Time length
+      type: Time_duration
+    shaking_speed:
+      help.en: The numerical value of the shaking speed of the plate during the 
+        measurement step
+      required: true
+      label.en: Shaking speed
+      type: Shaking_and_stirring_speed
+  id: bli-protocol-step
+  label.en: Bli protocol step
+Sensor:
+  properties:
+    id:
+      help.en: id to be used for internal links
+      required: true
+      label.en: Id
+      type: keyword
+    name:
+      type: keyword
+      help.en: Descriptive name of the sensor
+      required: true
+      label.en: Name
+    ligand:
+      help.en: Information about the ligand and how it was immobilized
+      label.en: Ligand
+      type: Ligand_information
+    sensor_id:
+      type: keyword
+      help.en: The id of the sensor as given by the supplier
+      label.en: Sensor id
+    surface_properties:
+      type: keyword
+      help.en: The type of surface properties the sensor has, e.g. Protein A
+      label.en: Surface properties
+    supplier:
+      help.en: Information about the supplier of the sensor
+      label.en: Supplier
+      type: Supplier
+    hydration_time:
+      help.en: How long the sensor was hydrated before being employed
+      label.en: Hydration time
+      type: Time_duration
+    previously_used:
+      type: boolean
+      help.en: Whether or not the sensor was used for previous measurements
+      label.en: Previously used
+  id: bli-sensor
+  label.en: Sensor
+Ligand_information:
+  properties:
+    entity:
+      help.en: Name (id) of the ligand (entity that is immobilized, from the 
+        list of entities of interest defined in the record)
+      label.en: Entity
+      type: internal-relation
+      target: general_parameters.entities_of_interest
+      keys:
+        - id
+        - name
+    immobilization_chemistry:
+      type: keyword
+      help.en: The type of chemistry on the ligands that allows for 
+        immobilization on the sensor
+      label.en: Immobilization chemistry
+    immobilization_protocol:
+      minItems: 1
+      help.en: List of steps for immobilizing the ligand on the surface of the 
+        sensor
+      label.en: Immobilization protocol
+      items:
+        type: Step
+      type: array
+  label.en: Ligand information
+Plate:
+  properties:
+    id:
+      help.en: id to be used for internal links
+      required: true
+      label.en: Id
+      type: keyword
+    name:
+      type: keyword
+      help.en: Name (id) of the plate which must be unique within a record
+      required: true
+      label.en: Name
+    wells:
+      type: keyword
+      enum:
+        - '96'
+        - '384'
+      help.en: Number of wells in the plate
+      required: true
+      label.en: Wells
+    type:
+      type: keyword
+      help.en: The type of the plate (e.g. half-area black polystyrene)
+      label.en: Type
+    supplier:
+      help.en: Information about the supplier of the plate
+      label.en: Supplier
+      type: Supplier
+    sealing:
+      type: keyword
+      help.en: The type of sealing used to seal the top of the plate
+      label.en: Sealing
+    surface_modification:
+      help.en: If the plate had a modified surface, the modification can 
+        specified here (e.g. Non-binding surface)
+      label.en: Surface modification
+      type: Plate_surface_modification
+  id: plate
+  label.en: Plate
+Plate_surface_modification:
+  properties:
+    type:
+      type: keyword
+      help.en: The expected type of surface of the wells after the modification 
+        (e.g. BSA coated)
+      label.en: Type
+    protocol:
+      minItems: 1
+      help.en: List of protocol steps used to modify the surface of the wells
+      required: true
+      label.en: Protocol
+      items:
+        type: Step
+      type: array
+  label.en: Plate surface modification
+BLI_data_analysis:
+  properties:
+    results:
+      minItems: 1
+      help.en: Link to a result that was defined in the record
+      label.en: Results
+      items:
+        type: internal-relation
+        target: general_parameters.results
+        keys:
+          - id
+          - name
+      type: array
+    measurements:
+      minItems: 1
+      help.en: List of measurement links that was analyzed together
+      label.en: Measurements
+      items:
+        type: internal-relation
+        target: method_specific_parameters.measurements
+        keys:
+          - id
+          - name
+      type: array
+    data_processing:
+      minItems: 1
+      help.en: Describe the steps in the data analysis prior to fitting 
+        (removing outliers in the raw data, applying data filter, placing data 
+        at same start time etc. )
+      label.en: Data processing
+      items:
+        type: Processing_step
+      type: array
+    data_fitting:
+      help.en: The details of how data fitting of the data to obtain the result 
+        was performed
+      label.en: Data fitting
+      type: Data_fitting
+  label.en: Bli data analysis
+Entity_constituent:
+  properties:
+    entity:
+      help.en: Name (id) of the entity (from the entities of interest defined in
+        the record)
+      required: true
+      label.en: Entity
+      type: internal-relation
+      target: general_parameters.entities_of_interest
+      keys:
+        - id
+        - name
+    concentration:
+      help.en: Concentration of the entity
+      required: true
+      label.en: Concentration
+      type: Concentration
+  label.en: Entity constituent
+Data_fitting:
+  properties:
+    model:
+      type: keyword
+      help.en: Description of the model (e.g. 1:1 binding)
+      required: true
+      label.en: Model
+    software_name:
+      type: keyword
+      help.en: The name of the software that was used for doing the data fitting
+        (e.g. Excel)
+      label.en: Software name
+    software_version:
+      type: keyword
+      help.en: The version of the software that was used for the step
+      label.en: Software version
+    quality:
+      type: double
+      help.en: Numerical value representing the quality estimate of the result
+      label.en: Quality
+    quality_type:
+      type: keyword
+      enum:
+        - R^2
+        - SEM
+        - red. Chi^2
+        - 1sigma
+        - 2sigma
+        - 3sigma
+        - 5sigma
+        - Skewness
+      help.en: Type of the quality estimate
+      label.en: Quality type
+  label.en: Data fitting
+Processing_step:
+  properties:
+    name:
+      type: keyword
+      help.en: Short descriptive name of the processing step
+      required: true
+      label.en: Name
+    description:
+      type: keyword
+      help.en: Description of what the processing step was
+      required: true
+      label.en: Description
+    software_name:
+      type: keyword
+      help.en: The name of the software that was used for the step (e.g. Excel)
+      label.en: Software name
+    software_version:
+      type: keyword
+      help.en: The version of the software that was used for the step
+      label.en: Software version
+    link_to_source_code:
+      type: keyword
+      help.en: If processing was performed with software where the source code 
+        is freely available a link can be specified here (e.g. self-written 
+        python script in a GitHub repository)
+      label.en: Link to source code
+  label.en: Processing step
+Shaking_and_stirring_speed:
+  properties:
+    value:
+      type: int
+      minimum: 0
+      help.en: The numerical value of the shaking/stirring speed
+      required: true
+      label.en: Value
+    unit:
+      type: keyword
+      enum:
+        - RPM
+      help.en: The unit of the shaking/stirring speed)
+      required: true
+      label.en: Unit
+  label.en: Shaking and stirring speed
+Supplier:
+  properties:
+    name:
+      type: keyword
+      help.en: Name of the supplier
+      required: true
+      label.en: Name
+    catalog_number:
+      type: keyword
+      help.en: The catalog number or identifier of the item
+      label.en: Catalog number
+    further_information:
+      minItems: 1
+      help.en: Further information e.g. batch number
+      label.en: Further information
+      items:
+        type: keyword
+      type: array
+  label.en: Supplier

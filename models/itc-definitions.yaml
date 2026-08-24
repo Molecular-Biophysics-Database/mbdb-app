@@ -1,0 +1,414 @@
+ITC_specific_parameters:
+  properties:
+    schema_version:
+      type: keyword
+      enum:
+        - 0.1.1
+      help.en: The schema version used to annotate the ITC method specific 
+        parameters
+      required: true
+      label.en: Schema version
+    measurements:
+      minItems: 1
+      help.en: List of the information about each measurement. This includes 
+        target(s), ligand(s), chemical environment, and the position of the 
+        sample within the instrument
+      required: true
+      label.en: Measurements
+      items:
+        type: Measurement
+      type: array
+    injection_mode:
+      help.en: Details of how the experiment was conducted in terms of injection
+        (e.g. titration)
+      label.en: Injection mode
+      type: Injection_mode
+    cell_temperature:
+      help.en: Temperature of the cell in which the sample is measured
+      required: true
+      label.en: Cell temperature
+      type: Temperature
+    cell_volume:
+      help.en: Volume of the cell in which the sample is measured
+      required: true
+      label.en: Cell volume
+      type: Volume
+    reference_power:
+      help.en: Energy supplied to the offset header of the reference cell to 
+        equilibrate the temperatures
+      required: true
+      label.en: Reference power
+      type: Reference_power
+    stirring_speed:
+      help.en: Sample cell stirring speed in RPM
+      required: true
+      label.en: Stirring speed
+      type: Shaking_and_stirring_speed
+    feedback_mode:
+      type: keyword
+      enum:
+        - None
+        - Low
+        - High
+      help.en: The operating mode where conditions are adjusted automatically to
+        maintain constant temperature during heat measurements
+      label.en: Feedback mode
+    data_analysis:
+      minItems: 1
+      help.en: The details of how data analysis was performed to obtain results
+      label.en: Data analysis
+      items:
+        type: ITC_data_analysis
+      type: array
+  label.en: Itc specific parameters
+  marshmallow:
+    base-classes: [common.services.records.schema.VersionUpdateSchema]
+Reference_power:
+  properties:
+    value:
+      type: double
+      help.en: Value of energy supplied to the offset header of the reference 
+        cell to equilibrate the temperatures
+      required: true
+      label.en: Value
+    unit:
+      help.en: Unit of reference power
+      required: true
+      label.en: Unit
+      type: POWER_UNITS
+  label.en: Reference power
+Volume:
+  properties:
+    value:
+      type: double
+      minimum: 0.0
+      required: true
+      label.en: Value
+    unit:
+      help.en: Unit of the volume
+      required: true
+      label.en: Unit
+      type: VOLUME_UNITS
+  label.en: Volume
+Injection_mode:
+  help.en: Type of experiment conducted
+  label.en: Injection mode
+  oneof:
+    - discriminator: Single injection
+      type: Injection_modeSingle_injectionPolymorphic
+    - discriminator: Titration
+      type: Injection_modeTitrationPolymorphic
+  type: polymorphic
+  discriminator: type
+Injection_mode_base:
+  properties:
+    type:
+      type: keyword
+      enum:
+        - Single injection
+        - Titration
+      help.en: Type of ITC experiment
+      required: true
+      mapping:
+        copy_to: collected_default_search_fields
+      label.en: Type
+  label.en: Injection mode base
+Titration:
+  properties:
+    number_injections:
+      type: double
+      minimum: 1.0
+      help.en: Number of injections performed in the measurement
+      required: true
+      label.en: Number injections
+    injection_parameters:
+      minItems: 1
+      help.en: Characteristics of each injection (i. e. number of injections at 
+        a specific volume of 0.2 ml)
+      label.en: Injection parameters
+      items:
+        type: Injection_parameters
+      type: array
+  label.en: Titration
+Single_injection:
+  properties:
+    volume:
+      help.en: Titrant volume injected into the cell
+      required: true
+      label.en: Volume
+      type: Volume
+  label.en: Single injection
+Injection_parameters:
+  properties:
+    n_injections:
+      type: double
+      help.en: Number of injections measured at a specific volume
+      required: true
+      label.en: N injections
+    volume:
+      help.en: Titrant volume injected into the cell
+      required: true
+      label.en: Volume
+      type: Volume
+  label.en: Injection parameters
+ITC_data_analysis:
+  properties:
+    data_processing:
+      minItems: 1
+      help.en: Describe the steps in the data analysis prior to fitting 
+        (removing outliers in the raw data, applying smoothing filters, etc.)
+      label.en: Data processing
+      items:
+        type: Processing_step
+      type: array
+    type:
+      type: keyword
+      enum:
+        - Simple model
+        - Complex model
+      help.en: Type of model used to obtain derived parameters
+      required: true
+      label.en: Type
+    results:
+      minItems: 1
+      help.en: Link to the result(s) that was obtained by the data analysis. The
+        link is to the results defined in the record
+      label.en: Results
+      items:
+        type: internal-relation
+        target: general_parameters.results
+        keys:
+          - id
+          - name
+      type: array
+    measurements:
+      minItems: 1
+      help.en: List of the measurements that was analyzed together for a 
+        specific parameter
+      label.en: Measurements
+      items:
+        type: internal-relation
+        target: method_specific_parameters.measurements
+        keys:
+          - id
+          - name
+      type: array
+    data_fitting:
+      help.en: The details of how data fitting was performed to obtain the 
+        result
+      label.en: Data fitting
+      type: Data_fitting
+  label.en: Itc data analysis
+Measurement:
+  properties:
+    id:
+      help.en: Unique ID to be used as a link target
+      required: true
+      label.en: Id
+      type: keyword
+    name:
+      type: keyword
+      help.en: Name (id) of the measurement which must be unique within a record
+        (i.e. triplicates must be named individually in the raw data file). The 
+        name must allow location of the measurement data within the raw data 
+        file as well as processed data files if these are present
+      required: true
+      label.en: Name
+    sample_in_cell:
+      help.en: Composition of the solution in the cell including targets and 
+        chemical environment
+      required: true
+      label.en: Sample in cell
+      type: ITC_sample
+    sample_in_syringe:
+      help.en: Composition of the solution in the syringe including targets and 
+        chemical environment
+      required: true
+      label.en: Sample in syringe
+      type: ITC_sample
+  id: itc-measurement
+  label.en: Measurement
+ITC_sample:
+  properties:
+    targets:
+      minItems: 1
+      help.en: List of names (ids), from the entities of interest defined in the
+        record, of directly measured entities
+      required: true
+      label.en: Targets
+      items:
+        type: Entity_constituent
+      type: array
+    chemical_environment:
+      help.en: Name (id) of the chemical environment of the sample (from the 
+        chemical environments defined in the record)
+      required: true
+      label.en: Chemical environment
+      type: internal-relation
+      target: general_parameters.chemical_environments
+      keys:
+        - id
+        - name
+    preparation_protocol:
+      minItems: 1
+      help.en: List of steps taken to prepare the sample, ending at the point 
+        where it was placed in the measurement container. Information include 
+        operations like filtration and which filter material and pore-size was 
+        used should be added
+      label.en: Preparation protocol
+      items:
+        type: Step
+      type: array
+  label.en: Itc sample
+Entity_constituent:
+  properties:
+    entity:
+      help.en: Name (id) of the entity (from the entities of interest defined in
+        the record)
+      required: true
+      label.en: Entity
+      type: internal-relation
+      target: general_parameters.entities_of_interest
+      keys:
+        - id
+        - name
+    concentration:
+      help.en: Concentration of the entity
+      required: true
+      label.en: Concentration
+      type: Concentration
+  label.en: Entity constituent
+Data_fitting:
+  properties:
+    model:
+      type: keyword
+      help.en: Description of the model (e.g. 1:1 binding)
+      required: true
+      label.en: Model
+    software_name:
+      type: keyword
+      help.en: The name of the software that was used for doing the data fitting
+        (e.g. Excel)
+      label.en: Software name
+    software_version:
+      type: keyword
+      help.en: The version of the software that was used for the step
+      label.en: Software version
+    quality:
+      type: double
+      help.en: Numerical value representing the quality estimate of the result
+      label.en: Quality
+    quality_type:
+      type: keyword
+      enum:
+        - R^2
+        - SEM
+        - red. Chi^2
+        - 1sigma
+        - 2sigma
+        - 3sigma
+        - 5sigma
+        - Skewness
+      help.en: Type of the quality estimate
+      label.en: Quality type
+  label.en: Data fitting
+Processing_step:
+  properties:
+    name:
+      type: keyword
+      help.en: Short descriptive name of the processing step
+      required: true
+      label.en: Name
+    description:
+      type: keyword
+      help.en: Description of what the processing step was
+      required: true
+      label.en: Description
+    software_name:
+      type: keyword
+      help.en: The name of the software that was used for the step (e.g. Excel)
+      label.en: Software name
+    software_version:
+      type: keyword
+      help.en: The version of the software that was used for the step
+      label.en: Software version
+    link_to_source_code:
+      type: keyword
+      help.en: If processing was performed with software where the source code 
+        is freely available a link can be specified here (e.g. self-written 
+        python script in a GitHub repository)
+      label.en: Link to source code
+  label.en: Processing step
+Shaking_and_stirring_speed:
+  properties:
+    value:
+      type: int
+      minimum: 0
+      help.en: The numerical value of the shaking/stirring speed
+      required: true
+      label.en: Value
+    unit:
+      type: keyword
+      enum:
+        - RPM
+      help.en: The unit of the shaking/stirring speed)
+      required: true
+      label.en: Unit
+  label.en: Shaking and stirring speed
+POWER_UNITS:
+  type: keyword
+  enum:
+    - µcal/s
+    - µJ/s
+  label.en: Power units
+VOLUME_UNITS:
+  type: keyword
+  enum:
+    - ml
+    - µl
+  label.en: Volume units
+Injection_modeSingle_injectionPolymorphic:
+  properties:
+    volume:
+      help.en: Titrant volume injected into the cell
+      required: true
+      label.en: Volume
+      type: Volume
+    type:
+      type: keyword
+      enum:
+        - Single injection
+        - Titration
+      help.en: Type of ITC experiment
+      required: true
+      mapping:
+        copy_to: collected_default_search_fields
+      label.en: Type
+  label.en: Single injection
+Injection_modeTitrationPolymorphic:
+  properties:
+    number_injections:
+      type: double
+      minimum: 1.0
+      help.en: Number of injections performed in the measurement
+      required: true
+      label.en: Number injections
+    injection_parameters:
+      minItems: 1
+      help.en: Characteristics of each injection (i. e. number of injections at 
+        a specific volume of 0.2 ml)
+      label.en: Injection parameters
+      items:
+        type: Injection_parameters
+      type: array
+    type:
+      type: keyword
+      enum:
+        - Single injection
+        - Titration
+      help.en: Type of ITC experiment
+      required: true
+      mapping:
+        copy_to: collected_default_search_fields
+      label.en: Type
+  label.en: Titration

@@ -1,0 +1,476 @@
+MP_specific_parameters:
+  properties:
+    schema_version:
+      type: keyword
+      enum:
+        - 1.0.2
+      help.en: The schema version used to annotate the MP method specific 
+        parameters
+      required: true
+      label.en: Schema version
+    primary_laser_wavelength:
+      help.en: Wavelength of the laser used for measurement of the mass 
+        photometry signal
+      label.en: Primary laser wavelength
+      type: Wavelength
+    calibrants:
+      minItems: 1
+      help.en: List of objects that was used to create the calibration curve for
+        converting contrast to molecular weight or converting the position of 
+        optimum contrast to particle size
+      required: true
+      label.en: Calibrants
+      items:
+        type: Calibrant
+      type: array
+    mode:
+      help.en: The details of which mode of data acquisition (Flow or Static)
+      required: true
+      label.en: Mode
+      type: MP_mode
+    measurements:
+      minItems: 1
+      help.en: The list of measurements (not including calibration)
+      required: true
+      label.en: Measurements
+      items:
+        type: Measurement
+      type: array
+    data_analysis:
+      minItems: 1
+      help.en: The details of how data analysis was performed to obtain results
+      label.en: Data analysis
+      items:
+        type: MP_data_analysis
+      type: array
+  label.en: Mp specific parameters
+  marshmallow:
+    base-classes: [common.services.records.schema.VersionUpdateSchema]
+MP_mode_base:
+  properties:
+    type:
+      type: keyword
+      enum:
+        - Flow
+        - Static
+      help.en: Whether the measurement was done on a flowing sample ("Flow") or 
+        statically placed sample("Static")
+      required: true
+      label.en: Type
+  label.en: Mp mode base
+MP_mode:
+  help.en: Whether the measurement was done on a flowing sample ("Flow") or 
+    statically placed sample
+  label.en: Mp mode
+  oneof:
+    - discriminator: Flow
+      type: MP_modeFlow_modePolymorphic
+    - discriminator: Static
+      type: MP_modeStatic_modePolymorphic
+  type: polymorphic
+  discriminator: type
+Static_mode:
+  properties:
+    sample_carrier:
+      help.en: Properties and preparation of the sample carrier
+      required: true
+      label.en: Sample carrier
+      type: MP_sample_carrier
+  label.en: Static mode
+MP_sample_carrier:
+  properties:
+    surface_modification:
+      type: keyword
+      help.en: Information about coating or other types of surface modification 
+        of the coverslip, ("None" if not modified)
+      required: true
+      label.en: Surface modification
+    material:
+      type: keyword
+      help.en: The material the sample carrier (slide) is composed of
+      label.en: Material
+    supplier:
+      help.en: Information about the supplier of the coverslip
+      label.en: Supplier
+      type: Supplier
+    cleaning_protocol:
+      minItems: 1
+      help.en: List of steps taken to clean the coverslip
+      label.en: Cleaning protocol
+      items:
+        type: Step
+      type: array
+  label.en: Mp sample carrier
+Flow_mode:
+  properties:
+    flow_cell:
+      type: keyword
+      help.en: Type (description) of the flow cell
+      required: true
+      label.en: Flow cell
+    sample_flowrate:
+      help.en: Numerical value and unit of the sample flowrate
+      required: true
+      label.en: Sample flowrate
+      type: Flow_rate
+    buffer_flowrate:
+      help.en: Numerical value and unit of the buffer flowrate
+      required: true
+      label.en: Buffer flowrate
+      type: Flow_rate
+  label.en: Flow mode
+Calibrant:
+  properties:
+    name:
+      type: keyword
+      help.en: The name of the calibrant
+      required: true
+      label.en: Name
+    type:
+      type: keyword
+      enum:
+        - polyribonucleotide
+        - polydeoxyribonucleotide
+        - polypeptide(D)
+        - polypeptide(L)
+        - chemical
+        - molecular assembly
+        - virion
+        - nanoparticle
+      help.en: The type of the calibrant (e.g. polypeptide(L))
+      required: true
+      label.en: Type
+    molecular_weight:
+      help.en: The molecular weight of the calibrant
+      label.en: Molecular weight
+      type: Molecular_weight
+    size:
+      help.en: The size of the calibrant
+      label.en: Size
+      type: Size
+    modifications:
+      minItems: 1
+      help.en: If the calibration contained modifications they can be specified 
+        here (e.g. PEGylation)
+      label.en: Modifications
+      items:
+        type: Modification
+      type: array
+    additional_specifications:
+      minItems: 1
+      help.en: Additional information about the calibrant can be specified here
+      label.en: Additional specifications
+      items:
+        type: keyword
+      type: array
+  label.en: Calibrant
+MP_data_analysis:
+  properties:
+    data_processing:
+      minItems: 1
+      help.en: Describe the steps in the data analysis prior to fitting 
+        (removing outliers in the raw data, applying smoothing filters, etc.)
+      label.en: Data processing
+      items:
+        type: Processing_step
+      type: array
+    results:
+      minItems: 1
+      help.en: Link to the result(s) that was obtained by the data analysis. The
+        link is to the results defined in the record
+      label.en: Results
+      items:
+        type: internal-relation
+        target: general_parameters.results
+        keys:
+          - id
+          - name
+      type: array
+    measurements:
+      minItems: 1
+      help.en: List of the measurements that was analyzed together for a 
+        specific parameter
+      label.en: Measurements
+      items:
+        type: internal-relation
+        target: method_specific_parameters.measurements
+        keys:
+          - id
+          - name
+      type: array
+    data_fitting:
+      help.en: The details of how data fitting was performed to obtain the 
+        result
+      label.en: Data fitting
+      type: Data_fitting
+  label.en: Mp data analysis
+Measurement:
+  properties:
+    id:
+      help.en: Unique ID to be used as a link target
+      required: true
+      label.en: Id
+      type: keyword
+    name:
+      type: keyword
+      help.en: Name (id) of the measurement which must be unique within a record
+        (i.e. triplicates must be named individually in the raw data file). The 
+        name must allow location of the measurement data within the raw data 
+        file as well as processed data files if these are present
+      required: true
+      label.en: Name
+    sample:
+      help.en: Composition of the solution in the cell including targets and 
+        chemical environment
+      required: true
+      label.en: Sample
+      type: MP_sample
+    sample_dilution:
+      help.en: Parameters describing how the sample was diluted within the 
+        measurement in flow mode
+      label.en: Sample dilution
+      type: MP_sample_dilution
+    duration:
+      help.en: The time duration of the measurement
+      required: true
+      label.en: Duration
+      type: Time_duration
+    temperature:
+      help.en: The temperature the measurement was performed at
+      label.en: Temperature
+      type: Temperature
+  id: mp-measurement
+  label.en: Measurement
+MP_sample:
+  properties:
+    targets:
+      minItems: 1
+      help.en: List of names (ids), from the entities of interest defined in the
+        record, of directly measured entities
+      required: true
+      label.en: Targets
+      items:
+        type: Entity_constituent
+      type: array
+    chemical_environment:
+      help.en: Name (id) of the chemical environment of the sample (from the 
+        chemical environments defined in the record)
+      required: true
+      label.en: Chemical environment
+      type: internal-relation
+      target: general_parameters.chemical_environments
+      keys:
+        - id
+        - name
+    preparation_protocol:
+      minItems: 1
+      help.en: List of steps taken to prepare the sample, ending at the point 
+        where it was placed in the measurement container. Information include 
+        operations like filtration and which filter material and pore-size was 
+        used should be added
+      label.en: Preparation protocol
+      items:
+        type: Step
+      type: array
+  label.en: Mp sample
+MP_sample_dilution:
+  properties:
+    dilution_buffer:
+      properties:
+        chemical_environment:
+          help.en: Name (id) of the chemical environment that was used as the 
+            dilution buffer (from the chemical environments defined in the 
+            record
+          required: true
+          label.en: Chemical environment
+          type: internal-relation
+          target: general_parameters.chemical_environments
+          keys:
+            - id
+            - name
+      label.en: Dilution buffer
+    dilution_factor:
+      type: double
+      minimum: 1.0
+      help.en: F-fold dilution; F = Q_buffer / Q_sample, where Q_buffer is 
+        buffer flowrate, Q_sample is sample flowrate. For low dilution factors, 
+        use more  precise formula (Q_buffer + Q_sample) / (Q_sample)
+      required: true
+      label.en: Dilution factor
+  label.en: Mp sample dilution
+Entity_constituent:
+  properties:
+    entity:
+      help.en: Name (id) of the entity (from the entities of interest defined in
+        the record)
+      required: true
+      label.en: Entity
+      type: internal-relation
+      target: general_parameters.entities_of_interest
+      keys:
+        - id
+        - name
+    concentration:
+      help.en: Concentration of the entity
+      required: true
+      label.en: Concentration
+      type: Concentration
+  label.en: Entity constituent
+Data_fitting:
+  properties:
+    model:
+      type: keyword
+      help.en: Description of the model (e.g. 1:1 binding)
+      required: true
+      label.en: Model
+    software_name:
+      type: keyword
+      help.en: The name of the software that was used for doing the data fitting
+        (e.g. Excel)
+      label.en: Software name
+    software_version:
+      type: keyword
+      help.en: The version of the software that was used for the step
+      label.en: Software version
+    quality:
+      type: double
+      help.en: Numerical value representing the quality estimate of the result
+      label.en: Quality
+    quality_type:
+      type: keyword
+      enum:
+        - R^2
+        - SEM
+        - red. Chi^2
+        - 1sigma
+        - 2sigma
+        - 3sigma
+        - 5sigma
+        - Skewness
+      help.en: Type of the quality estimate
+      label.en: Quality type
+  label.en: Data fitting
+Processing_step:
+  properties:
+    name:
+      type: keyword
+      help.en: Short descriptive name of the processing step
+      required: true
+      label.en: Name
+    description:
+      type: keyword
+      help.en: Description of what the processing step was
+      required: true
+      label.en: Description
+    software_name:
+      type: keyword
+      help.en: The name of the software that was used for the step (e.g. Excel)
+      label.en: Software name
+    software_version:
+      type: keyword
+      help.en: The version of the software that was used for the step
+      label.en: Software version
+    link_to_source_code:
+      type: keyword
+      help.en: If processing was performed with software where the source code 
+        is freely available a link can be specified here (e.g. self-written 
+        python script in a GitHub repository)
+      label.en: Link to source code
+  label.en: Processing step
+Flow_rate:
+  properties:
+    value:
+      type: double
+      minimum: 0.0
+      help.en: Numerical value of the flowrate
+      required: true
+      label.en: Value
+    unit:
+      help.en: The unit of the flowrate
+      required: true
+      label.en: Unit
+      type: FLOWRATE_UNITS
+  label.en: Flow rate
+Wavelength:
+  properties:
+    value:
+      type: double
+      minimum: 0.0
+      help.en: Numerical value of the wavelength
+      required: true
+      label.en: Value
+    unit:
+      help.en: The unit of the wavelength
+      required: true
+      label.en: Unit
+      type: LENGTH_UNITS
+  label.en: Wavelength
+Supplier:
+  properties:
+    name:
+      type: keyword
+      help.en: Name of the supplier
+      required: true
+      label.en: Name
+    catalog_number:
+      type: keyword
+      help.en: The catalog number or identifier of the item
+      label.en: Catalog number
+    further_information:
+      minItems: 1
+      help.en: Further information e.g. batch number
+      label.en: Further information
+      items:
+        type: keyword
+      type: array
+  label.en: Supplier
+FLOWRATE_UNITS:
+  type: keyword
+  enum:
+    - mL/min
+    - µl/s
+  label.en: Flowrate units
+MP_modeFlow_modePolymorphic:
+  properties:
+    flow_cell:
+      type: keyword
+      help.en: Type (description) of the flow cell
+      required: true
+      label.en: Flow cell
+    sample_flowrate:
+      help.en: Numerical value and unit of the sample flowrate
+      required: true
+      label.en: Sample flowrate
+      type: Flow_rate
+    buffer_flowrate:
+      help.en: Numerical value and unit of the buffer flowrate
+      required: true
+      label.en: Buffer flowrate
+      type: Flow_rate
+    type:
+      type: keyword
+      enum:
+        - Flow
+        - Static
+      help.en: Whether the measurement was done on a flowing sample ("Flow") or 
+        statically placed sample("Static")
+      required: true
+      label.en: Type
+  label.en: Flow mode
+MP_modeStatic_modePolymorphic:
+  properties:
+    sample_carrier:
+      help.en: Properties and preparation of the sample carrier
+      required: true
+      label.en: Sample carrier
+      type: MP_sample_carrier
+    type:
+      type: keyword
+      enum:
+        - Flow
+        - Static
+      help.en: Whether the measurement was done on a flowing sample ("Flow") or 
+        statically placed sample("Static")
+      required: true
+      label.en: Type
+  label.en: Static mode
