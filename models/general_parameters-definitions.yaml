@@ -1563,7 +1563,7 @@ Entity_and_stoichiometry:
       required: true
       label.en: Entity
       type: internal-relation
-      target: general_parameters.entities_of_interest
+      target: metadata.general_parameters.entities_of_interest
       keys:
         - id
         - name

@@ -176,7 +176,7 @@ ITC_data_analysis:
       label.en: Results
       items:
         type: internal-relation
-        target: general_parameters.results
+        target: metadata.general_parameters.results
         keys:
           - id
           - name
@@ -188,7 +188,7 @@ ITC_data_analysis:
       label.en: Measurements
       items:
         type: internal-relation
-        target: method_specific_parameters.measurements
+        target: metadata.method_specific_parameters.measurements
         keys:
           - id
           - name
@@ -245,7 +245,7 @@ ITC_sample:
       required: true
       label.en: Chemical environment
       type: internal-relation
-      target: general_parameters.chemical_environments
+      target: metadata.general_parameters.chemical_environments
       keys:
         - id
         - name
@@ -268,7 +268,7 @@ Entity_constituent:
       required: true
       label.en: Entity
       type: internal-relation
-      target: general_parameters.entities_of_interest
+      target: metadata.general_parameters.entities_of_interest
       keys:
         - id
         - name

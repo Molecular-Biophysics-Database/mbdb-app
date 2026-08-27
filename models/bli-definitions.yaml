@@ -81,7 +81,7 @@ BLI_Measurement:
       required: true
       label.en: Sensor
       type: internal-relation
-      target: method_specific_parameters.sensors
+      target: metadata.method_specific_parameters.sensors
       keys:
         - id
         - name
@@ -90,7 +90,7 @@ BLI_Measurement:
       required: true
       label.en: Measurement protocol step
       type: internal-relation
-      target: method_specific_parameters.measurement_protocol
+      target: metadata.method_specific_parameters.measurement_protocol
       keys:
         - id
         - name
@@ -108,7 +108,7 @@ Sample:
       required: true
       label.en: Plate
       type: internal-relation
-      target: method_specific_parameters.plates
+      target: metadata.method_specific_parameters.plates
       keys:
         - id
         - name
@@ -124,7 +124,7 @@ Sample:
       required: true
       label.en: Chemical environment
       type: internal-relation
-      target: general_parameters.chemical_environments
+      target: metadata.general_parameters.chemical_environments
       keys:
         - id
         - name
@@ -240,7 +240,7 @@ Ligand_information:
         list of entities of interest defined in the record)
       label.en: Entity
       type: internal-relation
-      target: general_parameters.entities_of_interest
+      target: metadata.general_parameters.entities_of_interest
       keys:
         - id
         - name
@@ -321,7 +321,7 @@ BLI_data_analysis:
       label.en: Results
       items:
         type: internal-relation
-        target: general_parameters.results
+        target: metadata.general_parameters.results
         keys:
           - id
           - name
@@ -332,7 +332,7 @@ BLI_data_analysis:
       label.en: Measurements
       items:
         type: internal-relation
-        target: method_specific_parameters.measurements
+        target: metadata.method_specific_parameters.measurements
         keys:
           - id
           - name
@@ -360,7 +360,7 @@ Entity_constituent:
       required: true
       label.en: Entity
       type: internal-relation
-      target: general_parameters.entities_of_interest
+      target: metadata.general_parameters.entities_of_interest
       keys:
         - id
         - name
