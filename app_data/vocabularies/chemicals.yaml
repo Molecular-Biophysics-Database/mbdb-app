@@ -1,216 +1,240 @@
-- additional_identifiers:
-  - cid:962
-  chemical_formula: H2O
-  id: inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N
-  molecular_weight:
-    unit: g/mol
-    value: 18.02
+- id: inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N
   title:
     en: Water
-- additional_identifiers:
-  - cid:702
-  chemical_formula: C2H6O
-  id: inchikey:LFQSCWFLJHTTHZ-UHFFFAOYSA-N
-  molecular_weight:
-    unit: g/mol
-    value: 46.069
+  custom_fields:
+    chemical_formula: H2O
+    molecular_weight:
+      unit: g/mol
+      value: 18.02
+    additional_identifiers:
+    - cid:962
+- id: inchikey:LFQSCWFLJHTTHZ-UHFFFAOYSA-N
   title:
     en: Ethanol
-- additional_identifiers:
-  - cid:6503
-  chemical_formula: C4H11NO3
-  id: inchikey:LENZDBCJOHFCAS-UHFFFAOYSA-N
-  molecular_weight:
-    unit: g/mol
-    value: 121.14
+  custom_fields:
+    chemical_formula: C2H6O
+    molecular_weight:
+      unit: g/mol
+      value: 46.069
+    additional_identifiers:
+    - cid:702
+- id: inchikey:LENZDBCJOHFCAS-UHFFFAOYSA-N
   title:
     en: Tris(Hydroxymethyl)aminomethane (Tris base)
-- additional_identifiers:
-  - cid:93573
-  chemical_formula: C4H12ClNO3
-  id: inchikey:QKNYBSVHEMOAJP-UHFFFAOYSA-N
-  molecular_weight:
-    unit: g/mol
-    value: 157.59
+  custom_fields:
+    chemical_formula: C4H11NO3
+    molecular_weight:
+      unit: g/mol
+      value: 121.14
+    additional_identifiers:
+    - cid:6503
+- id: inchikey:QKNYBSVHEMOAJP-UHFFFAOYSA-N
   title:
     en: Tris(Hydroxymethyl)aminomethane Chloride (Tris acid)
-- additional_identifiers:
-  - cid:5234
-  chemical_formula: ClNa
-  id: inchikey:FAPWRFPIFSIZLT-UHFFFAOYSA-M
-  molecular_weight:
-    unit: g/mol
-    value: 58.44
+  custom_fields:
+    chemical_formula: C4H12ClNO3
+    molecular_weight:
+      unit: g/mol
+      value: 157.59
+    additional_identifiers:
+    - cid:93573
+- id: inchikey:FAPWRFPIFSIZLT-UHFFFAOYSA-M
   title:
     en: Sodium Chloride
-- additional_identifiers:
-  - cid:313
-  chemical_formula: HCl
-  id: inchikey:VEXZGXHMUGYJMC-UHFFFAOYSA-N
-  molecular_weight:
-    unit: g/mol
-    value: 36.46
+  custom_fields:
+    chemical_formula: ClNa
+    molecular_weight:
+      unit: g/mol
+      value: 58.44
+    additional_identifiers:
+    - cid:5234
+- id: inchikey:VEXZGXHMUGYJMC-UHFFFAOYSA-N
   title:
     en: Hydrochloric Acid
-- additional_identifiers:
-  - cid:3423265
-  chemical_formula: C12H25NaO4S
-  id: inchikey:DBMJMQXJHONAFJ-UHFFFAOYSA-M
-  molecular_weight:
-    unit: g/mol
-    value: 288.372
+  custom_fields:
+    chemical_formula: HCl
+    molecular_weight:
+      unit: g/mol
+      value: 36.46
+    additional_identifiers:
+    - cid:313
+- id: inchikey:DBMJMQXJHONAFJ-UHFFFAOYSA-M
   title:
     en: Sodium dodecyl sulphate
-- additional_identifiers:
-  - cid:78165
-  chemical_formula: C6H13NO4S
-  id: inchikey:SXGZJKUKBWWHRA-UHFFFAOYSA-N
-  molecular_weight:
-    unit: g/mol
-    value: 195.24
+  custom_fields:
+    chemical_formula: C12H25NaO4S
+    molecular_weight:
+      unit: g/mol
+      value: 288.372
+    additional_identifiers:
+    - cid:3423265
+- id: inchikey:SXGZJKUKBWWHRA-UHFFFAOYSA-N
   title:
     en: 4-Morpholineethanesulfonic acid (MES acid)
-- additional_identifiers:
-  - cid:23673676
-  chemical_formula: C6H12NNaO4S
-  id: inchikey:IRHWMYKYLWNHTL-UHFFFAOYSA-M
-  molecular_weight:
-    unit: g/mol
-    value: 217.22
+  custom_fields:
+    chemical_formula: C6H13NO4S
+    molecular_weight:
+      unit: g/mol
+      value: 195.24
+    additional_identifiers:
+    - cid:78165
+- id: inchikey:IRHWMYKYLWNHTL-UHFFFAOYSA-M
   title:
     en: 4-Morpholineethanesulfonic acid, sodium salt (MES base)
-- additional_identifiers:
-  - cid:23672064
-  chemical_formula: H2NaO4P
-  id: inchikey:AJPJDKMHJJGVTQ-UHFFFAOYSA-M
-  molecular_weight:
-    unit: g/mol
-    value: 119.977
+  custom_fields:
+    chemical_formula: C6H12NNaO4S
+    molecular_weight:
+      unit: g/mol
+      value: 217.22
+    additional_identifiers:
+    - cid:23673676
+- id: inchikey:AJPJDKMHJJGVTQ-UHFFFAOYSA-M
   title:
     en: Sodium dihydrogen phosphate
-- additional_identifiers:
-  - cid:516951
-  chemical_formula: KH2PO4
-  id: inchikey:GNSKLFRGEWLPPA-UHFFFAOYSA-M
-  molecular_weight:
-    unit: g/mol
-    value: 136.086
+  custom_fields:
+    chemical_formula: H2NaO4P
+    molecular_weight:
+      unit: g/mol
+      value: 119.977
+    additional_identifiers:
+    - cid:23672064
+- id: inchikey:GNSKLFRGEWLPPA-UHFFFAOYSA-M
   title:
     en: Potassium dihydrogen phosphate
-- additional_identifiers:
-  - cid:24203
-  chemical_formula: Na2HPO4
-  id: inchikey:BNIILDVGGAEEIG-UHFFFAOYSA-L
-  molecular_weight:
-    unit: g/mol
-    value: 141.959
+  custom_fields:
+    chemical_formula: KH2PO4
+    molecular_weight:
+      unit: g/mol
+      value: 136.086
+    additional_identifiers:
+    - cid:516951
+- id: inchikey:BNIILDVGGAEEIG-UHFFFAOYSA-L
   title:
     en: Disodium hydrogen phosphate
-- additional_identifiers:
-  - cid:24450
-  chemical_formula: K2HPO4
-  id: inchikey:ZPWVASYFFYYZEW-UHFFFAOYSA-L
-  molecular_weight:
-    unit: g/mol
-    value: 174.176
+  custom_fields:
+    chemical_formula: Na2HPO4
+    molecular_weight:
+      unit: g/mol
+      value: 141.959
+    additional_identifiers:
+    - cid:24203
+- id: inchikey:ZPWVASYFFYYZEW-UHFFFAOYSA-L
   title:
     en: Dispotassium hydrogen phosphate
-- additional_identifiers:
-  - cid:23831
-  chemical_formula: C8H18N2O4S
-  id: inchikey:JKMHFZQWWAIEOD-UHFFFAOYSA-N
-  molecular_weight:
-    unit: g/mol
-    value: 238.31
+  custom_fields:
+    chemical_formula: K2HPO4
+    molecular_weight:
+      unit: g/mol
+      value: 174.176
+    additional_identifiers:
+    - cid:24450
+- id: inchikey:JKMHFZQWWAIEOD-UHFFFAOYSA-N
   title:
     en: 4-(2-Hydroxyethyl)-1-piperazine ethanesulfonic acid (HEPES acid)
-- additional_identifiers:
-  - cid:2724248
-  chemical_formula: C8H17N2NaO4S
-  id: inchikey:RDZTWEVXRGYCFV-UHFFFAOYSA-M
-  molecular_weight:
-    unit: g/mol
-    value: 260.29
+  custom_fields:
+    chemical_formula: C8H18N2O4S
+    molecular_weight:
+      unit: g/mol
+      value: 238.31
+    additional_identifiers:
+    - cid:23831
+- id: inchikey:RDZTWEVXRGYCFV-UHFFFAOYSA-M
   title:
     en: 4-(2-Hydroxyethyl)-1-piperazine ethanesulfonic acid, sodium salt (HEPES base)
-- additional_identifiers:
-  - cid:5360315
-  chemical_formula: Cl2Mg
-  id: inchikey:TWRXJAOTZQYOKJ-UHFFFAOYSA-L
-  molecular_weight:
-    unit: g/mol
-    value: 95.21
+  custom_fields:
+    chemical_formula: C8H17N2NaO4S
+    molecular_weight:
+      unit: g/mol
+      value: 260.29
+    additional_identifiers:
+    - cid:2724248
+- id: inchikey:TWRXJAOTZQYOKJ-UHFFFAOYSA-L
   title:
     en: Magnesium Chloride
-- additional_identifiers:
-  - cid:14798
-  chemical_formula: NaOH
-  id: inchikey:HEMHJVSKTPXQMS-UHFFFAOYSA-M
-  molecular_weight:
-    unit: g/mol
-    value: 39.997
+  custom_fields:
+    chemical_formula: Cl2Mg
+    molecular_weight:
+      unit: g/mol
+      value: 95.21
+    additional_identifiers:
+    - cid:5360315
+- id: inchikey:HEMHJVSKTPXQMS-UHFFFAOYSA-M
   title:
     en: Sodium Hydroxide
-- additional_identifiers:
-  - cid:4873
-  chemical_formula: KCl
-  id: inchikey:WCUXLLCKKVVCTQ-UHFFFAOYSA-M
-  molecular_weight:
-    unit: g/mol
-    value: 74.55
+  custom_fields:
+    chemical_formula: NaOH
+    molecular_weight:
+      unit: g/mol
+      value: 39.997
+    additional_identifiers:
+    - cid:14798
+- id: inchikey:WCUXLLCKKVVCTQ-UHFFFAOYSA-M
   title:
     en: Potassium Chloride
-- additional_identifiers:
-  - cid:70807
-  chemical_formula: C7H15NO4S
-  id: inchikey:DVLFYONBTKHTER-UHFFFAOYSA-N
-  molecular_weight:
-    unit: g/mol
-    value: 209.27
+  custom_fields:
+    chemical_formula: KCl
+    molecular_weight:
+      unit: g/mol
+      value: 74.55
+    additional_identifiers:
+    - cid:4873
+- id: inchikey:DVLFYONBTKHTER-UHFFFAOYSA-N
   title:
     en: 4-Morpholinepropanesulfonic acid (MOPS acid)
-- additional_identifiers:
-  - cid:3859613
-  chemical_formula: C7H14NNaO4S
-  id: inchikey:MWEMXEWFLIDTSJ-UHFFFAOYSA-M
-  molecular_weight:
-    unit: g/mol
-    value: 231.25
+  custom_fields:
+    chemical_formula: C7H15NO4S
+    molecular_weight:
+      unit: g/mol
+      value: 209.27
+    additional_identifiers:
+    - cid:70807
+- id: inchikey:MWEMXEWFLIDTSJ-UHFFFAOYSA-M
   title:
     en: 4-Morpholinepropanesulfonic acid, sodium salt (MOPS base)
-- additional_identifiers:
-  - cid:6049
-  chemical_formula: C10H16N2O8
-  id: inchikey:KCXVZYZYPLLWCC-UHFFFAOYSA-N
-  molecular_weight:
-    unit: g/mol
-    value: 292.24
+  custom_fields:
+    chemical_formula: C7H14NNaO4S
+    molecular_weight:
+      unit: g/mol
+      value: 231.25
+    additional_identifiers:
+    - cid:3859613
+- id: inchikey:KCXVZYZYPLLWCC-UHFFFAOYSA-N
   title:
     en: Ethylenediaminetetraacetic acid (EDTA)
-- additional_identifiers:
-  - cid:5284359
-  chemical_formula: CaCl2
-  id: inchikey:UXVMQQNJUSDDNG-UHFFFAOYSA-L
-  molecular_weight:
-    unit: g/mol
-    value: 110.98
+  custom_fields:
+    chemical_formula: C10H16N2O8
+    molecular_weight:
+      unit: g/mol
+      value: 292.24
+    additional_identifiers:
+    - cid:6049
+- id: inchikey:UXVMQQNJUSDDNG-UHFFFAOYSA-L
   title:
     en: Calcium Chloride
-- additional_identifiers:
-  - cid:5957
-  chemical_formula: C10H16N5O13P3
-  id: inchikey:ZKHQWZAMYRWXGA-KQYNXXCUSA-N
-  molecular_weight:
-    unit: g/mol
-    value: 507.18
+  custom_fields:
+    chemical_formula: CaCl2
+    molecular_weight:
+      unit: g/mol
+      value: 110.98
+    additional_identifiers:
+    - cid:5284359
+- id: inchikey:ZKHQWZAMYRWXGA-KQYNXXCUSA-N
   title:
     en: Adenosine-5'-triphosphate
-- additional_identifiers:
-  - cid:5793
-  chemical_formula: C6H12O6
-  id: inchikey:WQZGKKKJIJFFOK-GASJEMHNSA-N
-  molecular_weight:
-    unit: g/mol
-    value: 180.16
+  custom_fields:
+    chemical_formula: C10H16N5O13P3
+    molecular_weight:
+      unit: g/mol
+      value: 507.18
+    additional_identifiers:
+    - cid:5957
+- id: inchikey:WQZGKKKJIJFFOK-GASJEMHNSA-N
   title:
     en: D-Glucose
+  custom_fields:
+    chemical_formula: C6H12O6
+    molecular_weight:
+      unit: g/mol
+      value: 180.16
+    additional_identifiers:
+    - cid:5793
