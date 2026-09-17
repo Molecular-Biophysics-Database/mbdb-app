@@ -1,0 +1,657 @@
+- id: ror:02bfwt286
+  props:
+    city: Melbourne
+    country: Australia
+    state: Victoria
+  title:
+    en: Monash University
+- id: ror:01sf06y89
+  props:
+    city: Sydney
+    country: Australia
+    state: New South Wales
+  title:
+    en: Macquarie University
+- id: ror:00jtmb277
+  props:
+    city: Wollongong
+    country: Australia
+    state: New South Wales
+  title:
+    en: University of Wollongong
+- id: ror:01nfmeh72
+  props:
+    city: Hobart
+    country: Australia
+    state: Tasmania
+  title:
+    en: University of Tasmania
+- id: ror:01kpzv902
+  props:
+    city: Adelaide
+    country: Australia
+    state: South Australia
+  title:
+    en: Flinders University
+- id: ror:04ttjf776
+  props:
+    city: Melbourne
+    country: Australia
+    state: Victoria
+  title:
+    en: RMIT University
+- id: ror:01rxfrp27
+  props:
+    city: Melbourne
+    country: Australia
+    state: Victoria
+  title:
+    en: La Trobe University
+- id: ror:04j757h98
+  props:
+    city: Melbourne
+    country: Australia
+    state: Victoria
+  title:
+    en: Victoria University
+- id: ror:04r659a56
+  props:
+    city: Armidale
+    country: Australia
+    state: New South Wales
+  title:
+    en: University of New England
+- id: ror:02czsnj07
+  props:
+    city: Burwood
+    country: Australia
+    state: Victoria
+  title:
+    en: Deakin University
+- id: ror:02sc3r913
+  props:
+    city: Brisbane
+    country: Australia
+    state: Queensland
+  title:
+    en: Griffith University
+- id: ror:023q4bk22
+  props:
+    city: Rockhampton
+    country: Australia
+    state: Queensland
+  title:
+    en: Central Queensland University
+- id: ror:01p93h210
+  props:
+    city: Adelaide
+    country: Australia
+    state: South Australia
+  title:
+    en: University of South Australia
+- id: ror:031rekg67
+  props:
+    city: Melbourne
+    country: Australia
+    state: Victoria
+  title:
+    en: Swinburne University of Technology
+- id: ror:006jxzx88
+  props:
+    city: Gold Coast
+    country: Australia
+    state: Queensland
+  title:
+    en: Bond University
+- id: ror:00wfvh315
+  props:
+    city: Bathurst
+    country: Australia
+    state: New South Wales
+  title:
+    en: Charles Sturt University
+- id: ror:04s1nv328
+  props:
+    city: Canberra
+    country: Australia
+    state: Australian Capital Territory
+  title:
+    en: University of Canberra
+- id: ror:05qbzwv83
+  props:
+    city: Ballarat
+    country: Australia
+    state: Victoria
+  title:
+    en: Federation University
+- id: ror:048zcaj52
+  props:
+    city: Darwin
+    country: Australia
+    state: Northern Territory
+  title:
+    en: Charles Darwin University
+- id: ror:04sjbnx57
+  props:
+    city: Toowoomba
+    country: Australia
+    state: Queensland
+  title:
+    en: University of Southern Queensland
+- id: ror:05ktbsm52
+  props:
+    city: Melbourne
+    country: Australia
+    state: Victoria
+  title:
+    en: Burnet Institute
+- id: ror:03trvqr13
+  props:
+    city: Sydney
+    country: Australia
+    state: New South Wales
+  title:
+    en: Victor Chang Cardiac Research Institute
+- id: ror:00nx6aa03
+  props:
+    city: Brisbane
+    country: Australia
+    state: Queensland
+  title:
+    en: Mater Research
+- id: ror:02k3cxs74
+  props:
+    city: Fitzroy
+    country: Australia
+    state: Victoria
+  title:
+    en: St Vincents Institute of Medical Research
+- id: ror:046fa4y88
+  props:
+    city: Newtown
+    country: Australia
+    state: New South Wales
+  title:
+    en: The Heart Research Institute
+- id: ror:02d439m40
+  props:
+    city: Athens
+    country: Greece
+  title:
+    en: University Mental Health Research Institute
+- id: ror:033yfkj90
+  props:
+    city: Monterey
+    country: United States
+    state: California
+  title:
+    en: Naval Postgraduate School
+- id: ror:04h08p482
+  props:
+    city: Derby
+    country: United Kingdom
+  title:
+    en: Rolls-Royce (United Kingdom)
+- id: ror:01zctcs90
+  props:
+    city: London
+    country: United Kingdom
+  title:
+    en: BP (United Kingdom)
+- id: ror:05m7zw681
+  props:
+    city: London
+    country: United Kingdom
+  title:
+    en: Rio Tinto (United Kingdom)
+- id: ror:017wrhq72
+  props:
+    city: Perth
+    country: Australia
+    state: Western Australia
+  title:
+    en: Department of Water
+- id: ror:04p8ejq70
+  props:
+    city: London
+    country: United Kingdom
+  title:
+    en: BAE Systems (United Kingdom)
+- id: ror:03awtex73
+  props:
+    city: Cambridge
+    country: United States
+    state: Massachusetts
+  title:
+    en: Arup Group (United States)
+- id: ror:00kv9pj15
+  props:
+    city: London
+    country: United Kingdom
+  title:
+    en: BT Group (United Kingdom)
+- id: ror:03mjtdk61
+  props:
+    city: Brisbane
+    country: Australia
+    state: Queensland
+  title:
+    en: Mater Health Services
+- id: ror:04yyp8h20
+  props:
+    city: St Helens
+    country: United Kingdom
+  title:
+    en: Pilkington (United Kingdom)
+- id: ror:022rkxt86
+  props:
+    city: London
+    country: Canada
+    state: Ontario
+  title:
+    en: Trojan Technologies (Canada)
+- id: ror:01wddqe20
+  props:
+    city: Melbourne
+    country: Australia
+    state: Victoria
+  title:
+    en: The Alfred Hospital
+- id: ror:02x2akc96
+  props:
+    city: Olympia
+    country: United States
+    state: Washington
+  title:
+    en: Washington State Department of Health
+- id: ror:03kwrfk72
+  props:
+    city: Adelaide
+    country: Australia
+    state: South Australia
+  title:
+    en: Women's and Children's Hospital
+- id: ror:054vpsz16
+  props:
+    city: London
+    country: United Kingdom
+  title:
+    en: Mott Macdonald (United Kingdom)
+- id: ror:037mpqg03
+  props:
+    city: London
+    country: United Kingdom
+  title:
+    en: Xstrata (United Kingdom)
+- id: ror:05dg9bg39
+  props:
+    city: Nedlands
+    country: Australia
+    state: Western Australia
+  title:
+    en: Pathwest Laboratory Medicine
+- id: ror:05cggb038
+  props:
+    city: Vancouver
+    country: Canada
+    state: British Columbia
+  title:
+    en: Teck (Canada)
+- id: ror:050b31k83
+  props:
+    city: Newcastle
+    country: Australia
+    state: New South Wales
+  title:
+    en: Hunter New England Local Health District
+- id: ror:023m51b03
+  props:
+    city: Melbourne
+    country: Australia
+    state: Victoria
+  title:
+    en: Cancer Council Victoria
+- id: ror:01q8f6705
+  props:
+    city: Ludwigshafen am Rhein
+    country: Germany
+  title:
+    en: BASF (Germany)
+- id: ror:03t40cz74
+  props:
+    city: Elmsford
+    country: United States
+    state: New York
+  title:
+    en: Hypres (United States)
+- id: ror:03ebg0v16
+  props:
+    city: Omaha
+    country: United States
+    state: Nebraska
+  title:
+    en: Boys Town
+- id: ror:041b40q78
+  props:
+    city: Sydney
+    country: Australia
+    state: New South Wales
+  title:
+    en: Olympus (Australia)
+- id: ror:04jc0r179
+  props:
+    city: Doncaster
+    country: United Kingdom
+  title:
+    en: UK Coal
+- id: ror:05gwtvp11
+  props:
+    city: Husinec
+    country: Czechia
+  title:
+    en: Nuclear Research Institute Rez (Czechia)
+- id: ror:03anc3s24
+  props:
+    city: Vienna
+    country: Austria
+  title:
+    en: Austrian Academy of Sciences
+- id: ror:04knbh022
+  props:
+    city: Vienna
+    country: Austria
+  title:
+    en: Austrian Institute of Technology
+- id: ror:04rdtx186
+  props:
+    city: Qingdao
+    country: China
+  title:
+    en: Ocean University of China
+- id: ror:04zfme737
+  props:
+    city: Liverpool
+    country: United Kingdom
+  title:
+    en: Liverpool John Moores University
+- id: ror:02qs84g94
+  props:
+    city: Piraeus
+    country: Greece
+    state: Attiki
+  title:
+    en: University of Piraeus
+- id: ror:03c44v465
+  props:
+    city: Bari
+    country: Italy
+  title:
+    en: Polytechnic University of Bari
+- id: ror:03cv38k47
+  props:
+    city: Groningen
+    country: Netherlands
+    state: Groningen
+  title:
+    en: University Medical Center Groningen
+- id: ror:03e8s1d88
+  props:
+    city: Potsdam
+    country: Germany
+  title:
+    en: Potsdam Institute for Climate Impact Research
+- id: ror:00t3r8h32
+  props:
+    city: "L\xFCbeck"
+    country: Germany
+    state: Schleswig-Holstein
+  title:
+    en: "University of L\xFCbeck"
+- id: ror:01ee9ar58
+  props:
+    city: Nottingham
+    country: United Kingdom
+    state: Nottingham
+  title:
+    en: University of Nottingham
+- id: ror:04p2pa451
+  props:
+    city: Oslo
+    country: Norway
+  title:
+    en: Institute of Transport Economics
+- id: ror:02khfkr46
+  props:
+    city: Warsaw
+    country: Poland
+  title:
+    en: Institute of Electron Technology
+- id: ror:03fs4aq04
+  props:
+    city: Warsaw
+    country: Poland
+  title:
+    en: Institute of Fundamental Technological Research
+- id: ror:01nffqt88
+  props:
+    city: Milan
+    country: Italy
+  title:
+    en: Politecnico di Milano
+- id: ror:05290cv24
+  props:
+    city: Naples
+    country: Italy
+    state: Campania
+  title:
+    en: University of Naples Federico II
+- id: ror:03ykbk197
+  props:
+    city: Portsmouth
+    country: United Kingdom
+    state: Portsmouth
+  title:
+    en: University of Portsmouth
+- id: ror:03mstc592
+  props:
+    city: Heidelberg
+    country: Germany
+  title:
+    en: European Molecular Biology Laboratory
+- id: ror:04zgvy449
+  props:
+    city: Paris
+    country: France
+  title:
+    en: "PSA Peugeot Citro\xEBn (France)"
+- id: ror:02vwnat91
+  props:
+    city: London
+    country: United Kingdom
+    state: Southwark
+  title:
+    en: London South Bank University
+- id: ror:05r3f7h03
+  props:
+    city: Braunschweig
+    country: Germany
+    state: Niedersachsen
+  title:
+    en: Physikalisch-Technische Bundesanstalt
+- id: ror:00hswnk62
+  props:
+    city: Belfast
+    country: United Kingdom
+  title:
+    en: Queen's University Belfast
+- id: ror:04qw24q55
+  props:
+    city: Wageningen
+    country: Netherlands
+  title:
+    en: Wageningen University & Research
+- id: ror:00gzkxz88
+  props:
+    city: Freising
+    country: Germany
+  title:
+    en: Weihenstephan-Triesdorf University of Applied Sciences
+- id: ror:012p63287
+  props:
+    city: Groningen
+    country: Netherlands
+    state: Groningen
+  title:
+    en: University of Groningen
+- id: ror:020268t49
+  props:
+    city: Heidenau
+    country: Germany
+  title:
+    en: Papiertechnische Stiftung
+- id: ror:0249v7n71
+  props:
+    city: Budapest
+    country: Hungary
+  title:
+    en: Institute for Computer Science and Control
+- id: ror:03kchyj69
+  props:
+    city: Cambridge
+    country: United Kingdom
+  title:
+    en: The Welding Institute
+- id: ror:037m6e306
+  props:
+    city: Melton Mowbray
+    country: United Kingdom
+  title:
+    en: Pera (United Kingdom)
+- id: ror:026zzn846
+  props:
+    city: London
+    country: United Kingdom
+  title:
+    en: Queen Mary University of London
+- id: ror:02mw21745
+  props:
+    city: Zagreb
+    country: Croatia
+  title:
+    en: Rudjer Boskovic Institute
+- id: ror:04v98kq37
+  props:
+    city: Boulogne-Billancourt
+    country: France
+  title:
+    en: Renault (France)
+- id: ror:02edavb98
+  props:
+    city: Modena
+    country: Italy
+  title:
+    en: Agenzia Regionale Prevenzione e Ambiente della Regione Emilia-Romagna
+- id: ror:01j5n9f07
+  props:
+    city: Budapest
+    country: Hungary
+    state: Pest
+  title:
+    en: Institute for Atomic Energy Research
+- id: ror:02jz4aj89
+  props:
+    city: Maastricht
+    country: Netherlands
+    state: Limburg
+  title:
+    en: Maastricht University
+- id: ror:032v7rj83
+  props:
+    city: Zamudio
+    country: Spain
+  title:
+    en: Robotiker
+- id: ror:00f1xkb20
+  props:
+    city: Bidart
+    country: France
+  title:
+    en: Robosoft (France)
+- id: ror:017ph0934
+  props:
+    city: Sofia
+    country: Bulgaria
+  title:
+    en: University of National and World Economy
+- id: ror:01cg9ws23
+  props:
+    city: Brasov
+    country: Romania
+    state: "Bra\u015Fov"
+  title:
+    en: "Transylvania University of Bra\u0219ov"
+- id: ror:01ypwfg63
+  props:
+    city: Utrecht
+    country: Netherlands
+  title:
+    en: Ecofys (Netherlands)
+- id: ror:03dvm1235
+  props:
+    city: Glasgow
+    country: United Kingdom
+  title:
+    en: Glasgow Caledonian University
+- id: ror:04gnjpq42
+  props:
+    city: Athens
+    country: Greece
+    state: Attiki
+  title:
+    en: National and Kapodistrian University of Athens
+- id: ror:0052k0e03
+  props:
+    city: Vilnius
+    country: Lithuania
+  title:
+    en: Mykolas Romeris University
+- id: ror:008x57b05
+  props:
+    city: Antwerp
+    country: Belgium
+  title:
+    en: University of Antwerp
+- id: ror:00ntfnx83
+  props:
+    city: Tokyo
+    country: Japan
+  title:
+    en: Waseda University
+- id: ror:02e2c7k09
+  props:
+    city: Delft
+    country: Netherlands
+    state: Zuid-Holland
+  title:
+    en: Delft University of Technology
+- id: ror:00f7hpc57
+  props:
+    city: Erlangen
+    country: Germany
+    state: Bayern
+  title:
+    en: University of Erlangen-Nuremberg
+- id: ror:0460jpj73
+  props:
+    city: "Concepci\xF3n"
+    country: Chile
+    state: "B\xEDo-B\xEDo"
+  title:
+    en: "University of Concepci\xF3n"
+- id: ror:03ad39j10
+  props:
+    city: Pisa
+    country: Italy
+    state: Toscana
+  title:
+    en: University of Pisa
