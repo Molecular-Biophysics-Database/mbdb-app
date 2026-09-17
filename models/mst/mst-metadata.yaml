@@ -1,5 +1,4 @@
-# Definition of metadata for mst. Please do not add ccmm model here,
-# add the ccmm_preset instead.
+#mst-metadata.yaml
 Metadata:
   properties:
     general_parameters:

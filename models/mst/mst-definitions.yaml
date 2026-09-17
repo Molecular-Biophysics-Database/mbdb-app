@@ -1,3 +1,4 @@
+# mst-definitions.yaml
 MST_specific_parameters:
   properties:
     schema_version:
