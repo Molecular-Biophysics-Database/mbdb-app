@@ -6,6 +6,7 @@ Microscale thermophoresis
 from __future__ import annotations
 
 from invenio_i18n import lazy_gettext as _
+from oarepo_rdm.model import rdm_minimal_preset
 from oarepo_model.presets.drafts import drafts_preset
 from oarepo_model.presets.relations import relations_preset
 from oarepo_model.presets.ui import ui_preset
@@ -14,7 +15,9 @@ from oarepo_model.api import model
 from oarepo_model.customizations import AddMetadataExport
 from oarepo_model.datatypes.registry import from_yaml
 from oarepo_model.presets.records_resources import records_resources_preset
-from oarepo_model.presets.ui_links import ui_links_preset
+from oarepo_communities.model.presets import communities_preset
+from oarepo_requests.model.presets.requests import requests_preset
+from oarepo_workflows.model.presets import workflows_preset
 
 from .serializers import DataCiteJSONSerializer
 
@@ -25,17 +28,16 @@ mst_model = model(
     version="1.0.0",
     description="Microscale thermophoresis\n\n",
     presets=[
-        records_resources_preset,
         # drafts_preset,
-        relations_preset,
-        ui_preset,
-        custom_fields_preset,
-        ui_links_preset,
+        rdm_minimal_preset,
+        workflows_preset,
+        requests_preset,
+        communities_preset,
 
     ],
     types=[
-        from_yaml("../general_parameters-definitions.yaml", __file__),
-        from_yaml("metadata.yaml", __file__),
+        from_yaml("../general_parameters-definitions-rdm.yaml", __file__),
+        from_yaml("mst-metadata.yaml", __file__),
         from_yaml("mst-definitions.yaml", __file__),
     ],
     metadata_type="Metadata",
