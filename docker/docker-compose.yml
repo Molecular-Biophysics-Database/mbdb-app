@@ -48,6 +48,8 @@ services:
     ports:
       - "${INVENIO_OPENSEARCH_HOST}:${INVENIO_OPENSEARCH_PORT}:9200"
       - "${INVENIO_OPENSEARCH_HOST}:${INVENIO_OPENSEARCH_CLUSTER_PORT}:9600"
+
+# TODO: Needs to be changed for RustFS
   s3:
     image: minio/minio:latest
     restart: "unless-stopped"
