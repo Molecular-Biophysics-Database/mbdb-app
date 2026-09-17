@@ -1,0 +1,21 @@
+- acronym: CERN
+  country: CH
+  country_name: Switzerland
+  id: 01ggx4157
+  identifiers:
+  - identifier: 01ggx4157
+    scheme: ror
+  - identifier: grid.9132.9
+    scheme: grid
+  - identifier: 0000 0001 2156 142X
+    scheme: isni
+  location_name: Geneva
+  name: European Organization for Nuclear Research
+  status: active
+  title:
+    de: Europäische Organisation für Kernforschung
+    en: European Organization for Nuclear Research
+    fr: Organisation européenne pour la recherche nucléaire
+  types:
+  - facility
+  - funder
