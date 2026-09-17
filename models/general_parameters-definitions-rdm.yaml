@@ -32,26 +32,7 @@ General_parameters:
         based on OpenAire Projects
       label.en: Funding references
       items:
-        keys:
-          - id:
-              type: keyword
-          - title:
-              type: i18ndict
-          - funder.name:
-              type: keyword
-          - number:
-              type: keyword
-        vocabulary-type: awards
-        type: vocabulary
-        extras:
-          title:
-            mapping:
-              properties:
-                en:
-                  copy_to: collected_default_search_fields
-          id:
-            mapping:
-              copy_to: collected_default_search_fields
+        type: RDMFunding
       type: array
     method:
       help.en: The type of experimental method used for collecting the raw data 
@@ -1138,29 +1119,16 @@ Person:
         Research Organization Registry (ROR)
       label.en: Affiliations
       items:
-        keys:
-          - id:
-              type: keyword
-          - title:
-              type: i18ndict
-          - props.city:
-              type: keyword
-          - props.state:
-              type: keyword
-          - props.country:
-              type: keyword
-        vocabulary-type: affiliations
         type: vocabulary
-        pid-field: Vocabulary.pid.with_type_ctx("affiliations")
-        extras:
-          title:
-            mapping:
-              properties:
-                en:
-                  copy_to: collected_default_search_fields
-          id:
-            mapping:
-              copy_to: collected_default_search_fields
+        vocabulary-type: affiliations
+        keys:
+          - name:
+              type: keyword
+          - identifiers:
+              type: array
+              items:
+                type: RDMIdentifier
+
       type: array
   label.en: Person
 Publication_base:
