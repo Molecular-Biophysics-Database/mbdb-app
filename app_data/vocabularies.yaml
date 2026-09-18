@@ -1,39 +1,39 @@
-# affiliations:
-# pid-type: aff
-# data-file: vocabularies/affiliations.yaml
+affiliations:
+  pid-type: aff
+  data-file: vocabularies/affiliations.yaml
 
-vocabulary-body-fluids:
+body-fluids:
   pid-type: v-bod
   data-file: vocabularies/body_fluids.yaml
 
-vocabulary-cell-fractions:
+cell-fractions:
   pid-type: v-cel
   data-file: vocabularies/cell_fractions.yaml
 
-vocabulary-chemicals:
+chemicals:
   pid-type: v-che
   data-file: vocabularies/chemicals.yaml
 
-vocabulary-environment-types:
+environment-types:
   pid-type: v-env
   data-file: vocabularies/environment_types.yaml
 
-vocabulary-grants:
-  pid-type: v-gra
-  data-file: vocabularies/grants.yaml
+funders:
+  pid-type: v-fun
+  data-file: vocabularies/funders.yaml
 
-vocabulary-instruments:
+awards:
+  pid-type: v-awa
+  data-file: vocabularies/awards.yaml
+
+instruments:
     pid-type: v-ins
     data-file: vocabularies/instruments.yaml
 
-vocabulary-languages:
-  pid-type: v-lan
-  data-file: vocabularies/languages.yaml
-
-vocabulary-organisms:
+organisms:
   pid-type: v-org
   data-file: vocabularies/organisms.yaml
 
-vocabulary-products:
+products:
   pid-type: v-pro
   data-file: vocabularies/products.yaml
