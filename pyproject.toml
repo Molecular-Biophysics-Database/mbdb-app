@@ -8,6 +8,10 @@ dependencies = [
     "oarepo[s3,rdm]>=14.0.0,<15.0.0",
     "oarepo-app[production]>=7.0.0,<8.0.0",
     #"oarepo-model",
+    "billiard==4.2.4",
+    "oarepo-model>=6.0.0,<7.0.0",
+    "oarepo-rdm",
+    "oarepo-runtime"
 ]
 requires-python = ">=3.14,<3.15"
 
@@ -49,8 +53,19 @@ module-name = [
     "models",
 ]
 
+[tool.uv]
+# oarepo-app[production] pins oarepo-rdm==8.6.1 and oarepo-model==5.4.x;
+# the GitHub main branch of oarepo-rdm is 9.x and the project needs oarepo-model 6.x,
+# so both pins are overridden.
+override-dependencies = [
+    "oarepo-rdm @ git+https://github.com/oarepo/oarepo-rdm@main",
+    "oarepo-model>=6.0.0,<7.0.0",
+]
+
 [tool.uv.sources]
-#oarepo-model = {path = "../oarepo-lib/oarepo-model", editable = true}
+oarepo-model = {path = "/Users/m/Workspaces/oarepo-libs/feat-geo/oarepo-model", editable = true}
+oarepo-rdm = { git = "https://github.com/oarepo/oarepo-rdm", branch = "main" }
+oarepo-runtime = { path = "/Users/m/temp/oarepo-app-6/oarepo-runtime", editable = true }
 
 [build-system]
 requires = [

@@ -1,11 +1,15 @@
-import { DepositFormApp, parseFormAppConfig, ExampleSection } from "@js/oarepo_ui/forms";
-import { EmptyDepositRecordSerializer } from "@js/oarepo_ui/api";
+import { DepositFormApp, parseFormAppConfig } from "@js/oarepo_ui/forms";
 import React from "react";
 import ReactDOM from "react-dom";
 import { SaveButton } from "@js/invenio_rdm_records";
-import { Grid } from "semantic-ui-react";
+import { Grid } from "mbdb-semantic-ui-react";
+import {
+  EntitiesOfInterestSection,
+  MbdbDepositRecordSerializer,
+} from "@js/mbdb/forms";
+
 const { rootEl, config, ...rest } = parseFormAppConfig();
-const recordSerializer = new EmptyDepositRecordSerializer();
+const recordSerializer = new MbdbDepositRecordSerializer();
 
 const componentOverrides = {
   [`${config.overridableIdPrefix}.TabForm.actions`]: () => (
@@ -19,7 +23,7 @@ const componentOverrides = {
   ),
 };
 
-const sections = [ExampleSection];
+const sections = [EntitiesOfInterestSection];
 
 ReactDOM.render(
   <DepositFormApp
@@ -30,5 +34,5 @@ ReactDOM.render(
     componentOverrides={componentOverrides}
     useWizardForm
   />,
-  rootEl,
+  rootEl
 );
