@@ -6,68 +6,137 @@ import {
   FieldHelp,
   Form,
   Icon,
-  Input,
   Label,
   Table,
 } from "mbdb-semantic-ui-react";
-import { countErrors, errorMessages } from "../errors";
-import { useModelFieldData } from "../fieldData";
+import {
+  useFieldErrors,
+  useOwnErrorMessages,
+} from "@js/mbdb/forms/building-blocks/errors";
+import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
+import { randomUUID } from "@js/mbdb/forms/building-blocks/randomUUID";
+import { DataCell } from "./Cell";
+import { HeaderRow } from "./Header";
 
 const identity = (x) => x;
 
-// Label-less cell input; the column header is its label (aria-label).
-const Cell = ({ column, row, onChange, error }) => {
-  const value = row?.[column.field];
-  const common = {
-    "aria-label": column.label,
-    error: error !== undefined,
-    value: value ?? "",
-    onChange: (e, { value: next }) => onChange(next),
-  };
-  if (column.type === "textarea")
-    return <Form.TextArea autoHeight rows={1} {...common} />;
-  if (column.type === "number")
-    return (
-      <Input
-        type="number"
-        {...common}
-        onChange={(e) =>
-          onChange(e.target.value === "" ? undefined : Number(e.target.value))
-        }
-      />
-    );
-  if (column.type === "select")
-    return (
-      <Form.Dropdown
-        search
-        selection
-        clearable
-        selectOnBlur={false}
-        allowAdditions={column.allowAdditions}
-        options={(column.options ?? []).map((opt) =>
-          typeof opt === "string"
-            ? { key: opt, value: opt, text: opt }
-            : { key: opt.value, value: opt.value, text: opt.label ?? opt.value }
+// One data row. A component (not a render callback) so hooks can be used per
+// row: the expand state and the row-level error read formik context.
+const Row = ({
+  fieldPath,
+  itemPath,
+  index,
+  storedItem,
+  columns,
+  deserialize,
+  expanded,
+  onToggleExpand,
+  onRowChange,
+  onRemove,
+  renderExpanded,
+  expandToggle,
+  rowHint,
+  colSpan,
+}) => {
+  const row = deserialize(storedItem);
+  // F2: open state is derived on every render — an explicit user toggle
+  // wins; otherwise a row with errors under it opens automatically (C1:
+  // initialErrors count, including new ones set on this SAME mounted form
+  // after a failed save)
+  const rowHasError = useFieldErrors(itemPath).hasError;
+  const isOpen = expanded ?? rowHasError;
+  // F8: a string/{message} error AT the item itself (serialize tables store
+  // strings, so `dbs.0: "…"` lands here) is shown in the actions cell
+  const rowMessages = useOwnErrorMessages(itemPath);
+  const hint = rowHint?.(row);
+
+  const setCell = (column, cellValue) =>
+    onRowChange({ ...row, [column.field]: cellValue });
+
+  return (
+    <>
+      <Table.Row>
+        <Table.Cell collapsing>{index + 1}</Table.Cell>
+        {columns.map((column) => (
+          <Table.Cell key={column.field}>
+            {column.render ? (
+              column.render(row, index)
+            ) : (
+              <DataCell
+                fieldPath={fieldPath}
+                itemPath={itemPath}
+                column={column}
+                row={row}
+                onChange={(next) => setCell(column, next)}
+              />
+            )}
+          </Table.Cell>
+        ))}
+        {renderExpanded && (
+          <Table.Cell collapsing>
+            <Button
+              basic
+              size="mini"
+              type="button"
+              aria-expanded={isOpen}
+              onClick={() => onToggleExpand(isOpen)}
+            >
+              {`${expandToggle?.(row) ?? "Details"} ${isOpen ? "▾" : "▸"}`}
+            </Button>
+          </Table.Cell>
         )}
-        aria-label={column.label}
-        error={error !== undefined}
-        value={value ?? ""}
-        onChange={(e, { value: next }) =>
-          onChange(next === "" ? undefined : next)
-        }
-      />
-    );
-  return <Input {...common} />;
+        <Table.Cell collapsing textAlign="right">
+          {rowMessages.length > 0 && (
+            <Label color="red" pointing prompt>
+              {rowMessages.join(" ")}
+            </Label>
+          )}{" "}
+          {hint && (
+            <Label basic color="yellow" size="mini">
+              {hint}
+            </Label>
+          )}{" "}
+          {onRemove && (
+            <Button
+              basic
+              icon
+              size="mini"
+              type="button"
+              aria-label={`Remove row ${index + 1}`}
+              onClick={onRemove}
+            >
+              <Icon name="close" />
+            </Button>
+          )}
+        </Table.Cell>
+      </Table.Row>
+      {renderExpanded && isOpen && (
+        <Table.Row>
+          <Table.Cell colSpan={colSpan}>
+            {renderExpanded(itemPath, index)}
+          </Table.Cell>
+        </Table.Row>
+      )}
+    </>
+  );
 };
-Cell.propTypes = {
-  column: PropTypes.object.isRequired,
-  row: PropTypes.any,
-  onChange: PropTypes.func.isRequired,
-  error: PropTypes.string,
+Row.propTypes = {
+  fieldPath: PropTypes.string.isRequired,
+  itemPath: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+  storedItem: PropTypes.any,
+  columns: PropTypes.arrayOf(PropTypes.object).isRequired,
+  deserialize: PropTypes.func.isRequired,
+  expanded: PropTypes.bool,
+  onToggleExpand: PropTypes.func.isRequired,
+  onRowChange: PropTypes.func.isRequired,
+  onRemove: PropTypes.func,
+  renderExpanded: PropTypes.func,
+  expandToggle: PropTypes.func,
+  rowHint: PropTypes.func,
+  colSpan: PropTypes.number.isRequired,
 };
 
-// minItems rows are seeded once inside the FieldArray render (guide §8: no
-// useEffect writing values); the ref guard makes it a one-time action.
 const TableArrayFieldInner = ({
   fieldPath,
   arrayHelpers,
@@ -81,160 +150,110 @@ const TableArrayFieldInner = ({
   expandToggle,
   rowHint,
 }) => {
-  const { values, errors, setFieldValue, initialValues } = useFormikContext();
-  // ponytail: minItems rows are pushed inside render (task-specified pattern);
-  // React 16 logs a dev-only setState-in-render warning on first mount, but
-  // the push is otherwise deferred and applied before paint.
-  const initializedRef = useRef(false);
+  const { values, setFieldValue } = useFormikContext();
   const items = getIn(values, fieldPath) ?? [];
+  // F11: minItems rows are VIRTUAL — rendered from defaultNewValue but not
+  // written to Formik until the user edits one (the old push-on-render
+  // seeded [{}], marked the form dirty and never re-ran after a save)
+  const rowCount = Math.max(items.length, minItems);
+  // F6/C5: items have no stable identity (steps, stored strings), so client-
+  // only keys live in a ref parallel to the rows: grown on render (covers
+  // initial values and virtual rows), spliced on remove, pushed on add.
+  // Nothing is written into the values, so it works for string arrays too.
+  const keysRef = useRef([]);
+  while (keysRef.current.length < rowCount) keysRef.current.push(randomUUID());
+  // F2: only the user's explicit toggles are state; errors decide the rest
+  const [toggles, setToggles] = useState({});
+  // F8: a string/{message} error AT the list itself (e.g.
+  // `steps: "Missing data for required field."`) shows under the table
+  const listMessages = useOwnErrorMessages(fieldPath);
 
-  if (!initializedRef.current) {
-    initializedRef.current = true;
-    const missing = minItems - items.length;
-    if (missing > 0) {
-      // push once (Formik applies each push on top of the previous)
-      for (let i = 0; i < missing; i++)
-        arrayHelpers.push(deserialize(defaultNewValue));
+  const setRow = (index, newRowObject) => {
+    if (index <= items.length) {
+      // a real row, or the virtual row right after the last real one:
+      // writing the path creates the array entry in place (formik setIn)
+      setFieldValue(`${fieldPath}.${index}`, serialize(newRowObject));
+    } else {
+      // a virtual row past the end (minItems >= 2, edited before earlier
+      // virtual rows): materialize the whole array, filling the gap with
+      // defaultNewValue (the stored shape — "" for a serialize table)
+      const next = items.slice();
+      for (let i = next.length; i < index; i++) next.push(defaultNewValue);
+      next[index] = serialize(newRowObject);
+      setFieldValue(fieldPath, next);
     }
-  }
-
-  // one-time: rows with errors start expanded (computed from initial values)
-  const [expanded, setExpanded] = useState(() => {
-    const initialItems = getIn(initialValues, fieldPath) ?? [];
-    const open = new Set();
-    initialItems.forEach((_, i) => {
-      if (renderExpanded && countErrors(errors, `${fieldPath}.${i}`) > 0)
-        open.add(i);
-    });
-    return open;
-  });
-
-  const rows = items.map(deserialize);
-
-  const setCell = (index, column, cellValue) => {
-    const next = { ...rows[index], [column.field]: cellValue };
-    setFieldValue(`${fieldPath}.${index}`, serialize(next));
   };
 
-  const toggleExpand = (index) =>
-    setExpanded((prev) => {
-      const next = new Set(prev);
-      if (next.has(index)) next.delete(index);
-      else next.add(index);
-      return next;
-    });
+  const removeRow = (index) => {
+    keysRef.current.splice(index, 1);
+    // formik's remove leaves [] behind when the array empties; guide §7
+    // wants the key gone entirely (many arrays have minItems: 1)
+    if (items.length <= 1) setFieldValue(fieldPath, undefined);
+    else arrayHelpers.remove(index);
+  };
+
+  // F3: defaultNewValue IS the stored shape (a string table passes "");
+  // push it unchanged — deserialize() maps it to the row shape at render
+  const addRow = () => {
+    arrayHelpers.push(defaultNewValue);
+    keysRef.current.push(randomUUID());
+  };
+
+  const toggleExpand = (key, current) =>
+    setToggles((prev) => ({ ...prev, [key]: !current }));
 
   const colSpan = 2 + columns.length + (renderExpanded ? 1 : 0); // # + … + expand + actions
 
   return (
     <>
       <Table compact celled>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>#</Table.HeaderCell>
-            {columns.map((column) => (
-              <Table.HeaderCell key={column.field} width={column.width}>
-                {column.label}
-                {column.required ? " *" : ""}
-              </Table.HeaderCell>
-            ))}
-            {renderExpanded && <Table.HeaderCell />}
-            <Table.HeaderCell />
-          </Table.Row>
-        </Table.Header>
+        <HeaderRow
+          fieldPath={fieldPath}
+          columns={columns}
+          renderExpanded={renderExpanded}
+        />
         <Table.Body>
-          {rows.map((row, index) => {
-            const itemPath = `${fieldPath}.${index}`;
-            const isOpen = expanded.has(index);
-            const hint = rowHint?.(row);
-            // ponytail: plain FieldArray gives no __key, so the row key may
-            // fall back to the index; reordering costs a re-render at worst
+          {Array.from({ length: rowCount }, (_, index) => {
+            const key = keysRef.current[index];
             return (
-              <React.Fragment
-                key={items[index]?.__key ?? items[index]?.id ?? index}
-              >
-                <Table.Row>
-                  <Table.Cell collapsing>{index + 1}</Table.Cell>
-                  {columns.map((column) => {
-                    const cellError = errorMessages(
-                      errors,
-                      `${itemPath}.${column.field}`
-                    ).join(" ");
-                    return (
-                      <Table.Cell key={column.field}>
-                        {column.render ? (
-                          column.render(row, index)
-                        ) : (
-                          <>
-                            <Cell
-                              column={column}
-                              row={row}
-                              error={cellError || undefined}
-                              onChange={(next) => setCell(index, column, next)}
-                            />
-                            {cellError !== "" && (
-                              <Label basic color="red" pointing>
-                                {cellError}
-                              </Label>
-                            )}
-                          </>
-                        )}
-                      </Table.Cell>
-                    );
-                  })}
-                  {renderExpanded && (
-                    <Table.Cell collapsing>
-                      <Button
-                        basic
-                        size="mini"
-                        type="button"
-                        aria-expanded={isOpen}
-                        onClick={() => toggleExpand(index)}
-                      >
-                        {`${expandToggle?.(row) ?? "Details"} ${
-                          isOpen ? "▾" : "▸"
-                        }`}
-                      </Button>
-                    </Table.Cell>
-                  )}
-                  <Table.Cell collapsing textAlign="right">
-                    {hint && (
-                      <Label basic color="yellow" size="mini">
-                        {hint}
-                      </Label>
-                    )}{" "}
-                    {index >= minItems && (
-                      <Button
-                        basic
-                        icon
-                        size="mini"
-                        type="button"
-                        aria-label={`Remove row ${index + 1}`}
-                        onClick={() => arrayHelpers.remove(index)}
-                      >
-                        <Icon name="close" />
-                      </Button>
-                    )}
-                  </Table.Cell>
-                </Table.Row>
-                {renderExpanded && isOpen && (
-                  <Table.Row>
-                    <Table.Cell colSpan={colSpan}>
-                      {renderExpanded(itemPath, index)}
-                    </Table.Cell>
-                  </Table.Row>
-                )}
-              </React.Fragment>
+              <Row
+                key={key}
+                fieldPath={fieldPath}
+                itemPath={`${fieldPath}.${index}`}
+                index={index}
+                storedItem={
+                  index < items.length ? items[index] : defaultNewValue
+                }
+                columns={columns}
+                deserialize={deserialize}
+                expanded={toggles[key]}
+                onToggleExpand={(current) => toggleExpand(key, current)}
+                onRowChange={(newRow) => setRow(index, newRow)}
+                onRemove={
+                  index >= minItems ? () => removeRow(index) : undefined
+                }
+                renderExpanded={renderExpanded}
+                expandToggle={expandToggle}
+                rowHint={rowHint}
+                colSpan={colSpan}
+              />
             );
           })}
         </Table.Body>
       </Table>
+      {listMessages.length > 0 && (
+        <div>
+          <Label color="red" pointing prompt>
+            {listMessages.join(" ")}
+          </Label>
+        </div>
+      )}
       <Button
         type="button"
         icon
         labelPosition="left"
         size="small"
-        onClick={() => arrayHelpers.push(deserialize(defaultNewValue))}
+        onClick={addRow}
       >
         <Icon name="add" />
         {addButtonLabel}
@@ -245,7 +264,7 @@ const TableArrayFieldInner = ({
 TableArrayFieldInner.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   arrayHelpers: PropTypes.object.isRequired,
-  columns: PropTypes.array.isRequired,
+  columns: PropTypes.arrayOf(PropTypes.object).isRequired,
   minItems: PropTypes.number.isRequired,
   addButtonLabel: PropTypes.string.isRequired,
   defaultNewValue: PropTypes.any,
@@ -274,7 +293,7 @@ export const TableArrayField = ({
   <FieldArray
     name={fieldPath}
     render={(arrayHelpers) => (
-      <Header
+      <FieldBox
         fieldPath={fieldPath}
         label={label}
         help={help}
@@ -293,32 +312,29 @@ export const TableArrayField = ({
           expandToggle={expandToggle}
           rowHint={rowHint}
         />
-      </Header>
+      </FieldBox>
     )}
   />
 );
 
 // Form.Field wrapper with the model's label/help (explicit props win) and an
-// error header when anything under fieldPath has an error.
-const Header = ({ fieldPath, label, help, required, children }) => {
-  const { errors } = useFormikContext();
+// error header when anything under fieldPath has an error (C1).
+const FieldBox = ({ fieldPath, label, help, required, children }) => {
+  const { hasError } = useFieldErrors(fieldPath);
   const data = useModelFieldData(fieldPath, {
     label,
     helpText: help,
     required,
   });
   return (
-    <Form.Field
-      required={data.required}
-      error={countErrors(errors, fieldPath) > 0}
-    >
+    <Form.Field required={data.required} error={hasError}>
       {data.label && <label>{data.label}</label>}
       {children}
       {data.helpText && <FieldHelp help={data.helpText} />}
     </Form.Field>
   );
 };
-Header.propTypes = {
+FieldBox.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   label: PropTypes.string,
   help: PropTypes.string,
@@ -336,7 +352,8 @@ TableArrayField.propTypes = {
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       field: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
+      // F7: defaults to the model label of `<fieldPath>.<field>`
+      label: PropTypes.string,
       required: PropTypes.bool,
       width: PropTypes.number,
       type: PropTypes.oneOf(["text", "textarea", "number", "select"]),

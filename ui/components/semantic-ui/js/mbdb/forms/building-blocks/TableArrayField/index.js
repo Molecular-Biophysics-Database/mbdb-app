@@ -1,1 +1,1 @@
-export * from "./TableArrayField";
+export { TableArrayField } from "./TableArrayField";

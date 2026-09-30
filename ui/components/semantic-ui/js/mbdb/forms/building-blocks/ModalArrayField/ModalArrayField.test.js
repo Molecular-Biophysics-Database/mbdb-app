@@ -14,9 +14,12 @@ jest.mock("@js/oarepo_ui/forms", () => ({
   }),
 }));
 
-// jsdom has no WebCrypto in insecure contexts; the app needs only https/localhost.
-let mockUUID = "uuid-1";
-jest.mock("../randomUUID", () => ({ randomUUID: () => mockUUID }));
+// jsdom has no WebCrypto in insecure contexts; the app needs only
+// https/localhost. Incrementing ids so client-only keys differ per call.
+let mockN = 0;
+jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () => ({
+  randomUUID: () => `uuid-${++mockN}`,
+}));
 const { FormConfigProvider, FieldDataProvider } = jest.requireMock(
   "@js/oarepo_ui/forms"
 );
@@ -30,11 +33,11 @@ const COLUMNS = [
 ];
 
 // modal body: an input bound to the item's name through setFieldValue
-const NameForm = ({ itemPath }) => {
+const NameForm = ({ itemPath, ariaLabel = "Entity name" }) => {
   const { values, setFieldValue } = useFormikContext();
   return (
     <Input
-      aria-label="Entity name"
+      aria-label={ariaLabel}
       value={getIn(values, `${itemPath}.name`) ?? ""}
       onChange={(e) => setFieldValue(`${itemPath}.name`, e.target.value)}
     />
@@ -42,6 +45,7 @@ const NameForm = ({ itemPath }) => {
 };
 NameForm.propTypes = {
   itemPath: PropTypes.string.isRequired,
+  ariaLabel: PropTypes.string,
 };
 
 const Probe = ({ path }) => {
@@ -84,9 +88,24 @@ afterEach(() => {
 
 const probe = () =>
   JSON.parse(container.querySelector('[data-testid="probe"]').textContent);
-const modal = () => document.body.querySelector(".ui.modal");
-const modalButton = (label) =>
-  [...modal().querySelectorAll("button")].find((b) => b.textContent === label);
+// portals stack in creation order: [outer, inner, ...]
+const modals = () => [...document.body.querySelectorAll(".ui.modal")];
+const modal = () => modals()[0] ?? null;
+const modalButtonIn = (m, label) =>
+  [...m.querySelectorAll("button")].find((b) => b.textContent === label);
+const modalButton = (label) => modalButtonIn(modal(), label);
+const click = async (el) => {
+  await act(async () => {
+    Simulate.click(el);
+  });
+};
+const typeIn = async (el, value) => {
+  el.value = value;
+  await act(async () => {
+    Simulate.change(el);
+  });
+};
+
 const entities = (props = {}) => (
   <>
     <ModalArrayField
@@ -137,24 +156,40 @@ describe("ModalArrayField", () => {
     ).not.toBeNull();
   });
 
-  it("adds an item through the dropdown, seeds it, gives it an id with withIds, and opens its modal", () => {
-    mockUUID = "uuid-1";
+  it("adds an item through the dropdown menu (click only), seeds it, gives it an id with withIds, and opens its modal", async () => {
     mount(entities({ withIds: true }));
     const dropdown = container.querySelector(".ui.dropdown");
-    act(() => Simulate.click(dropdown));
+    await click(dropdown);
     const item = [...document.querySelectorAll(".menu .item")].find(
       (el) => el.textContent === "Polymer"
     );
-    act(() => Simulate.click(item));
+    await click(item);
 
     const added = probe()[0];
     expect(added.type).toBe("Polymer");
-    expect(added.id).toBe("uuid-1");
+    expect(added.id).toMatch(/^uuid-\d+$/);
     expect(modal()).not.toBeNull();
     expect(modal().textContent).toContain("Edit entity: new");
   });
 
-  it("Cancel on a just-added item removes it", () => {
+  it("adds an item WITHOUT an id when withIds is not set (components)", async () => {
+    mount(
+      entities({
+        newItemOptions: [{ label: null, value: { type: "Polymer" } }],
+      })
+    );
+    const add = [...container.querySelectorAll("button")].find((b) =>
+      b.textContent.includes("Add")
+    );
+    await click(add);
+    const added = probe()[0];
+    expect(added.type).toBe("Polymer");
+    expect("id" in added).toBe(false);
+    // cancel cleanup for this test
+    await click(modalButton("Cancel"));
+  });
+
+  it("Cancel on a just-added item removes it — and the key, not [] (F1)", async () => {
     mount(
       entities({
         newItemOptions: [{ label: null, value: { type: "Polymer" } }],
@@ -164,50 +199,115 @@ describe("ModalArrayField", () => {
     const add = [...container.querySelectorAll("button")].find((b) =>
       b.textContent.includes("Add")
     );
-    act(() => Simulate.click(add));
+    await click(add);
     expect(probe()).toEqual([{ type: "Polymer" }]);
     expect(modal()).not.toBeNull();
 
-    act(() => Simulate.click(modalButton("Cancel")));
+    await click(modalButton("Cancel"));
     expect(modal()).toBeNull();
-    expect(probe()).toEqual([]); // empty array; the serializer drops it
+    // guide §7: key absent, never []
+    expect(probe()).toBeNull();
   });
 
-  it("Cancel on an existing item restores the snapshot; Done keeps the edits", () => {
+  it("removing the last row removes the whole array key (F1)", async () => {
+    mount(entities({ minItems: 0 }), {
+      initialValues: { entities: [{ type: "Chemical", name: "NaCl" }] },
+    });
+    await click(
+      container.querySelector('button[aria-label="Remove entity: NaCl"]')
+    );
+    // the item has data: SummaryItem asks for confirmation first
+    const confirmDialog = [...document.querySelectorAll(".ui.modal")].find(
+      (m) => m.textContent.includes("This cannot be undone.")
+    );
+    expect(confirmDialog).not.toBeNull();
+    await click(modalButtonIn(confirmDialog, "Remove"));
+    expect(probe()).toBeNull();
+    expect(container.textContent).toContain("No items yet");
+  });
+
+  it("Cancel on an existing item restores the snapshot; Done keeps the edits", async () => {
     mount(entities(), {
       initialValues: { entities: [{ type: "Polymer", name: "Lysozyme" }] },
     });
     const editBtn = [...container.querySelectorAll("button")].find(
       (b) => b.textContent === "Edit"
     );
-    act(() => Simulate.click(editBtn));
+    await click(editBtn);
     expect(modal().textContent).toContain("Edit entity: Lysozyme");
 
-    const input = modal().querySelector('input[aria-label="Entity name"]');
-    input.value = "Changed";
-    act(() => Simulate.change(input));
+    await typeIn(
+      modal().querySelector('input[aria-label="Entity name"]'),
+      "Changed"
+    );
     expect(probe()).toEqual([{ type: "Polymer", name: "Changed" }]);
 
-    act(() => Simulate.click(modalButton("Cancel")));
+    await click(modalButton("Cancel"));
     expect(probe()).toEqual([{ type: "Polymer", name: "Lysozyme" }]);
 
     // edit again, this time Done keeps the change
-    act(() =>
-      Simulate.click(
-        [...container.querySelectorAll("button")].find(
-          (b) => b.textContent === "Edit"
-        )
+    await click(
+      [...container.querySelectorAll("button")].find(
+        (b) => b.textContent === "Edit"
       )
     );
-    const input2 = modal().querySelector('input[aria-label="Entity name"]');
-    input2.value = "Kept";
-    act(() => Simulate.change(input2));
-    act(() => Simulate.click(modalButton("Done")));
+    await typeIn(
+      modal().querySelector('input[aria-label="Entity name"]'),
+      "Kept"
+    );
+    await click(modalButton("Done"));
     expect(modal()).toBeNull();
     expect(probe()).toEqual([{ type: "Polymer", name: "Kept" }]);
   });
 
-  it("opens the modal from the error badge", () => {
+  it("keeps row identity after a removal (F3: no index keys for id-less items)", async () => {
+    mount(entities({ minItems: 0 }), {
+      initialValues: {
+        entities: [
+          { type: "Polymer", name: "A" },
+          { type: "Chemical", name: "B" },
+          { type: "Chemical", name: "C" },
+        ],
+      },
+    });
+    // open B's edit (no id → keyed by the client-only key)
+    const editButtons = [...container.querySelectorAll("button")].filter(
+      (b) => b.textContent === "Edit"
+    );
+    expect(editButtons).toHaveLength(3);
+    await click(editButtons[1]);
+    expect(modal().textContent).toContain("Edit entity: B");
+    await click(modalButton("Cancel"));
+
+    // remove A; B must now be first, and its Edit still opens B
+    await click(
+      container.querySelector('button[aria-label="Remove entity: A"]')
+    );
+    const confirmDialog = [...document.querySelectorAll(".ui.modal")].find(
+      (m) => m.textContent.includes("This cannot be undone.")
+    );
+    await click(modalButtonIn(confirmDialog, "Remove"));
+    expect(probe().map((v) => v.name)).toEqual(["B", "C"]);
+    const editButtons2 = [...container.querySelectorAll("button")].filter(
+      (b) => b.textContent === "Edit"
+    );
+    await click(editButtons2[0]);
+    expect(modal().textContent).toContain("Edit entity: B");
+    await click(modalButton("Cancel"));
+  });
+
+  it("shows a list-level error as a pointing prompt label under the table (F5)", () => {
+    mount(entities({ minItems: 0 }), {
+      initialValues: { entities: [{ type: "Chemical" }] },
+      initialErrors: { entities: "Shorter than minimum length 1." },
+    });
+    const labels = [
+      ...container.querySelectorAll(".ui.red.pointing.prompt.label"),
+    ].map((l) => l.textContent);
+    expect(labels).toContain("Shorter than minimum length 1.");
+  });
+
+  it("opens the modal from the error badge", async () => {
     mount(entities({ minItems: 0 }), {
       initialValues: { entities: [{ type: "Chemical" }] },
       initialErrors: {
@@ -216,11 +316,11 @@ describe("ModalArrayField", () => {
     });
     const badge = container.querySelector(".ui.red.label");
     expect(badge.textContent).toBe("1 error");
-    act(() => Simulate.click(badge));
+    await click(badge);
     expect(modal()).not.toBeNull();
   });
 
-  it("shows the detail view when detailGroups are given", () => {
+  it("shows the detail view when detailGroups are given, excluding the internal id (F4)", async () => {
     mount(
       entities({
         detailGroups: [{ title: "Origin", fields: ["source_organism"] }],
@@ -229,7 +329,12 @@ describe("ModalArrayField", () => {
       {
         initialValues: {
           entities: [
-            { type: "Polymer", name: "Lysozyme", source_organism: "ecoli" },
+            {
+              id: "e1",
+              type: "Polymer",
+              name: "Lysozyme",
+              source_organism: "ecoli",
+            },
           ],
         },
       }
@@ -238,8 +343,110 @@ describe("ModalArrayField", () => {
       'button[aria-label^="Show details of entity"]'
     );
     expect(toggle).not.toBeNull();
-    act(() => Simulate.click(toggle));
+    await click(toggle);
     expect(container.textContent).toContain("ecoli");
     expect(container.querySelector("tr.mbdb-details")).not.toBeNull();
+    // the internal uuid is excluded by default (detailProps.exclude overrides)
+    const details = container.querySelector("tr.mbdb-details");
+    expect(details.textContent).not.toContain("e1");
   });
+
+  it("depth-2: inner Cancel restores only the inner item; outer Cancel restores the whole outer item (F6)", async () => {
+    // a ModalArrayField inside the modal form of another ModalArrayField
+    mount(
+      <>
+        <ModalArrayField
+          fieldPath={ENTITIES}
+          label="Entities"
+          itemLabel={(v) => `entity: ${v?.name ?? "new"}`}
+          columns={COLUMNS}
+          initialValue={{ type: "Polymer" }}
+          renderForm={(itemPath) => (
+            <>
+              <NameForm itemPath={itemPath} />
+              <ModalArrayField
+                fieldPath={`${itemPath}.components`}
+                label="Components"
+                itemLabel={(v) => `component: ${v?.name ?? "new"}`}
+                columns={[{ title: "Name", value: (v) => v.name }]}
+                initialValue={{}}
+                renderForm={(p) => (
+                  <NameForm ariaLabel="Component name" itemPath={p} />
+                )}
+              />
+            </>
+          )}
+        />
+        <Probe path={ENTITIES} />
+      </>,
+      {
+        initialValues: {
+          entities: [
+            {
+              type: "Polymer",
+              name: "Lysozyme",
+              components: [{ name: "water" }],
+            },
+          ],
+        },
+      }
+    );
+    // open the outer entity modal
+    await click(
+      [...container.querySelectorAll("button")].find(
+        (b) => b.textContent === "Edit"
+      )
+    );
+    expect(modal().textContent).toContain("Edit entity: Lysozyme");
+
+    // open the inner component modal (its Edit button lives in the outer one)
+    await click(
+      [...modal().querySelectorAll("button")].find(
+        (b) => b.textContent === "Edit"
+      )
+    );
+    expect(modals()).toHaveLength(2);
+    const inner = () => modals()[1];
+
+    // edit the component, then Cancel: only the inner item is restored
+    await typeIn(
+      inner().querySelector('input[aria-label="Component name"]'),
+      "H2O"
+    );
+    expect(probe()[0].components[0].name).toBe("H2O");
+    await click(modalButtonIn(inner(), "Cancel"));
+    expect(modals()).toHaveLength(1);
+    expect(probe()[0].components[0].name).toBe("water");
+
+    // edit again and keep via Done, then Cancel the OUTER modal:
+    // the snapshot taken at open must restore the component too
+    await click(
+      [...modal().querySelectorAll("button")].find(
+        (b) => b.textContent === "Edit"
+      )
+    );
+    await typeIn(
+      inner().querySelector('input[aria-label="Component name"]'),
+      "H2O"
+    );
+    await click(modalButtonIn(inner(), "Done"));
+    expect(probe()[0].components[0].name).toBe("H2O");
+
+    // also rename the entity inside the outer modal, then Cancel everything
+    await typeIn(
+      modal().querySelector('input[aria-label="Entity name"]'),
+      "Renamed"
+    );
+    await click(modalButtonIn(modal(), "Cancel"));
+    expect(modals()).toHaveLength(0);
+    expect(probe()).toEqual([
+      { type: "Polymer", name: "Lysozyme", components: [{ name: "water" }] },
+    ]);
+  });
+
+  // NOTE: an "Escape closes only the inner modal" case was attempted but
+  // dropped: Simulate.keyDown(document, Escape) breaks this jest
+  // version's expect internals (_jestGetType error) before any assertion —
+  // a test-environment issue, not a component one. Escape still maps to
+  // Cancel in production (EditModal keeps onClose={onCancel}).
 });

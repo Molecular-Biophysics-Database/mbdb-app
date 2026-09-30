@@ -1,14 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { act } from "react-dom/test-utils";
-import { Formik } from "formik";
+import { act, Simulate } from "react-dom/test-utils";
+import { Formik, Field } from "formik";
 import { FieldGroup } from "./FieldGroup";
 
-// The alias index.js does not export FieldHelp yet; simulate the state
-// after that one-line export is added.
-jest.mock("mbdb-semantic-ui-react", () => ({
-  ...jest.requireActual("mbdb-semantic-ui-react"),
-  ...jest.requireActual("mbdb-semantic-ui-react/FieldHelp"),
+// FieldGroup resolves title/help/required from the model when fieldPath is
+// set; the real index cannot load under Jest (ESM deps), so model lookups
+// miss and explicit props win.
+jest.mock("@js/oarepo_ui/forms", () => ({
+  useFieldData: () => ({
+    getFieldData: () => ({
+      label: undefined,
+      helpText: null,
+      required: undefined,
+    }),
+  }),
 }));
 
 let container;
@@ -69,6 +75,29 @@ describe("FieldGroup", () => {
     expect(container.querySelector("h5.ui.header.red")).not.toBeNull();
   });
 
+  it("stays red when another field is edited (initialErrors survive)", () => {
+    render(
+      <>
+        <FieldGroup title="Mw" fieldPath="metadata.mw">
+          fields
+        </FieldGroup>
+        <Field data-testid="other" name="other" />
+      </>,
+      {
+        initialErrors: { metadata: { mw: "Required" } },
+      }
+    );
+    expect(container.querySelector("h5.ui.header.red")).not.toBeNull();
+    // Editing any field runs validation and Formik (no validation schema)
+    // resets `errors` to {}; the header must not lose its red state.
+    const other = container.querySelector('[data-testid="other"]');
+    other.value = "x";
+    act(() => {
+      Simulate.change(other);
+    });
+    expect(container.querySelector("h5.ui.header.red")).not.toBeNull();
+  });
+
   it("does not mark errors outside of fieldPath", () => {
     render(
       <FieldGroup title="Mw" fieldPath="metadata.mw">
@@ -90,8 +119,32 @@ describe("FieldGroup", () => {
     expect(group.querySelector('[data-testid="child"]')).not.toBeNull();
   });
 
+  it("wraps children in a basic Segment when nested", () => {
+    render(
+      <FieldGroup title="Mw" nested>
+        <input data-testid="child" />
+      </FieldGroup>
+    );
+    const segment = container.querySelector(".ui.segment.basic.mbdb-nested");
+    expect(segment).not.toBeNull();
+    expect(segment.querySelector('[data-testid="child"]')).not.toBeNull();
+  });
+
+  it("renders a divider above the group when divided", () => {
+    render(
+      <FieldGroup title="Mw" divided>
+        fields
+      </FieldGroup>
+    );
+    const divider = container.querySelector(".ui.divider");
+    expect(divider).not.toBeNull();
+    expect(divider.nextElementSibling.tagName).toBe("H5");
+  });
+
   it("shows the required asterisk in the header", () => {
     render(<FieldGroup title="Mw" required fieldPath="metadata.mw" />);
-    expect(container.querySelector("h5.ui.header").textContent).toBe("Mw *");
+    const header = container.querySelector("h5.ui.header");
+    expect(header.textContent).toBe("Mw*");
+    expect(header.querySelector("span.mbdb-required").textContent).toBe("*");
   });
 });

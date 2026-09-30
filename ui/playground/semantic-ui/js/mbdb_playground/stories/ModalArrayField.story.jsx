@@ -12,13 +12,15 @@ const ENTITY_TYPES = ["Polymer", "Chemical"];
 // on the same ModalArrayField).
 const EntityForm = ({ fieldPath }) => (
   <>
+    {/* Explicit label until the ui_model has entity children (polymorphic) */}
     <DiscriminatorField
       objectPath={fieldPath}
       field="type"
+      label="Type"
       options={ENTITY_TYPES}
       variant="dropdown"
     />
-    <TextField fieldPath={`${fieldPath}.name`} />
+    <TextField fieldPath={`${fieldPath}.name`} label="Name" />
   </>
 );
 
@@ -31,6 +33,7 @@ const Entities = () => (
     fieldPath={PATH}
     label="Entities of interest"
     required
+    minItems={1}
     itemLabel={(v) => `entity: ${v?.name ?? "new"}`}
     columns={[
       { title: "Name", value: (v) => v.name },
@@ -38,6 +41,7 @@ const Entities = () => (
     ]}
     newItemOptions={ENTITY_TYPES.map((t) => ({ label: t, value: { type: t } }))}
     withIds
+    detailGroups={[{ title: "Identification", fields: ["type", "name"] }]}
     renderForm={(itemPath) => <EntityForm fieldPath={itemPath} />}
   />
 );

@@ -15,11 +15,6 @@ jest.mock("@js/oarepo_ui/forms", () => ({
   }),
 }));
 
-jest.mock("mbdb-semantic-ui-react", () => ({
-  ...jest.requireActual("mbdb-semantic-ui-react"),
-  ...jest.requireActual("mbdb-semantic-ui-react/FieldHelp"),
-}));
-
 const Probe = ({ path }) => {
   const { values } = useFormikContext();
   const v = getIn(values, path);
@@ -94,6 +89,21 @@ describe("SelectField", () => {
       initialValues: { pt: "a" },
     });
     expect(container.querySelector(".dropdown i.icon.clear")).toBeNull();
+  });
+
+  it("removes the key when cleared via the clear icon", () => {
+    render(
+      <>
+        <SelectField fieldPath="pt" options={["a", "b"]} />
+        <Probe path="pt" />
+      </>,
+      { initialValues: { pt: "a" } }
+    );
+    const clearIcon = container.querySelector(".dropdown i.icon.clear");
+    act(() => {
+      Simulate.click(clearIcon);
+    });
+    expect(byTestId("value").textContent).toBe("-");
   });
 
   it("keeps an unknown stored value visible and marks it with a label", () => {

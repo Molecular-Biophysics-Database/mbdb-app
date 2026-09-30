@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useFormikContext, getIn } from "formik";
 import {
@@ -8,14 +8,33 @@ import {
   Label,
   FieldHelp,
 } from "mbdb-semantic-ui-react";
-import { useModelFieldData } from "../fieldData";
+import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
+
+// Unique message strings under an error node: strings plus OARepo
+// { message, severity } objects (never rendered raw). Local clone of
+// errors.js errorMessages; for the C1-aware source below.
+const messagesOf = (node, out = []) => {
+  if (node === undefined || node === null || node === "") return out;
+  if (typeof node === "string") {
+    if (!out.includes(node)) out.push(node);
+  } else if (Array.isArray(node)) {
+    node.forEach((child) => messagesOf(child, out));
+  } else if (typeof node === "object") {
+    if (typeof node.message === "string") {
+      if (!out.includes(node.message)) out.push(node.message);
+    } else {
+      Object.values(node).forEach((child) => messagesOf(child, out));
+    }
+  }
+  return out;
+};
 
 // A measured quantity as one control: number input with the unit dropdown
 // attached on its right. Writes `{ value, unit }` at fieldPath. The
 // defaultUnit is shown pre-selected but written only together with a
-// value, so an empty optional quantity stays absent; clearing the value
-// removes the object (unless the user explicitly picked a non-default
-// unit, which is kept as user intent).
+// value, so an empty optional quantity stays absent. A unit picked before
+// any value lives in local state only — never as a partial `{ unit }` —
+// and clearing the value removes the whole object and resets the pick.
 export const ValueUnitField = ({
   fieldPath,
   units,
@@ -25,68 +44,88 @@ export const ValueUnitField = ({
   required,
   ...uiProps
 }) => {
-  const { values, errors, setFieldValue } = useFormikContext();
+  const { values, errors, initialErrors, initialValues, setFieldValue } =
+    useFormikContext();
   const data = useModelFieldData(fieldPath, { label, helpText, required });
   const current = getIn(values, fieldPath) || {};
-  const valueError = getIn(errors, `${fieldPath}.value`);
-  const unitError = getIn(errors, `${fieldPath}.unit`);
+  // Unit chosen while the quantity is empty; written on the next value.
+  const [pickedUnit, setPickedUnit] = useState(undefined);
+  const unit = pickedUnit ?? current.unit ?? defaultUnit;
+
+  // C1 fallback: server errors arrive as initialErrors and Formik clears
+  // `errors` on the first edit; read the initial ones while the value is
+  // untouched. (Local; re-point to errors.js useFieldErrors once it lands.)
+  const pick = (source) => {
+    const node = getIn(source, fieldPath);
+    return node === undefined || node === null || node === ""
+      ? undefined
+      : node;
+  };
+  const errorNode =
+    pick(errors) ??
+    (getIn(values, fieldPath) === getIn(initialValues, fieldPath)
+      ? pick(initialErrors)
+      : undefined);
+  // The object path itself can hold the message (required quantity
+  // missing); the children hold value/unit validation messages.
+  const objectMessages =
+    typeof errorNode === "string"
+      ? [errorNode]
+      : errorNode && typeof errorNode.message === "string"
+      ? [errorNode.message]
+      : [];
+  const valueMessages = messagesOf(errorNode && errorNode.value);
+  const unitMessages = messagesOf(errorNode && errorNode.unit);
+  const hasError =
+    objectMessages.length + valueMessages.length + unitMessages.length > 0;
 
   const setValue = (raw) => {
     if (raw === "") {
-      if (current.unit === undefined || current.unit === defaultUnit) {
-        setFieldValue(fieldPath, undefined);
-      } else {
-        setFieldValue(fieldPath, { unit: current.unit });
-      }
+      setFieldValue(fieldPath, undefined);
+      setPickedUnit(undefined);
       return;
     }
     const n = parseFloat(raw);
     setFieldValue(fieldPath, {
       value: Number.isNaN(n) ? raw : n,
-      unit: current.unit !== undefined ? current.unit : defaultUnit,
+      unit,
     });
   };
 
-  const setUnit = (unit) => {
+  const setUnit = (nextUnit) => {
     if (current.value !== undefined) {
-      setFieldValue(fieldPath, { ...current, unit });
-    } else if (unit === defaultUnit) {
-      setFieldValue(fieldPath, undefined);
-    } else {
-      setFieldValue(fieldPath, { unit });
+      setFieldValue(fieldPath, { ...current, unit: nextUnit });
     }
+    setPickedUnit(nextUnit);
   };
 
   return (
-    <Form.Field required={data.required} error={!!(valueError || unitError)}>
-      <label>{data.label}</label>
+    <Form.Field required={data.required} error={hasError}>
+      <label htmlFor={fieldPath}>{data.label}</label>
       <Input
+        {...uiProps}
         fluid
+        id={fieldPath}
         type="number"
         step="any"
         value={current.value !== undefined ? current.value : ""}
         onChange={(e, { value }) => setValue(value)}
         label={
           <Dropdown
+            aria-label="Unit"
             selectOnBlur={false}
             options={units.map((u) => ({ key: u, value: u, text: u }))}
-            value={current.unit !== undefined ? current.unit : defaultUnit}
+            value={unit}
             onChange={(e, { value }) => setUnit(value)}
           />
         }
         labelPosition="right"
-        {...uiProps}
       />
-      {valueError && (
-        <Label basic color="red" pointing>
-          {valueError}
+      {[...objectMessages, ...valueMessages, ...unitMessages].map((message) => (
+        <Label key={message} basic color="red" pointing>
+          {message}
         </Label>
-      )}
-      {unitError && (
-        <Label basic color="red" pointing>
-          {unitError}
-        </Label>
-      )}
+      ))}
       <FieldHelp help={data.helpText} />
     </Form.Field>
   );

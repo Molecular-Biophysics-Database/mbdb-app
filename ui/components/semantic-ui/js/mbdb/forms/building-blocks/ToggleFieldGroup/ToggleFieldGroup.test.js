@@ -65,7 +65,20 @@ const toggle = () => {
   checkbox().checked = !checkbox().checked;
   act(() => Simulate.change(checkbox()));
 };
-const group = (props = {}) => (
+// A Formik-connected input for an unrelated field, so Simulate.change drives
+// Formik's setFieldValue (and its async errors reset) — used by the F1 test.
+const UnrelatedInput = () => {
+  const { values, setFieldValue } = useFormikContext();
+  return (
+    <input
+      data-testid="other"
+      value={values.other ?? ""}
+      onChange={(e) => setFieldValue("other", e.target.value)}
+    />
+  );
+};
+
+const group = (props = {}, { withUnrelated = false } = {}) => (
   <>
     <ToggleFieldGroup
       fieldPath="identity.by_intact_mass"
@@ -76,6 +89,7 @@ const group = (props = {}) => (
       <span data-testid="body">FIELDS</span>
     </ToggleFieldGroup>
     <Probe path="identity" />
+    {withUnrelated && <UnrelatedInput />}
   </>
 );
 
@@ -96,6 +110,15 @@ describe("ToggleFieldGroup", () => {
     const body = container.querySelector('[data-testid="body"]');
     expect(body).not.toBeNull();
     expect(body.closest(".mbdb-indent")).not.toBeNull();
+  });
+
+  it("checking with an empty initialValue writes nothing but still opens (F2)", () => {
+    mount(group({ initialValue: {} }));
+    toggle();
+    // checked (via local open state) and body visible, but no `{}` written
+    expect(checkbox().checked).toBe(true);
+    expect(container.querySelector('[data-testid="body"]')).not.toBeNull();
+    expect(probe()).toBeNull(); // identity is not even created
   });
 
   it("is checked when a value exists", () => {
@@ -143,5 +166,28 @@ describe("ToggleFieldGroup", () => {
       initialErrors: { identity: { by_intact_mass: { method: "Required." } } },
     });
     expect(container.querySelector(".field.error")).not.toBeNull();
+  });
+
+  it("keeps the error header after an unrelated edit clears Formik's errors (F1)", async () => {
+    mount(group({}, { withUnrelated: true }), {
+      initialValues: { identity: { by_intact_mass: {} }, other: "" },
+      initialErrors: { identity: { by_intact_mass: { method: "Required." } } },
+    });
+    expect(container.querySelector(".field.error")).not.toBeNull();
+
+    const other = container.querySelector('[data-testid="other"]');
+    other.value = "x";
+    await act(async () => Simulate.change(other));
+    expect(container.querySelector(".field.error")).not.toBeNull();
+  });
+
+  it("uses the DiscriminatorField confirm wording (F6)", () => {
+    mount(group(), {
+      initialValues: { identity: { by_intact_mass: { deviation: "0.5" } } },
+    });
+    toggle();
+    const modal = document.body.querySelector(".ui.modal");
+    expect(modal.textContent).toContain("The entered data will be removed.");
+    expect(modal.textContent).not.toContain("This cannot be undone.");
   });
 });

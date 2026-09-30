@@ -1,10 +1,14 @@
-import { getIn } from "formik";
+import { getIn, useFormikContext } from "formik";
+import isEqual from "lodash/isEqual";
 
 // Shared helpers for the building blocks: Formik error walking and the
 // "does this value hold user data" check.
 
 // Formik errors are nested objects/arrays of strings; OARepo server errors may
-// also be `{ message, severity }` objects. Collect every message string.
+// also be `{ message, severity }` objects. Only real errors count: severity
+// undefined (client errors have none) or "error". oarepo may also send
+// "info"/"warning" — those must NOT turn cells red, so they count 0 and are
+// excluded from messages (F15). Non-message objects are walked recursively.
 const collectMessages = (node, out) => {
   if (node === undefined || node === null) return out;
   if (typeof node === "string") {
@@ -12,14 +16,17 @@ const collectMessages = (node, out) => {
   } else if (Array.isArray(node)) {
     node.forEach((child) => collectMessages(child, out));
   } else if (typeof node === "object") {
-    // ponytail: {message, severity} counts as one error via its message
-    if (typeof node.message === "string") out.push(node.message);
-    else Object.values(node).forEach((child) => collectMessages(child, out));
+    if (typeof node.message === "string") {
+      if (node.severity === undefined || node.severity === "error")
+        out.push(node.message);
+    } else Object.values(node).forEach((child) => collectMessages(child, out));
   }
   return out;
 };
 
-// Number of leaf error strings under path (0 when none).
+// Number of leaf error strings under path (0 when none). F16: duplicates are
+// counted (three "Too short." = 3) — badges show the count of raw leaves, as
+// the server sent them; errorMessages() is the deduped display variant.
 export const countErrors = (errors, path) =>
   collectMessages(getIn(errors, path), []).length;
 
@@ -29,6 +36,62 @@ export const hasError = (errors, path) => countErrors(errors, path) > 0;
 export const errorMessages = (errors, path) => [
   ...new Set(collectMessages(getIn(errors, path), [])),
 ];
+
+// errors-else-initialErrors selection (C1). The deposit form passes server
+// errors as Formik `initialErrors`; it has no `validate` and keeps
+// validateOnChange, so the first change anywhere in the form resets `errors`
+// to {} (formik's SET_ERRORS). The live `errors` node wins while it has
+// messages; otherwise the `initialErrors` node applies — but only while the
+// value at `path` still equals `initialValues` at `path` (NestedErrors
+// semantics: value changed ⇒ the server error no longer applies).
+const activeErrorNode = (
+  { errors, initialErrors, values, initialValues },
+  path
+) => {
+  const current = getIn(errors, path);
+  if (collectMessages(current, []).length > 0) return current;
+  const unchanged = isEqual(getIn(values, path), getIn(initialValues, path));
+  return unchanged ? getIn(initialErrors, path) : undefined;
+};
+
+// C1: THE way building blocks read errors for a path. Covers everything under
+// the path (cells, list, nested rows) and survives the formik errors-reset:
+// an unrelated edit clears `errors` but `initialErrors` survive, so the
+// fallback keeps showing the server error until its own value is edited.
+export const useFieldErrors = (path) => {
+  const formik = useFormikContext();
+  const raw = collectMessages(activeErrorNode(formik, path), []);
+  return {
+    count: raw.length,
+    messages: [...new Set(raw)],
+    hasError: raw.length > 0,
+  };
+};
+
+// Only the message(s) sitting exactly at `path` — a string or {message}
+// object — never messages from nested sub-paths. For list/object-level
+// errors (`dbs: "Missing data for required field."`, `dbs.0: "…"`), which
+// would otherwise double-report errors already shown at their own inputs.
+export const useOwnErrorMessages = (path) => {
+  const formik = useFormikContext();
+  const node = activeErrorNode(formik, path);
+  return collectOwnMessages(node, []);
+};
+
+const collectOwnMessages = (node, out) => {
+  if (typeof node === "string") {
+    if (node !== "") out.push(node);
+  } else if (
+    node !== null &&
+    typeof node === "object" &&
+    !Array.isArray(node) &&
+    typeof node.message === "string" &&
+    (node.severity === undefined || node.severity === "error")
+  ) {
+    out.push(node.message);
+  }
+  return out;
+};
 
 // A value is empty when it holds no user-entered data: undefined, null, "",
 // an empty array, or an object/array whose entries are all empty.

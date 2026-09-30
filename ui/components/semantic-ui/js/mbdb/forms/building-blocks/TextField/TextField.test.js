@@ -18,13 +18,6 @@ jest.mock("@js/oarepo_ui/forms", () => ({
   }),
 }));
 
-// The alias index.js does not export FieldHelp yet; simulate the state
-// after that one-line export is added.
-jest.mock("mbdb-semantic-ui-react", () => ({
-  ...jest.requireActual("mbdb-semantic-ui-react"),
-  ...jest.requireActual("mbdb-semantic-ui-react/FieldHelp"),
-}));
-
 const Probe = ({ path }) => {
   const { values } = useFormikContext();
   const v = getIn(values, path);
@@ -97,6 +90,18 @@ describe("TextField", () => {
     });
     expect(container.textContent).toContain("Missing data for required field.");
   });
+
+  it("removes the key when cleared", () => {
+    render(
+      <>
+        <TextField fieldPath="name" />
+        <Probe path="name" />
+      </>,
+      { initialValues: { name: "Lysozyme" } }
+    );
+    change(container.querySelector("input"), "");
+    expect(byTestId("value").textContent).toBe("-");
+  });
 });
 
 describe("NumberField", () => {
@@ -116,7 +121,7 @@ describe("NumberField", () => {
     expect(byTestId("value").textContent).toBe("-");
   });
 
-  it("parses integers and keeps unparseable input as a raw string", () => {
+  it("stores integers without truncation and drops unparseable input", () => {
     render(
       <>
         <NumberField fieldPath="num" integer />
@@ -129,13 +134,25 @@ describe("NumberField", () => {
     expect(byTestId("type").textContent).toBe("number");
 
     // Simulate an event with input that is not a number (a number input
-    // would sanitize it in the DOM); the raw string is kept for the
-    // server to report.
+    // would sanitize it in the DOM); the key is removed instead of
+    // keeping a raw string.
     act(() => {
       Simulate.change(input, { target: { value: "abc" } });
     });
-    expect(byTestId("value").textContent).toBe("abc");
-    expect(byTestId("type").textContent).toBe("string");
+    expect(byTestId("value").textContent).toBe("-");
+  });
+
+  it("defaults step to 1 for integers", () => {
+    render(<NumberField fieldPath="num" integer />);
+    expect(container.querySelector("input").getAttribute("step")).toBe("1");
+  });
+
+  it("shows the error from initialErrors", () => {
+    render(<NumberField fieldPath="num" />, {
+      initialValues: { num: 5 },
+      initialErrors: { num: "Not a valid number." },
+    });
+    expect(container.textContent).toContain("Not a valid number.");
   });
 });
 
@@ -146,7 +163,6 @@ describe("TextAreaField", () => {
         fieldPath="seq"
         label="Sequence"
         monospace
-        autoHeight
         links={[
           { label: "UniProt", href: "https://www.uniprot.org" },
           { label: "BLAST", href: "https://blast.ncbi.nlm.nih.gov" },
@@ -161,5 +177,34 @@ describe("TextAreaField", () => {
     expect(links[0].getAttribute("href")).toBe("https://www.uniprot.org");
     expect(links[0].getAttribute("target")).toBe("_blank");
     expect(links[0].getAttribute("type")).toBe("button");
+  });
+
+  it("autoHeight sizes rows to the content and stays off the DOM", () => {
+    render(<TextAreaField fieldPath="seq" autoHeight />, {
+      initialValues: { seq: "line\n".repeat(20) },
+    });
+    const textarea = container.querySelector("textarea");
+    expect(Number(textarea.getAttribute("rows"))).toBeLessThanOrEqual(12);
+    expect(textarea.getAttribute("autoheight")).toBeNull();
+  });
+
+  it("removes the key when cleared", () => {
+    render(
+      <>
+        <TextAreaField fieldPath="seq" />
+        <Probe path="seq" />
+      </>,
+      { initialValues: { seq: "MKAL" } }
+    );
+    change(container.querySelector("textarea"), "");
+    expect(byTestId("value").textContent).toBe("-");
+  });
+
+  it("shows the error from initialErrors", () => {
+    render(<TextAreaField fieldPath="seq" />, {
+      initialValues: { seq: "MKAL" },
+      initialErrors: { seq: "Not a valid sequence." },
+    });
+    expect(container.textContent).toContain("Not a valid sequence.");
   });
 });

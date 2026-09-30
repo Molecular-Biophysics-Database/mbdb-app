@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { getIn, useFormikContext } from "formik";
 import { Button, Confirm, Icon, Label, Table } from "mbdb-semantic-ui-react";
-import { countErrors, hasData } from "../errors";
+import { hasData, useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
 
 // A one-line summary row of a complex object plus, when `detail` is given, a
 // second row with the read-only details (design/building-blocks/SummaryItem.md).
@@ -16,22 +16,25 @@ export const SummaryItem = ({
   onRemove,
   detail = null,
   itemName,
-  removable = true,
 }) => {
-  const { values, errors } = useFormikContext();
+  const { values } = useFormikContext();
   const [open, setOpen] = useState(false);
   const [confirming, setConfirming] = useState(false);
   const value = getIn(values, fieldPath);
-  const errorCount = countErrors(errors, fieldPath);
+  // F1: badge reads errors ∪ initialErrors so it survives the first edit
+  const { count: errorCount } = useFieldErrors(fieldPath);
 
   const colSpan = columns.length + 2; // toggle cell + data cells + actions cell
 
   const requestRemove = () =>
     hasData(value) ? setConfirming(true) : onRemove();
 
-  // Row clicks and Enter toggle the details, except clicks on buttons.
+  // Row clicks and Enter toggle the details, except clicks on buttons, and
+  // except clicks inside the Confirm portal: React bubbles synthetic events
+  // through portals, so a dimmer/text click would otherwise reach the row (F2).
   const onRowClick = (e) => {
     if (!detail || e.target.closest("button")) return;
+    if (!e.currentTarget.contains(e.target)) return;
     setOpen((prev) => !prev);
   };
   const onRowKeyDown = (e) => {
@@ -54,7 +57,7 @@ export const SummaryItem = ({
               size="mini"
               type="button"
               aria-expanded={open}
-              aria-label={`Show details of ${itemName}`}
+              aria-label={`${open ? "Hide" : "Show"} details of ${itemName}`}
               onClick={() => setOpen((prev) => !prev)}
             >
               {open ? "▾" : "▸"}
@@ -73,7 +76,8 @@ export const SummaryItem = ({
           {errorCount > 0 && (
             <Label
               color="red"
-              as="a"
+              as="button"
+              type="button"
               onClick={(e) => {
                 e.stopPropagation();
                 onEdit();
@@ -85,7 +89,7 @@ export const SummaryItem = ({
           <Button basic size="mini" type="button" onClick={onEdit}>
             Edit
           </Button>{" "}
-          {removable && onRemove !== undefined && (
+          {onRemove !== undefined && (
             <>
               <Button
                 basic
@@ -128,5 +132,4 @@ SummaryItem.propTypes = {
   onRemove: PropTypes.func,
   detail: PropTypes.node,
   itemName: PropTypes.string.isRequired,
-  removable: PropTypes.bool,
 };

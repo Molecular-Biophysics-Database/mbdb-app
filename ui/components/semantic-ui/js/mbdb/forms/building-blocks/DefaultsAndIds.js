@@ -3,16 +3,29 @@
 // that refill values (the old UseDefault / CreateUuid hooks did that).
 import { randomUUID } from "./randomUUID";
 
-// Seed for a new entity: entities require an `id`, components get none.
-export const newEntitySeed = (type) => ({
-  id: randomUUID(),
-  ...(type !== undefined ? { type } : {}),
-});
+// Single source of truth for "give this object a client id" — used by
+// newEntitySeed, ensureEntityIds and ModalArrayField's withIds (via .id).
+export const applyEntityId = (item) => ({ ...item, id: randomUUID() });
+
+// Seed for a new entity: entities require an `id`, components get none
+// (callers that seed a component pass withIds=false, not this helper).
+export const newEntitySeed = (type) =>
+  applyEntityId(type !== undefined ? { type } : {});
 
 // One-time pass on form load: assign ids to existing entities that have none.
-export const ensureEntityIds = (entities) =>
-  (entities || []).map((entity) =>
-    entity != null && typeof entity === "object" && !entity.id
-      ? { ...entity, id: randomUUID() }
-      : entity
-  );
+// Returns the input unchanged (undefined stays undefined, never []) when it
+// is not an array, and the SAME array reference when nothing changed, so a
+// caller can write back only when `result !== input` and not mark the form
+// dirty (guide §7: never write []).
+export const ensureEntityIds = (entities) => {
+  if (!Array.isArray(entities)) return entities;
+  let changed = false;
+  const withIds = entities.map((entity) => {
+    if (entity != null && typeof entity === "object" && !entity.id) {
+      changed = true;
+      return applyEntityId(entity);
+    }
+    return entity;
+  });
+  return changed ? withIds : entities;
+};

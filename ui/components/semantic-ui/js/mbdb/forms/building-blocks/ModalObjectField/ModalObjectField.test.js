@@ -84,6 +84,19 @@ const btn = (label) =>
     b.textContent.includes(label)
   );
 
+// A Formik-connected input for an unrelated field, so Simulate.change drives
+// Formik's setFieldValue (and its async errors reset) — used by the F1 test.
+const UnrelatedInput = () => {
+  const { values, setFieldValue } = useFormikContext();
+  return (
+    <input
+      data-testid="other"
+      value={values.other ?? ""}
+      onChange={(e) => setFieldValue("other", e.target.value)}
+    />
+  );
+};
+
 const storage = (props = {}) => (
   <>
     <ModalObjectField
@@ -95,6 +108,7 @@ const storage = (props = {}) => (
       {...props}
     />
     <Probe path="storage" />
+    <UnrelatedInput />
   </>
 );
 
@@ -174,5 +188,50 @@ describe("ModalObjectField", () => {
     expect(
       container.querySelector('button[aria-label="Remove Storage"]')
     ).toBeNull();
+  });
+
+  it("Edit → change → Cancel restores the original snapshot (F2)", () => {
+    mount(storage(), {
+      initialValues: { storage: { temperature: "4 °C", duration: "3 days" } },
+    });
+    act(() => Simulate.click(btn("Edit")));
+    const input = modal().querySelector('input[aria-label="Temperature"]');
+    input.value = "−20 °C";
+    act(() => Simulate.change(input));
+    expect(probe()).toEqual({ temperature: "−20 °C", duration: "3 days" });
+    act(() => Simulate.click(modalButton("Cancel")));
+    expect(probe()).toEqual({ temperature: "4 °C", duration: "3 days" });
+  });
+
+  it("Done on an object with no data treats it as Cancel (F4)", () => {
+    mount(storage({ initialValue: {} }));
+    act(() => Simulate.click(btn("Add Storage")));
+    expect(probe()).toEqual({});
+    act(() => Simulate.click(modalButton("Done")));
+    expect(modal()).toBeNull();
+    expect(probe()).toEqual(null);
+  });
+
+  it("shows the error badge from initialErrors and opens the modal on click (F2)", async () => {
+    mount(storage(), {
+      initialValues: { storage: { temperature: "" }, other: "" },
+      initialErrors: {
+        storage: { temperature: "Missing data for required field." },
+      },
+    });
+    const badge = container.querySelector(".ui.red.label");
+    expect(badge.textContent).toBe("1 error");
+
+    // the badge survives an unrelated edit (SummaryItem F1)
+    const other = container.querySelector('[data-testid="other"]');
+    other.value = "x";
+    await act(async () => Simulate.change(other));
+    expect(container.querySelector(".ui.red.label").textContent).toBe(
+      "1 error"
+    );
+
+    // clicking the badge opens the editor
+    act(() => Simulate.click(container.querySelector(".ui.red.label")));
+    expect(modal()).not.toBeNull();
   });
 });

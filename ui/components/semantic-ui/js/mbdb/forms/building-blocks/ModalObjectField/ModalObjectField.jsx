@@ -8,11 +8,16 @@ import {
   Form,
   Icon,
   Label,
-  Modal,
   Table,
 } from "mbdb-semantic-ui-react";
-import { useModelFieldData } from "../fieldData";
-import { SummaryItem } from "../SummaryItem";
+import {
+  hasData,
+  useOwnErrorMessages,
+} from "@js/mbdb/forms/building-blocks/errors";
+import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
+import { SummaryItem } from "@js/mbdb/forms/building-blocks/SummaryItem";
+import { DetailView } from "@js/mbdb/forms/building-blocks/DetailView";
+import { EditModal } from "@js/mbdb/forms/building-blocks/EditModal";
 
 // One optional object too big for inline display (design/building-blocks/
 // ModalObjectField.md). Same Cancel/Done semantics as ModalArrayField.
@@ -24,17 +29,21 @@ export const ModalObjectField = ({
   summary,
   initialValue = {},
   renderForm,
-  detail = null,
+  detailGroups = null,
+  detailProps,
 }) => {
   const { values, setFieldValue } = useFormikContext();
   // { isNew, snapshot } while the modal is open
   const [editing, setEditing] = useState(null);
+  // F1: label/help/required come from the model, with explicit props as override
   const data = useModelFieldData(fieldPath, {
     label,
     helpText: help,
     required,
   });
   const text = data.label;
+  // object-level messages only (strings sitting exactly at fieldPath, F7)
+  const objectMessages = useOwnErrorMessages(fieldPath);
 
   const value = getIn(values, fieldPath);
   const present = value !== undefined;
@@ -49,67 +58,96 @@ export const ModalObjectField = ({
     setFieldValue(fieldPath, editing.isNew ? undefined : editing.snapshot);
     setEditing(null);
   };
+  // Done-if-empty behaves as absent: a Done on an object that still holds no
+  // data is treated like Cancel (lead decision) so no `{}` is left behind (F4).
+  const done = () => {
+    if (!hasData(getIn(values, fieldPath))) setFieldValue(fieldPath, undefined);
+    setEditing(null);
+  };
 
-  const summaryCells = (v) => {
+  // F8: single-cell summary passes the one column directly; multi-cell maps
+  // each precomputed cell into the column function SummaryItem expects.
+  const summaryColumns = (v) => {
     const s = summary(v);
-    return (Array.isArray(s) ? s : [s]).map((cell) => () => cell);
+    return Array.isArray(s) ? s.map((cell) => () => cell) : [() => s];
   };
 
   return (
-    <Form.Field required={data.required}>
-      {text && <label>{text}</label>}
-      {data.helpText && <FieldHelp help={data.helpText} />}
-      {!present ? (
-        <>
-          {required && (
-            <div>
-              <Label color="red" size="small">
-                Not filled in
-              </Label>
-            </div>
-          )}
-          <Button
-            type="button"
-            icon
-            labelPosition="left"
-            size="small"
-            onClick={openNew}
-          >
-            <Icon name="add" />
-            {`Add ${text}`}
-          </Button>
-        </>
-      ) : (
-        <Table compact>
-          <Table.Body>
-            <SummaryItem
-              fieldPath={fieldPath}
-              columns={summaryCells(value)}
-              itemName={text}
-              onEdit={openEdit}
-              onRemove={
-                required ? undefined : () => setFieldValue(fieldPath, undefined)
-              }
-              detail={detail}
-            />
-          </Table.Body>
-        </Table>
-      )}
+    <>
+      <Form.Field required={data.required} error={objectMessages.length > 0}>
+        {text && <label htmlFor={fieldPath}>{text}</label>}
+        {data.helpText && <FieldHelp help={data.helpText} />}
+        {!present ? (
+          <>
+            {data.required && (
+              <div>
+                <Label color="red" size="small">
+                  Not filled in
+                </Label>
+              </div>
+            )}
+            <Button
+              type="button"
+              icon
+              labelPosition="left"
+              size="small"
+              onClick={openNew}
+            >
+              <Icon name="add" />
+              {`Add ${text}`}
+            </Button>
+          </>
+        ) : (
+          <Table compact>
+            <Table.Body>
+              <SummaryItem
+                fieldPath={fieldPath}
+                columns={summaryColumns(value)}
+                itemName={text}
+                onEdit={openEdit}
+                onRemove={
+                  data.required
+                    ? undefined
+                    : () => setFieldValue(fieldPath, undefined)
+                }
+                detail={
+                  detailGroups ? (
+                    <DetailView
+                      fieldPath={fieldPath}
+                      groups={detailGroups}
+                      exclude={["id"]}
+                      {...detailProps}
+                      onEdit={openEdit}
+                      itemName={text}
+                    />
+                  ) : null
+                }
+              />
+            </Table.Body>
+          </Table>
+        )}
+        {objectMessages.length > 0 && (
+          <div>
+            <Label color="red" pointing prompt>
+              {objectMessages.join(" ")}
+            </Label>
+          </div>
+        )}
+      </Form.Field>
+      {/* the modal is a SIBLING of Form.Field, not nested inside it, so
+          depth-2 modals stack correctly (same as ModalArrayField) */}
       {editing !== null && (
-        <Modal size="large" open onClose={cancel}>
-          <Modal.Header>{`Edit ${text}`}</Modal.Header>
-          <Modal.Content scrolling>{renderForm(fieldPath)}</Modal.Content>
-          <Modal.Actions>
-            <Button type="button" onClick={cancel}>
-              Cancel
-            </Button>
-            <Button type="button" primary onClick={() => setEditing(null)}>
-              Done
-            </Button>
-          </Modal.Actions>
-        </Modal>
+        <EditModal
+          size="large"
+          open
+          onCancel={cancel}
+          onDone={done}
+          header={`Edit ${text}`}
+        >
+          {renderForm(fieldPath)}
+        </EditModal>
       )}
-    </Form.Field>
+    </>
   );
 };
 
@@ -121,5 +159,15 @@ ModalObjectField.propTypes = {
   summary: PropTypes.func.isRequired,
   initialValue: PropTypes.object,
   renderForm: PropTypes.func.isRequired,
-  detail: PropTypes.node,
+  // F6: aligned with ModalArrayField — groups + extra DetailView props build
+  // the SummaryItem detail internally (was a ready-made `detail` node).
+  detailGroups: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      fields: PropTypes.arrayOf(PropTypes.string).isRequired,
+    })
+  ),
+  // extra DetailView props (exclude, requiredPaths, vocabularyTitles);
+  // `exclude` defaults to ["id"], the internal client uuid.
+  detailProps: PropTypes.object,
 };

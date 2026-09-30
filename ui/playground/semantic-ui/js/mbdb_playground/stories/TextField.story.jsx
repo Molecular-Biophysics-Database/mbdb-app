@@ -7,6 +7,8 @@ import {
 
 const BASE = "metadata.general_parameters.entities_of_interest.0";
 
+// Explicit labels/helps until the ui_model has entity children (polymorphic
+// Entity): without them labels fall back to the readable leaf of the path.
 const Fields = () => (
   <>
     <TextField
@@ -67,6 +69,7 @@ const story = {
               {
                 name: "Missing data for required field.",
                 molecular_weight: { value: "Must be a number." },
+                sequence: "Unknown residue at position 7.",
               },
             ],
           },

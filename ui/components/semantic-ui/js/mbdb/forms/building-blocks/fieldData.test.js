@@ -7,18 +7,32 @@ import { useModelFieldData } from "./fieldData";
 // The real "@js/oarepo_ui/forms" index cannot load under Jest
 // (sanitize-html -> postcss is ESM), and in the real app it reads the
 // model from a context; here the model data is mocked directly.
+// The special "missing" prefix simulates oarepo's getFieldData fallback:
+// no ui_model entry, so the raw toModelPath string comes back as label
+// (and helpText is null).
 jest.mock("@js/oarepo_ui/forms", () => ({
   useFieldData: () => ({
-    getFieldData: () => ({
-      label: "Model label",
-      helpText: "Model help",
-      required: true,
-    }),
+    getFieldData: ({ fieldPath }) => {
+      // Mirrors oarepo's real behaviour: toModelPath does path.split, so an
+      // undefined path throws. useModelFieldData must never call it then.
+      if (fieldPath == null) throw new Error("path.split of undefined");
+      return fieldPath.startsWith("missing")
+        ? {
+            label: `children.${fieldPath.split(".").join(".children.")}`,
+            helpText: null,
+            required: undefined,
+          }
+        : {
+            label: "Model label",
+            helpText: "Model help",
+            required: true,
+          };
+    },
   }),
 }));
 
-const Probe = ({ overrides }) => {
-  const data = useModelFieldData("a.path", overrides);
+const Probe = ({ path, overrides }) => {
+  const data = useModelFieldData(path, overrides);
   return (
     <div>
       <span data-testid="label">{String(data.label)}</span>
@@ -29,6 +43,7 @@ const Probe = ({ overrides }) => {
 };
 
 Probe.propTypes = {
+  path: PropTypes.string,
   overrides: PropTypes.object,
 };
 
@@ -47,9 +62,22 @@ afterEach(() => {
 const byTestId = (id) => container.querySelector(`[data-testid="${id}"]`);
 
 describe("useModelFieldData", () => {
+  it("uses no model lookup when fieldPath is undefined (FieldGroup without a path)", () => {
+    // Regression: oarepo's getFieldData crashes on an undefined path
+    // (toModelPath does path.split). The hook must not call it.
+    act(() => {
+      ReactDOM.render(
+        <Probe path={undefined} overrides={{ label: "Plain" }} />,
+        container
+      );
+    });
+    expect(byTestId("label").textContent).toBe("Plain");
+    expect(byTestId("helpText").textContent).toBe("undefined");
+  });
+
   it("returns model data when no overrides given", () => {
     act(() => {
-      ReactDOM.render(<Probe />, container);
+      ReactDOM.render(<Probe path="a.path" />, container);
     });
     expect(byTestId("label").textContent).toBe("Model label");
     expect(byTestId("helpText").textContent).toBe("Model help");
@@ -59,7 +87,10 @@ describe("useModelFieldData", () => {
   it("explicit props win over model data", () => {
     act(() => {
       ReactDOM.render(
-        <Probe overrides={{ label: "Short", helpText: "", required: false }} />,
+        <Probe
+          path="a.path"
+          overrides={{ label: "Short", helpText: "", required: false }}
+        />,
         container
       );
     });
@@ -71,11 +102,36 @@ describe("useModelFieldData", () => {
   it("keeps only the keys it knows", () => {
     act(() => {
       ReactDOM.render(
-        <Probe overrides={{ placeholder: "ignored" }} />,
+        <Probe path="a.path" overrides={{ placeholder: "ignored" }} />,
         container
       );
     });
     // no crash, unknown keys are not spread into the result
     expect(byTestId("label").textContent).toBe("Model label");
+  });
+
+  it("replaces a raw ui_model path label with a readable leaf", () => {
+    act(() => {
+      ReactDOM.render(
+        <Probe path="missing.entities_of_interest.0.chemical_formula" />,
+        container
+      );
+    });
+    expect(byTestId("label").textContent).toBe("Chemical formula");
+    // helpText of a missing entry stays null
+    expect(byTestId("helpText").textContent).toBe("null");
+  });
+
+  it("an explicit label wins over the fallback leaf", () => {
+    act(() => {
+      ReactDOM.render(
+        <Probe
+          path="missing.entities_of_interest.0.name"
+          overrides={{ label: "Name" }}
+        />,
+        container
+      );
+    });
+    expect(byTestId("label").textContent).toBe("Name");
   });
 });

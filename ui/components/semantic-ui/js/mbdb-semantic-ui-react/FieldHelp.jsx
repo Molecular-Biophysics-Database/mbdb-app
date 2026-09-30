@@ -10,7 +10,19 @@ export const FieldHelp = ({ help, mode = FIELD_HELP_MODE }) => {
   if (!help) return null;
   if (mode === "popup") {
     return (
-      <Popup content={help} trigger={<Icon name="question circle outline" />} />
+      <Popup
+        content={help}
+        on={["hover", "focus"]}
+        trigger={
+          <Icon
+            name="question circle outline"
+            tabIndex={0}
+            link
+            role="button"
+            aria-label="Help"
+          />
+        }
+      />
     );
   }
   return <label className="helptext mbdb-field-help">{help}</label>;

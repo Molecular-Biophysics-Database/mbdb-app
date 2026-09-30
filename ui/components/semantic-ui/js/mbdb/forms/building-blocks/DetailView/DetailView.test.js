@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik } from "formik";
+import { Formik, useFormikContext } from "formik";
 import { DetailView } from "./DetailView";
 
 // @js/oarepo_ui/forms/index pulls in react-searchkit (d3, ESM) and
@@ -233,7 +233,8 @@ describe("DetailView", () => {
         o: { location: { latitude: 49.1, longitude: 16.6 } },
       },
     });
-    expect(text()).toContain("location"); // sub-heading
+    // F5: the sub-heading uses the model label, not the raw key
+    expect(text()).toContain("Location"); // sub-heading (model label)
     expect(text()).toContain("Latitude");
     expect(text()).toContain("49.1");
     const indent = container.querySelectorAll("td.mbdb-details-indent");
@@ -261,6 +262,11 @@ describe("DetailView", () => {
     });
     expect(text()).toContain("Water");
     expect(text()).toContain("NaCl");
+    // F4e: the mini table has a header row with the model labels
+    const head = container.querySelector("table table thead");
+    expect(head).not.toBeNull();
+    expect(head.textContent).toContain("Name");
+    expect(head.textContent).toContain("Copy number");
     // expanding a mini row renders its details inline
     const toggles = container.querySelectorAll(
       'button[aria-label^="Show details of item"]'
@@ -268,5 +274,151 @@ describe("DetailView", () => {
     expect(toggles).toHaveLength(2);
     act(() => Simulate.click(toggles[0]));
     expect(text()).toContain("Copy number");
+  });
+});
+
+// A Formik-connected input for an unrelated field, so Simulate.change drives
+// Formik's setFieldValue (and its async errors reset) — used by the F1 test.
+const UnrelatedInput = () => {
+  const { values, setFieldValue } = useFormikContext();
+  return (
+    <input
+      data-testid="other"
+      value={values.other ?? ""}
+      onChange={(e) => setFieldValue("other", e.target.value)}
+    />
+  );
+};
+
+describe("DetailView — review findings", () => {
+  it("keeps the error text after an unrelated edit clears Formik's errors (F1)", async () => {
+    mount(
+      <>
+        <DetailView fieldPath="o" groups={GROUPS} />
+        <UnrelatedInput />
+      </>,
+      {
+        initialValues: { o: { name: "" }, other: "" },
+        initialErrors: { o: { name: "Missing data for required field." } },
+      }
+    );
+    expect(container.querySelector(".ui.red.text").textContent).toBe(
+      "Missing data for required field."
+    );
+
+    const other = container.querySelector('[data-testid="other"]');
+    other.value = "changed";
+    await act(async () => Simulate.change(other));
+    expect(container.querySelector(".ui.red.text").textContent).toBe(
+      "Missing data for required field."
+    );
+  });
+
+  it("renders an Edit button and a clickable error message when onEdit is given (F2)", () => {
+    const onEdit = jest.fn();
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={GROUPS}
+        onEdit={onEdit}
+        itemName="Storage"
+      />,
+      {
+        initialValues: { o: { name: "" } },
+        initialErrors: { o: { name: "Missing data for required field." } },
+      }
+    );
+    const editBtn = [...container.querySelectorAll("button")].find(
+      (b) => b.textContent === "Edit Storage"
+    );
+    expect(editBtn).not.toBeUndefined();
+    expect(editBtn.getAttribute("type")).toBe("button");
+
+    // the error note is clickable and routes to onEdit
+    const errNote = container.querySelector("button.ui.red.text");
+    expect(errNote).not.toBeNull();
+    act(() => Simulate.click(errNote));
+    expect(onEdit).toHaveBeenCalledTimes(1);
+  });
+
+  it("renders steps as a numbered list name — description (F4a)", () => {
+    mount(<DetailView fieldPath="o" groups={[]} />, {
+      initialValues: {
+        o: {
+          protocol: [
+            { name: "Centrifugation", description: "10 min at 4000 g" },
+            { name: "Filtration", description: "0.22 µm filter" },
+          ],
+        },
+      },
+    });
+    expect(text()).toContain("1. Centrifugation — 10 min at 4000 g");
+    expect(text()).toContain("2. Filtration — 0.22 µm filter");
+    // a numbered list, not a mini table
+    expect(container.querySelector("table table")).toBeNull();
+  });
+
+  it("renders a string array of more than 5 items as a bulleted list (F4b)", () => {
+    mount(<DetailView fieldPath="o" groups={[]} />, {
+      initialValues: {
+        o: { specifications: ["a", "b", "c", "d", "e", "f"] },
+      },
+    });
+    const items = container.querySelectorAll("ul li");
+    expect(items.length).toBe(6);
+  });
+
+  it("renders a short string array comma-separated, not bulleted (F4b)", () => {
+    mount(<DetailView fieldPath="o" groups={[]} />, {
+      initialValues: { o: { specifications: ["a", "b"] } },
+    });
+    expect(container.querySelectorAll("ul li").length).toBe(0);
+    expect(text()).toContain("a, b");
+  });
+
+  it("renders an assessed object as Yes — facts on one line (F4c)", () => {
+    mount(<DetailView fieldPath="o" groups={[]} />, {
+      initialValues: {
+        o: {
+          purity: { assessed: "Yes", method: "SDS-PAGE", percentage: ">95 %" },
+          identity: { assessed: "No" },
+        },
+      },
+    });
+    expect(text()).toContain("Yes — SDS-PAGE, >95 %");
+    expect(text()).toContain("No");
+  });
+
+  it("expands a long sequence with the Show all toggle (F4d)", () => {
+    const seq = FILLED.o.sequence.repeat(3); // 192 residues > 60
+    mount(<DetailView fieldPath="o" groups={GROUPS} />, {
+      initialValues: { o: { sequence: seq } },
+    });
+    const toggle = [...container.querySelectorAll("button")].find(
+      (b) => b.textContent === "[Show all]"
+    );
+    expect(toggle).not.toBeUndefined();
+    act(() => Simulate.click(toggle));
+    const code = container.querySelector("code");
+    expect(code.textContent.replace(/\n/g, "")).toBe(seq);
+  });
+
+  it("falls back to the record's own title and shows a saved rank in grey (F8)", () => {
+    mount(<DetailView fieldPath="o" groups={[]} />, {
+      initialValues: {
+        o: {
+          source_organism: {
+            id: "taxid:1423",
+            rank: "SPECIES",
+            title: { en: "Bacillus subtilis" },
+          },
+        },
+      },
+    });
+    expect(text()).toContain("Bacillus subtilis");
+    expect(text()).toContain("(SPECIES)");
+    expect(container.querySelector(".ui.grey.text").textContent).toContain(
+      "SPECIES"
+    );
   });
 });

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useFormikContext } from "formik";
+import { useFormikContext, getIn } from "formik";
 import { Button } from "mbdb-semantic-ui-react";
 import {
   TextField as MbdbTextField,
@@ -20,35 +20,35 @@ TextField.propTypes = {
   width: PropTypes.number,
 };
 
-// Number input that stores a real number. RIF spread order puts uiProps
-// after Formik's `field`, so this onChange overrides field.onChange and
-// writes parsed values. NaN input keeps the raw string so the server can
-// report it (and typing "-", "1e3" is not blocked); "" clears the value.
+// Number input that stores a real number and removes the key when
+// cleared. `type="number"` reports unparseable input as "", which also
+// clears; the isNaN guard is for callers that change `type` (jsdom).
+// The wrapper's controlled `value` keeps showing what the user typed.
 export const NumberField = ({
   fieldPath,
   integer,
   min,
   max,
-  step = "any",
+  step,
   ...uiProps
 }) => {
   const { setFieldValue } = useFormikContext();
   return (
     <MbdbTextField
       fieldPath={fieldPath}
+      {...uiProps}
       type="number"
       min={min}
       max={max}
-      step={step}
+      step={step ?? (integer ? 1 : "any")}
       onChange={(e, { value }) => {
         if (value === "") {
           setFieldValue(fieldPath, undefined);
-        } else {
-          const n = integer ? parseInt(value, 10) : parseFloat(value);
-          setFieldValue(fieldPath, Number.isNaN(n) ? value : n);
+          return;
         }
+        const n = Number(value);
+        setFieldValue(fieldPath, Number.isNaN(n) ? undefined : n);
       }}
-      {...uiProps}
     />
   );
 };
@@ -68,39 +68,55 @@ NumberField.propTypes = {
 // Long text (sequences). `monospace` needs one CSS rule (see
 // custom-components.less): .mbdb-monospace textarea uses a monospace font.
 // `links` renders small basic link buttons under the field.
+// SUIR 2.1.5 TextArea has no autoHeight: it is emulated by sizing `rows`
+// to the content (max 12); autoHeight is NOT passed down to the DOM.
 export const TextAreaField = ({
   fieldPath,
   links,
   monospace,
+  autoHeight,
+  rows,
   className,
   ...uiProps
-}) => (
-  <>
-    <MbdbTextAreaField
-      fieldPath={fieldPath}
-      className={
-        [monospace && "mbdb-monospace", className].filter(Boolean).join(" ") ||
-        undefined
-      }
-      {...uiProps}
-    />
-    {links &&
-      links.map(({ label, href }) => (
-        <Button
-          key={href}
-          basic
-          size="mini"
-          as="a"
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          type="button"
-        >
-          {label}
-        </Button>
-      ))}
-  </>
-);
+}) => {
+  const { values } = useFormikContext();
+  const text = String(getIn(values, fieldPath) ?? "");
+  const sizedRows = autoHeight
+    ? Math.min(
+        12,
+        Math.max(3, Math.ceil(text.length / 80) + text.split("\n").length - 1)
+      )
+    : rows;
+  return (
+    <>
+      <MbdbTextAreaField
+        fieldPath={fieldPath}
+        className={
+          [monospace && "mbdb-monospace", className]
+            .filter(Boolean)
+            .join(" ") || undefined
+        }
+        {...uiProps}
+        rows={sizedRows}
+      />
+      {links &&
+        links.map(({ label, href }) => (
+          <Button
+            key={href}
+            basic
+            size="mini"
+            as="a"
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            type="button"
+          >
+            {label}
+          </Button>
+        ))}
+    </>
+  );
+};
 
 TextAreaField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
@@ -108,6 +124,7 @@ TextAreaField.propTypes = {
   helpText: PropTypes.node,
   required: PropTypes.bool,
   autoHeight: PropTypes.bool,
+  rows: PropTypes.number,
   monospace: PropTypes.bool,
   links: PropTypes.arrayOf(
     PropTypes.shape({

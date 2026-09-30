@@ -2,19 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, useFormikContext, getIn } from "formik";
+import { Formik, Field, useFormikContext, getIn } from "formik";
 import { DiscriminatorField } from "./DiscriminatorField";
 
+// The real "@js/oarepo_ui/forms" index cannot load under Jest (ESM deps);
+// the block reads model data through this hook only.
 jest.mock("@js/oarepo_ui/forms", () => ({
-  FormConfigProvider: ({ children }) => children,
-  FieldDataProvider: ({ children }) => children,
   useFieldData: () => ({
     getFieldData: ({ fieldPath }) => ({ label: fieldPath, helpText: null }),
   }),
 }));
-const { FormConfigProvider, FieldDataProvider } = jest.requireMock(
-  "@js/oarepo_ui/forms"
-);
 
 let container;
 
@@ -33,17 +30,13 @@ const mount = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
   document.body.appendChild(container);
   act(() => {
     ReactDOM.render(
-      <FormConfigProvider value={{ config: { ui_model: {} } }}>
-        <FieldDataProvider>
-          <Formik
-            initialValues={initialValues}
-            initialErrors={initialErrors}
-            onSubmit={() => {}}
-          >
-            {ui}
-          </Formik>
-        </FieldDataProvider>
-      </FormConfigProvider>,
+      <Formik
+        initialValues={initialValues}
+        initialErrors={initialErrors}
+        onSubmit={() => {}}
+      >
+        {ui}
+      </Formik>,
       container
     );
   });
@@ -98,6 +91,22 @@ describe("DiscriminatorField", () => {
     act(() => Simulate.click(button("Chemical")));
     expect(probe()).toEqual({ id: "e1", type: "Chemical" });
     expect(modal()).toBeNull(); // nothing lost, no confirm asked
+  });
+
+  it("exposes pressed state and arrow-key focus on the option buttons", () => {
+    mount(typeField(), {
+      initialValues: { o: { id: "e1", type: "Polymer" } },
+    });
+    const group = container.querySelector('[role="group"]');
+    expect(group).not.toBeNull();
+    expect(button("Polymer").getAttribute("aria-pressed")).toBe("true");
+    expect(button("Chemical").getAttribute("aria-pressed")).toBe("false");
+
+    button("Polymer").focus();
+    act(() => {
+      Simulate.keyDown(group, { key: "ArrowRight" });
+    });
+    expect(document.activeElement).toBe(button("Chemical"));
   });
 
   it("does nothing when the current option is clicked again", () => {
@@ -160,6 +169,32 @@ describe("DiscriminatorField", () => {
     expect(probe()).toEqual({ id: "e1", type: "Other" });
   });
 
+  it("confirm header and body show option labels, not raw values", () => {
+    mount(
+      <>
+        <DiscriminatorField
+          objectPath="o"
+          field="type"
+          options={[
+            { value: "polymer", label: "Polymer" },
+            { value: "chemical", label: "Chemical" },
+          ]}
+          variant="buttons"
+        />
+        <Probe path="o" />
+      </>,
+      {
+        initialValues: { o: { type: "polymer", name: "Lysozyme" } },
+      }
+    );
+    act(() => Simulate.click(button("Chemical")));
+    const m = modal();
+    expect(m.textContent).toContain('Change o.type to "Chemical"?');
+    expect(m.textContent).toContain(
+      'The data entered for "Polymer" will be removed.'
+    );
+  });
+
   it("allowUnset adds an unset button that clears the whole object", () => {
     mount(
       <>
@@ -206,7 +241,33 @@ describe("DiscriminatorField", () => {
     expect(modal()).toBeNull();
   });
 
-  it("dropdown variant renders a dropdown and changes value", () => {
+  it("unset is not active for an object without the field, and removes it after confirm", () => {
+    mount(
+      <>
+        <DiscriminatorField
+          objectPath="o"
+          field="assessed"
+          options={["Yes", "No"]}
+          allowUnset
+          unsetLabel="Not specified"
+        />
+        <Probe path="o" />
+      </>,
+      // object exists with data, but `assessed` was never set
+      { initialValues: { o: { method: "SDS-PAGE" } } }
+    );
+    expect(button("Not specified").className).not.toContain("primary");
+    expect(button("Yes").className).not.toContain("primary");
+    act(() => Simulate.click(button("Not specified")));
+    expect(modal()).not.toBeNull(); // data would be lost: confirm first
+    const removeBtn = [...modal().querySelectorAll("button")].find(
+      (b) => b.textContent === "Remove"
+    );
+    act(() => Simulate.click(removeBtn));
+    expect(probe()).toEqual(null);
+  });
+
+  it("dropdown variant renders a plain dropdown and changes value", () => {
     mount(
       typeField({ variant: "dropdown", options: ["Polymer", "Chemical"] }),
       {
@@ -215,11 +276,59 @@ describe("DiscriminatorField", () => {
     );
     const dropdown = container.querySelector(".ui.dropdown");
     expect(dropdown).not.toBeNull();
+    // no nested .field inside the block's Form.Field
+    expect(dropdown.closest(".field").querySelector(".field")).toBeNull();
     act(() => Simulate.click(dropdown));
     const item = [...dropdown.querySelectorAll(".menu .item")].find(
       (el) => el.textContent === "Chemical"
     );
     act(() => Simulate.click(item));
     expect(probe()).toEqual({ id: "e1", type: "Chemical" });
+  });
+
+  it("shows discriminator and object-path errors from initialErrors", () => {
+    mount(typeField(), {
+      initialValues: { o: { id: "e1", type: "Polymer" } },
+      initialErrors: { o: { type: "Not a valid type." } },
+    });
+    expect(container.textContent).toContain("Not a valid type.");
+    expect(container.querySelector(".field.error")).not.toBeNull();
+  });
+
+  it("shows a string error at the object path", () => {
+    mount(typeField(), {
+      initialValues: { o: { id: "e1", type: "Polymer" } },
+      initialErrors: { o: "Missing data for required field." },
+    });
+    expect(container.textContent).toContain("Missing data for required field.");
+    expect(container.querySelector(".field.error")).not.toBeNull();
+  });
+
+  it("keeps an initialError visible after another field is edited", () => {
+    mount(
+      <>
+        <DiscriminatorField
+          objectPath="o"
+          field="type"
+          options={["Polymer", "Chemical"]}
+        />
+        <Probe path="o" />
+        <Field data-testid="other" name="other" />
+      </>,
+      {
+        initialValues: { o: { id: "e1", type: "Polymer" } },
+        initialErrors: { o: { type: "Not a valid type." } },
+      }
+    );
+    expect(container.textContent).toContain("Not a valid type.");
+    // Validation on the first edit resets `errors` to {}; the server
+    // error must still be shown.
+    const other = container.querySelector('[data-testid="other"]');
+    other.value = "x";
+    act(() => {
+      Simulate.change(other);
+    });
+    expect(container.textContent).toContain("Not a valid type.");
+    expect(container.querySelector(".field.error")).not.toBeNull();
   });
 });

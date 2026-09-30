@@ -46,7 +46,7 @@ const story = {
   scenarios: [
     { name: "Empty", initialValues: {}, render: Fields },
     {
-      name: "With data",
+      name: "Filled",
       initialValues: {
         metadata: {
           general_parameters: {

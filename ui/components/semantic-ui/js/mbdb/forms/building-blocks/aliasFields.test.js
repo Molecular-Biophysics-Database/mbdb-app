@@ -1,27 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik } from "formik";
+import { Formik, useFormikContext, getIn } from "formik";
 import {
   TextField,
   SelectField,
   ArrayField,
   TextAreaField,
 } from "mbdb-react-invenio-forms";
+import { FieldHelp } from "mbdb-semantic-ui-react";
 
 jest.mock("@js/oarepo_ui/forms", () => ({
   useFieldData: () => ({
-    getFieldData: () => ({
+    getFieldData: ({ fieldPath }) => ({
       label: "Model label",
       helpText: "Model help",
-      required: undefined,
+      required: fieldPath.startsWith("req"),
     }),
   }),
-}));
-
-jest.mock("mbdb-semantic-ui-react", () => ({
-  ...jest.requireActual("mbdb-semantic-ui-react"),
-  ...jest.requireActual("mbdb-semantic-ui-react/FieldHelp"),
 }));
 
 let container;
@@ -75,6 +71,37 @@ describe("wrapped fields", () => {
     expect(helptexts().length).toBe(0);
   });
 
+  it("marks the field required when the model says so", () => {
+    render(<TextField fieldPath="req.name" />);
+    expect(container.querySelector(".field.required")).not.toBeNull();
+  });
+
+  it("removes the TextField key from the form data when cleared", () => {
+    const Probe = () => {
+      const { values } = useFormikContext();
+      return (
+        <span data-testid="probe">
+          {getIn(values, "name") === undefined ? "absent" : "present"}
+        </span>
+      );
+    };
+    render(
+      <>
+        <TextField fieldPath="name" />
+        <Probe />
+      </>,
+      { initialValues: { name: "abc" } }
+    );
+    const input = container.querySelector("input");
+    input.value = "";
+    act(() => {
+      Simulate.change(input);
+    });
+    expect(container.querySelector('[data-testid="probe"]').textContent).toBe(
+      "absent"
+    );
+  });
+
   it("SelectField selects an option and shows model help once", () => {
     // Note: options arrive already as Semantic option objects; string
     // expansion happens one layer up (the SelectField building block).
@@ -101,7 +128,7 @@ describe("wrapped fields", () => {
 
   it("ArrayField renders children per item and adds a row via its button", () => {
     render(
-      <ArrayField fieldPath="items" label="Items">
+      <ArrayField fieldPath="items" label="Items" defaultNewValue={{}}>
         {({ arrayPath, indexPath }) => (
           <TextField fieldPath={`${arrayPath}.${indexPath}.name`} />
         )}
@@ -118,6 +145,32 @@ describe("wrapped fields", () => {
     expect(container.querySelectorAll("input").length).toBe(2);
   });
 
+  it("ArrayField renders the model help inside its field, not below Add", () => {
+    render(
+      <ArrayField fieldPath="items" label="Items" defaultNewValue={{}}>
+        {({ arrayPath, indexPath }) => (
+          <TextField
+            fieldPath={`${arrayPath}.${indexPath}.name`}
+            helpText={null}
+          />
+        )}
+      </ArrayField>,
+      { initialValues: { items: [{ name: "first" }] } }
+    );
+    // exactly one helptext: the array's own (child help suppressed)
+    expect(helptexts().length).toBe(1);
+    const helptext = helptexts()[0];
+    expect(helptext.textContent).toBe("Model help");
+    const add = [...container.querySelectorAll("button")].find((b) =>
+      b.textContent.includes("Add new row")
+    );
+    // help renders inside the array's field, above the Add button
+    expect(helptext.closest(".field").contains(add)).toBe(true);
+    expect(
+      helptext.compareDocumentPosition(add) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
+  });
+
   it("TextAreaField renders value, label and help", () => {
     render(<TextAreaField fieldPath="seq" />, {
       initialValues: { seq: "MKAL" },
@@ -127,5 +180,25 @@ describe("wrapped fields", () => {
       "Model label"
     );
     expect(helptexts().length).toBe(1);
+  });
+
+  it("TextAreaField shows the error from initialErrors", () => {
+    render(<TextAreaField fieldPath="seq" />, {
+      initialValues: { seq: "MKAL" },
+      initialErrors: { seq: "Not a valid sequence." },
+    });
+    expect(container.textContent).toContain("Not a valid sequence.");
+  });
+
+  it("FieldHelp renders a popup trigger in popup mode", () => {
+    render(
+      <>
+        <FieldHelp help="Popup help" mode="popup" />
+        <TextField fieldPath="name" />
+      </>
+    );
+    expect(
+      container.querySelector("i.icon.question.circle.outline")
+    ).not.toBeNull();
   });
 });

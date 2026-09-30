@@ -1,32 +1,45 @@
 import React from "react";
 import { FieldGroup } from "@js/mbdb/forms/building-blocks/FieldGroup";
-import {
-  TextField,
-  NumberField,
-} from "@js/mbdb/forms/building-blocks/TextField";
+import { TextField } from "@js/mbdb/forms/building-blocks/TextField";
+import { NumberField } from "@js/mbdb/forms/building-blocks/TextField";
+import { ValueUnitField } from "@js/mbdb/forms/building-blocks/ValueUnitField";
+import { Divider } from "mbdb-semantic-ui-react";
 
 const BASE = "metadata.general_parameters.entities_of_interest.0";
 
+// Explicit titles/helps until the ui_model has entity children (polymorphic
+// Entity). fieldPath is the *object* path: it is also the element id (F5 of
+// the review), so passing a leaf that a child field also uses would duplicate
+// ids.
 const Groups = () => (
   <>
-    {/* Title override on purpose: the group header is shorter than the model label of `name`. */}
-    <FieldGroup title="Identification" required fieldPath={`${BASE}.name`}>
-      <TextField
-        fieldPath={`${BASE}.name`}
-        helpText="Short descriptive name (id) of the entity; must be unique within a record."
-      />
-    </FieldGroup>
+    {/* fieldPath is the object path the group watches for errors (and its
+        element id); it must not duplicate a child field's own path (F5). */}
     <FieldGroup
-      title="Details (inline)"
-      help="Laid out in one Form.Group row"
-      inline
+      title="Identification"
+      required
+      fieldPath={BASE}
+      help="Header turns red for any error under the entity."
     >
-      <TextField fieldPath={`${BASE}.name`} label="Again" width={10} />
+      <TextField fieldPath={`${BASE}.name`} label="Name" />
+    </FieldGroup>
+    <Divider />
+    {/* No fieldPath: plain group, no id, no error state. */}
+    <FieldGroup title="Quantities" help="Layout in one Form.Group row." inline>
+      <ValueUnitField
+        fieldPath={`${BASE}.molecular_weight`}
+        label="Molecular weight"
+        units={["g/mol", "Da", "kDa", "MDa"]}
+        defaultUnit="kDa"
+      />
       <NumberField
         fieldPath={`${BASE}.copy_number`}
-        label="Copy number (not in ui_model yet)"
-        width={6}
+        label="Copy number"
+        width={4}
       />
+    </FieldGroup>
+    <FieldGroup title="Nested example" nested>
+      <TextField fieldPath={`${BASE}.variant`} label="Variant" />
     </FieldGroup>
   </>
 );
@@ -40,7 +53,13 @@ const story = {
       initialValues: {
         metadata: {
           general_parameters: {
-            entities_of_interest: [{ name: "Lysozyme", copy_number: 2 }],
+            entities_of_interest: [
+              {
+                name: "Lysozyme",
+                molecular_weight: { value: 14.3, unit: "kDa" },
+                copy_number: 2,
+              },
+            ],
           },
         },
       },

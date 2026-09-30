@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, useFormikContext, getIn } from "formik";
+import { Formik, Field, useFormikContext, getIn } from "formik";
 import { ValueUnitField } from "./ValueUnitField";
 
 jest.mock("@js/oarepo_ui/forms", () => ({
@@ -13,11 +13,6 @@ jest.mock("@js/oarepo_ui/forms", () => ({
       required: undefined,
     }),
   }),
-}));
-
-jest.mock("mbdb-semantic-ui-react", () => ({
-  ...jest.requireActual("mbdb-semantic-ui-react"),
-  ...jest.requireActual("mbdb-semantic-ui-react/FieldHelp"),
 }));
 
 const Probe = ({ path }) => {
@@ -102,6 +97,15 @@ describe("ValueUnitField", () => {
     );
   });
 
+  it("links label and input and gives the unit dropdown an aria-label", () => {
+    render(field);
+    expect(numberInput().id).toBe("mw");
+    expect(container.querySelector("label").getAttribute("for")).toBe("mw");
+    expect(
+      container.querySelector(".dropdown").getAttribute("aria-label")
+    ).toBe("Unit");
+  });
+
   it("writes value as a number together with the default unit", () => {
     render(field);
     typeValue("14305.5");
@@ -110,10 +114,12 @@ describe("ValueUnitField", () => {
     );
   });
 
-  it("keeps an explicitly picked unit when the value is empty, writes it with the value", () => {
+  it("keeps a unit picked while empty in local state and writes it with the value", () => {
     render(field);
     clickUnit("Da");
-    expect(byTestId("value").textContent).toBe('{"unit":"Da"}');
+    // no partial { unit } ever reaches Formik
+    expect(byTestId("value").textContent).toBe("null");
+    expect(container.querySelector(".dropdown .text").textContent).toBe("Da");
     typeValue("10");
     expect(byTestId("value").textContent).toBe('{"value":10,"unit":"Da"}');
   });
@@ -126,18 +132,66 @@ describe("ValueUnitField", () => {
     expect(byTestId("value").textContent).toBe("null");
   });
 
-  it("keeps an explicit non-default unit when the value is cleared", () => {
+  it("removes the whole object and resets the unit when the value is cleared (non-default unit)", () => {
     render(field, {
       initialValues: { mw: { value: 14305.5, unit: "Da" } },
     });
     typeValue("");
-    expect(byTestId("value").textContent).toBe('{"unit":"Da"}');
+    expect(byTestId("value").textContent).toBe("null");
+    // the picked unit does not linger: the dropdown shows the default again
+    expect(container.querySelector(".dropdown .text").textContent).toBe("kDa");
   });
 
   it("shows errors on value or unit under the control", () => {
     render(field, {
       initialValues: { mw: { unit: "kDa" } },
       initialErrors: { mw: { value: "Missing data for required field." } },
+    });
+    expect(container.textContent).toContain("Missing data for required field.");
+    expect(container.querySelector(".field.error")).not.toBeNull();
+  });
+
+  it("shows an object-level error (missing required quantity)", () => {
+    render(field, {
+      initialErrors: { mw: "Missing data for required field." },
+    });
+    expect(container.textContent).toContain("Missing data for required field.");
+    expect(container.querySelector(".field.error")).not.toBeNull();
+  });
+
+  it("shows the message of a { message, severity } error object", () => {
+    render(field, {
+      initialErrors: {
+        mw: { value: { message: "Bad number.", severity: "error" } },
+      },
+      initialValues: { mw: { value: 1, unit: "kDa" } },
+    });
+    expect(container.textContent).toContain("Bad number.");
+  });
+
+  it("keeps an initialError visible after another field is edited", () => {
+    render(
+      <>
+        <ValueUnitField
+          fieldPath="mw"
+          label="Molecular weight"
+          units={["Da", "kDa", "MDa"]}
+          defaultUnit="kDa"
+        />
+        <Field data-testid="other" name="other" />
+      </>,
+      {
+        initialValues: { mw: { value: 1, unit: "kDa" } },
+        initialErrors: { mw: { value: "Missing data for required field." } },
+      }
+    );
+    expect(container.textContent).toContain("Missing data for required field.");
+    // Validation on the first edit resets `errors` to {}; the server
+    // error must still be shown.
+    const other = container.querySelector('[data-testid="other"]');
+    other.value = "x";
+    act(() => {
+      Simulate.change(other);
     });
     expect(container.textContent).toContain("Missing data for required field.");
     expect(container.querySelector(".field.error")).not.toBeNull();

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, useFormikContext, getIn } from "formik";
+import { Formik, Field, useFormikContext, getIn } from "formik";
 import { ButtonGroupField } from "./ButtonGroupField";
 
 jest.mock("@js/oarepo_ui/forms", () => ({
@@ -13,11 +13,6 @@ jest.mock("@js/oarepo_ui/forms", () => ({
       required: undefined,
     }),
   }),
-}));
-
-jest.mock("mbdb-semantic-ui-react", () => ({
-  ...jest.requireActual("mbdb-semantic-ui-react"),
-  ...jest.requireActual("mbdb-semantic-ui-react/FieldHelp"),
 }));
 
 const Probe = ({ path }) => {
@@ -69,7 +64,7 @@ const click = (text) =>
 const OPTIONS = ["Natively", "Recombinantly", "Synthetically"];
 
 describe("ButtonGroupField", () => {
-  it("renders a radiogroup with all options and sets the value on click", () => {
+  it("renders a group with all options and sets the value on click", () => {
     render(
       <>
         <ButtonGroupField
@@ -80,7 +75,7 @@ describe("ButtonGroupField", () => {
         <Probe path="source" />
       </>
     );
-    const group = container.querySelector('[role="radiogroup"]');
+    const group = container.querySelector('[role="group"]');
     expect(group).not.toBeNull();
     expect(buttons().length).toBe(3);
 
@@ -146,9 +141,53 @@ describe("ButtonGroupField", () => {
     expect(container.querySelector(".field.error")).not.toBeNull();
   });
 
+  it("keeps an initialError visible after another field is edited", () => {
+    render(
+      <>
+        <ButtonGroupField fieldPath="source" options={OPTIONS} />
+        <Field data-testid="other" name="other" />
+      </>,
+      {
+        initialValues: { source: "Natively" },
+        initialErrors: { source: "Not a valid choice." },
+      }
+    );
+    expect(container.textContent).toContain("Not a valid choice.");
+    // Validation on the first edit resets `errors` to {}; the server
+    // error at `source` must still be shown.
+    const other = container.querySelector('[data-testid="other"]');
+    other.value = "x";
+    act(() => {
+      Simulate.change(other);
+    });
+    expect(container.textContent).toContain("Not a valid choice.");
+    expect(container.querySelector(".field.error")).not.toBeNull();
+  });
+
+  it("shows the message of a { message, severity } error object", () => {
+    render(<ButtonGroupField fieldPath="source" options={OPTIONS} />, {
+      initialValues: { source: "Natively" },
+      initialErrors: {
+        source: { message: "Not a valid choice.", severity: "error" },
+      },
+    });
+    expect(container.textContent).toContain("Not a valid choice.");
+  });
+
+  it("falls back to a SelectField for more than 5 options", () => {
+    render(
+      <ButtonGroupField
+        fieldPath="source"
+        options={["a", "b", "c", "d", "e", "f"]}
+      />
+    );
+    expect(container.querySelector(".ui.dropdown")).not.toBeNull();
+    expect(container.querySelector('[role="group"]')).toBeNull();
+  });
+
   it("moves focus between options with arrow keys", () => {
     render(<ButtonGroupField fieldPath="source" options={OPTIONS} />);
-    const group = container.querySelector('[role="radiogroup"]');
+    const group = container.querySelector('[role="group"]');
     buttons()[0].focus();
     expect(document.activeElement).toBe(buttons()[0]);
     act(() => {

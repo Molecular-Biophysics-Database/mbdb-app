@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik } from "formik";
+import { Formik, useFormikContext } from "formik";
 import { Table } from "mbdb-semantic-ui-react";
 import { SummaryItem } from "./SummaryItem";
 
@@ -21,7 +21,12 @@ const { FormConfigProvider, FieldDataProvider } = jest.requireMock(
 
 let container;
 
-const mount = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
+// ui is wrapped in a Table; `siblings` render outside the table (e.g. an
+// unrelated input used to prove the badge survives edits elsewhere, F1).
+const mount = (
+  ui,
+  { initialValues = {}, initialErrors = {}, siblings = null } = {}
+) => {
   container = document.createElement("div");
   document.body.appendChild(container);
   act(() => {
@@ -33,9 +38,12 @@ const mount = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
             initialErrors={initialErrors}
             onSubmit={() => {}}
           >
-            <Table compact>
-              <Table.Body>{ui}</Table.Body>
-            </Table>
+            <>
+              <Table compact>
+                <Table.Body>{ui}</Table.Body>
+              </Table>
+              {siblings}
+            </>
           </Formik>
         </FieldDataProvider>
       </FormConfigProvider>,
@@ -63,9 +71,23 @@ const row = (o) => (
   />
 );
 
+// A Formik-connected input for an unrelated field, so Simulate.change drives
+// Formik's setFieldValue (and its async errors reset) — used by the F1 test.
+const UnrelatedInput = () => {
+  const { values, setFieldValue } = useFormikContext();
+  return (
+    <input
+      data-testid="other"
+      value={values.other ?? ""}
+      onChange={(e) => setFieldValue("other", e.target.value)}
+    />
+  );
+};
+
 const byTestId = (id) => container.querySelector(`[data-testid="${id}"]`);
+// the ▸/▾ button; its label switches Show/Hide with the open state (F5)
 const toggleButton = () =>
-  container.querySelector('button[aria-label="Show details of entity"]');
+  container.querySelector('button[aria-label$="details of entity"]');
 const removeButton = () =>
   container.querySelector('button[aria-label="Remove entity"]');
 const confirmOnBody = () => document.body.querySelector(".ui.modal");
@@ -86,10 +108,16 @@ describe("SummaryItem", () => {
     });
     expect(byTestId("detail")).toBeNull();
     expect(toggleButton().getAttribute("aria-expanded")).toBe("false");
+    expect(toggleButton().getAttribute("aria-label")).toBe(
+      "Show details of entity"
+    );
 
     act(() => Simulate.click(toggleButton()));
     expect(byTestId("detail")).not.toBeNull();
     expect(toggleButton().getAttribute("aria-expanded")).toBe("true");
+    expect(toggleButton().getAttribute("aria-label")).toBe(
+      "Hide details of entity"
+    );
     expect(container.querySelector("tr.mbdb-details")).not.toBeNull();
 
     act(() => Simulate.click(toggleButton()));
@@ -145,7 +173,7 @@ describe("SummaryItem", () => {
   it("shows the error badge and routes its click to onEdit", () => {
     const onEdit = jest.fn();
     mount(row({ onEdit, onRemove: () => {} }), {
-      initialValues: { o: { name: "Zn2+", extra: { deep: "x" } } },
+      initialValues: { o: { name: "Zn2+", extra: { deep: "x" } }, other: "a" },
       initialErrors: {
         o: {
           name: "Missing data for required field.",
@@ -157,6 +185,28 @@ describe("SummaryItem", () => {
     expect(badge.textContent).toBe("2 errors");
     act(() => Simulate.click(badge));
     expect(onEdit).toHaveBeenCalledTimes(1);
+  });
+
+  it("keeps the badge after an unrelated edit clears Formik's errors (F1)", async () => {
+    // The deposit form passes server errors as initialErrors and has no
+    // validate; the first setFieldValue async-resets `errors` to {}. The badge
+    // must survive via the initialErrors fallback (value at `o` is unchanged).
+    mount(row({ onEdit: () => {}, onRemove: () => {} }), {
+      initialValues: { o: { name: "" }, other: "" },
+      initialErrors: { o: { name: "Missing data for required field." } },
+      siblings: <UnrelatedInput />,
+    });
+    expect(container.querySelector(".ui.red.label").textContent).toBe(
+      "1 error"
+    );
+
+    // edit the unrelated field; formik clears `errors` asynchronously (await)
+    const other = container.querySelector('[data-testid="other"]');
+    other.value = "changed";
+    await act(async () => Simulate.change(other));
+    expect(container.querySelector(".ui.red.label").textContent).toBe(
+      "1 error"
+    );
   });
 
   it("removes an empty object without confirmation", () => {
@@ -188,7 +238,7 @@ describe("SummaryItem", () => {
     expect(onRemove).toHaveBeenCalledTimes(1);
   });
 
-  it("hides the remove button when onRemove is undefined or removable=false", () => {
+  it("hides the remove button when onRemove is undefined", () => {
     mount(row({ onEdit: () => {}, onRemove: undefined }), {
       initialValues: { o: {} },
     });

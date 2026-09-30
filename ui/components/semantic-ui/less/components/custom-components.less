@@ -38,3 +38,32 @@ label.helptext.mbdb-field-help:first-child {
 .mbdb-monospace textarea {
   font-family: monospace;
 }
+
+// Required asterisk in TableArrayField column headers — Semantic's
+// required-marker red (#db2828, same as .ui.form .field.error labels).
+.mbdb-required {
+  color: #db2828;
+}
+
+// FieldGroup `nested` prop: left border to mark a sub-group (design
+// FieldGroup.md). rgba matches Semantic's default border color.
+.ui.form .segment.basic.mbdb-nested,
+.segment.basic.mbdb-nested {
+  border-left: 2px solid rgba(34, 36, 38, 0.15);
+}
+
+// DetailView steps formatting (numbered protocol lines) and expanded
+// sequences: keep the newlines they render.
+.mbdb-pre-line {
+  white-space: pre-line;
+}
+
+// DetailView error note that opens the edit modal: look like a link.
+button.mbdb-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #db2828;
+  text-decoration: underline;
+  cursor: pointer;
+}

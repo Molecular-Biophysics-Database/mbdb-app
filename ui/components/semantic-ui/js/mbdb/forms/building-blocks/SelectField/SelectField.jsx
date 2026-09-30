@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useFormikContext, getIn } from "formik";
 import { Label } from "mbdb-semantic-ui-react";
 import { SelectField as MbdbSelectField } from "mbdb-react-invenio-forms";
-import { useModelFieldData } from "../fieldData";
+import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 
 const toOption = (option) =>
   typeof option === "string"
@@ -47,7 +47,9 @@ export const SelectField = ({
         {...uiProps}
       />
       {unknown && (
-        <Label basic color="red" pointing>
+        // Still below the wrapper's FieldHelp (accepted deviation, see
+        // SelectField-review F5), so it does not `point` at the dropdown.
+        <Label basic color="red">
           Unknown value
         </Label>
       )}

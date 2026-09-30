@@ -24,9 +24,10 @@ const ERRORS_EXAMPLE = `[
   }
 ]`;
 
-// Formik state of one mount. Every change of scenario, reset, or applied
-// server errors remounts the form (new `key`), because the deposit form also
-// shows server errors as Formik `initialErrors` of a reinitialized form.
+// Scenario switches and resets remount the form (new `key`). Applying server
+// errors does NOT remount: the deposit form reinitializes a Formik that stays
+// mounted (enableReinitialize), so blocks that must react to new errors while
+// staying mounted (open a row with errors, keep a badge) can be checked here.
 const mountScenario = (scenario, key) => ({
   key,
   initialValues: scenario.initialValues || {},
@@ -86,8 +87,10 @@ export const StoryFrame = ({ story }) => {
     setScenarioIndex(index);
     setMount(mountScenario(scenarios[index], mount.key + 1));
   };
+  const reinit = (initialValues, initialErrors) =>
+    setMount((m) => ({ ...m, initialValues, initialErrors }));
   const remount = (initialValues, initialErrors) =>
-    setMount({ key: mount.key + 1, initialValues, initialErrors });
+    setMount((m) => ({ key: m.key + 1, initialValues, initialErrors }));
   const toggle = (panel) => setOpen({ ...open, [panel]: !open[panel] });
 
   return (
@@ -105,6 +108,7 @@ export const StoryFrame = ({ story }) => {
 
       <Formik
         key={mount.key}
+        enableReinitialize
         initialValues={mount.initialValues}
         initialErrors={mount.initialErrors}
         onSubmit={() => {}}
@@ -149,8 +153,8 @@ export const StoryFrame = ({ story }) => {
                 <ServerErrorsPanel
                   text={errorsText}
                   setText={setErrorsText}
-                  onApply={(errors) => remount(values, errors)}
-                  onClear={() => remount(values, {})}
+                  onApply={(errors) => reinit(values, errors)}
+                  onClear={() => reinit(values, {})}
                 />
               </Accordion.Content>
             </Accordion>
