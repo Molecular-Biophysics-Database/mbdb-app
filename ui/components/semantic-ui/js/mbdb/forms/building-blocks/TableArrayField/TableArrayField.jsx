@@ -5,6 +5,7 @@ import {
   Button,
   FieldHelp,
   Form,
+  HelpLabel,
   Icon,
   Label,
   Table,
@@ -328,7 +329,13 @@ const FieldBox = ({ fieldPath, label, help, required, children }) => {
   });
   return (
     <Form.Field required={data.required} error={hasError}>
-      {data.label && <label>{data.label}</label>}
+      {data.label && (
+        // htmlFor points at the field path for OARepo error scrolling; the
+        // table rows below are the labelled controls (cell aria-labels).
+        <label htmlFor={fieldPath}>
+          <HelpLabel label={data.label} help={data.helpText} />
+        </label>
+      )}
       {children}
       {data.helpText && <FieldHelp help={data.helpText} />}
     </Form.Field>

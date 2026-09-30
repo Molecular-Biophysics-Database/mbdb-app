@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import { Formik, Field, useFormikContext, getIn } from "formik";
+import { HelpModeProvider } from "mbdb-semantic-ui-react";
 import { ButtonGroupField } from "./ButtonGroupField";
 
 jest.mock("@js/oarepo_ui/forms", () => ({
@@ -172,6 +173,21 @@ describe("ButtonGroupField", () => {
       },
     });
     expect(container.textContent).toContain("Not a valid choice.");
+  });
+
+  it("popup mode: no helptext label, one help icon next to the label", () => {
+    render(
+      <HelpModeProvider mode="popup">
+        <ButtonGroupField
+          fieldPath="source"
+          label="Expression source type"
+          helpText="How the polymer was produced"
+          options={OPTIONS}
+        />
+      </HelpModeProvider>
+    );
+    expect(container.querySelector("label.helptext")).toBeNull();
+    expect(container.querySelectorAll('[aria-label^="Help"]').length).toBe(1);
   });
 
   it("falls back to a SelectField for more than 5 options", () => {

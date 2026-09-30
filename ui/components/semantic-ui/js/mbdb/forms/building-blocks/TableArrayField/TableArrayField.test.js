@@ -3,18 +3,21 @@ import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import { Formik, useFormikContext, getIn } from "formik";
+import { HelpModeProvider } from "mbdb-semantic-ui-react";
 import { TableArrayField } from "./TableArrayField";
 
 // The oarepo forms index is not loadable in Jest (react-searchkit/d3 ESM).
-// Model labels can be injected per test through mockModelLabels.
+// Model labels can be injected per test through mockModelLabels, help texts
+// through mockModelHelp.
 let mockModelLabels = {};
+let mockModelHelp = {};
 jest.mock("@js/oarepo_ui/forms", () => ({
   FormConfigProvider: ({ children }) => children,
   FieldDataProvider: ({ children }) => children,
   useFieldData: () => ({
     getFieldData: ({ fieldPath }) => ({
       label: mockModelLabels[fieldPath] ?? fieldPath,
-      helpText: null,
+      helpText: mockModelHelp[fieldPath] ?? null,
     }),
   }),
 }));
@@ -72,6 +75,7 @@ const mount = (ui, opts = {}) => {
 
 beforeEach(() => {
   mockModelLabels = {};
+  mockModelHelp = {};
 });
 
 afterEach(() => {
@@ -379,6 +383,32 @@ describe("TableArrayField", () => {
     expect(container.textContent).toContain("Step description from model");
     // the cell input's aria-label uses the same resolved label
     expect(input("Step name from model")).not.toBeNull();
+  });
+
+  it("popup mode: no helptext under the table; columns with model help show a header icon", () => {
+    mockModelHelp = {
+      "steps.name": "The name of the step",
+      "steps.description": "What is done in this step",
+    };
+    mount(
+      <HelpModeProvider mode="popup">
+        <TableArrayField
+          fieldPath="steps"
+          label="Preparation protocol"
+          minItems={1}
+          columns={PROTOCOL_COLUMNS}
+        />
+        <Probe path="steps" />
+      </HelpModeProvider>
+    );
+    // nothing renders help under the table
+    expect(container.querySelector("label.helptext")).toBeNull();
+    // one icon per column with model help, sitting in the header cells
+    const icons = container.querySelectorAll('[aria-label^="Help"]');
+    expect(icons.length).toBe(2);
+    icons.forEach((icon) => {
+      expect(icon.closest("th")).not.toBeNull();
+    });
   });
 
   it("shows cell errors as red inputs with a pointing label (C1: from initialErrors)", () => {

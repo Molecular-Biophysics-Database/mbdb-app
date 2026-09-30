@@ -1,13 +1,15 @@
 import React from "react";
-import { StringArrayField } from "@js/oarepo_ui/forms";
+import { StringArrayField } from "mbdb-react-invenio-forms";
 
 const PATH =
   "metadata.general_parameters.entities_of_interest.0.additional_specifications";
 
-// StringListField is oarepo's StringArrayField used directly (no mbdb wrapper).
+// StringListField is oarepo's StringArrayField behind the mbdb wrapper (help
+// goes through HelpLabel/FieldHelp so the global help mode reaches it).
 const Fields = () => (
   <StringArrayField
     fieldPath={PATH}
+    label="Additional specifications"
     addButtonLabel="Add specification"
     helpText="Additional information about the entity can be specified here."
   />

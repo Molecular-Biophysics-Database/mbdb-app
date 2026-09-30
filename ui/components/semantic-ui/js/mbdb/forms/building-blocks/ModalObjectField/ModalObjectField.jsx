@@ -6,6 +6,7 @@ import {
   Button,
   FieldHelp,
   Form,
+  HelpLabel,
   Icon,
   Label,
   Table,
@@ -75,7 +76,11 @@ export const ModalObjectField = ({
   return (
     <>
       <Form.Field required={data.required} error={objectMessages.length > 0}>
-        {text && <label htmlFor={fieldPath}>{text}</label>}
+        {text && (
+          <label htmlFor={fieldPath}>
+            <HelpLabel label={text} help={data.helpText} />
+          </label>
+        )}
         {data.helpText && <FieldHelp help={data.helpText} />}
         {!present ? (
           <>

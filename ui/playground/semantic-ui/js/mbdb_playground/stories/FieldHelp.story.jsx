@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { Button, Divider, Input } from "mbdb-semantic-ui-react";
-import { FieldHelp } from "mbdb-semantic-ui-react";
+import React from "react";
+import { FieldHelp, Input } from "mbdb-semantic-ui-react";
 import { TextField } from "mbdb-react-invenio-forms";
 
-// FieldHelp is the one place where help texts are rendered. The mode is a
-// module constant in mbdb-semantic-ui-react/FieldHelp.jsx, not a prop passed
-// by fields; this story toggles it locally only to preview both looks.
+// FieldHelp is the one place where help texts are rendered. The mode comes
+// from the HelpMode context (mbdb-semantic-ui-react/HelpMode.jsx), not a prop
+// passed by fields. Use the Help switch in the page header.
 
 // metadata.title is a plain keyword path with a ui_model entry, so the
 // wrapped field reads label/help/required from the model without overrides.
@@ -14,20 +13,11 @@ import { TextField } from "mbdb-react-invenio-forms";
 const TITLE = "metadata.record_information.title";
 
 const Demo = () => {
-  const [mode, setMode] = useState("invenio");
   return (
     <>
-      <Button
-        type="button"
-        size="small"
-        onClick={() => setMode(mode === "invenio" ? "popup" : "invenio")}
-      >
-        Preview mode: {mode}
-      </Button>
-      <Divider />
+      <p>Use the Help switch in the page header.</p>
       <span>
-        Standalone FieldHelp:{" "}
-        <FieldHelp help="Help text in grey, small." mode={mode} />
+        Standalone FieldHelp: <FieldHelp help="Help text in grey, small." />
       </span>
       <p>
         Wrapped RIF TextField on `metadata.record_information.title`

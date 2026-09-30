@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import { Formik, Field, useFormikContext, getIn } from "formik";
+import { HelpModeProvider } from "mbdb-semantic-ui-react";
 import { ValueUnitField } from "./ValueUnitField";
 
 jest.mock("@js/oarepo_ui/forms", () => ({
@@ -95,6 +96,12 @@ describe("ValueUnitField", () => {
     expect(container.querySelector("label.helptext").textContent).toBe(
       "The molecular weight of the polymer"
     );
+  });
+
+  it("popup mode: no helptext under the control, one help icon next to the label", () => {
+    render(<HelpModeProvider mode="popup">{field}</HelpModeProvider>);
+    expect(container.querySelector("label.helptext")).toBeNull();
+    expect(container.querySelectorAll('[aria-label^="Help"]').length).toBe(1);
   });
 
   it("links label and input and gives the unit dropdown an aria-label", () => {

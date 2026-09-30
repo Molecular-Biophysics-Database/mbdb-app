@@ -9,6 +9,7 @@ import {
   Dropdown,
   FieldHelp,
   Form,
+  HelpLabel,
   Icon,
   Label,
   Table,
@@ -105,7 +106,13 @@ export const ModalArrayField = ({
         return (
           <>
             <Form.Field required={data.required} error={hasError}>
-              {data.label && <label>{data.label}</label>}
+              {data.label && (
+                // htmlFor points at the field path for OARepo error
+                // scrolling; the list rows carry their own labels.
+                <label htmlFor={fieldPath}>
+                  <HelpLabel label={data.label} help={data.helpText} />
+                </label>
+              )}
               {data.helpText && <FieldHelp help={data.helpText} />}
               {items.length === 0 ? (
                 <p className="ui grey text">No items yet</p>

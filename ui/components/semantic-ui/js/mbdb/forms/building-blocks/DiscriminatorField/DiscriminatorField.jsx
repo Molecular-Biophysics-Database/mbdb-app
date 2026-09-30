@@ -8,6 +8,7 @@ import {
   Dropdown,
   FieldHelp,
   Form,
+  HelpLabel,
   Label,
 } from "mbdb-semantic-ui-react";
 import { isEmptyValue } from "@js/mbdb/forms/building-blocks/errors";
@@ -152,7 +153,13 @@ export const DiscriminatorField = ({
 
   return (
     <Form.Field required={data.required} error={errorMessages.length > 0}>
-      {text && <label>{text}</label>}
+      {text && (
+        // htmlFor points at the field path so OARepo error scrolling finds
+        // it; the control itself is a Semantic Dropdown, not labelable.
+        <label htmlFor={`${objectPath}.${field}`}>
+          <HelpLabel label={text} help={help} />
+        </label>
+      )}
       {help && <FieldHelp help={help} />}
       {mode === "buttons" ? (
         <Button.Group

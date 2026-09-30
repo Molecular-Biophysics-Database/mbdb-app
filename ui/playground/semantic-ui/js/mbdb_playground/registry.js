@@ -8,6 +8,7 @@
 export const STEPS = [
   { step: "0b", title: "Playground", inProgress: false },
   { step: 1, title: "Building blocks" },
+  { step: "1b", title: "Global help mode" },
   { step: 2, title: "Leaf shared blocks" },
   { step: 3, title: "Composite shared blocks" },
   { step: 4, title: "Entity forms" },

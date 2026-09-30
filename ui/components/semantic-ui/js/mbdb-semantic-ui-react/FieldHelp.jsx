@@ -1,34 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Icon, Popup } from "semantic-ui-react";
+import { useHelpMode } from "./HelpMode";
 
-// One-line switch between Invenio-style help under the field and a popup
-// icon next to the label. A module constant, not a per-field prop.
-export const FIELD_HELP_MODE = "invenio"; // or "popup"
-
-export const FieldHelp = ({ help, mode = FIELD_HELP_MODE }) => {
-  if (!help) return null;
-  if (mode === "popup") {
-    return (
-      <Popup
-        content={help}
-        on={["hover", "focus"]}
-        trigger={
-          <Icon
-            name="question circle outline"
-            tabIndex={0}
-            link
-            role="button"
-            aria-label="Help"
-          />
-        }
-      />
-    );
-  }
+// The help slot under a control. "invenio" mode: helptext label (keep the
+// mbdb-field-help class — LESS hooks on it). "popup" mode: nothing — the
+// icon lives in the label slot (HelpLabel). Empty help → null either way.
+export const FieldHelp = ({ help }) => {
+  const mode = useHelpMode();
+  if (!help || mode === "popup") return null;
   return <label className="helptext mbdb-field-help">{help}</label>;
 };
 
 FieldHelp.propTypes = {
   help: PropTypes.node,
-  mode: PropTypes.oneOf(["invenio", "popup"]),
 };

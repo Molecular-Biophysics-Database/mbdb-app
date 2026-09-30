@@ -7,19 +7,20 @@ import {
   ArrayField as RifArrayField,
   TextAreaField as RifTextAreaField,
 } from "react-invenio-forms";
-import { FieldHelp, FIELD_HELP_MODE } from "mbdb-semantic-ui-react";
+import { StringArrayField as OARepoStringArrayField } from "@js/oarepo_ui/forms";
+import { FieldHelp, HelpLabel, useHelpMode } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 
 // mbdb wrappers around react-invenio-forms fields: they fill label /
 // helpText / required from the model (explicit props win) and render
-// helpText through FieldHelp, so this is the only place where the look
-// of help texts can change. The RIF components render helpText as their
-// own <label className="helptext">; in "invenio" mode the wrappers pass
-// undefined to suppress it and render FieldHelp after the field instead;
-// in "popup" mode the help icon goes into the label and nothing renders
-// below. The wrappers also force a controlled input value and map the
-// empty string to `undefined`, so cleared fields are removed from the
-// form data instead of persisting "".
+// helpText through the two help slots (HelpLabel in the label, FieldHelp
+// under the field), so this is the only place where the look of help
+// texts can change. FieldHelp decides per global help mode: in "invenio"
+// mode it renders the helptext label below the field, in "popup" mode it
+// renders nothing (the "?" icon sits in the label instead). The RIF
+// components' own helpText rendering is suppressed. The wrappers also
+// force a controlled input value and map the empty string to `undefined`,
+// so cleared fields are removed from the form data instead of persisting "".
 
 const fieldShape = {
   fieldPath: PropTypes.string.isRequired,
@@ -29,18 +30,6 @@ const fieldShape = {
   // own onChange (e.g. NumberField) wins over the wrapper's default
   onChange: PropTypes.func,
 };
-
-// Invenio mode: help under the field via FieldHelp.
-// Popup mode: help icon inside the label node (FieldHelp renders nothing
-// below; note: the popup trigger in FieldHelp.jsx needs tabIndex + focus).
-const helpLabel = (data) =>
-  FIELD_HELP_MODE === "popup" && data.helpText ? (
-    <>
-      {data.label} <FieldHelp help={data.helpText} mode="popup" />
-    </>
-  ) : (
-    data.label
-  );
 
 // Semantic Input onChange carries the value as `data.value`; a Form.Input
 // without an intermediary control (e.g. clear) reports `e.target.value`.
@@ -60,7 +49,13 @@ export const TextField = ({
     <>
       <RifTextField
         fieldPath={fieldPath}
-        label={helpLabel(data)}
+        // semantic-ui passing label shorthand through Form.Input drops the
+        // <label> element for node values, so wrap HelpLabel ourselves
+        label={
+          <label htmlFor={fieldPath}>
+            <HelpLabel label={data.label} help={data.helpText} />
+          </label>
+        }
         required={data.required}
         helpText={undefined}
         {...uiProps}
@@ -78,7 +73,7 @@ export const TextField = ({
         }
         value={getIn(values, fieldPath) ?? ""}
       />
-      {FIELD_HELP_MODE !== "popup" && <FieldHelp help={data.helpText} />}
+      <FieldHelp help={data.helpText} />
     </>
   );
 };
@@ -97,7 +92,9 @@ export const SelectField = ({
     <>
       <RifSelectField
         fieldPath={fieldPath}
-        label={helpLabel(data)}
+        // RIF puts the label inside its semantic Label shorthand ({children:
+        // label}), whose createHTMLLabel renders a real <label> element
+        label={<HelpLabel label={data.label} help={data.helpText} />}
         required={data.required}
         helpText={undefined}
         // RIF pitfall: a custom onChange must set the value itself; the
@@ -112,7 +109,7 @@ export const SelectField = ({
         }
         {...uiProps}
       />
-      {FIELD_HELP_MODE !== "popup" && <FieldHelp help={data.helpText} />}
+      <FieldHelp help={data.helpText} />
     </>
   );
 };
@@ -127,14 +124,18 @@ export const ArrayField = ({
 }) => {
   const data = useModelFieldData(fieldPath, { label, helpText, required });
   // RIF renders helpText inside the Form.Field directly under the label,
-  // above the rows. In "invenio" mode pass it there (F2: not below the
-  // Add button); in "popup" mode compose the icon into the label instead.
+  // above the rows — where the design wants it. In "invenio" mode pass it
+  // there (F2: not below the Add button); in "popup" mode the icon lives
+  // in HelpLabel and nothing renders below. This is the one wrapper that
+  // reads the mode itself.
+  const mode = useHelpMode();
   return (
     <RifArrayField
       fieldPath={fieldPath}
-      label={helpLabel(data)}
+      // RIF renders label through its FieldLabel (inside a real <label>)
+      label={<HelpLabel label={data.label} help={data.helpText} />}
       required={data.required}
-      helpText={FIELD_HELP_MODE === "popup" ? undefined : data.helpText}
+      helpText={mode === "invenio" ? data.helpText : undefined}
       {...uiProps}
     />
   );
@@ -162,7 +163,13 @@ export const TextAreaField = ({
     <>
       <RifTextAreaField
         fieldPath={fieldPath}
-        label={helpLabel(data)}
+        // like RifTextField: semantic Form.TextArea drops the <label>
+        // element for node labels, so wrap HelpLabel ourselves
+        label={
+          <label htmlFor={fieldPath}>
+            <HelpLabel label={data.label} help={data.helpText} />
+          </label>
+        }
         required={data.required}
         {...uiProps}
         onChange={
@@ -177,8 +184,39 @@ export const TextAreaField = ({
         }
         value={getIn(values, fieldPath) ?? ""}
       />
-      {FIELD_HELP_MODE !== "popup" && <FieldHelp help={data.helpText} />}
+      <FieldHelp help={data.helpText} />
     </>
   );
 };
 TextAreaField.propTypes = fieldShape;
+
+// Wrapper around oarepo's StringArrayField (the wrapper StringListField
+// review question F1 asked about). oarepo's component resolves the label
+// through its own useFieldData and renders its own help as a helptext
+// label between the rows and the Add button; helpText={null} suppresses
+// it there (oarepo's mergeFieldData keeps null overrides). The mbdb
+// wrapper resolves label/help/required from the model the same way as the
+// other wrappers, puts HelpLabel into the label prop (FieldLabel renders
+// nodes), and appends FieldHelp after the field.
+export const StringArrayField = ({
+  fieldPath,
+  label,
+  helpText,
+  required,
+  ...uiProps
+}) => {
+  const data = useModelFieldData(fieldPath, { label, helpText, required });
+  return (
+    <>
+      <OARepoStringArrayField
+        fieldPath={fieldPath}
+        label={<HelpLabel label={data.label} help={data.helpText} />}
+        required={data.required}
+        helpText={null}
+        {...uiProps}
+      />
+      <FieldHelp help={data.helpText} />
+    </>
+  );
+};
+StringArrayField.propTypes = fieldShape;

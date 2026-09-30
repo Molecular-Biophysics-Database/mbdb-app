@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Table } from "mbdb-semantic-ui-react";
+import { HelpIcon, Table } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 
 // One column header; the label and required flag default to the model entry
@@ -15,6 +15,12 @@ export const ColumnHeader = ({ fieldPath, column }) => {
     <Table.HeaderCell width={column.width}>
       {data.label}
       {data.required ? <span className="mbdb-required"> *</span> : null}
+      {data.helpText && (
+        <>
+          {" "}
+          <HelpIcon help={data.helpText} label={data.label} />
+        </>
+      )}
     </Table.HeaderCell>
   );
 };

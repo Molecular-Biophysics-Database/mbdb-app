@@ -8,9 +8,12 @@ import {
   ArrayField,
   TextAreaField,
 } from "mbdb-react-invenio-forms";
-import { FieldHelp } from "mbdb-semantic-ui-react";
+import { HelpModeProvider } from "mbdb-semantic-ui-react";
 
 jest.mock("@js/oarepo_ui/forms", () => ({
+  // fields.jsx wraps oarepo's StringArrayField; a passthrough stub is
+  // enough here (no test renders it — the real one cannot load under Jest)
+  StringArrayField: () => null,
   useFieldData: () => ({
     getFieldData: ({ fieldPath }) => ({
       label: "Model label",
@@ -190,15 +193,13 @@ describe("wrapped fields", () => {
     expect(container.textContent).toContain("Not a valid sequence.");
   });
 
-  it("FieldHelp renders a popup trigger in popup mode", () => {
+  it("TextField in popup mode shows no helptext, only the label icon", () => {
     render(
-      <>
-        <FieldHelp help="Popup help" mode="popup" />
+      <HelpModeProvider mode="popup">
         <TextField fieldPath="name" />
-      </>
+      </HelpModeProvider>
     );
-    expect(
-      container.querySelector("i.icon.question.circle.outline")
-    ).not.toBeNull();
+    expect(container.querySelectorAll("label.helptext").length).toBe(0);
+    expect(container.querySelectorAll('[aria-label^="Help"]').length).toBe(1);
   });
 });

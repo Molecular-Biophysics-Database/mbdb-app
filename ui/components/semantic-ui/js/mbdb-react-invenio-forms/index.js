@@ -3,4 +3,10 @@
 // Use the mbdb wrappers below (model labels, FieldHelp) instead of the plain
 // RIF exports of the same name.
 export * from "react-invenio-forms";
-export { TextField, SelectField, ArrayField, TextAreaField } from "./fields";
+export {
+  TextField,
+  SelectField,
+  ArrayField,
+  TextAreaField,
+  StringArrayField,
+} from "./fields";

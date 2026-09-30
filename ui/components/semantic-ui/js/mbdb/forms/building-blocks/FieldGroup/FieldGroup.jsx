@@ -7,6 +7,7 @@ import {
   Segment,
   Divider,
   FieldHelp,
+  HelpLabel,
 } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 
@@ -72,7 +73,7 @@ export const FieldGroup = ({
     <>
       {divided && <Divider />}
       <Header as="h5" id={fieldPath} color={hasError ? "red" : undefined}>
-        {data.label}
+        <HelpLabel label={data.label} help={data.helpText} />
         {data.required && <span className="mbdb-required">*</span>}
       </Header>
       <FieldHelp help={data.helpText} />

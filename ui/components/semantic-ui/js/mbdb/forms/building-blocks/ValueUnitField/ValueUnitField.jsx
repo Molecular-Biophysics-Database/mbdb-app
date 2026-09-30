@@ -7,6 +7,7 @@ import {
   Input,
   Label,
   FieldHelp,
+  HelpLabel,
 } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 
@@ -101,7 +102,9 @@ export const ValueUnitField = ({
 
   return (
     <Form.Field required={data.required} error={hasError}>
-      <label htmlFor={fieldPath}>{data.label}</label>
+      <label htmlFor={fieldPath}>
+        <HelpLabel label={data.label} help={data.helpText} />
+      </label>
       <Input
         {...uiProps}
         fluid

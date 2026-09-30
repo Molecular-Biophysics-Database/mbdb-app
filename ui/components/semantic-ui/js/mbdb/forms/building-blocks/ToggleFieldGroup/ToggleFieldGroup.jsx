@@ -7,6 +7,7 @@ import {
   Confirm,
   FieldHelp,
   Form,
+  HelpLabel,
   Segment,
 } from "mbdb-semantic-ui-react";
 import {
@@ -57,7 +58,22 @@ export const ToggleFieldGroup = ({
 
   return (
     <Form.Field id={fieldPath} error={hasError}>
-      <Checkbox label={text} checked={checked} onChange={onToggle} />
+      <Checkbox
+        // semantic-ui-react drops its own <label> element when `label` is a
+        // React node (createHTMLLabel returns the children raw), which hides
+        // the checkbox square (it is drawn from `label:before`). Wrap the
+        // HelpLabel in an explicit <label> so the box keeps rendering.
+        label={
+          // htmlFor points at the field path (also the Form.Field id) so
+          // OARepo error scrolling finds it; the checkbox input inside is
+          // the labelled control, as with the other blocks' dropdowns.
+          <label htmlFor={fieldPath}>
+            <HelpLabel label={text} help={data.helpText} />
+          </label>
+        }
+        checked={checked}
+        onChange={onToggle}
+      />
       {data.helpText && <FieldHelp help={data.helpText} />}
       {objectMessages.length > 0 && (
         <div className="ui red text">{objectMessages.join(" ")}</div>

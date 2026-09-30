@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import { Formik, Field, useFormikContext, getIn } from "formik";
+import { HelpModeProvider } from "mbdb-semantic-ui-react";
 import { DiscriminatorField } from "./DiscriminatorField";
 
 // The real "@js/oarepo_ui/forms" index cannot load under Jest (ESM deps);
@@ -91,6 +92,16 @@ describe("DiscriminatorField", () => {
     act(() => Simulate.click(button("Chemical")));
     expect(probe()).toEqual({ id: "e1", type: "Chemical" });
     expect(modal()).toBeNull(); // nothing lost, no confirm asked
+  });
+
+  it("popup mode: no helptext label, one help icon next to the label", () => {
+    mount(
+      <HelpModeProvider mode="popup">
+        {typeField({ label: "Entity type", helpText: "The kind of entity" })}
+      </HelpModeProvider>
+    );
+    expect(container.querySelector("label.helptext")).toBeNull();
+    expect(container.querySelectorAll('[aria-label^="Help"]').length).toBe(1);
   });
 
   it("exposes pressed state and arrow-key focus on the option buttons", () => {

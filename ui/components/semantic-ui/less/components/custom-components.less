@@ -8,6 +8,10 @@ nrp ui components create <component-type> <component-name>
  */
 
 // mbdb building blocks (conversion_docs/poc/design/building-blocks)
+
+// Colors are named variables, declared once here (implementation guide §13,
+// re-review CSS rule): this file compiles standalone, without theme vars.
+@mbdbErrorColor: #db2828;
 .ui.table tr.mbdb-details > td {
   background: #f9fafb;
 }
@@ -39,10 +43,10 @@ label.helptext.mbdb-field-help:first-child {
   font-family: monospace;
 }
 
-// Required asterisk in TableArrayField column headers — Semantic's
-// required-marker red (#db2828, same as .ui.form .field.error labels).
+// Required asterisk in TableArrayField column headers and FieldGroup titles
+// (Semantic's own .field.required asterisk uses this same red).
 .mbdb-required {
-  color: #db2828;
+  color: @mbdbErrorColor;
 }
 
 // FieldGroup `nested` prop: left border to mark a sub-group (design
@@ -63,7 +67,7 @@ button.mbdb-link {
   background: none;
   border: none;
   padding: 0;
-  color: #db2828;
+  color: @mbdbErrorColor;
   text-decoration: underline;
   cursor: pointer;
 }

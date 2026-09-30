@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import { Formik, useFormikContext, getIn } from "formik";
-import { Input } from "mbdb-semantic-ui-react";
+import { HelpModeProvider, Input } from "mbdb-semantic-ui-react";
 import { ModalObjectField } from "./ModalObjectField";
 
 jest.mock("@js/oarepo_ui/forms", () => ({
@@ -118,6 +118,16 @@ describe("ModalObjectField", () => {
     expect(container.textContent).toContain("Storage");
     expect(container.textContent).toContain("Add Storage");
     expect(container.textContent).not.toContain("Edit");
+  });
+
+  it("popup mode: no helptext label, one help icon next to the label", () => {
+    mount(
+      <HelpModeProvider mode="popup">
+        {storage({ help: "How the sample is stored" })}
+      </HelpModeProvider>
+    );
+    expect(container.querySelector("label.helptext")).toBeNull();
+    expect(container.querySelectorAll('[aria-label^="Help"]').length).toBe(1);
   });
 
   it("Add sets the initial value, opens the modal; Cancel resets to undefined", () => {

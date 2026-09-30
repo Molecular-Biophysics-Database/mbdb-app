@@ -1,7 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useFormikContext, getIn } from "formik";
-import { Button, Form, Label, FieldHelp } from "mbdb-semantic-ui-react";
+import {
+  Button,
+  Form,
+  Label,
+  FieldHelp,
+  HelpLabel,
+} from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import { SelectField } from "@js/mbdb/forms/building-blocks/SelectField";
 
@@ -89,7 +95,9 @@ export const ButtonGroupField = ({
 
   return (
     <Form.Field required={data.required} error={messages.length > 0}>
-      <label htmlFor={fieldPath}>{data.label}</label>
+      <label htmlFor={fieldPath}>
+        <HelpLabel label={data.label} help={data.helpText} />
+      </label>
       <Button.Group
         id={fieldPath}
         // role="group", not "radiogroup": the buttons toggle (aria-pressed),

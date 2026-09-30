@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import { Formik, Field } from "formik";
+import { HelpModeProvider } from "mbdb-semantic-ui-react";
 import { FieldGroup } from "./FieldGroup";
 
 // FieldGroup resolves title/help/required from the model when fieldPath is
@@ -63,6 +64,26 @@ describe("FieldGroup", () => {
       "The molecular weight of the polymer"
     );
     expect(container.querySelector('[data-testid="child"]')).not.toBeNull();
+  });
+
+  it("popup mode: no helptext under the header, one help icon in the header", () => {
+    render(
+      <HelpModeProvider mode="popup">
+        <FieldGroup
+          title="Molecular weight"
+          help="The molecular weight of the polymer"
+          fieldPath="metadata.mw"
+        >
+          <input data-testid="child" />
+        </FieldGroup>
+      </HelpModeProvider>
+    );
+    expect(container.querySelector("label.helptext")).toBeNull();
+    const icons = container.querySelectorAll('[aria-label^="Help"]');
+    expect(icons.length).toBe(1);
+    expect(container.querySelector("h5.ui.header").contains(icons[0])).toBe(
+      true
+    );
   });
 
   it("turns the header red when an error exists under fieldPath", () => {

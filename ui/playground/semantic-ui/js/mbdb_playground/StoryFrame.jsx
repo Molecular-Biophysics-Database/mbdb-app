@@ -34,7 +34,8 @@ const mountScenario = (scenario, key) => ({
   initialErrors: scenario.initialErrors || {},
 });
 
-// `text` lives in StoryFrame: applying errors remounts the form and this panel.
+// `text` lives in StoryFrame: applying errors reinitializes the form's
+// initial errors (no remount), and this panel keeps its state.
 const ServerErrorsPanel = ({ text, setText, onApply, onClear }) => {
   const [parseError, setParseError] = useState(null);
 
@@ -89,8 +90,6 @@ export const StoryFrame = ({ story }) => {
   };
   const reinit = (initialValues, initialErrors) =>
     setMount((m) => ({ ...m, initialValues, initialErrors }));
-  const remount = (initialValues, initialErrors) =>
-    setMount((m) => ({ key: m.key + 1, initialValues, initialErrors }));
   const toggle = (panel) => setOpen({ ...open, [panel]: !open[panel] });
 
   return (

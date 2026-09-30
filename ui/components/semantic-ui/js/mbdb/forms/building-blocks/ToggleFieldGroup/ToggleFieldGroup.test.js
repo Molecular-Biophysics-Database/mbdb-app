@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import { Formik, useFormikContext, getIn } from "formik";
+import { HelpModeProvider } from "mbdb-semantic-ui-react";
 import { ToggleFieldGroup } from "./ToggleFieldGroup";
 
 jest.mock("@js/oarepo_ui/forms", () => ({
@@ -99,6 +100,23 @@ describe("ToggleFieldGroup", () => {
     expect(checkbox().checked).toBe(false);
     expect(container.querySelector('[data-testid="body"]')).toBeNull();
     expect(container.textContent).toContain("By intact mass");
+  });
+
+  it("keeps a <label> element inside the .ui.checkbox (the box is drawn from label:before)", () => {
+    // Regression: passing a React node as Checkbox `label` makes semantic-ui-react
+    // skip its own <label> (createHTMLLabel), so the checkbox square vanished.
+    mount(group());
+    expect(container.querySelector(".ui.checkbox > label")).not.toBeNull();
+  });
+
+  it("popup mode: no helptext under the checkbox, one help icon in its label", () => {
+    mount(
+      <HelpModeProvider mode="popup">
+        {group({ help: "Measured by intact mass spectrometry" })}
+      </HelpModeProvider>
+    );
+    expect(container.querySelector("label.helptext")).toBeNull();
+    expect(container.querySelectorAll('[aria-label^="Help"]').length).toBe(1);
   });
 
   it("checking writes initialValue and shows the indented body", () => {
