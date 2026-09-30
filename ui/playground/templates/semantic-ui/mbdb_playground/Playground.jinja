@@ -1,0 +1,16 @@
+{# def
+  extra_context,
+  ui_config = None,
+  ui_resource = None,
+#}
+{% extends config.BASE_TEMPLATE %}
+
+{% block page_body %}
+  <div id="mbdb-playground"
+       data-ui-model='{{ extra_context.ui_model | tojson }}'></div>
+{% endblock page_body %}
+
+{%- block javascript %}
+  {% include "oarepo_ui/javascript.html" %}
+  {{ webpack['mbdb_playground.js'] }}
+{%- endblock %}
