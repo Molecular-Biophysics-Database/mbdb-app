@@ -333,6 +333,19 @@ describe("TableArrayField", () => {
     expect(probe()).toEqual([{ note: "multi line" }]);
   });
 
+  it("textarea rows grow with the content (SUIR TextArea has no autoHeight)", () => {
+    mount(
+      <TableArrayField
+        fieldPath="rows"
+        columns={[{ field: "note", label: "Note", type: "textarea" }]}
+      />,
+      { initialValues: { rows: [{ note: "x".repeat(400) }] } }
+    );
+    const area = container.querySelector("textarea");
+    expect(Number(area.getAttribute("rows"))).toBe(5);
+    expect(area.getAttribute("autoheight")).toBeNull();
+  });
+
   it("render column shows computed read-only content", () => {
     mount(
       <>

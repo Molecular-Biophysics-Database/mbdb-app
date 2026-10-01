@@ -66,11 +66,22 @@ NumberField.propTypes = {
   width: PropTypes.number,
 };
 
+// SUIR 2.1.5 TextArea has no autoHeight: the prop lands on the DOM and does
+// nothing. Growth is emulated by sizing `rows` to the content: one line per
+// ~80 characters plus one per line break, at least 3, capped at 12.
+// Pure and exported so other places with a textarea (TableArrayField's
+// textarea cells) can size rows the same way.
+export const autoRows = (text) => {
+  const s = String(text ?? "");
+  return Math.min(
+    12,
+    Math.max(3, Math.ceil(s.length / 80) + s.split("\n").length - 1)
+  );
+};
+
 // Long text (sequences). `monospace` needs one CSS rule (see
 // custom-components.less): .mbdb-monospace textarea uses a monospace font.
 // `links` renders small basic link buttons under the field.
-// SUIR 2.1.5 TextArea has no autoHeight: it is emulated by sizing `rows`
-// to the content (max 12); autoHeight is NOT passed down to the DOM.
 export const TextAreaField = ({
   fieldPath,
   links,
@@ -82,12 +93,7 @@ export const TextAreaField = ({
 }) => {
   const { values } = useFormikContext();
   const text = String(getIn(values, fieldPath) ?? "");
-  const sizedRows = autoHeight
-    ? Math.min(
-        12,
-        Math.max(3, Math.ceil(text.length / 80) + text.split("\n").length - 1)
-      )
-    : rows;
+  const sizedRows = autoHeight ? autoRows(text) : rows;
   return (
     <>
       <MbdbTextAreaField

@@ -4,6 +4,7 @@ import { Form, Input, Label } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
 import { toOption } from "@js/mbdb/forms/building-blocks/options";
+import { autoRows } from "@js/mbdb/forms/building-blocks/TextField";
 
 // Label-less cell input; the column header is its label (aria-label).
 // Clearing any cell kind maps "" to undefined (guide §7: never write "").
@@ -16,7 +17,9 @@ export const Cell = ({ column, row, label, onChange, error }) => {
     onChange: (e, { value: next }) => onChange(next === "" ? undefined : next),
   };
   if (column.type === "textarea")
-    return <Form.TextArea autoHeight rows={1} {...common} />;
+    // SUIR 2.1.5 TextArea has no autoHeight; size rows to the content so
+    // long cell text stays visible (same sizing as TextAreaField).
+    return <Form.TextArea rows={autoRows(value)} {...common} />;
   if (column.type === "number")
     return (
       <Input
@@ -30,7 +33,7 @@ export const Cell = ({ column, row, label, onChange, error }) => {
   if (column.type === "select") {
     // allowAdditions: a stored value that is not in the options (an added
     // database, or one from a saved record) would render as the placeholder —
-    // append it so Semantic can display it (F9)
+    // append it so Semantic can display it
     const options = (column.options ?? []).map((opt) =>
       typeof opt === "string"
         ? toOption(opt)

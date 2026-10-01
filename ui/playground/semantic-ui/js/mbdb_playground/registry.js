@@ -118,29 +118,53 @@ export const REGISTRY = [
     load: () => import("./stories/DefaultsAndIds.story"),
   },
 
-  { step: 2, key: "Protocol", design: "design/shared/Protocol.md" },
+  {
+    step: 2,
+    key: "Protocol",
+    design: "design/shared/Protocol.md",
+    load: () => import("./stories/Protocol.story"),
+  },
   {
     step: 2,
     key: "MolecularWeight",
     design: "design/shared/MolecularWeight.md",
+    load: () => import("./stories/MolecularWeight.story"),
   },
-  { step: 2, key: "Location", design: "design/shared/Location.md" },
-  { step: 2, key: "Size", design: "design/shared/Size.md" },
-  { step: 2, key: "Sequence", design: "design/shared/Sequence.md" },
+  {
+    step: 2,
+    key: "Location",
+    design: "design/shared/Location.md",
+    load: () => import("./stories/Location.story"),
+  },
+  {
+    step: 2,
+    key: "Size",
+    design: "design/shared/Size.md",
+    load: () => import("./stories/Size.story"),
+  },
+  {
+    step: 2,
+    key: "Sequence",
+    design: "design/shared/Sequence.md",
+    load: () => import("./stories/Sequence.story"),
+  },
   {
     step: 2,
     key: "ExternalDatabases",
     design: "design/shared/ExternalDatabases.md",
+    load: () => import("./stories/ExternalDatabases.story"),
   },
   {
     step: 2,
     key: "VocabularyFields",
     design: "design/shared/VocabularyFields.md",
+    load: () => import("./stories/VocabularyFields.story"),
   },
   {
     step: 2,
     key: "BasicInformation",
     design: "design/shared/BasicInformation.md",
+    load: () => import("./stories/BasicInformation.story"),
   },
 
   { step: 3, key: "Modifications", design: "design/shared/Modifications.md" },

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import { Formik, useFormikContext, getIn } from "formik";
-import { TextField, NumberField, TextAreaField } from "./TextField";
+import { TextField, NumberField, TextAreaField, autoRows } from "./TextField";
 
 // The real "@js/oarepo_ui/forms" index cannot load under Jest
 // (sanitize-html -> postcss is ESM); the model data hook is mocked so
@@ -152,6 +152,20 @@ describe("NumberField", () => {
       initialErrors: { num: "Not a valid number." },
     });
     expect(container.textContent).toContain("Not a valid number.");
+  });
+});
+
+describe("autoRows", () => {
+  it("is 3 for short text, grows with length and line breaks, caps at 12", () => {
+    expect(autoRows("")).toBe(3);
+    expect(autoRows(undefined)).toBe(3);
+    expect(autoRows("short")).toBe(3);
+    // 400 chars without breaks: 400 / 80 = 5 rows
+    expect(autoRows("x".repeat(400))).toBe(5);
+    // 5 broken lines: 1 (length) + 4 (breaks)
+    expect(autoRows("a\nb\nc\nd\ne")).toBe(5);
+    // long text never exceeds the cap
+    expect(autoRows("line\n".repeat(20))).toBe(12);
   });
 });
 
