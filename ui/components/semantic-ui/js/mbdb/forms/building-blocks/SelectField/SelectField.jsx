@@ -20,12 +20,16 @@ export const SelectField = ({
   options,
   clearable,
   label,
-  helpText,
+  help,
   required,
   ...uiProps
 }) => {
   const { values } = useFormikContext();
-  const data = useModelFieldData(fieldPath, { label, helpText, required });
+  const data = useModelFieldData(fieldPath, {
+    label,
+    helpText: help,
+    required,
+  });
   const opts = options.map(toOption);
   const isClearable = clearable !== undefined ? clearable : !data.required;
   const value = getIn(values, fieldPath);
@@ -42,7 +46,7 @@ export const SelectField = ({
         options={opts}
         clearable={isClearable}
         label={data.label}
-        helpText={data.helpText}
+        help={data.helpText}
         required={data.required}
         {...uiProps}
       />
@@ -71,6 +75,6 @@ SelectField.propTypes = {
   ).isRequired,
   clearable: PropTypes.bool,
   label: PropTypes.node,
-  helpText: PropTypes.node,
+  help: PropTypes.node,
   required: PropTypes.bool,
 };

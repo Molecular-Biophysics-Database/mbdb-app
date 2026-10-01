@@ -70,10 +70,9 @@ const change = (input, value) => {
 
 describe("TextField", () => {
   it("renders value, explicit label and help text", () => {
-    render(
-      <TextField fieldPath="name" label="Name" helpText="A unique name" />,
-      { initialValues: { name: "Lysozyme" } }
-    );
+    render(<TextField fieldPath="name" label="Name" help="A unique name" />, {
+      initialValues: { name: "Lysozyme" },
+    });
     expect(container.querySelector("input").value).toBe("Lysozyme");
     expect(container.querySelector("label").textContent).toBe("Name");
     expect(container.querySelector("label.helptext").textContent).toBe(

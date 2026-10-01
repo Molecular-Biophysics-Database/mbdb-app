@@ -8,6 +8,10 @@ import { DetailView } from "./DetailView";
 // sanitize-html (postcss, ESM), which Jest cannot load — same class of
 // problem as the @js/mbdb/forms index. The mock provides the two providers
 // and the subset of getFieldData the blocks use ("text" representation).
+// kept local: it reproduces oarepo's real toModelPath traversal (nested
+// children.X.children, array child.children) reading a nested ui_model — the
+// DetailView label tests depend on that resolution, which testUtils' flat
+// per-path map deliberately does not re-implement.
 jest.mock("@js/oarepo_ui/forms", () => {
   const R = jest.requireActual("react");
   const get = jest.requireActual("lodash/get");
@@ -233,7 +237,7 @@ describe("DetailView", () => {
         o: { location: { latitude: 49.1, longitude: 16.6 } },
       },
     });
-    // F5: the sub-heading uses the model label, not the raw key
+    // the sub-heading uses the model label, not the raw key
     expect(text()).toContain("Location"); // sub-heading (model label)
     expect(text()).toContain("Latitude");
     expect(text()).toContain("49.1");
@@ -262,7 +266,7 @@ describe("DetailView", () => {
     });
     expect(text()).toContain("Water");
     expect(text()).toContain("NaCl");
-    // F4e: the mini table has a header row with the model labels
+    // the mini table has a header row with the model labels
     const head = container.querySelector("table table thead");
     expect(head).not.toBeNull();
     expect(head.textContent).toContain("Name");

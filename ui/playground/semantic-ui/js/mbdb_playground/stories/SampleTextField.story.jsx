@@ -1,26 +1,12 @@
 import React from "react";
 import { TextField } from "mbdb-react-invenio-forms";
-import { useFieldData } from "@js/oarepo_ui/forms";
 
-// Proves the frame: a plain RIF TextField on a real model path, with the model's
-// label and help. The mbdb field wrappers (plan step 1) will read them themselves.
+// Proves the frame: a plain RIF TextField on a real model path. The mbdb
+// wrappers read label/help/required from the model themselves (explicit
+// props win), so this story passes nothing but the path.
 const NAME_PATH = "metadata.general_parameters.entities_of_interest.0.name";
 
-const NameField = () => {
-  const { getFieldData } = useFieldData();
-  const { label, helpText, placeholder, required } = getFieldData({
-    fieldPath: NAME_PATH,
-  });
-  return (
-    <TextField
-      fieldPath={NAME_PATH}
-      label={label}
-      helpText={helpText}
-      placeholder={placeholder}
-      required={required}
-    />
-  );
-};
+const NameField = () => <TextField fieldPath={NAME_PATH} />;
 
 const withName = (name) => ({
   metadata: { general_parameters: { entities_of_interest: [{ name }] } },

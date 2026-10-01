@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Form, Input, Label } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
+import { toOption } from "@js/mbdb/forms/building-blocks/options";
 
 // Label-less cell input; the column header is its label (aria-label).
 // Clearing any cell kind maps "" to undefined (guide §7: never write "").
@@ -32,7 +33,7 @@ export const Cell = ({ column, row, label, onChange, error }) => {
     // append it so Semantic can display it (F9)
     const options = (column.options ?? []).map((opt) =>
       typeof opt === "string"
-        ? { key: opt, value: opt, text: opt }
+        ? toOption(opt)
         : { key: opt.value, value: opt.value, text: opt.label ?? opt.value }
     );
     if (
@@ -70,8 +71,8 @@ Cell.propTypes = {
 };
 
 // One editable data cell: resolves the column label from the model (the same
-// resolution the ColumnHeader uses — the LIST path, so input aria-labels
-// match the header) and the cell's own errors via useFieldErrors (C1).
+// resolution the ColumnTitle uses — the LIST path, so input aria-labels match
+// the header) and the cell's own errors via useFieldErrors.
 export const DataCell = ({ fieldPath, itemPath, column, row, onChange }) => {
   const data = useModelFieldData(`${fieldPath}.${column.field}`, {
     label: column.label,

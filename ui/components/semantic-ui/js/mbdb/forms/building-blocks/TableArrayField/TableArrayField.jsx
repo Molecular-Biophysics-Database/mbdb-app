@@ -40,13 +40,13 @@ const Row = ({
   colSpan,
 }) => {
   const row = deserialize(storedItem);
-  // F2: open state is derived on every render — an explicit user toggle
-  // wins; otherwise a row with errors under it opens automatically (C1:
-  // initialErrors count, including new ones set on this SAME mounted form
+  // The open state is derived on every render — an explicit user toggle
+  // wins; otherwise a row with errors under it opens automatically
+  // (initialErrors count, including new ones set on this SAME mounted form
   // after a failed save)
   const rowHasError = useFieldErrors(itemPath).hasError;
   const isOpen = expanded ?? rowHasError;
-  // F8: a string/{message} error AT the item itself (serialize tables store
+  // A string/{message} error AT the item itself (serialize tables store
   // strings, so `dbs.0: "…"` lands here) is shown in the actions cell
   const rowMessages = useOwnErrorMessages(itemPath);
   const hint = rowHint?.(row);
@@ -153,19 +153,27 @@ const TableArrayFieldInner = ({
 }) => {
   const { values, setFieldValue } = useFormikContext();
   const items = getIn(values, fieldPath) ?? [];
-  // F11: minItems rows are VIRTUAL — rendered from defaultNewValue but not
+  // minItems rows are VIRTUAL — rendered from defaultNewValue but not
   // written to Formik until the user edits one (the old push-on-render
   // seeded [{}], marked the form dirty and never re-ran after a save)
   const rowCount = Math.max(items.length, minItems);
-  // F6/C5: items have no stable identity (steps, stored strings), so client-
-  // only keys live in a ref parallel to the rows: grown on render (covers
-  // initial values and virtual rows), spliced on remove, pushed on add.
-  // Nothing is written into the values, so it works for string arrays too.
+  // Items have no stable identity (steps, stored strings), so client-only
+  // keys live in a ref parallel to the rows: grown on render (covers initial
+  // values and virtual rows), spliced on remove, pushed on add. Nothing is
+  // written into the values, so it works for string arrays too.
+  // CEILING: render-phase ref growth breaks StrictMode assumptions (double
+  // render mints unused keys) and a value replaced outside this block's
+  // handlers (form reinit) invents fresh keys without remounting rows —
+  // contained today because keys only matter within one mount. PoC only.
+  // NOTE: the shared useArrayRows hook owns this bookkeeping for
+  // ModalArrayField. It is NOT used here on purpose: the table's keys must
+  // serve VIRTUAL minItems rows (rowCount > items.length), and the hook's
+  // shrink-to-items truncation would drop those virtual-row keys.
   const keysRef = useRef([]);
   while (keysRef.current.length < rowCount) keysRef.current.push(randomUUID());
-  // F2: only the user's explicit toggles are state; errors decide the rest
+  // Only the user's explicit toggles are state; errors decide the rest
   const [toggles, setToggles] = useState({});
-  // F8: a string/{message} error AT the list itself (e.g.
+  // A string/{message} error AT the list itself (e.g.
   // `steps: "Missing data for required field."`) shows under the table
   const listMessages = useOwnErrorMessages(fieldPath);
 
@@ -193,7 +201,7 @@ const TableArrayFieldInner = ({
     else arrayHelpers.remove(index);
   };
 
-  // F3: defaultNewValue IS the stored shape (a string table passes "");
+  // defaultNewValue IS the stored shape (a string table passes "");
   // push it unchanged — deserialize() maps it to the row shape at render
   const addRow = () => {
     arrayHelpers.push(defaultNewValue);
@@ -319,7 +327,7 @@ export const TableArrayField = ({
 );
 
 // Form.Field wrapper with the model's label/help (explicit props win) and an
-// error header when anything under fieldPath has an error (C1).
+// error header when anything under fieldPath has an error.
 const FieldBox = ({ fieldPath, label, help, required, children }) => {
   const { hasError } = useFieldErrors(fieldPath);
   const data = useModelFieldData(fieldPath, {
@@ -359,7 +367,7 @@ TableArrayField.propTypes = {
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       field: PropTypes.string.isRequired,
-      // F7: defaults to the model label of `<fieldPath>.<field>`
+      // defaults to the model label of `<fieldPath>.<field>`
       label: PropTypes.string,
       required: PropTypes.bool,
       width: PropTypes.number,

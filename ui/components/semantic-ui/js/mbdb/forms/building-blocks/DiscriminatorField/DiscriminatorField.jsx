@@ -11,27 +11,13 @@ import {
   HelpLabel,
   Label,
 } from "mbdb-semantic-ui-react";
-import { isEmptyValue } from "@js/mbdb/forms/building-blocks/errors";
+import {
+  hasData,
+  isEmptyValue,
+  useFieldErrors,
+  useOwnErrorMessages,
+} from "@js/mbdb/forms/building-blocks/errors";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
-
-// Unique message strings under an error node: strings plus OARepo
-// { message, severity } objects (never rendered raw). Local clone of
-// errors.js errorMessages; for the C1-aware source below.
-const messagesOf = (node, out = []) => {
-  if (node === undefined || node === null || node === "") return out;
-  if (typeof node === "string") {
-    if (!out.includes(node)) out.push(node);
-  } else if (Array.isArray(node)) {
-    node.forEach((child) => messagesOf(child, out));
-  } else if (typeof node === "object") {
-    if (typeof node.message === "string") {
-      if (!out.includes(node.message)) out.push(node.message);
-    } else {
-      Object.values(node).forEach((child) => messagesOf(child, out));
-    }
-  }
-  return out;
-};
 
 // A choice that decides which fields follow; changing it replaces the object
 // and keeps only `keep` keys (design/building-blocks/DiscriminatorField.md).
@@ -44,55 +30,29 @@ export const DiscriminatorField = ({
   allowUnset = false,
   unsetLabel = "Not specified",
   label,
-  helpText,
+  help,
   required,
 }) => {
-  const { values, errors, initialErrors, initialValues, setFieldValue } =
-    useFormikContext();
+  const { values, setFieldValue } = useFormikContext();
+  // The hook keeps helpText because that is the model's key (getFieldData);
+  // the block's public prop is `help`.
   const data = useModelFieldData(`${objectPath}.${field}`, {
     label,
-    helpText,
+    helpText: help,
     required,
   });
   const text = data.label;
-  const help = data.helpText;
+  const helpText = data.helpText;
 
   const [pending, setPending] = useState(null); // value to apply after confirm
   const obj = getIn(values, objectPath);
   const current = obj?.[field];
 
-  // C1 fallback: server errors arrive as initialErrors and Formik clears
-  // `errors` on the first edit; read the initial ones while the object is
-  // untouched. (Local; re-point to errors.js useFieldErrors once it lands.)
-  const srcHas = (source) => {
-    const atField = getIn(source, `${objectPath}.${field}`);
-    if (atField !== undefined && atField !== null && atField !== "")
-      return true;
-    const atObject = getIn(source, objectPath);
-    return (
-      (typeof atObject === "string" && atObject !== "") ||
-      (atObject !== null &&
-        typeof atObject === "object" &&
-        typeof atObject.message === "string")
-    );
-  };
-  const errorSource = srcHas(errors)
-    ? errors
-    : obj === getIn(initialValues, objectPath)
-    ? initialErrors
-    : {};
   // Errors of the discriminator itself plus a string error at the object
   // path (NOT errors of the sub-form's fields; those render elsewhere).
-  const objError = getIn(errorSource, objectPath);
-  const errorMessages = [
-    ...messagesOf(
-      typeof objError === "string" ||
-        (objError && typeof objError.message === "string")
-        ? objError
-        : undefined
-    ),
-    ...messagesOf(getIn(errorSource, `${objectPath}.${field}`)),
-  ];
+  const objectMessages = useOwnErrorMessages(objectPath);
+  const fieldMessages = useFieldErrors(`${objectPath}.${field}`).messages;
+  const errorMessages = [...new Set([...objectMessages, ...fieldMessages])];
 
   // data besides the discriminator and the kept keys would be lost on change
   const hasOtherData = (candidate) =>
@@ -100,8 +60,6 @@ export const DiscriminatorField = ({
       ([key, value]) =>
         key !== field && !keep.includes(key) && !isEmptyValue(value)
     );
-  const hasDataAny = (candidate) =>
-    Object.entries(candidate ?? {}).some(([, value]) => !isEmptyValue(value));
 
   const apply = (newValue) => {
     if (newValue === undefined) setFieldValue(objectPath, undefined);
@@ -117,7 +75,7 @@ export const DiscriminatorField = ({
       // Unset works on the object, not the field: an existing object with
       // data (even without `field`) must confirm, an absent one is a no-op.
       if (obj === undefined) return;
-      if (hasDataAny(obj)) setPending(undefined);
+      if (hasData(obj)) setPending(undefined);
       else apply(undefined);
       return;
     }
@@ -135,9 +93,8 @@ export const DiscriminatorField = ({
     normalized.find((option) => option.value === value)?.label ?? value;
   const mode = variant ?? (normalized.length <= 4 ? "buttons" : "dropdown");
 
-  // Arrow keys move focus between the option buttons (same small handler
-  // as ButtonGroupField; kept separate because the confirm-gated onSelect
-  // cannot go through ButtonGroupField's direct setFieldValue binding).
+  // arrow-key roving focus — same as ButtonGroupField (share if a third
+  // user appears)
   const onKeyDown = (e) => {
     if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
     const buttons = [...e.currentTarget.querySelectorAll("button")];
@@ -253,6 +210,6 @@ DiscriminatorField.propTypes = {
   allowUnset: PropTypes.bool,
   unsetLabel: PropTypes.string,
   label: PropTypes.string,
-  helpText: PropTypes.string,
+  help: PropTypes.string,
   required: PropTypes.bool,
 };

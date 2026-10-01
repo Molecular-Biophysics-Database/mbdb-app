@@ -34,7 +34,7 @@ export const isLeafObject = (v) => isValueUnit(v) || isVocabulary(v);
 export const isAssessed = (v) =>
   isPlainObject(v) && (v.assessed === "Yes" || v.assessed === "No");
 
-// an array of `{ name, description }` items (the Step type, §3/F4a)
+// an array of `{ name, description }` items (the Step type, §3)
 export const isSteps = (value) =>
   Array.isArray(value) &&
   value.length > 0 &&
@@ -56,7 +56,10 @@ const assessedText = (value, vocabulary) => {
   return facts.length ? `Yes — ${facts.join(", ")}` : "Yes";
 };
 
-const vocabularyLookup = (titles, name) => (id) =>
+// Resolves a vocabulary id to a display title: a flat {id: title} map wins,
+// otherwise a per-field {name: {id: title}} map. Exported for Rows.jsx's
+// mini-table cells, which reuse the same resolution.
+export const vocabularyLookup = (titles, name) => (id) =>
   titles?.[id] ?? titles?.[name]?.[id] ?? null;
 
 export const textOf = (value, vocabulary) => {
@@ -89,7 +92,7 @@ export const textOf = (value, vocabulary) => {
     return [value.value, value.unit].filter((x) => !isEmptyValue(x)).join(" ");
   if (isAssessed(value)) return assessedText(value, vocabulary);
   if (isVocabulary(value))
-    // F8: fall back to the record's own title before showing the raw id
+    // fall back to the record's own title before showing the raw id
     return vocabulary(value.id) ?? value.title?.en ?? value.id;
   return "";
 };
@@ -131,7 +134,7 @@ export const Value = ({ name, value, titles }) => {
       </span>
     );
   if (isVocabulary(value) && !isEmptyValue(value.rank))
-    // vocabulary with a saved rank: title plus extra info in grey (§3, F8)
+    // vocabulary with a saved rank: title plus extra info in grey (§3)
     return (
       <span>
         {textOf(value, vocabulary)}{" "}
@@ -153,7 +156,7 @@ Value.propTypes = {
 };
 
 // The red message(s) under a value (design §5); survives Formik's errors
-// reset via useFieldErrors, and opens the editor when onEdit is given (F2).
+// reset via useFieldErrors, and opens the editor when onEdit is given.
 export const ErrorNote = ({ path, onEdit }) => {
   const { messages } = useFieldErrors(path);
   if (messages.length === 0) return null;

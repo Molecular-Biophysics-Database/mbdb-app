@@ -1,20 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, useFormikContext, getIn } from "formik";
-import { HelpModeProvider } from "mbdb-semantic-ui-react";
+import { useFormikContext, getIn } from "formik";
 import { ToggleFieldGroup } from "./ToggleFieldGroup";
+import {
+  renderInForm,
+  unmountForm,
+} from "@js/mbdb/forms/building-blocks/testUtils";
 
-jest.mock("@js/oarepo_ui/forms", () => ({
-  FormConfigProvider: ({ children }) => children,
-  FieldDataProvider: ({ children }) => children,
-  useFieldData: () => ({
-    getFieldData: ({ fieldPath }) => ({ label: fieldPath, helpText: null }),
-  }),
-}));
-const { FormConfigProvider, FieldDataProvider } = jest.requireMock(
-  "@js/oarepo_ui/forms"
+jest.mock(
+  "@js/oarepo_ui/forms",
+  () =>
+    jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
 );
 
 let container;
@@ -24,38 +21,17 @@ const Probe = ({ path }) => {
   const value = getIn(values, path);
   return <span data-testid="probe">{JSON.stringify(value ?? null)}</span>;
 };
-
 Probe.propTypes = {
   path: PropTypes.string,
 };
 
-const mount = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-  act(() => {
-    ReactDOM.render(
-      <FormConfigProvider value={{ config: { ui_model: {} } }}>
-        <FieldDataProvider>
-          <Formik
-            initialValues={initialValues}
-            initialErrors={initialErrors}
-            onSubmit={() => {}}
-          >
-            {ui}
-          </Formik>
-        </FieldDataProvider>
-      </FormConfigProvider>,
-      container
-    );
-  });
+const mount = (ui, opts = {}) => {
+  container = renderInForm(ui, opts);
 };
 
 afterEach(() => {
-  ReactDOM.unmountComponentAtNode(container);
-  container.remove();
-  document
-    .querySelectorAll(".ui.modals, .ui.dimmer")
-    .forEach((el) => el.remove());
+  unmountForm(container);
+  container = null;
 });
 
 const probe = () =>
@@ -110,11 +86,9 @@ describe("ToggleFieldGroup", () => {
   });
 
   it("popup mode: no helptext under the checkbox, one help icon in its label", () => {
-    mount(
-      <HelpModeProvider mode="popup">
-        {group({ help: "Measured by intact mass spectrometry" })}
-      </HelpModeProvider>
-    );
+    mount(group({ help: "Measured by intact mass spectrometry" }), {
+      helpMode: "popup",
+    });
     expect(container.querySelector("label.helptext")).toBeNull();
     expect(container.querySelectorAll('[aria-label^="Help"]').length).toBe(1);
   });

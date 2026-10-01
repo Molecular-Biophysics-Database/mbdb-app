@@ -175,13 +175,24 @@ describe("ButtonGroupField", () => {
     expect(container.textContent).toContain("Not a valid choice.");
   });
 
+  it('does not show a { severity: "warning" } node as an error', () => {
+    render(<ButtonGroupField fieldPath="source" options={OPTIONS} />, {
+      initialValues: { source: "Natively" },
+      initialErrors: {
+        source: { message: "Sounds wrong.", severity: "warning" },
+      },
+    });
+    expect(container.querySelector(".field.error")).toBeNull();
+    expect(container.textContent).not.toContain("Sounds wrong.");
+  });
+
   it("popup mode: no helptext label, one help icon next to the label", () => {
     render(
       <HelpModeProvider mode="popup">
         <ButtonGroupField
           fieldPath="source"
           label="Expression source type"
-          helpText="How the polymer was produced"
+          help="How the polymer was produced"
           options={OPTIONS}
         />
       </HelpModeProvider>

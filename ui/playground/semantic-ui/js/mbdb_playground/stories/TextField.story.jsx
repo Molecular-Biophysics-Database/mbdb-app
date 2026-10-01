@@ -13,12 +13,12 @@ const Fields = () => (
   <>
     <TextField
       fieldPath={`${BASE}.name`}
-      helpText="Short descriptive name (id) of the entity; must be unique within a record."
+      help="Short descriptive name (id) of the entity; must be unique within a record."
     />
     <NumberField
       fieldPath={`${BASE}.molecular_weight.value`}
       label="Molecular weight value"
-      helpText="A number; empty removes the value."
+      help="A number; empty removes the value."
     />
     <TextAreaField
       fieldPath={`${BASE}.sequence`}
@@ -30,7 +30,7 @@ const Fields = () => (
         { label: "UniProt", href: "https://www.uniprot.org" },
         { label: "BLAST", href: "https://blast.ncbi.nlm.nih.gov" },
       ]}
-      helpText="Primary sequence of the polymer."
+      help="Primary sequence of the polymer."
     />
   </>
 );

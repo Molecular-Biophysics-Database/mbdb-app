@@ -4,37 +4,30 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Button, Table } from "mbdb-semantic-ui-react";
-import { useFieldData } from "@js/oarepo_ui/forms";
 import {
   hasData,
   isEmptyValue,
   useFieldErrors,
 } from "@js/mbdb/forms/building-blocks/errors";
-import { ErrorNote, Value, textOf } from "./values";
+import { ErrorNote, Value, textOf, vocabularyLookup } from "./values";
 import { DetailLabel } from "./DetailLabel";
 import { collectRows } from "./collect";
 
 // The shared renderer for the collected rows — used for the top-level table
-// and inside an expanded mini row (F3). Details are read-only and never
-// reordered, so the positional key carries meaning (not identity).
+// and inside an expanded mini row. Details are read-only and never reordered,
+// so the positional key carries meaning (not identity).
 
-// getFieldData also returns the raw model path as the "label" in production
-// when the ui_model has no entry for the path; use the readable leaf instead.
-const readable = (label, fallback) =>
-  label && !label.includes("children") ? label : fallback;
-
-// A nested sub-heading through the model label (§2/F5); multi-level headings
-// ("storage › temperature") keep their raw join.
-const Heading = ({ row }) => {
-  const { getFieldData } = useFieldData();
-  const { label } = getFieldData({
-    fieldPath: row.path,
-    fieldRepresentation: "text",
-  });
-  const text =
-    row.name.indexOf(" › ") === -1 ? readable(label, row.name) : row.name;
-  return <Table.HeaderCell colSpan="2">{text}</Table.HeaderCell>;
-};
+// A nested sub-heading through the model label (design §2); multi-level
+// headings ("storage › temperature") keep their raw join.
+const Heading = ({ row }) => (
+  <Table.HeaderCell colSpan="2">
+    {row.name.indexOf(" › ") === -1 ? (
+      <DetailLabel path={row.path} fallback={row.name} />
+    ) : (
+      row.name
+    )}
+  </Table.HeaderCell>
+);
 Heading.propTypes = {
   row: PropTypes.object.isRequired,
 };
@@ -109,9 +102,6 @@ MiniRow.propTypes = {
   keys: PropTypes.array.isRequired,
   titles: PropTypes.object,
 };
-
-const vocabularyLookup = (titles, name) => (id) =>
-  titles?.[id] ?? titles?.[name]?.[id] ?? null;
 
 // A mini summary table for an array of complex objects (design §4). Columns
 // are the union of keys with data in first-seen order, with a header row whose

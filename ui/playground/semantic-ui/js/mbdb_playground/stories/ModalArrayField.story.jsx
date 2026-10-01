@@ -36,8 +36,8 @@ const Entities = () => (
     minItems={1}
     itemLabel={(v) => `entity: ${v?.name ?? "new"}`}
     columns={[
-      { title: "Name", value: (v) => v.name },
-      { title: "Type", value: (v) => v.type },
+      { label: "Name", value: (v) => v.name },
+      { label: "Type", value: (v) => v.type },
     ]}
     newItemOptions={ENTITY_TYPES.map((t) => ({ label: t, value: { type: t } }))}
     withIds

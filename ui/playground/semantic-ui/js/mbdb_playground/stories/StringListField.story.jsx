@@ -11,7 +11,7 @@ const Fields = () => (
     fieldPath={PATH}
     label="Additional specifications"
     addButtonLabel="Add specification"
-    helpText="Additional information about the entity can be specified here."
+    help="Additional information about the entity can be specified here."
   />
 );
 

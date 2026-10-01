@@ -36,14 +36,14 @@ export const ModalObjectField = ({
   const { values, setFieldValue } = useFormikContext();
   // { isNew, snapshot } while the modal is open
   const [editing, setEditing] = useState(null);
-  // F1: label/help/required come from the model, with explicit props as override
+  // label/help/required come from the model, with explicit props as override
   const data = useModelFieldData(fieldPath, {
     label,
     helpText: help,
     required,
   });
   const text = data.label;
-  // object-level messages only (strings sitting exactly at fieldPath, F7)
+  // object-level messages only (strings sitting exactly at fieldPath)
   const objectMessages = useOwnErrorMessages(fieldPath);
 
   const value = getIn(values, fieldPath);
@@ -60,14 +60,14 @@ export const ModalObjectField = ({
     setEditing(null);
   };
   // Done-if-empty behaves as absent: a Done on an object that still holds no
-  // data is treated like Cancel (lead decision) so no `{}` is left behind (F4).
+  // data is treated like Cancel (lead decision) so no `{}` is left behind.
   const done = () => {
     if (!hasData(getIn(values, fieldPath))) setFieldValue(fieldPath, undefined);
     setEditing(null);
   };
 
-  // F8: single-cell summary passes the one column directly; multi-cell maps
-  // each precomputed cell into the column function SummaryItem expects.
+  // A single-cell summary passes the one column directly; a multi-cell maps
+  // each precomputed cell into the cell function SummaryItem expects.
   const summaryColumns = (v) => {
     const s = summary(v);
     return Array.isArray(s) ? s.map((cell) => () => cell) : [() => s];
@@ -107,7 +107,7 @@ export const ModalObjectField = ({
             <Table.Body>
               <SummaryItem
                 fieldPath={fieldPath}
-                columns={summaryColumns(value)}
+                cells={summaryColumns(value)}
                 itemName={text}
                 onEdit={openEdit}
                 onRemove={
@@ -164,7 +164,7 @@ ModalObjectField.propTypes = {
   summary: PropTypes.func.isRequired,
   initialValue: PropTypes.object,
   renderForm: PropTypes.func.isRequired,
-  // F6: aligned with ModalArrayField — groups + extra DetailView props build
+  // aligned with ModalArrayField — groups + extra DetailView props build
   // the SummaryItem detail internally (was a ready-made `detail` node).
   detailGroups: PropTypes.arrayOf(
     PropTypes.shape({

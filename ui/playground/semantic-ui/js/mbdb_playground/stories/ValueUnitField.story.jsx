@@ -15,7 +15,7 @@ const Fields = () => (
       label="Molecular weight"
       units={MW_UNITS}
       defaultUnit="kDa"
-      helpText="kDa is pre-selected but written only together with a value."
+      help="kDa is pre-selected but written only together with a value."
     />
     <Divider />
     <ValueUnitField
@@ -23,7 +23,7 @@ const Fields = () => (
       label="Temperature"
       units={TEMPERATURE_UNITS}
       required
-      helpText="Required variant without a default unit."
+      help="Required variant without a default unit."
     />
   </>
 );

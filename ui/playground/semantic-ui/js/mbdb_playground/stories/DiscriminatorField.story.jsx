@@ -36,7 +36,7 @@ const Fields = () => (
       variant="buttons"
       allowUnset
       unsetLabel="Not specified"
-      helpText="Not specified means the whole object is absent."
+      help="Not specified means the whole object is absent."
     />
   </>
 );

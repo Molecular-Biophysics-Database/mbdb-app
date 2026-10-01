@@ -8,6 +8,21 @@ const leafLabel = (path) => {
   return words.charAt(0).toUpperCase() + words.slice(1);
 };
 
+// Label fallback for paths with no ui_model entry. oarepo's getFieldData then
+// returns the raw toModelPath string as the label — toModelPath always
+// inserts ".children." segments, so a string label containing "children." is
+// that raw path, not a real label. In that case show the readable leaf.
+// `fallback` is the last resort when `label` is undefined. Used by
+// useModelFieldData and the DetailView label/heading components; the needle
+// is "children." WITH the dot so a genuine label containing the word
+// "children" is not misread as a path. Remove once the backend's polymorphic
+// ui_model issue is fixed.
+export const readableLabel = (label, fallback) => {
+  if (typeof label === "string")
+    return label.includes("children.") ? leafLabel(label) : label;
+  return label !== undefined ? label : fallback;
+};
+
 // Resolves label/helpText/required for a fieldPath from the model
 // (ui_model), with explicit props winning over the model defaults.
 // getFieldData internally calls useMemo, so it MUST be called
@@ -23,16 +38,9 @@ export const useModelFieldData = (
   const modelData = fieldPath
     ? getFieldData({ fieldPath, fieldRepresentation: "text" })
     : { label: undefined, helpText: undefined, required: undefined };
-  // Temporary (until polymorphic ui_model is fixed on the backend): when
-  // the ui_model has no entry for the path, oarepo's getFieldData returns
-  // the toModelPath string as the label ("children.metadata.children.…name").
-  // Showing that raw path is worse than a readable leaf, so detect the
-  // fallback (toModelPath always inserts ".children." segments) and use the
-  // leaf instead. helpText stays null in that case.
-  const modelLabel =
-    typeof modelData.label === "string" && modelData.label.includes("children.")
-      ? leafLabel(modelData.label)
-      : modelData.label;
+  // readableLabel replaces a raw-path label with its readable leaf; helpText
+  // stays null in that fallback case.
+  const modelLabel = readableLabel(modelData.label, undefined);
   return {
     label: label !== undefined ? label : modelLabel,
     helpText: helpText !== undefined ? helpText : modelData.helpText,

@@ -10,6 +10,7 @@ import {
 import { StringArrayField as OARepoStringArrayField } from "@js/oarepo_ui/forms";
 import { FieldHelp, HelpLabel, useHelpMode } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
+import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
 
 // mbdb wrappers around react-invenio-forms fields: they fill label /
 // helpText / required from the model (explicit props win) and render
@@ -21,11 +22,16 @@ import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 // components' own helpText rendering is suppressed. The wrappers also
 // force a controlled input value and map the empty string to `undefined`,
 // so cleared fields are removed from the form data instead of persisting "".
+//
+// Prop order (guide §8: wrappers spread the caller's props first and set
+// their own last): `{...uiProps}` comes FIRST and the wrapper's `label`,
+// `required`, `helpText`, `onChange`, `value` come AFTER it, so a caller's
+// stray `helpText` (the old prop name) cannot undo the suppression.
 
 const fieldShape = {
   fieldPath: PropTypes.string.isRequired,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  help: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   required: PropTypes.bool,
   // own onChange (e.g. NumberField) wins over the wrapper's default
   onChange: PropTypes.func,
@@ -38,16 +44,23 @@ const eventValue = (e, data) => data?.value ?? e.target.value;
 export const TextField = ({
   fieldPath,
   label,
-  helpText,
+  help,
   required,
   onChange,
   ...uiProps
 }) => {
   const { values, setFieldValue } = useFormikContext();
-  const data = useModelFieldData(fieldPath, { label, helpText, required });
+  // The hook keeps helpText because that is the model's key (getFieldData);
+  // the wrapper's public prop is `help`.
+  const data = useModelFieldData(fieldPath, {
+    label,
+    helpText: help,
+    required,
+  });
   return (
     <>
       <RifTextField
+        {...uiProps}
         fieldPath={fieldPath}
         // semantic-ui passing label shorthand through Form.Input drops the
         // <label> element for node values, so wrap HelpLabel ourselves
@@ -58,18 +71,15 @@ export const TextField = ({
         }
         required={data.required}
         helpText={undefined}
-        {...uiProps}
         // RIF spreads uiProps after `field`/onChange, so these override;
         // a caller's own onChange (e.g. NumberField) wins over the default
         onChange={
           onChange ??
-          ((e, onChangeData) =>
-            setFieldValue(
-              fieldPath,
-              eventValue(e, onChangeData) === ""
-                ? undefined
-                : eventValue(e, onChangeData)
-            ))
+          ((e, onChangeData) => {
+            const v = eventValue(e, onChangeData);
+            if (v === "") unsetFieldValue(values, setFieldValue, fieldPath);
+            else setFieldValue(fieldPath, v);
+          })
         }
         value={getIn(values, fieldPath) ?? ""}
       />
@@ -82,15 +92,20 @@ TextField.propTypes = fieldShape;
 export const SelectField = ({
   fieldPath,
   label,
-  helpText,
+  help,
   required,
   onChange,
   ...uiProps
 }) => {
-  const data = useModelFieldData(fieldPath, { label, helpText, required });
+  const data = useModelFieldData(fieldPath, {
+    label,
+    helpText: help,
+    required,
+  });
   return (
     <>
       <RifSelectField
+        {...uiProps}
         fieldPath={fieldPath}
         // RIF puts the label inside its semantic Label shorthand ({children:
         // label}), whose createHTMLLabel renders a real <label> element
@@ -101,13 +116,16 @@ export const SelectField = ({
         // clear icon passes "" which would persist an empty string.
         onChange={
           onChange ??
-          (({ data: selectData, formikProps }) =>
-            formikProps.form.setFieldValue(
-              fieldPath,
-              selectData.value === "" ? undefined : selectData.value
-            ))
+          (({ data: selectData, formikProps }) => {
+            if (selectData.value === "")
+              unsetFieldValue(
+                formikProps.form.values,
+                formikProps.form.setFieldValue,
+                fieldPath
+              );
+            else formikProps.form.setFieldValue(fieldPath, selectData.value);
+          })
         }
-        {...uiProps}
       />
       <FieldHelp help={data.helpText} />
     </>
@@ -118,11 +136,15 @@ SelectField.propTypes = fieldShape;
 export const ArrayField = ({
   fieldPath,
   label,
-  helpText,
+  help,
   required,
   ...uiProps
 }) => {
-  const data = useModelFieldData(fieldPath, { label, helpText, required });
+  const data = useModelFieldData(fieldPath, {
+    label,
+    helpText: help,
+    required,
+  });
   // RIF renders helpText inside the Form.Field directly under the label,
   // above the rows — where the design wants it. In "invenio" mode pass it
   // there (F2: not below the Add button); in "popup" mode the icon lives
@@ -131,12 +153,12 @@ export const ArrayField = ({
   const mode = useHelpMode();
   return (
     <RifArrayField
+      {...uiProps}
       fieldPath={fieldPath}
       // RIF renders label through its FieldLabel (inside a real <label>)
       label={<HelpLabel label={data.label} help={data.helpText} />}
       required={data.required}
       helpText={mode === "invenio" ? data.helpText : undefined}
-      {...uiProps}
     />
   );
 };
@@ -152,16 +174,23 @@ ArrayField.propTypes = fieldShape;
 export const TextAreaField = ({
   fieldPath,
   label,
-  helpText,
+  help,
   required,
   onChange,
   ...uiProps
 }) => {
   const { values, setFieldValue } = useFormikContext();
-  const data = useModelFieldData(fieldPath, { label, helpText, required });
+  // The hook keeps helpText because that is the model's key (getFieldData);
+  // the wrapper's public prop is `help`.
+  const data = useModelFieldData(fieldPath, {
+    label,
+    helpText: help,
+    required,
+  });
   return (
     <>
       <RifTextAreaField
+        {...uiProps}
         fieldPath={fieldPath}
         // like RifTextField: semantic Form.TextArea drops the <label>
         // element for node labels, so wrap HelpLabel ourselves
@@ -171,16 +200,16 @@ export const TextAreaField = ({
           </label>
         }
         required={data.required}
-        {...uiProps}
+        // suppress RIF's helpText (it has no exclusion and would land on
+        // the DOM <textarea>); callers use `help`
+        helpText={undefined}
         onChange={
           onChange ??
-          ((e, onChangeData) =>
-            setFieldValue(
-              fieldPath,
-              eventValue(e, onChangeData) === ""
-                ? undefined
-                : eventValue(e, onChangeData)
-            ))
+          ((e, onChangeData) => {
+            const v = eventValue(e, onChangeData);
+            if (v === "") unsetFieldValue(values, setFieldValue, fieldPath);
+            else setFieldValue(fieldPath, v);
+          })
         }
         value={getIn(values, fieldPath) ?? ""}
       />
@@ -201,19 +230,23 @@ TextAreaField.propTypes = fieldShape;
 export const StringArrayField = ({
   fieldPath,
   label,
-  helpText,
+  help,
   required,
   ...uiProps
 }) => {
-  const data = useModelFieldData(fieldPath, { label, helpText, required });
+  const data = useModelFieldData(fieldPath, {
+    label,
+    helpText: help,
+    required,
+  });
   return (
     <>
       <OARepoStringArrayField
+        {...uiProps}
         fieldPath={fieldPath}
         label={<HelpLabel label={data.label} help={data.helpText} />}
         required={data.required}
         helpText={null}
-        {...uiProps}
       />
       <FieldHelp help={data.helpText} />
     </>

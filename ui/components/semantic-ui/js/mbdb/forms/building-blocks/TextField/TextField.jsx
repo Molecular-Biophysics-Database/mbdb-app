@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useFormikContext, getIn } from "formik";
+import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
 import { Button } from "mbdb-semantic-ui-react";
 import {
   TextField as MbdbTextField,
@@ -15,7 +16,7 @@ export const TextField = (props) => <MbdbTextField {...props} />;
 TextField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   label: PropTypes.node,
-  helpText: PropTypes.node,
+  help: PropTypes.node,
   required: PropTypes.bool,
   width: PropTypes.number,
 };
@@ -32,7 +33,7 @@ export const NumberField = ({
   step,
   ...uiProps
 }) => {
-  const { setFieldValue } = useFormikContext();
+  const { values, setFieldValue } = useFormikContext();
   return (
     <MbdbTextField
       fieldPath={fieldPath}
@@ -43,7 +44,7 @@ export const NumberField = ({
       step={step ?? (integer ? 1 : "any")}
       onChange={(e, { value }) => {
         if (value === "") {
-          setFieldValue(fieldPath, undefined);
+          unsetFieldValue(values, setFieldValue, fieldPath);
           return;
         }
         const n = Number(value);
@@ -60,7 +61,7 @@ NumberField.propTypes = {
   max: PropTypes.number,
   step: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   label: PropTypes.node,
-  helpText: PropTypes.node,
+  help: PropTypes.node,
   required: PropTypes.bool,
   width: PropTypes.number,
 };
@@ -121,7 +122,7 @@ export const TextAreaField = ({
 TextAreaField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   label: PropTypes.node,
-  helpText: PropTypes.node,
+  help: PropTypes.node,
   required: PropTypes.bool,
   autoHeight: PropTypes.bool,
   rows: PropTypes.number,

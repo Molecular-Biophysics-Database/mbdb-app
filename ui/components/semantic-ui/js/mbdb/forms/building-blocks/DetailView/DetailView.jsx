@@ -5,8 +5,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { getIn, useFormikContext } from "formik";
 import { Button, Label, Table } from "mbdb-semantic-ui-react";
-import { errorMessages, hasError } from "@js/mbdb/forms/building-blocks/errors";
-import isEqual from "lodash/isEqual";
+import {
+  collectMessages,
+  mergedErrorNode,
+} from "@js/mbdb/forms/building-blocks/errors";
 import { isPlainObject } from "./values";
 import { DetailLabel } from "./DetailLabel";
 import { Rows } from "./Rows";
@@ -55,18 +57,17 @@ export const DetailView = ({
   onEdit,
   itemName,
 }) => {
-  const { values, errors, initialErrors, initialValues } = useFormikContext();
+  const formik = useFormikContext();
+  const { values } = formik;
   const obj = getIn(values, fieldPath);
   const required = useMergedRequired(fieldPath, groups, requiredPaths);
-  // F1: rows read errors ∪ initialErrors. The same merge useFieldErrors
-  // performs, inlined here because collect is pure (no hooks): the live
-  // `errors` node wins; otherwise `initialErrors` applies while the value at
-  // the path is unchanged. Each leaf row re-checks via useFieldErrors (§5).
-  const hasErr = (path) => {
-    if (errorMessages(errors, path).length > 0) return true;
-    const unchanged = isEqual(getIn(values, path), getIn(initialValues, path));
-    return unchanged && hasError(initialErrors, path);
-  };
+  // Rows with a server error stay visible even when empty (design §5). collect
+  // is pure (no hooks), so it cannot call useFieldErrors; mergedErrorNode is
+  // the same errors∪initialErrors selection as a plain function, and the row
+  // is kept when that node holds any message. Each leaf row still re-checks
+  // via useFieldErrors at render.
+  const hasErr = (path) =>
+    collectMessages(mergedErrorNode(formik, path), []).length > 0;
   if (obj === undefined || obj === null) return null;
   const sections = groupSections(
     isPlainObject(obj) ? obj : {},

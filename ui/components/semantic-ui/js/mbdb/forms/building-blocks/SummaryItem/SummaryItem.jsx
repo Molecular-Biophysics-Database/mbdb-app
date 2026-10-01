@@ -1,4 +1,4 @@
-/* Summary columns are positional by design (index is their identity). */
+/* Summary cells are positional by design (index is their identity). */
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from "react";
 import PropTypes from "prop-types";
@@ -11,7 +11,7 @@ import { hasData, useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
 // Must be rendered inside a Semantic Table inside Formik.
 export const SummaryItem = ({
   fieldPath,
-  columns,
+  cells,
   onEdit,
   onRemove,
   detail = null,
@@ -21,17 +21,17 @@ export const SummaryItem = ({
   const [open, setOpen] = useState(false);
   const [confirming, setConfirming] = useState(false);
   const value = getIn(values, fieldPath);
-  // F1: badge reads errors ∪ initialErrors so it survives the first edit
+  // badge reads errors ∪ initialErrors so it survives the first edit
   const { count: errorCount } = useFieldErrors(fieldPath);
 
-  const colSpan = columns.length + 2; // toggle cell + data cells + actions cell
+  const colSpan = cells.length + 2; // toggle cell + data cells + actions cell
 
   const requestRemove = () =>
     hasData(value) ? setConfirming(true) : onRemove();
 
   // Row clicks and Enter toggle the details, except clicks on buttons, and
   // except clicks inside the Confirm portal: React bubbles synthetic events
-  // through portals, so a dimmer/text click would otherwise reach the row (F2).
+  // through portals, so a dimmer/text click would otherwise reach the row.
   const onRowClick = (e) => {
     if (!detail || e.target.closest("button")) return;
     if (!e.currentTarget.contains(e.target)) return;
@@ -64,8 +64,8 @@ export const SummaryItem = ({
             </Button>
           )}
         </Table.Cell>
-        {columns.map((column, i) => {
-          const text = column(value) ?? "";
+        {cells.map((cell, i) => {
+          const text = cell(value) ?? "";
           return (
             <Table.Cell key={i}>
               {text === "" ? <span className="ui grey text">—</span> : text}
@@ -80,13 +80,15 @@ export const SummaryItem = ({
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
-                onEdit();
+                // the badge opens the editor at the first error (true);
+                // the plain Edit button does not scroll (false)
+                onEdit(true);
               }}
             >
               {`${errorCount} ${errorCount === 1 ? "error" : "errors"}`}
             </Label>
           )}{" "}
-          <Button basic size="mini" type="button" onClick={onEdit}>
+          <Button basic size="mini" type="button" onClick={() => onEdit(false)}>
             Edit
           </Button>{" "}
           {onRemove !== undefined && (
@@ -127,7 +129,7 @@ export const SummaryItem = ({
 
 SummaryItem.propTypes = {
   fieldPath: PropTypes.string.isRequired,
-  columns: PropTypes.arrayOf(PropTypes.func).isRequired,
+  cells: PropTypes.arrayOf(PropTypes.func).isRequired,
   onEdit: PropTypes.func.isRequired,
   onRemove: PropTypes.func,
   detail: PropTypes.node,

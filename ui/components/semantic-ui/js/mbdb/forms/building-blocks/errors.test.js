@@ -30,7 +30,7 @@ describe("errors helpers", () => {
 
   it("counts leaf error strings under a path", () => {
     expect(countErrors(errors, "metadata.name")).toBe(1);
-    // F16: duplicates count (two "Too short." = 2)
+    // duplicates count (two "Too short." = 2)
     expect(countErrors(errors, "metadata.list")).toBe(3);
   });
 
@@ -44,7 +44,7 @@ describe("errors helpers", () => {
     expect(countErrors(errors, "metadata.server")).toBe(1);
     expect(hasError(errors, "metadata.server")).toBe(true);
     expect(hasError(errors, "metadata.absent")).toBe(false);
-    // F16: {message} objects inside arrays count via their message; an object
+    // {message} objects inside arrays count via their message; an object
     // without a message contributes nothing
     expect(countErrors(errors, "metadata.serverList")).toBe(1);
     expect(errorMessages(errors, "metadata.serverList")).toEqual([
@@ -52,7 +52,7 @@ describe("errors helpers", () => {
     ]);
   });
 
-  it("ignores info/warning severities (F15)", () => {
+  it("ignores info/warning severities", () => {
     expect(countErrors(errors, "metadata.info")).toBe(0);
     expect(countErrors(errors, "metadata.warning")).toBe(0);
     expect(hasError(errors, "metadata.info")).toBe(false);
@@ -61,7 +61,7 @@ describe("errors helpers", () => {
     expect(countErrors({ a: [{ message: "No severity." }] }, "a")).toBe(1);
   });
 
-  it("joins unique messages (F16: display is deduped)", () => {
+  it("joins unique messages (display is deduped)", () => {
     expect(errorMessages(errors, "metadata.list")).toEqual([
       "Not a valid identifier.",
       "Too short.",
@@ -86,7 +86,7 @@ describe("errors helpers", () => {
   });
 });
 
-// ---- useFieldErrors (C1: errors, else initialErrors while unchanged) -------
+// ---- useFieldErrors (errors, else initialErrors while unchanged) -------
 
 const Probe = ({ path }) => {
   const { count, messages, hasError } = useFieldErrors(path);
@@ -180,8 +180,8 @@ describe("useFieldErrors", () => {
     });
   });
 
-  it("keeps the initial error after an unrelated edit clears `errors` (C1)", async () => {
-    // Empirical premise of C1 (verified against formik 2.4.9 here): with no
+  it("keeps the initial error after an unrelated edit clears `errors`", async () => {
+    // Empirical premise (verified against formik 2.4.9 here): with no
     // validate function, any setFieldValue runs validateFormWithHighPriority,
     // which dispatches SET_ERRORS {} — bare `errors` lose everything; only
     // `initialErrors` survive.

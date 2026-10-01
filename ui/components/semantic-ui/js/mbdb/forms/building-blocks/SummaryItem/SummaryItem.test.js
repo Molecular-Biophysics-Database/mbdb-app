@@ -1,70 +1,47 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, useFormikContext } from "formik";
+import { useFormikContext } from "formik";
 import { Table } from "mbdb-semantic-ui-react";
 import { SummaryItem } from "./SummaryItem";
+import {
+  renderInForm,
+  unmountForm,
+} from "@js/mbdb/forms/building-blocks/testUtils";
 
 // @js/oarepo_ui/forms/index pulls in react-searchkit (d3, ESM), which Jest
 // cannot load; SummaryItem itself does not use it, but DetailView-based
 // details do, so detail contents here are plain nodes.
-jest.mock("@js/oarepo_ui/forms", () => ({
-  FormConfigProvider: ({ children }) => children,
-  FieldDataProvider: ({ children }) => children,
-  useFieldData: () => ({
-    getFieldData: ({ fieldPath }) => ({ label: fieldPath }),
-  }),
-}));
-const { FormConfigProvider, FieldDataProvider } = jest.requireMock(
-  "@js/oarepo_ui/forms"
+jest.mock(
+  "@js/oarepo_ui/forms",
+  () =>
+    jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
 );
 
 let container;
 
 // ui is wrapped in a Table; `siblings` render outside the table (e.g. an
 // unrelated input used to prove the badge survives edits elsewhere, F1).
-const mount = (
-  ui,
-  { initialValues = {}, initialErrors = {}, siblings = null } = {}
-) => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-  act(() => {
-    ReactDOM.render(
-      <FormConfigProvider value={{ config: { ui_model: {} } }}>
-        <FieldDataProvider>
-          <Formik
-            initialValues={initialValues}
-            initialErrors={initialErrors}
-            onSubmit={() => {}}
-          >
-            <>
-              <Table compact>
-                <Table.Body>{ui}</Table.Body>
-              </Table>
-              {siblings}
-            </>
-          </Formik>
-        </FieldDataProvider>
-      </FormConfigProvider>,
-      container
-    );
-  });
+const mount = (ui, { siblings = null, ...opts } = {}) => {
+  container = renderInForm(
+    <>
+      <Table compact>
+        <Table.Body>{ui}</Table.Body>
+      </Table>
+      {siblings}
+    </>,
+    opts
+  );
 };
 
 afterEach(() => {
-  ReactDOM.unmountComponentAtNode(container);
-  container.remove();
-  // portals (Confirm) mount on document.body
-  document
-    .querySelectorAll(".ui.modal, .ui.dimmer")
-    .forEach((el) => el.remove());
+  unmountForm(container);
+  container = null;
 });
 
 const row = (o) => (
   <SummaryItem
     fieldPath="o"
-    columns={[(v) => v.name, (v) => v.type]}
+    cells={[(v) => v.name, (v) => v.type]}
     itemName="entity"
     detail={<div data-testid="detail">DETAILS</div>}
     {...o}
@@ -160,7 +137,7 @@ describe("SummaryItem", () => {
     mount(
       <SummaryItem
         fieldPath="o"
-        columns={[(v) => v.name]}
+        cells={[(v) => v.name]}
         itemName="entity"
         onEdit={() => {}}
       />,

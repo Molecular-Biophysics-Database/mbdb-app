@@ -5,32 +5,22 @@ import { act, Simulate } from "react-dom/test-utils";
 import { Formik, useFormikContext, getIn } from "formik";
 import { HelpModeProvider } from "mbdb-semantic-ui-react";
 import { TableArrayField } from "./TableArrayField";
+import { setFakeUiModel } from "@js/mbdb/forms/building-blocks/testUtils";
 
-// The oarepo forms index is not loadable in Jest (react-searchkit/d3 ESM).
-// Model labels can be injected per test through mockModelLabels, help texts
-// through mockModelHelp.
-let mockModelLabels = {};
-let mockModelHelp = {};
-jest.mock("@js/oarepo_ui/forms", () => ({
-  FormConfigProvider: ({ children }) => children,
-  FieldDataProvider: ({ children }) => children,
-  useFieldData: () => ({
-    getFieldData: ({ fieldPath }) => ({
-      label: mockModelLabels[fieldPath] ?? fieldPath,
-      helpText: mockModelHelp[fieldPath] ?? null,
-    }),
-  }),
-}));
+// Model labels/help are injected per test through setFakeUiModel
+// (testUtils). The test needs Formik re-render on one container, so it keeps
+// its own tree/render helpers below instead of renderInForm.
+jest.mock(
+  "@js/oarepo_ui/forms",
+  () =>
+    jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
+);
 
 // Client-only row keys (jsdom has no WebCrypto); incrementing, so keys differ
 let mockKeyN = 0;
 jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () => ({
   randomUUID: () => `key-${++mockKeyN}-uuid`,
 }));
-
-const { FormConfigProvider, FieldDataProvider } = jest.requireMock(
-  "@js/oarepo_ui/forms"
-);
 
 let container;
 
@@ -43,22 +33,21 @@ Probe.propTypes = {
   path: PropTypes.string,
 };
 
+// kept local: one test re-renders with NEW initialErrors on the SAME mounted
+// Formik, which renderInForm (fresh container per call) cannot express. The
+// oarepo providers are passthroughs (testUtils), so Formik alone is enough.
 const tree = (
   ui,
   { initialValues = {}, initialErrors = {}, enableReinitialize = false } = {}
 ) => (
-  <FormConfigProvider value={{ config: { ui_model: {} } }}>
-    <FieldDataProvider>
-      <Formik
-        initialValues={initialValues}
-        initialErrors={initialErrors}
-        enableReinitialize={enableReinitialize}
-        onSubmit={() => {}}
-      >
-        {ui}
-      </Formik>
-    </FieldDataProvider>
-  </FormConfigProvider>
+  <Formik
+    initialValues={initialValues}
+    initialErrors={initialErrors}
+    enableReinitialize={enableReinitialize}
+    onSubmit={() => {}}
+  >
+    {ui}
+  </Formik>
 );
 
 const render = (element) => {
@@ -74,8 +63,7 @@ const mount = (ui, opts = {}) => {
 };
 
 beforeEach(() => {
-  mockModelLabels = {};
-  mockModelHelp = {};
+  setFakeUiModel({});
 });
 
 afterEach(() => {
@@ -365,10 +353,10 @@ describe("TableArrayField", () => {
   });
 
   it("takes column labels from the model when not passed (F7)", () => {
-    mockModelLabels = {
-      "steps.name": "Step name from model",
-      "steps.description": "Step description from model",
-    };
+    setFakeUiModel({
+      "steps.name": { label: "Step name from model" },
+      "steps.description": { label: "Step description from model" },
+    });
     mount(
       <>
         <TableArrayField
@@ -386,10 +374,10 @@ describe("TableArrayField", () => {
   });
 
   it("popup mode: no helptext under the table; columns with model help show a header icon", () => {
-    mockModelHelp = {
-      "steps.name": "The name of the step",
-      "steps.description": "What is done in this step",
-    };
+    setFakeUiModel({
+      "steps.name": { helpText: "The name of the step" },
+      "steps.description": { helpText: "What is done in this step" },
+    });
     mount(
       <HelpModeProvider mode="popup">
         <TableArrayField

@@ -8,8 +8,11 @@ import isEqual from "lodash/isEqual";
 // also be `{ message, severity }` objects. Only real errors count: severity
 // undefined (client errors have none) or "error". oarepo may also send
 // "info"/"warning" — those must NOT turn cells red, so they count 0 and are
-// excluded from messages (F15). Non-message objects are walked recursively.
-const collectMessages = (node, out) => {
+// excluded from messages. Non-message objects are walked recursively.
+// Exported for DetailView's pure collect path: it resolves the merged node
+// via mergedErrorNode and needs to know whether that node holds any message
+// (without running the hooks).
+export const collectMessages = (node, out = []) => {
   if (node === undefined || node === null) return out;
   if (typeof node === "string") {
     if (node !== "") out.push(node);
@@ -24,7 +27,7 @@ const collectMessages = (node, out) => {
   return out;
 };
 
-// Number of leaf error strings under path (0 when none). F16: duplicates are
+// Number of leaf error strings under path (0 when none). Duplicates are
 // counted (three "Too short." = 3) — badges show the count of raw leaves, as
 // the server sent them; errorMessages() is the deduped display variant.
 export const countErrors = (errors, path) =>
@@ -44,7 +47,11 @@ export const errorMessages = (errors, path) => [
 // messages; otherwise the `initialErrors` node applies — but only while the
 // value at `path` still equals `initialValues` at `path` (NestedErrors
 // semantics: value changed ⇒ the server error no longer applies).
-const activeErrorNode = (
+//
+// Exported pure so callers that cannot run hooks (DetailView's collect,
+// which builds rows outside a component) can pass a hand-built formik-ish
+// { errors, initialErrors, values, initialValues } and get the same selection.
+export const mergedErrorNode = (
   { errors, initialErrors, values, initialValues },
   path
 ) => {
@@ -54,13 +61,13 @@ const activeErrorNode = (
   return unchanged ? getIn(initialErrors, path) : undefined;
 };
 
-// C1: THE way building blocks read errors for a path. Covers everything under
+// THE way building blocks read errors for a path. Covers everything under
 // the path (cells, list, nested rows) and survives the formik errors-reset:
 // an unrelated edit clears `errors` but `initialErrors` survive, so the
 // fallback keeps showing the server error until its own value is edited.
 export const useFieldErrors = (path) => {
   const formik = useFormikContext();
-  const raw = collectMessages(activeErrorNode(formik, path), []);
+  const raw = collectMessages(mergedErrorNode(formik, path), []);
   return {
     count: raw.length,
     messages: [...new Set(raw)],
@@ -74,7 +81,7 @@ export const useFieldErrors = (path) => {
 // would otherwise double-report errors already shown at their own inputs.
 export const useOwnErrorMessages = (path) => {
   const formik = useFormikContext();
-  const node = activeErrorNode(formik, path);
+  const node = mergedErrorNode(formik, path);
   return collectOwnMessages(node, []);
 };
 

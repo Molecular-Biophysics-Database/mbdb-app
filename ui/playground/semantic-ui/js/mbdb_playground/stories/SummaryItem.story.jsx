@@ -39,7 +39,7 @@ const Rows = () => {
           <SummaryItem
             fieldPath={BASE}
             itemName={item?.name ?? "the entity"}
-            columns={[(v) => v?.name, (v) => v?.type, polymerFacts]}
+            cells={[(v) => v?.name, (v) => v?.type, polymerFacts]}
             onEdit={() => setEdited(true)}
             onRemove={() => setFieldValue(BASE, undefined)}
             detail={

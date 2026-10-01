@@ -1,8 +1,9 @@
+// Jest only discovers tests under the webpack entry dirs (js/mbdb/forms), so
+// this test for mbdb-semantic-ui-react code lives here in building-blocks.
 import React from "react";
 import ReactDOM from "react-dom";
-import { act } from "react-dom/test-utils";
-// Deep imports: the test lives here (Jest only discovers tests under
-// js/mbdb/forms), the sources live in mbdb-semantic-ui-react.
+import { act, Simulate } from "react-dom/test-utils";
+// Deep imports: the sources live in mbdb-semantic-ui-react.
 import {
   HelpModeProvider,
   useHelpMode,
@@ -117,5 +118,20 @@ describe("HelpIcon", () => {
   it("renders nothing when help is empty", () => {
     render(<HelpIcon help={null} label="Name" />);
     expect(container.innerHTML).toBe("");
+  });
+
+  it("opens its popup on keyboard focus", () => {
+    render(
+      <HelpModeProvider mode="popup">
+        <HelpIcon help="Focus help content" label="Name" />
+      </HelpModeProvider>
+    );
+    const icon = container.querySelector('[aria-label^="Help"]');
+    expect(icon).not.toBeNull();
+    act(() => {
+      Simulate.focus(icon);
+    });
+    expect(document.querySelector(".ui.popup")).not.toBeNull();
+    expect(document.body.textContent).toContain("Focus help content");
   });
 });

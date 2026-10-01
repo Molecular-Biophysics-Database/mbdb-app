@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { HelpIcon, Table } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 
-// One column header; the label and required flag default to the model entry
+// One column title; the label and required flag default to the model entry
 // of `<fieldPath>.<column.field>` (explicit column props win, design/API).
 // A component per column, so the hook is not called in a loop.
-export const ColumnHeader = ({ fieldPath, column }) => {
+export const ColumnTitle = ({ fieldPath, column }) => {
   const data = useModelFieldData(`${fieldPath}.${column.field}`, {
     label: column.label,
     required: column.required,
@@ -24,23 +24,19 @@ export const ColumnHeader = ({ fieldPath, column }) => {
     </Table.HeaderCell>
   );
 };
-ColumnHeader.propTypes = {
+ColumnTitle.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   column: PropTypes.object.isRequired,
 };
 
-// The table's header row: # + one ColumnHeader per column + the empty
+// The table's header row: # + one ColumnTitle per column + the empty
 // expand-toggle and actions columns.
 export const HeaderRow = ({ fieldPath, columns, renderExpanded }) => (
   <Table.Header>
     <Table.Row>
       <Table.HeaderCell>#</Table.HeaderCell>
       {columns.map((column) => (
-        <ColumnHeader
-          key={column.field}
-          fieldPath={fieldPath}
-          column={column}
-        />
+        <ColumnTitle key={column.field} fieldPath={fieldPath} column={column} />
       ))}
       {renderExpanded && <Table.HeaderCell />}
       <Table.HeaderCell />

@@ -9,32 +9,9 @@ import {
   HelpLabel,
 } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
+import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
+import { toOption } from "@js/mbdb/forms/building-blocks/options";
 import { SelectField } from "@js/mbdb/forms/building-blocks/SelectField";
-
-const toOption = (option) =>
-  typeof option === "object" && option !== null
-    ? option
-    : { value: option, text: String(option) };
-
-// Unique message strings under path: strings plus OARepo
-// { message, severity } objects (never rendered raw).
-// Local clone of errors.js errorMessages applied to the C1 error source;
-// point at errors.js/useFieldErrors once that helper exists.
-const messagesOf = (node, out = []) => {
-  if (node === undefined || node === null || node === "") return out;
-  if (typeof node === "string") {
-    if (!out.includes(node)) out.push(node);
-  } else if (Array.isArray(node)) {
-    node.forEach((child) => messagesOf(child, out));
-  } else if (typeof node === "object") {
-    if (typeof node.message === "string") {
-      if (!out.includes(node.message)) out.push(node.message);
-    } else {
-      Object.values(node).forEach((child) => messagesOf(child, out));
-    }
-  }
-  return out;
-};
 
 // A single choice among 2–5 short options shown as a Button.Group, so all
 // options are visible; more than 5 options fall back to a SelectField.
@@ -44,25 +21,24 @@ export const ButtonGroupField = ({
   fieldPath,
   options,
   label,
-  helpText,
+  help,
   required,
 }) => {
-  const { values, errors, initialErrors, initialValues, setFieldValue } =
-    useFormikContext();
-  const data = useModelFieldData(fieldPath, { label, helpText, required });
-  const opts = options.map(toOption);
+  const { values, setFieldValue } = useFormikContext();
+  // The hook keeps helpText because that is the model's key (getFieldData);
+  // the block's public prop is `help`.
+  const data = useModelFieldData(fieldPath, {
+    label,
+    helpText: help,
+    required,
+  });
+  const opts = options.map((o) => {
+    const { value, text } = toOption(o);
+    return { value, text: String(text) }; // boolean values need string labels
+  });
   const current = getIn(values, fieldPath);
 
-  // C1 fallback: server errors arrive as initialErrors; Formik clears
-  // `errors` on the first edit. Read initialErrors while the value is
-  // untouched. (Local; re-point to errors.js useFieldErrors once it lands.)
-  const errorNode =
-    getIn(errors, fieldPath) !== undefined && getIn(errors, fieldPath) !== null
-      ? getIn(errors, fieldPath)
-      : current === getIn(initialValues, fieldPath)
-      ? getIn(initialErrors, fieldPath)
-      : undefined;
-  const messages = messagesOf(errorNode);
+  const { messages, hasError } = useFieldErrors(fieldPath);
 
   if (opts.length > 5) {
     return (
@@ -74,12 +50,14 @@ export const ButtonGroupField = ({
           text,
         }))}
         label={data.label}
-        helpText={data.helpText}
+        help={data.helpText}
         required={data.required}
       />
     );
   }
 
+  // arrow-key roving focus — same as DiscriminatorField (share if a third
+  // user appears)
   const onKeyDown = (e) => {
     if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
     const buttons = [...e.currentTarget.querySelectorAll("button")];
@@ -94,7 +72,7 @@ export const ButtonGroupField = ({
   };
 
   return (
-    <Form.Field required={data.required} error={messages.length > 0}>
+    <Form.Field required={data.required} error={hasError}>
       <label htmlFor={fieldPath}>
         <HelpLabel label={data.label} help={data.helpText} />
       </label>
@@ -154,6 +132,6 @@ ButtonGroupField.propTypes = {
     ])
   ).isRequired,
   label: PropTypes.node,
-  helpText: PropTypes.node,
+  help: PropTypes.node,
   required: PropTypes.bool,
 };

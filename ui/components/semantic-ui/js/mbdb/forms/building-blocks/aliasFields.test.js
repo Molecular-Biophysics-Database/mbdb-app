@@ -10,6 +10,8 @@ import {
 } from "mbdb-react-invenio-forms";
 import { HelpModeProvider } from "mbdb-semantic-ui-react";
 
+// kept local: needs a StringArrayField stub the shared fake does not have,
+// plus a constant model label/help with `required` keyed to a "req" prefix.
 jest.mock("@js/oarepo_ui/forms", () => ({
   // fields.jsx wraps oarepo's StringArrayField; a passthrough stub is
   // enough here (no test renders it — the real one cannot load under Jest)
@@ -35,6 +37,13 @@ afterEach(() => {
   container.remove();
 });
 
+// Renders the form values as JSON so tests can assert the stored shape
+// (that empty objects are pruned, numbers are numbers, …).
+const ValuesProbe = () => {
+  const { values } = useFormikContext();
+  return <span data-testid="probe">{JSON.stringify(values)}</span>;
+};
+
 const render = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
   act(() => {
     ReactDOM.render(
@@ -43,7 +52,10 @@ const render = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
         initialErrors={initialErrors}
         onSubmit={() => {}}
       >
-        {ui}
+        <>
+          {ui}
+          <ValuesProbe />
+        </>
       </Formik>,
       container
     );
@@ -63,14 +75,14 @@ describe("wrapped fields", () => {
     expect(helptexts()[0].textContent).toBe("Model help");
   });
 
-  it("explicit label/helpText win over the model", () => {
-    render(<TextField fieldPath="name" label="Short" helpText="Short help" />);
+  it("explicit label/help win over the model", () => {
+    render(<TextField fieldPath="name" label="Short" help="Short help" />);
     expect(container.querySelector("label").textContent).toContain("Short");
     expect(helptexts()[0].textContent).toBe("Short help");
   });
 
   it("TextField with neither model nor prop help renders no helptext", () => {
-    render(<TextField fieldPath="name" helpText={null} />);
+    render(<TextField fieldPath="name" help={null} />);
     expect(helptexts().length).toBe(0);
   });
 
@@ -152,10 +164,7 @@ describe("wrapped fields", () => {
     render(
       <ArrayField fieldPath="items" label="Items" defaultNewValue={{}}>
         {({ arrayPath, indexPath }) => (
-          <TextField
-            fieldPath={`${arrayPath}.${indexPath}.name`}
-            helpText={null}
-          />
+          <TextField fieldPath={`${arrayPath}.${indexPath}.name`} help={null} />
         )}
       </ArrayField>,
       { initialValues: { items: [{ name: "first" }] } }
@@ -201,5 +210,45 @@ describe("wrapped fields", () => {
     );
     expect(container.querySelectorAll("label.helptext").length).toBe(0);
     expect(container.querySelectorAll('[aria-label^="Help"]').length).toBe(1);
+  });
+
+  it("a stray helpText prop cannot leak through to RIF (popup mode, prop order)", () => {
+    // Regression: a caller that still passes the old prop name put helpText
+    // into uiProps, which overrode the wrapper's suppression and made RIF
+    // draw its own helptext label under the input, outside HelpMode.
+    render(
+      <HelpModeProvider mode="popup">
+        <TextField fieldPath="name" helpText="stray old-prop help" />
+      </HelpModeProvider>
+    );
+    expect(container.querySelectorAll("label.helptext").length).toBe(0);
+    expect(container.textContent).not.toContain("stray old-prop help");
+  });
+
+  it("a stray helpText prop does not reach the DOM textarea", () => {
+    render(<TextAreaField fieldPath="seq" helpText="stray old-prop help" />);
+    const textarea = container.querySelector("textarea");
+    expect(textarea.getAttribute("helptext")).toBeNull();
+    expect(container.textContent).not.toContain("stray old-prop help");
+  });
+
+  it("clearing the last field of an inline object removes the object key (C15)", () => {
+    const initialValues = {
+      entity: { name: "x", location: { altitude: 250 } },
+    };
+    render(<TextField fieldPath="entity.location.altitude" />, {
+      initialValues,
+    });
+    expect(container.querySelector("input").value).toBe("250");
+    const input = container.querySelector("input");
+    input.value = "";
+    act(() => {
+      Simulate.change(input);
+    });
+    // the object key `location` must be gone, not left as an empty {}
+    const probe = container.querySelector('[data-testid="probe"]');
+    expect(JSON.parse(probe.textContent)).toEqual({
+      entity: { name: "x" },
+    });
   });
 });

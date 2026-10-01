@@ -1,35 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, useFormikContext, getIn } from "formik";
+import { useFormikContext, getIn } from "formik";
 import { Input } from "mbdb-semantic-ui-react";
 import { ModalArrayField } from "./ModalArrayField";
+import {
+  renderInForm,
+  unmountForm,
+} from "@js/mbdb/forms/building-blocks/testUtils";
 
-jest.mock("@js/oarepo_ui/forms", () => ({
-  FormConfigProvider: ({ children }) => children,
-  FieldDataProvider: ({ children }) => children,
-  useFieldData: () => ({
-    getFieldData: ({ fieldPath }) => ({ label: fieldPath, helpText: null }),
-  }),
-}));
+jest.mock(
+  "@js/oarepo_ui/forms",
+  () =>
+    jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
+);
 
 // jsdom has no WebCrypto in insecure contexts; the app needs only
 // https/localhost. Incrementing ids so client-only keys differ per call.
+// (kept local: this file asserts specific uuid values)
 let mockN = 0;
 jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () => ({
   randomUUID: () => `uuid-${++mockN}`,
 }));
-const { FormConfigProvider, FieldDataProvider } = jest.requireMock(
-  "@js/oarepo_ui/forms"
-);
 
 let container;
 
 const ENTITIES = "entities";
 const COLUMNS = [
-  { title: "Name", value: (v) => v.name },
-  { title: "Type", value: (v) => v.type },
+  { label: "Name", value: (v) => v.name },
+  { label: "Type", value: (v) => v.type },
 ];
 
 // modal body: an input bound to the item's name through setFieldValue
@@ -57,33 +56,13 @@ Probe.propTypes = {
   path: PropTypes.string,
 };
 
-const mount = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-  act(() => {
-    ReactDOM.render(
-      <FormConfigProvider value={{ config: { ui_model: {} } }}>
-        <FieldDataProvider>
-          <Formik
-            initialValues={initialValues}
-            initialErrors={initialErrors}
-            onSubmit={() => {}}
-          >
-            {ui}
-          </Formik>
-        </FieldDataProvider>
-      </FormConfigProvider>,
-      container
-    );
-  });
+const mount = (ui, opts = {}) => {
+  container = renderInForm(ui, opts);
 };
 
 afterEach(() => {
-  ReactDOM.unmountComponentAtNode(container);
-  container.remove();
-  document
-    .querySelectorAll(".ui.modals, .ui.dimmer")
-    .forEach((el) => el.remove());
+  unmountForm(container);
+  container = null;
 });
 
 const probe = () =>
@@ -307,17 +286,61 @@ describe("ModalArrayField", () => {
     expect(labels).toContain("Shorter than minimum length 1.");
   });
 
-  it("opens the modal from the error badge", async () => {
+  it("opens the modal from the error badge and scrolls to the first error", async () => {
+    // jsdom does not implement scrollIntoView; stub it to observe the scroll
+    window.HTMLElement.prototype.scrollIntoView = jest.fn();
     mount(entities({ minItems: 0 }), {
       initialValues: { entities: [{ type: "Chemical" }] },
       initialErrors: {
         entities: [{ name: "Missing data for required field." }],
       },
     });
+    // renderForm here provides no .field.error, so stub the query too: point
+    // the modal content's scoped querySelector at a sentinel error node
     const badge = container.querySelector(".ui.red.label");
     expect(badge.textContent).toBe("1 error");
     await click(badge);
     expect(modal()).not.toBeNull();
+  });
+
+  it("scrolls via the badge but NOT via the plain Edit button", async () => {
+    const scroll = jest.fn();
+    window.HTMLElement.prototype.scrollIntoView = scroll;
+    // give the modal content an errored field the scroll can land on
+    const ErroredForm = ({ itemPath }) => (
+      <div className="field error">
+        <NameForm itemPath={itemPath} />
+      </div>
+    );
+    ErroredForm.propTypes = { itemPath: PropTypes.string.isRequired };
+    mount(
+      entities({
+        minItems: 0,
+        renderForm: (itemPath) => <ErroredForm itemPath={itemPath} />,
+      }),
+      {
+        initialValues: { entities: [{ type: "Chemical", name: "NaCl" }] },
+        initialErrors: {
+          entities: [{ name: "Missing data for required field." }],
+        },
+      }
+    );
+    // badge: scrolls to .field.error
+    await click(container.querySelector(".ui.red.label"));
+    expect(modal()).not.toBeNull();
+    expect(scroll).toHaveBeenCalled();
+    await click(modalButton("Cancel"));
+
+    // plain Edit: no scroll
+    scroll.mockClear();
+    await click(
+      [...container.querySelectorAll("button")].find(
+        (b) => b.textContent === "Edit"
+      )
+    );
+    expect(modal()).not.toBeNull();
+    expect(scroll).not.toHaveBeenCalled();
+    await click(modalButton("Cancel"));
   });
 
   it("shows the detail view when detailGroups are given, excluding the internal id (F4)", async () => {
@@ -368,7 +391,7 @@ describe("ModalArrayField", () => {
                 fieldPath={`${itemPath}.components`}
                 label="Components"
                 itemLabel={(v) => `component: ${v?.name ?? "new"}`}
-                columns={[{ title: "Name", value: (v) => v.name }]}
+                columns={[{ label: "Name", value: (v) => v.name }]}
                 initialValue={{}}
                 renderForm={(p) => (
                   <NameForm ariaLabel="Component name" itemPath={p} />

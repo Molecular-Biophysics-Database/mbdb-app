@@ -82,7 +82,7 @@ const field = (
       label="Molecular weight"
       units={["Da", "kDa", "MDa"]}
       defaultUnit="kDa"
-      helpText="The molecular weight of the polymer"
+      help="The molecular weight of the polymer"
     />
     <Probe path="mw" />
   </>
@@ -174,6 +174,17 @@ describe("ValueUnitField", () => {
       initialValues: { mw: { value: 1, unit: "kDa" } },
     });
     expect(container.textContent).toContain("Bad number.");
+  });
+
+  it('does not show a { severity: "warning" } node as an error', () => {
+    render(field, {
+      initialErrors: {
+        mw: { value: { message: "Big number.", severity: "warning" } },
+      },
+      initialValues: { mw: { value: 1, unit: "kDa" } },
+    });
+    expect(container.querySelector(".field.error")).toBeNull();
+    expect(container.textContent).not.toContain("Big number.");
   });
 
   it("keeps an initialError visible after another field is edited", () => {

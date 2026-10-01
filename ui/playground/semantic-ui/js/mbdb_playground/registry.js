@@ -27,7 +27,7 @@ export const REGISTRY = [
   {
     step: 1,
     key: "FieldHelp",
-    title: "AliasPackages and FieldHelp",
+    title: "FieldHelp and HelpMode",
     design: "design/building-blocks/AliasPackages.md",
     load: () => import("./stories/FieldHelp.story"),
   },

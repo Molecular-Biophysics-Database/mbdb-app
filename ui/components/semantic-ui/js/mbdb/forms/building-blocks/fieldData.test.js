@@ -10,6 +10,10 @@ import { useModelFieldData } from "./fieldData";
 // The special "missing" prefix simulates oarepo's getFieldData fallback:
 // no ui_model entry, so the raw toModelPath string comes back as label
 // (and helpText is null).
+// kept local: this tests useModelFieldData AGAINST a fake that mimics oarepo's
+// real no-entry fallback (and throws on an undefined path), behaviour the
+// shared testUtils fake intentionally does not model — it is the subject
+// under test, not just a dependency.
 jest.mock("@js/oarepo_ui/forms", () => ({
   useFieldData: () => ({
     getFieldData: ({ fieldPath }) => {

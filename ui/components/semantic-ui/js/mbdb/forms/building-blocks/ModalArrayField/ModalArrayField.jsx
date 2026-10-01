@@ -1,9 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { FieldArray, getIn, useFormikContext } from "formik";
+import { getIn, useFormikContext } from "formik";
 import cloneDeep from "lodash/cloneDeep";
 import { applyEntityId } from "@js/mbdb/forms/building-blocks/DefaultsAndIds";
-import { randomUUID } from "@js/mbdb/forms/building-blocks/randomUUID";
 import {
   Button,
   Dropdown,
@@ -19,6 +18,7 @@ import {
   useOwnErrorMessages,
 } from "@js/mbdb/forms/building-blocks/errors";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
+import { useArrayRows } from "@js/mbdb/forms/building-blocks/useArrayRows";
 import { SummaryItem } from "@js/mbdb/forms/building-blocks/SummaryItem";
 import { DetailView } from "@js/mbdb/forms/building-blocks/DetailView";
 import { EditModal } from "@js/mbdb/forms/building-blocks/EditModal";
@@ -40,187 +40,159 @@ export const ModalArrayField = ({
   detailGroups,
   detailProps,
 }) => {
-  const { values, setFieldValue } = useFormikContext();
-  // { index, isNew, snapshot } while the modal is open
+  const { values } = useFormikContext();
+  // { index, isNew, snapshot, scrollToError } while the modal is open
   const [editing, setEditing] = useState(null);
-  // the Edit/Add button that opened the modal — focus returns to it (F7)
-  const triggerRef = useRef(null);
-  // F3/C5: client-only keys for items without an id (components), parallel
-  // to the items: grown on render, spliced on remove, pushed on add.
-  // Entities keep their `id` as the key; components must NOT get an id.
-  const keysRef = useRef([]);
   const data = useModelFieldData(fieldPath, {
     label,
     helpText: help,
     required,
   });
-  // F5/C1: error flag and list-level message read errors ∪ initialErrors
+  // error flag and list-level message read errors ∪ initialErrors
   const { hasError } = useFieldErrors(fieldPath);
   const listMessages = useOwnErrorMessages(fieldPath);
+  // items/keys/remove/push/replace live in the shared array-rows hook; the
+  // block only adds the modal editing state on top
+  const { items, keyFor, remove, push, replace } = useArrayRows(fieldPath);
 
   const options = newItemOptions ?? [{ label: null, value: initialValue }];
-  const items = getIn(values, fieldPath) ?? [];
-  while (keysRef.current.length < items.length)
-    keysRef.current.push(randomUUID());
+
+  const openNew = (seed) => {
+    // applyEntityId is the one place that decides how an entity gets its id
+    const item = withIds ? applyEntityId(cloneDeep(seed)) : cloneDeep(seed);
+    push(item);
+    setEditing({ index: items.length, isNew: true, snapshot: null });
+  };
+  const openEdit = (index, scrollToError = false) =>
+    setEditing({
+      index,
+      isNew: false,
+      scrollToError,
+      snapshot: cloneDeep(getIn(values, `${fieldPath}.${index}`)),
+    });
+  const cancel = () => {
+    if (editing.isNew) remove(editing.index);
+    else replace(editing.index, editing.snapshot);
+    setEditing(null);
+  };
+  const done = () => setEditing(null);
 
   return (
-    <FieldArray
-      name={fieldPath}
-      render={(arrayHelpers) => {
-        const close = (button) => {
-          setEditing(null);
-          // focus back on the button that opened the modal
-          if (button) setTimeout(() => button.focus(), 0);
-        };
-        // F1/C3: formik's remove leaves [] behind; never write []
-        const removeAt = (index) => {
-          keysRef.current.splice(index, 1);
-          if (items.length <= 1) setFieldValue(fieldPath, undefined);
-          else arrayHelpers.remove(index);
-        };
-        const openNew = (seed, e) => {
-          triggerRef.current = e?.currentTarget ?? null;
-          // F10: one helper decides how an entity gets its id
-          const item = withIds
-            ? applyEntityId(cloneDeep(seed))
-            : cloneDeep(seed);
-          arrayHelpers.push(item);
-          keysRef.current.push(randomUUID());
-          setEditing({ index: items.length, isNew: true, snapshot: null });
-        };
-        const openEdit = (index, e) => {
-          triggerRef.current = e?.currentTarget ?? null;
-          setEditing({
-            index,
-            isNew: false,
-            snapshot: cloneDeep(getIn(values, `${fieldPath}.${index}`)),
-          });
-        };
-        const cancel = () => {
-          if (editing.isNew) removeAt(editing.index);
-          else setFieldValue(`${fieldPath}.${editing.index}`, editing.snapshot);
-          close(triggerRef.current);
-        };
-        const done = () => close(triggerRef.current);
-
-        return (
-          <>
-            <Form.Field required={data.required} error={hasError}>
-              {data.label && (
-                // htmlFor points at the field path for OARepo error
-                // scrolling; the list rows carry their own labels.
-                <label htmlFor={fieldPath}>
-                  <HelpLabel label={data.label} help={data.helpText} />
-                </label>
-              )}
-              {data.helpText && <FieldHelp help={data.helpText} />}
-              {items.length === 0 ? (
-                <p className="ui grey text">No items yet</p>
-              ) : (
-                <Table compact>
-                  <Table.Header>
-                    <Table.Row>
-                      <Table.HeaderCell />
-                      {columns.map((column) => (
-                        <Table.HeaderCell key={column.title}>
-                          {column.title}
-                        </Table.HeaderCell>
-                      ))}
-                      <Table.HeaderCell />
-                    </Table.Row>
-                  </Table.Header>
-                  <Table.Body>
-                    {items.map((value, index) => {
-                      const itemPath = `${fieldPath}.${index}`;
-                      return (
-                        <SummaryItem
-                          key={value?.id ?? keysRef.current[index]}
+    <>
+      <Form.Field required={data.required} error={hasError}>
+        {data.label && (
+          // htmlFor points at the field path for OARepo error
+          // scrolling; the list rows carry their own labels.
+          <label htmlFor={fieldPath}>
+            <HelpLabel label={data.label} help={data.helpText} />
+          </label>
+        )}
+        {data.helpText && <FieldHelp help={data.helpText} />}
+        {items.length === 0 ? (
+          <p className="ui grey text">No items yet</p>
+        ) : (
+          <Table compact>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell />
+                {columns.map((column) => (
+                  <Table.HeaderCell key={column.label}>
+                    {column.label}
+                  </Table.HeaderCell>
+                ))}
+                <Table.HeaderCell />
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {items.map((value, index) => {
+                const itemPath = `${fieldPath}.${index}`;
+                return (
+                  <SummaryItem
+                    key={keyFor(value, index)}
+                    fieldPath={itemPath}
+                    cells={columns.map((c) => c.value)}
+                    itemName={itemLabel(value)}
+                    onEdit={(scrollToError) => openEdit(index, scrollToError)}
+                    onRemove={
+                      index < minItems ? undefined : () => remove(index)
+                    }
+                    detail={
+                      detailGroups ? (
+                        <DetailView
                           fieldPath={itemPath}
-                          columns={columns.map((c) => c.value)}
-                          itemName={itemLabel(value)}
-                          onEdit={(e) => openEdit(index, e)}
-                          onRemove={
-                            index < minItems ? undefined : () => removeAt(index)
-                          }
-                          detail={
-                            detailGroups ? (
-                              <DetailView
-                                fieldPath={itemPath}
-                                groups={detailGroups}
-                                // id is an internal client uuid — never show it;
-                                // detailProps (e.g. exclude) can override
-                                exclude={["id"]}
-                                {...detailProps}
-                              />
-                            ) : null
-                          }
+                          groups={detailGroups}
+                          // id is an internal client uuid — never show it;
+                          // detailProps (e.g. exclude) can override
+                          exclude={["id"]}
+                          {...detailProps}
                         />
-                      );
-                    })}
-                  </Table.Body>
-                </Table>
-              )}
-              {listMessages.length > 0 && (
-                <div>
-                  <Label color="red" pointing prompt>
-                    {listMessages.join(" ")}
-                  </Label>
-                </div>
-              )}
-              {options.length === 1 ? (
-                <Button
-                  type="button"
-                  icon
-                  labelPosition="left"
-                  size="small"
-                  onClick={(e) => openNew(options[0].value, e)}
-                >
-                  <Icon name="add" />
-                  {`Add${options[0].label ? ` ${options[0].label}` : ""}`}
-                </Button>
-              ) : (
-                // F2: menu items only fire onClick — Semantic's default
-                // selectOnBlur/selectOnNavigation would ADD an item on blur
-                // or arrow keys. "icon" + "small" match the one-option button.
-                <Dropdown
-                  text="Add"
-                  button
-                  labeled
-                  floating
-                  icon="add"
-                  className="icon small"
-                >
-                  <Dropdown.Menu>
-                    {options.map((option, i) => (
-                      <Dropdown.Item
-                        key={option.label ?? i}
-                        text={option.label}
-                        onClick={(e) => openNew(option.value, e)}
-                      />
-                    ))}
-                  </Dropdown.Menu>
-                </Dropdown>
-              )}
-            </Form.Field>
-            {/* the modal is a SIBLING of Form.Field, not nested inside it
-                (guide §8), so depth-2 modals stack correctly */}
-            {editing !== null && (
-              <EditModal
-                size="large"
-                open
-                onCancel={cancel}
-                onDone={done}
-                header={`Edit ${itemLabel(
-                  getIn(values, `${fieldPath}.${editing.index}`)
-                )}`}
-              >
-                {renderForm(`${fieldPath}.${editing.index}`)}
-              </EditModal>
-            )}
-          </>
-        );
-      }}
-    />
+                      ) : null
+                    }
+                  />
+                );
+              })}
+            </Table.Body>
+          </Table>
+        )}
+        {listMessages.length > 0 && (
+          <div>
+            <Label color="red" pointing prompt>
+              {listMessages.join(" ")}
+            </Label>
+          </div>
+        )}
+        {options.length === 1 ? (
+          <Button
+            type="button"
+            icon
+            labelPosition="left"
+            size="small"
+            onClick={() => openNew(options[0].value)}
+          >
+            <Icon name="add" />
+            {`Add${options[0].label ? ` ${options[0].label}` : ""}`}
+          </Button>
+        ) : (
+          // menu items only fire onClick — Semantic's default
+          // selectOnBlur/selectOnNavigation would ADD an item on blur
+          // or arrow keys. "icon" + "small" match the one-option button.
+          <Dropdown
+            text="Add"
+            button
+            labeled
+            floating
+            icon="add"
+            className="icon small"
+          >
+            <Dropdown.Menu>
+              {options.map((option, i) => (
+                <Dropdown.Item
+                  key={option.label ?? i}
+                  text={option.label}
+                  onClick={() => openNew(option.value)}
+                />
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
+        )}
+      </Form.Field>
+      {/* the modal is a SIBLING of Form.Field, not nested inside it
+          (guide §8), so depth-2 modals stack correctly */}
+      {editing !== null && (
+        <EditModal
+          size="large"
+          open
+          onCancel={cancel}
+          onDone={done}
+          scrollToError={editing.scrollToError}
+          header={`Edit ${itemLabel(
+            getIn(values, `${fieldPath}.${editing.index}`)
+          )}`}
+        >
+          {renderForm(`${fieldPath}.${editing.index}`)}
+        </EditModal>
+      )}
+    </>
   );
 };
 
@@ -233,7 +205,7 @@ ModalArrayField.propTypes = {
   itemLabel: PropTypes.func.isRequired,
   columns: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
       value: PropTypes.func.isRequired,
     })
   ).isRequired,
@@ -249,7 +221,7 @@ ModalArrayField.propTypes = {
       fields: PropTypes.arrayOf(PropTypes.string).isRequired,
     })
   ),
-  // F4: extra DetailView props (exclude, requiredPaths, vocabularyTitles).
+  // extra DetailView props (exclude, requiredPaths, vocabularyTitles).
   // `exclude` defaults to ["id"], the internal client uuid.
   detailProps: PropTypes.object,
 };

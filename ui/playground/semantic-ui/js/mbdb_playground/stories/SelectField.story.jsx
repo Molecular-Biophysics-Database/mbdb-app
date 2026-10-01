@@ -22,7 +22,7 @@ const Fields = () => (
     fieldPath={`${BASE}.polymer_type`}
     label="Polymer type"
     options={POLYMER_TYPES}
-    helpText="The type of polymer (e.g. polypeptide(L))."
+    help="The type of polymer (e.g. polypeptide(L))."
   />
 );
 

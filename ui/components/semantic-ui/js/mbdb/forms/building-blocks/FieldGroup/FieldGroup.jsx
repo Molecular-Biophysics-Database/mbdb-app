@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useFormikContext, getIn } from "formik";
 import {
   Form,
   Header,
@@ -10,37 +9,12 @@ import {
   HelpLabel,
 } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
+import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
 
 // A titled group of related fields. Does not bind to Formik; only reads
 // errors under `fieldPath` to turn the header red and gives the header an
 // `id` so OARepo error scrolling can find it. When `fieldPath` is set,
 // title/help/required come from the model (explicit props win).
-//
-// Error state: server errors live in `initialErrors` and Formik clears
-// `errors` on the first edit anywhere, so fall back to the initial error
-// while the value at the path is untouched. (Local copy of the C1
-// fallback; point at errors.js/useFieldErrors once that helper exists.)
-const useGroupError = (fieldPath) => {
-  const { errors, initialErrors, values, initialValues } = useFormikContext();
-  if (!fieldPath) return false;
-  // hasError-equivalent: any message leaf under path counts, including
-  // OARepo { message, severity } objects and ""
-  const anyMessage = (node) => {
-    if (node === undefined || node === null || node === "") return false;
-    if (typeof node === "string") return true;
-    if (Array.isArray(node)) return node.some(anyMessage);
-    if (typeof node === "object") {
-      if (typeof node.message === "string") return true;
-      return Object.values(node).some(anyMessage);
-    }
-    return false;
-  };
-  if (anyMessage(getIn(errors, fieldPath))) return true;
-  if (getIn(values, fieldPath) === getIn(initialValues, fieldPath))
-    return anyMessage(getIn(initialErrors, fieldPath));
-  return false;
-};
-
 export const FieldGroup = ({
   title,
   help,
@@ -61,7 +35,9 @@ export const FieldGroup = ({
     helpText: help,
     required,
   });
-  const hasError = useGroupError(fieldPath);
+  // fieldPath is optional; the shared error hook must run unconditionally,
+  // so point it at a path that never matches anything when there is none.
+  const { hasError } = useFieldErrors(fieldPath ?? "__fieldgroup_no_path__");
 
   const content = inline ? (
     <Form.Group widths="equal">{children}</Form.Group>

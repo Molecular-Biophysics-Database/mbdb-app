@@ -119,6 +119,20 @@ describe("FieldGroup", () => {
     expect(container.querySelector("h5.ui.header.red")).not.toBeNull();
   });
 
+  it('does not mark the header red for a { severity: "warning" } node', () => {
+    render(
+      <FieldGroup title="Mw" fieldPath="metadata.mw">
+        fields
+      </FieldGroup>,
+      {
+        initialErrors: {
+          metadata: { mw: { message: "Watch it.", severity: "warning" } },
+        },
+      }
+    );
+    expect(container.querySelector("h5.ui.header.red")).toBeNull();
+  });
+
   it("does not mark errors outside of fieldPath", () => {
     render(
       <FieldGroup title="Mw" fieldPath="metadata.mw">

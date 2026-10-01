@@ -28,12 +28,12 @@ export const ToggleFieldGroup = ({
 }) => {
   const { values, setFieldValue } = useFormikContext();
   const [confirming, setConfirming] = useState(false);
-  // F2: an explicit local "open" so checking does not have to write `{}` into
+  // An explicit local "open" so checking does not have to write `{}` into
   // Formik (guide §7). checked = a value exists OR the user just opened it.
   const [open, setOpen] = useState(false);
   const data = useModelFieldData(fieldPath, { label, helpText: help });
   const text = data.label;
-  // F1: red header reads errors ∪ initialErrors so it survives edits
+  // Red header reads errors ∪ initialErrors so it survives edits
   const { hasError } = useFieldErrors(fieldPath);
   // object-level messages only (a string sitting exactly at fieldPath, F4)
   const objectMessages = useOwnErrorMessages(fieldPath);

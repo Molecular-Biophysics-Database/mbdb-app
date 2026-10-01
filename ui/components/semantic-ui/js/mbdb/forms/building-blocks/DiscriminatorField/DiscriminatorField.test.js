@@ -97,7 +97,7 @@ describe("DiscriminatorField", () => {
   it("popup mode: no helptext label, one help icon next to the label", () => {
     mount(
       <HelpModeProvider mode="popup">
-        {typeField({ label: "Entity type", helpText: "The kind of entity" })}
+        {typeField({ label: "Entity type", help: "The kind of entity" })}
       </HelpModeProvider>
     );
     expect(container.querySelector("label.helptext")).toBeNull();
@@ -313,6 +313,17 @@ describe("DiscriminatorField", () => {
     });
     expect(container.textContent).toContain("Missing data for required field.");
     expect(container.querySelector(".field.error")).not.toBeNull();
+  });
+
+  it('does not show a { severity: "warning" } node as an error', () => {
+    mount(typeField(), {
+      initialValues: { o: { id: "e1", type: "Polymer" } },
+      initialErrors: {
+        o: { type: { message: "Odd type.", severity: "warning" } },
+      },
+    });
+    expect(container.querySelector(".field.error")).toBeNull();
+    expect(container.textContent).not.toContain("Odd type.");
   });
 
   it("keeps an initialError visible after another field is edited", () => {

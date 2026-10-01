@@ -925,7 +925,7 @@ Body_fluid:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: body_fluids
+      vocabulary-type: body-fluids
       type: vocabulary
       extras:
         title:
@@ -959,7 +959,7 @@ Cell_fraction:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: cell_fractions
+      vocabulary-type: cell-fractions
       type: vocabulary
       extras:
         title:
@@ -1101,7 +1101,7 @@ Complex_substance_of_environmental_origin:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: environment_types
+      vocabulary-type: environment-types
       type: vocabulary
       extras:
         title:
@@ -3821,7 +3821,7 @@ Complex_substance_of_biological_originBody_fluidPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: body_fluids
+      vocabulary-type: body-fluids
       type: vocabulary
       extras:
         title:
@@ -3959,7 +3959,7 @@ Complex_substance_of_biological_originCell_fractionPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: cell_fractions
+      vocabulary-type: cell-fractions
       type: vocabulary
       extras:
         title:
@@ -4413,7 +4413,7 @@ EntityComplex_substance_of_environmental_originPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: environment_types
+      vocabulary-type: environment-types
       type: vocabulary
       extras:
         title:
@@ -5177,7 +5177,7 @@ constituent_Complex_substance_of_biological_originBody_fluidPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: body_fluids
+      vocabulary-type: body-fluids
       type: vocabulary
       extras:
         title:
@@ -5311,7 +5311,7 @@ constituent_Complex_substance_of_biological_originCell_fractionPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: cell_fractions
+      vocabulary-type: cell-fractions
       type: vocabulary
       extras:
         title:
@@ -5753,7 +5753,7 @@ ConstituentComplex_substance_of_environmental_originPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: environment_types
+      vocabulary-type: environment-types
       type: vocabulary
       extras:
         title:

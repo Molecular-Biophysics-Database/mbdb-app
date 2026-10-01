@@ -10,7 +10,7 @@ const Fields = () => (
       fieldPath={`${BASE}.expression_source_type`}
       label="Expression source type"
       options={["Natively", "Recombinantly", "Synthetically"]}
-      helpText="The way the polymer was produced."
+      help="The way the polymer was produced."
     />
     <Divider />
     <ButtonGroupField
@@ -20,7 +20,7 @@ const Fields = () => (
         { value: true, text: "Yes" },
         { value: false, text: "No" },
       ]}
-      helpText="Booleans are stored as booleans."
+      help="Booleans are stored as booleans."
     />
   </>
 );

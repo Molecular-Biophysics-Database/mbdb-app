@@ -1,20 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, useFormikContext, getIn } from "formik";
-import { HelpModeProvider, Input } from "mbdb-semantic-ui-react";
+import { useFormikContext, getIn } from "formik";
+import { Input } from "mbdb-semantic-ui-react";
 import { ModalObjectField } from "./ModalObjectField";
+import {
+  renderInForm,
+  unmountForm,
+} from "@js/mbdb/forms/building-blocks/testUtils";
 
-jest.mock("@js/oarepo_ui/forms", () => ({
-  FormConfigProvider: ({ children }) => children,
-  FieldDataProvider: ({ children }) => children,
-  useFieldData: () => ({
-    getFieldData: ({ fieldPath }) => ({ label: fieldPath, helpText: null }),
-  }),
-}));
-const { FormConfigProvider, FieldDataProvider } = jest.requireMock(
-  "@js/oarepo_ui/forms"
+jest.mock(
+  "@js/oarepo_ui/forms",
+  () =>
+    jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
 );
 
 let container;
@@ -45,33 +43,13 @@ TemperatureForm.propTypes = {
   fieldPath: PropTypes.string.isRequired,
 };
 
-const mount = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-  act(() => {
-    ReactDOM.render(
-      <FormConfigProvider value={{ config: { ui_model: {} } }}>
-        <FieldDataProvider>
-          <Formik
-            initialValues={initialValues}
-            initialErrors={initialErrors}
-            onSubmit={() => {}}
-          >
-            {ui}
-          </Formik>
-        </FieldDataProvider>
-      </FormConfigProvider>,
-      container
-    );
-  });
+const mount = (ui, opts = {}) => {
+  container = renderInForm(ui, opts);
 };
 
 afterEach(() => {
-  ReactDOM.unmountComponentAtNode(container);
-  container.remove();
-  document
-    .querySelectorAll(".ui.modals, .ui.dimmer")
-    .forEach((el) => el.remove());
+  unmountForm(container);
+  container = null;
 });
 
 const probe = () =>
@@ -121,11 +99,7 @@ describe("ModalObjectField", () => {
   });
 
   it("popup mode: no helptext label, one help icon next to the label", () => {
-    mount(
-      <HelpModeProvider mode="popup">
-        {storage({ help: "How the sample is stored" })}
-      </HelpModeProvider>
-    );
+    mount(storage({ help: "How the sample is stored" }), { helpMode: "popup" });
     expect(container.querySelector("label.helptext")).toBeNull();
     expect(container.querySelectorAll('[aria-label^="Help"]').length).toBe(1);
   });

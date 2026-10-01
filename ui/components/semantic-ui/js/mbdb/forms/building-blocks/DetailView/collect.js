@@ -37,7 +37,7 @@ export const collectRows = (
       }
       return;
     }
-    // assessed objects are a single formatted line, not sub-rows (§3/F4c)
+    // assessed objects are a single formatted line, not sub-rows (§3)
     if (isAssessed(value)) {
       rows.push({ kind: "field", name, path, value, indent, errored });
       return;
@@ -89,7 +89,7 @@ export const groupSections = (
   return sections;
 };
 
-// F6: required defaults to the model flag for each group field; a non-empty
+// Required defaults to the model flag for each group field; a non-empty
 // caller-supplied prop replaces the default entirely (the escape hatch for
 // polymorphic paths that have no ui_model children yet).
 export const useMergedRequired = (fieldPath, groups, requiredPaths) => {
