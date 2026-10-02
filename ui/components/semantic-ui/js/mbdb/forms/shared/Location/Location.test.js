@@ -1,12 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { act, Simulate } from "react-dom/test-utils";
-import { useFormikContext, getIn } from "formik";
 import {
   renderInForm,
   unmountForm,
   setFakeUiModel,
   editUnrelatedField,
+  ValueProbe,
+  readProbe,
+  typeInto,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { Location } from "./Location";
 import { mapUrl } from "./mapUrl";
@@ -31,17 +31,6 @@ const UI_MODEL = {
   [`${PATH}.altitude`]: { label: "Altitude", required: true },
 };
 
-const Probe = ({ path }) => {
-  const { values } = useFormikContext();
-  const v = getIn(values, path);
-  return (
-    <span data-testid="probe">
-      {v === undefined ? "null" : JSON.stringify(v)}
-    </span>
-  );
-};
-Probe.propTypes = { path: PropTypes.string.isRequired };
-
 let container;
 
 beforeEach(() => {
@@ -64,22 +53,14 @@ const renderWithUnrelated = (ui, opts = {}) =>
 const location = () => (
   <>
     <Location fieldPath={PATH} />
-    <Probe path={PATH} />
+    <ValueProbe path={PATH} />
   </>
 );
 
-const probe = () =>
-  JSON.parse(container.querySelector('[data-testid="probe"]').textContent);
+const probe = () => readProbe(container);
 
 // the three number inputs render in field order: latitude, longitude, altitude
 const inputs = () => [...container.querySelectorAll('input[type="number"]')];
-
-const type = async (el, value) => {
-  el.value = value;
-  await act(async () => {
-    Simulate.change(el);
-  });
-};
 
 const mapLink = () =>
   [...container.querySelectorAll("a")].find((a) =>
@@ -100,18 +81,18 @@ describe("Location", () => {
 
   it("typing 49.1951 stores a number", async () => {
     render(location());
-    await type(inputs()[0], "49.1951");
+    await typeInto(inputs()[0], "49.1951");
     expect(probe()).toEqual({ latitude: 49.1951 });
   });
 
   it("clearing all three prunes location but keeps the entity sibling (real array path)", async () => {
     // the real path sits under entities_of_interest.<i>: pruning must stop
-    // at the array item, not touch its siblings (Location-review F2 nit)
+    // at the array item, not touch its siblings
     const arrayPath = "entities.0.location";
     render(
       <>
         <Location fieldPath={arrayPath} />
-        <Probe path="entities.0" />
+        <ValueProbe path="entities.0" />
       </>,
       {
         initialValues: {
@@ -128,9 +109,9 @@ describe("Location", () => {
         },
       }
     );
-    await type(inputs()[0], "");
-    await type(inputs()[1], "");
-    await type(inputs()[2], "");
+    await typeInto(inputs()[0], "");
+    await typeInto(inputs()[1], "");
+    await typeInto(inputs()[2], "");
     expect(probe()).toEqual({
       type: "Complex substance of environmental origin",
     });
@@ -142,13 +123,13 @@ describe("Location", () => {
     });
     expect(mapLink()).toBeUndefined();
 
-    await type(inputs()[1], "16.6068");
+    await typeInto(inputs()[1], "16.6068");
     const link = mapLink();
     expect(link).toBeDefined();
     expect(link.getAttribute("href")).toBe(mapUrl(49.1951, 16.6068));
   });
 
-  it("the object-level error shows under the group header and survives an unrelated edit (Location-review F1)", async () => {
+  it("the object-level error shows under the group header and survives an unrelated edit", async () => {
     renderWithUnrelated(location(), {
       initialErrors: { [PATH]: "Missing data for required field." },
     });
@@ -177,7 +158,7 @@ describe("Location", () => {
     // editing altitude clears the formik `errors` state and updates its own
     // value; the untouched latitude message must stay, and so must the
     // (identically worded) longitude message
-    await type(inputs()[2], "237");
+    await typeInto(inputs()[2], "237");
     expect(container.textContent).toContain(
       "Must be greater than or equal to -90 and less than or equal to 90."
     );

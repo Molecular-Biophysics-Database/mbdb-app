@@ -1,11 +1,12 @@
 import React from "react";
-import { act, Simulate } from "react-dom/test-utils";
 import {
   renderInForm,
   unmountForm,
   setFakeUiModel,
   ValueProbe,
   readProbe,
+  typeInto,
+  clickOn,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { Protocol } from "./Protocol";
 
@@ -73,20 +74,6 @@ const protocol = (props = {}) => (
 
 const probe = () => readProbe(container);
 
-const type = async (el, value) => {
-  el.value = value;
-  // formik's SET_ERRORS lands in a promise: flush it before asserting
-  await act(async () => {
-    Simulate.change(el);
-  });
-};
-
-const click = async (el) => {
-  await act(async () => {
-    Simulate.click(el);
-  });
-};
-
 const nameInputs = () => [
   ...container.querySelectorAll('input[aria-label="Name"]'),
 ];
@@ -121,11 +108,11 @@ describe("Protocol", () => {
     const add = [...container.querySelectorAll("button")].find(
       (b) => b.textContent === "Add step"
     );
-    await click(add);
+    await clickOn(add);
     expect(nameInputs().length).toBe(1);
     expect(probe()).toEqual([{}]);
 
-    await click(container.querySelector('[aria-label="Remove row 1"]'));
+    await clickOn(container.querySelector('[aria-label="Remove row 1"]'));
     expect(nameInputs().length).toBe(0);
     // never []: a minItems: 1 server side would reject it
     expect(probe()).toBeNull();
@@ -142,7 +129,7 @@ describe("Protocol", () => {
         },
       }
     );
-    await type(descriptionAreas()[0], "");
+    await typeInto(descriptionAreas()[0], "");
     expect(probe()).toEqual([{ name: "Centrifugation" }]);
   });
 
@@ -162,7 +149,7 @@ describe("Protocol", () => {
 
     // editing an unrelated cell makes formik reset `errors` to {}; the
     // server error on row 0 must keep showing (its own value is untouched)
-    await type(nameInputs()[1], "Ultrafiltration");
+    await typeInto(nameInputs()[1], "Ultrafiltration");
     expect(container.textContent).toContain("Missing data for required field.");
     // still rendered as a red error label by the cell, not lost with `errors`
     // (Semantic Label is a div, so select by class, not element)

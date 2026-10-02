@@ -9,7 +9,10 @@ import {
   isEmptyValue,
   useFieldErrors,
 } from "@js/mbdb/forms/building-blocks/errors";
+// formatters by leaf name (sequence, location, …): mini cells use them too,
+// so a mini table never dumps a full sequence into a cell
 import { ErrorNote, Value, textOf } from "./values";
+import { formatters } from "./formatters";
 import { DetailLabel } from "./DetailLabel";
 import { collectRows } from "./collect";
 
@@ -17,17 +20,27 @@ import { collectRows } from "./collect";
 // and inside an expanded mini row. Details are read-only and never reordered,
 // so the positional key carries meaning (not identity).
 
-// A nested sub-heading through the model label (design §2); multi-level
-// headings ("storage › temperature") keep their raw join.
-const Heading = ({ row }) => (
-  <Table.HeaderCell colSpan="2">
-    {row.name.indexOf(" › ") === -1 ? (
-      <DetailLabel path={row.path} fallback={row.name} />
-    ) : (
-      row.name
-    )}
-  </Table.HeaderCell>
-);
+// A nested sub-heading: every level resolves its own model label, joined
+// with " › " (design §2, §4). The last N path segments of row.path match the
+// N joined names, so each level gets its path-aware label.
+const Heading = ({ row }) => {
+  const parts = row.name.split(" › ");
+  const pathParts = row.path.split(".");
+  const start = pathParts.length - parts.length;
+  return (
+    <Table.HeaderCell colSpan="2">
+      {parts.map((part, i) => (
+        <React.Fragment key={i}>
+          {i > 0 ? " › " : ""}
+          <DetailLabel
+            path={pathParts.slice(0, start + i + 1).join(".")}
+            fallback={part}
+          />
+        </React.Fragment>
+      ))}
+    </Table.HeaderCell>
+  );
+};
 Heading.propTypes = {
   row: PropTypes.object.isRequired,
 };
@@ -79,7 +92,11 @@ const MiniRow = ({ basePath, index, item, keys }) => {
           </Button>
         </Table.Cell>
         {keys.map((key) => (
-          <Table.Cell key={key}>{textOf(item?.[key])}</Table.Cell>
+          <Table.Cell key={key}>
+            {formatters[key] && !isEmptyValue(item?.[key])
+              ? formatters[key](item?.[key])
+              : textOf(item?.[key])}
+          </Table.Cell>
         ))}
       </Table.Row>
       {open && (

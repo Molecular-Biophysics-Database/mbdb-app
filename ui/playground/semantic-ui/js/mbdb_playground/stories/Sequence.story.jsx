@@ -10,7 +10,13 @@ const story = {
   scenarios: [
     {
       name: "Empty",
-      initialValues: {},
+      initialValues: {
+        metadata: {
+          general_parameters: {
+            entities_of_interest: [{ type: "Polymer" }],
+          },
+        },
+      },
       render: Content,
     },
     {
@@ -21,6 +27,7 @@ const story = {
           general_parameters: {
             entities_of_interest: [
               {
+                type: "Polymer",
                 sequence:
                   "MAHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFGKEFTPPVQAAYQKVVAGVANALAHKYH",
               },
@@ -35,7 +42,7 @@ const story = {
       initialValues: {
         metadata: {
           general_parameters: {
-            entities_of_interest: [{ sequence: "MAH LTP" }],
+            entities_of_interest: [{ type: "Polymer", sequence: "MAH LTP" }],
           },
         },
       },
@@ -55,7 +62,10 @@ const story = {
         metadata: {
           general_parameters: {
             entities_of_interest: [
-              { sequence: ">sp|P68871|HBB_HUMAN\nMVHLTPEEKS\nAVTALWGKVN" },
+              {
+                type: "Polymer",
+                sequence: ">sp|P68871|HBB_HUMAN\nMVHLTPEEKS\nAVTALWGKVN",
+              },
             ],
           },
         },

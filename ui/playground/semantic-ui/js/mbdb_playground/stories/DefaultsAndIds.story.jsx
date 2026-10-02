@@ -17,7 +17,12 @@ const IdPass = () => {
     <Button
       type="button"
       size="small"
-      onClick={() => setFieldValue(PATH, ensureEntityIds(getIn(values, PATH)))}
+      onClick={() => {
+        const list = getIn(values, PATH);
+        // identical-reference contract: callers write only when ids changed
+        const withIds = ensureEntityIds(list);
+        if (withIds !== list) setFieldValue(PATH, withIds);
+      }}
     >
       One-time id pass
     </Button>

@@ -18,6 +18,7 @@ import {
 } from "@js/mbdb/forms/building-blocks/errors";
 import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
+import { useUnsetField } from "@js/mbdb/forms/building-blocks/unset";
 
 // A choice that decides which fields follow; changing it replaces the object
 // and keeps only `keep` keys (design/building-blocks/DiscriminatorField.md).
@@ -34,6 +35,7 @@ export const DiscriminatorField = ({
   required,
 }) => {
   const { values, setFieldValue } = useFormikContext();
+  const unset = useUnsetField();
   // The hook keeps helpText because that is the model's key (getFieldData);
   // the block's public prop is `help`.
   const data = useModelFieldData(`${objectPath}.${field}`, {
@@ -61,7 +63,7 @@ export const DiscriminatorField = ({
     );
 
   const apply = (newValue) => {
-    if (newValue === undefined) setFieldValue(objectPath, undefined);
+    if (newValue === undefined) unset(objectPath);
     else
       setFieldValue(objectPath, {
         ...pick(obj ?? {}, keep),
@@ -113,7 +115,7 @@ export const DiscriminatorField = ({
         // htmlFor points at the field path so OARepo error scrolling finds
         // it; the control itself is a Semantic Dropdown, not labelable.
         <label htmlFor={`${objectPath}.${field}`}>
-          <HelpLabel label={text} help={help} />
+          <HelpLabel label={text} help={data.helpText} />
         </label>
       )}
       {data.helpText && <FieldHelp help={data.helpText} />}

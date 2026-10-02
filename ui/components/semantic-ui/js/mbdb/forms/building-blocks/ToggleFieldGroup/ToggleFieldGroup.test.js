@@ -121,10 +121,12 @@ describe("ToggleFieldGroup", () => {
     expect(container.querySelector('[data-testid="body"]')).not.toBeNull();
   });
 
-  it("unchecking an empty object removes it without confirmation", () => {
+  it("unchecking an empty object removes it without confirmation, and empty parents are pruned", () => {
     mount(group(), { initialValues: { identity: { by_intact_mass: {} } } });
     toggle();
-    expect(probe()).toEqual({});
+    // pruning unset: `by_intact_mass` was `identity`'s only key — the object
+    // is gone entirely, never left as `{}` (guide §7)
+    expect(probe()).toBeNull();
     expect(document.body.querySelector(".ui.modal")).toBeNull();
   });
 
@@ -149,7 +151,7 @@ describe("ToggleFieldGroup", () => {
       ...document.body.querySelector(".ui.modal").querySelectorAll("button"),
     ].find((b) => b.textContent === "Remove");
     act(() => Simulate.click(removeBtn));
-    expect(probe()).toEqual({});
+    expect(probe()).toBeNull();
   });
 
   it("marks the header on errors under fieldPath", () => {

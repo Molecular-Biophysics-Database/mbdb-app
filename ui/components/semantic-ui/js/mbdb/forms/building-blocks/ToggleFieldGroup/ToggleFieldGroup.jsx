@@ -17,6 +17,7 @@ import {
 } from "@js/mbdb/forms/building-blocks/errors";
 import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
+import { useUnsetField } from "@js/mbdb/forms/building-blocks/unset";
 
 // A small optional object toggled by a checkbox in the header
 // (design/building-blocks/ToggleFieldGroup.md).
@@ -28,6 +29,7 @@ export const ToggleFieldGroup = ({
   children,
 }) => {
   const { values, setFieldValue } = useFormikContext();
+  const unset = useUnsetField();
   const [confirming, setConfirming] = useState(false);
   // An explicit local "open" so checking does not have to write `{}` into
   // Formik (guide §7). checked = a value exists OR the user just opened it.
@@ -45,14 +47,14 @@ export const ToggleFieldGroup = ({
   const onToggle = (e, { checked: next }) => {
     if (next) {
       // only write initialValue when it actually holds data; with `{}` write
-      // nothing — the open flag alone keeps the body visible (guide §7, F2)
+      // nothing — the open flag alone keeps the body visible (guide §7)
       if (hasData(initialValue))
         setFieldValue(fieldPath, cloneDeep(initialValue));
       setOpen(true);
     } else if (hasData(value)) {
       setConfirming(true);
     } else {
-      setFieldValue(fieldPath, undefined);
+      unset(fieldPath);
       setOpen(false);
     }
   };
@@ -90,7 +92,7 @@ export const ToggleFieldGroup = ({
         onCancel={() => setConfirming(false)}
         onConfirm={() => {
           setConfirming(false);
-          setFieldValue(fieldPath, undefined);
+          unset(fieldPath);
           setOpen(false);
         }}
       />

@@ -64,7 +64,7 @@ const story = {
           general_parameters: {
             entities_of_interest: [
               {
-                molecular_weight: { value: "Must be at least -1." },
+                molecular_weight: "Missing data for required field.",
                 storage: {
                   temperature: { unit: "Missing data for required field." },
                 },

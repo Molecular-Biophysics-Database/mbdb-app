@@ -247,12 +247,16 @@ export const readProbe = (container) => {
 
 // --- event helpers (plan 2R D5/D3) -------------------------------------------
 
-// Simulate an input `change` to `value`, flushing one macrotask before and
-// after. The flush BEFORE lets a pending render land so the input event sees a
+// Simulate an input `change` to `value`. Sets the DOM value first so Semantic
+// wrapped inputs (which read event.target.value, not the Simulate payload)
+// see the new value, then fires the change with the payload so plain
+// React-controlled inputs work too. Flushes one macrotask before and after:
+// the flush BEFORE lets a pending render land so the input event sees a
 // current DOM; the flush AFTER lets Formik's setFieldValue → validation promise
 // resolve. Both are needed because formik's state/validation settle in promise
 // ticks, not synchronously with the simulated event.
 export const typeInto = async (element, value) => {
+  element.value = value;
   await act(async () => {
     await new Promise((r) => setTimeout(r, 0));
     Simulate.change(element, { target: { value } });

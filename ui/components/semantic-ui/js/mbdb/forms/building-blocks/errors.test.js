@@ -10,6 +10,7 @@ import {
   isEmptyValue,
   hasData,
   useFieldErrors,
+  mergedErrorNode,
 } from "./errors";
 
 describe("errors helpers", () => {
@@ -166,6 +167,66 @@ const click = async (testId) => {
     Simulate.click(container.querySelector(`[data-testid="${testId}"]`));
   });
 };
+
+describe("mergedErrorNode", () => {
+  // The shared errors∪initialErrors selection as a plain function (the same
+  // one the hooks use): live errors win while non-empty; the initial node
+  // applies only while the value at the path still equals its initial value.
+  const formik = (over) => ({
+    errors: {},
+    initialErrors: {},
+    values: {},
+    initialValues: {},
+    ...over,
+  });
+
+  it("live errors win over initialErrors", () => {
+    const node = mergedErrorNode(
+      formik({
+        errors: { f: "live" },
+        initialErrors: { f: "initial" },
+      }),
+      "f"
+    );
+    expect(node).toBe("live");
+  });
+
+  it("falls back to initialErrors while the value is unchanged", () => {
+    const node = mergedErrorNode(
+      formik({
+        initialErrors: { f: "initial" },
+        values: { f: "same" },
+        initialValues: { f: "same" },
+      }),
+      "f"
+    );
+    expect(node).toBe("initial");
+  });
+
+  it("stops the fallback once the value at the path changed", () => {
+    const node = mergedErrorNode(
+      formik({
+        initialErrors: { f: "initial" },
+        values: { f: "edited" },
+        initialValues: { f: "same" },
+      }),
+      "f"
+    );
+    expect(node).toBeUndefined();
+  });
+
+  it("at parent paths the whole initial node applies while the parent value is unchanged (the documented parent-granular contract: children re-check on their own leaf paths)", () => {
+    const node = mergedErrorNode(
+      formik({
+        initialErrors: { o: { a: "err-a", b: "err-b" } },
+        values: { o: { a: "x", b: null } },
+        initialValues: { o: { a: "x", b: null } },
+      }),
+      "o"
+    );
+    expect(node).toEqual({ a: "err-a", b: "err-b" });
+  });
+});
 
 describe("useFieldErrors", () => {
   it("shows initialErrors while the value is unchanged", () => {

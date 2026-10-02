@@ -28,6 +28,43 @@ EntityForm.propTypes = {
   fieldPath: PropTypes.string.isRequired,
 };
 
+// Depth-2 stand-in: the entity modal's form contains another
+// ModalArrayField (mini Components — no ids, optional list).
+const NestedEntityForm = ({ fieldPath }) => (
+  <>
+    <TextField fieldPath={`${fieldPath}.name`} label="Name" />
+    <ModalArrayField
+      fieldPath={`${fieldPath}.components`}
+      label="Components"
+      minItems={0}
+      itemLabel={(v) => `component: ${v?.name ?? "new"}`}
+      columns={[
+        { label: "Type", value: (v) => v.type },
+        { label: "Name", value: (v) => v.name },
+      ]}
+      initialValue={{ type: "Polymer" }}
+      withIds={false}
+      renderForm={(p) => <TextField fieldPath={`${p}.name`} label="Name" />}
+    />
+  </>
+);
+
+NestedEntityForm.propTypes = {
+  fieldPath: PropTypes.string.isRequired,
+};
+
+const NestedEntities = () => (
+  <ModalArrayField
+    fieldPath={PATH}
+    label="Entities of interest"
+    itemLabel={(v) => `entity: ${v?.name ?? "new"}`}
+    columns={[{ label: "Name", value: (v) => v.name }]}
+    initialValue={{ type: "Polymer" }}
+    withIds
+    renderForm={(itemPath) => <NestedEntityForm fieldPath={itemPath} />}
+  />
+);
+
 const Entities = () => (
   <ModalArrayField
     fieldPath={PATH}
@@ -83,6 +120,27 @@ const story = {
         },
       },
       render: Entities,
+    },
+    {
+      name: "Nested (depth 2)",
+      // open an entity and add a component: the inner modal stacks on top;
+      // Cancel on the inner keeps the outer edits, Cancel on the outer
+      // drops the whole entity
+      initialValues: {
+        metadata: {
+          general_parameters: {
+            entities_of_interest: [
+              {
+                id: "e-1",
+                type: "Polymer",
+                name: "Lysozyme",
+                components: [{ type: "Polymer", name: "chain A" }],
+              },
+            ],
+          },
+        },
+      },
+      render: NestedEntities,
     },
   ],
 };

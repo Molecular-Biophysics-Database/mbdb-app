@@ -8,6 +8,7 @@ import {
   readProbe,
   typeInto,
   clickOn,
+  editUnrelatedField,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { Size } from "./Size";
 import { SIZE_TYPES, LENGTH_UNITS } from "./constants";
@@ -205,11 +206,18 @@ describe("Size", () => {
     ).toBeGreaterThan(0);
   });
 
-  it("the object-level error shows under the group header", () => {
+  it("the object-level error shows under the group header and stays after an unrelated edit", async () => {
     render(size(), {
+      withUnrelatedField: true,
       initialErrors: { [PATH]: "Missing data for required field." },
     });
     expect(container.querySelector("h5.ui.header.red")).not.toBeNull();
+    expect(container.textContent).toContain("Missing data for required field.");
+    expect(container.querySelector(".ui.pointing.prompt.label")).not.toBeNull();
+
+    // formik clears `errors` on the first edit anywhere (no validate); the
+    // group-path message must keep showing from initialErrors
+    await editUnrelatedField(container);
     expect(container.textContent).toContain("Missing data for required field.");
     expect(container.querySelector(".ui.pointing.prompt.label")).not.toBeNull();
   });

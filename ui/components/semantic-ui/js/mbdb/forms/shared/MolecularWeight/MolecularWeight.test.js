@@ -47,13 +47,6 @@ const render = (ui, opts = {}) => {
   container = renderInForm(ui, opts);
 };
 
-// typing into the Semantic number Input — typeInto's Simulate payload (a
-// fake { value } target) never reaches its onChange, so set the DOM value
-// first and simulate the change (the same pattern ValueUnitField.test.js
-// uses).
-const typeValue = async (value) =>
-  typeInto(container.querySelector('input[type="number"]'), value);
-
 const clickUnit = async (text) => {
   const item = [...container.querySelectorAll(".dropdown .menu .item")].find(
     (el) => el.textContent.trim() === text
@@ -92,7 +85,7 @@ describe("MolecularWeight", () => {
         <ValueProbe path={PATH} />
       </>
     );
-    await typeValue("34.8");
+    await typeInto(container.querySelector('input[type="number"]'), "34.8");
     const stored = probe();
     expect(stored).toEqual({ value: 34.8, unit: "kDa" });
     expect(typeof stored.value).toBe("number");
@@ -108,7 +101,7 @@ describe("MolecularWeight", () => {
     await clickUnit("Da");
     // the pick stays local: no partial { unit } object
     expect(probe()).toBeNull();
-    await typeValue("10");
+    await typeInto(container.querySelector('input[type="number"]'), "10");
     expect(probe()).toEqual({ value: 10, unit: "Da" });
   });
 
@@ -130,7 +123,7 @@ describe("MolecularWeight", () => {
         },
       }
     );
-    await typeValue("");
+    await typeInto(container.querySelector('input[type="number"]'), "");
     expect(probe()).toBeNull();
   });
 

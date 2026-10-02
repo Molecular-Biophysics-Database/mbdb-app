@@ -95,17 +95,17 @@ export const TextAreaField = ({
   const text = String(getIn(values, fieldPath) ?? "");
   const sizedRows = autoHeight ? autoRows(text) : rows;
   return (
-    <>
-      <MbdbTextAreaField
-        fieldPath={fieldPath}
-        className={
-          [monospace && "mbdb-monospace", className]
-            .filter(Boolean)
-            .join(" ") || undefined
-        }
-        {...uiProps}
-        rows={sizedRows}
-      />
+    // links go INSIDE the wrapper's Form.Field via its children slot — as
+    // siblings they would become their own column inside Form.Group rows
+    <MbdbTextAreaField
+      fieldPath={fieldPath}
+      className={
+        [monospace && "mbdb-monospace", className].filter(Boolean).join(" ") ||
+        undefined
+      }
+      {...uiProps}
+      rows={sizedRows}
+    >
       {links &&
         links.map(({ label, href }) => (
           <Button
@@ -121,7 +121,7 @@ export const TextAreaField = ({
             {label}
           </Button>
         ))}
-    </>
+    </MbdbTextAreaField>
   );
 };
 

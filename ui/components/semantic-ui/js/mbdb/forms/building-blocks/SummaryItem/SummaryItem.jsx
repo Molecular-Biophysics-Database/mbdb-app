@@ -78,6 +78,7 @@ export const SummaryItem = ({
               color="red"
               as="button"
               type="button"
+              size="mini"
               onClick={(e) => {
                 e.stopPropagation();
                 // the badge opens the editor at the first error (true);

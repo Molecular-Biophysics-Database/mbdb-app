@@ -13,7 +13,10 @@ import {
   useHelpMode,
 } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
-import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
+import {
+  useFieldErrors,
+  useOwnErrorMessages,
+} from "@js/mbdb/forms/building-blocks/errors";
 import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
 
@@ -250,6 +253,8 @@ export const TextAreaField = ({
   // drop the old prop name: it would otherwise flow through uiProps onto the
   // DOM <textarea>; help goes through `help` → HelpLabel/FieldHelp only
   helpText, // eslint-disable-line no-unused-vars
+  autoHeight: _autoHeight, // eslint-disable-line no-unused-vars -- consumed by the block (rows computed there); drop so it never reaches the DOM
+  children,
   ...uiProps
 }) => {
   const { values, setFieldValue, handleBlur } = useFormikContext();
@@ -297,11 +302,18 @@ export const TextAreaField = ({
         }}
       />
       <ErrorMessages messages={messages} />
+      {children}
       <FieldHelp help={data.helpText} />
     </Form.Field>
   );
 };
-TextAreaField.propTypes = { ...fieldShape, onBlur: PropTypes.func };
+TextAreaField.propTypes = {
+  ...fieldShape,
+  onBlur: PropTypes.func,
+  // rendered inside the same Form.Field, between the error messages and the
+  // help (e.g. the block's link buttons); never a sibling column
+  children: PropTypes.node,
+};
 
 // Wrapper around oarepo's StringArrayField (the wrapper StringListField
 // review question F1 asked about). oarepo's component resolves the label
@@ -323,11 +335,21 @@ export const StringArrayField = ({
     helpText: help,
     required,
   });
+  // oarepo's component shows item-level errors but never falls back to
+  // initialErrors for a string error at the list path itself (its own error
+  // read is Formik errors-only), so the list-level message is rendered here
+  // from the shared merge, next to the items — same place as the siblings.
+  const { hasError } = useFieldErrors(fieldPath);
+  const ownMessages = useOwnErrorMessages(fieldPath);
   return (
     // One root for the whole block (D8): oarepo's component renders its own
     // inner field structure; FieldHelp still reads the mode and sits inside
     // the same column, never a sibling of the control.
-    <Form.Field required={data.required} className="mbdb-field-wrapper">
+    <Form.Field
+      required={data.required}
+      error={hasError || undefined}
+      className="mbdb-field-wrapper"
+    >
       <OARepoStringArrayField
         {...uiProps}
         fieldPath={fieldPath}
@@ -335,6 +357,7 @@ export const StringArrayField = ({
         required={data.required}
         helpText={null}
       />
+      <ErrorMessages messages={ownMessages} />
       <FieldHelp help={data.helpText} />
     </Form.Field>
   );
