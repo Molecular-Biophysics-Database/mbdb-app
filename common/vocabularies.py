@@ -48,6 +48,58 @@ def _has_title(value: dict[str, Any]) -> bool:
     return isinstance(title, str) and bool(title.strip())
 
 
+def _vocabulary_payload(value: dict[str, Any], vocabulary_id: str) -> dict[str, Any]:
+    """Vocabulary item data for a manual chemical, in the shape create/update accept."""
+    title = value["title"] if isinstance(value["title"], dict) else {"en": value["title"]}
+    custom_fields = {key: value[key] for key in _CUSTOM_FIELD_KEYS if value.get(key) is not None}
+    data: dict[str, Any] = {"id": vocabulary_id, "type": CHEMICALS_VOCABULARY, "title": title}
+    if custom_fields:
+        data["custom_fields"] = custom_fields
+    return data
+
+
+def _drop_deleted_chemical(vocabulary_id: str) -> None:
+    """Remove a tombstoned auto-created chemical entirely, so it can be created again.
+
+    A manually entered chemical has a deterministic pid (uuid5 of its content), so any
+    harder vocabulary cleanup (index destroy, data reset, a soft delete at record level)
+    lands it in a state every public entry point refuses: ``read`` raises
+    ``PIDDeletedError``, service ``delete`` resolves through the same pid and fails the
+    same way, and pidstore's own ``assign``/``create`` reject re-attaching a deleted pid
+    (`PIDInvalidAction: you cannot assign objects to a deleted identifier`; and the
+    `(pid_type, pid_value)` unique index blocks registering it anyway).
+
+    There is no service-side revive either: `invenio_records` supports only soft
+    deletes (`json IS NULL` on the vocabulary record row) and hard deletes
+    (`Record.delete(force=True)`) — undeleting is not an operation. The sanctioned
+    lifecycle for a safely-deleted vocabulary item is therefore: drop its pid row and
+    its zombie record row, then let the caller create it fresh under the same
+    deterministic id. That is what this does, at the pidstore/model level the service
+    layer cannot reach.
+    """
+    from invenio_db import db
+    from invenio_pidstore.models import PIDStatus, PersistentIdentifier
+    from invenio_vocabularies.records.models import VocabularyMetadata
+
+    tombstones = PersistentIdentifier.query.filter_by(
+        pid_value=vocabulary_id, status=PIDStatus.DELETED
+    ).all()
+    # Records hooked to the tombstone pids (the empty-payload zombies of a soft delete;
+    # nothing else by definition since the pid row blocked resolution of anything else).
+    zombie_uuids = [t.object_uuid for t in tombstones if t.object_uuid]
+    for tombstone in tombstones:
+        db.session.delete(tombstone)
+    if zombie_uuids:
+        zombies = (
+            db.session.query(VocabularyMetadata)
+            .filter(VocabularyMetadata.id.in_(zombie_uuids))
+            .all()
+        )
+        for zombie in zombies:
+            db.session.delete(zombie)
+    db.session.flush()
+
+
 def ensure_chemical_id(value: dict[str, Any]) -> dict[str, Any]:
     """Return ``value`` with the ``id`` of a ``chemicals`` vocabulary item.
 
@@ -62,19 +114,22 @@ def ensure_chemical_id(value: dict[str, Any]) -> dict[str, Any]:
 
     # Imported here: they need the application context, which exists at load time.
     from invenio_access.permissions import system_identity
-    from invenio_pidstore.errors import PIDDoesNotExistError
+    from invenio_pidstore.errors import PIDDeletedError, PIDDoesNotExistError
     from invenio_vocabularies.proxies import current_service
 
     vocabulary_id = manual_chemical_id(value)
+    payload = _vocabulary_payload(value, vocabulary_id)
     try:
         current_service.read(system_identity, (CHEMICALS_VOCABULARY, vocabulary_id))
+    except PIDDeletedError:
+        # The item existed before and got wiped: pidstore keeps a deleted tombstone for
+        # its deterministic pid, which blocks resolving AND re-creating. Undelete does
+        # not exist in the invenio model, so drop the tombstone and its zombie record,
+        # then create the item again under the same deterministic id.
+        _drop_deleted_chemical(vocabulary_id)
+        current_service.create(system_identity, payload)
     except PIDDoesNotExistError:
-        title = value["title"] if isinstance(value["title"], dict) else {"en": value["title"]}
-        custom_fields = {key: value[key] for key in _CUSTOM_FIELD_KEYS if value.get(key) is not None}
-        data: dict[str, Any] = {"id": vocabulary_id, "type": CHEMICALS_VOCABULARY, "title": title}
-        if custom_fields:
-            data["custom_fields"] = custom_fields
-        current_service.create(system_identity, data)
+        current_service.create(system_identity, payload)
 
     return {**value, "id": vocabulary_id}
 

@@ -94,6 +94,7 @@ export const TextField = ({
   help,
   required,
   onChange,
+  error,
   width,
   ...uiProps
 }) => {
@@ -103,7 +104,12 @@ export const TextField = ({
     helpText: help,
     required,
   });
-  const { hasError, messages } = useFieldErrors(fieldPath);
+  const { hasError: hookHasError, messages } = useFieldErrors(fieldPath);
+  // `error` overrides the hook state: a boolean marks the field red; a string
+  // is shown as the message (used by callers whose server errors sit on a
+  // neighbouring parent, e.g. i18n dicts on `title` vs `title.en`).
+  const hasError = error !== undefined ? !!error : hookHasError;
+  const errorText = typeof error === "string" ? error : undefined;
   return (
     <Form.Field
       error={hasError || undefined}
@@ -118,6 +124,7 @@ export const TextField = ({
       <Input
         {...uiProps}
         id={fieldPath}
+        name={fieldPath}
         fluid={uiProps.fluid ?? true}
         error={hasError || undefined}
         value={getIn(values, fieldPath) ?? ""}
@@ -130,12 +137,18 @@ export const TextField = ({
           })
         }
       />
-      <ErrorMessages messages={messages} />
+      <ErrorMessages
+        messages={errorText ? [errorText, ...messages] : messages}
+      />
       <FieldHelp help={data.helpText} />
     </Form.Field>
   );
 };
-TextField.propTypes = { ...fieldShape, width: PropTypes.number };
+TextField.propTypes = {
+  ...fieldShape,
+  width: PropTypes.number,
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+};
 
 // Select wrapper, rebuilt on plain Form.Field + Dropdown. Errors come from
 // useFieldErrors, the clear icon writes `unset` through the pruning helper,

@@ -3,11 +3,11 @@ import { valueUnitText } from "@js/mbdb/forms/building-blocks/DetailView/values"
 
 // Pure helpers of the chemical basic-information field.
 
-// The server silently drops a basic_information without id (checked on a
-// draft 2026-10-02: HTTP 200, no error, and no basic_information stored).
-// Manual entry is off; plan 2R "Manual chemicals" says when it is turned on
-// (and the manual tests in BasicInformation.test.js un-skip with it).
-export const MANUAL_CHEMICALS_ENABLED = false;
+// Manual entry is on: the backend keeps manual chemicals via the vocabulary's
+// AutoCreateChemicalMixin (verified end-to-end 2026-10-02: `samples/chemical_lost.json`
+// PUT → 201 → GET keeps `basic_information: { id: "manual:3600b56a-…" }`, and the pid
+// tombstone problem is handled there too — hence verified at P2-F1 in the review).
+export const MANUAL_CHEMICALS_ENABLED = true;
 
 // A manual chemical is told apart from a picked vocabulary term by having
 // data but no id (the stored manual shape starts with { title: { en } }).

@@ -192,16 +192,12 @@ describe("BasicInformation", () => {
     expect(manualShown()).toBe(false);
   });
 
-  it("a manual { title } value still renders the picker while the flag is off", () => {
-    // flip when MANUAL_CHEMICALS_ENABLED goes on (chemical.js)
-    expect(MANUAL_CHEMICALS_ENABLED).toBe(false);
+  it("a manual { title } value renders the manual form (manual entry enabled)", () => {
+    // the P2-F1 flip landed (chemical.js): manual values go to ManualChemical
+    expect(MANUAL_CHEMICALS_ENABLED).toBe(true);
     render({ title: { en: "my custom lipid mix" } });
-    expect(pickerShown()).toBe(true);
-    expect(manualShown()).toBe(false);
-    // hidden, so never an "Enter manually" addition either
-    expect(
-      container.querySelector('[data-testid="enter-manually"]')
-    ).toBeNull();
+    expect(manualShown()).toBe(true);
+    expect(pickerShown()).toBe(false);
   });
 
   it("a picked chemical shows the facts · id meta line and the label-slot links", async () => {
