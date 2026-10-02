@@ -26,7 +26,14 @@ const story = {
   scenarios: [
     {
       name: "Organism, empty",
-      initialValues: {},
+      // seed the entity type: a pick writes into entities_of_interest[0],
+      // so the entity must start with its type or the write would build one
+      // without it
+      initialValues: {
+        metadata: {
+          general_parameters: { entities_of_interest: [{ type: "Polymer" }] },
+        },
+      },
       render: OrganismEmpty,
     },
     {
@@ -64,7 +71,13 @@ const story = {
     },
     {
       name: "With errors",
-      initialValues: {},
+      // seeded like "Organism, empty": a pick must not build a type-less
+      // entity
+      initialValues: {
+        metadata: {
+          general_parameters: { entities_of_interest: [{ type: "Polymer" }] },
+        },
+      },
       initialErrors: {
         metadata: {
           general_parameters: {

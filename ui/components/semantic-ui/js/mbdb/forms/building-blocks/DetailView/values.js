@@ -69,8 +69,10 @@ const assessedText = (value, vocabulary) => {
 // per-id cache (`useVocabularyTitle` does a GET once per id). Shows the id
 // while loading. Declared by a `{ field, vocabulary }` group entry (D6).
 export const VocabularyValue = ({ vocabulary, value }) => {
-  const { title } = useVocabularyTitle(vocabulary, value.id);
-  return <>{title ?? value.id}</>;
+  // the hook returns the title itself (a string) or undefined while loading;
+  // a span wrapper keeps table-cell text selectable (fragment lint)
+  const title = useVocabularyTitle(vocabulary, value.id);
+  return <span>{title ?? value.id}</span>;
 };
 VocabularyValue.propTypes = {
   vocabulary: PropTypes.string.isRequired,
@@ -105,6 +107,8 @@ export const textOf = (value, vocabulary) => {
   }
   if (isValueUnit(value)) return valueUnitText(value);
   if (isAssessed(value)) return assessedText(value, vocabulary);
+  // i18n dicts (a manual chemical's title, { en: "…" }) show their value
+  if (isPlainObject(value) && typeof value.en === "string") return value.en;
   if (isVocabulary(value))
     // fall back to the record's own title before showing the raw id; the
     // lookup fn comes from a caller-declared vocabulary (see Value), else id
@@ -156,15 +160,25 @@ export const Value = ({ name, value, vocabulary }) => {
         ))}
       </ul>
     );
-  if (
-    isPlainObject(value) &&
-    !isLeafObject(value) &&
-    typeof value.title === "string"
-  )
-    // manual chemical entry: title plus a grey hint (design §3)
+  // manual chemical entry: title ({ en: "…" } or a plain string) plus the
+  // grey hint (design §3). The marker is a plain-object value with a title
+  // and NO id — a picked chemical always has one. The title itself is
+  // localized first, so `{ en: "…" }` dicts render the same.
+  const manualTitle =
+    isPlainObject(value) && !isLeafObject(value) && value.id === undefined
+      ? value.title?.en ?? value.title
+      : undefined;
+  if (typeof manualTitle === "string")
     return (
       <span>
-        {textOf(value.title)} <Label basic size="mini" content="Manual entry" />
+        {textOf(manualTitle)} <Label basic size="mini" content="Manual entry" />
+      </span>
+    );
+  if (isVocabulary(value) && value.id.startsWith("manual:"))
+    return (
+      <span>
+        {value.title?.en ?? value.id}{" "}
+        <Label basic size="mini" content="Manual entry" />
       </span>
     );
   if (isVocabulary(value) && !isEmptyValue(value.rank))

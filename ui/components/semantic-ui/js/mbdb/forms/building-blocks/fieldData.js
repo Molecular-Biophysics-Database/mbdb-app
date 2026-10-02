@@ -1,4 +1,5 @@
-import { useFieldData } from "@js/oarepo_ui/forms";
+import { getIn, useFormikContext } from "formik";
+import { useFieldData, useFormConfig } from "@js/oarepo_ui/forms";
 
 // Untouched by callers: turns a ui_model path leaf ("some_field") into a
 // readable label ("Some field").
@@ -15,12 +16,87 @@ const leafLabel = (path) => {
 // `fallback` is the last resort when `label` is undefined. Used by
 // useModelFieldData and the DetailView label/heading components; the needle
 // is "children." WITH the dot so a genuine label containing the word
-// "children" is not misread as a path. Remove once the backend's polymorphic
-// ui_model issue is fixed.
+// "children" is not misread as a path. Remove once every entity path has a
+// ui_model entry (1R C9).
 export const readableLabel = (label, fallback) => {
   if (typeof label === "string")
     return label.includes("children.") ? leafLabel(label) : label;
   return label !== undefined ? label : fallback;
+};
+
+// English-only localization for the ui_model's i18n dicts ({en: "…"}). It
+// mirrors getLocalizedValue from @js/oarepo_ui/util (locale → fallback
+// locale → first entry → default), reduced to this project's English-only
+// rule. Not imported from oarepo because that module's import graph pulls
+// `@translations/oarepo_ui/i18next`, which Jest cannot load.
+const localized = (dict, fallback = undefined) => {
+  if (!dict) return fallback;
+  if (typeof dict === "string") return dict;
+  if (typeof dict === "object") {
+    if (Array.isArray(dict)) return dict[0] ?? fallback;
+    if (typeof dict.en === "string") return dict.en;
+    const first = Object.values(dict).find((v) => typeof v === "string");
+    return first ?? fallback;
+  }
+  return fallback;
+};
+
+// Resolves a field's ui_model node for `fieldPath` against the CURRENT form
+// values. ui_model shapes (implementation guide §6 "Polymorphic fields"):
+//
+// - object fields nest under `children`, array items under `child`;
+// - a polymorphic node holds the complete UNION of every variant's fields in
+//   `children`, plus `discriminator` (the field name whose value chooses the
+//   variant) and `variants` (per discriminator value, only the DIFFERENT
+//   fields, each stored whole);
+// - variant entries can themselves be polymorphic (nested variants).
+//
+// Lookup order for the node's own attributes and for each child on the way:
+// the deepest matching variant entry first, then the union. Scalars of
+// sibling nodes are never merged.
+export const resolveUiNode = (uiModel, fieldPath, values) => {
+  if (!uiModel || !fieldPath) return undefined;
+  const segments = fieldPath.split(".");
+  // The current node, with the children of every active variant (deepest
+  // first) overlaid onto the union's — a variant child wins wholesale.
+  const withVariants = (node, recordSoFar) => {
+    let layered = node;
+    while (layered?.variants && layered?.discriminator) {
+      const discr = getIn(
+        values,
+        recordSoFar
+          ? `${recordSoFar}.${layered.discriminator}`
+          : layered.discriminator
+      );
+      const variant = discr !== undefined ? layered.variants[discr] : undefined;
+      if (!variant) break;
+      const next = { ...layered, ...variant };
+      next.children = { ...layered.children, ...variant.children };
+      // a variant entry re-declares `variants`/`discriminator` only when it
+      // is itself polymorphic — do not keep the outer ones, or the loop
+      // would re-apply the same variant forever (nested variants apply again)
+      if (!variant.variants) {
+        delete next.variants;
+        delete next.discriminator;
+      }
+      layered = next;
+    }
+    return layered;
+  };
+
+  let node = uiModel;
+  let recordSoFar = "";
+  for (const segment of segments) {
+    const isIndex = /^\d+$/.test(segment);
+    node = withVariants(node, recordSoFar);
+    const next = isIndex
+      ? node.children?.child ?? node.child
+      : node.children?.[segment];
+    if (next === undefined) return undefined;
+    node = next;
+    recordSoFar = recordSoFar ? `${recordSoFar}.${segment}` : segment;
+  }
+  return withVariants(node, recordSoFar);
 };
 
 // Resolves label/helpText/required for a fieldPath from the model
@@ -32,10 +108,30 @@ export const useModelFieldData = (
   { label, helpText, required } = {}
 ) => {
   const { getFieldData } = useFieldData();
+  // when there is no Formik above (stories without a Form), formik's context
+  // is `undefined`; discriminator lookups then just see an empty record
+  const { values } = useFormikContext() ?? {};
+  let uiModel;
+  try {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { config } = useFormConfig();
+    uiModel = config?.ui_model;
+  } catch {
+    uiModel = undefined; // stories/tests without a form config: model-less
+  }
   // fieldPath is optional for some blocks (FieldGroup without a model path).
   // oarepo's getFieldData would crash on undefined (toModelPath does
   // path.split), so skip the lookup: explicit props become the only source.
-  const modelData = fieldPath
+  const node = fieldPath
+    ? resolveUiNode(uiModel, fieldPath, values)
+    : undefined;
+  const modelData = node
+    ? {
+        label: localized(node.label, null),
+        helpText: localized(node.help, null),
+        required: node.required,
+      }
+    : fieldPath
     ? getFieldData({ fieldPath, fieldRepresentation: "text" })
     : { label: undefined, helpText: undefined, required: undefined };
   // readableLabel replaces a raw-path label with its readable leaf; helpText

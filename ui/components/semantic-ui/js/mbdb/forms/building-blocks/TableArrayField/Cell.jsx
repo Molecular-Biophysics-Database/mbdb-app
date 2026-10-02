@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Form, Input, Label } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
+import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { toOption } from "@js/mbdb/forms/building-blocks/options";
 import { autoRows } from "@js/mbdb/forms/building-blocks/TextField";
 
@@ -92,11 +93,7 @@ export const DataCell = ({ fieldPath, itemPath, column, row, onChange }) => {
         error={cellError || undefined}
         onChange={onChange}
       />
-      {cellError !== "" && (
-        <Label basic color="red" pointing>
-          {cellError}
-        </Label>
-      )}
+      {cellError !== "" && <ErrorMessages messages={[cellError]} />}
     </>
   );
 };

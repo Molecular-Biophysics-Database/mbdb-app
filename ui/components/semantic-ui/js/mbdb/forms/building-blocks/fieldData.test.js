@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { act } from "react-dom/test-utils";
+import { Formik } from "formik";
 import { useModelFieldData } from "./fieldData";
 
 // The real "@js/oarepo_ui/forms" index cannot load under Jest
@@ -33,7 +34,79 @@ jest.mock("@js/oarepo_ui/forms", () => ({
           };
     },
   }),
+  // reads the per-test ui_model (`testUiModel` below) the same way the real
+  // form config does; undefined means "no polymorphic ui_model loaded"
+  useFormConfig: () => ({ config: { ui_model: mockUiModel } }),
 }));
+
+// A small hand-written ui_model in the polymorphic shape of guide §6: the
+// entities_of_interest `child` is a polymorphic node whose `children` are the
+// UNION of all variants' fields; `variants[type]` carries only the fields
+// that differ. The biological-origin variant is itself polymorphic
+// (derived_from) with a nested variant entry.
+export const TEST_UI_MODEL = {
+  children: {
+    metadata: {
+      children: {
+        general_parameters: {
+          children: {
+            entities_of_interest: {
+              label: { en: "Entities of interest" },
+              input: "array",
+              children: {
+                child: {
+                  input: "polymorphic",
+                  discriminator: "type",
+                  children: {
+                    id: { label: { en: "Id" }, required: true },
+                    name: { label: { en: "Name" }, required: true },
+                    type: { label: { en: "Type" }, required: true },
+                    molecular_weight: {
+                      label: { en: "Molecular weight" },
+                      help: { en: "The molecular weight of the polymer" },
+                      children: {
+                        value: { label: { en: "Value" }, required: true },
+                        unit: { label: { en: "Unit" }, required: true },
+                      },
+                    },
+                  },
+                  variants: {
+                    Polymer: {},
+                    "Molecular assembly": {
+                      children: {
+                        molecular_weight: {
+                          label: { en: "Molecular weight" },
+                          help: { en: "The molecular weight of the assembly" },
+                        },
+                      },
+                    },
+                    "Complex substance of biological origin": {
+                      discriminator: "derived_from",
+                      variants: {
+                        "Solid tissue sample": {
+                          children: {
+                            organ: { label: { en: "Organ" }, required: true },
+                          },
+                        },
+                        "Cell fraction": {
+                          children: {
+                            organ: { label: { en: "Organ" } },
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+let mockUiModel;
 
 const Probe = ({ path, overrides }) => {
   const data = useModelFieldData(path, overrides);
@@ -56,6 +129,7 @@ let container;
 beforeEach(() => {
   container = document.createElement("div");
   document.body.appendChild(container);
+  mockUiModel = undefined;
 });
 
 afterEach(() => {
@@ -137,5 +211,115 @@ describe("useModelFieldData", () => {
       );
     });
     expect(byTestId("label").textContent).toBe("Name");
+  });
+});
+
+// D7: variant-aware ui_model resolution (polymorphic union + variants). The
+// hand-written TEST_UI_MODEL mimics the shape of guide §6; values at the
+// entity path drive the discriminator lookups.
+const FormikProbe = ({ initialValues }) => (
+  <Formik initialValues={initialValues} enableReinitialize onSubmit={() => {}}>
+    <Probe path="metadata.general_parameters.entities_of_interest.0.molecular_weight" />
+  </Formik>
+);
+FormikProbe.propTypes = { initialValues: PropTypes.object };
+
+const mountFormik = (initialValues) => {
+  act(() => {
+    ReactDOM.render(<FormikProbe initialValues={initialValues} />, container);
+  });
+};
+
+describe("useModelFieldData with the polymorphic ui_model (D7)", () => {
+  beforeEach(() => {
+    mockUiModel = TEST_UI_MODEL;
+  });
+
+  it("no discriminator value → the union's node", () => {
+    mountFormik({});
+    expect(byTestId("helpText").textContent).toBe(
+      "The molecular weight of the polymer"
+    );
+  });
+
+  it("a matching variant entry wins: Molecular assembly's help", () => {
+    mountFormik({
+      metadata: {
+        general_parameters: {
+          entities_of_interest: [{ type: "Molecular assembly" }],
+        },
+      },
+    });
+    expect(byTestId("helpText").textContent).toBe(
+      "The molecular weight of the assembly"
+    );
+  });
+
+  it("an empty variant entry (`Polymer: {}`) → the union's node", () => {
+    mountFormik({
+      metadata: {
+        general_parameters: {
+          entities_of_interest: [{ type: "Polymer" }],
+        },
+      },
+    });
+    expect(byTestId("helpText").textContent).toBe(
+      "The molecular weight of the polymer"
+    );
+  });
+
+  it("nested variants resolve through two discriminators", () => {
+    const withBio = (derivedFrom) => ({
+      metadata: {
+        general_parameters: {
+          entities_of_interest: [
+            {
+              type: "Complex substance of biological origin",
+              derived_from: derivedFrom,
+            },
+          ],
+        },
+      },
+    });
+    // Solid tissue sample's nested variant has organ required → union's organ
+    // path resolves through the nested variant entry (its `required: true` is
+    // visible at the Organ node)
+    const organProbe = (values) => {
+      const c = document.createElement("div");
+      document.body.appendChild(c);
+      act(() => {
+        ReactDOM.render(
+          <Formik initialValues={values} onSubmit={() => {}}>
+            <Probe path="metadata.general_parameters.entities_of_interest.0.organ" />
+          </Formik>,
+          c
+        );
+      });
+      const out = c.querySelector('[data-testid="required"]').textContent;
+      ReactDOM.unmountComponentAtNode(c);
+      c.remove();
+      return out;
+    };
+    expect(organProbe(withBio("Solid tissue sample"))).toBe("true");
+    expect(organProbe(withBio("Cell fraction"))).toBe("undefined");
+  });
+
+  it("changing the entity type in the form changes the returned help", () => {
+    const values = (type) => ({
+      metadata: { general_parameters: { entities_of_interest: [{ type }] } },
+    });
+    mountFormik(values("Molecular assembly"));
+    expect(byTestId("helpText").textContent).toBe(
+      "The molecular weight of the assembly"
+    );
+    act(() => {
+      ReactDOM.render(
+        <FormikProbe initialValues={values("Polymer")} />,
+        container
+      );
+    });
+    expect(byTestId("helpText").textContent).toBe(
+      "The molecular weight of the polymer"
+    );
   });
 });

@@ -21,19 +21,64 @@ jest.mock(
     jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
 );
 
-// the picker's meta line uses the item cache; keep the network out of tests
+// the picker's meta line uses the item cache; keep the network out of
+// tests. remembered is the fake cache: the fake picker's pick writes into
+// it (like rememberItem would seed the real one) and the hook reads it.
+let mockRemembered = {};
 jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () => ({
-  useVocabularyItem: () => ({ title: undefined, customFields: undefined }),
-  rememberItem: jest.fn(),
+  useVocabularyItem: jest.fn(
+    (type, id) =>
+      mockRemembered[`${type}/${id}`] ?? {
+        title: undefined,
+        customFields: undefined,
+      }
+  ),
+  rememberItem: jest.fn((type, id, item) => {
+    mockRemembered[`${type}/${id}`] = item;
+  }),
 }));
+
+// The Water suggestion the serializeVocabularySuggestions shape has for a
+// chemicals pick: the custom_fields ride along, so the item cache never
+// needs a GET for a picked term.
+const WATER = {
+  id: "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+  title: "Water",
+  customFields: {
+    chemical_formula: "H2O",
+    molecular_weight: { value: 18.02, unit: "g/mol" },
+  },
+};
 
 jest.mock("@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField", () => {
   const R = jest.requireActual("react");
   const PropTypesActual = jest.requireActual("prop-types");
-  const FakeMbdbVocabularyField = ({ fieldPath, onAddition }) =>
-    R.createElement(
+  const { useFormikContext } = jest.requireActual("formik");
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const {
+    rememberItem,
+  } = require("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles");
+  // The fake stands for what the block needs from the real wrapper: the
+  // label slot, a pick that remembers the item and writes { id } the way
+  // the real onValueChange does, and (when the flag is on) the "Enter
+  // manually" trigger (onAddition).
+  const FakeMbdbVocabularyField = ({ fieldPath, label, onAddition }) => {
+    const formik = useFormikContext();
+    return R.createElement(
       "div",
       { "data-testid": "picker", "data-path": fieldPath },
+      R.createElement("span", { "data-testid": "picker-label" }, label),
+      R.createElement("button", {
+        type: "button",
+        "data-testid": "pick",
+        onClick: () => {
+          rememberItem("chemicals", WATER.id, {
+            title: WATER.title,
+            customFields: WATER.customFields,
+          });
+          formik.setFieldValue(fieldPath, { id: WATER.id });
+        },
+      }),
       onAddition &&
         R.createElement("button", {
           type: "button",
@@ -41,8 +86,10 @@ jest.mock("@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField", () => {
           onClick: () => onAddition("my custom lipid mix"),
         })
     );
+  };
   FakeMbdbVocabularyField.propTypes = {
     fieldPath: PropTypesActual.string.isRequired,
+    label: PropTypesActual.node,
     onAddition: PropTypesActual.func,
   };
   return { MbdbVocabularyField: FakeMbdbVocabularyField };
@@ -81,6 +128,7 @@ const ValueProbe = () => {
 let container;
 
 beforeEach(() => {
+  mockRemembered = {};
   setFakeUiModel({
     [PATH]: { label: "Basic information", required: true },
   });
@@ -145,7 +193,7 @@ describe("BasicInformation", () => {
   });
 
   it("a manual { title } value still renders the picker while the flag is off", () => {
-    // flip when the backend keeps manual chemicals (chemical.js)
+    // flip when MANUAL_CHEMICALS_ENABLED goes on (chemical.js)
     expect(MANUAL_CHEMICALS_ENABLED).toBe(false);
     render({ title: { en: "my custom lipid mix" } });
     expect(pickerShown()).toBe(true);
@@ -156,13 +204,32 @@ describe("BasicInformation", () => {
     ).toBeNull();
   });
 
+  it("a picked chemical shows the facts · id meta line and the label-slot links", async () => {
+    render(undefined);
+    await click("pick");
+    // the fake pick seeds the item cache and writes { id }, like the real
+    // wrapper's onValueChange — the meta line and links then come from the
+    // remembered item
+    expect(value()).toBe(`{"id":"${WATER.id}"}`);
+    // facts and id, no title (the dropdown shows that)
+    expect(container.querySelector(".ui.small.grey.text").textContent).toBe(
+      `H2O · 18.02 g/mol · ${WATER.id}`
+    );
+    const label = container.querySelector('[data-testid="picker-label"]');
+    const links = [...label.querySelectorAll("a")].map((a) => a.textContent);
+    expect(links).toEqual(["PubChem ↗", "ChEMBL ↗"]);
+    // anchors, so no type attribute
+    label.querySelectorAll("a").forEach((a) => {
+      expect(a.getAttribute("type")).toBeNull();
+    });
+  });
+
   it("an object-level error is left to the picker's dropdown error label", () => {
-    // no duplicated message under the header (BasicInformation-review F3):
-    // MbdbVocabularyField already shows the object-level error as the
-    // dropdown's error label, so the picker renders no error block of its
-    // own. The fake renders no error; the real error label including the
-    // survives-an-unrelated-edit behaviour is covered in
-    // MbdbVocabularyField.test.js.
+    // no duplicated message under the header: MbdbVocabularyField already
+    // shows the object-level error as the dropdown's error label, so the
+    // picker renders no error block of its own. The fake renders no error;
+    // the real error label including the survives-an-unrelated-edit
+    // behaviour is covered in MbdbVocabularyField.test.js.
     render(undefined, {
       initialErrors: {
         metadata: {
@@ -180,8 +247,8 @@ describe("BasicInformation", () => {
     );
   });
 
-  // The server drops manual chemicals, so these run only once the backend
-  // fix is committed and MANUAL_CHEMICALS_ENABLED flips on (chemical.js).
+  // The server drops manual chemicals on save (chemical.js), so these run
+  // only once MANUAL_CHEMICALS_ENABLED flips on (plan 2R "Manual chemicals").
   (MANUAL_CHEMICALS_ENABLED ? describe : describe.skip)("manual mode", () => {
     it("picking Enter manually writes { title: { en } } and shows the manual form", async () => {
       render(undefined);

@@ -432,9 +432,9 @@ describe("TableArrayField", () => {
     });
     // SUI puts the .error class on the input's wrapper div
     expect(input("Name").closest(".ui.input").className).toContain("error");
-    expect(container.querySelector(".ui.red.pointing.label").textContent).toBe(
-      "Missing data for required field."
-    );
+    expect(
+      container.querySelector(".ui.pointing.prompt.label").textContent
+    ).toBe("Missing data for required field.");
   });
 
   it("keeps a cell error shown after editing another cell (C1: formik clears `errors`)", async () => {
@@ -450,7 +450,7 @@ describe("TableArrayField", () => {
     // any setFieldValue clears `errors` in this formik setup; the label must
     // survive via the initialErrors fallback
     await type(inputs("Name")[1], "edited");
-    const labels = [...container.querySelectorAll(".ui.red.pointing.label")];
+    const labels = [...container.querySelectorAll(".ui.pointing.prompt.label")];
     expect(labels.map((l) => l.textContent)).toContain(
       "Missing data for required field."
     );

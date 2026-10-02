@@ -184,7 +184,8 @@ describe("TextAreaField", () => {
       { initialValues: { seq: "MKALIVLG" } }
     );
     expect(container.querySelector("textarea").value).toBe("MKALIVLG");
-    expect(container.querySelector(".mbdb-monospace")).not.toBeNull();
+    // the class lands on the Form.Field so `.mbdb-monospace textarea` matches
+    expect(container.querySelector(".mbdb-monospace textarea")).not.toBeNull();
     const links = [...container.querySelectorAll("a.button")];
     expect(links.map((a) => a.textContent)).toEqual(["UniProt", "BLAST"]);
     expect(links[0].getAttribute("href")).toBe("https://www.uniprot.org");

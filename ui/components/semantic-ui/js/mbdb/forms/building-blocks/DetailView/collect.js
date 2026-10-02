@@ -49,6 +49,16 @@ export const collectRows = (
       rows.push({ kind: "field", name, path, value, indent, errored });
       return;
     }
+    // a manual chemical ({ id } missing, title/string-or-i18n-dict present):
+    // one formatted line with the grey hint (§3), not a recursive descent
+    if (
+      isPlainObject(value) &&
+      value.id === undefined &&
+      (typeof value.title === "string" || typeof value.title?.en === "string")
+    ) {
+      rows.push({ kind: "field", name, path, value, indent, errored });
+      return;
+    }
     const inner = collectRows(value, path, hasErr, subHeading, true);
     if (inner.length > 0)
       rows.push({ kind: "heading", name: subHeading, path, indent });

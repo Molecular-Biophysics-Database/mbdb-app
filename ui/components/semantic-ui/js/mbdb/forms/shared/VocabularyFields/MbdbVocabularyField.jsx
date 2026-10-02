@@ -65,6 +65,12 @@ export const MbdbVocabularyField = ({
   const title =
     (typeof storedTitle === "string" ? storedTitle : undefined) ?? fetchedTitle;
 
+  // The id this field itself last wrote. While the stored id equals it,
+  // the remount key below must stay constant: a pick remembers the item
+  // before the write, so the same render already has the title and no
+  // remount is ever needed for the field's own changes.
+  const selfWrittenIdRef = React.useRef(undefined);
+
   const onValueChange = ({ data: changeData, formikProps }, suggestions) => {
     const suggestion = suggestions.find((o) => o.id === changeData.value);
     if (!suggestion) {
@@ -88,6 +94,7 @@ export const MbdbVocabularyField = ({
       title: suggestion.title_l10n,
       customFields: suggestion.custom_fields,
     });
+    selfWrittenIdRef.current = suggestion.id;
     formikProps.form.setFieldValue(fieldPath, { id: suggestion.id });
   };
 
@@ -111,12 +118,20 @@ export const MbdbVocabularyField = ({
         <VocabularyField
           // RemoteSelectField reads initialSuggestions only in its
           // constructor, so a title fetched after mount never shows unless
-          // the field remounts once it is known. The title is keyed by id
-          // (useVocabularyItem), so a stale title cannot pin the wrong text.
+          // the field remounts once it is known. The key is the constant
+          // "titled" whenever the title is known (or the id came from this
+          // field's own pick — the pick remembers the item first, so the
+          // same re-render has it): empty → pick → clear never remount and
+          // the dropdown keeps its focus. Only a stored id whose title is
+          // still unknown gets an `id:<id>` key — a freshly loaded draft —
+          // and remounts exactly once, when either the title arrives or
+          // the id is changed from outside the field.
           key={
-            value?.id && title === undefined
+            value?.id &&
+            title === undefined &&
+            selfWrittenIdRef.current !== value.id
               ? `id:${value.id}`
-              : `titled:${value?.id}`
+              : "titled"
           }
           {...restProps}
           fieldPath={fieldPath}

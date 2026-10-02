@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { act, Simulate } from "react-dom/test-utils";
 import { useFormikContext, getIn, setIn } from "formik";
+import { typeInto } from "@js/mbdb/forms/building-blocks/testUtils";
 import { ExternalDatabases } from "./ExternalDatabases";
 
 // One shared harness (guide §10): the fake "@js/oarepo_ui/forms" and the
@@ -163,23 +164,13 @@ describe("ExternalDatabases", () => {
       "Invalid external database reference."
     );
     // an unrelated edit (row 1) resets Formik `errors`, but the error's row (0)
-    // is untouched, so the message must still show (ExternalDatabases-review F1)
-    const unrelated = idInput(1);
-    unrelated.value = "P69905X";
-    await act(async () => {
-      Simulate.change(unrelated);
-      await new Promise((r) => setTimeout(r, 0));
-    });
+    // is untouched, so the message must still show
+    await typeInto(idInput(1), "P69905X");
     expect(container.textContent).toContain(
       "Invalid external database reference."
     );
     // editing the errored row itself makes the server error stop applying
-    const errored = idInput(0);
-    errored.value = "2HCO";
-    await act(async () => {
-      Simulate.change(errored);
-      await new Promise((r) => setTimeout(r, 0));
-    });
+    await typeInto(idInput(0), "2HCO");
     expect(container.textContent).not.toContain(
       "Invalid external database reference."
     );

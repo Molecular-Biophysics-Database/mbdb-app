@@ -68,7 +68,7 @@ NumberField.propTypes = {
 
 // SUIR 2.1.5 TextArea has no autoHeight: the prop lands on the DOM and does
 // nothing. Growth is emulated by sizing `rows` to the content: one line per
-// ~80 characters plus one per line break, at least 3, capped at 12.
+// ~80 characters plus one per line break, at least `min` (3 by default), capped at 12.
 // Pure and exported so other places with a textarea (TableArrayField's
 // textarea cells) can size rows the same way.
 export const autoRows = (text, { min = 3 } = {}) => {

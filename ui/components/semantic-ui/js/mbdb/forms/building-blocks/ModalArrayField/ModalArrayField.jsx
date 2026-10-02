@@ -10,7 +10,6 @@ import {
   Form,
   HelpLabel,
   Icon,
-  Label,
   Table,
 } from "mbdb-semantic-ui-react";
 import {

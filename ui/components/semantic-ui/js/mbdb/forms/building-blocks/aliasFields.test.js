@@ -8,7 +8,7 @@ import {
   ArrayField,
   TextAreaField,
 } from "mbdb-react-invenio-forms";
-import { HelpModeProvider } from "mbdb-semantic-ui-react";
+import { Form, HelpModeProvider } from "mbdb-semantic-ui-react";
 
 // kept local: needs a StringArrayField stub the shared fake does not have,
 // plus a constant model label/help with `required` keyed to a "req" prefix.
@@ -232,6 +232,26 @@ describe("wrapped fields", () => {
     } finally {
       unmountForm(local);
     }
+  });
+
+  it("every field is ONE root .field inside a Form.Group (help inside it, no own column)", () => {
+    // AliasPackages P4-F1: a fragment (control + FieldHelp sibling) would
+    // become two flex columns in an equal-width Form.Group.
+    render(
+      <Form.Group widths="equal">
+        <TextField fieldPath="a" />
+        <SelectField
+          fieldPath="b"
+          options={[{ key: "x", value: "x", text: "x" }]}
+        />
+      </Form.Group>
+    );
+    const fields = container.querySelectorAll(".fields > .field");
+    expect(fields.length).toBe(2);
+    fields.forEach((field) => {
+      expect(field.querySelectorAll("label.helptext").length).toBe(1);
+      // no stray top-level siblings smuggled between the two .field elements
+    });
   });
 
   it("TextField in popup mode shows no helptext, only the label icon", () => {

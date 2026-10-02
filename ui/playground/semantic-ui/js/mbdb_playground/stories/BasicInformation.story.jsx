@@ -2,10 +2,9 @@ import React from "react";
 import { BasicInformation } from "@js/mbdb/forms/shared/BasicInformation";
 
 // The dropdown queries the live chemicals vocabulary, which must be
-// loaded and indexed. Manual entry is hidden until the backend keeps
-// manual chemicals (chemical.js): the "Manual" scenario below stays as a
-// demo of the disabled flow, and "Enter manually:" does not appear in the
-// dropdown while the flag is off.
+// loaded and indexed. Manual entry is off (chemical.js): the "Manual (entry
+// disabled)" scenario below demonstrates that — a stored manual value keeps
+// the picker mounted and "Enter manually:" does not appear in the dropdown.
 
 const PATH =
   "metadata.general_parameters.entities_of_interest.0.basic_information";
@@ -36,10 +35,10 @@ const story = {
       render: Fields,
     },
     {
-      // hidden until the backend keeps manual chemicals (chemical.js);
-      // while the flag is off this fixture renders the picker, which is
-      // exactly the disabled behaviour the scenario demonstrates
-      name: "Manual (disabled: server drops manual chemicals)",
+      // manual entry is off (chemical.js): the flag keeps the picker mounted
+      // even for a stored manual value, which is exactly what this scenario
+      // demonstrates
+      name: "Manual (entry disabled)",
       initialValues: seed({
         title: { en: "my custom lipid mix" },
         chemical_formula: "C42H82NO8P",

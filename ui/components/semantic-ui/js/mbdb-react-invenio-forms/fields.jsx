@@ -1,14 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useFormikContext, getIn } from "formik";
-import {
-  TextField as RifTextField,
-  SelectField as RifSelectField,
-  ArrayField as RifArrayField,
-} from "react-invenio-forms";
+import { ArrayField as RifArrayField } from "react-invenio-forms";
 import { StringArrayField as OARepoStringArrayField } from "@js/oarepo_ui/forms";
 import {
+  Dropdown,
   Form,
+  Input,
   TextArea,
   FieldHelp,
   HelpLabel,
@@ -48,38 +46,78 @@ const fieldShape = {
 // without an intermediary control (e.g. clear) reports `e.target.value`.
 const eventValue = (e, data) => data?.value ?? e.target.value;
 
+// A stored value that is not in `options` stays visible as an extra option
+// (RIF stores it through ensureSelectedValuesInOptions). Without this the
+// dropdown would show the placeholder and silently mislead the user about
+// stored data we never touch ourselves.
+const optionsWithCurrentValue = (options, value) => {
+  if (
+    value !== undefined &&
+    value !== "" &&
+    !options.some((option) => option.value === value)
+  )
+    return [...options, { key: value, value, text: String(value) }];
+  return options;
+};
+
+// 1R-pass-3 / D8 (AliasPackages P4-F1): every wrapper renders ONE root
+// element — the field's `Form.Field` — with label, control, ErrorMessages and
+// FieldHelp inside it. A fragment (control + FieldHelp) would let Form.Group
+// columns put the help text into its own column.
+
+// The label slot, shared by all four wrappers: a real <label> holding the
+// HelpLabel (model label + optional ? icon inside).
+const FieldLabel = ({ fieldPath, label, help }) =>
+  label ? (
+    <label htmlFor={fieldPath}>
+      <HelpLabel label={label} help={help} />
+    </label>
+  ) : null;
+FieldLabel.propTypes = {
+  fieldPath: PropTypes.string.isRequired,
+  label: PropTypes.node,
+  help: PropTypes.node,
+};
+
+// Text wrapper, rebuilt on plain Form.Field + Input (no RIF). RIF's TextField
+// merges help and field on the same returns-a-fragment level as a sibling
+// before D8. Errors come from useFieldErrors (the errors.js semantics), so
+// they clear once the value is edited — RIF's own error label is not used.
+// onChange: "" unsets (C15 pruning); a caller's own onChange (NumberField)
+// replaces the default write entirely.
 export const TextField = ({
   fieldPath,
   label,
   help,
   required,
   onChange,
+  width,
   ...uiProps
 }) => {
   const { values, setFieldValue } = useFormikContext();
-  // The hook keeps helpText because that is the model's key (getFieldData);
-  // the wrapper's public prop is `help`.
   const data = useModelFieldData(fieldPath, {
     label,
     helpText: help,
     required,
   });
+  const { hasError, messages } = useFieldErrors(fieldPath);
   return (
-    <>
-      <RifTextField
-        {...uiProps}
+    <Form.Field
+      error={hasError || undefined}
+      required={data.required}
+      width={width}
+    >
+      <FieldLabel
         fieldPath={fieldPath}
-        // semantic-ui passing label shorthand through Form.Input drops the
-        // <label> element for node values, so wrap HelpLabel ourselves
-        label={
-          <label htmlFor={fieldPath}>
-            <HelpLabel label={data.label} help={data.helpText} />
-          </label>
-        }
-        required={data.required}
-        helpText={undefined}
-        // RIF spreads uiProps after `field`/onChange, so these override;
-        // a caller's own onChange (e.g. NumberField) wins over the default
+        label={data.label}
+        help={data.helpText}
+      />
+      <Input
+        {...uiProps}
+        id={fieldPath}
+        fluid={uiProps.fluid ?? true}
+        error={hasError || undefined}
+        value={getIn(values, fieldPath) ?? ""}
         onChange={
           onChange ??
           ((e, onChangeData) => {
@@ -88,20 +126,28 @@ export const TextField = ({
             else setFieldValue(fieldPath, v);
           })
         }
-        value={getIn(values, fieldPath) ?? ""}
       />
+      <ErrorMessages messages={messages} />
       <FieldHelp help={data.helpText} />
-    </>
+    </Form.Field>
   );
 };
-TextField.propTypes = fieldShape;
+TextField.propTypes = { ...fieldShape, width: PropTypes.number };
 
+// Select wrapper, rebuilt on plain Form.Field + Dropdown. Errors come from
+// useFieldErrors, the clear icon writes `unset` through the pruning helper,
+// and a stored value outside `options` stays visible (RIF's
+// ensureSelectedValuesInOptions is recreated here so old data never
+// disappears into the placeholder). Optional selects are clearable by
+// default; a required one is not.
 export const SelectField = ({
   fieldPath,
   label,
   help,
   required,
   onChange,
+  width,
+  clearable,
   ...uiProps
 }) => {
   const data = useModelFieldData(fieldPath, {
@@ -109,36 +155,51 @@ export const SelectField = ({
     helpText: help,
     required,
   });
+  const { values, setFieldValue } = useFormikContext();
+  const { hasError, messages } = useFieldErrors(fieldPath);
+  const value = getIn(values, fieldPath);
+  const options = optionsWithCurrentValue(uiProps.options ?? [], value);
   return (
-    <>
-      <RifSelectField
-        {...uiProps}
+    <Form.Field
+      error={hasError || undefined}
+      required={data.required}
+      width={width}
+    >
+      <FieldLabel
         fieldPath={fieldPath}
-        // RIF puts the label inside its semantic Label shorthand ({children:
-        // label}), whose createHTMLLabel renders a real <label> element
-        label={<HelpLabel label={data.label} help={data.helpText} />}
-        required={data.required}
-        helpText={undefined}
-        // RIF pitfall: a custom onChange must set the value itself; the
-        // clear icon passes "" which would persist an empty string.
+        label={data.label}
+        help={data.helpText}
+      />
+      <Dropdown
+        {...uiProps}
+        id={fieldPath}
+        fluid
+        search
+        selection
+        selectOnBlur={false}
+        clearable={clearable !== undefined ? clearable : !data.required}
+        error={hasError || undefined}
+        options={options}
+        value={value ?? ""}
         onChange={
           onChange ??
-          (({ data: selectData, formikProps }) => {
-            if (selectData.value === "")
-              unsetFieldValue(
-                formikProps.form.values,
-                formikProps.form.setFieldValue,
-                fieldPath
-              );
-            else formikProps.form.setFieldValue(fieldPath, selectData.value);
+          ((e, { value: next }) => {
+            if (next === "" || next === undefined)
+              unsetFieldValue(values, setFieldValue, fieldPath);
+            else setFieldValue(fieldPath, next);
           })
         }
       />
+      <ErrorMessages messages={messages} />
       <FieldHelp help={data.helpText} />
-    </>
+    </Form.Field>
   );
 };
-SelectField.propTypes = fieldShape;
+SelectField.propTypes = {
+  ...fieldShape,
+  width: PropTypes.number,
+  clearable: PropTypes.bool,
+};
 
 export const ArrayField = ({
   fieldPath,
@@ -200,15 +261,23 @@ export const TextAreaField = ({
     required,
   });
   const { hasError, messages } = useFieldErrors(fieldPath);
+  // className goes on the Form.Field: Semantic's TextArea would land it on
+  // the <textarea> itself, breaking descendant class styling (e.g.
+  // `.mbdb-monospace textarea`) and the "one root element" structure (D8).
+  const { className, ...restUiProps } = uiProps;
   return (
-    <Form.Field error={hasError || undefined} required={data.required}>
+    <Form.Field
+      error={hasError || undefined}
+      required={data.required}
+      className={className}
+    >
       {data.label && (
         <label htmlFor={fieldPath}>
           <HelpLabel label={data.label} help={data.helpText} />
         </label>
       )}
       <TextArea
-        {...uiProps}
+        {...restUiProps}
         id={fieldPath}
         name={fieldPath}
         value={getIn(values, fieldPath) ?? ""}
@@ -255,7 +324,10 @@ export const StringArrayField = ({
     required,
   });
   return (
-    <>
+    // One root for the whole block (D8): oarepo's component renders its own
+    // inner field structure; FieldHelp still reads the mode and sits inside
+    // the same column, never a sibling of the control.
+    <Form.Field required={data.required} className="mbdb-field-wrapper">
       <OARepoStringArrayField
         {...uiProps}
         fieldPath={fieldPath}
@@ -264,7 +336,7 @@ export const StringArrayField = ({
         helpText={null}
       />
       <FieldHelp help={data.helpText} />
-    </>
+    </Form.Field>
   );
 };
 StringArrayField.propTypes = fieldShape;

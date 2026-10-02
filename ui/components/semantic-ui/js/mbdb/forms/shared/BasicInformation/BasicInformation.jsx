@@ -11,8 +11,7 @@ import { ManualChemical } from "./ManualChemical";
 // state: the picker's "Enter manually" option and the manual form's "Search
 // PubChem instead" both just write the value and the mode follows by
 // itself, one write in each event handler. The manual mode is gated on a
-// module constant, not runtime state: the server currently drops manual
-// chemicals on save (chemical.js), so until the backend fix is committed
+// module constant, not runtime state: manual entry is off (chemical.js), so
 // even a stored manual value keeps the picker mounted.
 export const BasicInformation = ({ fieldPath }) => {
   const { values } = useFormikContext();

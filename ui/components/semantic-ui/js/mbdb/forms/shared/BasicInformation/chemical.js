@@ -4,11 +4,9 @@ import { valueUnitText } from "@js/mbdb/forms/building-blocks/DetailView/values"
 // Pure helpers of the chemical basic-information field.
 
 // The server silently drops a basic_information without id (checked on a
-// draft 2026-10-02: HTTP 200, no error, and no basic_information stored),
-// so manual entry is hidden until the backend's AutoCreateChemicalMixin
-// that turns a manual chemical into a vocabulary item is committed and the
-// dev server restarted. Then flip this to true (and re-enable the manual
-// tests in BasicInformation.test.js).
+// draft 2026-10-02: HTTP 200, no error, and no basic_information stored).
+// Manual entry is off; plan 2R "Manual chemicals" says when it is turned on
+// (and the manual tests in BasicInformation.test.js un-skip with it).
 export const MANUAL_CHEMICALS_ENABLED = false;
 
 // A manual chemical is told apart from a picked vocabulary term by having

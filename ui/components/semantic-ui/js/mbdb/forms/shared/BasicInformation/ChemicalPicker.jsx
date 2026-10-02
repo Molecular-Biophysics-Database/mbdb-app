@@ -12,7 +12,7 @@ import {
 } from "./chemical";
 
 // The "check your chemistry" links, rendered in the label slot. Anchors,
-// not buttons, so no type="button" (ExternalDatabases-review F3).
+// not buttons, so no type attribute.
 const ChemicalLinks = ({ value, item }) =>
   chemicalLinks({
     id: value?.id,

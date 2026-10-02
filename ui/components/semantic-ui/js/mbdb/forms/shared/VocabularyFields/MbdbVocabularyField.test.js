@@ -1,12 +1,18 @@
 import React from "react";
-import { act } from "react-dom/test-utils";
-import { useFormikContext, getIn } from "formik";
+import { useFormikContext } from "formik";
 import {
+  clickOn,
   editUnrelatedField,
   renderInForm,
   unmountForm,
   setFakeUiModel,
+  ValueProbe,
+  readProbe,
 } from "@js/mbdb/forms/building-blocks/testUtils";
+import {
+  getFakeMounts,
+  resetFakeMounts,
+} from "@js/oarepo_vocabularies/form/components/VocabularyField";
 import { MbdbVocabularyField } from "./MbdbVocabularyField";
 import { rememberItem, useVocabularyItem } from "./vocabularyTitles";
 
@@ -50,6 +56,19 @@ jest.mock("@js/oarepo_vocabularies/form/components/VocabularyField", () => {
   const { useFormikContext } = jest.requireActual("formik");
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const { useFieldData } = require("@js/oarepo_ui/forms");
+  // Counts real mounts of the fake: a data-mounts attribute incremented in
+  // mount effects (a remount runs them again, an update does not). The
+  // expect() call is deferred: the greedy fake formik Context makes the
+  // matcher's expect object thenable for the outer FormikProvider, so an
+  // up-front expect here would be consumed with a matcher-less copy.
+  let fakeMounts = 0;
+  const bumpMounts = () => {
+    fakeMounts += 1;
+  };
+  const getFakeMounts = () => fakeMounts;
+  const resetFakeMounts = () => {
+    fakeMounts = 0;
+  };
   const FakeVocabularyField = (props) => {
     const formik = useFormikContext();
     const {
@@ -62,6 +81,8 @@ jest.mock("@js/oarepo_vocabularies/form/components/VocabularyField", () => {
       error,
       required,
     } = props;
+    // mount-count effect on every mount, including the remounts
+    R.useEffect(bumpMounts, []);
     // RIF lifecycle: initialSuggestions are read once, on mount.
     const [suggestions] = R.useState(() => initialSuggestions);
     // What VocabularyField's own getFieldData call sees: the nested
@@ -81,7 +102,7 @@ jest.mock("@js/oarepo_vocabularies/form/components/VocabularyField", () => {
       R.createElement("span", { "data-testid": testid }, children);
     return R.createElement(
       "div",
-      { "data-testid": "vf" },
+      { "data-testid": "vf", "data-mounts": fakeMounts },
       span("label", label),
       span("helpText", String(helpText)),
       span("inner-helpText", String(innerData.helpText)),
@@ -140,7 +161,11 @@ jest.mock("@js/oarepo_vocabularies/form/components/VocabularyField", () => {
     error: PropTypesActual.node,
     required: PropTypesActual.bool,
   };
-  return { VocabularyField: FakeVocabularyField };
+  return {
+    VocabularyField: FakeVocabularyField,
+    getFakeMounts,
+    resetFakeMounts,
+  };
 });
 
 const PATH =
@@ -154,20 +179,11 @@ const UI_MODEL = {
   },
 };
 
-const ValueProbe = () => {
-  const { values } = useFormikContext();
-  const v = getIn(values, PATH);
-  return (
-    <span data-testid="value">
-      {v === undefined ? "null" : JSON.stringify(v)}
-    </span>
-  );
-};
-
 let container;
 
 beforeEach(() => {
   setFakeUiModel(UI_MODEL);
+  resetFakeMounts();
   // no title known unless the test says so (mockReturnValue does not
   // survive clearMocks leaking between tests, so re-pin the default here)
   useVocabularyItem.mockImplementation(() => ({
@@ -186,14 +202,8 @@ const render = (ui, opts = {}) => {
   container = renderInForm(ui, opts);
 };
 
-const click = async (testid) => {
-  // async act: formik's post-setFieldValue dispatch happens off a promise
-  await act(async () => {
-    container
-      .querySelector(`[data-testid="${testid}"]`)
-      .dispatchEvent(new MouseEvent("click", { bubbles: true }));
-  });
-};
+const click = async (testid) =>
+  clickOn(container.querySelector(`[data-testid="${testid}"]`));
 
 const text = (testid) =>
   container.querySelector(`[data-testid="${testid}"]`).textContent;
@@ -208,16 +218,30 @@ const FILLED = {
   },
 };
 
+// Writes the same id through formik, so the wrapper re-renders exactly
+// the way it does when the vocabulary-item hook resolves the title of a
+// loaded draft's id.
+const RewriteSameValue = () => {
+  const { setFieldValue } = useFormikContext();
+  return (
+    <button
+      type="button"
+      data-testid="rewrite"
+      onClick={() => setFieldValue(PATH, { id: "taxid:12374" })}
+    />
+  );
+};
+
 describe("MbdbVocabularyField", () => {
   it("selecting an option writes { id } and remembers the whole item", async () => {
     render(
       <>
         <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />
-        <ValueProbe />
+        <ValueProbe path={PATH} />
       </>
     );
     await click("pick");
-    expect(text("value")).toBe('{"id":"taxid:1423"}');
+    expect(JSON.stringify(readProbe(container))).toBe('{"id":"taxid:1423"}');
     expect(rememberItem).toHaveBeenCalledWith("organisms", "taxid:1423", {
       title: "Bacillus subtilis",
       customFields: undefined,
@@ -228,12 +252,12 @@ describe("MbdbVocabularyField", () => {
     render(
       <>
         <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />
-        <ValueProbe />
+        <ValueProbe path={PATH} />
       </>,
       FILLED
     );
     await click("clear");
-    expect(text("value")).toBe("null");
+    expect(readProbe(container)).toBeNull();
   });
 
   it("VocabularyField sees no helpText; FieldHelp renders it in invenio mode", () => {
@@ -265,24 +289,32 @@ describe("MbdbVocabularyField", () => {
     ).toHaveLength(0);
   });
 
-  it("shows the raw id until the title is known, the fetched title after the remount", async () => {
-    // The fake freezes initialSuggestions in a useState initializer exactly
-    // like RemoteSelectField's constructor, so a title that arrives after
-    // mount reaches the dropdown only through the wrapper's remount key.
-    // Writing the same id through formik re-renders the live form, exactly
-    // the way the real hook resolving re-renders it.
+  it("a pick keeps the dropdown mounted: pick/clear never remounts", async () => {
+    // The remount key holds the constant "titled" across the field's own
+    // pick/clear cycle, so the dropdown never loses focus.
     const item = { title: undefined, customFields: undefined };
     useVocabularyItem.mockImplementation(() => item);
-    const RewriteSameValue = () => {
-      const { setFieldValue } = useFormikContext();
-      return (
-        <button
-          type="button"
-          data-testid="rewrite"
-          onClick={() => setFieldValue(PATH, { id: "taxid:12374" })}
-        />
-      );
-    };
+    render(
+      <>
+        <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />
+        <ValueProbe path={PATH} />
+      </>
+    );
+    expect(getFakeMounts()).toBe(1);
+
+    await click("pick"); // the pick remembers the item, then writes { id }
+    expect(readProbe(container)).toEqual({ id: "taxid:1423" });
+    await click("clear");
+    expect(readProbe(container)).toBeNull();
+    expect(getFakeMounts()).toBe(1);
+  });
+
+  it("shows the raw id until the title is known, the fetched title after the remount", async () => {
+    // A title that arrives after mount reaches the dropdown only through
+    // the wrapper's remount key: the fake freezes initialSuggestions in a
+    // useState initializer exactly like RemoteSelectField's constructor.
+    const item = { title: undefined, customFields: undefined };
+    useVocabularyItem.mockImplementation(() => item);
     render(
       <>
         <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />
@@ -297,6 +329,8 @@ describe("MbdbVocabularyField", () => {
     item.title = "Bacillus subtilis";
     await click("rewrite");
     expect(text("shown")).toBe("Bacillus subtilis");
+    // exactly one remount on the title flip, none for the initial raw-id mount
+    expect(getFakeMounts()).toBe(2);
   });
 
   it("initialSuggestions carry the title from useVocabularyItem after the remount", () => {
@@ -406,32 +440,32 @@ describe("MbdbVocabularyField", () => {
           vocabularyName="chemicals"
           onAddition={onAddition}
         />
-        <ValueProbe />
+        <ValueProbe path={PATH} />
       </>,
       FILLED
     );
     await click("addition");
     expect(onAddition).toHaveBeenCalledWith("typed text");
-    expect(text("value")).toBe("null");
+    expect(readProbe(container)).toBeNull();
   });
 
   it("without onAddition a typed addition leaves the value unset after clear", async () => {
     render(
       <>
         <MbdbVocabularyField fieldPath={PATH} vocabularyName="chemicals" />
-        <ValueProbe />
+        <ValueProbe path={PATH} />
       </>,
       FILLED
     );
     await click("addition");
-    expect(text("value")).toBe("null");
+    expect(readProbe(container)).toBeNull();
   });
 
   it("a server error stays after an unrelated edit and clears on pick", async () => {
     render(
       <>
         <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />
-        <ValueProbe />
+        <ValueProbe path={PATH} />
       </>,
       {
         ...FILLED,
@@ -465,7 +499,7 @@ describe("MbdbVocabularyField", () => {
     render(
       <>
         <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />
-        <ValueProbe />
+        <ValueProbe path={PATH} />
       </>,
       {
         ...FILLED,

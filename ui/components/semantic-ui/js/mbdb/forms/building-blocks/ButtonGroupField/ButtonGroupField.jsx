@@ -1,15 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useFormikContext, getIn } from "formik";
-import {
-  Button,
-  Form,
-  Label,
-  FieldHelp,
-  HelpLabel,
-} from "mbdb-semantic-ui-react";
+import { Button, Form, FieldHelp, HelpLabel } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
+import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { toOption } from "@js/mbdb/forms/building-blocks/options";
 import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
 import { SelectField } from "@js/mbdb/forms/building-blocks/SelectField";
@@ -113,11 +108,7 @@ export const ButtonGroupField = ({
           );
         })}
       </Button.Group>
-      {messages.length > 0 && (
-        <Label basic color="red" pointing>
-          {messages.join(" ")}
-        </Label>
-      )}
+      <ErrorMessages messages={messages} />
       <FieldHelp help={data.helpText} />
     </Form.Field>
   );

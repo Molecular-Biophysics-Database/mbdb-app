@@ -145,6 +145,18 @@ describe("FieldGroup", () => {
     expect(container.textContent).toContain("Missing data for required field.");
   });
 
+  it("renders actions straight after the header", () => {
+    render(
+      <FieldGroup title="Mw" actions={<button type="button">Clear</button>}>
+        fields
+      </FieldGroup>
+    );
+    const header = container.querySelector("h5.ui.header");
+    // h5 stays a clean heading (no interactive child); the action follows it
+    expect(header.querySelector("button")).toBeNull();
+    expect(header.nextElementSibling.textContent).toBe("Clear");
+  });
+
   it('does not mark the header red for a { severity: "warning" } node', () => {
     render(
       <FieldGroup title="Mw" fieldPath="metadata.mw">

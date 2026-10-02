@@ -1,11 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { act, Simulate } from "react-dom/test-utils";
-import { useFormikContext, getIn, setIn } from "formik";
-import {
-  TextField,
-  TextAreaField,
-} from "@js/mbdb/forms/building-blocks/TextField";
+import { setIn } from "formik";
+import { TextAreaField } from "@js/mbdb/forms/building-blocks/TextField";
 import { Sequence } from "./Sequence";
 
 // One shared harness: the fake "@js/oarepo_ui/forms" (model labels) and the
@@ -15,37 +11,30 @@ jest.mock(
   () =>
     jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
 );
-const { setFakeUiModel, renderInForm, unmountForm } = jest.requireActual(
-  "@js/mbdb/forms/building-blocks/testUtils"
-);
+const {
+  setFakeUiModel,
+  renderInForm,
+  unmountForm,
+  editUnrelatedField,
+  ValueProbe,
+  readProbe,
+} = jest.requireActual("@js/mbdb/forms/building-blocks/testUtils");
 
 const FIELD = "metadata.general_parameters.entities_of_interest.0.sequence";
 
-// Reads the stored value out of Formik so tests assert stored data, not DOM.
-const Probe = ({ onValues }) => {
-  onValues(useFormikContext().values);
-  return null;
-};
-Probe.propTypes = { onValues: PropTypes.func.isRequired };
-
 let container;
-let values;
-const collectValues = (v) => {
-  values = v;
-};
 
 const render = (options) =>
   renderInForm(
     <>
       <Sequence fieldPath={FIELD} />
-      <Probe onValues={collectValues} />
+      <ValueProbe path={FIELD} />
     </>,
     options
   );
 
 beforeEach(() => {
   setFakeUiModel({});
-  values = undefined;
   container = render();
 });
 
@@ -82,7 +71,7 @@ const blurOn = async () => {
   });
 };
 
-const storedValue = () => getIn(values, FIELD);
+const storedValue = () => readProbe(container);
 
 describe("Sequence", () => {
   it("stores the normalized value on blur (header dropped, whitespace stripped)", () => {
@@ -91,15 +80,15 @@ describe("Sequence", () => {
   });
 
   it("blur on an already-normalized value does not write; a value needing normalization writes once", async () => {
-    // Spy on the write (F1): a JSON compare cannot fail because formik's
-    // setIn returns the same object for an equal value, so this intercepts
+    // Spy on the write: a JSON compare cannot fail because formik's setIn
+    // returns the same object for an equal value, so this intercepts
     // setFieldValue directly and asserts whether the handler calls it.
     const spy = jest.fn();
     unmountForm(container);
     container = renderInForm(
       <>
         <Sequence fieldPath={FIELD} />
-        <Probe onValues={collectValues} />
+        <ValueProbe path={FIELD} />
       </>,
       { initialValues: setIn({}, FIELD, "MIEIEK"), onSetFieldValue: spy }
     );
@@ -124,7 +113,8 @@ describe("Sequence", () => {
     typeAndBlur("MIEI");
     expect(storedValue()).toBe("MIEI");
     typeAndBlur("   ");
-    expect(storedValue()).toBeUndefined();
+    // ValueProbe renders null when the value is unset (JSON has no undefined)
+    expect(storedValue()).toBeNull();
   });
 
   it("updates the residue counter while typing", () => {
@@ -156,10 +146,11 @@ describe("Sequence", () => {
     );
   });
 
-  it("onBlur through uiProps reaches the textarea (TextAreaField forwards it)", () => {
-    // The every-blur assertions above only pass because the wrapper's onBlur
-    // arrives at RIF's Form.TextArea. This is the design's one direct check
-    // of that pass-through, kept on the building block it guards.
+  it("onBlur passed to TextAreaField fires on blur of the textarea", () => {
+    // The every-blur assertions above only pass because TextAreaField's
+    // uiProps land on Semantic's Form.Field shell around the textarea and a
+    // Simulate.blur on the textarea invokes the wrapper's handler. This is
+    // the building block's one direct check of that wiring.
     let fired = 0;
     const probe = renderInForm(
       <TextAreaField fieldPath="x" onBlur={() => (fired += 1)} />,
@@ -172,27 +163,23 @@ describe("Sequence", () => {
     unmountForm(probe);
   });
 
-  it("shows a server error and keeps it after an unrelated edit", () => {
+  it("shows a server error and keeps it after an unrelated edit", async () => {
     unmountForm(container);
     container = renderInForm(
       <>
-        <TextField fieldPath="title" />
         <Sequence fieldPath={FIELD} />
-        <Probe onValues={collectValues} />
+        <ValueProbe path={FIELD} />
       </>,
       {
-        initialValues: setIn({ title: "x" }, FIELD, "MAH LTP"),
+        initialValues: setIn({}, FIELD, "MAH LTP"),
         initialErrors: setIn({}, FIELD, "Invalid sequence."),
+        withUnrelatedField: true,
       }
     );
     expect(container.textContent).toContain("Invalid sequence.");
     // any change resets Formik `errors`; initialErrors survive while the value
     // at the error path is unchanged (guide §8, mergedErrorNode semantics)
-    const titleInput = container.querySelector("input");
-    titleInput.value = "edited";
-    act(() => {
-      Simulate.change(titleInput);
-    });
+    await editUnrelatedField(container);
     expect(container.textContent).toContain("Invalid sequence.");
   });
 });

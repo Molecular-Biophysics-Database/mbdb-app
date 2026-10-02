@@ -1,6 +1,4 @@
 import React from "react";
-import { act, Simulate } from "react-dom/test-utils";
-import { Field } from "formik";
 import {
   renderInForm,
   unmountForm,
@@ -8,6 +6,9 @@ import {
   yamlEnum,
   ValueProbe,
   readProbe,
+  typeInto,
+  clickOn,
+  editUnrelatedField,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { MolecularWeight, MOLECULAR_WEIGHT_UNITS } from "./MolecularWeight";
 
@@ -46,23 +47,18 @@ const render = (ui, opts = {}) => {
   container = renderInForm(ui, opts);
 };
 
-// typing into the Semantic number Input — Simulate.change reads the value
-// from the element (the blocks' onChange paths run inside act)
-const typeValue = async (value) => {
-  const input = container.querySelector('input[type="number"]');
-  input.value = value;
-  await act(async () => {
-    Simulate.change(input);
-  });
-};
+// typing into the Semantic number Input — typeInto's Simulate payload (a
+// fake { value } target) never reaches its onChange, so set the DOM value
+// first and simulate the change (the same pattern ValueUnitField.test.js
+// uses).
+const typeValue = async (value) =>
+  typeInto(container.querySelector('input[type="number"]'), value);
 
 const clickUnit = async (text) => {
   const item = [...container.querySelectorAll(".dropdown .menu .item")].find(
     (el) => el.textContent.trim() === text
   );
-  await act(async () => {
-    Simulate.click(item);
-  });
+  await clickOn(item);
 };
 
 const probe = () => readProbe(container);
@@ -139,33 +135,24 @@ describe("MolecularWeight", () => {
   });
 
   it("shows the object-level server error, still shown after an unrelated edit", async () => {
-    render(
-      <>
-        <MolecularWeight fieldPath={PATH} />
-        <Field data-testid="other" name="unrelated" />
-      </>,
-      {
-        initialErrors: {
-          metadata: {
-            general_parameters: {
-              entities_of_interest: [
-                { molecular_weight: "Missing data for required field." },
-              ],
-            },
+    render(<MolecularWeight fieldPath={PATH} />, {
+      withUnrelatedField: true,
+      initialErrors: {
+        metadata: {
+          general_parameters: {
+            entities_of_interest: [
+              { molecular_weight: "Missing data for required field." },
+            ],
           },
         },
-      }
-    );
+      },
+    });
     expect(container.textContent).toContain("Missing data for required field.");
     expect(container.querySelector(".field.error")).not.toBeNull();
 
     // formik clears `errors` on the first edit anywhere (no validate); the
     // server error must keep showing from initialErrors.
-    const other = container.querySelector('[data-testid="other"]');
-    other.value = "x";
-    await act(async () => {
-      Simulate.change(other);
-    });
+    await editUnrelatedField(container);
     expect(container.textContent).toContain("Missing data for required field.");
     expect(container.querySelector(".field.error")).not.toBeNull();
   });

@@ -27,6 +27,7 @@ export const FieldGroup = ({
   inline,
   nested,
   divided,
+  actions,
   children,
 }) => {
   // Resolved from the model via fieldPath; explicit props win. Fields
@@ -61,6 +62,7 @@ export const FieldGroup = ({
         <HelpLabel label={data.label} help={data.helpText} />
         {data.required && <span className="mbdb-required">*</span>}
       </Header>
+      {actions}
       <FieldHelp help={data.helpText} />
       <ErrorMessages messages={ownMessages} />
       {nested ? (
@@ -83,5 +85,8 @@ FieldGroup.propTypes = {
   inline: PropTypes.bool,
   nested: PropTypes.bool,
   divided: PropTypes.bool,
+  // Header actions (e.g. a small "Clear …" button), rendered inside the
+  // header after the label, never in a column of the group's own layout
+  actions: PropTypes.node,
   children: PropTypes.node,
 };

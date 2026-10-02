@@ -57,10 +57,16 @@ jest.mock("@js/oarepo_ui/forms", () => {
 // Vocabulary titles are resolved by group-declared entries ({ field,
 // vocabulary }); the shared cache hook is mocked to answer synchronously.
 jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () => ({
-  useVocabularyTitle: () => ({ title: "Bacillus subtilis" }),
+  // the hook returns the title itself (string) or undefined while loading,
+  // NOT an object — mirroring the real hook is what catches P3-F1
+  useVocabularyTitle: jest.fn(),
   rememberTitle: () => {},
   rememberItem: () => {},
 }));
+const { useVocabularyTitle } = jest.requireMock(
+  "@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles"
+);
+useVocabularyTitle.mockReturnValue("Bacillus subtilis");
 
 const { FormConfigProvider, FieldDataProvider } = jest.requireMock(
   "@js/oarepo_ui/forms"
@@ -207,11 +213,43 @@ describe("DetailView", () => {
       { initialValues: FILLED }
     );
     expect(text()).toContain("Bacillus subtilis");
-    // specifications is in no group
+    // specifications is in no group: listed under "Other"
     expect(text()).toContain("Other");
     expect(text()).toContain("RNase-free, desalted");
-    // molecular_weight is also ungrouped
     expect(text()).toContain("Molecular weight");
+  });
+
+  it("shows the raw id (no crash) while the title is still loading", () => {
+    useVocabularyTitle.mockReturnValueOnce(undefined);
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[
+          {
+            title: "Origin",
+            fields: [{ field: "source_organism", vocabulary: "organisms" }],
+          },
+        ]}
+      />,
+      { initialValues: FILLED }
+    );
+    expect(text()).toContain("bacillus");
+  });
+
+  it("marks a manual chemical title (i18n dict) with a Manual entry hint", () => {
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[{ title: "Chemical", fields: ["basic_information"] }]}
+      />,
+      {
+        initialValues: {
+          o: { basic_information: { title: { en: "my lipid mix" } } },
+        },
+      }
+    );
+    expect(text()).toContain("my lipid mix");
+    expect(text()).toContain("Manual entry");
   });
 
   it("hides empty fields and omits all-empty groups", () => {

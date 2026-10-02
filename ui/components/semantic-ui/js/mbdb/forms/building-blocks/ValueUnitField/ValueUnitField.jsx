@@ -5,7 +5,6 @@ import {
   Dropdown,
   Form,
   Input,
-  Label,
   FieldHelp,
   HelpLabel,
 } from "mbdb-semantic-ui-react";
@@ -14,6 +13,7 @@ import {
   useFieldErrors,
   useOwnErrorMessages,
 } from "@js/mbdb/forms/building-blocks/errors";
+import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
 
 // A measured quantity as one control: number input with the unit dropdown
@@ -98,11 +98,7 @@ export const ValueUnitField = ({
         }
         labelPosition="right"
       />
-      {messages.map((message) => (
-        <Label key={message} basic color="red" pointing>
-          {message}
-        </Label>
-      ))}
+      <ErrorMessages messages={messages} />
       <FieldHelp help={data.helpText} />
     </Form.Field>
   );

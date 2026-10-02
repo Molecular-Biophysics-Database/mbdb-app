@@ -21,21 +21,25 @@ export const Size = ({ fieldPath }) => {
   const filled = hasData(getIn(values, fieldPath));
   const unset = useUnsetField();
   return (
-    <FieldGroup fieldPath={fieldPath}>
-      {filled && (
-        // A required field can't be cleared on its own, so the group gets
-        // one action that removes the whole optional object (no confirm:
-        // it is a few numbers). Keeps required={filled} safe to use.
-        <Button
-          basic
-          size="mini"
-          type="button"
-          floated="right"
-          onClick={() => unset(fieldPath)}
-        >
-          Clear size
-        </Button>
-      )}
+    <FieldGroup
+      fieldPath={fieldPath}
+      actions={
+        // A required field can't be cleared on its own, so the group header
+        // gets one action that removes the whole optional object (no
+        // confirm: it is a few numbers). Keeps required={filled} safe to use.
+        filled ? (
+          <Button
+            basic
+            size="mini"
+            type="button"
+            floated="right"
+            onClick={() => unset(fieldPath)}
+          >
+            Clear size
+          </Button>
+        ) : undefined
+      }
+    >
       <Form.Group widths="equal">
         <ButtonGroupField
           fieldPath={`${fieldPath}.type`}

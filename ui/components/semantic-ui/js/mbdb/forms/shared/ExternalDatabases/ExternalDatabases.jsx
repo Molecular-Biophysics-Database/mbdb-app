@@ -18,7 +18,6 @@ const OpenLink = ({ row }) => {
       href={url}
       target="_blank"
       rel="noreferrer"
-      type="button"
     >
       Open ↗
     </Button>

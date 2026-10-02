@@ -167,7 +167,7 @@ describe("Protocol", () => {
     // still rendered as a red error label by the cell, not lost with `errors`
     // (Semantic Label is a div, so select by class, not element)
     expect(
-      [...container.querySelectorAll(".red.label")].some((el) =>
+      [...container.querySelectorAll(".pointing.prompt.label")].some((el) =>
         el.textContent.includes("Missing data for required field.")
       )
     ).toBe(true);
@@ -183,7 +183,9 @@ describe("Protocol", () => {
       },
     });
     const rows = descriptionAreas().map((a) => Number(a.getAttribute("rows")));
-    // 400 chars without breaks: 5 rows; a short description keeps the 3-row minimum
+    // 400 chars without breaks: 5 rows; a short description keeps the 1-row
+    // minimum of table cells (autoRows with min=1 — the 3-row default is for
+    // standalone textareas)
     expect(rows[0]).toBe(5);
     expect(rows[1]).toBe(1);
   });

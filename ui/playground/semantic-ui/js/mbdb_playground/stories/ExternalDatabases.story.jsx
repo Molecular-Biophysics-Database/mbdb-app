@@ -23,6 +23,7 @@ const story = {
           general_parameters: {
             entities_of_interest: [
               {
+                type: "Polymer",
                 external_databases: [
                   "pdb:2HCO",
                   "Uniprot:P69905",
@@ -40,7 +41,9 @@ const story = {
       initialValues: {
         metadata: {
           general_parameters: {
-            entities_of_interest: [{ external_databases: ["pdb:"] }],
+            entities_of_interest: [
+              { type: "Polymer", external_databases: ["pdb:"] },
+            ],
           },
         },
       },

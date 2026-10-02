@@ -29,9 +29,18 @@ const extractItem = (record) => ({
 
 // Merges into the cache entry without clobbering parts the caller does
 // not pass (rememberTitle's entry must not wipe a fetched customFields).
+// rememberItem only merges fields the caller passes; even manual
+// repetition of the same id is safe (the later call simply re-merges).
+// It also drops an in-flight GET: a pick remembers the item from the
+// list response, so a GET still in flight for that id resolves into a
+// cache that already knows the item — dropping it keeps one item = one
+// GET maximum. A superseded fetch must never re-register itself, so
+// fetchItem's own .then skips the re-remember when the cache already
+// holds the item (below).
 export const rememberItem = (type, id, { title, customFields } = {}) => {
   if (!type || !id) return;
   const key = cacheKey(type, id);
+  pending.delete(key);
   const stored = items.get(key) ?? {};
   items.set(key, {
     title: typeof title === "string" && title !== "" ? title : stored.title,
@@ -57,8 +66,16 @@ const fetchItem = (type, id) => {
         )
         .then((response) => {
           const item = extractItem(response?.data);
+          // The fetch may resolve after a pick already remembered the
+          // item: the cache wins and the pending slot must NOT be
+          // re-registered (that would resurrect this promise for every
+          // later wait on the id and re-deliver it forever).
+          const superseded = items.get(key) !== undefined;
           pending.delete(key);
-          if (item.title !== undefined || item.customFields !== undefined)
+          if (
+            !superseded &&
+            (item.title !== undefined || item.customFields !== undefined)
+          )
             rememberItem(type, id, item);
           return item;
         })
@@ -92,6 +109,9 @@ export const useVocabularyItem = (type, id) => {
       setState({ key: k, item: cached });
       return undefined;
     }
+    // No cache entry and no dropped pending fetch: the id is genuinely
+    // unknown (a freshly loaded draft), so one GET goes out. A pick
+    // never reaches this line — rememberItem cached the item first.
     let cancelled = false;
     fetchItem(type, id).then((fetched) => {
       if (!cancelled && fetched !== undefined)

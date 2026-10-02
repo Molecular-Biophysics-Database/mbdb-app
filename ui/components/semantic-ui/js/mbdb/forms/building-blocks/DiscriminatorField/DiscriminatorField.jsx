@@ -9,7 +9,6 @@ import {
   FieldHelp,
   Form,
   HelpLabel,
-  Label,
 } from "mbdb-semantic-ui-react";
 import {
   hasData,
@@ -17,6 +16,7 @@ import {
   useFieldErrors,
   useOwnErrorMessages,
 } from "@js/mbdb/forms/building-blocks/errors";
+import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 
 // A choice that decides which fields follow; changing it replaces the object
@@ -42,7 +42,6 @@ export const DiscriminatorField = ({
     required,
   });
   const text = data.label;
-  const helpText = data.helpText;
 
   const [pending, setPending] = useState(null); // value to apply after confirm
   const obj = getIn(values, objectPath);
@@ -117,7 +116,7 @@ export const DiscriminatorField = ({
           <HelpLabel label={text} help={help} />
         </label>
       )}
-      {help && <FieldHelp help={help} />}
+      {data.helpText && <FieldHelp help={data.helpText} />}
       {mode === "buttons" ? (
         <Button.Group
           role="group"
@@ -165,11 +164,7 @@ export const DiscriminatorField = ({
           aria-label={text ?? field}
         />
       )}
-      {errorMessages.map((message) => (
-        <Label key={message} basic color="red" pointing>
-          {message}
-        </Label>
-      ))}
+      <ErrorMessages messages={errorMessages} />
       <Confirm
         open={pending !== null}
         header={
