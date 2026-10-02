@@ -637,6 +637,8 @@ Chemical:
               unit:
                 type: keyword
       vocabulary-type: chemicals
+      marshmallow_schema_mixins:
+        - common.vocabularies.AutoCreateChemicalMixin
       type: vocabulary
     additional_specifications:
       minItems: 1
@@ -3395,6 +3397,8 @@ EntityChemicalPolymorphic:
               unit:
                 type: keyword
       vocabulary-type: chemicals
+      marshmallow_schema_mixins:
+        - common.vocabularies.AutoCreateChemicalMixin
       type: vocabulary
     additional_specifications:
       minItems: 1
@@ -3747,6 +3751,8 @@ Assembly_componentChemicalPolymorphic:
               unit:
                 type: keyword
       vocabulary-type: chemicals
+      marshmallow_schema_mixins:
+        - common.vocabularies.AutoCreateChemicalMixin
       type: vocabulary
     additional_specifications:
       minItems: 1
@@ -4753,6 +4759,8 @@ Chemical_constituentChemicalPolymorphic:
               unit:
                 type: keyword
       vocabulary-type: chemicals
+      marshmallow_schema_mixins:
+        - common.vocabularies.AutoCreateChemicalMixin
       type: vocabulary
     additional_specifications:
       minItems: 1
@@ -4994,6 +5002,8 @@ ConstituentChemicalPolymorphic:
               unit:
                 type: keyword
       vocabulary-type: chemicals
+      marshmallow_schema_mixins:
+        - common.vocabularies.AutoCreateChemicalMixin
       type: vocabulary
     additional_specifications:
       minItems: 1
