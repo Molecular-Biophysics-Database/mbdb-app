@@ -54,6 +54,14 @@ jest.mock("@js/oarepo_ui/forms", () => {
     }),
   };
 });
+// Vocabulary titles are resolved by group-declared entries ({ field,
+// vocabulary }); the shared cache hook is mocked to answer synchronously.
+jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () => ({
+  useVocabularyTitle: () => ({ title: "Bacillus subtilis" }),
+  rememberTitle: () => {},
+  rememberItem: () => {},
+}));
+
 const { FormConfigProvider, FieldDataProvider } = jest.requireMock(
   "@js/oarepo_ui/forms"
 );
@@ -182,12 +190,19 @@ describe("DetailView", () => {
     expect(text()).toContain(`(${FILLED.o.sequence.length} residues)`);
   });
 
-  it("resolves vocabulary ids through the title map and lists ungrouped keys under Other", () => {
+  it("resolves a declared { field, vocabulary } entry through the shared title cache", () => {
+    // group spec with a vocabulary declaration; `useVocabularyTitle` is
+    // mocked at the top of the file to return the cached title synchronously
     mount(
       <DetailView
         fieldPath="o"
-        groups={GROUPS}
-        vocabularyTitles={{ bacillus: "Bacillus subtilis" }}
+        groups={[
+          { title: "Identification", fields: ["name"] },
+          {
+            title: "Origin",
+            fields: [{ field: "source_organism", vocabulary: "organisms" }],
+          },
+        ]}
       />,
       { initialValues: FILLED }
     );

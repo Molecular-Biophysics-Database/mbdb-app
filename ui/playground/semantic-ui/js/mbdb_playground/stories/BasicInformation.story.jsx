@@ -1,10 +1,11 @@
 import React from "react";
 import { BasicInformation } from "@js/mbdb/forms/shared/BasicInformation";
 
-// The dropdown queries the live chemicals vocabulary (P2). The search index
-// there is currently empty, so typing finds nothing until the instance is
-// reindexed; the "Enter manually:" addition still appears and opens the
-// manual form. The Picked scenario demos the full state once P2 is fixed.
+// The dropdown queries the live chemicals vocabulary, which must be
+// loaded and indexed. Manual entry is hidden until the backend keeps
+// manual chemicals (chemical.js): the "Manual" scenario below stays as a
+// demo of the disabled flow, and "Enter manually:" does not appear in the
+// dropdown while the flag is off.
 
 const PATH =
   "metadata.general_parameters.entities_of_interest.0.basic_information";
@@ -35,7 +36,10 @@ const story = {
       render: Fields,
     },
     {
-      name: "Manual",
+      // hidden until the backend keeps manual chemicals (chemical.js);
+      // while the flag is off this fixture renders the picker, which is
+      // exactly the disabled behaviour the scenario demonstrates
+      name: "Manual (disabled: server drops manual chemicals)",
       initialValues: seed({
         title: { en: "my custom lipid mix" },
         chemical_formula: "C42H82NO8P",

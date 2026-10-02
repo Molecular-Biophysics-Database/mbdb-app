@@ -5,6 +5,10 @@ import { act, Simulate } from "react-dom/test-utils";
 import { Formik, Field, useFormikContext, getIn } from "formik";
 import { HelpModeProvider } from "mbdb-semantic-ui-react";
 import { ButtonGroupField } from "./ButtonGroupField";
+// Shared probe: reads the formik value at a path as JSON (readProbe parses it).
+const { ValueProbe, readProbe } = jest.requireActual(
+  "@js/mbdb/forms/building-blocks/testUtils"
+);
 
 jest.mock("@js/oarepo_ui/forms", () => ({
   useFieldData: () => ({
@@ -225,5 +229,20 @@ describe("ButtonGroupField", () => {
       Simulate.keyDown(group, { key: "ArrowLeft" });
     });
     expect(document.activeElement).toBe(buttons()[0]);
+  });
+
+  it("clearing the only value of an object removes the object key, not leaves {}", () => {
+    // D4: optional group whose value is the only key of `obj`. Toggle the
+    // active button off × the parent object must be dropped, not left empty.
+    render(
+      <>
+        <ButtonGroupField fieldPath="obj.opt" options={["A", "B"]} />
+        <ValueProbe path="obj" />
+      </>,
+      { initialValues: { obj: { opt: "A" } } }
+    );
+    expect(readProbe(container)).toEqual({ opt: "A" });
+    click("A"); // toggle the active button off
+    expect(readProbe(container)).toBeNull();
   });
 });

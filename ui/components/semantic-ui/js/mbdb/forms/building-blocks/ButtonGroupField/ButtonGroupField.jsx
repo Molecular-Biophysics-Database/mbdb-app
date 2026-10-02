@@ -11,6 +11,7 @@ import {
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
 import { toOption } from "@js/mbdb/forms/building-blocks/options";
+import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
 import { SelectField } from "@js/mbdb/forms/building-blocks/SelectField";
 
 // A single choice among 2–5 short options shown as a Button.Group, so all
@@ -98,7 +99,10 @@ export const ButtonGroupField = ({
               active={isActive}
               onClick={() => {
                 if (isActive) {
-                  if (!data.required) setFieldValue(fieldPath, undefined);
+                  // unset (not setFieldValue(path, undefined)) so a now-empty
+                  // parent object is dropped, not left as {} (guide §7).
+                  if (!data.required)
+                    unsetFieldValue(values, setFieldValue, fieldPath);
                 } else {
                   setFieldValue(fieldPath, value);
                 }

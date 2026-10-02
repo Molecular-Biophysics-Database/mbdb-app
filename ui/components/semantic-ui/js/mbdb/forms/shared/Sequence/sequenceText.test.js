@@ -1,4 +1,4 @@
-import { normalizeSequence, countResidues, blastUrl } from "./sequence";
+import { normalizeSequence, countResidues, blastUrl } from "./sequenceText";
 
 describe("normalizeSequence", () => {
   // keyed on the design's Stored data table

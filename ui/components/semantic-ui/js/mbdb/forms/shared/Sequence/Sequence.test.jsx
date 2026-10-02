@@ -6,7 +6,7 @@ import {
   TextField,
   TextAreaField,
 } from "@js/mbdb/forms/building-blocks/TextField";
-import { Sequence } from "./Sequence.jsx";
+import { Sequence } from "./Sequence";
 
 // One shared harness: the fake "@js/oarepo_ui/forms" (model labels) and the
 // Formik render helpers live in testUtils (guide §10; no per-file copies).
@@ -70,6 +70,18 @@ const typeAndBlur = (text) => {
   });
 };
 
+// Blur with the same two-tick flush as typeInto/clickOn: a render from the
+// prior change must land first, then formik's post-blur update settles, so
+// by the time this returns the blur handler's setFieldValue (if any) ran.
+const blurOn = async () => {
+  const el = textarea();
+  await act(async () => {
+    await new Promise((r) => setTimeout(r, 0));
+    Simulate.blur(el);
+    await new Promise((r) => setTimeout(r, 0));
+  });
+};
+
 const storedValue = () => getIn(values, FIELD);
 
 describe("Sequence", () => {
@@ -78,16 +90,34 @@ describe("Sequence", () => {
     expect(storedValue()).toBe("MIEIEKPKIETVEIS");
   });
 
-  it("blur on an already-normalized value leaves the stored value untouched", () => {
-    typeAndBlur("MIEIEK");
-    const before = JSON.stringify(values);
-    act(() => {
-      Simulate.blur(textarea());
-    });
-    // the design's "no second setFieldValue": a write, even of an equal
-    // string, replaces the values object — byte-identical means none happened
-    expect(JSON.stringify(values)).toBe(before);
+  it("blur on an already-normalized value does not write; a value needing normalization writes once", async () => {
+    // Spy on the write (F1): a JSON compare cannot fail because formik's
+    // setIn returns the same object for an equal value, so this intercepts
+    // setFieldValue directly and asserts whether the handler calls it.
+    const spy = jest.fn();
+    unmountForm(container);
+    container = renderInForm(
+      <>
+        <Sequence fieldPath={FIELD} />
+        <Probe onValues={collectValues} />
+      </>,
+      { initialValues: setIn({}, FIELD, "MIEIEK"), onSetFieldValue: spy }
+    );
+    // already normalized on mount; blur with nothing to do → no write
+    await blurOn();
+    expect(spy).not.toHaveBeenCalled();
     expect(storedValue()).toBe("MIEIEK");
+    // a value needing normalization → exactly one write, of the normalized value
+    const el = textarea();
+    el.value = "MIE IEK";
+    await act(async () => {
+      Simulate.change(el);
+      await new Promise((r) => setTimeout(r, 0));
+    });
+    spy.mockClear(); // discard the onChange write; only the blur write counts
+    await blurOn();
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalledWith(FIELD, "MIEIEK");
   });
 
   it("removes the key when the textarea holds only whitespace, then blurs", () => {

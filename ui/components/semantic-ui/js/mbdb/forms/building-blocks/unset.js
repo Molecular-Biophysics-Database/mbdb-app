@@ -2,8 +2,8 @@ import { getIn, setIn, useFormikContext } from "formik";
 import { isEmptyValue } from "@js/mbdb/forms/building-blocks/errors";
 
 // Formik's setFieldValue(path, undefined) drops the leaf but leaves empty
-// parent objects behind (C15: clearing the last field of `location` leaves
-// `location: {}`). Guide §7 forbids `{}` in the form data, so a clear must
+// parent objects behind — clearing the last field of `location` leaves
+// `location: {}`. Guide §7 forbids `{}` in the form data, so a clear must
 // walk up and drop plain-object parents that no longer hold data. It stops
 // at arrays and at objects that sit inside an array (removing an item would
 // shift indexes; the serializer strips empty items there).

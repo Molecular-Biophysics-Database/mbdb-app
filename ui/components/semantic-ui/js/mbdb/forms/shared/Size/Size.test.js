@@ -6,6 +6,7 @@ import {
   renderInForm,
   unmountForm,
   setFakeUiModel,
+  yamlEnum,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { Size } from "./Size";
 import { SIZE_TYPES, LENGTH_UNITS } from "./constants";
@@ -96,9 +97,10 @@ const requiredFields = () => container.querySelectorAll(".field.required");
 
 describe("Size", () => {
   it("SIZE_TYPES and LENGTH_UNITS equal the YAML enums, μm is U+03BC", () => {
-    // models/general_parameters-definitions-rdm.yaml: Size.type, LENGTH_UNITS
-    expect(SIZE_TYPES).toEqual(["radius", "diameter", "path length"]);
-    expect(LENGTH_UNITS).toEqual(["Å", "nm", "μm", "mm", "cm", "m"]);
+    // Read the enums from the model, so a model change or a retyped
+    // character fails the test instead of matching a hand-copy.
+    expect(SIZE_TYPES).toEqual(yamlEnum("Size", "type"));
+    expect(LENGTH_UNITS).toEqual(yamlEnum("LENGTH_UNITS"));
     // the YAML encodes μm as the Greek letter mu (U+03BC) + m; the micro
     // sign µ (U+00B5) is a different string the server would reject
     expect(LENGTH_UNITS[2]).toBe("μm");
@@ -136,12 +138,41 @@ describe("Size", () => {
     expect(typeof numberInputs()[0].valueAsNumber).toBe("number");
   });
 
-  it("clearing numeric fields prunes their keys; type and unit cannot be un-set while size holds data", async () => {
-    // required={filled} makes type/unit required whenever anything is
-    // filled, and the blocks refuse to clear required fields (SelectField
-    // hides its clear icon, ButtonGroupField ignores toggle-off), so once
-    // type or unit is chosen the user cannot return to an absent size.
-    // The numeric rows must still prune cleanly (never "" or {} behind).
+  it("Clear size removes the whole object, even with required rows filled (Size-review F1)", async () => {
+    // required={filled} blocks clearing type/unit (ButtonGroupField ignores
+    // toggle-off, required SelectField has no clear icon), so one click on
+    // "radius" would otherwise trap an optional object that the server
+    // rejects. "Clear size" is the way back to absent.
+    render(size(), {
+      initialValues: {
+        [PATH]: { type: "radius", unit: "nm", mean: 45, lower: 30 },
+      },
+    });
+    expect(container.querySelector(".dropdown .clear.icon")).toBeNull();
+    const clearButton = [...container.querySelectorAll("button")].find(
+      (b) => b.textContent === "Clear size"
+    );
+    expect(clearButton).toBeDefined();
+    await click(clearButton);
+    expect(probe()).toBeNull();
+  });
+
+  it("clicking only a Type button, then Clear size, leaves size absent", async () => {
+    render(size());
+    await click(
+      [...container.querySelectorAll(".ui.buttons button")].find(
+        (b) => b.textContent === "radius"
+      )
+    );
+    expect(probe()).toEqual({ type: "radius" });
+    const clearButton = [...container.querySelectorAll("button")].find(
+      (b) => b.textContent === "Clear size"
+    );
+    await click(clearButton);
+    expect(probe()).toBeNull();
+  });
+
+  it('clearing numeric fields prunes their keys (never "" or {} behind)', async () => {
     render(size(), {
       initialValues: {
         [PATH]: { type: "radius", unit: "nm", mean: 45, lower: 30 },
@@ -149,11 +180,8 @@ describe("Size", () => {
     });
     await type(meanInput(), "");
     expect(probe()).toEqual({ type: "radius", unit: "nm", lower: 30 });
-    await type(numberInputs()[2], ""); // lower (median, lower, upper order)
-    // only the un-clearable required rows remain — the object is never {}
+    await type(numberInputs()[2], ""); // upper (median, lower, upper order)
     expect(probe()).toEqual({ type: "radius", unit: "nm" });
-    // the required unit select offers no clear icon while size is filled
-    expect(container.querySelector(".dropdown .clear.icon")).toBeNull();
   });
 
   it("a size without type/unit can be cleared back to absent", async () => {
@@ -188,10 +216,24 @@ describe("Size", () => {
     ).toBeGreaterThan(0);
   });
 
-  it("unit is not pre-selected", () => {
+  it("the object-level error shows under the group header (D1/Size-review F2)", () => {
+    render(size(), {
+      initialErrors: { [PATH]: "Missing data for required field." },
+    });
+    expect(container.querySelector("h5.ui.header.red")).not.toBeNull();
+    expect(container.textContent).toContain("Missing data for required field.");
+    expect(container.querySelector(".ui.pointing.prompt.label")).not.toBeNull();
+  });
+
+  it("unit is not pre-selected: the dropdown shows no chosen text", () => {
     render(size());
-    const dropdown = container.querySelector(".dropdown .default.text");
-    // Semantic shows the placeholder (default text), not a chosen unit
-    expect(dropdown).toBeNull();
+    // `.text` is what Semantic shows as the chosen option; an empty one means
+    // no unit was written. (The old `.default.text` assertion could not fail.)
+    // The chosen value is the direct-child text span; option rows inside
+    // the menu carry `.text` too (and Semantic marks option 0 visually), so
+    // scope it. Empty chosen text + nothing stored = not pre-selected.
+    const text = container.querySelector(".dropdown > .text");
+    expect(text === null ? "" : text.textContent.trim()).toBe("");
+    expect(probe()).toBeNull();
   });
 });

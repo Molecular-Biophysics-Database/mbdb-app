@@ -281,7 +281,7 @@ describe("ModalArrayField", () => {
       initialErrors: { entities: "Shorter than minimum length 1." },
     });
     const labels = [
-      ...container.querySelectorAll(".ui.red.pointing.prompt.label"),
+      ...container.querySelectorAll(".ui.pointing.prompt.label"),
     ].map((l) => l.textContent);
     expect(labels).toContain("Shorter than minimum length 1.");
   });

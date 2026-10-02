@@ -3,34 +3,64 @@ import PropTypes from "prop-types";
 import { getIn, useFormikContext } from "formik";
 import { Button } from "mbdb-semantic-ui-react";
 import { MbdbVocabularyField } from "@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField";
-import { useVocabularyTitle } from "@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles";
-import { useOwnErrorMessages } from "@js/mbdb/forms/building-blocks/errors";
+import { useVocabularyItem } from "@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles";
+import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import {
+  MANUAL_CHEMICALS_ENABLED,
   chemicalLinks,
   describeChemical,
-  molecularWeightText,
 } from "./chemical";
 
-// The PubChem-backed dropdown mode of BasicInformation. A typed query that
-// matches nothing can be sent to the manual form through the last option;
-// RemoteSelectField reports it as an addition (see MbdbVocabularyField), so
-// the write here is the manual value's seed and the mode flips by itself.
+// The "check your chemistry" links, rendered in the label slot. Anchors,
+// not buttons, so no type="button" (ExternalDatabases-review F3).
+const ChemicalLinks = ({ value, item }) =>
+  chemicalLinks({
+    id: value?.id,
+    title: item.title ?? value?.title,
+  }).map(({ label, href }) => (
+    <Button
+      key={href}
+      basic
+      size="mini"
+      as="a"
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+    >
+      {label}
+    </Button>
+  ));
+
+ChemicalLinks.propTypes = {
+  value: PropTypes.object,
+  item: PropTypes.shape({
+    title: PropTypes.string,
+    customFields: PropTypes.object,
+  }),
+};
+
+// The PubChem-backed dropdown mode of BasicInformation. Only the dropdown
+// carries the object-level error (MbdbVocabularyField already shows it, so
+// there is no second error block here). "Enter manually" is hidden while
+// the server drops manual chemicals (chemical.js).
 export const ChemicalPicker = ({ fieldPath }) => {
   const { values, setFieldValue } = useFormikContext();
   const value = getIn(values, fieldPath);
-  const title = useVocabularyTitle("chemicals", value?.id);
-  const objectMessages = useOwnErrorMessages(fieldPath);
+  // Whole-item cache: the title AND the custom_fields of the picked term —
+  // remembered on the pick itself, otherwise fetched once per id.
+  const item = useVocabularyItem("chemicals", value?.id);
+  const data = useModelFieldData(fieldPath, {});
 
-  // The small grey meta line under the control once a term is picked.
-  // Rendered only from data already at hand (the cached title, the id, and
-  // any facts the server enriched into the stored value on save): the { id }
-  // reference the UI writes carries no formula or molecular weight itself.
-  const metaParts = [
-    title,
-    value?.chemical_formula,
-    molecularWeightText(value?.molecular_weight),
+  // The small grey meta line under the control once a term is picked: the
+  // facts and the id, no title (the dropdown shows that). The facts come
+  // from the item cache — the { id } reference the UI writes carries none,
+  // and drafts are not enriched on load.
+  const meta = [
+    describeChemical({ custom_fields: item.customFields }),
     value?.id,
-  ].filter(Boolean);
+  ]
+    .filter(Boolean)
+    .join(" · ");
 
   return (
     <>
@@ -38,35 +68,26 @@ export const ChemicalPicker = ({ fieldPath }) => {
         fieldPath={fieldPath}
         vocabularyName="chemicals"
         describe={describeChemical}
-        allowAdditions
-        additionLabel="Enter manually: "
-        onAddition={(text) => setFieldValue(fieldPath, { title: { en: text } })}
+        label={
+          <>
+            {data.label}{" "}
+            {value?.id && <ChemicalLinks value={value} item={item} />}
+          </>
+        }
+        {...(MANUAL_CHEMICALS_ENABLED
+          ? {
+              // additionPosition reaches Semantic's Dropdown through
+              // restProps/RIF uiProps: "Enter manually" stays the last
+              // option instead of sitting above the PubChem results.
+              allowAdditions: true,
+              additionPosition: "bottom",
+              additionLabel: "Enter manually: ",
+              onAddition: (text) =>
+                setFieldValue(fieldPath, { title: { en: text } }),
+            }
+          : {})}
       />
-      {objectMessages.map((message) => (
-        <div key={message} className="ui red text">
-          {message}
-        </div>
-      ))}
-      {value?.id && metaParts.length > 0 && (
-        <div className="ui small grey text">{metaParts.join(" · ")}</div>
-      )}
-      {value?.id &&
-        chemicalLinks({ id: value.id, title: title ?? value.title }).map(
-          ({ label, href }) => (
-            <Button
-              key={href}
-              basic
-              size="mini"
-              as="a"
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-              type="button"
-            >
-              {label}
-            </Button>
-          )
-        )}
+      {value?.id && meta && <div className="ui small grey text">{meta}</div>}
     </>
   );
 };

@@ -14,6 +14,7 @@ import {
   useFieldErrors,
   useOwnErrorMessages,
 } from "@js/mbdb/forms/building-blocks/errors";
+import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import { randomUUID } from "@js/mbdb/forms/building-blocks/randomUUID";
 import { DataCell } from "./Cell";
@@ -87,11 +88,7 @@ const Row = ({
           </Table.Cell>
         )}
         <Table.Cell collapsing textAlign="right">
-          {rowMessages.length > 0 && (
-            <Label color="red" pointing prompt>
-              {rowMessages.join(" ")}
-            </Label>
-          )}{" "}
+          <ErrorMessages messages={rowMessages} />{" "}
           {hint && (
             <Label basic color="yellow" size="mini">
               {hint}
@@ -250,13 +247,7 @@ const TableArrayFieldInner = ({
           })}
         </Table.Body>
       </Table>
-      {listMessages.length > 0 && (
-        <div>
-          <Label color="red" pointing prompt>
-            {listMessages.join(" ")}
-          </Label>
-        </div>
-      )}
+      <ErrorMessages messages={listMessages} />
       <Button
         type="button"
         icon

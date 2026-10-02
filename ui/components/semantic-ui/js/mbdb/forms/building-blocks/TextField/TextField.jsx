@@ -71,11 +71,11 @@ NumberField.propTypes = {
 // ~80 characters plus one per line break, at least 3, capped at 12.
 // Pure and exported so other places with a textarea (TableArrayField's
 // textarea cells) can size rows the same way.
-export const autoRows = (text) => {
+export const autoRows = (text, { min = 3 } = {}) => {
   const s = String(text ?? "");
   return Math.min(
     12,
-    Math.max(3, Math.ceil(s.length / 80) + s.split("\n").length - 1)
+    Math.max(min, Math.ceil(s.length / 80) + s.split("\n").length - 1)
   );
 };
 

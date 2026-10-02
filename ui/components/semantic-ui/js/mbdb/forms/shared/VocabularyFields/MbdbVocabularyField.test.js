@@ -2,12 +2,13 @@ import React from "react";
 import { act } from "react-dom/test-utils";
 import { useFormikContext, getIn } from "formik";
 import {
+  editUnrelatedField,
   renderInForm,
   unmountForm,
   setFakeUiModel,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { MbdbVocabularyField } from "./MbdbVocabularyField";
-import { rememberTitle, useVocabularyTitle } from "./vocabularyTitles";
+import { rememberItem, useVocabularyItem } from "./vocabularyTitles";
 
 // The shared fake with one addition: the real FieldDataContext. oarepoFake's
 // useFieldData ignores context, but this block nests a FieldDataContext.
@@ -28,13 +29,19 @@ jest.mock("@js/oarepo_ui/forms", () => {
 });
 
 jest.mock("./vocabularyTitles", () => ({
-  useVocabularyTitle: jest.fn(() => undefined),
-  rememberTitle: jest.fn(),
+  useVocabularyItem: jest.fn(() => ({
+    title: undefined,
+    customFields: undefined,
+  })),
+  rememberItem: jest.fn(),
 }));
 
 // Fake VocabularyField: exposes the props the wrapper passes (no network),
 // and simulates pick/clear/addition by calling onValueChange exactly the way
 // RemoteSelectField does: ({ e, data, formikProps }, selectedSuggestions).
+// Like RIF's RemoteSelectField, it copies initialSuggestions into state in a
+// useState initializer ONLY — a prop change after mount is ignored, so the
+// wrapper's remount key is what actually shows a late title.
 // No JSX / no top-level imports in the factory (jest hoisting); the mock
 // useFieldData comes from the mocked @js/oarepo_ui/forms via require.
 jest.mock("@js/oarepo_vocabularies/form/components/VocabularyField", () => {
@@ -55,16 +62,21 @@ jest.mock("@js/oarepo_vocabularies/form/components/VocabularyField", () => {
       error,
       required,
     } = props;
+    // RIF lifecycle: initialSuggestions are read once, on mount.
+    const [suggestions] = R.useState(() => initialSuggestions);
     // What VocabularyField's own getFieldData call sees: the nested
     // provider's value (the wrapper strips helpText there).
     const { getFieldData } = useFieldData();
     const innerData = getFieldData({ fieldPath: props.fieldPath });
     const described = filterFunction([{ id: "x", props: { rank: "species" } }]);
-    const emit = (value, suggestions) =>
+    const emit = (value, selected) =>
       onValueChange(
         { e: null, data: { value }, formikProps: { form: formik } },
-        suggestions
+        selected
       );
+    // What RemoteSelectField's UI shows for the selected value: the
+    // suggestion's title_l10n, else the raw id (serializeVocabularySuggestions).
+    const shownText = suggestions[0]?.title_l10n ?? suggestions[0]?.id ?? "";
     const span = (testid, children) =>
       R.createElement("span", { "data-testid": testid }, children);
     return R.createElement(
@@ -77,7 +89,8 @@ jest.mock("@js/oarepo_vocabularies/form/components/VocabularyField", () => {
       span("clearable", String(clearable)),
       span("required", String(required)),
       span("error", error ?? ""),
-      span("suggestions", JSON.stringify(initialSuggestions)),
+      span("suggestions", JSON.stringify(suggestions)),
+      span("shown", shownText),
       span("described", String(described[0].description)),
       R.createElement("button", {
         type: "button",
@@ -95,7 +108,13 @@ jest.mock("@js/oarepo_vocabularies/form/components/VocabularyField", () => {
       R.createElement("button", {
         type: "button",
         "data-testid": "addition",
-        onClick: () =>
+        onClick: () => {
+          // Semantic's Dropdown fires onChange before onAddItem, so the real
+          // library makes TWO calls: first no suggestion matches the typed
+          // text (the wrapper unsets), then the addition call (onAddition).
+          // The end state must be the caller's write; a transient unset is
+          // tolerated — the wrapper handles it.
+          emit("typed text", []);
           emit("typed text", [
             {
               text: "typed text",
@@ -105,7 +124,8 @@ jest.mock("@js/oarepo_vocabularies/form/components/VocabularyField", () => {
               id: "typed text",
               mbdbAddition: true,
             },
-          ]),
+          ]);
+        },
       })
     );
   };
@@ -150,7 +170,10 @@ beforeEach(() => {
   setFakeUiModel(UI_MODEL);
   // no title known unless the test says so (mockReturnValue does not
   // survive clearMocks leaking between tests, so re-pin the default here)
-  useVocabularyTitle.mockImplementation(() => undefined);
+  useVocabularyItem.mockImplementation(() => ({
+    title: undefined,
+    customFields: undefined,
+  }));
 });
 
 afterEach(() => {
@@ -186,7 +209,7 @@ const FILLED = {
 };
 
 describe("MbdbVocabularyField", () => {
-  it("selecting an option writes { id } and remembers the title", async () => {
+  it("selecting an option writes { id } and remembers the whole item", async () => {
     render(
       <>
         <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />
@@ -195,11 +218,10 @@ describe("MbdbVocabularyField", () => {
     );
     await click("pick");
     expect(text("value")).toBe('{"id":"taxid:1423"}');
-    expect(rememberTitle).toHaveBeenCalledWith(
-      "organisms",
-      "taxid:1423",
-      "Bacillus subtilis"
-    );
+    expect(rememberItem).toHaveBeenCalledWith("organisms", "taxid:1423", {
+      title: "Bacillus subtilis",
+      customFields: undefined,
+    });
   });
 
   it('clearing removes the value (undefined, never "")', async () => {
@@ -243,8 +265,45 @@ describe("MbdbVocabularyField", () => {
     ).toHaveLength(0);
   });
 
-  it("initialSuggestions carry the title from useVocabularyTitle", () => {
-    useVocabularyTitle.mockReturnValue("Bacillus subtilis");
+  it("shows the raw id until the title is known, the fetched title after the remount", async () => {
+    // The fake freezes initialSuggestions in a useState initializer exactly
+    // like RemoteSelectField's constructor, so a title that arrives after
+    // mount reaches the dropdown only through the wrapper's remount key.
+    // Writing the same id through formik re-renders the live form, exactly
+    // the way the real hook resolving re-renders it.
+    const item = { title: undefined, customFields: undefined };
+    useVocabularyItem.mockImplementation(() => item);
+    const RewriteSameValue = () => {
+      const { setFieldValue } = useFormikContext();
+      return (
+        <button
+          type="button"
+          data-testid="rewrite"
+          onClick={() => setFieldValue(PATH, { id: "taxid:12374" })}
+        />
+      );
+    };
+    render(
+      <>
+        <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />
+        <RewriteSameValue />
+      </>,
+      FILLED
+    );
+    expect(text("shown")).toBe("taxid:12374");
+
+    // the title arrives: the key flips to titled:…, the field remounts and
+    // the fake's initializer captures the titled suggestion
+    item.title = "Bacillus subtilis";
+    await click("rewrite");
+    expect(text("shown")).toBe("Bacillus subtilis");
+  });
+
+  it("initialSuggestions carry the title from useVocabularyItem after the remount", () => {
+    useVocabularyItem.mockImplementation(() => ({
+      title: "Bacillus subtilis",
+      customFields: undefined,
+    }));
     render(
       <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />,
       FILLED
@@ -252,6 +311,7 @@ describe("MbdbVocabularyField", () => {
     expect(text("suggestions")).toBe(
       '[{"id":"taxid:12374","title_l10n":"Bacillus subtilis"}]'
     );
+    expect(text("shown")).toBe("Bacillus subtilis");
   });
 
   it("while the title is unknown the suggestion shows the id", () => {
@@ -263,7 +323,10 @@ describe("MbdbVocabularyField", () => {
   });
 
   it("a stored title wins over the fetched one", () => {
-    useVocabularyTitle.mockReturnValue("Fetched title");
+    useVocabularyItem.mockImplementation(() => ({
+      title: "Fetched title",
+      customFields: undefined,
+    }));
     render(
       <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />,
       {
@@ -334,7 +397,7 @@ describe("MbdbVocabularyField", () => {
     );
   });
 
-  it("onAddition fires for a typed addition and nothing is written", async () => {
+  it("onAddition fires for a typed addition (after the wrapper's unset) and the value ends unset", async () => {
     const onAddition = jest.fn();
     render(
       <>
@@ -344,28 +407,35 @@ describe("MbdbVocabularyField", () => {
           onAddition={onAddition}
         />
         <ValueProbe />
-      </>
+      </>,
+      FILLED
     );
     await click("addition");
     expect(onAddition).toHaveBeenCalledWith("typed text");
     expect(text("value")).toBe("null");
   });
 
-  it("without onAddition an addition writes nothing either", async () => {
+  it("without onAddition a typed addition leaves the value unset after clear", async () => {
     render(
       <>
         <MbdbVocabularyField fieldPath={PATH} vocabularyName="chemicals" />
         <ValueProbe />
-      </>
+      </>,
+      FILLED
     );
     await click("addition");
     expect(text("value")).toBe("null");
   });
 
-  it("shows the server error from initialErrors", () => {
+  it("a server error stays after an unrelated edit and clears on pick", async () => {
     render(
-      <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />,
+      <>
+        <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />
+        <ValueProbe />
+      </>,
       {
+        ...FILLED,
+        withUnrelatedField: true,
         initialErrors: {
           metadata: {
             general_parameters: {
@@ -377,13 +447,29 @@ describe("MbdbVocabularyField", () => {
         },
       }
     );
+    // the object-level error shows once, as the dropdown's error label
     expect(text("error")).toBe("Missing data for required field.");
+    expect(container.querySelectorAll('[data-testid="error"]')).toHaveLength(1);
+
+    // Formik resets `errors` on the first edit anywhere; the server error
+    // must keep showing from initialErrors
+    await editUnrelatedField(container);
+    expect(text("error")).toBe("Missing data for required field.");
+
+    // editing the field itself clears it (value differs from initialValues)
+    await click("pick");
+    expect(text("error")).toBe("");
   });
 
-  it("shows a nested { id } error the same way (Invalid vocabulary item)", () => {
+  it("a nested { id } error stays after an unrelated edit and clears on pick", async () => {
     render(
-      <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />,
+      <>
+        <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />
+        <ValueProbe />
+      </>,
       {
+        ...FILLED,
+        withUnrelatedField: true,
         initialErrors: {
           metadata: {
             general_parameters: {
@@ -396,5 +482,36 @@ describe("MbdbVocabularyField", () => {
       }
     );
     expect(text("error")).toBe("Invalid vocabulary item");
+
+    await editUnrelatedField(container);
+    expect(text("error")).toBe("Invalid vocabulary item");
+
+    await click("pick");
+    expect(text("error")).toBe("");
+  });
+
+  it("all errors under the path are joined into one label", () => {
+    render(
+      <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />,
+      {
+        initialErrors: {
+          metadata: {
+            general_parameters: {
+              entities_of_interest: [
+                {
+                  source_organism: [
+                    "Missing data for required field.",
+                    "Invalid vocabulary item",
+                  ],
+                },
+              ],
+            },
+          },
+        },
+      }
+    );
+    expect(text("error")).toBe(
+      "Missing data for required field. Invalid vocabulary item"
+    );
   });
 });

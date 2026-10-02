@@ -15,6 +15,7 @@ import {
   hasData,
   useOwnErrorMessages,
 } from "@js/mbdb/forms/building-blocks/errors";
+import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import { SummaryItem } from "@js/mbdb/forms/building-blocks/SummaryItem";
 import { DetailView } from "@js/mbdb/forms/building-blocks/DetailView";
@@ -131,13 +132,7 @@ export const ModalObjectField = ({
             </Table.Body>
           </Table>
         )}
-        {objectMessages.length > 0 && (
-          <div>
-            <Label color="red" pointing prompt>
-              {objectMessages.join(" ")}
-            </Label>
-          </div>
-        )}
+        <ErrorMessages messages={objectMessages} />
       </Form.Field>
       {/* the modal is a SIBLING of Form.Field, not nested inside it, so
           depth-2 modals stack correctly (same as ModalArrayField) */}
@@ -169,10 +164,18 @@ ModalObjectField.propTypes = {
   detailGroups: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      fields: PropTypes.arrayOf(PropTypes.string).isRequired,
+      fields: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.shape({
+            field: PropTypes.string.isRequired,
+            vocabulary: PropTypes.string,
+          }),
+        ])
+      ).isRequired,
     })
   ),
-  // extra DetailView props (exclude, requiredPaths, vocabularyTitles);
+  // extra DetailView props (exclude, requiredPaths);
   // `exclude` defaults to ["id"], the internal client uuid.
   detailProps: PropTypes.object,
 };

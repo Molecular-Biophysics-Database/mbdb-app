@@ -15,6 +15,7 @@ import {
   useFieldErrors,
   useOwnErrorMessages,
 } from "@js/mbdb/forms/building-blocks/errors";
+import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 
 // A small optional object toggled by a checkbox in the header
@@ -75,9 +76,7 @@ export const ToggleFieldGroup = ({
         onChange={onToggle}
       />
       {data.helpText && <FieldHelp help={data.helpText} />}
-      {objectMessages.length > 0 && (
-        <div className="ui red text">{objectMessages.join(" ")}</div>
-      )}
+      <ErrorMessages messages={objectMessages} />
       {checked && (
         <Segment basic className="mbdb-indent">
           {children}

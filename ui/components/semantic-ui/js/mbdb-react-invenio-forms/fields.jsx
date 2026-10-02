@@ -5,11 +5,18 @@ import {
   TextField as RifTextField,
   SelectField as RifSelectField,
   ArrayField as RifArrayField,
-  TextAreaField as RifTextAreaField,
 } from "react-invenio-forms";
 import { StringArrayField as OARepoStringArrayField } from "@js/oarepo_ui/forms";
-import { FieldHelp, HelpLabel, useHelpMode } from "mbdb-semantic-ui-react";
+import {
+  Form,
+  TextArea,
+  FieldHelp,
+  HelpLabel,
+  useHelpMode,
+} from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
+import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
+import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
 
 // mbdb wrappers around react-invenio-forms fields: they fill label /
@@ -164,22 +171,27 @@ export const ArrayField = ({
 };
 ArrayField.propTypes = fieldShape;
 
-// RIF TextAreaField renders no helptext itself (RIF passes uiProps to
-// Form.TextArea, whose `label` lands in the field's FormField). The
-// wrapper only appends FieldHelp and fixes the onChange/value handling
-// (RIF passes form.handleChange and a raw getIn value otherwise).
-// Note: unlike RIF TextField/SelectField, RIF TextAreaField has no
-// helpText exclusion, so helpText must NOT be forwarded at all — it
-// would land on the DOM <textarea>.
+// Textarea wrapper, rebuilt on plain Form.Field + TextArea (no RIF). RIF's
+// TextAreaField always renders its ErrorLabel, which shows
+// `get(errors) || get(initialErrors)` forever with no "value changed" check,
+// and never marks the field red. This rebuilds reads errors through the
+// errors.js helper (useFieldErrors): the message clears once the value at
+// fieldPath is edited, and Form.Field gets `error`. onBlur chains Formik's
+// handleBlur (marks touched) and then the caller's onBlur. The wrapper keeps
+// the controlled value and maps "" to unset.
 export const TextAreaField = ({
   fieldPath,
   label,
   help,
   required,
   onChange,
+  onBlur,
+  // drop the old prop name: it would otherwise flow through uiProps onto the
+  // DOM <textarea>; help goes through `help` → HelpLabel/FieldHelp only
+  helpText, // eslint-disable-line no-unused-vars
   ...uiProps
 }) => {
-  const { values, setFieldValue } = useFormikContext();
+  const { values, setFieldValue, handleBlur } = useFormikContext();
   // The hook keeps helpText because that is the model's key (getFieldData);
   // the wrapper's public prop is `help`.
   const data = useModelFieldData(fieldPath, {
@@ -187,37 +199,40 @@ export const TextAreaField = ({
     helpText: help,
     required,
   });
+  const { hasError, messages } = useFieldErrors(fieldPath);
   return (
-    <>
-      <RifTextAreaField
+    <Form.Field error={hasError || undefined} required={data.required}>
+      {data.label && (
+        <label htmlFor={fieldPath}>
+          <HelpLabel label={data.label} help={data.helpText} />
+        </label>
+      )}
+      <TextArea
         {...uiProps}
-        fieldPath={fieldPath}
-        // like RifTextField: semantic Form.TextArea drops the <label>
-        // element for node labels, so wrap HelpLabel ourselves
-        label={
-          <label htmlFor={fieldPath}>
-            <HelpLabel label={data.label} help={data.helpText} />
-          </label>
-        }
-        required={data.required}
-        // suppress RIF's helpText (it has no exclusion and would land on
-        // the DOM <textarea>); callers use `help`
-        helpText={undefined}
-        onChange={
-          onChange ??
-          ((e, onChangeData) => {
-            const v = eventValue(e, onChangeData);
-            if (v === "") unsetFieldValue(values, setFieldValue, fieldPath);
-            else setFieldValue(fieldPath, v);
-          })
-        }
+        id={fieldPath}
+        name={fieldPath}
         value={getIn(values, fieldPath) ?? ""}
+        onChange={(e, d) => {
+          // a caller's own onChange takes over the write entirely
+          if (onChange) {
+            onChange(e, d);
+            return;
+          }
+          const v = d?.value ?? e.target.value;
+          if (v === "") unsetFieldValue(values, setFieldValue, fieldPath);
+          else setFieldValue(fieldPath, v);
+        }}
+        onBlur={(e, d) => {
+          handleBlur(e);
+          onBlur?.(e, d);
+        }}
       />
+      <ErrorMessages messages={messages} />
       <FieldHelp help={data.helpText} />
-    </>
+    </Form.Field>
   );
 };
-TextAreaField.propTypes = fieldShape;
+TextAreaField.propTypes = { ...fieldShape, onBlur: PropTypes.func };
 
 // Wrapper around oarepo's StringArrayField (the wrapper StringListField
 // review question F1 asked about). oarepo's component resolves the label

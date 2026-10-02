@@ -17,9 +17,9 @@ export const Cell = ({ column, row, label, onChange, error }) => {
     onChange: (e, { value: next }) => onChange(next === "" ? undefined : next),
   };
   if (column.type === "textarea")
-    // SUIR 2.1.5 TextArea has no autoHeight; size rows to the content so
-    // long cell text stays visible (same sizing as TextAreaField).
-    return <Form.TextArea rows={autoRows(value)} {...common} />;
+    // SUIR 2.1.5 TextArea has no autoHeight; size rows to the content
+    // (floor of 1: table cells stay one line high until the text grows).
+    return <Form.TextArea rows={autoRows(value, { min: 1 })} {...common} />;
   if (column.type === "number")
     return (
       <Input

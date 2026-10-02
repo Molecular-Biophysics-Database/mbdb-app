@@ -40,13 +40,13 @@ export const errorMessages = (errors, path) => [
   ...new Set(collectMessages(getIn(errors, path), [])),
 ];
 
-// errors-else-initialErrors selection (C1). The deposit form passes server
-// errors as Formik `initialErrors`; it has no `validate` and keeps
-// validateOnChange, so the first change anywhere in the form resets `errors`
-// to {} (formik's SET_ERRORS). The live `errors` node wins while it has
-// messages; otherwise the `initialErrors` node applies — but only while the
-// value at `path` still equals `initialValues` at `path` (NestedErrors
-// semantics: value changed ⇒ the server error no longer applies).
+// errors-else-initialErrors selection. The deposit form passes server errors
+// as Formik `initialErrors`; it has no `validate` and keeps validateOnChange,
+// so the first change anywhere in the form resets `errors` to {} (formik's
+// SET_ERRORS). The live `errors` node wins while it has messages; otherwise
+// the `initialErrors` node applies — but only while the value at `path` still
+// equals `initialValues` at `path` (a changed value means the server error no
+// longer applies).
 //
 // Exported pure so callers that cannot run hooks (DetailView's collect,
 // which builds rows outside a component) can pass a hand-built formik-ish

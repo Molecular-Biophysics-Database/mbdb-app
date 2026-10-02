@@ -10,6 +10,7 @@ import {
   useFieldErrors,
   useOwnErrorMessages,
 } from "@js/mbdb/forms/building-blocks/errors";
+import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 
 // Hand entry for a chemical PubChem does not have. Stored without an id,
 // which is also what keeps the manual form mounted (isManualChemical).
@@ -34,15 +35,16 @@ export const ManualChemical = ({ fieldPath }) => {
         {data.label} · Manual entry
         {data.required && <span className="mbdb-required">*</span>}
       </Header>
-      {objectMessages.map((message) => (
-        <div key={message} className="ui red text">
-          {message}
-        </div>
-      ))}
+      <ErrorMessages messages={objectMessages} />
       <Form.Group widths="equal">
         <TextField
           fieldPath={`${fieldPath}.title.en`}
           width={8}
+          // the vocabulary key `title` is an i18ndict; its `en` leaf has no
+          // model label, so without the override the input shows "En".
+          // Required: the backend errors at `….title` when it is missing.
+          label="Name"
+          required
           error={titleMessages.length > 0 ? titleMessages.join(" ") : undefined}
         />
         <TextField fieldPath={`${fieldPath}.chemical_formula`} width={8} />

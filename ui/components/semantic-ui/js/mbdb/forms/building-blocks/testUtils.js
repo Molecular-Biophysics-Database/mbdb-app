@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
-import { act } from "react-dom/test-utils";
-import { Formik } from "formik";
+import { act, Simulate } from "react-dom/test-utils";
+import fs from "fs";
+import path from "path";
+import { Formik, FormikProvider, Field, getIn, useFormikContext } from "formik";
 import { HelpModeProvider } from "mbdb-semantic-ui-react";
 
 // Shared test harness for the building-block tests. One jest.mock for
@@ -67,10 +69,28 @@ export const oarepoFake = {
 // Render `ui` inside a real Formik (enableReinitialize, like the deposit
 // form) into a fresh container appended to document.body. helpMode wraps the
 // tree in HelpModeProvider. Returns the container; pass it to unmountForm.
+//
+// Options (plan 2R D3/D5):
+// - withUnrelatedField: also renders, after `ui`, a formik Field named
+//   "unrelatedTestField" (data-testid="unrelated-field") for the
+//   errors-stay-after-an-unrelated-edit pattern (editUnrelatedField). Opt-in,
+//   so existing querySelector("input") tests are not affected.
+// - onSetFieldValue(fn): wraps `ui` so fn is called on every formik
+//   setFieldValue (a spy for "no write on …" tests).
 export const renderInForm = (
   ui,
-  { initialValues = {}, initialErrors = {}, helpMode } = {}
+  {
+    initialValues = {},
+    initialErrors = {},
+    uiModel,
+    helpMode,
+    withUnrelatedField = false,
+    onSetFieldValue,
+  } = {}
 ) => {
+  if (uiModel !== undefined) setFakeUiModel(uiModel);
+  if (onSetFieldValue !== undefined)
+    ui = <SetFieldValueSpy fn={onSetFieldValue}>{ui}</SetFieldValueSpy>;
   const container = document.createElement("div");
   document.body.appendChild(container);
   const tree = (
@@ -81,9 +101,19 @@ export const renderInForm = (
       onSubmit={() => {}}
     >
       {helpMode ? (
-        <HelpModeProvider mode={helpMode}>{ui}</HelpModeProvider>
+        <HelpModeProvider mode={helpMode}>
+          {ui}
+          {withUnrelatedField && (
+            <Field name="unrelatedTestField" data-testid="unrelated-field" />
+          )}
+        </HelpModeProvider>
       ) : (
-        ui
+        <>
+          {ui}
+          {withUnrelatedField && (
+            <Field name="unrelatedTestField" data-testid="unrelated-field" />
+          )}
+        </>
       )}
     </Formik>
   );
@@ -102,4 +132,151 @@ export const unmountForm = (container) => {
   document
     .querySelectorAll(".ui.modals, .ui.dimmer")
     .forEach((el) => el.remove());
+};
+
+// --- renderInForm options (plan 2R D3/D5) -----------------------------------
+
+// Wraps `ui` so callers can spy on Formik's setFieldValue: it reads the real
+// formik context and re-provides it through FormikProvider with a
+// setFieldValue that reports to `fn` and then delegates.
+const SetFieldValueSpy = ({ fn, children }) => {
+  const formik = useFormikContext();
+  const wrapped = {
+    ...formik,
+    setFieldValue: (...a) => {
+      fn(...a);
+      return formik.setFieldValue(...a);
+    },
+  };
+  return <FormikProvider value={wrapped}>{children}</FormikProvider>;
+};
+SetFieldValueSpy.propTypes = {
+  fn: PropTypes.func.isRequired,
+  children: PropTypes.node,
+};
+
+// --- model YAML enum reading (plan 2R D2) ------------------------------------
+
+// Walks up from this file's real path (Jest may load it through the assets
+// symlink) to the repository's models/ folder.
+export const modelYamlPath = () => {
+  let dir = fs.realpathSync(__dirname);
+  while (dir !== path.dirname(dir)) {
+    const p = path.join(
+      dir,
+      "models",
+      "general_parameters-definitions-rdm.yaml"
+    );
+    if (fs.existsSync(p)) return p;
+    dir = path.dirname(dir);
+  }
+  throw new Error(`model YAML not found above ${__dirname}`);
+};
+
+// Enum of a top-level type (`yamlEnum("LENGTH_UNITS")`) or of a property of a
+// top-level type (`yamlEnum("Size", "type")`). Text parsing of the model's
+// fixed layout: `<Type>:` at column 0, properties at 4 spaces, `enum:` then
+// `- value` lines. Strips surrounding quotes; throws when nothing is found.
+export const yamlEnum = (typeName, property) => {
+  const lines = fs.readFileSync(modelYamlPath(), "utf8").split("\n");
+  const start = lines.findIndex((l) => l === `${typeName}:`);
+  if (start === -1)
+    throw new Error(`type not found in model YAML: ${typeName}`);
+  // The block ends at the next line that starts without a leading space.
+  let end = lines.length;
+  for (let i = start + 1; i < lines.length; i += 1) {
+    if (lines[i] !== "" && !/^\s/.test(lines[i])) {
+      end = i;
+      break;
+    }
+  }
+  let block = lines.slice(start + 1, end);
+  if (property !== undefined) {
+    const propIdx = block.findIndex((l) => l === `    ${property}:`);
+    if (propIdx === -1)
+      throw new Error(`property not found on ${typeName}: ${property}`);
+    // The property block ends at the next line at the property indent (4 sp).
+    let propEnd = block.length;
+    for (let i = propIdx + 1; i < block.length; i += 1) {
+      const l = block[i];
+      if (l !== "" && /^ {4}\S/.test(l)) {
+        propEnd = i;
+        break;
+      }
+    }
+    block = block.slice(propIdx + 1, propEnd);
+  }
+  const enumIdx = block.findIndex((l) => /^\s+enum:\s*$/.test(l));
+  if (enumIdx === -1)
+    throw new Error(
+      `enum not found on ${typeName}${property ? "." + property : ""}`
+    );
+  const values = [];
+  for (let i = enumIdx + 1; i < block.length; i += 1) {
+    const m = /^\s+-\s+(.*)$/.exec(block[i]);
+    if (!m) break; // first non-`- …` line ends the enum list
+    values.push(m[1].trim().replace(/^["']|["']$/g, ""));
+  }
+  if (values.length === 0)
+    throw new Error(
+      `empty enum on ${typeName}${property ? "." + property : ""}`
+    );
+  return values;
+};
+
+// --- value probe (plan 2R D5) ------------------------------------------------
+
+// Renders the formik value at `path` as JSON so tests assert stored data, not
+// DOM. Renders `null` when the value is absent (undefined), so `readProbe`
+// parses `null` there.
+export const ValueProbe = ({ path }) => {
+  const { values } = useFormikContext();
+  return (
+    <pre data-testid="value-probe">
+      {JSON.stringify(getIn(values, path) ?? null)}
+    </pre>
+  );
+};
+ValueProbe.propTypes = { path: PropTypes.string.isRequired };
+
+// JSON.parse of ValueProbe's <pre>; `null` when the value (or probe) is absent.
+export const readProbe = (container) => {
+  const pre = container.querySelector('[data-testid="value-probe"]');
+  return pre ? JSON.parse(pre.textContent) : null;
+};
+
+// --- event helpers (plan 2R D5/D3) -------------------------------------------
+
+// Simulate an input `change` to `value`, flushing one macrotask before and
+// after. The flush BEFORE lets a pending render land so the input event sees a
+// current DOM; the flush AFTER lets Formik's setFieldValue → validation promise
+// resolve. Both are needed because formik's state/validation settle in promise
+// ticks, not synchronously with the simulated event.
+export const typeInto = async (element, value) => {
+  await act(async () => {
+    await new Promise((r) => setTimeout(r, 0));
+    Simulate.change(element, { target: { value } });
+    await new Promise((r) => setTimeout(r, 0));
+  });
+};
+
+// Simulate a click, with the same two-tick flush as typeInto: React's render
+// from any prior event lands first, then formik's post-click update settles.
+export const clickOn = async (element) => {
+  await act(async () => {
+    await new Promise((r) => setTimeout(r, 0));
+    Simulate.click(element);
+    await new Promise((r) => setTimeout(r, 0));
+  });
+};
+
+// Types "x" into the unrelated field rendered by the withUnrelatedField option
+// (D3). The timer after the change is needed because Formik's validation —
+// which resets `errors` to {} — resolves in a promise AFTER the change. By the
+// time this returns, that reset has settled, so a surviving message is the
+// merged-initialErrors fallback, not a stale `errors` node.
+export const editUnrelatedField = async (container) => {
+  const field = container.querySelector('[data-testid="unrelated-field"]');
+  if (!field) throw new Error("no unrelatedTestField; pass withUnrelatedField");
+  await typeInto(field, "x");
 };

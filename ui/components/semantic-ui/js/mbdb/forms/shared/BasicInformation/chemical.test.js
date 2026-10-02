@@ -75,8 +75,10 @@ describe("chemicalLinks", () => {
     expect(links.map((l) => l.label)).toEqual(["PubChem ↗", "ChEMBL ↗"]);
   });
 
-  it("falls back to the id when there is no title", () => {
+  it("falls back to the id for PubChem only when there is no title", () => {
+    // ChEMBL search needs a title; an InChIKey id finds nothing there
     const links = chemicalLinks({ id: "inchikey:ABC" });
+    expect(links).toHaveLength(1);
     expect(links[0].href).toContain("#query=inchikey%3AABC");
   });
 

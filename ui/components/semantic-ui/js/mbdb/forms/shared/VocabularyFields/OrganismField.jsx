@@ -7,10 +7,12 @@ import { describeOrganism } from "./describers";
 // vocabularies need no wrapper of their own; use MbdbVocabularyField with
 // the vocabulary type directly.
 export const OrganismField = (props) => (
+  // spread first: the wrapper's vocabularyName/describe are the point of
+  // this component and must not be overridable by a stray caller prop
   <MbdbVocabularyField
+    {...props}
     vocabularyName="organisms"
     describe={describeOrganism}
-    {...props}
   />
 );
 

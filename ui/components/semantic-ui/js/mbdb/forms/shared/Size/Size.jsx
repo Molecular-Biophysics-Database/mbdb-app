@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useFormikContext, getIn } from "formik";
-import { Form } from "mbdb-semantic-ui-react";
+import { Form, Button } from "mbdb-semantic-ui-react";
 import { FieldGroup } from "@js/mbdb/forms/building-blocks/FieldGroup";
 import { ButtonGroupField } from "@js/mbdb/forms/building-blocks/ButtonGroupField";
 import { SelectField } from "@js/mbdb/forms/building-blocks/SelectField";
 import { NumberField } from "@js/mbdb/forms/building-blocks/TextField";
 import { hasData } from "@js/mbdb/forms/building-blocks/errors";
+import { useUnsetField } from "@js/mbdb/forms/building-blocks/unset";
 import { SIZE_TYPES, LENGTH_UNITS } from "./constants";
 
 // The size of a lipid assembly: a small statistics group with a single unit
@@ -18,8 +19,23 @@ export const Size = ({ fieldPath }) => {
   // required unconditionally because it describes the inside of `size`;
   // `size` itself is optional, so the markers appear after the first entry
   const filled = hasData(getIn(values, fieldPath));
+  const unset = useUnsetField();
   return (
     <FieldGroup fieldPath={fieldPath}>
+      {filled && (
+        // A required field can't be cleared on its own, so the group gets
+        // one action that removes the whole optional object (no confirm:
+        // it is a few numbers). Keeps required={filled} safe to use.
+        <Button
+          basic
+          size="mini"
+          type="button"
+          floated="right"
+          onClick={() => unset(fieldPath)}
+        >
+          Clear size
+        </Button>
+      )}
       <Form.Group widths="equal">
         <ButtonGroupField
           fieldPath={`${fieldPath}.type`}

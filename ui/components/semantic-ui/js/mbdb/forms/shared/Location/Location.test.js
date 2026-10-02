@@ -6,6 +6,7 @@ import {
   renderInForm,
   unmountForm,
   setFakeUiModel,
+  editUnrelatedField,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { Location } from "./Location";
 import { mapUrl } from "./mapUrl";
@@ -57,6 +58,9 @@ const render = (ui, opts = {}) => {
   container = renderInForm(ui, opts);
 };
 
+const renderWithUnrelated = (ui, opts = {}) =>
+  render(ui, { ...opts, withUnrelatedField: true });
+
 const location = () => (
   <>
     <Location fieldPath={PATH} />
@@ -100,16 +104,36 @@ describe("Location", () => {
     expect(probe()).toEqual({ latitude: 49.1951 });
   });
 
-  it("clearing all three leaves the location key absent, never {}", async () => {
-    render(location(), {
-      initialValues: {
-        [PATH]: { latitude: 49.1951, longitude: 16.6068, altitude: 237 },
-      },
-    });
+  it("clearing all three prunes location but keeps the entity sibling (real array path)", async () => {
+    // the real path sits under entities_of_interest.<i>: pruning must stop
+    // at the array item, not touch its siblings (Location-review F2 nit)
+    const arrayPath = "entities.0.location";
+    render(
+      <>
+        <Location fieldPath={arrayPath} />
+        <Probe path="entities.0" />
+      </>,
+      {
+        initialValues: {
+          entities: [
+            {
+              type: "Complex substance of environmental origin",
+              location: {
+                latitude: 49.1951,
+                longitude: 16.6068,
+                altitude: 237,
+              },
+            },
+          ],
+        },
+      }
+    );
     await type(inputs()[0], "");
     await type(inputs()[1], "");
     await type(inputs()[2], "");
-    expect(probe()).toBeNull();
+    expect(probe()).toEqual({
+      type: "Complex substance of environmental origin",
+    });
   });
 
   it("shows the map link only once latitude and longitude are numbers", async () => {
@@ -122,6 +146,16 @@ describe("Location", () => {
     const link = mapLink();
     expect(link).toBeDefined();
     expect(link.getAttribute("href")).toBe(mapUrl(49.1951, 16.6068));
+  });
+
+  it("the object-level error shows under the group header and survives an unrelated edit (Location-review F1)", async () => {
+    renderWithUnrelated(location(), {
+      initialErrors: { [PATH]: "Missing data for required field." },
+    });
+    expect(container.querySelector("h5.ui.header.red")).not.toBeNull();
+    expect(container.textContent).toContain("Missing data for required field.");
+    await editUnrelatedField(container);
+    expect(container.textContent).toContain("Missing data for required field.");
   });
 
   it("shows per-field errors under their inputs; untouched ones stay after editing another field", async () => {

@@ -346,6 +346,19 @@ describe("TableArrayField", () => {
     expect(area.getAttribute("autoheight")).toBeNull();
   });
 
+  it("a short textarea cell stays one row high (table cells use a floor of 1)", () => {
+    mount(
+      <TableArrayField
+        fieldPath="rows"
+        columns={[{ field: "note", label: "Note", type: "textarea" }]}
+      />,
+      { initialValues: { rows: [{ note: "short" }] } }
+    );
+    expect(
+      Number(container.querySelector("textarea").getAttribute("rows"))
+    ).toBe(1);
+  });
+
   it("render column shows computed read-only content", () => {
     mount(
       <>
@@ -448,9 +461,7 @@ describe("TableArrayField", () => {
       initialValues: { steps: [{ name: "" }] },
       initialErrors: { steps: "Missing data for required field." },
     });
-    const labels = [
-      ...container.querySelectorAll(".ui.red.pointing.prompt.label"),
-    ];
+    const labels = [...container.querySelectorAll(".ui.pointing.prompt.label")];
     expect(labels.map((l) => l.textContent)).toContain(
       "Missing data for required field."
     );
@@ -462,7 +473,7 @@ describe("TableArrayField", () => {
       initialErrors: { dbs: ["Unknown database prefix."] },
     });
     const rowLabels = [
-      ...container.querySelectorAll(".ui.red.pointing.prompt.label"),
+      ...container.querySelectorAll(".ui.pointing.prompt.label"),
     ].map((l) => l.textContent);
     expect(rowLabels).toEqual(["Unknown database prefix."]);
     // exactly one label (the row one); nothing duplicated at list level

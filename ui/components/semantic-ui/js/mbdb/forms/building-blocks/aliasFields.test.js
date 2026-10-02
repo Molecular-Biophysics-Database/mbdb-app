@@ -25,6 +25,12 @@ jest.mock("@js/oarepo_ui/forms", () => ({
   }),
 }));
 
+// Shared harness helpers for the Formik-level error tests (the local `render`
+// above has no unrelated-field/spy options). These use only Formik + ReactDOM,
+// so they work under this file's own useFieldData mock too.
+const { renderInForm, unmountForm, editUnrelatedField, typeInto } =
+  jest.requireActual("@js/mbdb/forms/building-blocks/testUtils");
+
 let container;
 
 beforeEach(() => {
@@ -194,12 +200,38 @@ describe("wrapped fields", () => {
     expect(helptexts().length).toBe(1);
   });
 
-  it("TextAreaField shows the error from initialErrors", () => {
-    render(<TextAreaField fieldPath="seq" />, {
+  it("TextAreaField shows the error from initialErrors and keeps it after an unrelated edit", async () => {
+    // the shared harness's unrelated field + edit: an edit elsewhere resets
+    // formik `errors`, but the initialErrors fallback keeps the message while
+    // the value at `seq` is unchanged (mergedErrorNode semantics)
+    const local = renderInForm(<TextAreaField fieldPath="seq" />, {
+      initialValues: { seq: "MKAL", unrelatedTestField: "" },
+      initialErrors: { seq: "Not a valid sequence." },
+      withUnrelatedField: true,
+    });
+    try {
+      expect(local.textContent).toContain("Not a valid sequence.");
+      await editUnrelatedField(local);
+      expect(local.textContent).toContain("Not a valid sequence.");
+    } finally {
+      unmountForm(local);
+    }
+  });
+
+  it("TextAreaField error disappears once the textarea itself is edited", async () => {
+    // a change at the error's own path makes the server error no longer apply
+    const local = renderInForm(<TextAreaField fieldPath="seq" />, {
       initialValues: { seq: "MKAL" },
       initialErrors: { seq: "Not a valid sequence." },
+      withUnrelatedField: true,
     });
-    expect(container.textContent).toContain("Not a valid sequence.");
+    try {
+      expect(local.textContent).toContain("Not a valid sequence.");
+      await typeInto(local.querySelector("textarea"), "MKALS");
+      expect(local.textContent).not.toContain("Not a valid sequence.");
+    } finally {
+      unmountForm(local);
+    }
   });
 
   it("TextField in popup mode shows no helptext, only the label icon", () => {

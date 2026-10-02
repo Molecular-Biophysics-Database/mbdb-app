@@ -9,7 +9,7 @@ import {
   isEmptyValue,
   useFieldErrors,
 } from "@js/mbdb/forms/building-blocks/errors";
-import { ErrorNote, Value, textOf, vocabularyLookup } from "./values";
+import { ErrorNote, Value, textOf } from "./values";
 import { DetailLabel } from "./DetailLabel";
 import { collectRows } from "./collect";
 
@@ -34,7 +34,7 @@ Heading.propTypes = {
 
 // One field row; kept visible even when empty while it has a server error
 // (design §5). The error comes through useFieldErrors so it survives edits (F1).
-const FieldRow = ({ row, titles, onEdit }) => {
+const FieldRow = ({ row, onEdit }) => {
   const { hasError } = useFieldErrors(row.path);
   if (isEmptyValue(row.value) && !hasError) return null;
   return (
@@ -46,7 +46,7 @@ const FieldRow = ({ row, titles, onEdit }) => {
         <DetailLabel path={row.path} fallback={row.name} />
       </Table.Cell>
       <Table.Cell>
-        <Value name={row.name} value={row.value} titles={titles} />
+        <Value name={row.name} value={row.value} vocabulary={row.vocabulary} />
         <ErrorNote path={row.path} onEdit={onEdit} />
       </Table.Cell>
     </>
@@ -54,12 +54,11 @@ const FieldRow = ({ row, titles, onEdit }) => {
 };
 FieldRow.propTypes = {
   row: PropTypes.object.isRequired,
-  titles: PropTypes.object,
   onEdit: PropTypes.func,
 };
 
 // A mini-table row with its own ▸; expansion renders the item's rows inline.
-const MiniRow = ({ basePath, index, item, keys, titles }) => {
+const MiniRow = ({ basePath, index, item, keys }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -80,15 +79,13 @@ const MiniRow = ({ basePath, index, item, keys, titles }) => {
           </Button>
         </Table.Cell>
         {keys.map((key) => (
-          <Table.Cell key={key}>
-            {textOf(item?.[key], vocabularyLookup(titles, key))}
-          </Table.Cell>
+          <Table.Cell key={key}>{textOf(item?.[key])}</Table.Cell>
         ))}
       </Table.Row>
       {open && (
         <Table.Row className="mbdb-details">
           <Table.Cell colSpan={keys.length + 1}>
-            <Rows rows={collectRows(item, basePath)} titles={titles} />
+            <Rows rows={collectRows(item, basePath)} />
           </Table.Cell>
         </Table.Row>
       )}
@@ -100,13 +97,12 @@ MiniRow.propTypes = {
   index: PropTypes.number.isRequired,
   item: PropTypes.object.isRequired,
   keys: PropTypes.array.isRequired,
-  titles: PropTypes.object,
 };
 
 // A mini summary table for an array of complex objects (design §4). Columns
 // are the union of keys with data in first-seen order, with a header row whose
 // labels come from the model (F4e). Read-only; the positional key is meaning.
-const MiniTable = ({ basePath, items, titles }) => {
+const MiniTable = ({ basePath, items }) => {
   const keys = [
     ...new Set(items.flatMap((item) => Object.keys(item ?? {}))),
   ].filter((key) => items.some((item) => hasData(item?.[key])));
@@ -130,7 +126,6 @@ const MiniTable = ({ basePath, items, titles }) => {
             index={i}
             item={item}
             keys={keys}
-            titles={titles}
           />
         ))}
       </Table.Body>
@@ -140,11 +135,10 @@ const MiniTable = ({ basePath, items, titles }) => {
 MiniTable.propTypes = {
   basePath: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
-  titles: PropTypes.object,
 };
 
 // Rows of one object. Wrap each row in <Table.Row key={i}>.
-export const Rows = ({ rows, titles, onEdit }) => (
+export const Rows = ({ rows, onEdit }) => (
   <>
     {rows.map((row, i) => {
       if (row.kind === "heading")
@@ -160,17 +154,13 @@ export const Rows = ({ rows, titles, onEdit }) => (
               colSpan="2"
               className={row.indent ? "mbdb-details-indent" : undefined}
             >
-              <MiniTable
-                basePath={row.path}
-                items={row.items}
-                titles={titles}
-              />
+              <MiniTable basePath={row.path} items={row.items} />
             </Table.Cell>
           </Table.Row>
         );
       return (
         <Table.Row key={i}>
-          <FieldRow row={row} titles={titles} onEdit={onEdit} />
+          <FieldRow row={row} onEdit={onEdit} />
         </Table.Row>
       );
     })}
@@ -178,6 +168,5 @@ export const Rows = ({ rows, titles, onEdit }) => (
 );
 Rows.propTypes = {
   rows: PropTypes.array.isRequired,
-  titles: PropTypes.object,
   onEdit: PropTypes.func,
 };

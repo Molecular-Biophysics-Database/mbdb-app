@@ -17,6 +17,7 @@ import {
   useFieldErrors,
   useOwnErrorMessages,
 } from "@js/mbdb/forms/building-blocks/errors";
+import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import { useArrayRows } from "@js/mbdb/forms/building-blocks/useArrayRows";
 import { SummaryItem } from "@js/mbdb/forms/building-blocks/SummaryItem";
@@ -134,13 +135,7 @@ export const ModalArrayField = ({
             </Table.Body>
           </Table>
         )}
-        {listMessages.length > 0 && (
-          <div>
-            <Label color="red" pointing prompt>
-              {listMessages.join(" ")}
-            </Label>
-          </div>
-        )}
+        <ErrorMessages messages={listMessages} />
         {options.length === 1 ? (
           <Button
             type="button"
@@ -218,10 +213,18 @@ ModalArrayField.propTypes = {
   detailGroups: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      fields: PropTypes.arrayOf(PropTypes.string).isRequired,
+      fields: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.shape({
+            field: PropTypes.string.isRequired,
+            vocabulary: PropTypes.string,
+          }),
+        ])
+      ).isRequired,
     })
   ),
-  // extra DetailView props (exclude, requiredPaths, vocabularyTitles).
+  // extra DetailView props (exclude, requiredPaths).
   // `exclude` defaults to ["id"], the internal client uuid.
   detailProps: PropTypes.object,
 };

@@ -7,7 +7,7 @@ import { FieldHelp, HelpLabel } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
 import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
-import { rememberTitle, useVocabularyTitle } from "./vocabularyTitles";
+import { rememberItem, useVocabularyItem } from "./vocabularyTitles";
 
 // The one way mbdb forms reference a vocabulary term. oarepo's
 // VocabularyField is wrapped because its defaults break four form rules:
@@ -54,13 +54,16 @@ export const MbdbVocabularyField = ({
   const value = getIn(values, fieldPath);
   // A stored { id } without a title needs its display title: from the
   // session cache, otherwise fetched once from the vocabulary API. A value
-  // the server already enriched with a title needs no lookup.
+  // the server already enriched with a title needs no lookup. The title is
+  // used only when it is a string — a stored title object without an `en`
+  // leaf would otherwise become the option's text and crash React.
   const storedTitle = value?.title?.en ?? value?.title;
-  const fetchedTitle = useVocabularyTitle(
+  const { title: fetchedTitle } = useVocabularyItem(
     vocabularyName,
-    storedTitle ? undefined : value?.id
+    typeof storedTitle === "string" ? undefined : value?.id
   );
-  const title = storedTitle ?? fetchedTitle;
+  const title =
+    (typeof storedTitle === "string" ? storedTitle : undefined) ?? fetchedTitle;
 
   const onValueChange = ({ data: changeData, formikProps }, suggestions) => {
     const suggestion = suggestions.find((o) => o.id === changeData.value);
@@ -79,7 +82,12 @@ export const MbdbVocabularyField = ({
       onAddition?.(changeData.value);
       return;
     }
-    rememberTitle(vocabularyName, suggestion.id, suggestion.title_l10n);
+    // The serialized suggestion spreads the whole vocabulary item, so the
+    // title and custom_fields are at hand without a second GET.
+    rememberItem(vocabularyName, suggestion.id, {
+      title: suggestion.title_l10n,
+      customFields: suggestion.custom_fields,
+    });
     formikProps.form.setFieldValue(fieldPath, { id: suggestion.id });
   };
 
@@ -101,6 +109,15 @@ export const MbdbVocabularyField = ({
     <>
       <FieldDataContext.Provider value={innerFieldData}>
         <VocabularyField
+          // RemoteSelectField reads initialSuggestions only in its
+          // constructor, so a title fetched after mount never shows unless
+          // the field remounts once it is known. The title is keyed by id
+          // (useVocabularyItem), so a stale title cannot pin the wrong text.
+          key={
+            value?.id && title === undefined
+              ? `id:${value.id}`
+              : `titled:${value?.id}`
+          }
           {...restProps}
           fieldPath={fieldPath}
           vocabularyName={vocabularyName}
@@ -108,7 +125,7 @@ export const MbdbVocabularyField = ({
           required={data.required}
           helpText={undefined}
           clearable={!data.required}
-          error={messages.length > 0 ? messages[0] : undefined}
+          error={messages.length > 0 ? messages.join(" ") : undefined}
           initialSuggestions={
             value?.id ? [{ id: value.id, title_l10n: title }] : []
           }

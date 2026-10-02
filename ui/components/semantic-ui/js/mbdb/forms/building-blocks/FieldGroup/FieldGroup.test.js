@@ -119,6 +119,32 @@ describe("FieldGroup", () => {
     expect(container.querySelector("h5.ui.header.red")).not.toBeNull();
   });
 
+  it("shows the group-path message under the header, surviving an unrelated edit", async () => {
+    // D1: a required group the server flags has its message visible, not
+    // only a red header (Location-review F1).
+    render(
+      <>
+        <FieldGroup title="Location" fieldPath="metadata.location">
+          fields
+        </FieldGroup>
+        <Field data-testid="other" name="other" />
+      </>,
+      {
+        initialErrors: {
+          metadata: { location: "Missing data for required field." },
+        },
+      }
+    );
+    expect(container.textContent).toContain("Missing data for required field.");
+    const other = container.querySelector('[data-testid="other"]');
+    other.value = "x";
+    await act(async () => {
+      Simulate.change(other);
+      await new Promise((r) => setTimeout(r, 0));
+    });
+    expect(container.textContent).toContain("Missing data for required field.");
+  });
+
   it('does not mark the header red for a { severity: "warning" } node', () => {
     render(
       <FieldGroup title="Mw" fieldPath="metadata.mw">

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Label } from "mbdb-semantic-ui-react";
+import { useVocabularyTitle } from "@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles";
 import {
   isEmptyValue,
   useFieldErrors,
@@ -30,6 +31,14 @@ export const isPlainObject = (v) =>
 
 export const isLeafObject = (v) => isValueUnit(v) || isVocabulary(v);
 
+// "18.02 g/mol", or the part of it that exists — the one value-unit text,
+// shared with the chemical picker (chemical.js) so the detail view and the
+// form read the same. "" when there is no value at all.
+export const valueUnitText = (v) =>
+  v?.value !== undefined && v?.value !== null
+    ? [v.value, v.unit].filter((x) => !isEmptyValue(x)).join(" ")
+    : "";
+
 // `{ assessed: "Yes"|"No", …facts }` — the discriminated-optional shape (§3)
 export const isAssessed = (v) =>
   isPlainObject(v) && (v.assessed === "Yes" || v.assessed === "No");
@@ -56,11 +65,17 @@ const assessedText = (value, vocabulary) => {
   return facts.length ? `Yes — ${facts.join(", ")}` : "Yes";
 };
 
-// Resolves a vocabulary id to a display title: a flat {id: title} map wins,
-// otherwise a per-field {name: {id: title}} map. Exported for Rows.jsx's
-// mini-table cells, which reuse the same resolution.
-export const vocabularyLookup = (titles, name) => (id) =>
-  titles?.[id] ?? titles?.[name]?.[id] ?? null;
+// A `{ id }` vocabulary reference resolved to a title through the shared
+// per-id cache (`useVocabularyTitle` does a GET once per id). Shows the id
+// while loading. Declared by a `{ field, vocabulary }` group entry (D6).
+export const VocabularyValue = ({ vocabulary, value }) => {
+  const { title } = useVocabularyTitle(vocabulary, value.id);
+  return <>{title ?? value.id}</>;
+};
+VocabularyValue.propTypes = {
+  vocabulary: PropTypes.string.isRequired,
+  value: PropTypes.shape({ id: PropTypes.string }).isRequired,
+};
 
 export const textOf = (value, vocabulary) => {
   if (isEmptyValue(value)) return "";
@@ -88,12 +103,16 @@ export const textOf = (value, vocabulary) => {
       ? value.map((v) => String(v)).join(", ")
       : "";
   }
-  if (isValueUnit(value))
-    return [value.value, value.unit].filter((x) => !isEmptyValue(x)).join(" ");
+  if (isValueUnit(value)) return valueUnitText(value);
   if (isAssessed(value)) return assessedText(value, vocabulary);
   if (isVocabulary(value))
-    // fall back to the record's own title before showing the raw id
-    return vocabulary(value.id) ?? value.title?.en ?? value.id;
+    // fall back to the record's own title before showing the raw id; the
+    // lookup fn comes from a caller-declared vocabulary (see Value), else id
+    return (
+      (typeof vocabulary === "function" ? vocabulary(value.id) : null) ??
+      value.title?.en ??
+      value.id
+    );
   return "";
 };
 
@@ -103,10 +122,26 @@ const hasText = (v) => !isEmptyValue(v);
 const BULLET_THRESHOLD = 5;
 
 // One formatted value; uses the suffix formatter when one is registered.
-export const Value = ({ name, value, titles }) => {
-  const vocabulary = vocabularyLookup(titles, name);
+// `vocabulary` (a declared vocabulary type, D6) switches `{ id }` display to
+// the shared title cache instead of the raw id.
+export const Value = ({ name, value, vocabulary }) => {
   const formatter = formatters[name]; // registry is keyed by path suffix
   if (formatter && !isEmptyValue(value)) return formatter(value);
+  // a group entry declared the vocabulary: resolve title(s) via the cache
+  if (vocabulary && isVocabulary(value))
+    return <VocabularyValue vocabulary={vocabulary} value={value} />;
+  if (
+    vocabulary &&
+    Array.isArray(value) &&
+    value.length > 0 &&
+    value.every(isVocabulary)
+  )
+    return value.map((v, i) => (
+      <span key={v.id}>
+        {i > 0 ? ", " : ""}
+        <VocabularyValue vocabulary={vocabulary} value={v} />
+      </span>
+    ));
   if (
     Array.isArray(value) &&
     value.length > BULLET_THRESHOLD &&
@@ -117,7 +152,7 @@ export const Value = ({ name, value, titles }) => {
     return (
       <ul>
         {value.map((item) => (
-          <li key={String(item)}>{textOf(item, vocabulary)}</li>
+          <li key={String(item)}>{textOf(item)}</li>
         ))}
       </ul>
     );
@@ -129,19 +164,17 @@ export const Value = ({ name, value, titles }) => {
     // manual chemical entry: title plus a grey hint (design §3)
     return (
       <span>
-        {textOf(value.title, vocabulary)}{" "}
-        <Label basic size="mini" content="Manual entry" />
+        {textOf(value.title)} <Label basic size="mini" content="Manual entry" />
       </span>
     );
   if (isVocabulary(value) && !isEmptyValue(value.rank))
     // vocabulary with a saved rank: title plus extra info in grey (§3)
     return (
       <span>
-        {textOf(value, vocabulary)}{" "}
-        <span className="ui grey text">({value.rank})</span>
+        {textOf(value)} <span className="ui grey text">({value.rank})</span>
       </span>
     );
-  const text = textOf(value, vocabulary);
+  const text = textOf(value);
   // numbered "steps" and long wrapped text keep their line breaks
   return text.includes("\n") ? (
     <span className="mbdb-pre-line">{text}</span>
@@ -152,7 +185,7 @@ export const Value = ({ name, value, titles }) => {
 Value.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.any,
-  titles: PropTypes.object,
+  vocabulary: PropTypes.string,
 };
 
 // The red message(s) under a value (design §5); survives Formik's errors

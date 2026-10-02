@@ -2,6 +2,13 @@ import { useFieldData } from "@js/oarepo_ui/forms";
 import { hasData, isEmptyValue } from "@js/mbdb/forms/building-blocks/errors";
 import { isAssessed, isLeafObject, isPlainObject, isSteps } from "./values";
 
+// A group field entry is a plain name or `{ field: name, vocabulary: type }`
+// (declared per field so details can resolve vocabulary titles by GET; D6).
+export const fieldEntryOf = (entry) =>
+  typeof entry === "string"
+    ? { name: entry }
+    : { name: entry.field, vocabulary: entry.vocabulary };
+
 // Build the flat row list for one object out of its values. Pure (no hooks):
 // error visibility is decided by the caller's `hasErr(path)` predicate, which
 // the components fill with useFieldErrors — one hook call per row (F1).
@@ -62,18 +69,25 @@ export const groupSections = (
 ) => {
   const known = new Set(exclude);
   const sections = [];
+  const vocabularies = {};
   groups.forEach((group) => {
     const part = {};
     const missing = [];
-    (group.fields ?? []).forEach((name) => {
+    (group.fields ?? []).forEach((entry) => {
+      const { name, vocabulary } = fieldEntryOf(entry);
       known.add(name);
       if (exclude.includes(name)) return;
       // a field with a server error stays visible even when empty (design §5)
-      if (hasData(obj?.[name]) || hasErr?.(`${basePath}.${name}`))
+      if (hasData(obj?.[name]) || hasErr?.(`${basePath}.${name}`)) {
         part[name] = obj?.[name];
-      else if (required.has(name)) missing.push(name);
+        if (vocabulary) vocabularies[name] = vocabulary;
+      } else if (required.has(name)) missing.push(name);
     });
-    const rows = collectRows(part, basePath, hasErr);
+    const rows = collectRows(part, basePath, hasErr).map((row) =>
+      row.kind === "field" && vocabularies[row.name]
+        ? { ...row, vocabulary: vocabularies[row.name] }
+        : row
+    );
     if (rows.length === 0 && missing.length === 0) return; // all-empty group
     sections.push({ title: group.title, rows, missing });
   });
@@ -97,7 +111,8 @@ export const useMergedRequired = (fieldPath, groups, requiredPaths) => {
   if (requiredPaths.length > 0) return new Set(requiredPaths);
   const merged = new Set();
   groups.forEach((group) =>
-    (group.fields ?? []).forEach((name) => {
+    (group.fields ?? []).forEach((entry) => {
+      const { name } = fieldEntryOf(entry);
       const { required } = getFieldData({
         fieldPath: `${fieldPath}.${name}`,
         fieldRepresentation: "text",

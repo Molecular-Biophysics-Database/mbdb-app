@@ -1,11 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { act, Simulate } from "react-dom/test-utils";
-import { Field, useFormikContext, getIn } from "formik";
+import { Field } from "formik";
 import {
   renderInForm,
   unmountForm,
   setFakeUiModel,
+  yamlEnum,
+  ValueProbe,
+  readProbe,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { MolecularWeight, MOLECULAR_WEIGHT_UNITS } from "./MolecularWeight";
 
@@ -28,17 +30,6 @@ const UI_MODEL = {
   },
 };
 
-const Probe = ({ path }) => {
-  const { values } = useFormikContext();
-  const v = getIn(values, path);
-  return (
-    <span data-testid="value">
-      {v === undefined ? "null" : JSON.stringify(v)}
-    </span>
-  );
-};
-Probe.propTypes = { path: PropTypes.string.isRequired };
-
 let container;
 
 beforeEach(() => {
@@ -55,8 +46,8 @@ const render = (ui, opts = {}) => {
   container = renderInForm(ui, opts);
 };
 
-// typing into a Semantic Input: the `on` handler paths go through act;
-// the awaited formik SET_ERRORS promise is flushed by awaiting act
+// typing into the Semantic number Input — Simulate.change reads the value
+// from the element (the blocks' onChange paths run inside act)
 const typeValue = async (value) => {
   const input = container.querySelector('input[type="number"]');
   input.value = value;
@@ -69,26 +60,24 @@ const clickUnit = async (text) => {
   const item = [...container.querySelectorAll(".dropdown .menu .item")].find(
     (el) => el.textContent.trim() === text
   );
-  expect(item).toBeDefined();
   await act(async () => {
     Simulate.click(item);
   });
 };
 
-const probe = () =>
-  JSON.parse(container.querySelector('[data-testid="value"]').textContent);
+const probe = () => readProbe(container);
 
 describe("MolecularWeight", () => {
   it("the unit list matches the YAML MOLECULAR_WEIGHT_UNITS enum", () => {
-    // models/general_parameters-definitions-rdm.yaml, MOLECULAR_WEIGHT_UNITS
-    expect(MOLECULAR_WEIGHT_UNITS).toEqual(["g/mol", "Da", "kDa", "MDa"]);
+    // read from the model so a model change or a retyped character fails
+    expect(MOLECULAR_WEIGHT_UNITS).toEqual(yamlEnum("MOLECULAR_WEIGHT_UNITS"));
   });
 
   it("offers exactly MOLECULAR_WEIGHT_UNITS in the dropdown, none pre-written", () => {
     render(
       <>
         <MolecularWeight fieldPath={PATH} />
-        <Probe path={PATH} />
+        <ValueProbe path={PATH} />
       </>
     );
     const shown = [...container.querySelectorAll(".dropdown .menu .item")].map(
@@ -104,7 +93,7 @@ describe("MolecularWeight", () => {
     render(
       <>
         <MolecularWeight fieldPath={PATH} />
-        <Probe path={PATH} />
+        <ValueProbe path={PATH} />
       </>
     );
     await typeValue("34.8");
@@ -117,7 +106,7 @@ describe("MolecularWeight", () => {
     render(
       <>
         <MolecularWeight fieldPath={PATH} />
-        <Probe path={PATH} />
+        <ValueProbe path={PATH} />
       </>
     );
     await clickUnit("Da");
@@ -131,7 +120,7 @@ describe("MolecularWeight", () => {
     render(
       <>
         <MolecularWeight fieldPath={PATH} />
-        <Probe path={PATH} />
+        <ValueProbe path={PATH} />
       </>,
       {
         initialValues: {

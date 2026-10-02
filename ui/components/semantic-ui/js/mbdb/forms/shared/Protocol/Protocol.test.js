@@ -1,11 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { act, Simulate } from "react-dom/test-utils";
-import { useFormikContext, getIn } from "formik";
 import {
   renderInForm,
   unmountForm,
   setFakeUiModel,
+  ValueProbe,
+  readProbe,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { Protocol } from "./Protocol";
 
@@ -48,13 +48,6 @@ const SAMPLE_STEPS = [
   },
 ];
 
-const Probe = ({ path }) => {
-  const { values } = useFormikContext();
-  const value = getIn(values, path);
-  return <span data-testid="probe">{JSON.stringify(value ?? null)}</span>;
-};
-Probe.propTypes = { path: PropTypes.string.isRequired };
-
 let container;
 
 beforeEach(() => {
@@ -74,12 +67,11 @@ const render = (ui, opts = {}) => {
 const protocol = (props = {}) => (
   <>
     <Protocol fieldPath={PATH} {...props} />
-    <Probe path={PATH} />
+    <ValueProbe path={PATH} />
   </>
 );
 
-const probe = () =>
-  JSON.parse(container.querySelector('[data-testid="probe"]').textContent);
+const probe = () => readProbe(container);
 
 const type = async (el, value) => {
   el.value = value;
@@ -193,6 +185,6 @@ describe("Protocol", () => {
     const rows = descriptionAreas().map((a) => Number(a.getAttribute("rows")));
     // 400 chars without breaks: 5 rows; a short description keeps the 3-row minimum
     expect(rows[0]).toBe(5);
-    expect(rows[1]).toBe(3);
+    expect(rows[1]).toBe(1);
   });
 });

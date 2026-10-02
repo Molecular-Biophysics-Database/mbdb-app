@@ -9,7 +9,11 @@ import {
   HelpLabel,
 } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
-import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
+import {
+  useFieldErrors,
+  useOwnErrorMessages,
+} from "@js/mbdb/forms/building-blocks/errors";
+import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 
 // A titled group of related fields. Does not bind to Formik; only reads
 // errors under `fieldPath` to turn the header red and gives the header an
@@ -38,6 +42,11 @@ export const FieldGroup = ({
   // fieldPath is optional; the shared error hook must run unconditionally,
   // so point it at a path that never matches anything when there is none.
   const { hasError } = useFieldErrors(fieldPath ?? "__fieldgroup_no_path__");
+  // Object-level message for the group's own path ("Missing data for
+  // required field." on a required group, etc.), shown under the header.
+  const ownMessages = useOwnErrorMessages(
+    fieldPath ?? "__fieldgroup_no_path__"
+  );
 
   const content = inline ? (
     <Form.Group widths="equal">{children}</Form.Group>
@@ -53,6 +62,7 @@ export const FieldGroup = ({
         {data.required && <span className="mbdb-required">*</span>}
       </Header>
       <FieldHelp help={data.helpText} />
+      <ErrorMessages messages={ownMessages} />
       {nested ? (
         <Segment basic className="mbdb-nested">
           {content}

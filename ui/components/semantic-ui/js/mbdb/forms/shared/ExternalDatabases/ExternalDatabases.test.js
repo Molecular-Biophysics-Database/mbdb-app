@@ -151,9 +151,9 @@ describe("ExternalDatabases", () => {
     expect(container.textContent).not.toContain("https://chembl");
   });
 
-  it("a string error at `<fieldPath>.0` shows on the row and survives an unrelated edit", () => {
+  it("a string error at `<fieldPath>.0` shows on the row; an unrelated edit keeps it, editing the row drops it", async () => {
     container = render({
-      initialValues: withRefs(["pdb:"]),
+      initialValues: withRefs(["pdb:", "uniprot:P69905"]),
       // the error node must sit at the same nested path Formik reads
       initialErrors: setIn({}, FIELD, {
         0: "Invalid external database reference.",
@@ -162,14 +162,25 @@ describe("ExternalDatabases", () => {
     expect(container.textContent).toContain(
       "Invalid external database reference."
     );
-    // any change resets Formik `errors`; initialErrors survive while row 0's
-    // stored string is untouched (guide §8, mergedErrorNode semantics)
-    const input = idInput(0);
-    input.value = "2HCO";
-    act(() => {
-      Simulate.change(input);
+    // an unrelated edit (row 1) resets Formik `errors`, but the error's row (0)
+    // is untouched, so the message must still show (ExternalDatabases-review F1)
+    const unrelated = idInput(1);
+    unrelated.value = "P69905X";
+    await act(async () => {
+      Simulate.change(unrelated);
+      await new Promise((r) => setTimeout(r, 0));
     });
     expect(container.textContent).toContain(
+      "Invalid external database reference."
+    );
+    // editing the errored row itself makes the server error stop applying
+    const errored = idInput(0);
+    errored.value = "2HCO";
+    await act(async () => {
+      Simulate.change(errored);
+      await new Promise((r) => setTimeout(r, 0));
+    });
+    expect(container.textContent).not.toContain(
       "Invalid external database reference."
     );
   });

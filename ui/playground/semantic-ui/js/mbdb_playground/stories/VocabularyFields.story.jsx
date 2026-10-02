@@ -3,9 +3,10 @@ import React from "react";
 import { MbdbVocabularyField } from "@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField";
 import { OrganismField } from "@js/mbdb/forms/shared/VocabularyFields/OrganismField";
 
-// The dropdowns talk to the live /api/vocabularies API (P1–P3): type
-// "bacillus" into the empty organism and check the rank next to each
-// option. The prefilled scenarios show the title fetched for a stored id.
+// The dropdowns talk to the live /api/vocabularies API: the organisms,
+// body-fluids and chemicals vocabularies must be loaded. Type "bacillus"
+// into the empty organism and check the rank next to each option. The
+// prefilled scenarios show the title fetched for a stored id.
 
 const BASE = "metadata.general_parameters.entities_of_interest.0";
 
@@ -30,11 +31,14 @@ const story = {
     },
     {
       name: "Organism, filled",
-      // stored as just { id }; the title must appear (P4 title fetch)
+      // stored as just { id }; the title must appear — the organisms
+      // vocabulary must be loaded so the title fetch finds taxid:12374
       initialValues: {
         metadata: {
           general_parameters: {
-            entities_of_interest: [{ source_organism: { id: "taxid:12374" } }],
+            entities_of_interest: [
+              { type: "Polymer", source_organism: { id: "taxid:12374" } },
+            ],
           },
         },
       },
@@ -42,11 +46,17 @@ const story = {
     },
     {
       name: "Body fluid, filled",
-      // bf:2 = Serum
+      // bf:2 = Serum; the body-fluids vocabulary must be loaded
       initialValues: {
         metadata: {
           general_parameters: {
-            entities_of_interest: [{ fluid: { id: "bf:2" } }],
+            entities_of_interest: [
+              {
+                type: "Complex substance of biological origin",
+                derived_from: "Body fluid",
+                fluid: { id: "bf:2" },
+              },
+            ],
           },
         },
       },

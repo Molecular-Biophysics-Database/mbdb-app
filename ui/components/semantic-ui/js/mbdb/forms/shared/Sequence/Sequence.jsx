@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { getIn, useFormikContext } from "formik";
 import { Label } from "mbdb-semantic-ui-react";
 import { TextAreaField } from "@js/mbdb/forms/building-blocks/TextField";
-import { blastUrl, countResidues, normalizeSequence } from "./sequence";
+import { blastUrl, countResidues, normalizeSequence } from "./sequenceText";
 
 // The primary sequence of a polymer: a monospace textarea, a BLAST lookup link
 // and a residue counter. Normalization (drop FASTA header, strip whitespace) is
@@ -23,9 +23,9 @@ export const Sequence = ({ fieldPath }) => {
         onBlur={() => {
           const current = getIn(values, fieldPath);
           const normalized = normalizeSequence(current);
-          // Skip the write when already normalized: setFieldValue clones the
-          // whole values tree, so a no-op blur would still rerender every
-          // field that reads `values` by reference.
+          // Skip the write when already normalized. Formik returns the same
+          // values object for an equal value, so the real cost of a no-op
+          // write is a dispatch plus a validation run (which resets `errors`).
           if (normalized !== current) setFieldValue(fieldPath, normalized);
         }}
         links={

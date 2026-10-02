@@ -21,12 +21,12 @@ import { groupSections, useMergedRequired } from "./collect";
 
 // One group of the form becomes a section: a header row plus its rows and the
 // red "Missing" rows for required-but-absent fields (design §5).
-const Section = ({ fieldPath, section, titles, onEdit }) => (
+const Section = ({ fieldPath, section, onEdit }) => (
   <>
     <Table.Row>
       <Table.HeaderCell colSpan="2">{section.title}</Table.HeaderCell>
     </Table.Row>
-    <Rows rows={section.rows} titles={titles} onEdit={onEdit} />
+    <Rows rows={section.rows} onEdit={onEdit} />
     {section.missing.map((name) => (
       <Table.Row key={`miss-${name}`}>
         <Table.Cell width={5}>
@@ -44,7 +44,6 @@ const Section = ({ fieldPath, section, titles, onEdit }) => (
 Section.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   section: PropTypes.object.isRequired,
-  titles: PropTypes.object,
   onEdit: PropTypes.func,
 };
 
@@ -53,7 +52,6 @@ export const DetailView = ({
   groups = [],
   exclude = [],
   requiredPaths = [],
-  vocabularyTitles = {},
   onEdit,
   itemName,
 }) => {
@@ -99,7 +97,6 @@ export const DetailView = ({
               key={si}
               fieldPath={fieldPath}
               section={section}
-              titles={vocabularyTitles}
               onEdit={onEdit}
             />
           ))}
@@ -115,12 +112,21 @@ DetailView.propTypes = {
   groups: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      fields: PropTypes.arrayOf(PropTypes.string).isRequired,
+      // a plain name, or `{ field, vocabulary }` when the field is a
+      // vocabulary reference whose title comes from the server cache (D6)
+      fields: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.shape({
+            field: PropTypes.string.isRequired,
+            vocabulary: PropTypes.string,
+          }),
+        ])
+      ).isRequired,
     })
   ),
   exclude: PropTypes.arrayOf(PropTypes.string),
   requiredPaths: PropTypes.arrayOf(PropTypes.string),
-  vocabularyTitles: PropTypes.object,
   onEdit: PropTypes.func,
   itemName: PropTypes.string,
 };
