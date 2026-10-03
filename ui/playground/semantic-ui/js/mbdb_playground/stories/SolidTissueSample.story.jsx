@@ -1,6 +1,6 @@
 import React from "react";
 import { SolidTissueSampleFields } from "@js/mbdb/forms/entities/ComplexSubstanceOfBiologicalOrigin";
-import { ENTITY_PATH, entityValues } from "../fixtures";
+import { ENTITY_PATH, entityErrors, entityValues } from "../fixtures";
 
 const Fields = () => <SolidTissueSampleFields fieldPath={ENTITY_PATH} />;
 
@@ -22,6 +22,12 @@ const story = {
         health_status: "healthy",
         homogenized: false,
       }),
+      render: Fields,
+    },
+    {
+      name: "With errors",
+      initialValues: values({ health_status: "healthy" }),
+      initialErrors: entityErrors("organ", "Missing data for required field."),
       render: Fields,
     },
   ],

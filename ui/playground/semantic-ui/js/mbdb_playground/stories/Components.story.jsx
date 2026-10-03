@@ -17,8 +17,8 @@ const COMPONENTS = [
     expression_source_type: "Recombinantly",
     molecular_weight: { value: 34.8, unit: "kDa" },
     external_databases: ["uniprot:P20429"],
-    source_organism: { id: "taxid:1423" },
-    expression_organism: { id: "taxid:469008" },
+    source_organism: { id: "taxid:562" },
+    expression_organism: { id: "taxid:562" },
   },
   {
     type: "Polymer",

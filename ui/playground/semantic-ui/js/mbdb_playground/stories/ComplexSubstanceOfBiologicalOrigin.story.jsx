@@ -21,7 +21,7 @@ const story = {
       initialValues: values(
         {
           name: "Human serum",
-          source_organism: { id: "taxid:12374" },
+          source_organism: { id: "taxid:9606" },
           fluid: { id: "bf:2" },
           health_status: "Healthy",
           preparation_protocol: [
@@ -50,7 +50,7 @@ const story = {
       initialValues: values(
         {
           name: "Liver ribosomes",
-          source_organism: { id: "taxid:12374" },
+          source_organism: { id: "taxid:9606" },
           fraction: { id: "cf:1" },
           health_status: "healthy",
           organ: "liver",
@@ -67,7 +67,7 @@ const story = {
       initialValues: values(
         {
           name: "AAV2 particles",
-          source_organism: { id: "taxid:12374" },
+          source_organism: { id: "taxid:9606" },
           genetic_material: "Virus genome",
           capsid_type: "Native",
           envelope_type: "None",
@@ -84,7 +84,7 @@ const story = {
       initialValues: values(
         {
           name: "Liver biopsy",
-          source_organism: { id: "taxid:12374" },
+          source_organism: { id: "taxid:9606" },
           organ: "liver",
           health_status: "healthy",
           homogenized: false,

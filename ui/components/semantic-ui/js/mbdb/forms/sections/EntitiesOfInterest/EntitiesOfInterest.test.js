@@ -10,6 +10,7 @@ import {
   readProbe,
   setStructuredUiModel,
   realUiModel,
+  yamlEnum,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { ENTITY_SEEDS } from "@js/mbdb/forms/entities/seeds";
 import { EntitiesOfInterestSectionComponent } from "./EntitiesOfInterest";
@@ -158,6 +159,20 @@ describe("EntitiesOfInterestSection", () => {
     expect(container.querySelector('button[aria-label^="Remove "]')).toBeNull();
   });
 
+  it("marks a duplicated name with a hint label on each row", () => {
+    const serum = (id) => ({
+      id,
+      type: "Complex substance of biological origin",
+      name: "Serum",
+      derived_from: "Body fluid",
+    });
+    container = render([serum("e-1"), serum("e-2")]);
+    const hints = [...container.querySelectorAll(".ui.label")].filter(
+      (l) => l.textContent === "Duplicate name"
+    );
+    expect(hints).toHaveLength(2);
+  });
+
   it("shows a row error count that survives an unrelated edit", async () => {
     container = render([{ id: "e-1", type: "Polymer", name: "SigA" }], {
       initialErrors: {
@@ -261,6 +276,12 @@ describe("Details column", () => {
     });
     container = render([entity]);
     expect(rowCells()[3]).toBe(expected);
+  });
+});
+
+describe("ENTITY_TYPE_ORDER", () => {
+  it("equals the model's Entity_base.type enum", () => {
+    expect(ENTITY_TYPE_ORDER).toEqual(yamlEnum("Entity_base", "type"));
   });
 });
 

@@ -20,7 +20,7 @@ const story = {
           "MAHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFGKEFTPPVQAAYQKVVAGVANALAHKYH",
         molecular_weight: { value: 16.0, unit: "kDa" },
         external_databases: ["Uniprot:P68871"],
-        source_organism: { id: "taxid:12374" },
+        source_organism: { id: "taxid:9606" },
         modifications: {
           biological_postprocessing: [
             { position: "S10", type: "Phosphorylation" },

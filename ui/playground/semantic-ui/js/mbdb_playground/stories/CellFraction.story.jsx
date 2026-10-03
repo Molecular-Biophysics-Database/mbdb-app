@@ -1,6 +1,6 @@
 import React from "react";
 import { CellFractionFields } from "@js/mbdb/forms/entities/ComplexSubstanceOfBiologicalOrigin";
-import { ENTITY_PATH, entityValues } from "../fixtures";
+import { ENTITY_PATH, entityErrors, entityValues } from "../fixtures";
 
 const Fields = () => <CellFractionFields fieldPath={ENTITY_PATH} />;
 
@@ -22,6 +22,15 @@ const story = {
         tissue: "muscle",
         cell_type: "macrophage",
       }),
+      render: Fields,
+    },
+    {
+      name: "With errors",
+      initialValues: values({ health_status: "healthy" }),
+      initialErrors: entityErrors(
+        "fraction",
+        "Missing data for required field."
+      ),
       render: Fields,
     },
   ],

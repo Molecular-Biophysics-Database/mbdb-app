@@ -36,7 +36,19 @@ export const ComplexSubstanceOfBiologicalOriginFields = ({ fieldPath }) => {
         field="derived_from"
         options={DERIVED_FROM}
         variant="buttons"
-        keep={["id", "type", "name"]}
+        // keep the fields every sub-type shares (base type): a mis-picked
+        // sub-type then costs only the sub-type fields, and the confirm
+        // dialog ("The type-specific data will be removed.") is literally true
+        // (plan 4R, Y1)
+        keep={[
+          "id",
+          "type",
+          "name",
+          "source_organism",
+          "preparation_protocol",
+          "storage",
+          "additional_specifications",
+        ]}
       />
       {SubtypeFields ? (
         <>

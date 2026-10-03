@@ -216,7 +216,7 @@ const FILLED = {
   initialValues: {
     metadata: {
       general_parameters: {
-        entities_of_interest: [{ source_organism: { id: "taxid:12374" } }],
+        entities_of_interest: [{ source_organism: { id: "taxid:9606" } }],
       },
     },
   },
@@ -231,7 +231,7 @@ const RewriteSameValue = () => {
     <button
       type="button"
       data-testid="rewrite"
-      onClick={() => setFieldValue(PATH, { id: "taxid:12374" })}
+      onClick={() => setFieldValue(PATH, { id: "taxid:9606" })}
     />
   );
 };
@@ -379,20 +379,20 @@ describe("MbdbVocabularyField", () => {
       </>,
       FILLED
     );
-    expect(text("shown")).toBe("taxid:12374");
+    expect(text("shown")).toBe("taxid:9606");
 
     // the title arrives: the key flips to titled:…, the field remounts and
     // the fake's initializer captures the titled suggestion
-    item.title = "Bacillus subtilis";
+    item.title = "Homo sapiens";
     await click("rewrite");
-    expect(text("shown")).toBe("Bacillus subtilis");
+    expect(text("shown")).toBe("Homo sapiens");
     // exactly one remount on the title flip, none for the initial raw-id mount
     expect(getFakeMounts()).toBe(2);
   });
 
   it("initialSuggestions carry the title from useVocabularyItem after the remount", () => {
     useVocabularyItem.mockImplementation(() => ({
-      title: "Bacillus subtilis",
+      title: "Homo sapiens",
       customFields: undefined,
     }));
     render(
@@ -400,9 +400,9 @@ describe("MbdbVocabularyField", () => {
       FILLED
     );
     expect(text("suggestions")).toBe(
-      '[{"id":"taxid:12374","title_l10n":"Bacillus subtilis"}]'
+      '[{"id":"taxid:9606","title_l10n":"Homo sapiens"}]'
     );
-    expect(text("shown")).toBe("Bacillus subtilis");
+    expect(text("shown")).toBe("Homo sapiens");
   });
 
   it("while the title is unknown the suggestion shows the id", () => {
@@ -410,7 +410,7 @@ describe("MbdbVocabularyField", () => {
       <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />,
       FILLED
     );
-    expect(text("suggestions")).toBe('[{"id":"taxid:12374"}]');
+    expect(text("suggestions")).toBe('[{"id":"taxid:9606"}]');
   });
 
   it("a stored title wins over the fetched one", () => {
@@ -427,7 +427,7 @@ describe("MbdbVocabularyField", () => {
               entities_of_interest: [
                 {
                   source_organism: {
-                    id: "taxid:12374",
+                    id: "taxid:9606",
                     title: { en: "Stored title" },
                   },
                 },
@@ -438,7 +438,7 @@ describe("MbdbVocabularyField", () => {
       }
     );
     expect(text("suggestions")).toBe(
-      '[{"id":"taxid:12374","title_l10n":"Stored title"}]'
+      '[{"id":"taxid:9606","title_l10n":"Stored title"}]'
     );
   });
 

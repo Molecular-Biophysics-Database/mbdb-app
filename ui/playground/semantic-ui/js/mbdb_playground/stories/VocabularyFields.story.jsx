@@ -34,9 +34,9 @@ const story = {
     {
       name: "Organism, filled",
       // stored as just { id }; the title must appear — the organisms
-      // vocabulary must be loaded so the title fetch finds taxid:12374
+      // vocabulary must be loaded so the title fetch finds taxid:9606
       initialValues: entityValues("Polymer", {
-        source_organism: { id: "taxid:12374" },
+        source_organism: { id: "taxid:9606" },
       }),
       render: OrganismFilled,
     },

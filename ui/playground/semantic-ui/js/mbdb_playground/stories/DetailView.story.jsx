@@ -52,7 +52,7 @@ const story = {
         expression_source_type: "Recombinantly",
         sequence:
           "MIEIEKPKIETVEISDDAKFGKFVVEPLERGYGTTLGNSLRRILLSSLPGAAVRNLQRALTGDDVEVTVQVKGVTLSLALLDVVQQLRVR",
-        source_organism: { id: "taxid:1423" },
+        source_organism: { id: "taxid:562" },
         molecular_weight: { value: 34.8, unit: "kDa" },
         additional_specifications: ["RNase-free water", "desalted"],
       }),

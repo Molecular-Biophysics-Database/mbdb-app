@@ -83,7 +83,7 @@ const BODY_FLUID = {
   id: "e-1",
   name: "Human serum",
   derived_from: "Body fluid",
-  source_organism: { id: "taxid:12374" },
+  source_organism: { id: "taxid:9606" },
   fluid: { id: "bf:2" },
   health_status: "Healthy",
   preparation_protocol: [
@@ -151,7 +151,7 @@ describe("ComplexSubstanceOfBiologicalOriginFields", () => {
     });
   });
 
-  it("changing derived_from with data asks for confirmation, then keeps id, type and name", async () => {
+  it("changing derived_from with data confirms, then keeps the shared base fields", async () => {
     container = renderInForm(
       <>
         {fields()}
@@ -165,10 +165,16 @@ describe("ComplexSubstanceOfBiologicalOriginFields", () => {
     // not applied until confirmed
     expect(readProbe(container).derived_from).toBe("Body fluid");
     await clickOn(modalButtonIn(confirm, "Change"));
+    // the sub-type's own fields (fluid, health_status) are dropped; the base
+    // fields every sub-type shares are kept (plan 4R, Y1)
     expect(readProbe(container)).toEqual({
       id: "e-1",
       type: "Complex substance of biological origin",
       name: "Human serum",
+      source_organism: { id: "taxid:9606" },
+      preparation_protocol: [
+        { name: "Centrifugation", description: "10 min at 1,300g" },
+      ],
       derived_from: "Virion",
     });
   });
@@ -176,7 +182,7 @@ describe("ComplexSubstanceOfBiologicalOriginFields", () => {
   it("renders the Body fluid scenario at the entity paths", () => {
     container = renderInForm(fields(), { initialValues: entity(BODY_FLUID) });
     expect(pickerFor(`${ENTITY}.source_organism`).dataset.value).toBe(
-      "taxid:12374"
+      "taxid:9606"
     );
     expect(pickerFor(`${ENTITY}.fluid`).dataset.value).toBe("bf:2");
     expect(hasInputValue("Healthy")).toBe(true);
@@ -231,7 +237,7 @@ describe("ComplexSubstanceOfBiologicalOriginFields", () => {
 describe("summaries", () => {
   it("summaryBiologicalOrigin joins derived_from, source organism and the key value", () => {
     setFakeVocabulary({
-      "organisms/taxid:12374": { title: "Homo sapiens" },
+      "organisms/taxid:9606": { title: "Homo sapiens" },
       "body-fluids/bf:2": { title: "Serum" },
     });
     container = renderInForm(<>{summaryBiologicalOrigin(BODY_FLUID)}</>, {});
@@ -267,33 +273,27 @@ describe("summaries", () => {
 });
 
 describe("biologicalOriginGroups", () => {
-  it("lists the fields of each sub-type on its model type", () => {
-    const FIELD_TYPE = {
-      derived_from: "Complex_substance_of_biological_origin_base",
-      source_organism: "Complex_substance_of_biological_origin_base",
-      preparation_protocol: "Complex_substance_of_biological_origin_base",
-      storage: "Complex_substance_of_biological_origin_base",
-      additional_specifications: "Complex_substance_of_biological_origin_base",
-      fluid: "Body_fluid",
-      health_status: "Body_fluid",
-      fraction: "Cell_fraction",
-      tissue: "Cell_fraction",
-      cell_type: "Cell_fraction",
-      organ: "Solid_tissue_sample",
-      homogenized: "Solid_tissue_sample",
-      genetic_material: "Virion",
-      capsid_type: "Virion",
-      envelope_type: "Virion",
-      host_organism: "Virion",
-      host_cell_type: "Virion",
+  it("lists each sub-type's fields on the base type or that sub-type's type", () => {
+    // per derived_from: a field belongs to the shared base type or to the
+    // picked sub-type's own model type. Mapping a field to one fixed type (the
+    // old test) let a field in the wrong sub-type's group pass (plan 4R, Y4).
+    const BASE = "Complex_substance_of_biological_origin_base";
+    const SUBTYPE_TYPE = {
+      "Body fluid": "Body_fluid",
+      "Cell fraction": "Cell_fraction",
+      Virion: "Virion",
+      "Solid tissue sample": "Solid_tissue_sample",
     };
     for (const derivedFrom of DERIVED_FROM) {
+      const subtypeType = SUBTYPE_TYPE[derivedFrom];
       for (const group of biologicalOriginGroups({
         derived_from: derivedFrom,
       })) {
         for (const entry of group.fields) {
           const name = typeof entry === "string" ? entry : entry.field;
-          expect(yamlProperty(FIELD_TYPE[name], name)).toBe(true);
+          expect(
+            yamlProperty(BASE, name) || yamlProperty(subtypeType, name)
+          ).toBe(true);
         }
       }
     }

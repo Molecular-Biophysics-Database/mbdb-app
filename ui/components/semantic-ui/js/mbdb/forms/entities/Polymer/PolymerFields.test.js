@@ -9,6 +9,7 @@ import {
   ValueProbe,
   readProbe,
   setStructuredUiModel,
+  realUiModel,
   yamlEnum,
   yamlProperty,
 } from "@js/mbdb/forms/building-blocks/testUtils";
@@ -45,8 +46,6 @@ jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
     .mockRandomUUID()
 );
 
-let mockUiModel;
-
 const ENTITY = "metadata.general_parameters.entities_of_interest.0";
 const COMPONENT = `${ENTITY}.components.0`;
 
@@ -81,7 +80,7 @@ const FILLED = {
     "MAHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFGKEFTPPVQAAYQKVVAGVANALAHKYH",
   molecular_weight: { value: 16.0, unit: "kDa" },
   external_databases: ["Uniprot:P68871"],
-  source_organism: { id: "taxid:12374" },
+  source_organism: { id: "taxid:9606" },
   modifications: {
     biological_postprocessing: [{ position: "S10", type: "Phosphorylation" }],
   },
@@ -120,7 +119,7 @@ describe("PolymerFields", () => {
     expect(container.textContent).toContain("residues");
     // Origin: the picker, at the entity path, showing the stored id
     expect(picker(`${ENTITY}.source_organism`).dataset.value).toBe(
-      "taxid:12374"
+      "taxid:9606"
     );
     // Molecular weight
     expect(document.getElementById(`${ENTITY}.molecular_weight`).value).toBe(
@@ -183,45 +182,10 @@ describe("PolymerFields", () => {
     expect(readProbe(container)).toEqual({ type: "Polymer", variant: "V2A" });
   });
 
-  it("uses the polymer's own molecular_weight help, not the union's (D7)", () => {
-    mockUiModel = {
-      children: {
-        metadata: {
-          children: {
-            general_parameters: {
-              children: {
-                entities_of_interest: {
-                  children: {
-                    child: {
-                      children: {
-                        molecular_weight: {
-                          label: { en: "Molecular weight" },
-                          help: { en: "Union help, not the polymer's" },
-                        },
-                      },
-                      discriminator: "type",
-                      variants: {
-                        Polymer: {
-                          children: {
-                            molecular_weight: {
-                              label: { en: "Molecular weight" },
-                              help: {
-                                en: "The molecular weight of the polymer",
-                              },
-                            },
-                          },
-                        },
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
-    };
-    setStructuredUiModel(mockUiModel);
+  it("uses the polymer's own molecular_weight help, not another variant's", () => {
+    // the real fixture (plan 4R, Y7): the polymer entity's molecular_weight
+    // help is the polymer's, not the molecular assembly's
+    setStructuredUiModel(realUiModel());
     container = renderInForm(fields(), {
       initialValues: entity({ molecular_weight: { value: 16, unit: "kDa" } }),
     });
@@ -229,7 +193,7 @@ describe("PolymerFields", () => {
       "The molecular weight of the polymer"
     );
     expect(container.textContent).not.toContain(
-      "Union help, not the polymer's"
+      "The molecular weight of the molecular assembly"
     );
   });
 });
@@ -237,12 +201,10 @@ describe("PolymerFields", () => {
 describe("summaryPolymer", () => {
   it("joins polymer type, molecular weight and source organism", () => {
     setFakeVocabulary({
-      "organisms/taxid:12374": { title: "Bacillus subtilis" },
+      "organisms/taxid:9606": { title: "Homo sapiens" },
     });
     container = renderInForm(<>{summaryPolymer(FILLED)}</>, {});
-    expect(container.textContent).toBe(
-      "polypeptide(L), 16 kDa, Bacillus subtilis"
-    );
+    expect(container.textContent).toBe("polypeptide(L), 16 kDa, Homo sapiens");
   });
 
   it("leaves out missing parts and returns '' for an empty entity", () => {

@@ -18,7 +18,7 @@ const FILLED = [
     type: "Complex substance of biological origin",
     name: "Human serum",
     derived_from: "Body fluid",
-    source_organism: { id: "taxid:12374" },
+    source_organism: { id: "taxid:9606" },
     fluid: { id: "bf:2" },
     health_status: "Healthy",
     preparation_protocol: [

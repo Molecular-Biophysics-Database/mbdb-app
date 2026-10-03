@@ -9,6 +9,7 @@ import {
   ValueProbe,
   readProbe,
   setStructuredUiModel,
+  realUiModel,
   yamlEnum,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { ModalArrayField } from "@js/mbdb/forms/building-blocks/ModalArrayField";
@@ -45,8 +46,6 @@ jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
     .mockRandomUUID()
 );
-
-let mockUiModel;
 
 const ENTITY = "metadata.general_parameters.entities_of_interest.0";
 const PATH = `${ENTITY}.components`;
@@ -192,13 +191,14 @@ describe("Components", () => {
     );
   });
 
-  it("a type change keeps name and copy number and drops only the variant data", async () => {
+  it("a type change keeps name, copy number and additional specifications", async () => {
     render({
       initialValues: assembly([
         {
           type: "Polymer",
           name: "Mg2+ cofactor",
           copy_number: 2,
+          additional_specifications: ["HPLC grade"],
           polymer_type: "polypeptide(L)",
         },
       ]),
@@ -211,7 +211,12 @@ describe("Components", () => {
     expect(confirm).toBeDefined();
     await clickOn(modalButtonIn(confirm, "Change"));
     expect(probe()).toEqual([
-      { type: "Chemical", name: "Mg2+ cofactor", copy_number: 2 },
+      {
+        type: "Chemical",
+        name: "Mg2+ cofactor",
+        copy_number: 2,
+        additional_specifications: ["HPLC grade"],
+      },
     ]);
   });
 
@@ -344,55 +349,10 @@ describe("Components", () => {
     expect(readProbe(container)[0].components[0].name).toBe("alpha");
   });
 
-  it("uses the component variant's name help, not the union's", async () => {
-    mockUiModel = {
-      children: {
-        metadata: {
-          children: {
-            general_parameters: {
-              children: {
-                entities_of_interest: {
-                  children: {
-                    child: {
-                      children: {
-                        components: {
-                          children: {
-                            child: {
-                              children: {
-                                name: {
-                                  label: { en: "Name" },
-                                  help: { en: "Union component name help" },
-                                },
-                              },
-                              discriminator: "type",
-                              variants: {
-                                Polymer: {
-                                  children: {
-                                    name: {
-                                      label: { en: "Name" },
-                                      help: {
-                                        en: "The name must be unique within a record",
-                                      },
-                                    },
-                                  },
-                                },
-                              },
-                            },
-                          },
-                        },
-                      },
-                      discriminator: "type",
-                      variants: { "Molecular assembly": { children: {} } },
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
-    };
-    setStructuredUiModel(mockUiModel);
+  it("uses the component's own name help, not the entity's", async () => {
+    // the real fixture (plan 4R, Y7): the component's name help is its own, not
+    // the entity's; both texts are in the real ui_model
+    setStructuredUiModel(realUiModel());
     render({
       initialValues: assembly([
         { type: "Polymer", name: "alpha", copy_number: 1 },
@@ -400,7 +360,7 @@ describe("Components", () => {
     });
     await clickOn(buttonIn(container, "Edit"));
     const text = modal().textContent;
-    expect(text).toContain("The name must be unique within a record");
-    expect(text).not.toContain("Union component name help");
+    expect(text).toContain("given to the assembly component");
+    expect(text).not.toContain("Short descriptive name (id) of the entity");
   });
 });
