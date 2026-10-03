@@ -244,6 +244,7 @@ export const REGISTRY = [
     step: 4,
     key: "MolecularAssembly",
     design: "design/entities/MolecularAssembly.md",
+    load: () => import("./stories/MolecularAssembly.story"),
   },
   {
     step: 4,
