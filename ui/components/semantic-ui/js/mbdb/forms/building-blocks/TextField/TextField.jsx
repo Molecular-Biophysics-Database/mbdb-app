@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useFormikContext, getIn } from "formik";
-import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
+import { useFieldBinding } from "@js/mbdb/forms/building-blocks/fieldData";
 import { parseNumberInput } from "@js/mbdb/forms/building-blocks/number";
 import { ExternalLink } from "@js/mbdb/forms/building-blocks/ExternalLink";
 import {
@@ -35,7 +35,7 @@ export const NumberField = ({
   step,
   ...uiProps
 }) => {
-  const { values, setFieldValue } = useFormikContext();
+  const f = useFieldBinding(fieldPath);
   return (
     <MbdbTextField
       fieldPath={fieldPath}
@@ -45,11 +45,9 @@ export const NumberField = ({
       max={max}
       step={step ?? (integer ? 1 : "any")}
       onChange={(e, { value }) => {
-        if (value === "") {
-          unsetFieldValue(values, setFieldValue, fieldPath);
-          return;
-        }
-        setFieldValue(fieldPath, parseNumberInput(value));
+        // "" and unparseable input both clear (parseNumberInput →
+        // undefined IS the clear marker): setValue unsets and prunes
+        f.setValue(value === "" ? undefined : parseNumberInput(value));
       }}
     />
   );

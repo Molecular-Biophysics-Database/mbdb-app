@@ -71,6 +71,7 @@ export const ValueUnitField = ({
       label={f.label}
       help={f.help}
       required={f.required}
+      hasError={f.hasError}
       messages={messages}
     >
       <Input

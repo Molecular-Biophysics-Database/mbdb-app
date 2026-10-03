@@ -104,7 +104,10 @@ jest.mock("@js/oarepo_vocabularies/form/components/VocabularyField", () => {
     return R.createElement(
       "div",
       { "data-testid": "vf", "data-mounts": fakeMounts },
-      span("label", label),
+      // like RIF, VocabularyField wraps the label it shows in its own
+      // <label>: any label passed to it appears exactly inside THAT element
+      // (the wrapper must not hand the shell another copy of the same node)
+      R.createElement("label", { "data-testid": "label" }, label),
       span("helpText", String(helpText)),
       span("inner-helpText", String(innerData.helpText)),
       span("inner-label", String(innerData.label)),
@@ -282,12 +285,32 @@ describe("MbdbVocabularyField", () => {
     );
     expect(text("inner-label")).toBe("Source organism");
     expect(text("label")).toContain("Source organism");
+    // the fake's own label element (data-testid=label)
     expect(
       container.querySelector('[data-testid="label"] [aria-label^="Help"]')
     ).not.toBeNull();
+    // no label element outside the dropdown's own one (shell renders none)
+    expect(container.querySelectorAll("label")).toHaveLength(1);
     expect(
       container.querySelectorAll("label.helptext.mbdb-field-help")
     ).toHaveLength(0);
+  });
+
+  it("the label text renders exactly once, from one <label> element (also in popup mode)", () => {
+    render(
+      <MbdbVocabularyField fieldPath={PATH} vocabularyName="organisms" />,
+      {
+        helpMode: "popup",
+      }
+    );
+    // F1: exactly one <label> element, holding the label text (and the
+    // popup-mode help icon), and no second copy of it near the shell:
+    // the shell itself renders none.
+    expect(container.querySelectorAll("label")).toHaveLength(1);
+    expect(
+      container.querySelector('[data-testid="label"] [aria-label^="Help"]')
+    ).not.toBeNull();
+    expect(text("label")).toContain("Source organism");
   });
 
   it("a pick keeps the dropdown mounted: pick/clear never remounts", async () => {

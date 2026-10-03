@@ -141,7 +141,7 @@ describe("FieldShell", () => {
     expect(labelEl.querySelectorAll('[aria-label^="Help"]').length).toBe(1);
   });
 
-  it("without inputId the label node renders bare (a control that labels itself)", () => {
+  it("without inputId the label still renders as a <label> (Semantic's styles apply)", () => {
     render(
       <FieldShell label={<span data-testid="own">Own label</span>} help="h">
         <input readOnly />
@@ -149,7 +149,9 @@ describe("FieldShell", () => {
     );
     const own = container.querySelector('[data-testid="own"]');
     expect(own).not.toBeNull();
-    expect(own.closest("label")).toBeNull();
+    // FieldLabel without inputId wraps a plain <label> (valid HTML;
+    // Semantic's `.field .label` styling + required markers need the element)
+    expect(own.closest("label")).not.toBeNull();
   });
 
   it("no label and no help renders control only (errors still possible)", () => {

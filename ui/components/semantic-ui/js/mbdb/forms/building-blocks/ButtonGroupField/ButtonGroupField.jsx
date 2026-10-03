@@ -47,6 +47,7 @@ export const ButtonGroupField = ({
       label={f.label}
       help={f.help}
       required={f.required}
+      hasError={f.hasError}
       messages={f.messages}
     >
       <Button.Group

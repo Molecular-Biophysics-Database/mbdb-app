@@ -13,7 +13,14 @@ export const FieldLabel = ({ inputId, label, help }) =>
       <HelpLabel label={label} help={help} />
     </label>
   ) : (
-    <HelpLabel label={label} help={help} />
+    // label without htmlFor or a nested control: the label is for a composite
+    // control (button groups, dropdowns), same as every other block in this
+    // codebase — Semantic's `.field.required label` styles it and OARepo's
+    // scroll-to-error resolves it by field path.
+    // eslint-disable-next-line jsx-a11y/label-has-associated-control
+    <label>
+      <HelpLabel label={label} help={help} />
+    </label>
   );
 FieldLabel.propTypes = {
   inputId: PropTypes.string,
@@ -32,6 +39,8 @@ export const FieldShell = ({
   label,
   help,
   required,
+  hasError,
+  markError = true,
   messages = [],
   width,
   className,
@@ -39,7 +48,7 @@ export const FieldShell = ({
 }) => (
   <Form.Field
     required={required}
-    error={messages.length > 0}
+    error={markError ? hasError ?? messages.length > 0 : false}
     width={width}
     className={className}
   >
@@ -55,12 +64,19 @@ export const FieldShell = ({
 );
 
 FieldShell.propTypes = {
-  // id of the control, for <label htmlFor>; omit when the control labels
-  // itself (oarepo's fields) — the label then renders without a wrapper
+  // id of the control, for <label htmlFor>; omit to render <label> without
+  // one (the control still gets styled as an input label)
   inputId: PropTypes.string,
   label: PropTypes.node,
   help: PropTypes.node,
   required: PropTypes.bool,
+  // explicit error state; defaults to messages.length > 0 so callers that
+  // already merge their own error state (the binding's `hasError`, the
+  // boolean `error` prop of the wrapper) tint the whole field as well
+  hasError: PropTypes.bool,
+  // false for lists whose nested items must not turn red as a whole (the
+  // list-level message still shows) — e.g. StringArrayField
+  markError: PropTypes.bool,
   messages: PropTypes.arrayOf(PropTypes.string),
   width: PropTypes.number,
   // lands on the Form.Field (e.g. "mbdb-monospace": the LESS rule

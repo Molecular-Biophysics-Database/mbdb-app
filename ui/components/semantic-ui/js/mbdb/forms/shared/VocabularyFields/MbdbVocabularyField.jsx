@@ -106,24 +106,24 @@ export const MbdbVocabularyField = ({
     [f.label, f.required]
   );
 
-  // VocabularyField wraps the label node in its own <label> (no htmlFor),
-  // so the label prop keeps carrying it (a caller's additions, e.g.
-  // ChemicalPicker's links, stay inside that one label). The shell renders
-  // the same node bare: one visual label, the shell's help/error slots
-  // alongside — no inputId, a second nested <label> would be invalid HTML.
+  // VocabularyField renders the label inside its own <label> (and that is
+  // also where ChemicalPicker's links sit): the shell gets none, so each
+  // label renders exactly once — text and the popup-mode icon alike. The
+  // required asterisk still marks it (Semantic's `.field.required label`).
   const labelNode =
     f.label !== undefined && f.label !== null ? (
       <HelpLabel label={f.label} help={f.help} />
     ) : undefined;
 
   return (
-    // messages stay empty: the object-level error shows ONCE, as the
+    // messages stay empty: the list-level error shows ONCE, as the
     // dropdown's own error prop label below (never duplicated under the
     // label, so the shell gets no error list)
     <FieldShell
-      label={labelNode}
+      label={undefined}
       help={f.help}
       required={f.required}
+      hasError={messages.length > 0}
       messages={[]}
     >
       <FieldDataContext.Provider value={innerFieldData}>

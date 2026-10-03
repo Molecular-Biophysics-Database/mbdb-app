@@ -99,6 +99,7 @@ export const DiscriminatorField = ({
       label={text || undefined}
       help={data.helpText}
       required={data.required}
+      hasError={errorMessages.length > 0}
       messages={errorMessages}
     >
       {mode === "buttons" ? (

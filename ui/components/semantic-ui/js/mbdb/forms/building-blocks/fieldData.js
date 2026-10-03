@@ -155,9 +155,10 @@ export const useModelFieldData = (
 // Blocks that need more than model data (merged object-path messages, the
 // whole record) still call useModelFieldData / useFormikContext directly.
 export const useFieldBinding = (fieldPath, { label, help, required } = {}) => {
-  // when there is no Formik above (stories without a Form), formik's context
-  // is `undefined`; value reads then see an empty record and writers no-op
-  const { values, setFieldValue, handleBlur } = useFormikContext() ?? {};
+  // meant for fields inside a Form — without a Formik provider it throws,
+  // as its siblings do (a story always has one, and a missing one is a bug,
+  // not a supported shape).
+  const { values, setFieldValue, handleBlur } = useFormikContext();
   const data = useModelFieldData(fieldPath, {
     label,
     helpText: help,
@@ -166,7 +167,7 @@ export const useFieldBinding = (fieldPath, { label, help, required } = {}) => {
   const { hasError, messages } = useFieldErrors(fieldPath);
   const unset = useUnsetField();
   return {
-    value: getIn(values ?? {}, fieldPath),
+    value: getIn(values, fieldPath),
     // "" / null / undefined remove the key (guide §7); anything else is
     // written as is — 0 and false are data
     setValue: (next) =>

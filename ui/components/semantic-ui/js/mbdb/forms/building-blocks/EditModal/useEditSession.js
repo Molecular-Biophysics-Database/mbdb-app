@@ -18,6 +18,7 @@ export const useEditSession = ({ read, restore, remove }) => {
         ...extra,
       }),
     cancel: () => {
+      if (!session) return; // a second Escape/Cancel after close is a no-op
       if (session.isNew) remove(session.key);
       else restore(session.key, session.snapshot);
       setSession(null);

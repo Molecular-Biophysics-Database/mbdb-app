@@ -7,6 +7,7 @@ import {
   SelectField,
   ArrayField,
   TextAreaField,
+  StringArrayField,
 } from "mbdb-react-invenio-forms";
 import { Form, HelpModeProvider } from "mbdb-semantic-ui-react";
 
@@ -254,6 +255,27 @@ describe("wrapped fields", () => {
       expect(field.querySelectorAll("label.helptext").length).toBe(1);
       // no stray top-level siblings smuggled between the two .field elements
     });
+  });
+
+  it("a list-level StringArrayField error shows without tinting the wrapper (markError=false)", () => {
+    render(
+      <StringArrayField
+        fieldPath="additional_specifications"
+        addButtonLabel="Add specification"
+      />,
+      {
+        initialErrors: {
+          additional_specifications: "Shorter than minimum length 1.",
+        },
+      }
+    );
+    expect(container.textContent).toContain("Shorter than minimum length 1.");
+    // the message flows through ErrorMessages, but the wrapper's
+    // `.field.error` must NOT tint every item input red with it
+    expect(container.querySelector(".mbdb-field-wrapper.error")).toBeNull();
+    expect(
+      container.querySelectorAll(".ui.pointing.prompt.label").length
+    ).toBeGreaterThan(0);
   });
 
   it("TextField in popup mode shows no helptext, only the label icon", () => {

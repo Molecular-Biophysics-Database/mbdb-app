@@ -15,6 +15,7 @@ import {
 } from "@js/mbdb/forms/building-blocks/fieldData";
 import { useOwnErrorMessages } from "@js/mbdb/forms/building-blocks/errors";
 import { FieldShell } from "@js/mbdb/forms/building-blocks/FieldShell";
+import { toOption } from "@js/mbdb/forms/building-blocks/options";
 
 // mbdb wrappers around react-invenio-forms fields: they fill label /
 // helpText / required from the model via useFieldBinding (explicit props
@@ -51,17 +52,19 @@ const fieldShape = {
 const eventValue = (e, data) => data?.value ?? e.target.value;
 
 // A stored value that is not in `options` stays visible as an extra option
-// (RIF stores it through ensureSelectedValuesInOptions). Without this the
-// dropdown would show the placeholder and silently mislead the user about
-// stored data we never touch ourselves.
+// (RIF stores it through ensureSelectedValuesInOptions); the block-level
+// SelectField then flags it with its "Unknown value" label too. Options
+// coming in as plain strings are normalized FIRST, so the current value is
+// not appended a second time as a phantom `{key,value,text}` clone.
 const optionsWithCurrentValue = (options, value) => {
-  if (
+  const normalized = options.map(toOption);
+  const valueIsKnown =
     value !== undefined &&
     value !== "" &&
-    !options.some((option) => option.value === value)
-  )
-    return [...options, { key: value, value, text: String(value) }];
-  return options;
+    normalized.some((option) => option.value === value);
+  if (!valueIsKnown && value !== undefined && value !== "")
+    return [...normalized, { key: value, value, text: String(value) }];
+  return normalized;
 };
 
 // Text wrapper, rebuilt on FieldShell + plain Semantic Input. Errors come
@@ -92,6 +95,7 @@ export const TextField = ({
       label={f.label}
       help={f.help}
       required={f.required}
+      hasError={hasError}
       messages={messages}
       width={width}
     >
@@ -102,6 +106,7 @@ export const TextField = ({
         fluid={uiProps.fluid ?? true}
         error={hasError || undefined}
         value={f.value ?? ""}
+        onBlur={f.onBlur}
         onChange={onChange ?? ((e, d) => f.setValue(eventValue(e, d)))}
       />
     </FieldShell>
@@ -136,6 +141,7 @@ export const SelectField = ({
       label={f.label}
       help={f.help}
       required={f.required}
+      hasError={f.hasError}
       messages={f.messages}
       width={width}
     >
@@ -150,6 +156,7 @@ export const SelectField = ({
         error={f.hasError || undefined}
         options={options}
         value={f.value ?? ""}
+        onBlur={f.onBlur}
         onChange={onChange ?? ((e, { value: next }) => f.setValue(next))}
       />
     </FieldShell>
@@ -227,6 +234,7 @@ export const TextAreaField = ({
       label={f.label}
       help={f.help}
       required={f.required}
+      hasError={f.hasError}
       messages={f.messages}
       className={className}
     >
@@ -292,12 +300,19 @@ export const StringArrayField = ({
       required={f.required}
       messages={ownMessages}
       className="mbdb-field-wrapper"
+      // do not tint the whole list when one row has an error — the rows are
+      // ways of normal inputs; the list-level message goes through
+      // ErrorMessages, never by making the wrapper `.field.error`
+      markError={false}
     >
       <OARepoStringArrayField
         {...uiProps}
         fieldPath={fieldPath}
-        label={undefined}
-        required={undefined}
+        // the shell's own label is the only visible one; `null` overrules
+        // the model label in oarepo's merge (undefined would leave theirs
+        // in place, duplicating the shell's label)
+        label={null}
+        required={null}
         helpText={null}
       />
     </FieldShell>
