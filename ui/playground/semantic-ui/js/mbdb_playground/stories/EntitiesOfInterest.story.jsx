@@ -36,12 +36,18 @@ const FILLED = [
         name: "Hemoglobin subunit alpha",
         copy_number: 2,
         polymer_type: "polypeptide(L)",
+        // required for a Polymer component — without them the Filled scenario
+        // showed four red "Missing" badges (guide §3: valid model data)
+        expression_source_type: "Natively",
+        molecular_weight: { value: 16.0, unit: "kDa" },
       },
       {
         type: "Polymer",
         name: "Hemoglobin subunit beta",
         copy_number: 2,
         polymer_type: "polypeptide(L)",
+        expression_source_type: "Natively",
+        molecular_weight: { value: 16.0, unit: "kDa" },
       },
     ],
   },

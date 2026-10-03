@@ -313,8 +313,9 @@ describe("DetailView", () => {
     expect(text()).toContain("Storage"); // sub-heading (model label)
     expect(text()).toContain("Temperature");
     expect(text()).toContain("-80 °C");
-    const indent = container.querySelectorAll("td.mbdb-details-indent");
-    expect(indent.length).toBe(2); // both leaf rows indented one level
+    // both leaf rows sit one level deeper than their parent (§2a rule 1)
+    const rows = container.querySelectorAll("td.mbdb-details-depth-2");
+    expect(rows.length).toBe(2);
   });
 
   it("excludes summary fields listed in exclude", () => {
@@ -413,10 +414,134 @@ describe("DetailView", () => {
       'button[aria-label^="Show details of item"]'
     );
     act(() => Simulate.click(toggle));
-    expect(text()).toContain("Origin");
+    // a one-field group renders no header (§2a rule 3), so "Origin" is absent;
+    // the vocabulary still resolves through the item's groups
+    expect(text()).not.toContain("Origin");
     expect(text()).toContain("Source organism");
     expect(text()).toContain("Bacillus subtilis");
     expect(text()).not.toContain("bacillus");
+  });
+
+  it("indents by depth: a group's field rows depth-1, a nested object's rows depth-2 (§2a rule 1)", () => {
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[{ title: "Group", fields: ["name", "storage"] }]}
+      />,
+      {
+        initialValues: {
+          o: {
+            name: "Lysozyme",
+            storage: {
+              temperature: { value: -80, unit: "°C" },
+              duration: { value: 3, unit: "months" },
+            },
+          },
+        },
+      }
+    );
+    // the group's own field row
+    expect(container.querySelectorAll("td.mbdb-details-depth-1")).toHaveLength(
+      1
+    );
+    // the nested object's two rows
+    expect(container.querySelectorAll("td.mbdb-details-depth-2")).toHaveLength(
+      2
+    );
+  });
+
+  it("a one-field group with a scalar renders no header row (§2a rule 3)", () => {
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[{ title: "Molecular weight", fields: ["molecular_weight"] }]}
+      />,
+      {
+        initialValues: {
+          o: { molecular_weight: { value: 14.3, unit: "kDa" } },
+        },
+      }
+    );
+    // no group header and no sub-heading: just the field row
+    expect(container.querySelectorAll("table > tbody > tr > th")).toHaveLength(
+      0
+    );
+    expect(text()).toContain("14.3 kDa");
+  });
+
+  it("a one-field array group renders exactly one heading above the mini table (§2a rule 3)", () => {
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[{ title: "Components", fields: ["components"] }]}
+      />,
+      {
+        initialValues: {
+          o: { components: [{ name: "Water", copy_number: 2 }] },
+        },
+      }
+    );
+    const headers = [...container.querySelectorAll("table > tbody > tr > th")];
+    expect(headers.map((h) => h.textContent)).toEqual(["Components"]);
+    expect(container.querySelector("table table")).not.toBeNull();
+  });
+
+  it("an expanded mini row's cell is indented one step and ignored (§2a rules 2, 5)", () => {
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[{ title: "Components", fields: ["components"] }]}
+      />,
+      {
+        initialValues: {
+          o: { components: [{ name: "Water", copy_number: 2 }] },
+        },
+      }
+    );
+    act(() =>
+      Simulate.click(
+        container.querySelector('button[aria-label^="Show details of item"]')
+      )
+    );
+    const cell = container.querySelector("tr.mbdb-details > td");
+    expect(cell).not.toBeNull();
+    expect(cell.classList.contains("ignored")).toBe(true);
+    expect(cell.classList.contains("mbdb-details-depth-1")).toBe(true);
+  });
+
+  it("every colSpan cell carries ignored (§2a rule 5)", () => {
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[{ title: "Components", fields: ["components"] }]}
+      />,
+      {
+        initialValues: {
+          o: { components: [{ name: "Water", copy_number: 2 }] },
+        },
+      }
+    );
+    act(() =>
+      Simulate.click(
+        container.querySelector('button[aria-label^="Show details of item"]')
+      )
+    );
+    const spans = [...container.querySelectorAll("td[colspan], th[colspan]")];
+    expect(spans.length).toBeGreaterThan(0);
+    expect(spans.every((c) => c.classList.contains("ignored"))).toBe(true);
+  });
+
+  it("group headers carry the mbdb-detail-group style class (§2a rule 4)", () => {
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[{ title: "Identification", fields: ["name", "polymer_type"] }]}
+      />,
+      { initialValues: FILLED }
+    );
+    const header = container.querySelector("table > tbody > tr > th");
+    expect(header.textContent).toBe("Identification");
+    expect(header.classList.contains("mbdb-detail-group")).toBe(true);
   });
 });
 

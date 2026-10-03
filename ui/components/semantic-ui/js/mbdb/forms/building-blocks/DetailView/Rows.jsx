@@ -20,15 +20,28 @@ import { collectRows, useSections } from "./collect";
 // and inside an expanded mini row. Details are read-only and never reordered,
 // so the positional key carries meaning (not identity).
 
+// "a b", skipping falsy parts; undefined when there is nothing (so a cell
+// without a class keeps className undefined, not "").
+const cx = (...parts) => parts.filter(Boolean).join(" ") || undefined;
+
+// The indentation class of a cell at `depth` (design §2a rule 1). Depth 0 is the
+// table's own edge (group headers): no padding. Deeper than 3 reuses depth-3.
+const depthClass = (depth) =>
+  depth > 0 ? `mbdb-details-depth-${Math.min(depth, 3)}` : undefined;
+
 // A nested sub-heading: every level resolves its own model label, joined
 // with " › " (design §2, §4). The last N path segments of row.path match the
-// N joined names, so each level gets its path-aware label.
+// N joined names, so each level gets its path-aware label. Rule 4/5: it reads as
+// a header (not a field label) and must not pick up the definition-table style.
 const Heading = ({ row }) => {
   const parts = row.name.split(" › ");
   const pathParts = row.path.split(".");
   const start = pathParts.length - parts.length;
   return (
-    <Table.HeaderCell colSpan="2">
+    <Table.HeaderCell
+      colSpan="2"
+      className={cx("ignored", "mbdb-detail-group", depthClass(row.depth))}
+    >
       {parts.map((part, i) => (
         <React.Fragment key={i}>
           {i > 0 ? " › " : ""}
@@ -47,12 +60,17 @@ Heading.propTypes = {
 
 // One group of the form becomes a section: a header row plus its rows and the
 // red "Missing" rows for required-but-absent fields (design §5). Used by the
-// top-level DetailView and by a mini row's own ▸ (the item's groups).
+// top-level DetailView and by a mini row's own ▸ (the item's groups). A
+// one-field group has no title (§2a rule 3).
 export const Section = ({ fieldPath, section, onEdit }) => (
   <>
-    <Table.Row>
-      <Table.HeaderCell colSpan="2">{section.title}</Table.HeaderCell>
-    </Table.Row>
+    {section.title && (
+      <Table.Row>
+        <Table.HeaderCell colSpan="2" className="ignored mbdb-detail-group">
+          {section.title}
+        </Table.HeaderCell>
+      </Table.Row>
+    )}
     <Rows rows={section.rows} onEdit={onEdit} />
     {section.missing.map((name) => (
       <Table.Row key={`miss-${name}`}>
@@ -81,10 +99,7 @@ const FieldRow = ({ row, onEdit }) => {
   if (isEmptyValue(row.value) && !hasError) return null;
   return (
     <>
-      <Table.Cell
-        width={5}
-        className={row.indent ? "mbdb-details-indent" : undefined}
-      >
+      <Table.Cell width={5} className={depthClass(row.depth)}>
         <DetailLabel path={row.path} fallback={row.name} />
       </Table.Cell>
       <Table.Cell>
@@ -138,7 +153,7 @@ const MiniRow = ({ basePath, index, item, keys, itemColumns, itemGroups }) => {
   return (
     <>
       <Table.Row>
-        <Table.Cell collapsing>
+        <Table.Cell collapsing className="ignored">
           <Button
             basic
             icon
@@ -167,7 +182,10 @@ const MiniRow = ({ basePath, index, item, keys, itemColumns, itemGroups }) => {
       </Table.Row>
       {open && (
         <Table.Row className="mbdb-details">
-          <Table.Cell colSpan={cellCount}>
+          <Table.Cell
+            colSpan={cellCount}
+            className="ignored mbdb-details-depth-1"
+          >
             {groups?.length ? (
               <MiniDetails
                 fieldPath={basePath}
@@ -256,7 +274,7 @@ export const Rows = ({ rows, onEdit }) => (
           <Table.Row key={i}>
             <Table.Cell
               colSpan="2"
-              className={row.indent ? "mbdb-details-indent" : undefined}
+              className={cx("ignored", depthClass(row.depth))}
             >
               <MiniTable
                 basePath={row.path}

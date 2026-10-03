@@ -277,6 +277,28 @@ describe("Details column", () => {
     container = render([entity]);
     expect(rowCells()[3]).toBe(expected);
   });
+
+  it("the expanded details do not repeat the row's Type and Name (P2-F1)", async () => {
+    container = render([
+      {
+        id: "e-1",
+        type: "Molecular assembly",
+        name: "human Hemoglobin",
+        molecular_weight: { value: 64.5, unit: "kDa" },
+      },
+    ]);
+    await clickOn(
+      container.querySelector('button[aria-label^="Show details of"]')
+    );
+    const details = container.querySelector(".mbdb-details");
+    expect(details).not.toBeNull();
+    // Type and Name are columns of the row above, so they are excluded
+    expect(details.textContent).not.toContain("human Hemoglobin");
+    expect(details.textContent).not.toContain("Molecular assembly");
+    // ...but the entity's own fields are there
+    expect(details.textContent).toContain("Molecular weight");
+    expect(details.textContent).toContain("64.5 kDa");
+  });
 });
 
 describe("ENTITY_TYPE_ORDER", () => {

@@ -49,10 +49,58 @@ nrp ui components create <component-type> <component-name>
 .segment.mbdb-indent {
   padding-left: 2em;
 }
-// DetailView: indented sub-rows under a sub-heading
-.ui.table td.mbdb-details-indent,
-.ui.table tr > td.mbdb-details-indent {
-  padding-left: 2em;
+// DetailView hierarchy (design DetailView §2a). Every level is indented one
+// step from its parent; the indentation adds up because a nested cell sits
+// inside its parent's indent. `mbdb-details-depth-<n>` lands on the cell that
+// starts a level (a group's field rows = 1, a nested object's rows = 2, …);
+// depth 0 is the table's own edge (group headers), so it has no class. Deeper
+// than 3 reuses depth-3.
+//
+// The details tables are `very basic`, and Semantic zeroes the first cell's
+// left padding there with
+// `.ui[class*="very basic"].table:not(.sortable):not(.striped) td:first-child`
+// (specificity 0,6,1). Every indented cell IS a row's first cell (labels, the
+// mini-table cell, an expanded cell, headers), so a plain `.ui.table td.…`
+// rule (0,3,1) lost and nothing was indented. The rules below repeat that
+// chain, so they win by one class. `@mbdbDetailBase` insets depth 0 (the
+// group headers) as well, so the details never touch the open row's accent
+// bar; each depth adds one `@mbdbDetailIndent` on top.
+@mbdbDetailIndent: 1.5em;
+@mbdbDetailBase: 0.75em;
+.ui[class*="very basic"].table:not(.sortable):not(.striped) {
+  th.mbdb-detail-group,
+  td.mbdb-detail-group {
+    padding-left: @mbdbDetailBase;
+  }
+  th.mbdb-details-depth-1,
+  td.mbdb-details-depth-1 {
+    padding-left: (@mbdbDetailBase + @mbdbDetailIndent);
+  }
+  th.mbdb-details-depth-2,
+  td.mbdb-details-depth-2 {
+    padding-left: (@mbdbDetailBase + @mbdbDetailIndent * 2);
+  }
+  th.mbdb-details-depth-3,
+  td.mbdb-details-depth-3 {
+    padding-left: (@mbdbDetailBase + @mbdbDetailIndent * 3);
+  }
+}
+// Group / sub-heading rows (rule 4): small caps, muted, so a header does not
+// read like a field label. The header cell also carries Semantic's `ignored`
+// (rule 5). `.ui.table …` beats Semantic's own `.ui.table th` colour.
+.ui.table .mbdb-detail-group {
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: @mbdbMutedColor;
+}
+// Rule 5: the outer definition table must not style nested tables. Semantic's
+// `.ui.definition.table tr td:nth-child(2) { border-left }` is a descendant
+// selector, so it leaks a left border onto the first data cell of any table
+// nested in the details. (Its `td:first-child:not(.ignored)` bold/grey leak is
+// handled by the `ignored` class in Rows.jsx.)
+.ui.definition.table .ui.table:not(.definition) td {
+  border-left: none;
 }
 
 // FieldHelp that does not follow a .field: directly under a control

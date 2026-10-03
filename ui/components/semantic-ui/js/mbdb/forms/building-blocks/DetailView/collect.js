@@ -33,15 +33,11 @@ export const fieldEntryOf = (entry) =>
 // error visibility is decided by the caller's `hasErr(path)` predicate, which
 // the components fill with useFieldErrors — one hook call per row.
 
-// ponytail: one indent level; deeper nesting joins sub-headings with " › ".
+// ponytail: one indent step per level; deeper nesting joins sub-headings with
+// " › ". `depth` is the indentation level (design §2a): a group's own field rows
+// are depth 1, a nested object's rows one more, and so on.
 // hasErr (optional): rows with a server error are kept even when empty.
-export const collectRows = (
-  obj,
-  basePath,
-  hasErr,
-  heading = "",
-  indent = false
-) => {
+export const collectRows = (obj, basePath, hasErr, heading = "", depth = 1) => {
   const rows = [];
   Object.entries(obj ?? {}).forEach(([name, value]) => {
     const path = `${basePath}.${name}`;
@@ -55,7 +51,7 @@ export const collectRows = (
     // is what shows a `location` as one line plus the map link, and a
     // `basic_information` with its formula and weight.
     if (formatters[name] && !isEmptyValue(value)) {
-      rows.push({ kind: "field", name, path, value, indent, errored });
+      rows.push({ kind: "field", name, path, value, depth, errored });
       return;
     }
     if (isLeafObject(value) || !isPlainObject(value)) {
@@ -64,17 +60,18 @@ export const collectRows = (
         value.some((v) => isPlainObject(v) && !isLeafObject(v)) &&
         !isSteps(value)
       ) {
-        // array of complex objects: heading + mini table
-        rows.push({ kind: "heading", name: subHeading, path, indent });
-        rows.push({ kind: "mini", name, path, items: value, indent });
+        // array of complex objects: heading + mini table (both at this depth;
+        // the mini table's cell is the field's row)
+        rows.push({ kind: "heading", name: subHeading, path, depth });
+        rows.push({ kind: "mini", name, path, items: value, depth });
       } else {
-        rows.push({ kind: "field", name, path, value, indent, errored });
+        rows.push({ kind: "field", name, path, value, depth, errored });
       }
       return;
     }
     // assessed objects are a single formatted line, not sub-rows (§3)
     if (isAssessed(value)) {
-      rows.push({ kind: "field", name, path, value, indent, errored });
+      rows.push({ kind: "field", name, path, value, depth, errored });
       return;
     }
     // a manual chemical ({ id } missing, title/string-or-i18n-dict present):
@@ -84,12 +81,13 @@ export const collectRows = (
       value.id === undefined &&
       (typeof value.title === "string" || typeof value.title?.en === "string")
     ) {
-      rows.push({ kind: "field", name, path, value, indent, errored });
+      rows.push({ kind: "field", name, path, value, depth, errored });
       return;
     }
-    const inner = collectRows(value, path, hasErr, subHeading, true);
+    // a nested object: its sub-heading is at this depth, its rows one deeper
+    const inner = collectRows(value, path, hasErr, subHeading, depth + 1);
     if (inner.length > 0)
-      rows.push({ kind: "heading", name: subHeading, path, indent });
+      rows.push({ kind: "heading", name: subHeading, path, depth });
     rows.push(...inner);
   });
   return rows;
@@ -134,8 +132,22 @@ export const groupSections = (
         return { ...row, ...arraySpecs[row.name] };
       return row;
     });
-    if (rows.length === 0 && missing.length === 0) return; // all-empty group
-    sections.push({ title: group.title, rows, missing });
+    // §2a rule 3: no duplicated headings. A group with exactly one field does
+    // not repeat the field's own heading:
+    // - a plain value needs no group header at all (the field row is enough);
+    // - an array (mini table) or a nested object keeps the group header and
+    //   drops the field's sub-heading, and its rows move up one depth.
+    let title = group.title;
+    let finalRows = rows;
+    if ((group.fields ?? []).length === 1) {
+      if (rows[0]?.kind === "heading")
+        finalRows = rows
+          .slice(1)
+          .map((row) => ({ ...row, depth: Math.max(1, row.depth - 1) }));
+      else title = undefined;
+    }
+    if (finalRows.length === 0 && missing.length === 0) return; // all-empty
+    sections.push({ title, rows: finalRows, missing });
   });
   // keys in no group are never hidden: they go under "Other"
   const other = {};

@@ -62,6 +62,9 @@ export const EntitiesOfInterestSectionComponent = ({ formConfig }) => {
           },
         ]}
         detailGroups={(v) => ENTITY_TYPES[v?.type]?.groups(v) ?? []}
+        // Type and Name are already columns of the row: do not repeat them
+        // under "Other" (design DetailView §2)
+        detailProps={{ exclude: ["id", "type", "name"] }}
         renderForm={(itemPath) => <EntityForm fieldPath={itemPath} />}
       />
     </Overridable>
