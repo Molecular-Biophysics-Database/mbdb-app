@@ -114,6 +114,10 @@ export const DiscriminatorField = ({
       required={data.required}
       hasError={errorMessages.length > 0}
       messages={errorMessages}
+      // a button row is composite: its help belongs under the label, not below
+      // the buttons where it reads like the next field's help. A dropdown is a
+      // single control, so its help stays under the control (guide §8).
+      helpPlacement={mode === "buttons" ? "label" : "control"}
     >
       {mode === "buttons" ? (
         <Button.Group

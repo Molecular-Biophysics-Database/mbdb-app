@@ -34,6 +34,12 @@ FieldLabel.propTypes = {
 // a Form.Group (guide §8). Both help modes are honored by the two slots:
 // HelpLabel (the "?" icon in popup mode) and FieldHelp (the helptext label
 // under the control in invenio mode).
+//
+// helpPlacement="control" (default) keeps help under the control — right for
+// a single input/select/value+unit. helpPlacement="label" moves it directly
+// under the label, for composite controls (button groups, tables) whose help
+// would otherwise sit far below, after an Add button (guide §8, help
+// placement). Errors always stay after the control.
 export const FieldShell = ({
   inputId,
   label,
@@ -44,6 +50,7 @@ export const FieldShell = ({
   messages = [],
   width,
   className,
+  helpPlacement = "control",
   children,
 }) => (
   <Form.Field
@@ -57,9 +64,10 @@ export const FieldShell = ({
       // slot at all — never an empty <label> element
       label ? <FieldLabel inputId={inputId} label={label} help={help} /> : null
     }
+    {helpPlacement === "label" && <FieldHelp help={help} placement="label" />}
     {children}
     <ErrorMessages messages={messages} />
-    <FieldHelp help={help} />
+    {helpPlacement === "control" && <FieldHelp help={help} />}
   </Form.Field>
 );
 
@@ -82,5 +90,8 @@ FieldShell.propTypes = {
   // lands on the Form.Field (e.g. "mbdb-monospace": the LESS rule
   // .mbdb-monospace textarea then matches the control below)
   className: PropTypes.string,
+  // "control" (default): help under the control. "label": help directly
+  // under the label — composite controls (guide §8)
+  helpPlacement: PropTypes.oneOf(["control", "label"]),
   children: PropTypes.node.isRequired,
 };

@@ -1,14 +1,33 @@
+import { getIn, useFormikContext } from "formik";
 import { useFieldData } from "@js/oarepo_ui/forms";
-import { hasData, isEmptyValue } from "@js/mbdb/forms/building-blocks/errors";
+import {
+  collectMessages,
+  hasData,
+  isEmptyValue,
+  mergedErrorNode,
+} from "@js/mbdb/forms/building-blocks/errors";
 import { formatters } from "./formatters";
 import { isAssessed, isLeafObject, isPlainObject, isSteps } from "./values";
 
-// A group field entry is a plain name or `{ field: name, vocabulary: type }`
-// (declared per field so details can resolve vocabulary titles by GET).
+// A group field entry is a plain name or
+// `{ field, vocabulary?, itemColumns?, itemGroups? }`:
+// - `vocabulary`: declared per field so details can resolve vocabulary titles
+//   by GET (the shared per-id cache);
+// - `itemColumns` + `itemGroups`: for a field that is an ARRAY of complex
+//   objects, the array's own columns (the read-only mini table inside these
+//   details shows the same columns as the array's edit table) and its items'
+//   details groups (the mini row's own ▸ opens the item's details grouped
+//   exactly like its form, resolving vocabularies — design DetailView §3/§4).
+//   `itemGroups` may also be `(itemValue) => groups` for a polymorphic item.
 export const fieldEntryOf = (entry) =>
   typeof entry === "string"
     ? { name: entry }
-    : { name: entry.field, vocabulary: entry.vocabulary };
+    : {
+        name: entry.field,
+        vocabulary: entry.vocabulary,
+        itemColumns: entry.itemColumns,
+        itemGroups: entry.itemGroups,
+      };
 
 // Build the flat row list for one object out of its values. Pure (no hooks):
 // error visibility is decided by the caller's `hasErr(path)` predicate, which
@@ -89,24 +108,32 @@ export const groupSections = (
   const known = new Set(exclude);
   const sections = [];
   const vocabularies = {};
+  // per-field spec for an array of complex objects (its mini columns + the
+  // items' details groups), carried onto the collected "mini" row so the
+  // read-only mini table can use it
+  const arraySpecs = {};
   groups.forEach((group) => {
     const part = {};
     const missing = [];
     (group.fields ?? []).forEach((entry) => {
-      const { name, vocabulary } = fieldEntryOf(entry);
+      const { name, vocabulary, itemColumns, itemGroups } = fieldEntryOf(entry);
       known.add(name);
       if (exclude.includes(name)) return;
+      if (itemColumns || itemGroups)
+        arraySpecs[name] = { itemColumns, itemGroups };
       // a field with a server error stays visible even when empty (design §5)
       if (hasData(obj?.[name]) || hasErr?.(`${basePath}.${name}`)) {
         part[name] = obj?.[name];
         if (vocabulary) vocabularies[name] = vocabulary;
       } else if (required.has(name)) missing.push(name);
     });
-    const rows = collectRows(part, basePath, hasErr).map((row) =>
-      row.kind === "field" && vocabularies[row.name]
-        ? { ...row, vocabulary: vocabularies[row.name] }
-        : row
-    );
+    const rows = collectRows(part, basePath, hasErr).map((row) => {
+      if (row.kind === "field" && vocabularies[row.name])
+        return { ...row, vocabulary: vocabularies[row.name] };
+      if (row.kind === "mini" && arraySpecs[row.name])
+        return { ...row, ...arraySpecs[row.name] };
+      return row;
+    });
     if (rows.length === 0 && missing.length === 0) return; // all-empty group
     sections.push({ title: group.title, rows, missing });
   });
@@ -140,4 +167,31 @@ export const useMergedRequired = (fieldPath, groups, requiredPaths) => {
     })
   );
   return merged;
+};
+
+// The grouped sections of the object at `fieldPath`, memo-free: the one place
+// that turns Formik `values` + `errors` ∪ `initialErrors` into the section
+// list a detail table renders. `DetailView` (the top level) and a mini row's
+// own ▸ (its item's groups) both read it, so they render identically. Returns
+// null when the object is absent (nothing to show).
+export const useSections = (fieldPath, groups, exclude, requiredPaths) => {
+  const formik = useFormikContext();
+  const required = useMergedRequired(fieldPath, groups, requiredPaths);
+  // Rows with a server error stay visible even when empty (design §5). collect
+  // is pure (no hooks), so it cannot call useFieldErrors; mergedErrorNode is
+  // the same errors∪initialErrors selection as a plain function, and the row
+  // is kept when that node holds any message. Each leaf row still re-checks
+  // via useFieldErrors at render.
+  const hasErr = (path) =>
+    collectMessages(mergedErrorNode(formik, path), []).length > 0;
+  const obj = getIn(formik.values, fieldPath);
+  if (obj === undefined || obj === null) return null;
+  return groupSections(
+    isPlainObject(obj) ? obj : {},
+    fieldPath,
+    groups,
+    exclude,
+    required,
+    hasErr
+  );
 };

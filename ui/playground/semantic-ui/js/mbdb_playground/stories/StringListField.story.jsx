@@ -1,17 +1,20 @@
 import React from "react";
 import { StringArrayField } from "mbdb-react-invenio-forms";
-import { entityPath, entityValues } from "../fixtures";
+import { entityPath, entityValues, entityErrors } from "../fixtures";
 
-const PATH = entityPath("additional_specifications");
+const PATH = entityPath("basic_information.additional_identifiers");
 
 // StringListField is oarepo's StringArrayField behind the mbdb wrapper (help
-// goes through HelpLabel/FieldHelp so the global help mode reaches it).
+// goes through HelpLabel/FieldHelp so the global help mode reaches it). Its
+// remaining use is `additional_identifiers`; `additional_specifications` is a
+// one-column table now (see StringTableField.story.jsx). The label/help are set
+// explicitly because the model has none for this keyword array (guide §6).
 const Fields = () => (
   <StringArrayField
     fieldPath={PATH}
-    label="Additional specifications"
-    addButtonLabel="Add specification"
-    help="Additional information about the entity can be specified here."
+    label="Additional identifiers"
+    addButtonLabel="Add identifier"
+    help="Additional identifiers of the chemical"
   />
 );
 
@@ -21,27 +24,22 @@ const story = {
     { name: "Empty", initialValues: {}, render: Fields },
     {
       name: "Filled",
-      initialValues: entityValues("Polymer", {
-        additional_specifications: ["RNase free water", "desalted"],
+      initialValues: entityValues("Chemical", {
+        basic_information: {
+          additional_identifiers: ["cid:5497103", "smiles:O"],
+        },
       }),
       render: Fields,
     },
     {
       name: "With errors",
-      initialValues: entityValues("Polymer", {
-        additional_specifications: ["ok", ""],
+      initialValues: entityValues("Chemical", {
+        basic_information: { additional_identifiers: ["ok", ""] },
       }),
-      initialErrors: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              {
-                additional_specifications: [null, "Shorter than 1 character."],
-              },
-            ],
-          },
-        },
-      },
+      initialErrors: entityErrors(
+        "basic_information.additional_identifiers.1",
+        "Shorter than 1 character."
+      ),
       render: Fields,
     },
   ],

@@ -53,6 +53,27 @@ describe("EditModal", () => {
     expect(calls).toEqual(["done", "cancel"]);
   });
 
+  it("the content has a .ui.form ancestor that is a div, not a form element", () => {
+    mount(
+      <EditModal
+        header="Edit something"
+        open
+        onCancel={() => {}}
+        onDone={() => {}}
+      >
+        <input readOnly />
+      </EditModal>
+    );
+    const input = modal().querySelector("input");
+    const form = input.closest(".ui.form");
+    // Semantic form CSS (labels, Form.Group columns, required asterisks,
+    // textareas) needs a `.ui.form` ancestor — a Modal is a portal, so
+    // nothing else provides one.
+    expect(form).not.toBeNull();
+    expect(form.tagName).not.toBe("FORM");
+    expect(modal().contains(form)).toBe(true);
+  });
+
   it("a dimmer click fires NEITHER callback (closeOnDimmerClick is false)", () => {
     const calls = [];
     mount(

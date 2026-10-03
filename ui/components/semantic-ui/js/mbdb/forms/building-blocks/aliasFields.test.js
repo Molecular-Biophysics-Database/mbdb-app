@@ -257,6 +257,23 @@ describe("wrapped fields", () => {
     });
   });
 
+  it("StringArrayField: help of the list sits under the label, above the items", () => {
+    render(
+      <StringArrayField
+        fieldPath="additional_specifications"
+        addButtonLabel="Add specification"
+      />
+    );
+    const wrapper = container.querySelector(".mbdb-field-wrapper");
+    const help = wrapper.querySelector("label.helptext");
+    expect(help.textContent).toBe("Model help");
+    // the shell's own label is the first one; the help must follow it and not
+    // be pulled up under the list's Add button (guide §8, help placement)
+    const labelEl = wrapper.querySelector("label");
+    expect(labelEl.nextElementSibling).toBe(help);
+    expect(help.classList.contains("mbdb-field-help-under-label")).toBe(true);
+  });
+
   it("a list-level StringArrayField error shows without tinting the wrapper (markError=false)", () => {
     render(
       <StringArrayField

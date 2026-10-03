@@ -76,6 +76,12 @@ export const REGISTRY = [
   },
   {
     step: 1,
+    key: "StringTableField",
+    design: "design/building-blocks/StringTableField.md",
+    load: () => import("./stories/StringTableField.story"),
+  },
+  {
+    step: 1,
     key: "TableArrayField",
     design: "design/building-blocks/TableArrayField.md",
     load: () => import("./stories/TableArrayField.story"),

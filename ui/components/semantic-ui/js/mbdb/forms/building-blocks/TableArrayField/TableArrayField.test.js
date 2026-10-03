@@ -149,6 +149,41 @@ const databases = (props = {}) => (
 );
 
 describe("TableArrayField", () => {
+  it("the table's help sits directly under the label, above the table", () => {
+    mount(protocol({ help: "Steps taken" }));
+    const field = container.querySelector(".field");
+    const help = field.querySelector("label.helptext");
+    const labelEl = field.querySelector("label[for='steps']");
+    const table = field.querySelector("table");
+    expect(help).not.toBeNull();
+    expect(help.textContent).toBe("Steps taken");
+    // composite control: help under the label, not below the table and its
+    // Add button (guide §8, help placement)
+    expect(labelEl.nextElementSibling).toBe(help);
+    expect(help.classList.contains("mbdb-field-help-under-label")).toBe(true);
+    expect(
+      help.compareDocumentPosition(table) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
+  });
+
+  it("showIndex (default true) keeps the # column", () => {
+    mount(protocol(), {
+      initialValues: { steps: [{ name: "a", description: "b" }] },
+    });
+    expect(container.querySelector("thead").textContent).toContain("#");
+    // #, name, description, actions
+    expect(container.querySelectorAll("tbody tr td")).toHaveLength(4);
+  });
+
+  it("showIndex={false} drops the leading # column from the header and the rows", () => {
+    mount(protocol({ showIndex: false }), {
+      initialValues: { steps: [{ name: "a", description: "b" }] },
+    });
+    expect(container.querySelector("thead").textContent).not.toContain("#");
+    // name, description, actions — no index cell
+    expect(container.querySelectorAll("tbody tr td")).toHaveLength(3);
+  });
+
   it("renders minItems rows as VIRTUAL rows: shown, but nothing is written yet (F11)", () => {
     mount(protocol());
     // no seeding write — the form stays clean

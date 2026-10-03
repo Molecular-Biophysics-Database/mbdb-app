@@ -29,12 +29,17 @@ ColumnTitle.propTypes = {
   column: PropTypes.object.isRequired,
 };
 
-// The table's header row: # + one ColumnTitle per column + the empty
-// expand-toggle and actions columns.
-export const HeaderRow = ({ fieldPath, columns, renderExpanded }) => (
+// The table's header row: `#` (unless showIndex is false) + one ColumnTitle per
+// column + the empty expand-toggle and actions columns.
+export const HeaderRow = ({
+  fieldPath,
+  columns,
+  renderExpanded,
+  showIndex,
+}) => (
   <Table.Header>
     <Table.Row>
-      <Table.HeaderCell>#</Table.HeaderCell>
+      {showIndex && <Table.HeaderCell>#</Table.HeaderCell>}
       {columns.map((column) => (
         <ColumnTitle key={column.field} fieldPath={fieldPath} column={column} />
       ))}
@@ -47,4 +52,6 @@ HeaderRow.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   columns: PropTypes.arrayOf(PropTypes.object).isRequired,
   renderExpanded: PropTypes.func,
+  // false hides the leading `#` column (a plain list, not referred to by number)
+  showIndex: PropTypes.bool,
 };

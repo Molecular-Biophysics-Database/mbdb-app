@@ -23,6 +23,14 @@ jest.mock("@js/oarepo_ui/forms", () =>
     .mockOarepoForms()
 );
 
+// Client-only row keys (jsdom has no WebCrypto): StringTableField builds on
+// TableArrayField, which mints a key per row.
+jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockRandomUUID()
+);
+
 // The picker is faked (it queries the vocabulary API): it stands for what the
 // block needs from it — the fieldPath it was handed, the value it shows, and
 // a pick that calls the caller's onPicked with a suggestion.
@@ -41,7 +49,6 @@ jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () =>
 
 const ENTITY = "metadata.general_parameters.entities_of_interest.0";
 const BASIC = `${ENTITY}.basic_information`;
-const SPECS = `${ENTITY}.additional_specifications`;
 const WATER_ID = "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N";
 
 let container;
@@ -85,7 +92,10 @@ const chemical = () => (
 const picker = () => container.querySelector('[data-testid="picker"]');
 const pickerValue = () =>
   container.querySelector('[data-testid="picker-value"]')?.textContent;
-const specs = () => container.querySelector('[data-testid="specs"]');
+// the specifications are a one-column table; its cell input carries the column
+// header as its aria-label
+const specs = () =>
+  container.querySelector('input[aria-label="Specification"]');
 
 const renderSummary = (value) => {
   container = renderInForm(<>{summaryChemical(value)}</>, {});
@@ -97,8 +107,7 @@ describe("ChemicalFields", () => {
     container = renderInForm(chemical(), { initialValues: entity(FILLED) });
     expect(picker().dataset.path).toBe(BASIC);
     expect(pickerValue()).toBe(WATER_ID);
-    expect(specs().dataset.path).toBe(SPECS);
-    expect(specs().textContent).toBe("HPLC grade");
+    expect(specs().value).toBe("HPLC grade");
   });
 
   it("picking a chemical prefills an empty Name with its title", async () => {
@@ -120,7 +129,8 @@ describe("ChemicalFields", () => {
     container = renderInForm(chemical(), { initialValues: entity() });
     expect(picker().dataset.path).toBe(BASIC);
     expect(pickerValue()).toBe("");
-    expect(specs().textContent).toBe("");
+    // no stored specification → no row (the array is optional, no virtual row)
+    expect(specs()).toBeNull();
   });
 
   it("a saved manual chemical (manual: id) renders the picker, not the manual form", () => {

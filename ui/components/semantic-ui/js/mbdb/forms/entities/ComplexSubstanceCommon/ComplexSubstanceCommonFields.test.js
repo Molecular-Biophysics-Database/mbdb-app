@@ -83,17 +83,19 @@ describe("ComplexSubstanceCommonFields", () => {
     // each block binds to the path it was given
     const protocol = labelFor(`${ENTITY}.preparation_protocol`);
     const storage = labelFor(`${ENTITY}.storage`);
-    const specs = container.querySelector('[data-testid="specs"]');
+    // the specifications are a one-column table; its cell input carries the
+    // column header as its aria-label
+    const specs = container.querySelector('input[aria-label="Specification"]');
     expect(protocol.textContent).toContain("Preparation protocol");
     expect(storage.textContent).toContain("Storage");
-    expect(specs.dataset.path).toBe(`${ENTITY}.additional_specifications`);
+    expect(specs.value).toBe("Freshly prepared");
     // the order is protocol, then storage, then the specifications
     expect(isBefore(protocol, storage)).toBe(true);
     expect(isBefore(storage, specs)).toBe(true);
     // values render: protocol cells, the storage summary, the specifications
     expect(hasInputValue("Centrifugation")).toBe(true);
     expect(container.textContent).toContain("for 3 months");
-    expect(container.textContent).toContain("Freshly prepared");
+    expect(hasInputValue("Freshly prepared")).toBe(true);
   });
 
   it("with an empty item renders one protocol row, no storage and writes nothing", () => {

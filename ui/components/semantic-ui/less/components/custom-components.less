@@ -51,6 +51,18 @@ label.helptext.mbdb-field-help:first-child {
   margin-top: 0.5em;
 }
 
+// Help placed directly under a composite control's label
+// (FieldShell helpPlacement="label": button groups, lists with an Add
+// button, tables). Invenio pulls every `label.helptext` up with
+// margin-top: -0.8em to cancel a preceding .field's bottom margin; under a
+// label there is no such .field, so reset it. The `.ui.form .field > label…`
+// selector is needed to beat Invenio's `.ui.form .field label.helptext`.
+.ui.form .field label.helptext.mbdb-field-help-under-label,
+label.helptext.mbdb-field-help-under-label {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
 // mbdb TextAreaField `monospace` prop (sequences): the className lands on
 // the form-field wrapper, so style the textarea inside it.
 .mbdb-monospace textarea {

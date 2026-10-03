@@ -63,6 +63,25 @@ describe("ButtonGroupField", () => {
     );
   });
 
+  it("help sits directly under the label, before the button row", () => {
+    render(
+      <ButtonGroupField
+        fieldPath="source"
+        label="Expression source type"
+        help="How the polymer was produced"
+        options={OPTIONS}
+      />
+    );
+    const field = container.querySelector(".field");
+    const help = field.querySelector("label.helptext");
+    const labelEl = field.querySelector("label[for='source']");
+    expect(help).not.toBeNull();
+    expect(help.textContent).toBe("How the polymer was produced");
+    // a button row is composite: help under the label, not below the buttons
+    expect(labelEl.nextElementSibling).toBe(help);
+    expect(help.classList.contains("mbdb-field-help-under-label")).toBe(true);
+  });
+
   it("clears the value when the active button is clicked again (optional)", () => {
     render(
       <>

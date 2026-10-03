@@ -39,6 +39,7 @@ const Row = ({
   renderExpanded,
   expandToggle,
   rowHint,
+  showIndex,
   colSpan,
 }) => {
   const row = deserialize(storedItem);
@@ -59,7 +60,7 @@ const Row = ({
   return (
     <>
       <Table.Row>
-        <Table.Cell collapsing>{index + 1}</Table.Cell>
+        {showIndex && <Table.Cell collapsing>{index + 1}</Table.Cell>}
         {columns.map((column) => (
           <Table.Cell key={column.field}>
             {column.render ? (
@@ -133,6 +134,7 @@ Row.propTypes = {
   renderExpanded: PropTypes.func,
   expandToggle: PropTypes.func,
   rowHint: PropTypes.func,
+  showIndex: PropTypes.bool,
   colSpan: PropTypes.number.isRequired,
 };
 
@@ -149,6 +151,7 @@ const TableArrayFieldInner = ({
   renderExpanded,
   expandToggle,
   rowHint,
+  showIndex,
 }) => {
   const { values, setFieldValue } = useFormikContext();
   const unset = useUnsetField();
@@ -212,7 +215,9 @@ const TableArrayFieldInner = ({
   const toggleExpand = (key, current) =>
     setToggles((prev) => ({ ...prev, [key]: !current }));
 
-  const colSpan = 2 + columns.length + (renderExpanded ? 1 : 0); // # + … + expand + actions
+  // `#` (unless showIndex is false) + one cell per column + expand + actions
+  const colSpan =
+    (showIndex ? 1 : 0) + 1 + columns.length + (renderExpanded ? 1 : 0);
 
   return (
     <>
@@ -221,6 +226,7 @@ const TableArrayFieldInner = ({
           fieldPath={fieldPath}
           columns={columns}
           renderExpanded={renderExpanded}
+          showIndex={showIndex}
         />
         <Table.Body>
           {Array.from({ length: rowCount }, (_, index) => {
@@ -245,6 +251,7 @@ const TableArrayFieldInner = ({
                 renderExpanded={renderExpanded}
                 expandToggle={expandToggle}
                 rowHint={rowHint}
+                showIndex={showIndex}
                 colSpan={colSpan}
               />
             );
@@ -281,6 +288,8 @@ TableArrayFieldInner.propTypes = {
   renderExpanded: PropTypes.func,
   expandToggle: PropTypes.func,
   rowHint: PropTypes.func,
+  // false hides the leading `#` column (default true)
+  showIndex: PropTypes.bool,
 };
 
 export const TableArrayField = ({
@@ -298,6 +307,7 @@ export const TableArrayField = ({
   renderExpanded,
   expandToggle,
   rowHint,
+  showIndex = true,
 }) => (
   <FieldArray
     name={fieldPath}
@@ -321,6 +331,7 @@ export const TableArrayField = ({
           renderExpanded={renderExpanded}
           expandToggle={expandToggle}
           rowHint={rowHint}
+          showIndex={showIndex}
         />
       </FieldBox>
     )}
@@ -350,8 +361,8 @@ const FieldBox = ({ fieldPath, label, help, required, children }) => {
           <HelpLabel label={data.label} help={data.helpText} />
         </label>
       )}
+      {data.helpText && <FieldHelp help={data.helpText} placement="label" />}
       {children}
-      {data.helpText && <FieldHelp help={data.helpText} />}
     </Form.Field>
   );
 };
@@ -390,4 +401,7 @@ TableArrayField.propTypes = {
   renderExpanded: PropTypes.func,
   expandToggle: PropTypes.func,
   rowHint: PropTypes.func,
+  // false hides the leading `#` column (default true); a plain list is never
+  // referred to by number (e.g. StringTableField)
+  showIndex: PropTypes.bool,
 };

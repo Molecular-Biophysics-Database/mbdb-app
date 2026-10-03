@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { Button, Modal } from "mbdb-semantic-ui-react";
+import { Button, Form, Modal } from "mbdb-semantic-ui-react";
 
 // The shared edit-modal shell used by ModalArrayField and ModalObjectField
 // (design: Semantic Modal, scrolling content, Cancel/Done).
@@ -56,7 +56,15 @@ export const EditModal = ({
     >
       <Modal.Header>{header}</Modal.Header>
       <Modal.Content scrolling>
-        <div ref={contentRef}>{children}</div>
+        {/* A Semantic Modal is a portal on document.body, so nothing inside
+            it has a `.ui.form` ancestor — and every Semantic form rule needs
+            one: field/label spacing, Form.Group columns, required asterisks,
+            textareas. `as="div"` gives the `ui form` class without a second
+            <form> (Enter must not submit, and a submit cannot reach the
+            portal from the deposit form). */}
+        <Form as="div">
+          <div ref={contentRef}>{children}</div>
+        </Form>
       </Modal.Content>
       <Modal.Actions>
         <Button type="button" onClick={onCancel}>

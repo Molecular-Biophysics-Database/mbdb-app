@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Form } from "mbdb-semantic-ui-react";
-import { StringArrayField } from "mbdb-react-invenio-forms";
+import { StringTableField } from "@js/mbdb/forms/building-blocks/StringTableField";
 import { FieldGroup } from "@js/mbdb/forms/building-blocks/FieldGroup";
 import { SelectField } from "@js/mbdb/forms/building-blocks/SelectField";
 import { ButtonGroupField } from "@js/mbdb/forms/building-blocks/ButtonGroupField";
@@ -45,7 +45,11 @@ export const PolymerFields = ({ fieldPath }) => (
     </FieldGroup>
     <MolecularWeight fieldPath={`${fieldPath}.molecular_weight`} />
     <ExternalDatabases fieldPath={`${fieldPath}.external_databases`} />
-    <StringArrayField fieldPath={`${fieldPath}.additional_specifications`} />
+    <StringTableField
+      fieldPath={`${fieldPath}.additional_specifications`}
+      columnLabel="Specification"
+      addButtonLabel="Add specification"
+    />
     <Modifications fieldPath={`${fieldPath}.modifications`} />
     <QualityControls fieldPath={`${fieldPath}.quality_controls`} />
   </>

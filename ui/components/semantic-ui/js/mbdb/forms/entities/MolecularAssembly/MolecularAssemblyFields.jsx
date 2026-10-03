@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StringArrayField } from "mbdb-react-invenio-forms";
+import { StringTableField } from "@js/mbdb/forms/building-blocks/StringTableField";
 import { MolecularWeight } from "@js/mbdb/forms/shared/MolecularWeight";
 import { Components } from "@js/mbdb/forms/shared/Components";
 import { ExternalDatabases } from "@js/mbdb/forms/shared/ExternalDatabases";
@@ -22,7 +22,11 @@ export const MolecularAssemblyFields = ({ fieldPath }) => (
         polymer's modifications object, so the shared table is used directly */}
     <ModificationTable fieldPath={`${fieldPath}.chemical_modifications`} />
     <QualityControls fieldPath={`${fieldPath}.quality_controls`} />
-    <StringArrayField fieldPath={`${fieldPath}.additional_specifications`} />
+    <StringTableField
+      fieldPath={`${fieldPath}.additional_specifications`}
+      columnLabel="Specification"
+      addButtonLabel="Add specification"
+    />
   </>
 );
 

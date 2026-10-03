@@ -49,6 +49,8 @@ export const ButtonGroupField = ({
       required={f.required}
       hasError={f.hasError}
       messages={f.messages}
+      // a button row is composite: help under the label, not below the buttons
+      helpPlacement="label"
     >
       <Button.Group
         id={fieldPath}

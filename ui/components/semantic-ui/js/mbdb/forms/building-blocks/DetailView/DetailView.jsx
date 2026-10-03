@@ -3,49 +3,13 @@
 /* eslint-disable react/no-array-index-key */
 import React from "react";
 import PropTypes from "prop-types";
-import { getIn, useFormikContext } from "formik";
-import { Button, Label, Table } from "mbdb-semantic-ui-react";
-import {
-  collectMessages,
-  mergedErrorNode,
-} from "@js/mbdb/forms/building-blocks/errors";
-import { isPlainObject } from "./values";
-import { DetailLabel } from "./DetailLabel";
-import { Rows } from "./Rows";
-import { groupSections, useMergedRequired } from "./collect";
+import { Button, Table } from "mbdb-semantic-ui-react";
+import { Section } from "./Rows";
+import { useSections } from "./collect";
 
 // A generic read-only definition table built from a group spec — the
 // "Details" (▸) view (design/building-blocks/DetailView.md). It reads Formik
-// `values` and `errors` ∪ `initialErrors` (via useFieldErrors); it never
-// writes.
-
-// One group of the form becomes a section: a header row plus its rows and the
-// red "Missing" rows for required-but-absent fields (design §5).
-const Section = ({ fieldPath, section, onEdit }) => (
-  <>
-    <Table.Row>
-      <Table.HeaderCell colSpan="2">{section.title}</Table.HeaderCell>
-    </Table.Row>
-    <Rows rows={section.rows} onEdit={onEdit} />
-    {section.missing.map((name) => (
-      <Table.Row key={`miss-${name}`}>
-        <Table.Cell width={5}>
-          <DetailLabel path={`${fieldPath}.${name}`} fallback={name} />
-        </Table.Cell>
-        <Table.Cell>
-          <Label color="red" size="small">
-            Missing
-          </Label>
-        </Table.Cell>
-      </Table.Row>
-    ))}
-  </>
-);
-Section.propTypes = {
-  fieldPath: PropTypes.string.isRequired,
-  section: PropTypes.object.isRequired,
-  onEdit: PropTypes.func,
-};
+// `values` and `errors` ∪ `initialErrors` (via useSections); it never writes.
 
 export const DetailView = ({
   fieldPath,
@@ -55,26 +19,8 @@ export const DetailView = ({
   onEdit,
   itemName,
 }) => {
-  const formik = useFormikContext();
-  const { values } = formik;
-  const obj = getIn(values, fieldPath);
-  const required = useMergedRequired(fieldPath, groups, requiredPaths);
-  // Rows with a server error stay visible even when empty (design §5). collect
-  // is pure (no hooks), so it cannot call useFieldErrors; mergedErrorNode is
-  // the same errors∪initialErrors selection as a plain function, and the row
-  // is kept when that node holds any message. Each leaf row still re-checks
-  // via useFieldErrors at render.
-  const hasErr = (path) =>
-    collectMessages(mergedErrorNode(formik, path), []).length > 0;
-  if (obj === undefined || obj === null) return null;
-  const sections = groupSections(
-    isPlainObject(obj) ? obj : {},
-    fieldPath,
-    groups,
-    exclude,
-    required,
-    hasErr
-  );
+  const sections = useSections(fieldPath, groups, exclude, requiredPaths);
+  if (!sections) return null;
   const showEdit = typeof onEdit === "function";
   const editButton = showEdit && (
     <Button basic size="small" type="button" onClick={onEdit}>
@@ -113,13 +59,17 @@ DetailView.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       // a plain name, or `{ field, vocabulary }` when the field is a
-      // vocabulary reference whose title comes from the server cache
+      // vocabulary reference whose title comes from the server cache; an
+      // array-of-complex field may also declare `itemColumns` (its mini-table
+      // columns) and `itemGroups` (its items' details groups)
       fields: PropTypes.arrayOf(
         PropTypes.oneOfType([
           PropTypes.string,
           PropTypes.shape({
             field: PropTypes.string.isRequired,
             vocabulary: PropTypes.string,
+            itemColumns: PropTypes.array,
+            itemGroups: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
           }),
         ])
       ).isRequired,

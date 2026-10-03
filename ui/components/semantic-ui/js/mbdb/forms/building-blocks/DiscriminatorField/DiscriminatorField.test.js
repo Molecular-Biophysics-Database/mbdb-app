@@ -85,6 +85,38 @@ describe("DiscriminatorField", () => {
     expect(container.querySelectorAll('[aria-label^="Help"]').length).toBe(1);
   });
 
+  it("buttons variant: help renders directly under the label, before the button row", () => {
+    mount(typeField({ label: "Entity type", help: "The kind of entity" }));
+    const field = container.querySelector(".field");
+    const help = field.querySelector("label.helptext");
+    const labelEl = field.querySelector("label[for='o.type']");
+    expect(help).not.toBeNull();
+    expect(help.textContent).toBe("The kind of entity");
+    // under the label, not below the buttons where it reads like the next
+    // field's help (guide §8, help placement)
+    expect(labelEl.nextElementSibling).toBe(help);
+    expect(help.classList.contains("mbdb-field-help-under-label")).toBe(true);
+  });
+
+  it("dropdown variant: help stays under the dropdown control, not under the label", () => {
+    mount(
+      typeField({
+        label: "Entity type",
+        help: "The kind of entity",
+        variant: "dropdown",
+        options: ["Polymer", "Chemical"],
+      })
+    );
+    const field = container.querySelector(".field");
+    const help = field.querySelector("label.helptext");
+    const dropdown = field.querySelector(".ui.dropdown");
+    const labelEl = field.querySelector("label[for='o.type']");
+    expect(labelEl.nextElementSibling).not.toBe(help);
+    // the help comes after the control (next element sibling of the dropdown)
+    expect(dropdown.nextElementSibling).toBe(help);
+    expect(help.classList.contains("mbdb-field-help-under-label")).toBe(false);
+  });
+
   it("exposes pressed state and arrow-key focus on the option buttons", () => {
     mount(typeField(), {
       initialValues: { o: { id: "e1", type: "Polymer" } },

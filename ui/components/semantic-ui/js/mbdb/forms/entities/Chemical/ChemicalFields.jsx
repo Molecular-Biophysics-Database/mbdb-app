@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { getIn, useFormikContext } from "formik";
-import { StringArrayField } from "mbdb-react-invenio-forms";
+import { StringTableField } from "@js/mbdb/forms/building-blocks/StringTableField";
 import { BasicInformation } from "@js/mbdb/forms/shared/BasicInformation";
 import { isEmptyValue } from "@js/mbdb/forms/building-blocks/errors";
 
@@ -27,7 +27,11 @@ export const ChemicalFields = ({ fieldPath }) => {
         fieldPath={`${fieldPath}.basic_information`}
         onPicked={onPicked}
       />
-      <StringArrayField fieldPath={`${fieldPath}.additional_specifications`} />
+      <StringTableField
+        fieldPath={`${fieldPath}.additional_specifications`}
+        columnLabel="Specification"
+        addButtonLabel="Add specification"
+      />
     </>
   );
 };

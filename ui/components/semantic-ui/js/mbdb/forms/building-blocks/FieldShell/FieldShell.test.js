@@ -128,6 +128,32 @@ describe("FieldShell", () => {
     );
   });
 
+  it("helpPlacement label puts the helptext right after the label and before the control", () => {
+    render(
+      <FieldShell
+        inputId="seq"
+        label="Sequence"
+        help="One-letter codes"
+        helpPlacement="label"
+      >
+        <button id="seq" type="button">
+          control
+        </button>
+      </FieldShell>
+    );
+    expect(slotOrder()).toEqual(["label", "help", "control"]);
+    const helptext = field().querySelector("label.helptext");
+    expect(helptext.textContent).toBe("One-letter codes");
+    // the extra class lets LESS cancel Invenio's negative margin-top
+    expect(helptext.classList.contains("mbdb-field-help-under-label")).toBe(
+      true
+    );
+    // ... and it really is the label's next element sibling
+    expect(field().querySelector("label[for=seq]").nextElementSibling).toBe(
+      helptext
+    );
+  });
+
   it("popup help mode: no label.helptext under the control, one ? icon inside the label", () => {
     render(
       <FieldShell inputId="seq" label="Sequence" help="One-letter codes">

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StringArrayField } from "mbdb-react-invenio-forms";
+import { StringTableField } from "@js/mbdb/forms/building-blocks/StringTableField";
 import { Protocol } from "@js/mbdb/forms/shared/Protocol";
 import { Storage } from "@js/mbdb/forms/shared/Storage";
 
@@ -13,7 +13,11 @@ export const ComplexSubstanceCommonFields = ({ fieldPath }) => (
   <>
     <Protocol fieldPath={`${fieldPath}.preparation_protocol`} minItems={1} />
     <Storage fieldPath={`${fieldPath}.storage`} />
-    <StringArrayField fieldPath={`${fieldPath}.additional_specifications`} />
+    <StringTableField
+      fieldPath={`${fieldPath}.additional_specifications`}
+      columnLabel="Specification"
+      addButtonLabel="Add specification"
+    />
   </>
 );
 

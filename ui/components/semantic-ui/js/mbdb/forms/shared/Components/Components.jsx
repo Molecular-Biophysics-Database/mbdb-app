@@ -1,52 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { ModalArrayField } from "@js/mbdb/forms/building-blocks/ModalArrayField";
-import {
-  POLYMER_GROUPS,
-  summaryPolymer,
-} from "@js/mbdb/forms/entities/Polymer";
-import {
-  CHEMICAL_GROUPS,
-  summaryChemical,
-} from "@js/mbdb/forms/entities/Chemical";
 import { ComponentFields } from "./ComponentFields";
 import { COMPONENT_TYPES } from "./constants";
-
-// -1 is "unknown" in the table only; the modal input keeps -1.
-const copyNumberText = (n) => (n === -1 ? "unknown" : n ?? "");
-
-// Each component type has its own details groups (the same spec as its entity
-// form), which is why detailGroups is a function of the item value.
-const DETAIL_GROUPS = { Polymer: POLYMER_GROUPS, Chemical: CHEMICAL_GROUPS };
-
-// A component's variant is the entity field set, so the entity's summary
-// describes the row too: the details column shows what the component is
-// (polymer type / weight / organism, or the chemical title / formula), not just
-// its type (design Components, "the collapsed row").
-const DETAIL_SUMMARY = { Polymer: summaryPolymer, Chemical: summaryChemical };
+import { COMPONENT_COLUMNS, componentDetailGroups } from "./columns";
 
 // The parts of an assembly: a summary table with the copy number and the
 // item's identity (Details) visible, each component edited in a second-level
 // modal (design Components). Components have no `id` in the model, so no
-// `withIds`.
+// `withIds`. The columns live in ./spec so the entity's details mini table
+// shows the same ones.
 export const Components = ({ fieldPath }) => (
   <ModalArrayField
     fieldPath={fieldPath}
     // the model: required, minItems 1, in every use
     minItems={1}
     itemLabel={(v) => v?.name || `New ${v?.type ?? ""} component`}
-    columns={[
-      { label: "Name", value: (v) => v.name },
-      { label: "Type", value: (v) => v.type },
-      { label: "Copy number", value: (v) => copyNumberText(v.copy_number) },
-      { label: "Details", value: (v) => DETAIL_SUMMARY[v?.type]?.(v) ?? "" },
-    ]}
+    columns={COMPONENT_COLUMNS}
     newItemOptions={COMPONENT_TYPES.map((type) => ({
       label: type,
       value: { type },
     }))}
     renderForm={(itemPath) => <ComponentFields fieldPath={itemPath} />}
-    detailGroups={(v) => DETAIL_GROUPS[v?.type] ?? []}
+    detailGroups={componentDetailGroups}
     // Name, Type and Copy number are already in the row: do not repeat them
     detailProps={{ exclude: ["name", "type", "copy_number"] }}
   />

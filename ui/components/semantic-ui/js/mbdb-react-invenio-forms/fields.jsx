@@ -298,6 +298,9 @@ export const StringArrayField = ({
       required={f.required}
       messages={ownMessages}
       className="mbdb-field-wrapper"
+      // the list plus its Add button is composite: help goes under the label,
+      // not under the button where Invenio's negative margin hides it
+      helpPlacement="label"
       // do not tint the whole list when one row has an error — the rows are
       // ways of normal inputs; the list-level message goes through
       // ErrorMessages, never by making the wrapper `.field.error`

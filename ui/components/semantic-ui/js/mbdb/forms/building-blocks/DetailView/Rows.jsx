@@ -3,7 +3,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Button, Table } from "mbdb-semantic-ui-react";
+import { Button, Label, Table } from "mbdb-semantic-ui-react";
 import {
   hasData,
   isEmptyValue,
@@ -14,7 +14,7 @@ import {
 import { ErrorNote, Value, textOf } from "./values";
 import { formatters } from "./formatters";
 import { DetailLabel } from "./DetailLabel";
-import { collectRows } from "./collect";
+import { collectRows, useSections } from "./collect";
 
 // The shared renderer for the collected rows — used for the top-level table
 // and inside an expanded mini row. Details are read-only and never reordered,
@@ -45,6 +45,35 @@ Heading.propTypes = {
   row: PropTypes.object.isRequired,
 };
 
+// One group of the form becomes a section: a header row plus its rows and the
+// red "Missing" rows for required-but-absent fields (design §5). Used by the
+// top-level DetailView and by a mini row's own ▸ (the item's groups).
+export const Section = ({ fieldPath, section, onEdit }) => (
+  <>
+    <Table.Row>
+      <Table.HeaderCell colSpan="2">{section.title}</Table.HeaderCell>
+    </Table.Row>
+    <Rows rows={section.rows} onEdit={onEdit} />
+    {section.missing.map((name) => (
+      <Table.Row key={`miss-${name}`}>
+        <Table.Cell width={5}>
+          <DetailLabel path={`${fieldPath}.${name}`} fallback={name} />
+        </Table.Cell>
+        <Table.Cell>
+          <Label color="red" size="small">
+            Missing
+          </Label>
+        </Table.Cell>
+      </Table.Row>
+    ))}
+  </>
+);
+Section.propTypes = {
+  fieldPath: PropTypes.string.isRequired,
+  section: PropTypes.object.isRequired,
+  onEdit: PropTypes.func,
+};
+
 // One field row; kept visible even when empty while it has a server error
 // (design §5). The error comes through useFieldErrors so it survives edits.
 const FieldRow = ({ row, onEdit }) => {
@@ -70,9 +99,42 @@ FieldRow.propTypes = {
   onEdit: PropTypes.func,
 };
 
-// A mini-table row with its own ▸; expansion renders the item's rows inline.
-const MiniRow = ({ basePath, index, item, keys }) => {
+// The mini row's own ▸: the item's details, grouped exactly like its form (the
+// group entry declared the item's groups), so vocabularies resolve and the
+// columns already in the mini row are not repeated. Falls back to the flat
+// rows when the array declares no groups.
+const MiniDetails = ({ fieldPath, groups, exclude }) => {
+  const sections = useSections(fieldPath, groups, exclude, []);
+  if (!sections || sections.length === 0)
+    return <span className="mbdb-muted-text">Nothing filled in yet</span>;
+  return (
+    <Table definition basic="very" compact>
+      <Table.Body>
+        {sections.map((section, si) => (
+          <Section key={si} fieldPath={fieldPath} section={section} />
+        ))}
+      </Table.Body>
+    </Table>
+  );
+};
+MiniDetails.propTypes = {
+  fieldPath: PropTypes.string.isRequired,
+  groups: PropTypes.array.isRequired,
+  exclude: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+// A mini-table row with its own ▸; expansion renders the item's details inline.
+// Columns are the array's declared `itemColumns` (the array's edit-table
+// columns) when given, else the union of keys (`keys`).
+const MiniRow = ({ basePath, index, item, keys, itemColumns, itemGroups }) => {
   const [open, setOpen] = useState(false);
+  const groups =
+    typeof itemGroups === "function" ? itemGroups(item) : itemGroups;
+  // the fields already shown as columns are not repeated in the details
+  const exclude = itemColumns
+    ? itemColumns.filter((column) => column.field).map((column) => column.field)
+    : [];
+  const cellCount = (itemColumns ?? keys).length + 1;
   return (
     <>
       <Table.Row>
@@ -91,18 +153,30 @@ const MiniRow = ({ basePath, index, item, keys }) => {
             {open ? "▾" : "▸"}
           </Button>
         </Table.Cell>
-        {keys.map((key) => (
-          <Table.Cell key={key}>
-            {formatters[key] && !isEmptyValue(item?.[key])
-              ? formatters[key](item?.[key])
-              : textOf(item?.[key])}
-          </Table.Cell>
-        ))}
+        {itemColumns
+          ? itemColumns.map((column) => (
+              <Table.Cell key={column.label}>{column.value(item)}</Table.Cell>
+            ))
+          : keys.map((key) => (
+              <Table.Cell key={key}>
+                {formatters[key] && !isEmptyValue(item?.[key])
+                  ? formatters[key](item?.[key])
+                  : textOf(item?.[key])}
+              </Table.Cell>
+            ))}
       </Table.Row>
       {open && (
         <Table.Row className="mbdb-details">
-          <Table.Cell colSpan={keys.length + 1}>
-            <Rows rows={collectRows(item, basePath)} />
+          <Table.Cell colSpan={cellCount}>
+            {groups?.length ? (
+              <MiniDetails
+                fieldPath={basePath}
+                groups={groups}
+                exclude={exclude}
+              />
+            ) : (
+              <Rows rows={collectRows(item, basePath)} />
+            )}
           </Table.Cell>
         </Table.Row>
       )}
@@ -114,15 +188,20 @@ MiniRow.propTypes = {
   index: PropTypes.number.isRequired,
   item: PropTypes.object.isRequired,
   keys: PropTypes.array.isRequired,
+  itemColumns: PropTypes.array,
+  itemGroups: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
 };
 
-// A mini summary table for an array of complex objects (design §4). Columns
-// are the union of keys with data in first-seen order, with a header row whose
-// labels come from the model (F4e). Read-only; the positional key is meaning.
-const MiniTable = ({ basePath, items }) => {
-  const keys = [
-    ...new Set(items.flatMap((item) => Object.keys(item ?? {}))),
-  ].filter((key) => items.some((item) => hasData(item?.[key])));
+// A mini summary table for an array of complex objects (design §4). Columns are
+// the array's declared `itemColumns` (the same columns as its edit table) when
+// given, else the union of keys with data in first-seen order, with header
+// labels from the model (F4e). Read-only; the positional key is meaning.
+const MiniTable = ({ basePath, items, itemColumns, itemGroups }) => {
+  const keys = itemColumns
+    ? itemColumns.map((column) => column.label)
+    : [...new Set(items.flatMap((item) => Object.keys(item ?? {})))].filter(
+        (key) => items.some((item) => hasData(item?.[key]))
+      );
   return (
     <Table compact="very" size="small">
       <Table.Header>
@@ -130,7 +209,11 @@ const MiniTable = ({ basePath, items }) => {
           <Table.HeaderCell />
           {keys.map((key) => (
             <Table.HeaderCell key={key}>
-              <DetailLabel path={`${basePath}.0.${key}`} fallback={key} />
+              {itemColumns ? (
+                key
+              ) : (
+                <DetailLabel path={`${basePath}.0.${key}`} fallback={key} />
+              )}
             </Table.HeaderCell>
           ))}
         </Table.Row>
@@ -143,6 +226,8 @@ const MiniTable = ({ basePath, items }) => {
             index={i}
             item={item}
             keys={keys}
+            itemColumns={itemColumns}
+            itemGroups={itemGroups}
           />
         ))}
       </Table.Body>
@@ -152,6 +237,8 @@ const MiniTable = ({ basePath, items }) => {
 MiniTable.propTypes = {
   basePath: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
+  itemColumns: PropTypes.array,
+  itemGroups: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
 };
 
 // Rows of one object. Wrap each row in <Table.Row key={i}>.
@@ -171,7 +258,12 @@ export const Rows = ({ rows, onEdit }) => (
               colSpan="2"
               className={row.indent ? "mbdb-details-indent" : undefined}
             >
-              <MiniTable basePath={row.path} items={row.items} />
+              <MiniTable
+                basePath={row.path}
+                items={row.items}
+                itemColumns={row.itemColumns}
+                itemGroups={row.itemGroups}
+              />
             </Table.Cell>
           </Table.Row>
         );

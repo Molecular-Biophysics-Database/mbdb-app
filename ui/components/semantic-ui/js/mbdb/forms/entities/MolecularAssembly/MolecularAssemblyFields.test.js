@@ -130,7 +130,7 @@ describe("MolecularAssemblyFields", () => {
     expect(container.textContent).toContain("Purity");
     expect(container.textContent).toContain("SDS-PAGE");
     // Additional specifications
-    expect(container.textContent).toContain("Freshly prepared");
+    expect(hasInputValue("Freshly prepared")).toBe(true);
   });
 
   it("shows a field-level error and keeps it after an unrelated edit", async () => {

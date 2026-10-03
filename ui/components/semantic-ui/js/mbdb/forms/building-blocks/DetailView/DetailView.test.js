@@ -351,6 +351,73 @@ describe("DetailView", () => {
     act(() => Simulate.click(toggles[0]));
     expect(text()).toContain("Copy number");
   });
+
+  it("mini table uses the declared itemColumns and resolves the item's vocabularies via itemGroups", () => {
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[
+          {
+            title: "Components",
+            fields: [
+              {
+                field: "components",
+                itemColumns: [
+                  { label: "Name", value: (v) => v.name },
+                  { label: "Type", value: (v) => v.type },
+                  { label: "Copy number", value: (v) => v.copy_number },
+                ],
+                itemGroups: (item) =>
+                  item.type === "Polymer"
+                    ? [
+                        {
+                          title: "Origin",
+                          fields: [
+                            {
+                              field: "source_organism",
+                              vocabulary: "organisms",
+                            },
+                          ],
+                        },
+                      ]
+                    : [],
+              },
+            ],
+          },
+        ]}
+      />,
+      {
+        initialValues: {
+          o: {
+            components: [
+              {
+                name: "alpha",
+                type: "Polymer",
+                copy_number: 2,
+                source_organism: { id: "bacillus" },
+              },
+            ],
+          },
+        },
+      }
+    );
+    const head = container.querySelector("table table thead");
+    // the declared columns, not the union of keys (which would add a
+    // source_organism column)
+    expect(head.textContent).toContain("Name");
+    expect(head.textContent).toContain("Type");
+    expect(head.textContent).toContain("Copy number");
+    expect(head.textContent).not.toContain("Source organism");
+    // the mini row's own ▸ uses the item's groups, so the vocabulary resolves
+    const toggle = container.querySelector(
+      'button[aria-label^="Show details of item"]'
+    );
+    act(() => Simulate.click(toggle));
+    expect(text()).toContain("Origin");
+    expect(text()).toContain("Source organism");
+    expect(text()).toContain("Bacillus subtilis");
+    expect(text()).not.toContain("bacillus");
+  });
 });
 
 // A Formik-connected input for an unrelated field, so Simulate.change drives
