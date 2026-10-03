@@ -79,7 +79,7 @@ export const ChemicalPicker = ({ fieldPath, onPicked }) => {
             }
           : {})}
       />
-      {value?.id && meta && <div className="ui small grey text">{meta}</div>}
+      {value?.id && meta && <div className="small mbdb-muted-text">{meta}</div>}
     </>
   );
 };

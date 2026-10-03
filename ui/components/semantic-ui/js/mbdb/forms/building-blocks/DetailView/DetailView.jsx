@@ -84,7 +84,7 @@ export const DetailView = ({
   if (sections.length === 0)
     return (
       <>
-        <span className="ui grey text">Nothing filled in yet</span>
+        <span className="mbdb-muted-text">Nothing filled in yet</span>
         {editButton && <div>{editButton}</div>}
       </>
     );

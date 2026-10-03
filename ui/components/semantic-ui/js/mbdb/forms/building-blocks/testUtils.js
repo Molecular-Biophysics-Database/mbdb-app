@@ -64,6 +64,54 @@ export const oarepoFake = {
   useFieldData: () => ({ getFieldData: defaultGetFieldData }),
 };
 
+// --- structured ui_model (the real model fixture, plan 3R F2) ---------------
+
+// The deposit ui_model, trimmed to the entities_of_interest path, generated
+// from /playground by __fixtures__/generate-ui-model.mjs. Read lazily so suites
+// that do not need it never parse the file.
+export const realUiModel = () =>
+  JSON.parse(
+    fs.readFileSync(
+      path.join(__dirname, "__fixtures__", "ui_model.json"),
+      "utf8"
+    )
+  );
+
+// The ui_model mockOarepoForms() feeds useFormConfig; undefined keeps the flat
+// setFakeUiModel path.
+let structuredUiModel;
+export const setStructuredUiModel = (uiModel) => {
+  structuredUiModel = uiModel ?? undefined;
+};
+
+// A StringArrayField stand-in: oarepo's own needs a context the mbdb wrapper
+// does not pass in tests. Renders the current list so a test can read it.
+const StringArrayFieldStandIn = ({ fieldPath }) => {
+  const { values } = useFormikContext();
+  const items = getIn(values, fieldPath) ?? [];
+  return (
+    <div data-testid="specs" data-path={fieldPath}>
+      {items.join(", ")}
+    </div>
+  );
+};
+StringArrayFieldStandIn.propTypes = {
+  fieldPath: PropTypes.string.isRequired,
+};
+
+// Ready-made "@js/oarepo_ui/forms" mock for the block tests (plan 3R X6): the
+// shared fake plus the StringArrayField stand-in and useFormConfig reading the
+// structured ui_model. Use it as:
+//   jest.mock("@js/oarepo_ui/forms", () =>
+//     jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").mockOarepoForms()
+//   );
+// and call setStructuredUiModel(realUiModel()) where the real shape is needed.
+export const mockOarepoForms = () => ({
+  ...oarepoFake,
+  StringArrayField: StringArrayFieldStandIn,
+  useFormConfig: () => ({ config: { ui_model: structuredUiModel } }),
+});
+
 // --- render helper --------------------------------------------------------
 
 // Render `ui` inside a real Formik (enableReinitialize, like the deposit

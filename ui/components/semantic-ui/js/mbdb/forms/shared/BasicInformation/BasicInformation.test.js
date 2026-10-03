@@ -209,7 +209,7 @@ describe("BasicInformation", () => {
     // remembered item
     expect(value()).toBe(`{"id":"${WATER.id}"}`);
     // facts and id, no title (the dropdown shows that)
-    expect(container.querySelector(".ui.small.grey.text").textContent).toBe(
+    expect(container.querySelector(".mbdb-muted-text").textContent).toBe(
       `H2O · 18.02 g/mol · ${WATER.id}`
     );
     const label = container.querySelector('[data-testid="picker-label"]');

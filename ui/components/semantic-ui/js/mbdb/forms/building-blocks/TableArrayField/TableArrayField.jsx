@@ -338,7 +338,7 @@ const FieldBox = ({ fieldPath, label, help, required, children }) => {
         // table rows below are the labelled controls (cell aria-labels).
         <label
           htmlFor={fieldPath}
-          className={hasError ? "ui red text" : undefined}
+          className={hasError ? "mbdb-error-text" : undefined}
         >
           <HelpLabel label={data.label} help={data.helpText} />
         </label>

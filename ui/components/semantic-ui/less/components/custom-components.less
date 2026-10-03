@@ -12,6 +12,20 @@ nrp ui components create <component-type> <component-name>
 // Colors are named variables, declared once here (implementation guide §13,
 // re-review CSS rule): this file compiles standalone, without theme vars.
 @mbdbErrorColor: #db2828;
+@mbdbMutedColor: rgba(0, 0, 0, 0.6);
+
+// Muted and error text. Fomantic UI's `.ui.red.text` / `.ui.grey.text` are not
+// part of semantic-ui-less 2.5, so a className alone colours nothing
+// (implementation guide §8, Library pitfalls). The `.ui.form .field > label…`
+// selector is needed to beat Semantic's own label colour rule.
+.ui.form .field > label.mbdb-error-text,
+.ui.checkbox label.mbdb-error-text,
+.mbdb-error-text {
+  color: @mbdbErrorColor;
+}
+.mbdb-muted-text {
+  color: @mbdbMutedColor;
+}
 .ui.table tr.mbdb-details > td {
   background: #f9fafb;
 }

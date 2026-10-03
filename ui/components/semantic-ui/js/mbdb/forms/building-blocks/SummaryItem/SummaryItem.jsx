@@ -68,7 +68,7 @@ export const SummaryItem = ({
           const text = cell(value) ?? "";
           return (
             <Table.Cell key={i}>
-              {text === "" ? <span className="ui grey text">—</span> : text}
+              {text === "" ? <span className="mbdb-muted-text">—</span> : text}
             </Table.Cell>
           );
         })}

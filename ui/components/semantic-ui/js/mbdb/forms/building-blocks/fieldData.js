@@ -53,9 +53,12 @@ const localized = (dict, fallback = undefined) => {
 //   fields, each stored whole);
 // - variant entries can themselves be polymorphic (nested variants).
 //
-// Lookup order for the node's own attributes and for each child on the way:
-// the deepest matching variant entry first, then the union. Scalars of
-// sibling nodes are never merged.
+// Lookup order: a node's own `label` / `help` / `required` come from the node
+// the walk arrived at — a variant entry's own texts describe the variant TYPE
+// ("Yes purity", "Empty object", "Polymer"), not the property, so they are
+// never applied to the node (implementation guide §6). A CHILD field is taken
+// from the deepest matching variant entry, falling back to the union. Scalars
+// of sibling nodes are never merged.
 export const resolveUiNode = (uiModel, fieldPath, values) => {
   if (!uiModel || !fieldPath) return undefined;
   const segments = fieldPath.split(".");
@@ -72,12 +75,22 @@ export const resolveUiNode = (uiModel, fieldPath, values) => {
       );
       const variant = discr !== undefined ? layered.variants[discr] : undefined;
       if (!variant) break;
-      const next = { ...layered, ...variant };
+      // Only the STRUCTURE comes from the variant entry. Its own `label`,
+      // `help`, `hint` and `input` are the variant TYPE's texts, not the
+      // property's — they must never replace the node's (guide §6). A
+      // QualityControls row says "Purity" in every state; a variant only
+      // changes what is inside.
+      const next = { ...layered };
       next.children = { ...layered.children, ...variant.children };
+      if (variant.child !== undefined) next.child = variant.child;
       // a variant entry re-declares `variants`/`discriminator` only when it
       // is itself polymorphic — do not keep the outer ones, or the loop
       // would re-apply the same variant forever (nested variants apply again)
-      if (!variant.variants) {
+      if (variant.variants) {
+        next.variants = variant.variants;
+        if (variant.discriminator !== undefined)
+          next.discriminator = variant.discriminator;
+      } else {
         delete next.variants;
         delete next.discriminator;
       }

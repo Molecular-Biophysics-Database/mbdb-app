@@ -57,9 +57,13 @@ export const IdentityFields = ({ fieldPath }) => {
         />
       </ToggleFieldGroup>
       {noMethod && (
-        <Label basic color="yellow">
-          Select at least one method, or choose No.
-        </Label>
+        // a block wrapper so the hint does not sit tight against the last
+        // toggle's checkbox
+        <div>
+          <Label basic color="yellow">
+            Select at least one method, or choose No.
+          </Label>
+        </div>
       )}
     </>
   );

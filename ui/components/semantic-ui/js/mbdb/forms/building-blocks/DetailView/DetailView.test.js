@@ -280,7 +280,7 @@ describe("DetailView", () => {
       initialValues: { o: { name: "" } },
       initialErrors: { o: { name: "Missing data for required field." } },
     });
-    expect(container.querySelector(".ui.red.text").textContent).toBe(
+    expect(container.querySelector(".mbdb-error-text").textContent).toBe(
       "Missing data for required field."
     );
   });
@@ -360,14 +360,14 @@ describe("DetailView — review findings", () => {
         initialErrors: { o: { name: "Missing data for required field." } },
       }
     );
-    expect(container.querySelector(".ui.red.text").textContent).toBe(
+    expect(container.querySelector(".mbdb-error-text").textContent).toBe(
       "Missing data for required field."
     );
 
     const other = container.querySelector('[data-testid="other"]');
     other.value = "changed";
     await act(async () => Simulate.change(other));
-    expect(container.querySelector(".ui.red.text").textContent).toBe(
+    expect(container.querySelector(".mbdb-error-text").textContent).toBe(
       "Missing data for required field."
     );
   });
@@ -393,7 +393,7 @@ describe("DetailView — review findings", () => {
     expect(editBtn.getAttribute("type")).toBe("button");
 
     // the error note is clickable and routes to onEdit
-    const errNote = container.querySelector("button.ui.red.text");
+    const errNote = container.querySelector("button.mbdb-error-text");
     expect(errNote).not.toBeNull();
     act(() => Simulate.click(errNote));
     expect(onEdit).toHaveBeenCalledTimes(1);
@@ -448,7 +448,7 @@ describe("DetailView — review findings", () => {
   });
 
   // S4 (2026-10-03): nested objects inside an assessed value
-  it("expands nested objects of an assessed value one level (S4)", () => {
+  it("expands nested objects of an assessed value one level", () => {
     mount(<DetailView fieldPath="o" groups={[]} />, {
       initialValues: {
         o: {
@@ -468,7 +468,7 @@ describe("DetailView — review findings", () => {
     );
   });
 
-  it("renders an assessed value whose nested facts are all empty as plain Yes (S4)", () => {
+  it("renders an assessed value whose nested facts are all empty as plain Yes", () => {
     mount(<DetailView fieldPath="o" groups={[]} />, {
       initialValues: {
         o: { identity: { assessed: "Yes", by_fingerprinting: {} } },
@@ -506,7 +506,7 @@ describe("DetailView — review findings", () => {
     });
     expect(text()).toContain("Bacillus subtilis");
     expect(text()).toContain("(SPECIES)");
-    expect(container.querySelector(".ui.grey.text").textContent).toContain(
+    expect(container.querySelector(".mbdb-muted-text").textContent).toContain(
       "SPECIES"
     );
   });

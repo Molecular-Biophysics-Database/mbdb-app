@@ -119,13 +119,25 @@ describe("ModalArrayField", () => {
     expect(container.textContent).toContain("Lysozyme");
     expect(container.textContent).toContain("Polymer");
     expect(container.textContent).toContain("NaCl");
-    // minItems=1: first row has no remove button
+    // count-based removal (plan 3R X4): with 2 rows and minItems=1, every row
+    // is removable (the first is not fixed)
     expect(
       container.querySelector('button[aria-label="Remove entity: Lysozyme"]')
-    ).toBeNull();
+    ).not.toBeNull();
     expect(
       container.querySelector('button[aria-label="Remove entity: NaCl"]')
     ).not.toBeNull();
+  });
+
+  it("with exactly minItems rows, none is removable (count-based, X4)", () => {
+    mount(entities(), {
+      initialValues: {
+        entities: [{ id: "e1", type: "Polymer", name: "Lysozyme" }],
+      },
+    });
+    expect(
+      container.querySelector('button[aria-label="Remove entity: Lysozyme"]')
+    ).toBeNull();
   });
 
   it("adds an item through the dropdown menu (click only), seeds it, gives it an id with withIds, and opens its modal", async () => {
@@ -367,7 +379,7 @@ describe("ModalArrayField", () => {
     expect(details.textContent).not.toContain("e1");
   });
 
-  it("accepts detailGroups as a function of the item value (E7)", async () => {
+  it("accepts detailGroups as a function of the item value", async () => {
     // each entity type has its own details groups (the entities table)
     mount(
       entities({

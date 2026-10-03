@@ -7,7 +7,7 @@ import { TEMPERATURE_UNITS, TIME_UNITS } from "@js/mbdb/forms/shared/units";
 
 // The storage modal content: temperature (required once storage exists) and
 // duration side by side, plus optional preparation steps. Labels, help and
-// required come from the model. durations's min reaches the number input
+// required come from the model. duration's min reaches the number input
 // (spinner only; the server checks the minimum); temperature has none —
 // Celsius users type negative numbers.
 export const StorageForm = ({ fieldPath }) => (

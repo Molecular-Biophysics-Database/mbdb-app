@@ -92,7 +92,7 @@ export const ModalArrayField = ({
         )}
         {data.helpText && <FieldHelp help={data.helpText} />}
         {items.length === 0 ? (
-          <p className="ui grey text">No items yet</p>
+          <p className="mbdb-muted-text">No items yet</p>
         ) : (
           <Table compact>
             <Table.Header>
@@ -116,8 +116,12 @@ export const ModalArrayField = ({
                     cells={columns.map((c) => c.value)}
                     itemName={itemLabel(value)}
                     onEdit={(scrollToError) => openEdit(index, scrollToError)}
+                    // count-based removal (plan 3R X4): every row is removable
+                    // while more than `minItems` remain, so the first of
+                    // several rows can be dropped. When exactly `minItems`
+                    // rows are left, none is removable.
                     onRemove={
-                      index < minItems ? undefined : () => remove(index)
+                      items.length > minItems ? () => remove(index) : undefined
                     }
                     detail={
                       detailGroups ? (

@@ -2,6 +2,8 @@ import React from "react";
 import {
   renderInForm,
   unmountForm,
+  setStructuredUiModel,
+  realUiModel,
   ValueProbe,
   readProbe,
   clickOn,
@@ -17,90 +19,28 @@ import {
   HOMOGENEITY_METHODS,
 } from "./constants";
 
-// Local fake: the flat per-path map cannot express the polymorphic YES
-// variant of `purity`, and the design requires "the fake ui_model has
-// the Yes/No variants of purity". oarepoFake supplies the providers; only
-// useFormConfig is added on top.
-const QC_UI_MODEL = {
-  children: {
-    metadata: {
-      children: {
-        general_parameters: {
-          children: {
-            entities_of_interest: {
-              children: {
-                child: {
-                  children: {
-                    quality_controls: {
-                      label: { en: "Quality controls" },
-                      children: {
-                        purity: {
-                          label: { en: "Purity" },
-                          help: { en: "How purity was assessed" },
-                          discriminator: "assessed",
-                          children: {
-                            assessed: {
-                              label: { en: "Assessed" },
-                              required: true,
-                            },
-                            method: { label: { en: "Method" } },
-                            purity_percentage: {
-                              label: { en: "Purity percentage" },
-                            },
-                          },
-                          variants: {
-                            Yes: {
-                              children: {
-                                method: {
-                                  label: { en: "Method" },
-                                  required: true,
-                                },
-                                purity_percentage: {
-                                  label: { en: "Purity percentage" },
-                                  required: true,
-                                },
-                              },
-                            },
-                            No: { children: {} },
-                          },
-                        },
-                        identity: {
-                          label: { en: "Identity" },
-                          children: {
-                            assessed: { label: { en: "Assessed" } },
-                          },
-                        },
-                        homogeneity: {
-                          label: { en: "Homogeneity" },
-                          children: {
-                            assessed: { label: { en: "Assessed" } },
-                          },
-                        },
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-// eslint-disable-next-line no-restricted-syntax -- oarepoFake + a real ui_model with the Yes/No variants (design)
-jest.mock("@js/oarepo_ui/forms", () => ({
-  ...jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake,
-  useFormConfig: () => ({ config: { ui_model: QC_UI_MODEL } }),
-}));
+// The real model shape (plan 3R, fieldData-review F2): the shared oarepo mock
+// reads the ui_model set with setStructuredUiModel (the real-model fixture). A
+// hand-built fake whose variant entries had no label/help hid the row-label
+// bug (X1).
+// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory (plan 3R F2/X6), not a hand-rolled fake
+jest.mock("@js/oarepo_ui/forms", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockOarepoForms()
+);
 
 const ENTITY = "metadata.general_parameters.entities_of_interest.0";
 const QC = `${ENTITY}.quality_controls`;
 
 let container;
 
+beforeEach(() => {
+  setStructuredUiModel(realUiModel());
+});
+
 afterEach(() => {
+  setStructuredUiModel();
   unmountForm(container);
   container = null;
 });
@@ -163,6 +103,24 @@ describe("QualityControls", () => {
     }
   });
 
+  it("keeps the Purity row label and help in every state", () => {
+    // with the real model the variant entries carry the type's own texts
+    // ("Yes purity" / "Empty object"); they must not reach the row
+    for (const assessed of [undefined, "Yes", "No"]) {
+      const c = renderInForm(controls(), {
+        initialValues: polymer(assessed ? { purity: { assessed } } : undefined),
+      });
+      const label = [...c.querySelectorAll("label")].find(
+        (l) => l.textContent === "Purity"
+      );
+      expect(label).toBeDefined();
+      expect(c.textContent).toContain(
+        "Information about if and how purity was assessed"
+      );
+      unmountForm(c);
+    }
+  });
+
   it('Empty → Yes on Purity writes { purity: { assessed: "Yes" } } and shows the Purity fields', async () => {
     container = renderInForm(controls(), { initialValues: polymer(undefined) });
     await clickOn(buttons().find((b) => b.textContent === "Yes"));
@@ -211,11 +169,12 @@ describe("QualityControls", () => {
       initialValues: polymer({ purity: { assessed: "No" } }),
     });
     await clickOn(buttons().find((b) => b.textContent === "Not specified"));
-    // there is data (assessed: No), so this asks for confirmation too
+    // only the answer is lost (no data besides the discriminator), so no
+    // confirmation is asked (plan 3R X5)
     const remove = [...document.querySelectorAll(".ui.modal button")].find(
       (b) => b.textContent === "Remove"
     );
-    await clickOn(remove);
+    expect(remove).toBeUndefined();
     expect(probe()).toBeNull();
   });
 

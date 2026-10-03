@@ -203,7 +203,7 @@ export const Value = ({ name, value, vocabulary }) => {
     // vocabulary with a saved rank: title plus extra info in grey (§3)
     return (
       <span>
-        {textOf(value)} <span className="ui grey text">({value.rank})</span>
+        {textOf(value)} <span className="mbdb-muted-text">({value.rank})</span>
       </span>
     );
   const text = textOf(value);
@@ -226,9 +226,13 @@ export const ErrorNote = ({ path, onEdit }) => {
   const { messages } = useFieldErrors(path);
   if (messages.length === 0) return null;
   const text = messages.join(" ");
-  if (!onEdit) return <div className="ui red text">{text}</div>;
+  if (!onEdit) return <div className="mbdb-error-text">{text}</div>;
   return (
-    <button type="button" className="ui red text mbdb-link" onClick={onEdit}>
+    <button
+      type="button"
+      className="mbdb-error-text mbdb-link"
+      onClick={onEdit}
+    >
       {text}
     </button>
   );

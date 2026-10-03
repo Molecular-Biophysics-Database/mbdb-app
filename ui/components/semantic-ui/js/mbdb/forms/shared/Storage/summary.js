@@ -6,9 +6,7 @@ export const summaryStorage = (value) => {
   if (!value) return "";
   const main = [
     valueUnitText(value.temperature),
-    value.duration?.value !== undefined && value.duration?.value !== null
-      ? `for ${valueUnitText(value.duration)}`
-      : "",
+    valueUnitText(value.duration) && `for ${valueUnitText(value.duration)}`,
   ]
     .filter((t) => t !== "")
     .join(" ");

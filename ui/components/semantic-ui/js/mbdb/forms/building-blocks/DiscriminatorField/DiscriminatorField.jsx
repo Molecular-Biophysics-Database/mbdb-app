@@ -4,7 +4,6 @@ import { getIn, useFormikContext } from "formik";
 import pick from "lodash/pick";
 import { Button, Confirm, Dropdown } from "mbdb-semantic-ui-react";
 import {
-  hasData,
   isEmptyValue,
   useFieldErrors,
   useOwnErrorMessages,
@@ -80,10 +79,12 @@ export const DiscriminatorField = ({
 
   const requestChange = (newValue) => {
     if (newValue === undefined) {
-      // Unset works on the object, not the field: an existing object with
-      // data (even without `field`) must confirm, an absent one is a no-op.
+      // Unset works on the object, not the field: only data besides the
+      // discriminator and the `keep` keys is lost, so use the same test as a
+      // change (guide: "No" → "Not specified" keeps only the answer, so it
+      // must not ask). An absent object is a no-op.
       if (obj === undefined) return;
-      if (hasData(obj)) setPending(undefined);
+      if (hasOtherData(obj)) setPending(undefined);
       else apply(undefined);
       return;
     }

@@ -151,20 +151,23 @@ describe("ToggleFieldGroup", () => {
       initialValues: { identity: { by_intact_mass: {} } },
       initialErrors: { identity: { by_intact_mass: { method: "Required." } } },
     });
-    expect(container.querySelector(".field.error")).not.toBeNull();
+    // the header label carries the state; the field itself is not `.error`
+    // (that would colour every child field)
+    expect(container.querySelector("label.mbdb-error-text")).not.toBeNull();
+    expect(container.querySelector(".field.error")).toBeNull();
   });
 
-  it("keeps the error header after an unrelated edit clears Formik's errors (F1)", async () => {
+  it("keeps the error header after an unrelated edit clears Formik's errors", async () => {
     mount(group({}, { withUnrelated: true }), {
       initialValues: { identity: { by_intact_mass: {} }, other: "" },
       initialErrors: { identity: { by_intact_mass: { method: "Required." } } },
     });
-    expect(container.querySelector(".field.error")).not.toBeNull();
+    expect(container.querySelector("label.mbdb-error-text")).not.toBeNull();
 
     const other = container.querySelector('[data-testid="other"]');
     other.value = "x";
     await act(async () => Simulate.change(other));
-    expect(container.querySelector(".field.error")).not.toBeNull();
+    expect(container.querySelector("label.mbdb-error-text")).not.toBeNull();
   });
 
   it("uses the DiscriminatorField confirm wording (F6)", () => {

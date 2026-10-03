@@ -222,7 +222,7 @@ describe("TableArrayField", () => {
     expect(probe()).toBeNull();
   });
 
-  it("removing the last row also prunes parents that become empty (S2)", async () => {
+  it("removing the last row also prunes parents that become empty", async () => {
     // modifications: {} must not stay behind (guide §7)
     mount(
       <>
@@ -488,7 +488,7 @@ describe("TableArrayField", () => {
   // S3 (2026-10-03): one cell error must not colour every input red.
   // renderInForm/withUnrelatedField: the header-red check edits an unrelated
   // field, which the local tree above does not offer.
-  it("marks only the errored cell, not the whole table (S3)", async () => {
+  it("marks only the errored cell, not the whole table", async () => {
     container = renderInForm(protocol({ minItems: 0 }), {
       initialValues: {
         steps: [
@@ -514,10 +514,10 @@ describe("TableArrayField", () => {
     });
     // the header label carries the error instead
     const headerLabel = table.parentElement.querySelector('label[for="steps"]');
-    expect(headerLabel.className).toContain("red");
+    expect(headerLabel.className).toContain("mbdb-error-text");
     // … and keeps it after an unrelated edit clears formik's errors
     await editUnrelatedField(container);
-    expect(headerLabel.className).toContain("red");
+    expect(headerLabel.className).toContain("mbdb-error-text");
     // still no red spread
     clean.forEach((el) => {
       expect(el.closest(".field.error")).toBeNull();

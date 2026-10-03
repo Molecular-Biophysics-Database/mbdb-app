@@ -34,7 +34,7 @@ export const HomogeneityFields = ({ fieldPath }) => {
       {expected !== undefined &&
         observed !== undefined &&
         observed > expected && (
-          <p className="ui grey text">
+          <p className="mbdb-muted-text">
             <Icon name="info circle" /> More species observed than expected.
           </p>
         )}

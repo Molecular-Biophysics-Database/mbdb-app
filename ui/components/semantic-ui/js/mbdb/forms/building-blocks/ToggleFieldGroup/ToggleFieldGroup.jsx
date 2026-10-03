@@ -60,25 +60,34 @@ export const ToggleFieldGroup = ({
   };
 
   return (
-    <Form.Field id={fieldPath} error={hasError}>
-      <Checkbox
-        // semantic-ui-react drops its own <label> element when `label` is a
-        // React node (createHTMLLabel returns the children raw), which hides
-        // the checkbox square (it is drawn from `label:before`). Wrap the
-        // HelpLabel in an explicit <label> so the box keeps rendering.
-        label={
-          // htmlFor points at the field path (also the Form.Field id) so
-          // OARepo error scrolling finds it; the checkbox input inside is
-          // the labelled control, as with the other blocks' dropdowns.
-          <label htmlFor={fieldPath}>
-            <HelpLabel label={text} help={data.helpText} />
-          </label>
-        }
-        checked={checked}
-        onChange={onToggle}
-      />
-      {data.helpText && <FieldHelp help={data.helpText} />}
-      <ErrorMessages messages={objectMessages} />
+    <>
+      {/* No `error` on this Form.Field: Semantic's error rules are descendant
+          selectors, so one error under a child field would colour every input
+          and label of the group (guide §8). The header label carries the
+          state instead; the children live in a sibling, outside the field. */}
+      <Form.Field id={fieldPath}>
+        <Checkbox
+          // semantic-ui-react drops its own <label> element when `label` is a
+          // React node (createHTMLLabel returns the children raw), which hides
+          // the checkbox square (it is drawn from `label:before`). Wrap the
+          // HelpLabel in an explicit <label> so the box keeps rendering.
+          label={
+            // htmlFor points at the field path (also the Form.Field id) so
+            // OARepo error scrolling finds it; the checkbox input inside is
+            // the labelled control, as with the other blocks' dropdowns.
+            <label
+              htmlFor={fieldPath}
+              className={hasError ? "mbdb-error-text" : undefined}
+            >
+              <HelpLabel label={text} help={data.helpText} />
+            </label>
+          }
+          checked={checked}
+          onChange={onToggle}
+        />
+        {data.helpText && <FieldHelp help={data.helpText} />}
+        <ErrorMessages messages={objectMessages} />
+      </Form.Field>
       {checked && (
         <Segment basic className="mbdb-indent">
           {children}
@@ -96,7 +105,7 @@ export const ToggleFieldGroup = ({
           setOpen(false);
         }}
       />
-    </Form.Field>
+    </>
   );
 };
 

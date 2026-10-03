@@ -39,7 +39,7 @@ const story = {
     },
     {
       name: "With errors",
-      initialValues: component({ name: "RNA polymerase alpha subunit" }),
+      initialValues: component({}),
       initialErrors: entityErrors(
         "components.0.polymer_type",
         "Missing data for required field."

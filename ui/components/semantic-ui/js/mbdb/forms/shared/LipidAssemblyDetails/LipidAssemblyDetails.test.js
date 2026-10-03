@@ -8,8 +8,13 @@ import {
   ValueProbe,
   readProbe,
   yamlEnum,
+  yamlProperty,
 } from "@js/mbdb/forms/building-blocks/testUtils";
-import { LipidAssemblyDetails, ASSEMBLY_TYPES } from "./index";
+import {
+  LipidAssemblyDetails,
+  ASSEMBLY_TYPES,
+  LIPID_ASSEMBLY_GROUPS,
+} from "./index";
 
 // One fake per layer: the picker needs the network, oarepo's StringArrayField
 // needs a context the mbdb wrapper does not pass here. Size and Components
@@ -113,6 +118,17 @@ const activeButtons = () =>
 describe("ASSEMBLY_TYPES", () => {
   it("equals the model enum", () => {
     expect(ASSEMBLY_TYPES).toEqual(yamlEnum("Lipid_assembly", "assembly_type"));
+  });
+});
+
+describe("LIPID_ASSEMBLY_GROUPS", () => {
+  it("lists only fields that exist on the Lipid_assembly model type", () => {
+    for (const group of LIPID_ASSEMBLY_GROUPS) {
+      for (const entry of group.fields) {
+        const name = typeof entry === "string" ? entry : entry.field;
+        expect(yamlProperty("Lipid_assembly", name)).toBe(true);
+      }
+    }
   });
 });
 

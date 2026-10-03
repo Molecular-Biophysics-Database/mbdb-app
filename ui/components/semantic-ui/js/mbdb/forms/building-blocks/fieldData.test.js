@@ -271,6 +271,89 @@ describe("useModelFieldData with the polymorphic ui_model (D7)", () => {
     );
   });
 
+  it("a variant entry's own label/help (the type's) never replace the node's (X1)", () => {
+    mockUiModel = {
+      children: {
+        metadata: {
+          children: {
+            general_parameters: {
+              children: {
+                entities_of_interest: {
+                  children: {
+                    child: {
+                      children: {
+                        quality_controls: {
+                          children: {
+                            purity: {
+                              label: { en: "Purity" },
+                              help: { en: "Union purity help" },
+                              discriminator: "assessed",
+                              children: { method: { label: { en: "Method" } } },
+                              variants: {
+                                // the real model's variant entries carry the
+                                // variant TYPE's own label/help
+                                Yes: {
+                                  label: { en: "Yes purity" },
+                                  help: { und: "" },
+                                  children: {
+                                    method: {
+                                      label: { en: "Method" },
+                                      help: { en: "Variant method help" },
+                                    },
+                                  },
+                                },
+                              },
+                            },
+                          },
+                        },
+                      },
+                      discriminator: "type",
+                      variants: { Polymer: {} },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    };
+    const initialValues = {
+      metadata: {
+        general_parameters: {
+          entities_of_interest: [
+            {
+              type: "Polymer",
+              quality_controls: { purity: { assessed: "Yes" } },
+            },
+          ],
+        },
+      },
+    };
+    const purityPath =
+      "metadata.general_parameters.entities_of_interest.0.quality_controls.purity";
+    const renderProbe = (path) =>
+      act(() => {
+        ReactDOM.render(
+          <Formik
+            initialValues={initialValues}
+            enableReinitialize
+            onSubmit={() => {}}
+          >
+            <Probe path={path} />
+          </Formik>,
+          container
+        );
+      });
+    // with `assessed: "Yes"`, the node keeps its own label and help
+    renderProbe(purityPath);
+    expect(byTestId("label").textContent).toBe("Purity");
+    expect(byTestId("helpText").textContent).toBe("Union purity help");
+    // a child still takes its texts from the matching variant entry
+    renderProbe(`${purityPath}.method`);
+    expect(byTestId("helpText").textContent).toBe("Variant method help");
+  });
+
   it("nested variants resolve through two discriminators", () => {
     const withBio = (derivedFrom) => ({
       metadata: {

@@ -15,8 +15,9 @@ import { Components, COMPONENT_TYPES } from "./index";
 // One fake per layer: the picker needs the network, oarepo's StringArrayField
 // needs a context the mbdb wrapper does not pass here. The real leaves
 // (PolymerFields, ChemicalFields, Modifications, QualityControls, the modal
-// blocks) stay real. `useFormConfig` feeds the D7 variant test.
-// eslint-disable-next-line no-restricted-syntax -- kept local: oarepo fake + a StringArrayField stand-in + a ui_model for the D7 variant (see comment)
+// blocks) stay real. `useFormConfig` feeds the structured `ui_model` the help
+// test needs.
+// eslint-disable-next-line no-restricted-syntax -- kept local: oarepo fake + a StringArrayField stand-in + a structured ui_model (see comment)
 jest.mock("@js/oarepo_ui/forms", () => {
   const R = jest.requireActual("react");
   const PropTypesActual = jest.requireActual("prop-types");
@@ -168,6 +169,8 @@ describe("Components", () => {
     await addOption("Polymer");
     expect(probe()).toEqual([{ type: "Polymer" }]);
     expect(modal()).not.toBeNull();
+    // a nameless new component: the header comes from itemLabel
+    expect(modal().textContent).toContain("New Polymer component");
     // the polymer field set is mounted inside the component modal
     expect(modal().textContent).toContain("Polymer type");
   });
@@ -206,6 +209,34 @@ describe("Components", () => {
     expect(container.textContent).toContain("unknown");
   });
 
+  it("renders each summary cell, including the copy number, from the row", () => {
+    render({
+      initialValues: assembly([
+        {
+          type: "Polymer",
+          name: "RNA polymerase alpha subunit",
+          copy_number: 2,
+        },
+        { type: "Chemical", name: "Zn2+", copy_number: -1 },
+      ]),
+    });
+    // the closed Add dropdown also renders "Polymer"/"Chemical", so assert
+    // the cells of each body row, not the whole container (a container-wide
+    // toContain cannot fail on a broken Type cell)
+    const cellsOf = (needle) => {
+      const row = [...container.querySelectorAll("tbody tr")].find((r) =>
+        r.textContent.includes(needle)
+      );
+      return [...row.querySelectorAll("td")].map((td) => td.textContent.trim());
+    };
+    expect(cellsOf("RNA polymerase alpha subunit")).toEqual(
+      expect.arrayContaining(["RNA polymerase alpha subunit", "Polymer", "2"])
+    );
+    expect(cellsOf("Zn2+")).toEqual(
+      expect.arrayContaining(["Zn2+", "Chemical", "unknown"])
+    );
+  });
+
   it("a type change keeps name and copy number and drops only the variant data", async () => {
     render({
       initialValues: assembly([
@@ -222,7 +253,7 @@ describe("Components", () => {
     const confirm = modals().find((m) =>
       m.textContent.includes("The type-specific data will be removed.")
     );
-    expect(confirm).not.toBeNull();
+    expect(confirm).toBeDefined();
     await clickOn(modalButtonIn(confirm, "Change"));
     expect(probe()).toEqual([
       { type: "Chemical", name: "Mg2+ cofactor", copy_number: 2 },
@@ -358,7 +389,7 @@ describe("Components", () => {
     expect(readProbe(container)[0].components[0].name).toBe("alpha");
   });
 
-  it("uses the Assembly_component name help, not the entity's (D7)", async () => {
+  it("uses the component variant's name help, not the union's", async () => {
     mockUiModel = {
       children: {
         metadata: {
