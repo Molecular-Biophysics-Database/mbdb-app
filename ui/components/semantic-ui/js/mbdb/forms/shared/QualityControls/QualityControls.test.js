@@ -5,6 +5,7 @@ import {
   ValueProbe,
   readProbe,
   clickOn,
+  pickDropdown,
   editUnrelatedField,
   yamlEnum,
 } from "@js/mbdb/forms/building-blocks/testUtils";
@@ -17,7 +18,7 @@ import {
 } from "./constants";
 
 // Local fake: the flat per-path map cannot express the polymorphic YES
-// variant of `purity` (D7), and the design requires "the fake ui_model has
+// variant of `purity`, and the design requires "the fake ui_model has
 // the Yes/No variants of purity". oarepoFake supplies the providers; only
 // useFormConfig is added on top.
 const QC_UI_MODEL = {
@@ -88,7 +89,7 @@ const QC_UI_MODEL = {
   },
 };
 
-// eslint-disable-next-line no-restricted-syntax -- oarepoFake + a real ui_model for the D7 variants (design)
+// eslint-disable-next-line no-restricted-syntax -- oarepoFake + a real ui_model with the Yes/No variants (design)
 jest.mock("@js/oarepo_ui/forms", () => ({
   ...jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake,
   useFormConfig: () => ({ config: { ui_model: QC_UI_MODEL } }),
@@ -170,6 +171,15 @@ describe("QualityControls", () => {
     expect(container.textContent).toContain("Purity percentage");
   });
 
+  it("selecting a Purity method writes it as a string", async () => {
+    container = renderInForm(controls(), { initialValues: polymer(undefined) });
+    await clickOn(buttons().find((b) => b.textContent === "Yes"));
+    await pickDropdown(`${QC}.purity.method`, "SDS-PAGE");
+    expect(probe()).toEqual({
+      purity: { assessed: "Yes", method: "SDS-PAGE" },
+    });
+  });
+
   it("Filled → Not specified on Purity (confirmed) removes purity only", async () => {
     container = renderInForm(controls(), {
       initialValues: polymer({
@@ -209,7 +219,7 @@ describe("QualityControls", () => {
     expect(probe()).toBeNull();
   });
 
-  it("with assessed Yes, the Purity method label carries the required marker (D7)", async () => {
+  it("with assessed Yes, the Purity method label carries the required marker", async () => {
     container = renderInForm(controls(), {
       initialValues: polymer({ purity: { assessed: "Yes" } }),
     });

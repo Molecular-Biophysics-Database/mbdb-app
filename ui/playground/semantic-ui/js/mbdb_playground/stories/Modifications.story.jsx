@@ -31,6 +31,12 @@ const FILLED = entityValues("Polymer", {
   },
 });
 
+// "With errors" = the Filled fixture minus protocol step 2's description, so
+// both tables stay populated and only that one cell is missing data.
+const WITH_ERRORS = JSON.parse(JSON.stringify(FILLED));
+delete WITH_ERRORS.metadata.general_parameters.entities_of_interest[0]
+  .modifications.chemical[0].protocol[1].description;
+
 const story = {
   title: "Modifications",
   scenarios: [
@@ -38,20 +44,7 @@ const story = {
     { name: "Filled", initialValues: FILLED, render: Fields },
     {
       name: "With errors",
-      initialValues: entityValues("Polymer", {
-        name: "Hemoglobin subunit beta",
-        modifications: {
-          chemical: [
-            {
-              type: "Deglycosylation",
-              protocol: [
-                { name: "PNGase F", description: "37 °C" },
-                { name: "Desalting" },
-              ],
-            },
-          ],
-        },
-      }),
+      initialValues: WITH_ERRORS,
       initialErrors: entityErrors(
         "modifications.chemical.0.protocol.1.description",
         "Missing data for required field."

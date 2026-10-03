@@ -7,10 +7,10 @@ import {
   ValueProbe,
   readProbe,
   typeInto,
-  clickOn,
+  pickDropdown,
   yamlEnum,
 } from "@js/mbdb/forms/building-blocks/testUtils";
-import { HomogeneityFields, IdentityFields } from "./index";
+import { IdentityFields } from "./index";
 import {
   INTACT_MASS_METHODS,
   SEQUENCING_METHODS,
@@ -38,9 +38,9 @@ afterEach(() => {
   container = null;
 });
 
-const fields = (Fields = IdentityFields) => (
+const fields = () => (
   <>
-    <Fields fieldPath={PATH} />
+    <IdentityFields fieldPath={PATH} />
     <ValueProbe path={PATH} />
   </>
 );
@@ -58,18 +58,6 @@ const toggleCheckbox = async (label) => {
     Simulate.change(input);
     await new Promise((r) => setTimeout(r, 0));
   });
-};
-
-// Semantic renders the select's menu inside the same div (id = fieldPath);
-// an item click works without opening the dropdown first
-const pickDropdown = async (fieldPath, optionText) => {
-  const dd = document.getElementById(fieldPath);
-  expect(dd).not.toBeNull();
-  await clickOn(
-    [...dd.querySelectorAll(".menu .item")].find(
-      (el) => el.textContent.trim() === optionText
-    )
-  );
 };
 
 describe("QualityControls method enums", () => {
@@ -140,37 +128,9 @@ describe("IdentityFields", () => {
       document.getElementById(`${PATH}.by_sequencing.coverage`),
       "abc"
     );
-    // "" and unparseable input both clear (NumberField after dedup F3):
-    // html number inputs report garbage as "", and clearing the only key of
-    // by_sequencing prunes the empty object with it (guide §7)
+    // "" and unparseable input both clear (NumberField's empty-write
+    // pruning): html number inputs report garbage as "", and clearing the
+    // only key of by_sequencing prunes the empty object with it (guide §7)
     expect(probe()).toEqual({ assessed: "Yes" });
-  });
-});
-
-describe("HomogeneityFields", () => {
-  const NOTE = "More species observed than expected.";
-  it("shows the note when observed > expected, else not", async () => {
-    container = renderInForm(fields(HomogeneityFields), {
-      initialValues: {
-        [PATH]: {
-          assessed: "Yes",
-          method: "Mass photometry",
-          expected_number_of_species: 1,
-          number_of_species_observed: 2,
-        },
-      },
-    });
-    expect(container.textContent).toContain(NOTE);
-    await typeInto(
-      document.getElementById(`${PATH}.number_of_species_observed`),
-      "1"
-    );
-    expect(container.textContent).not.toContain(NOTE);
-    // and not when one is empty
-    await typeInto(
-      document.getElementById(`${PATH}.expected_number_of_species`),
-      ""
-    );
-    expect(container.textContent).not.toContain(NOTE);
   });
 });

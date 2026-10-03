@@ -274,6 +274,19 @@ export const clickOn = async (element) => {
   });
 };
 
+// Pick an option from a Semantic dropdown block. SelectField passes
+// id={fieldPath} to the dropdown and Semantic renders its menu inside that
+// same element, so an item click works without opening the dropdown first.
+export const pickDropdown = async (fieldPath, optionText) => {
+  const dd = document.getElementById(fieldPath);
+  if (!dd) throw new Error(`dropdown not found: ${fieldPath}`);
+  const item = [...dd.querySelectorAll(".menu .item")].find(
+    (el) => el.textContent.trim() === optionText
+  );
+  if (!item) throw new Error(`option not found: ${optionText} in ${fieldPath}`);
+  await clickOn(item);
+};
+
 // Types "x" into the unrelated field rendered by the withUnrelatedField option
 // (D3). The timer after the change is needed because Formik's validation —
 // which resets `errors` to {} — resolves in a promise AFTER the change. By the
