@@ -13,6 +13,10 @@ nrp ui components create <component-type> <component-name>
 // re-review CSS rule): this file compiles standalone, without theme vars.
 @mbdbErrorColor: #db2828;
 @mbdbMutedColor: rgba(0, 0, 0, 0.6);
+// An open row and its expanded content (plan 4R Y12 / TableArrayField-review
+// P8-F1): a light blue tint plus a blue left accent, one look for the pair.
+@mbdbOpenRowBg: #f3f7fc;
+@mbdbOpenRowAccent: #2185d0;
 
 // Muted and error text. Fomantic UI's `.ui.red.text` / `.ui.grey.text` are not
 // part of semantic-ui-less 2.5, so a className alone colours nothing
@@ -28,6 +32,19 @@ nrp ui components create <component-type> <component-name>
 }
 .ui.table tr.mbdb-details > td {
   background: #f9fafb;
+}
+// An open row and its expanded content read as one (design 4R Y12 /
+// TableArrayField-review P8-F1, option A). Both <tr>s of the pair carry
+// `mbdb-row-open`; the left accent draws one continuous bar from the row
+// number down to the end of its content. The selector is `> td`, so a nested
+// table's own rows keep their background. Declared AFTER `.mbdb-details` so an
+// open pair that is also a details row (SummaryItem, TableArrayField) takes
+// the tint, not the grey.
+.ui.table tr.mbdb-row-open > td {
+  background: @mbdbOpenRowBg;
+}
+.ui.table tr.mbdb-row-open > td:first-child {
+  box-shadow: inset 3px 0 0 @mbdbOpenRowAccent;
 }
 .segment.mbdb-indent {
   padding-left: 2em;

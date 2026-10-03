@@ -45,6 +45,7 @@ export const SummaryItem = ({
   return (
     <>
       <Table.Row
+        className={open ? "mbdb-row-open" : undefined}
         onClick={onRowClick}
         onKeyDown={onRowKeyDown}
         tabIndex={detail ? 0 : undefined}
@@ -120,7 +121,7 @@ export const SummaryItem = ({
         </Table.Cell>
       </Table.Row>
       {detail && open && (
-        <Table.Row className="mbdb-details">
+        <Table.Row className="mbdb-details mbdb-row-open">
           <Table.Cell colSpan={colSpan}>{detail}</Table.Cell>
         </Table.Row>
       )}

@@ -53,13 +53,17 @@ const Row = ({
   // strings, so `dbs.0: "…"` lands here) is shown in the actions cell
   const rowMessages = useOwnErrorMessages(itemPath);
   const hint = rowHint?.(row);
+  // An open row and its expanded content read as one (plan 4R Y12 /
+  // TableArrayField-review P8-F1, option A): both <tr>s get the tint + left
+  // accent. `isOpen` covers the user's toggle AND the error-driven auto-open.
+  const openClass = isOpen ? "mbdb-row-open" : undefined;
 
   const setCell = (column, cellValue) =>
     onRowChange({ ...row, [column.field]: cellValue });
 
   return (
     <>
-      <Table.Row>
+      <Table.Row className={openClass}>
         {showIndex && <Table.Cell collapsing>{index + 1}</Table.Cell>}
         {columns.map((column) => (
           <Table.Cell key={column.field}>
@@ -111,7 +115,7 @@ const Row = ({
         </Table.Cell>
       </Table.Row>
       {renderExpanded && isOpen && (
-        <Table.Row>
+        <Table.Row className={openClass}>
           <Table.Cell colSpan={colSpan}>
             {renderExpanded(itemPath, index)}
           </Table.Cell>

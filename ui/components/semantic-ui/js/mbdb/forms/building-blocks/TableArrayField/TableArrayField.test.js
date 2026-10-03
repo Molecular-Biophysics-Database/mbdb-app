@@ -609,6 +609,56 @@ describe("TableArrayField", () => {
     expect(toggle.getAttribute("aria-expanded")).toBe("true");
   });
 
+  it("highlights an open row and its expanded row, and only those (P8-F1)", async () => {
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="mods"
+          columns={[{ field: "position", label: "Position", type: "number" }]}
+          expandToggle={() => "Protocol"}
+          renderExpanded={(itemPath) => (
+            <div data-testid={`expanded-${itemPath}`}>EXPANDED</div>
+          )}
+        />
+        <ValueProbe path="mods" />
+      </>,
+      { initialValues: { mods: [{ position: 1 }, { position: 2 }] } }
+    );
+    // nothing open -> no highlight
+    expect(container.querySelectorAll("tr.mbdb-row-open")).toHaveLength(0);
+    const toggle = buttons().find((b) => b.textContent.includes("Protocol"));
+    await click(toggle);
+    const rows = [...container.querySelectorAll("tbody tr")];
+    // row 1 data, its expanded row, row 2 data
+    expect(rows.map((r) => r.classList.contains("mbdb-row-open"))).toEqual([
+      true,
+      true,
+      false,
+    ]);
+  });
+
+  it("highlights a row that opens by itself because of a nested error (P8-F1)", () => {
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="mods"
+          columns={[{ field: "position", label: "Position", type: "number" }]}
+          expandToggle={() => "Protocol"}
+          renderExpanded={(itemPath) => (
+            <div data-testid={`expanded-${itemPath}`}>EXPANDED</div>
+          )}
+        />
+        <ValueProbe path="mods" />
+      </>,
+      {
+        initialValues: { mods: [{ position: 3, steps: [{ name: "s" }] }] },
+        initialErrors: { mods: [{ steps: [{ name: "Required." }] }] },
+      }
+    );
+    // the data row + its expanded row, both tinted
+    expect(container.querySelectorAll("tr.mbdb-row-open")).toHaveLength(2);
+  });
+
   it("opens a row when NEW initialErrors arrive on the same mounted form (F2)", () => {
     const mods = (initialErrors) =>
       tree(

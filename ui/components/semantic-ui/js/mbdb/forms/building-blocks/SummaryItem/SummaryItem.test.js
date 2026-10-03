@@ -134,6 +134,22 @@ describe("SummaryItem", () => {
     expect(byTestId("detail")).not.toBeNull();
   });
 
+  it("tints an open pair: the summary row and its details row both carry mbdb-row-open (P5-F1)", () => {
+    mount(row({ onEdit: () => {}, onRemove: () => {} }), {
+      initialValues: { o: { name: "Lysozyme" } },
+    });
+    // closed -> nothing highlighted
+    expect(container.querySelectorAll("tr.mbdb-row-open")).toHaveLength(0);
+    act(() => Simulate.click(toggleButton()));
+    const rows = [...container.querySelectorAll("tbody tr")];
+    expect(rows.map((r) => r.classList.contains("mbdb-row-open"))).toEqual([
+      true,
+      true,
+    ]);
+    // the details row keeps its `.mbdb-details` marker too
+    expect(container.querySelector("tr.mbdb-details")).not.toBeNull();
+  });
+
   it("hides the toggle when no detail is given", () => {
     mount(
       <SummaryItem
