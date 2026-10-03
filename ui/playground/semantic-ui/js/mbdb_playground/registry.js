@@ -211,7 +211,12 @@ export const REGISTRY = [
     design: "design/entities/Chemical.md",
     load: () => import("./stories/Chemical.story"),
   },
-  { step: 4, key: "Polymer", design: "design/entities/Polymer.md" },
+  {
+    step: 4,
+    key: "Polymer",
+    design: "design/entities/Polymer.md",
+    load: () => import("./stories/Polymer.story"),
+  },
   {
     step: 4,
     key: "MolecularAssembly",
