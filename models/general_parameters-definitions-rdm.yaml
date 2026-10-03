@@ -703,7 +703,7 @@ Chemical_environment:
         en: The pH value of the chemical environment
       required: true
       label:
-        en: Ph
+        en: pH
     additional_specifications:
       minItems: 1
       help:

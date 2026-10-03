@@ -21,7 +21,7 @@ jest.mock(
 let container;
 
 // ui is wrapped in a Table; `siblings` render outside the table (e.g. an
-// unrelated input used to prove the badge survives edits elsewhere, F1).
+// unrelated input used to prove the badge survives edits elsewhere).
 const mount = (ui, { siblings = null, ...opts } = {}) => {
   container = renderInForm(
     <>
@@ -50,7 +50,7 @@ const row = (o) => (
 );
 
 // A Formik-connected input for an unrelated field, so Simulate.change drives
-// Formik's setFieldValue (and its async errors reset) — used by the F1 test.
+// Formik's setFieldValue (and its async errors reset) — used by the errors-after-edit test.
 const UnrelatedInput = () => {
   const { values, setFieldValue } = useFormikContext();
   return (
@@ -63,7 +63,7 @@ const UnrelatedInput = () => {
 };
 
 const byTestId = (id) => container.querySelector(`[data-testid="${id}"]`);
-// the ▸/▾ button; its label switches Show/Hide with the open state (F5)
+// the ▸/▾ button; its label switches Show/Hide with the open state
 const toggleButton = () =>
   container.querySelector('button[aria-label$="details of entity"]');
 const removeButton = () =>

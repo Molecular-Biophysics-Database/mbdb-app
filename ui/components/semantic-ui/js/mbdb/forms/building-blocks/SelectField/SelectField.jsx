@@ -43,8 +43,8 @@ export const SelectField = ({
         {...uiProps}
       />
       {unknown && (
-        // Still below the wrapper's FieldHelp (accepted deviation, see
-        // SelectField-review F5), so it does not `point` at the dropdown.
+        // Still below the wrapper's FieldHelp (accepted deviation), so it
+        // does not `point` at the dropdown.
         <Label basic color="red">
           Unknown value
         </Label>

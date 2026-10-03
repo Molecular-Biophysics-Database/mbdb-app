@@ -97,6 +97,13 @@ const uiModel = {
             longitude: { label: { en: "Longitude" } },
           },
         },
+        storage: {
+          label: { en: "Storage" },
+          children: {
+            temperature: { label: { en: "Temperature" } },
+            duration: { label: { en: "Duration" } },
+          },
+        },
         components: {
           label: { en: "Components" },
           child: {
@@ -294,13 +301,18 @@ describe("DetailView", () => {
   it("flattens nested objects one indent level under a sub-heading", () => {
     mount(<DetailView fieldPath="o" groups={[]} />, {
       initialValues: {
-        o: { location: { latitude: 49.1, longitude: 16.6 } },
+        o: {
+          storage: {
+            temperature: { value: -80, unit: "°C" },
+            duration: { value: 3, unit: "months" },
+          },
+        },
       },
     });
     // the sub-heading uses the model label, not the raw key
-    expect(text()).toContain("Location"); // sub-heading (model label)
-    expect(text()).toContain("Latitude");
-    expect(text()).toContain("49.1");
+    expect(text()).toContain("Storage"); // sub-heading (model label)
+    expect(text()).toContain("Temperature");
+    expect(text()).toContain("-80 °C");
     const indent = container.querySelectorAll("td.mbdb-details-indent");
     expect(indent.length).toBe(2); // both leaf rows indented one level
   });
@@ -342,7 +354,7 @@ describe("DetailView", () => {
 });
 
 // A Formik-connected input for an unrelated field, so Simulate.change drives
-// Formik's setFieldValue (and its async errors reset) — used by the F1 test.
+// Formik's setFieldValue (and its async errors reset) — used by the errors-after-edit test.
 const UnrelatedInput = () => {
   const { values, setFieldValue } = useFormikContext();
   return (
@@ -515,5 +527,89 @@ describe("DetailView — review findings", () => {
     expect(container.querySelector(".mbdb-muted-text").textContent).toContain(
       "SPECIES"
     );
+  });
+});
+
+describe("DetailView formatters", () => {
+  it("external_databases: a known prefix becomes a link, an unknown one stays text", () => {
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[{ title: "Refs", fields: ["external_databases"] }]}
+      />,
+      {
+        initialValues: {
+          o: {
+            external_databases: ["pdb:1GWD", "weird:1", "Uniprot:P00698"],
+          },
+        },
+      }
+    );
+    expect(
+      [...container.querySelectorAll("a")].map((a) => a.getAttribute("href"))
+    ).toEqual([
+      "https://www.rcsb.org/structure/1GWD",
+      "https://www.uniprot.org/uniprotkb/P00698",
+    ]);
+    // the unknown prefix is not hidden: it stays as plain text
+    expect(text()).toContain("weird:1");
+  });
+
+  it("location: one line of coordinates plus the map link", () => {
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[{ title: "Where", fields: ["location"] }]}
+      />,
+      {
+        initialValues: {
+          o: {
+            location: { latitude: 49.1951, longitude: 16.6068, altitude: 237 },
+          },
+        },
+      }
+    );
+    expect(text()).toContain("49.1951, 16.6068, 237 m");
+    expect(container.querySelector("a").getAttribute("href")).toBe(
+      "https://www.openstreetmap.org/?mlat=49.1951&mlon=16.6068#map=10/49.1951/16.6068"
+    );
+  });
+
+  it("basic_information: the title plus the cached formula, weight and id", () => {
+    setFakeVocabulary({
+      "chemicals/inchikey:WATER": {
+        title: "Water",
+        customFields: {
+          chemical_formula: "H2O",
+          molecular_weight: { value: 18.02, unit: "g/mol" },
+        },
+      },
+    });
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[{ title: "Chemical", fields: ["basic_information"] }]}
+      />,
+      { initialValues: { o: { basic_information: { id: "inchikey:WATER" } } } }
+    );
+    expect(text()).toContain("Water");
+    // formula, molecular weight and the InChIKey id are shown, not hidden
+    expect(text()).toContain("H2O · 18.02 g/mol · inchikey:WATER");
+  });
+
+  it("basic_information: a manual chemical shows its typed title and the hint", () => {
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[{ title: "Chemical", fields: ["basic_information"] }]}
+      />,
+      {
+        initialValues: {
+          o: { basic_information: { title: { en: "my lipid mix" } } },
+        },
+      }
+    );
+    expect(text()).toContain("my lipid mix");
+    expect(text()).toContain("Manual entry");
   });
 });

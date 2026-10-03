@@ -103,7 +103,7 @@ describe("FieldGroup", () => {
 
   it("shows the group-path message under the header, surviving an unrelated edit", async () => {
     // a required group that the server flags shows its message, not
-    // only a red header (Location-review F1).
+    // only a red header.
     render(
       <>
         <FieldGroup title="Location" fieldPath="metadata.location">

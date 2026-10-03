@@ -19,7 +19,7 @@ const leafLabel = (path) => {
 // useModelFieldData and the DetailView label/heading components; the needle
 // is "children." WITH the dot so a genuine label containing the word
 // "children" is not misread as a path. Remove once every entity path has a
-// ui_model entry (1R C9).
+// ui_model entry.
 export const readableLabel = (label, fallback) => {
   if (typeof label === "string")
     return label.includes("children.") ? leafLabel(label) : label;

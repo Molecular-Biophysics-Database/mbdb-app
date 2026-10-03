@@ -16,7 +16,7 @@ import { groupSections, useMergedRequired } from "./collect";
 
 // A generic read-only definition table built from a group spec — the
 // "Details" (▸) view (design/building-blocks/DetailView.md). It reads Formik
-// `values` and `errors` ∪ `initialErrors` (via useFieldErrors, F1); it never
+// `values` and `errors` ∪ `initialErrors` (via useFieldErrors); it never
 // writes.
 
 // One group of the form becomes a section: a header row plus its rows and the

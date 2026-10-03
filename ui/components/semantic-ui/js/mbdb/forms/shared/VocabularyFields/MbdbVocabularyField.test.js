@@ -336,7 +336,7 @@ describe("MbdbVocabularyField", () => {
         helpMode: "popup",
       }
     );
-    // F1: exactly one <label> element, holding the label text (and the
+    // exactly one <label> element, holding the label text (and the
     // popup-mode help icon), and no second copy of it near the shell:
     // the shell itself renders none.
     expect(container.querySelectorAll("label")).toHaveLength(1);

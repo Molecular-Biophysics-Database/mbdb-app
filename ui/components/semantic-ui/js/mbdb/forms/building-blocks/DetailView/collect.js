@@ -1,5 +1,6 @@
 import { useFieldData } from "@js/oarepo_ui/forms";
 import { hasData, isEmptyValue } from "@js/mbdb/forms/building-blocks/errors";
+import { formatters } from "./formatters";
 import { isAssessed, isLeafObject, isPlainObject, isSteps } from "./values";
 
 // A group field entry is a plain name or `{ field: name, vocabulary: type }`
@@ -11,7 +12,7 @@ export const fieldEntryOf = (entry) =>
 
 // Build the flat row list for one object out of its values. Pure (no hooks):
 // error visibility is decided by the caller's `hasErr(path)` predicate, which
-// the components fill with useFieldErrors — one hook call per row (F1).
+// the components fill with useFieldErrors — one hook call per row.
 
 // ponytail: one indent level; deeper nesting joins sub-headings with " › ".
 // hasErr (optional): rows with a server error are kept even when empty.
@@ -30,6 +31,14 @@ export const collectRows = (
     const errored = !hasErr || hasErr(path);
     if (isEmptyValue(value) && !errored) return;
     const subHeading = heading ? `${heading} › ${name}` : name;
+    // A registered formatter replaces the generic output for this leaf name
+    // (design §3): it renders the value itself, so never recurse into it. This
+    // is what shows a `location` as one line plus the map link, and a
+    // `basic_information` with its formula and weight.
+    if (formatters[name] && !isEmptyValue(value)) {
+      rows.push({ kind: "field", name, path, value, indent, errored });
+      return;
+    }
     if (isLeafObject(value) || !isPlainObject(value)) {
       if (
         Array.isArray(value) &&

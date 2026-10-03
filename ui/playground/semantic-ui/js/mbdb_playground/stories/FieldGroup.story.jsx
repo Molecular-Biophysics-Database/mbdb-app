@@ -9,9 +9,8 @@ import { ENTITY_PATH, entityValues, entityErrors } from "../fixtures";
 const BASE = ENTITY_PATH;
 
 // Explicit titles/helps until the ui_model has entity children (polymorphic
-// Entity). fieldPath is the *object* path: it is also the element id (F5 of
-// the review), so passing a leaf that a child field also uses would duplicate
-// ids.
+// Entity). fieldPath is the *object* path: it is also the element id, so
+// passing a leaf that a child field also uses would duplicate ids.
 const Groups = () => (
   <>
     {/* fieldPath is the object path the group watches for errors (and its

@@ -46,7 +46,7 @@ Heading.propTypes = {
 };
 
 // One field row; kept visible even when empty while it has a server error
-// (design §5). The error comes through useFieldErrors so it survives edits (F1).
+// (design §5). The error comes through useFieldErrors so it survives edits.
 const FieldRow = ({ row, onEdit }) => {
   const { hasError } = useFieldErrors(row.path);
   if (isEmptyValue(row.value) && !hasError) return null;

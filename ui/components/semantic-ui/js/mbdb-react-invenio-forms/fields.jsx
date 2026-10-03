@@ -69,7 +69,7 @@ const optionsWithCurrentValue = (options, value) => {
 // Text wrapper, rebuilt on FieldShell + plain Semantic Input. Errors come
 // from the binding (useFieldErrors semantics), so they clear once the
 // value is edited — RIF's own error label is not used. onChange: "" unsets
-// (C15 pruning); a caller's own onChange (NumberField) replaces the
+// (the pruning setter); a caller's own onChange (NumberField) replaces the
 // default write entirely.
 export const TextField = ({
   fieldPath,
@@ -184,7 +184,7 @@ export const ArrayField = ({
   });
   // RIF renders helpText inside the Form.Field directly under the label,
   // above the rows — where the design wants it. In "invenio" mode pass it
-  // there (F2: not below the Add button); in "popup" mode the icon lives
+  // there (not below the Add button); in "popup" mode the icon lives
   // in HelpLabel and nothing renders below. This is the one wrapper that
   // reads the mode itself.
   const mode = useHelpMode();
@@ -267,9 +267,8 @@ TextAreaField.propTypes = {
   children: PropTypes.node,
 };
 
-// Wrapper around oarepo's StringArrayField (the wrapper StringListField
-// review question F1 asked about). oarepo's component resolves the label
-// through its own useFieldData and renders its own help as a helptext
+// Wrapper around oarepo's StringArrayField. oarepo's component resolves the
+// label through its own useFieldData and renders its own help as a helptext
 // label between the rows and the Add button; helpText={null} suppresses
 // it there (oarepo's mergeFieldData keeps null overrides). The mbdb
 // wrapper puts the resolved label/help into the shell's label slot

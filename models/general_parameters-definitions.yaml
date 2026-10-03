@@ -595,7 +595,7 @@ Chemical_environment:
       type: double
       help.en: The pH value of the chemical environment
       required: true
-      label.en: Ph
+      label.en: pH
     additional_specifications:
       minItems: 1
       help.en: Additional information about the chemical environment can be 

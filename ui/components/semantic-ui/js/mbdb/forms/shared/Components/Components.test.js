@@ -180,13 +180,15 @@ describe("Components", () => {
     expect(container.textContent).toContain("unknown");
   });
 
-  it("renders each summary cell, including the copy number, from the row", () => {
+  it("renders each summary cell, including the copy number and the identity", () => {
     render({
       initialValues: assembly([
         {
           type: "Polymer",
           name: "RNA polymerase alpha subunit",
           copy_number: 2,
+          polymer_type: "polypeptide(L)",
+          molecular_weight: { value: 34.8, unit: "kDa" },
         },
         { type: "Chemical", name: "Zn2+", copy_number: -1 },
       ]),
@@ -201,7 +203,13 @@ describe("Components", () => {
       return [...row.querySelectorAll("td")].map((td) => td.textContent.trim());
     };
     expect(cellsOf("RNA polymerase alpha subunit")).toEqual(
-      expect.arrayContaining(["RNA polymerase alpha subunit", "Polymer", "2"])
+      expect.arrayContaining([
+        "RNA polymerase alpha subunit",
+        "Polymer",
+        "2",
+        // the identity: the entity summary reused for the component
+        "polypeptide(L), 34.8 kDa",
+      ])
     );
     expect(cellsOf("Zn2+")).toEqual(
       expect.arrayContaining(["Zn2+", "Chemical", "unknown"])

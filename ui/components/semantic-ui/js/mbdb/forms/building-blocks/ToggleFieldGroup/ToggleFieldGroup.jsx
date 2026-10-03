@@ -38,7 +38,7 @@ export const ToggleFieldGroup = ({
   const text = data.label;
   // Red header reads errors ∪ initialErrors so it survives edits
   const { hasError } = useFieldErrors(fieldPath);
-  // object-level messages only (a string sitting exactly at fieldPath, F4)
+  // object-level messages only (a string sitting exactly at fieldPath)
   const objectMessages = useOwnErrorMessages(fieldPath);
 
   const value = getIn(values, fieldPath);

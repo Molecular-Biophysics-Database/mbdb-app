@@ -55,7 +55,7 @@ const btn = (label) =>
   );
 
 // A Formik-connected input for an unrelated field, so Simulate.change drives
-// Formik's setFieldValue (and its async errors reset) — used by the F1 test.
+// Formik's setFieldValue (and its async errors reset) — used by the errors-after-edit test.
 const UnrelatedInput = () => {
   const { values, setFieldValue } = useFormikContext();
   return (
@@ -198,7 +198,7 @@ describe("ModalObjectField", () => {
     const badge = container.querySelector(".ui.red.label");
     expect(badge.textContent).toBe("1 error");
 
-    // the badge survives an unrelated edit (SummaryItem F1)
+    // the badge survives an unrelated edit
     const other = container.querySelector('[data-testid="other"]');
     other.value = "x";
     await act(async () => Simulate.change(other));

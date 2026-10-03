@@ -53,8 +53,7 @@ export const ButtonGroupField = ({
       <Button.Group
         id={fieldPath}
         // role="group", not "radiogroup": the buttons toggle (aria-pressed),
-        // they are not radios. Design doc asks for the mix; flagged for
-        // a design update (ButtonGroupField-review F6).
+        // they are not radios. The design doc asks for the mix.
         role="group"
         aria-label={typeof f.label === "string" ? f.label : fieldPath}
         onKeyDown={onRovingKeyDown}
