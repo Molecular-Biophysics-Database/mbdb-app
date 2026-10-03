@@ -167,7 +167,12 @@ export const REGISTRY = [
     load: () => import("./stories/BasicInformation.story"),
   },
 
-  { step: 3, key: "Modifications", design: "design/shared/Modifications.md" },
+  {
+    step: 3,
+    key: "Modifications",
+    design: "design/shared/Modifications.md",
+    load: () => import("./stories/Modifications.story"),
+  },
   { step: 3, key: "Purity", design: "design/shared/Purity.md" },
   { step: 3, key: "Identity", design: "design/shared/Identity.md" },
   { step: 3, key: "Homogeneity", design: "design/shared/Homogeneity.md" },
@@ -175,8 +180,14 @@ export const REGISTRY = [
     step: 3,
     key: "QualityControls",
     design: "design/shared/QualityControls.md",
+    load: () => import("./stories/QualityControls.story"),
   },
-  { step: 3, key: "Storage", design: "design/shared/Storage.md" },
+  {
+    step: 3,
+    key: "Storage",
+    design: "design/shared/Storage.md",
+    load: () => import("./stories/Storage.story"),
+  },
   {
     step: 3,
     key: "ComponentChemical",

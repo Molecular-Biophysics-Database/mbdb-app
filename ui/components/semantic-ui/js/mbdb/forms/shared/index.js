@@ -6,3 +6,7 @@ export * from "./Sequence";
 export * from "./ExternalDatabases";
 export * from "./VocabularyFields";
 export * from "./BasicInformation";
+export * from "./Modifications";
+export * from "./QualityControls";
+export * from "./Storage";
+export * from "./units";
