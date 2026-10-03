@@ -447,6 +447,37 @@ describe("DetailView — review findings", () => {
     expect(text()).toContain("No");
   });
 
+  // S4 (2026-10-03): nested objects inside an assessed value
+  it("expands nested objects of an assessed value one level (S4)", () => {
+    mount(<DetailView fieldPath="o" groups={[]} />, {
+      initialValues: {
+        o: {
+          identity: {
+            assessed: "Yes",
+            by_intact_mass: {
+              method: "Mass spectrometry",
+              deviation_from_expected_mass: { value: 0.5, unit: "Da" },
+            },
+            by_sequencing: { method: "Sanger sequencing", percentage: 98 },
+          },
+        },
+      },
+    });
+    expect(text()).toContain(
+      "Yes — by intact mass: Mass spectrometry, 0.5 Da; by sequencing: Sanger sequencing, 98"
+    );
+  });
+
+  it("renders an assessed value whose nested facts are all empty as plain Yes (S4)", () => {
+    mount(<DetailView fieldPath="o" groups={[]} />, {
+      initialValues: {
+        o: { identity: { assessed: "Yes", by_fingerprinting: {} } },
+      },
+    });
+    expect(text()).toContain("Yes");
+    expect(text()).not.toContain("Yes —");
+  });
+
   it("expands a long sequence with the Show all toggle (F4d)", () => {
     const seq = FILLED.o.sequence.repeat(3); // 192 residues > 60
     mount(<DetailView fieldPath="o" groups={GROUPS} />, {

@@ -5,6 +5,8 @@
 // and the long metadata.general_parameters.entities_of_interest.0 path stops
 // being hand-typed per story.
 
+import { setIn } from "formik";
+
 export const ENTITY_PATH = "metadata.general_parameters.entities_of_interest.0";
 export const entityPath = (field) => `${ENTITY_PATH}.${field}`;
 
@@ -20,9 +22,8 @@ export const entityValues = (type, fields = {}, extra = {}) => ({
   },
 });
 
-// initialErrors at one entity field.
-export const entityErrors = (field, message) => ({
-  metadata: {
-    general_parameters: { entities_of_interest: [{ [field]: message }] },
-  },
-});
+// initialErrors at one entity field. `field` is a Formik path, so nested
+// values work: "storage.temperature" builds { storage: { temperature: … }},
+// "components.2.name" builds an array element (setIn, not a literal key).
+export const entityErrors = (field, message) =>
+  setIn({}, entityPath(field), message);

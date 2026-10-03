@@ -367,6 +367,48 @@ describe("ModalArrayField", () => {
     expect(details.textContent).not.toContain("e1");
   });
 
+  it("accepts detailGroups as a function of the item value (E7)", async () => {
+    // each entity type has its own details groups (the entities table)
+    mount(
+      entities({
+        detailGroups: (v) =>
+          v.type === "Polymer"
+            ? [{ title: "Stuff", fields: ["polymer_type"] }]
+            : [{ title: "Stuff", fields: ["basic_information"] }],
+        minItems: 0,
+      }),
+      {
+        initialValues: {
+          entities: [
+            { id: "e1", type: "Polymer", name: "Lys", polymer_type: "Protein" },
+            {
+              id: "e2",
+              type: "Chemical",
+              name: "NaCl",
+              basic_information: "salt",
+            },
+          ],
+        },
+      }
+    );
+    const toggles = () => [
+      ...container.querySelectorAll(
+        'button[aria-label^="Show details of entity"]'
+      ),
+    ];
+    expect(toggles()).toHaveLength(2);
+    await click(toggles()[0]);
+    // the polymer row's details use the polymer groups
+    expect(container.textContent).toContain("Protein");
+    // the opened row's toggle reads "Hide details…" — only NaCl still shows
+    const second = toggles()[0];
+    expect(second.getAttribute("aria-label")).toContain("NaCl");
+    await click(second);
+    // the chemical row's details use the chemical groups; for a bare-string
+    // basic_information the detail shows the string itself
+    expect(container.textContent).toContain("salt");
+  });
+
   it("depth-2: inner Cancel restores only the inner item; outer Cancel restores the whole outer item (F6)", async () => {
     // a ModalArrayField inside the modal form of another ModalArrayField
     mount(

@@ -16,6 +16,7 @@ import {
 } from "@js/mbdb/forms/building-blocks/errors";
 import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
+import { useUnsetField } from "@js/mbdb/forms/building-blocks/unset";
 import { randomUUID } from "@js/mbdb/forms/building-blocks/randomUUID";
 import { DataCell } from "./Cell";
 import { HeaderRow } from "./Header";
@@ -149,6 +150,7 @@ const TableArrayFieldInner = ({
   rowHint,
 }) => {
   const { values, setFieldValue } = useFormikContext();
+  const unset = useUnsetField();
   const items = getIn(values, fieldPath) ?? [];
   // minItems rows are VIRTUAL — rendered from defaultNewValue but not
   // written to Formik until the user edits one (the old push-on-render
@@ -193,8 +195,9 @@ const TableArrayFieldInner = ({
   const removeRow = (index) => {
     keysRef.current.splice(index, 1);
     // formik's remove leaves [] behind when the array empties; guide §7
-    // wants the key gone entirely (many arrays have minItems: 1)
-    if (items.length <= 1) setFieldValue(fieldPath, undefined);
+    // wants the key gone entirely (many arrays have minItems: 1). unset
+    // also drops parents that become empty (modifications: {} must not stay)
+    if (items.length <= 1) unset(fieldPath);
     else arrayHelpers.remove(index);
   };
 
@@ -326,12 +329,17 @@ const FieldBox = ({ fieldPath, label, help, required, children }) => {
     helpText: help,
     required,
   });
+  // NO error prop on Form.Field: .field.error would colour EVERY input of the
+  // table red (cells mark themselves). The header label carries the state.
   return (
-    <Form.Field required={data.required} error={hasError}>
+    <Form.Field required={data.required}>
       {data.label && (
         // htmlFor points at the field path for OARepo error scrolling; the
         // table rows below are the labelled controls (cell aria-labels).
-        <label htmlFor={fieldPath}>
+        <label
+          htmlFor={fieldPath}
+          className={hasError ? "ui red text" : undefined}
+        >
           <HelpLabel label={data.label} help={data.helpText} />
         </label>
       )}

@@ -123,7 +123,13 @@ export const ModalArrayField = ({
                       detailGroups ? (
                         <DetailView
                           fieldPath={itemPath}
-                          groups={detailGroups}
+                          // a function picks the groups per item (each entity
+                          // type has its own details)
+                          groups={
+                            typeof detailGroups === "function"
+                              ? detailGroups(value)
+                              : detailGroups
+                          }
                           // id is an internal client uuid — never show it;
                           // detailProps (e.g. exclude) can override
                           exclude={["id"]}
@@ -212,20 +218,24 @@ ModalArrayField.propTypes = {
   initialValue: PropTypes.object,
   withIds: PropTypes.bool,
   renderForm: PropTypes.func.isRequired,
-  detailGroups: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      fields: PropTypes.arrayOf(
-        PropTypes.oneOfType([
-          PropTypes.string,
-          PropTypes.shape({
-            field: PropTypes.string.isRequired,
-            vocabulary: PropTypes.string,
-          }),
-        ])
-      ).isRequired,
-    })
-  ),
+  detailGroups: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        fields: PropTypes.arrayOf(
+          PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.shape({
+              field: PropTypes.string.isRequired,
+              vocabulary: PropTypes.string,
+            }),
+          ])
+        ).isRequired,
+      })
+    ),
+    // (itemValue) => groups, for per-type details (the entities table)
+    PropTypes.func,
+  ]),
   // extra DetailView props (exclude, requiredPaths).
   // `exclude` defaults to ["id"], the internal client uuid.
   detailProps: PropTypes.object,

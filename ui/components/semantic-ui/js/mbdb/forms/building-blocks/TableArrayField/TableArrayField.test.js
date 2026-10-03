@@ -6,6 +6,8 @@ import { HelpModeProvider } from "mbdb-semantic-ui-react";
 import { TableArrayField } from "./TableArrayField";
 import {
   setFakeUiModel,
+  renderInForm,
+  editUnrelatedField,
   ValueProbe,
   readProbe,
 } from "@js/mbdb/forms/building-blocks/testUtils";
@@ -216,6 +218,24 @@ describe("TableArrayField", () => {
     mount(protocol({ minItems: 0 }), {
       initialValues: { steps: [{ name: "only" }] },
     });
+    await click(container.querySelector('button[aria-label="Remove row 1"]'));
+    expect(probe()).toBeNull();
+  });
+
+  it("removing the last row also prunes parents that become empty (S2)", async () => {
+    // modifications: {} must not stay behind (guide §7)
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="obj.list"
+          label="Chemical"
+          addButtonLabel="Add modification"
+          columns={[{ field: "name", label: "Name" }]}
+        />
+        <ValueProbe path="obj" />
+      </>,
+      { initialValues: { obj: { list: [{ name: "a" }] } } }
+    );
     await click(container.querySelector('button[aria-label="Remove row 1"]'));
     expect(probe()).toBeNull();
   });
@@ -463,6 +483,45 @@ describe("TableArrayField", () => {
     expect(labels.map((l) => l.textContent)).toContain(
       "Missing data for required field."
     );
+  });
+
+  // S3 (2026-10-03): one cell error must not colour every input red.
+  // renderInForm/withUnrelatedField: the header-red check edits an unrelated
+  // field, which the local tree above does not offer.
+  it("marks only the errored cell, not the whole table (S3)", async () => {
+    container = renderInForm(protocol({ minItems: 0 }), {
+      initialValues: {
+        steps: [
+          { name: "first", description: "" },
+          { name: "second", description: "ok" },
+        ],
+      },
+      initialErrors: {
+        steps: [{ description: "Missing data for required field." }],
+      },
+      withUnrelatedField: true,
+    });
+    const table = container.querySelector("table");
+    // the errored cell is marked, as before
+    expect(inputs("Description")[0].closest(".ui.input").className).toContain(
+      "error"
+    );
+    // nothing else under the table is inside an error field/input
+    const clean = [input("Name"), ...inputs("Description").slice(1)];
+    clean.forEach((el) => {
+      expect(el.closest(".ui.input").className).not.toContain("error");
+      expect(el.closest(".field.error")).toBeNull();
+    });
+    // the header label carries the error instead
+    const headerLabel = table.parentElement.querySelector('label[for="steps"]');
+    expect(headerLabel.className).toContain("red");
+    // … and keeps it after an unrelated edit clears formik's errors
+    await editUnrelatedField(container);
+    expect(headerLabel.className).toContain("red");
+    // still no red spread
+    clean.forEach((el) => {
+      expect(el.closest(".field.error")).toBeNull();
+    });
   });
 
   it("shows a list-level error as a pointing prompt label under the table (F8)", () => {

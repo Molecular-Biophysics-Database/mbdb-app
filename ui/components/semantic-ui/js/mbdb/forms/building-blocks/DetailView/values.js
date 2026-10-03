@@ -55,14 +55,32 @@ export const isSteps = (value) =>
       !isEmptyValue(item.name)
   );
 
-// §3: No, or Yes — <facts>, the remaining non-empty fields comma-joined
+// §3: No, or Yes — <facts>. A fact that is a nested object (identity's
+// by_intact_mass: { method, deviation }) gets one level of expansion here —
+// textOf would drop the whole object. Nested facts join with "; " so the
+// inner ", " stays readable; flat facts keep the old ", ".
+const factText = (key, value, vocabulary) => {
+  if (isPlainObject(value) && !isLeafObject(value)) {
+    const inner = Object.values(value)
+      .map((v) => textOf(v, vocabulary))
+      .filter((t) => t !== "");
+    return inner.length
+      ? `${key.replaceAll("_", " ")}: ${inner.join(", ")}`
+      : "";
+  }
+  return textOf(value, vocabulary);
+};
+
 const assessedText = (value, vocabulary) => {
   if (value.assessed === "No") return "No";
-  const facts = Object.keys(value)
-    .filter((key) => key !== "assessed")
-    .map((key) => textOf(value[key], vocabulary))
+  const keys = Object.keys(value).filter((key) => key !== "assessed");
+  const facts = keys
+    .map((key) => factText(key, value[key], vocabulary))
     .filter((t) => t !== "");
-  return facts.length ? `Yes — ${facts.join(", ")}` : "Yes";
+  const hasNested = keys.some(
+    (key) => isPlainObject(value[key]) && !isLeafObject(value[key])
+  );
+  return facts.length ? `Yes — ${facts.join(hasNested ? "; " : ", ")}` : "Yes";
 };
 
 // A `{ id }` vocabulary reference resolved to a title through the shared
