@@ -4,6 +4,9 @@ import {
   unmountForm,
   setFakeUiModel,
   editUnrelatedField,
+  clickOn,
+  ValueProbe,
+  readProbe,
   yamlProperty,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { ChemicalFields, CHEMICAL_GROUPS, summaryChemical } from "./index";
@@ -36,12 +39,13 @@ jest.mock("@js/oarepo_ui/forms", () => {
 });
 
 // The picker is faked (it queries the vocabulary API): it stands for what the
-// block needs from it — the fieldPath it was handed and the value it shows.
+// block needs from it — the fieldPath it was handed, the value it shows, and
+// a pick that calls the caller's onPicked with a suggestion.
 jest.mock("@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField", () => {
   const R = jest.requireActual("react");
   const PropTypesActual = jest.requireActual("prop-types");
   const { getIn, useFormikContext } = jest.requireActual("formik");
-  const FakeMbdbVocabularyField = ({ fieldPath }) => {
+  const FakeMbdbVocabularyField = ({ fieldPath, onPicked }) => {
     const { values } = useFormikContext();
     const v = getIn(values, fieldPath);
     return R.createElement(
@@ -51,11 +55,22 @@ jest.mock("@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField", () => {
         "span",
         { "data-testid": "picker-value" },
         v?.id ?? v?.title?.en ?? ""
-      )
+      ),
+      onPicked &&
+        R.createElement("button", {
+          type: "button",
+          "data-testid": "pick",
+          onClick: () =>
+            onPicked({
+              id: "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+              title_l10n: "Water",
+            }),
+        })
     );
   };
   FakeMbdbVocabularyField.propTypes = {
     fieldPath: PropTypesActual.string.isRequired,
+    onPicked: PropTypesActual.func,
   };
   return { MbdbVocabularyField: FakeMbdbVocabularyField };
 });
@@ -104,7 +119,12 @@ const FILLED = {
   additional_specifications: ["HPLC grade"],
 };
 
-const chemical = () => <ChemicalFields fieldPath={ENTITY} />;
+const chemical = () => (
+  <>
+    <ChemicalFields fieldPath={ENTITY} />
+    <ValueProbe path={`${ENTITY}.name`} />
+  </>
+);
 
 const picker = () => container.querySelector('[data-testid="picker"]');
 const pickerValue = () =>
@@ -123,6 +143,21 @@ describe("ChemicalFields", () => {
     expect(pickerValue()).toBe(WATER_ID);
     expect(specs().dataset.path).toBe(SPECS);
     expect(specs().textContent).toBe("HPLC grade");
+  });
+
+  it("picking a chemical prefills an empty Name with its title", async () => {
+    container = renderInForm(chemical(), { initialValues: entity() });
+    expect(readProbe(container)).toBeNull();
+    await clickOn(container.querySelector('[data-testid="pick"]'));
+    expect(readProbe(container)).toBe("Water");
+  });
+
+  it("does not overwrite a Name the user already set", async () => {
+    container = renderInForm(chemical(), {
+      initialValues: entity({ name: "My water" }),
+    });
+    await clickOn(container.querySelector('[data-testid="pick"]'));
+    expect(readProbe(container)).toBe("My water");
   });
 
   it("renders an entity without a pickable value without crashing", () => {

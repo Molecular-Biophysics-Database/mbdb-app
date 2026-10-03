@@ -23,6 +23,7 @@ export const DiscriminatorField = ({
   options,
   variant,
   keep = ["id"],
+  seed,
   allowUnset = false,
   unsetLabel = "Not specified",
   label,
@@ -57,12 +58,23 @@ export const DiscriminatorField = ({
         key !== field && !keep.includes(key) && !isEmptyValue(value)
     );
 
+  // `keep` preserves fields rendered above the discriminator (a sub-type change
+  // keeps `name`, a component keeps `name`/`copy_number`). The confirm must not
+  // promise to delete them: any keep beyond `id` uses the type-specific copy,
+  // a static string (design/building-blocks/DiscriminatorField.md, "confirm
+  // copy with keep").
+  const keepsBeyondId = keep.some((key) => key !== "id");
+
   const apply = (newValue) => {
     if (newValue === undefined) unset(objectPath);
     else
       setFieldValue(objectPath, {
         ...pick(obj ?? {}, keep),
         [field]: newValue,
+        // seed last: a fixed value the new type's model requires (design,
+        // "Addition: seed"). Applied after `keep` and the new value, so it is
+        // never overwritten by a keep key with the same name.
+        ...(seed?.(newValue) ?? {}),
       });
   };
 
@@ -155,7 +167,9 @@ export const DiscriminatorField = ({
             : `Change ${text ?? field} to "${labelOf(pending)}"?`
         }
         content={
-          current === undefined || pending === undefined
+          keepsBeyondId
+            ? "The type-specific data will be removed."
+            : current === undefined || pending === undefined
             ? "The entered data will be removed."
             : `The data entered for "${labelOf(current)}" will be removed.`
         }
@@ -184,6 +198,7 @@ DiscriminatorField.propTypes = {
   ).isRequired,
   variant: PropTypes.oneOf(["buttons", "dropdown"]),
   keep: PropTypes.arrayOf(PropTypes.string),
+  seed: PropTypes.func,
   allowUnset: PropTypes.bool,
   unsetLabel: PropTypes.string,
   label: PropTypes.string,

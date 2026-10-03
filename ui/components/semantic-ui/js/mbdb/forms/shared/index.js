@@ -9,4 +9,6 @@ export * from "./BasicInformation";
 export * from "./Modifications";
 export * from "./QualityControls";
 export * from "./Storage";
+export * from "./Components";
+export * from "./LipidAssemblyDetails";
 export * from "./units";

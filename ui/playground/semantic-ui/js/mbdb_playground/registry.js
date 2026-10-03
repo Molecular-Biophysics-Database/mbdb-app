@@ -173,9 +173,24 @@ export const REGISTRY = [
     design: "design/shared/Modifications.md",
     load: () => import("./stories/Modifications.story"),
   },
-  { step: 3, key: "Purity", design: "design/shared/Purity.md" },
-  { step: 3, key: "Identity", design: "design/shared/Identity.md" },
-  { step: 3, key: "Homogeneity", design: "design/shared/Homogeneity.md" },
+  {
+    step: 3,
+    key: "Purity",
+    design: "design/shared/Purity.md",
+    load: () => import("./stories/Purity.story"),
+  },
+  {
+    step: 3,
+    key: "Identity",
+    design: "design/shared/Identity.md",
+    load: () => import("./stories/Identity.story"),
+  },
+  {
+    step: 3,
+    key: "Homogeneity",
+    design: "design/shared/Homogeneity.md",
+    load: () => import("./stories/Homogeneity.story"),
+  },
   {
     step: 3,
     key: "QualityControls",
@@ -192,17 +207,25 @@ export const REGISTRY = [
     step: 3,
     key: "ComponentChemical",
     design: "design/shared/ComponentChemical.md",
+    load: () => import("./stories/ComponentChemical.story"),
   },
   {
     step: 3,
     key: "ComponentPolymer",
     design: "design/shared/ComponentPolymer.md",
+    load: () => import("./stories/ComponentPolymer.story"),
   },
-  { step: 3, key: "Components", design: "design/shared/Components.md" },
+  {
+    step: 3,
+    key: "Components",
+    design: "design/shared/Components.md",
+    load: () => import("./stories/Components.story"),
+  },
   {
     step: 3,
     key: "LipidAssemblyDetails",
     design: "design/shared/LipidAssemblyDetails.md",
+    load: () => import("./stories/LipidAssemblyDetails.story"),
   },
 
   {

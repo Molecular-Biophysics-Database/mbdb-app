@@ -34,7 +34,7 @@ ChemicalLinks.propTypes = {
 // carries the object-level error (MbdbVocabularyField already shows it, so
 // there is no second error block here). "Enter manually" is hidden while
 // the server drops manual chemicals (chemical.js).
-export const ChemicalPicker = ({ fieldPath }) => {
+export const ChemicalPicker = ({ fieldPath, onPicked }) => {
   const { values, setFieldValue } = useFormikContext();
   const value = getIn(values, fieldPath);
   // Whole-item cache: the title AND the custom_fields of the picked term —
@@ -59,6 +59,7 @@ export const ChemicalPicker = ({ fieldPath }) => {
         fieldPath={fieldPath}
         vocabularyName="chemicals"
         describe={describeChemical}
+        onPicked={onPicked}
         label={
           <>
             {data.label}{" "}
@@ -85,4 +86,6 @@ export const ChemicalPicker = ({ fieldPath }) => {
 
 ChemicalPicker.propTypes = {
   fieldPath: PropTypes.string.isRequired,
+  // forwarded to the wrapper: a caller-side reaction to a pick
+  onPicked: PropTypes.func,
 };

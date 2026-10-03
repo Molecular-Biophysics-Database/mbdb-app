@@ -38,6 +38,7 @@ export const MbdbVocabularyField = ({
   help,
   required,
   onAddition,
+  onPicked,
   ...restProps
 }) => {
   const f = useFieldBinding(fieldPath, { label, help, required });
@@ -90,6 +91,10 @@ export const MbdbVocabularyField = ({
     });
     selfWrittenIdRef.current = suggestion.id;
     formikProps.form.setFieldValue(fieldPath, { id: suggestion.id });
+    // A caller that reacts to the pick (for example to prefill an empty entity
+    // Name with the chemical title) does it into this handler, never in an
+    // effect (design Chemical, "prefill Name").
+    onPicked?.(suggestion);
   };
 
   // The nested provider feeds VocabularyField's own getFieldData: the same
@@ -182,6 +187,9 @@ MbdbVocabularyField.propTypes = {
   // called with the typed text when the user picks an allowed addition,
   // INSTEAD of the wrapper writing anything (manual-entry switch)
   onAddition: PropTypes.func,
+  // called with the picked suggestion after a real term is selected (a
+  // caller-side reaction such as prefilling a name; not for additions)
+  onPicked: PropTypes.func,
   label: PropTypes.node,
   help: PropTypes.node,
   required: PropTypes.bool,

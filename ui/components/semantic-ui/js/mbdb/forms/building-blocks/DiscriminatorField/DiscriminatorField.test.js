@@ -137,6 +137,92 @@ describe("DiscriminatorField", () => {
     expect(probe()).toEqual({ id: "e1", type: "Chemical" });
   });
 
+  it("confirm copy does not promise deletion when keep preserves fields above the discriminator", () => {
+    mount(
+      <>
+        <DiscriminatorField
+          objectPath="c"
+          field="type"
+          options={["Polymer", "Chemical"]}
+          variant="buttons"
+          keep={["name", "copy_number"]}
+        />
+        <ValueProbe path="c" />
+      </>,
+      {
+        initialValues: {
+          c: {
+            name: "RNA polymerase",
+            copy_number: 2,
+            polymer_type: "polypeptide(L)",
+          },
+        },
+      }
+    );
+    act(() => Simulate.click(button("Chemical")));
+    const m = modal();
+    expect(m.textContent).toContain("The type-specific data will be removed.");
+    expect(m.textContent).not.toContain("The data entered for");
+
+    const changeBtn = [...m.querySelectorAll("button")].find(
+      (b) => b.textContent === "Change"
+    );
+    act(() => Simulate.click(changeBtn));
+    // name and copy_number survive; only the type-specific data is dropped
+    expect(probe()).toEqual({
+      name: "RNA polymerase",
+      copy_number: 2,
+      type: "Chemical",
+    });
+  });
+
+  it("seed writes keep keys + the new value + the seed in one change", () => {
+    mount(
+      <>
+        <DiscriminatorField
+          objectPath="o"
+          field="type"
+          options={["Polymer", "Chemical origin"]}
+          variant="buttons"
+          keep={["id", "name"]}
+          seed={(t) =>
+            t === "Chemical origin" ? { class: "Lipid assembly" } : undefined
+          }
+        />
+        <ValueProbe path="o" />
+      </>,
+      { initialValues: { o: { id: "e1", name: "SigA", type: "Polymer" } } }
+    );
+    act(() => Simulate.click(button("Chemical origin")));
+    expect(probe()).toEqual({
+      id: "e1",
+      name: "SigA",
+      type: "Chemical origin",
+      class: "Lipid assembly",
+    });
+  });
+
+  it("a seed value wins over a keep key of the same name (seed applied last)", () => {
+    mount(
+      <>
+        <DiscriminatorField
+          objectPath="o"
+          field="class"
+          options={["Lipid assembly", "Other class"]}
+          variant="buttons"
+          keep={["id", "name", "class"]}
+          seed={() => ({ class: "seeded" })}
+        />
+        <ValueProbe path="o" />
+      </>,
+      {
+        initialValues: { o: { id: "e1", name: "X", class: "Lipid assembly" } },
+      }
+    );
+    act(() => Simulate.click(button("Other class")));
+    expect(probe()).toEqual({ id: "e1", name: "X", class: "seeded" });
+  });
+
   it("cancel of the confirm leaves the object untouched", () => {
     mount(typeField(), {
       initialValues: { o: { type: "Polymer", name: "Lysozyme" } },

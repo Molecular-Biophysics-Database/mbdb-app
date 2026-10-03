@@ -13,17 +13,19 @@ import { ManualChemical } from "./ManualChemical";
 // itself, one write in each event handler. The manual mode is gated on a
 // module constant, not runtime state: manual entry is off (chemical.js), so
 // even a stored manual value keeps the picker mounted.
-export const BasicInformation = ({ fieldPath }) => {
+export const BasicInformation = ({ fieldPath, onPicked }) => {
   const { values } = useFormikContext();
   const value = getIn(values, fieldPath);
   return MANUAL_CHEMICALS_ENABLED && isManualChemical(value) ? (
     <ManualChemical fieldPath={fieldPath} />
   ) : (
-    <ChemicalPicker fieldPath={fieldPath} />
+    <ChemicalPicker fieldPath={fieldPath} onPicked={onPicked} />
   );
 };
 
 BasicInformation.propTypes = {
   // `${itemPath}.basic_information`
   fieldPath: PropTypes.string.isRequired,
+  // a picked chemical's suggestion; forwarded to the picker's wrapper
+  onPicked: PropTypes.func,
 };

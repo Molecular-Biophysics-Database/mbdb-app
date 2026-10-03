@@ -252,6 +252,39 @@ describe("MbdbVocabularyField", () => {
     });
   });
 
+  it("calls onPicked with the picked suggestion (for a caller reaction like prefill)", async () => {
+    const onPicked = jest.fn();
+    render(
+      <MbdbVocabularyField
+        fieldPath={PATH}
+        vocabularyName="organisms"
+        onPicked={onPicked}
+      />
+    );
+    await click("pick");
+    expect(onPicked).toHaveBeenCalledTimes(1);
+    expect(onPicked.mock.calls[0][0]).toMatchObject({
+      id: "taxid:1423",
+      title_l10n: "Bacillus subtilis",
+    });
+  });
+
+  it("does not call onPicked for a manual addition (that is onAddition)", async () => {
+    const onPicked = jest.fn();
+    const onAddition = jest.fn();
+    render(
+      <MbdbVocabularyField
+        fieldPath={PATH}
+        vocabularyName="organisms"
+        onPicked={onPicked}
+        onAddition={onAddition}
+      />
+    );
+    await click("addition");
+    expect(onAddition).toHaveBeenCalledWith("typed text");
+    expect(onPicked).not.toHaveBeenCalled();
+  });
+
   it('clearing removes the value (undefined, never "")', async () => {
     render(
       <>
