@@ -205,7 +205,12 @@ export const REGISTRY = [
     design: "design/shared/LipidAssemblyDetails.md",
   },
 
-  { step: 4, key: "Chemical", design: "design/entities/Chemical.md" },
+  {
+    step: 4,
+    key: "Chemical",
+    design: "design/entities/Chemical.md",
+    load: () => import("./stories/Chemical.story"),
+  },
   { step: 4, key: "Polymer", design: "design/entities/Polymer.md" },
   {
     step: 4,

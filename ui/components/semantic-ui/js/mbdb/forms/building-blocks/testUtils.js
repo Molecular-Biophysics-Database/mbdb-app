@@ -173,16 +173,13 @@ export const modelYamlPath = () => {
   throw new Error(`model YAML not found above ${__dirname}`);
 };
 
-// Enum of a top-level type (`yamlEnum("LENGTH_UNITS")`) or of a property of a
-// top-level type (`yamlEnum("Size", "type")`). Text parsing of the model's
-// fixed layout: `<Type>:` at column 0, properties at 4 spaces, `enum:` then
-// `- value` lines. Strips surrounding quotes; throws when nothing is found.
-export const yamlEnum = (typeName, property) => {
+// The lines of a top-level `Type:` block in the model YAML (until the next
+// line that starts at column 0).
+const typeBlock = (typeName) => {
   const lines = fs.readFileSync(modelYamlPath(), "utf8").split("\n");
   const start = lines.findIndex((l) => l === `${typeName}:`);
   if (start === -1)
     throw new Error(`type not found in model YAML: ${typeName}`);
-  // The block ends at the next line that starts without a leading space.
   let end = lines.length;
   for (let i = start + 1; i < lines.length; i += 1) {
     if (lines[i] !== "" && !/^\s/.test(lines[i])) {
@@ -190,7 +187,15 @@ export const yamlEnum = (typeName, property) => {
       break;
     }
   }
-  let block = lines.slice(start + 1, end);
+  return lines.slice(start + 1, end);
+};
+
+// Enum of a top-level type (`yamlEnum("LENGTH_UNITS")`) or of a property of a
+// top-level type (`yamlEnum("Size", "type")`). Text parsing of the model's
+// fixed layout: `<Type>:` at column 0, properties at 4 spaces, `enum:` then
+// `- value` lines. Strips surrounding quotes; throws when nothing is found.
+export const yamlEnum = (typeName, property) => {
+  let block = typeBlock(typeName);
   if (property !== undefined) {
     const propIdx = block.findIndex((l) => l === `    ${property}:`);
     if (propIdx === -1)
@@ -223,6 +228,11 @@ export const yamlEnum = (typeName, property) => {
     );
   return values;
 };
+
+// True when `typeName` declares a top-level property `name` (a `    name:`
+// line). The property sibling of yamlEnum, for group paths that carry no enum.
+export const yamlProperty = (typeName, name) =>
+  typeBlock(typeName).some((l) => l === `    ${name}:`);
 
 // --- value probe (plan 2R D5) ------------------------------------------------
 
