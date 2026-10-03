@@ -1,12 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useFormikContext, getIn } from "formik";
-import { Button, Form, FieldHelp, HelpLabel } from "mbdb-semantic-ui-react";
-import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
-import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
-import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
+import { Button } from "mbdb-semantic-ui-react";
+import { useFieldBinding } from "@js/mbdb/forms/building-blocks/fieldData";
+import { FieldShell } from "@js/mbdb/forms/building-blocks/FieldShell";
 import { toOption } from "@js/mbdb/forms/building-blocks/options";
-import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
+import { onRovingKeyDown } from "@js/mbdb/forms/building-blocks/rovingFocus";
 import { SelectField } from "@js/mbdb/forms/building-blocks/SelectField";
 
 // A single choice among 2–5 short options shown as a Button.Group, so all
@@ -20,21 +18,12 @@ export const ButtonGroupField = ({
   help,
   required,
 }) => {
-  const { values, setFieldValue } = useFormikContext();
-  // The hook keeps helpText because that is the model's key (getFieldData);
-  // the block's public prop is `help`.
-  const data = useModelFieldData(fieldPath, {
-    label,
-    helpText: help,
-    required,
-  });
+  const f = useFieldBinding(fieldPath, { label, help, required });
   const opts = options.map((o) => {
     const { value, text } = toOption(o);
     return { value, text: String(text) }; // boolean values need string labels
   });
-  const current = getIn(values, fieldPath);
-
-  const { messages, hasError } = useFieldErrors(fieldPath);
+  const current = f.value;
 
   if (opts.length > 5) {
     return (
@@ -45,41 +34,29 @@ export const ButtonGroupField = ({
           value,
           text,
         }))}
-        label={data.label}
-        help={data.helpText}
-        required={data.required}
+        label={f.label}
+        help={f.help}
+        required={f.required}
       />
     );
   }
 
-  // arrow-key roving focus — same as DiscriminatorField (share if a third
-  // user appears)
-  const onKeyDown = (e) => {
-    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-    const buttons = [...e.currentTarget.querySelectorAll("button")];
-    const index = buttons.indexOf(document.activeElement);
-    if (index === -1) return;
-    e.preventDefault();
-    const next =
-      e.key === "ArrowRight"
-        ? (index + 1) % buttons.length
-        : (index - 1 + buttons.length) % buttons.length;
-    buttons[next].focus();
-  };
-
   return (
-    <Form.Field required={data.required} error={hasError}>
-      <label htmlFor={fieldPath}>
-        <HelpLabel label={data.label} help={data.helpText} />
-      </label>
+    <FieldShell
+      inputId={fieldPath}
+      label={f.label}
+      help={f.help}
+      required={f.required}
+      messages={f.messages}
+    >
       <Button.Group
         id={fieldPath}
         // role="group", not "radiogroup": the buttons toggle (aria-pressed),
         // they are not radios. Design doc asks for the mix; flagged for
         // a design update (ButtonGroupField-review F6).
         role="group"
-        aria-label={typeof data.label === "string" ? data.label : fieldPath}
-        onKeyDown={onKeyDown}
+        aria-label={typeof f.label === "string" ? f.label : fieldPath}
+        onKeyDown={onRovingKeyDown}
       >
         {opts.map(({ value, text }) => {
           const isActive = current === value;
@@ -93,13 +70,13 @@ export const ButtonGroupField = ({
               primary={isActive}
               active={isActive}
               onClick={() => {
+                // the binding's writer: undefined unsets (a now-empty parent
+                // object is dropped, not left as {}, guide §7); required
+                // fields keep the value instead
                 if (isActive) {
-                  // unset (not setFieldValue(path, undefined)) so a now-empty
-                  // parent object is dropped, not left as {} (guide §7).
-                  if (!data.required)
-                    unsetFieldValue(values, setFieldValue, fieldPath);
+                  if (!f.required) f.setValue(undefined);
                 } else {
-                  setFieldValue(fieldPath, value);
+                  f.setValue(value);
                 }
               }}
             >
@@ -108,9 +85,7 @@ export const ButtonGroupField = ({
           );
         })}
       </Button.Group>
-      <ErrorMessages messages={messages} />
-      <FieldHelp help={data.helpText} />
-    </Form.Field>
+    </FieldShell>
   );
 };
 

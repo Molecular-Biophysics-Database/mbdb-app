@@ -1,8 +1,9 @@
 import React from "react";
 import { ButtonGroupField } from "@js/mbdb/forms/building-blocks/ButtonGroupField";
 import { Divider } from "mbdb-semantic-ui-react";
+import { ENTITY_PATH, entityValues, entityErrors } from "../fixtures";
 
-const BASE = "metadata.general_parameters.entities_of_interest.0";
+const BASE = ENTITY_PATH;
 
 const Fields = () => (
   <>
@@ -31,31 +32,19 @@ const story = {
     { name: "Empty", initialValues: {}, render: Fields },
     {
       name: "Filled",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              { expression_source_type: "Recombinantly", homogenized: false },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        expression_source_type: "Recombinantly",
+        homogenized: false,
+      }),
       render: Fields,
     },
     {
       name: "With errors",
-      initialValues: {
-        metadata: { general_parameters: { entities_of_interest: [{}] } },
-      },
-      initialErrors: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              { expression_source_type: "Missing data for required field." },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer"),
+      initialErrors: entityErrors(
+        "expression_source_type",
+        "Missing data for required field."
+      ),
       render: Fields,
     },
   ],

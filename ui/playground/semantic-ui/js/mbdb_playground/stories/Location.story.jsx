@@ -1,8 +1,8 @@
 import React from "react";
 import { Location } from "@js/mbdb/forms/shared/Location";
+import { entityPath, entityValues } from "../fixtures";
 
-const BASE = "metadata.general_parameters.entities_of_interest.0";
-const PATH = `${BASE}.location`;
+const PATH = entityPath("location");
 
 const Fields = () => <Location fieldPath={PATH} />;
 
@@ -12,32 +12,20 @@ const story = {
     { name: "Empty", initialValues: {}, render: Fields },
     {
       name: "Filled",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              {
-                location: {
-                  latitude: 49.1951,
-                  longitude: 16.6068,
-                  altitude: 237,
-                },
-              },
-            ],
-          },
+      initialValues: entityValues("Polymer", {
+        location: {
+          latitude: 49.1951,
+          longitude: 16.6068,
+          altitude: 237,
         },
-      },
+      }),
       render: Fields,
     },
     {
       name: "With errors",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [{ location: { latitude: 95 } }],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        location: { latitude: 95 },
+      }),
       initialErrors: {
         metadata: {
           general_parameters: {

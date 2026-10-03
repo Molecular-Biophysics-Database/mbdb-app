@@ -7,8 +7,11 @@ import { ModalArrayField } from "./ModalArrayField";
 import {
   renderInForm,
   unmountForm,
+  ValueProbe,
+  readProbe,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
 jest.mock(
   "@js/oarepo_ui/forms",
   () =>
@@ -47,15 +50,6 @@ NameForm.propTypes = {
   ariaLabel: PropTypes.string,
 };
 
-const Probe = ({ path }) => {
-  const { values } = useFormikContext();
-  const value = getIn(values, path);
-  return <span data-testid="probe">{JSON.stringify(value ?? null)}</span>;
-};
-Probe.propTypes = {
-  path: PropTypes.string,
-};
-
 const mount = (ui, opts = {}) => {
   container = renderInForm(ui, opts);
 };
@@ -65,8 +59,7 @@ afterEach(() => {
   container = null;
 });
 
-const probe = () =>
-  JSON.parse(container.querySelector('[data-testid="probe"]').textContent);
+const probe = () => readProbe(container);
 // portals stack in creation order: [outer, inner, ...]
 const modals = () => [...document.body.querySelectorAll(".ui.modal")];
 const modal = () => modals()[0] ?? null;
@@ -101,7 +94,7 @@ const entities = (props = {}) => (
       renderForm={(itemPath) => <NameForm itemPath={itemPath} />}
       {...props}
     />
-    <Probe path={ENTITIES} />
+    <ValueProbe path={ENTITIES} />
   </>
 );
 
@@ -400,7 +393,7 @@ describe("ModalArrayField", () => {
             </>
           )}
         />
-        <Probe path={ENTITIES} />
+        <ValueProbe path={ENTITIES} />
       </>,
       {
         initialValues: {

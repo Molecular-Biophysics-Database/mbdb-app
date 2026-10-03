@@ -2,22 +2,17 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { getIn, useFormikContext } from "formik";
 import pick from "lodash/pick";
-import {
-  Button,
-  Confirm,
-  Dropdown,
-  FieldHelp,
-  Form,
-  HelpLabel,
-} from "mbdb-semantic-ui-react";
+import { Button, Confirm, Dropdown } from "mbdb-semantic-ui-react";
 import {
   hasData,
   isEmptyValue,
   useFieldErrors,
   useOwnErrorMessages,
 } from "@js/mbdb/forms/building-blocks/errors";
-import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
+import { FieldShell } from "@js/mbdb/forms/building-blocks/FieldShell";
+import { toOption } from "@js/mbdb/forms/building-blocks/options";
+import { onRovingKeyDown } from "@js/mbdb/forms/building-blocks/rovingFocus";
 import { useUnsetField } from "@js/mbdb/forms/building-blocks/unset";
 
 // A choice that decides which fields follow; changing it replaces the object
@@ -94,36 +89,23 @@ export const DiscriminatorField = ({
     normalized.find((option) => option.value === value)?.label ?? value;
   const mode = variant ?? (normalized.length <= 4 ? "buttons" : "dropdown");
 
-  // arrow-key roving focus — same as ButtonGroupField (share if a third
-  // user appears)
-  const onKeyDown = (e) => {
-    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-    const buttons = [...e.currentTarget.querySelectorAll("button")];
-    const index = buttons.indexOf(document.activeElement);
-    if (index === -1) return;
-    e.preventDefault();
-    const next =
-      e.key === "ArrowRight"
-        ? (index + 1) % buttons.length
-        : (index - 1 + buttons.length) % buttons.length;
-    buttons[next].focus();
-  };
-
   return (
-    <Form.Field required={data.required} error={errorMessages.length > 0}>
-      {text && (
-        // htmlFor points at the field path so OARepo error scrolling finds
-        // it; the control itself is a Semantic Dropdown, not labelable.
-        <label htmlFor={`${objectPath}.${field}`}>
-          <HelpLabel label={text} help={data.helpText} />
-        </label>
-      )}
-      {data.helpText && <FieldHelp help={data.helpText} />}
+    <FieldShell
+      // inputId points at the field path so OARepo error scrolling finds
+      // it; the control itself is a Semantic Dropdown, not labelable. An
+      // empty-string label renders no label at all (the pre-shell `text &&`
+      // gate).
+      inputId={`${objectPath}.${field}`}
+      label={text || undefined}
+      help={data.helpText}
+      required={data.required}
+      messages={errorMessages}
+    >
       {mode === "buttons" ? (
         <Button.Group
           role="group"
           aria-label={typeof text === "string" ? text : field}
-          onKeyDown={onKeyDown}
+          onKeyDown={onRovingKeyDown}
         >
           {allowUnset && (
             <Button
@@ -154,11 +136,9 @@ export const DiscriminatorField = ({
           fluid
           selection
           clearable={allowUnset}
-          options={normalized.map((option) => ({
-            key: option.value,
-            value: option.value,
-            text: option.label,
-          }))}
+          options={normalized.map((o) =>
+            toOption({ value: o.value, text: o.label })
+          )}
           value={current ?? ""}
           onChange={(e, { value: next }) =>
             requestChange(next === "" ? undefined : next)
@@ -166,7 +146,6 @@ export const DiscriminatorField = ({
           aria-label={text ?? field}
         />
       )}
-      <ErrorMessages messages={errorMessages} />
       <Confirm
         open={pending !== null}
         header={
@@ -186,7 +165,7 @@ export const DiscriminatorField = ({
           setPending(null);
         }}
       />
-    </Form.Field>
+    </FieldShell>
   );
 };
 

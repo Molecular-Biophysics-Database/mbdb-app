@@ -4,8 +4,9 @@ import {
   NumberField,
   TextAreaField,
 } from "@js/mbdb/forms/building-blocks/TextField";
+import { ENTITY_PATH, entityValues } from "../fixtures";
 
-const BASE = "metadata.general_parameters.entities_of_interest.0";
+const BASE = ENTITY_PATH;
 
 // Explicit labels/helps until the ui_model has entity children (polymorphic
 // Entity): without them labels fall back to the readable leaf of the path.
@@ -41,27 +42,17 @@ const story = {
     { name: "Empty", initialValues: {}, render: Fields },
     {
       name: "Filled",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              {
-                name: "Lysozyme",
-                molecular_weight: { value: 14305.0, unit: "Da" },
-                sequence:
-                  "MKALIVLGLVLLSVTVQGKVFERCELARTLKRLGMDGYRGISLANWMCLAKWESGYNTRATNYNAGDRSTDYGIFQINSRYWCNDGKTPGAVNACHLSCSALLQDNIADAVACAKRVVRDPQGIRAWVAWRNRCQNRDVRQYVQGCGV",
-              },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        name: "Lysozyme",
+        molecular_weight: { value: 14305.0, unit: "Da" },
+        sequence:
+          "MKALIVLGLVLLSVTVQGKVFERCELARTLKRLGMDGYRGISLANWMCLAKWESGYNTRATNYNAGDRSTDYGIFQINSRYWCNDGKTPGAVNACHLSCSALLQDNIADAVACAKRVVRDPQGIRAWVAWRNRCQNRDVRQYVQGCGV",
+      }),
       render: Fields,
     },
     {
       name: "With errors",
-      initialValues: {
-        metadata: { general_parameters: { entities_of_interest: [{}] } },
-      },
+      initialValues: entityValues("Polymer"),
       initialErrors: {
         metadata: {
           general_parameters: {

@@ -1,8 +1,8 @@
 import React from "react";
 import { Protocol } from "@js/mbdb/forms/shared/Protocol";
+import { entityPath, entityValues } from "../fixtures";
 
-const BASE = "metadata.general_parameters.entities_of_interest.0";
-const PATH = `${BASE}.preparation_protocol`;
+const PATH = entityPath("preparation_protocol");
 
 // required use (complex substances): one virtual row to start with
 const Fields = () => <Protocol fieldPath={PATH} minItems={1} />;
@@ -27,26 +27,16 @@ const story = {
     { name: "Empty", initialValues: {}, render: Fields },
     {
       name: "Filled",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [{ preparation_protocol: SAMPLE_PROTOCOL }],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        preparation_protocol: SAMPLE_PROTOCOL,
+      }),
       render: Fields,
     },
     {
       name: "With errors",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              { preparation_protocol: [{ name: "Centrifugation" }] },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        preparation_protocol: [{ name: "Centrifugation" }],
+      }),
       initialErrors: {
         metadata: {
           general_parameters: {

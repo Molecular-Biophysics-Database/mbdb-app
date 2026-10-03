@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { ModalObjectField } from "@js/mbdb/forms/building-blocks/ModalObjectField";
 import { ValueUnitField } from "@js/mbdb/forms/building-blocks/ValueUnitField";
 import { TableArrayField } from "@js/mbdb/forms/building-blocks/TableArrayField";
+import { entityPath, entityValues } from "../fixtures";
 
 const TEMPERATURE_UNITS = ["K", "°C", "°F"];
 const TIME_UNITS = [
@@ -17,7 +18,7 @@ const TIME_UNITS = [
   "years",
 ];
 
-const PATH = "metadata.general_parameters.entities_of_interest.0.storage";
+const PATH = entityPath("storage");
 
 const storageSummary = (v) =>
   v
@@ -83,39 +84,25 @@ const story = {
     { name: "Absent", initialValues: {}, render: Storage },
     {
       name: "Present",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              {
-                storage: {
-                  temperature: { value: 4, unit: "°C" },
-                  duration: { value: 3, unit: "days" },
-                  storage_preparation: [
-                    {
-                      name: "Flash freezing",
-                      description: "In liquid nitrogen",
-                    },
-                  ],
-                },
-              },
-            ],
-          },
+      initialValues: entityValues("Polymer", {
+        storage: {
+          temperature: { value: 4, unit: "°C" },
+          duration: { value: 3, unit: "days" },
+          storage_preparation: [
+            {
+              name: "Flash freezing",
+              description: "In liquid nitrogen",
+            },
+          ],
         },
-      },
+      }),
       render: Storage,
     },
     {
       name: "With errors",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              { storage: { temperature: { unit: "°C" } } },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        storage: { temperature: { unit: "°C" } },
+      }),
       initialErrors: {
         metadata: {
           general_parameters: {

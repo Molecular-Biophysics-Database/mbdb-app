@@ -1,66 +1,33 @@
 import React from "react";
-import PropTypes from "prop-types";
-import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, useFormikContext, getIn } from "formik";
 import { TextField, NumberField, TextAreaField, autoRows } from "./TextField";
+import {
+  renderInForm,
+  unmountForm,
+  ValueProbe,
+  readProbe,
+} from "@js/mbdb/forms/building-blocks/testUtils";
 
-// The real "@js/oarepo_ui/forms" index cannot load under Jest
-// (sanitize-html -> postcss is ESM); the model data hook is mocked so
-// labels in these tests come from explicit props.
-jest.mock("@js/oarepo_ui/forms", () => ({
-  useFieldData: () => ({
-    getFieldData: () => ({
-      label: undefined,
-      helpText: undefined,
-      required: undefined,
-    }),
-  }),
-}));
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
+jest.mock(
+  "@js/oarepo_ui/forms",
+  () =>
+    jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
+);
 
-const Probe = ({ path }) => {
-  const { values } = useFormikContext();
-  const v = getIn(values, path);
-  return (
-    <div>
-      <span data-testid="value">{v === undefined ? "-" : String(v)}</span>
-      <span data-testid="type">{typeof v}</span>
-    </div>
-  );
-};
-
-Probe.propTypes = {
-  path: PropTypes.string,
-};
-
+// The shared fake returns leaf labels for un-registered paths, but labels in
+// these tests come from explicit props.
 let container;
 
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  ReactDOM.unmountComponentAtNode(container);
-  container.remove();
-});
-
-const render = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
-  act(() => {
-    ReactDOM.render(
-      <Formik
-        initialValues={initialValues}
-        initialErrors={initialErrors}
-        onSubmit={() => {}}
-      >
-        {ui}
-      </Formik>,
-      container
-    );
-  });
+const render = (ui, opts = {}) => {
+  container = renderInForm(ui, opts);
 };
 
-const byTestId = (id) => container.querySelector(`[data-testid="${id}"]`);
+afterEach(() => {
+  unmountForm(container);
+  container = null;
+});
+
 const change = (input, value) => {
   input.value = value;
   act(() => {
@@ -94,12 +61,12 @@ describe("TextField", () => {
     render(
       <>
         <TextField fieldPath="name" />
-        <Probe path="name" />
+        <ValueProbe path="name" />
       </>,
       { initialValues: { name: "Lysozyme" } }
     );
     change(container.querySelector("input"), "");
-    expect(byTestId("value").textContent).toBe("-");
+    expect(readProbe(container)).toBeNull();
   });
 });
 
@@ -108,29 +75,29 @@ describe("NumberField", () => {
     render(
       <>
         <NumberField fieldPath="num" />
-        <Probe path="num" />
+        <ValueProbe path="num" />
       </>
     );
     const input = container.querySelector("input");
     change(input, "12.5");
-    expect(byTestId("value").textContent).toBe("12.5");
-    expect(byTestId("type").textContent).toBe("number");
+    expect(readProbe(container)).toBe(12.5);
+    expect(typeof readProbe(container)).toBe("number");
 
     change(input, "");
-    expect(byTestId("value").textContent).toBe("-");
+    expect(readProbe(container)).toBeNull();
   });
 
   it("stores integers without truncation and drops unparseable input", () => {
     render(
       <>
         <NumberField fieldPath="num" integer />
-        <Probe path="num" />
+        <ValueProbe path="num" />
       </>
     );
     const input = container.querySelector("input");
     change(input, "7");
-    expect(byTestId("value").textContent).toBe("7");
-    expect(byTestId("type").textContent).toBe("number");
+    expect(readProbe(container)).toBe(7);
+    expect(typeof readProbe(container)).toBe("number");
 
     // Simulate an event with input that is not a number (a number input
     // would sanitize it in the DOM); the key is removed instead of
@@ -138,7 +105,7 @@ describe("NumberField", () => {
     act(() => {
       Simulate.change(input, { target: { value: "abc" } });
     });
-    expect(byTestId("value").textContent).toBe("-");
+    expect(readProbe(container)).toBeNull();
   });
 
   it("defaults step to 1 for integers", () => {
@@ -187,10 +154,15 @@ describe("TextAreaField", () => {
     // the class lands on the Form.Field so `.mbdb-monospace textarea` matches
     expect(container.querySelector(".mbdb-monospace textarea")).not.toBeNull();
     const links = [...container.querySelectorAll("a.button")];
-    expect(links.map((a) => a.textContent)).toEqual(["UniProt", "BLAST"]);
+    expect(links.map((a) => a.textContent.trim())).toEqual([
+      "UniProt",
+      "BLAST",
+    ]);
     expect(links[0].getAttribute("href")).toBe("https://www.uniprot.org");
     expect(links[0].getAttribute("target")).toBe("_blank");
-    expect(links[0].getAttribute("type")).toBe("button");
+    expect(links[0].getAttribute("rel")).toBe("noreferrer");
+    // anchors have no type="button" (ExternalLink)
+    expect(links[0].getAttribute("type")).toBeNull();
   });
 
   it("autoHeight sizes rows to the content and stays off the DOM", () => {
@@ -206,12 +178,12 @@ describe("TextAreaField", () => {
     render(
       <>
         <TextAreaField fieldPath="seq" />
-        <Probe path="seq" />
+        <ValueProbe path="seq" />
       </>,
       { initialValues: { seq: "MKAL" } }
     );
     change(container.querySelector("textarea"), "");
-    expect(byTestId("value").textContent).toBe("-");
+    expect(readProbe(container)).toBeNull();
   });
 
   it("shows the error from initialErrors", () => {

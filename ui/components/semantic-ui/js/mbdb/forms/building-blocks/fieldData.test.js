@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
-import { act } from "react-dom/test-utils";
-import { Formik } from "formik";
-import { useModelFieldData } from "./fieldData";
+import { act, Simulate } from "react-dom/test-utils";
+import { Field, Formik, useFormikContext } from "formik";
+import { useFieldBinding, useModelFieldData } from "./fieldData";
+import { editUnrelatedField } from "./testUtils";
 
 // The real "@js/oarepo_ui/forms" index cannot load under Jest
 // (sanitize-html -> postcss is ESM), and in the real app it reads the
@@ -15,6 +16,7 @@ import { useModelFieldData } from "./fieldData";
 // real no-entry fallback (and throws on an undefined path), behaviour the
 // shared testUtils fake intentionally does not model — it is the subject
 // under test, not just a dependency.
+// eslint-disable-next-line no-restricted-syntax -- kept local: the fake IS the subject under test (oarepo's no-entry fallback), not a shared dependency
 jest.mock("@js/oarepo_ui/forms", () => ({
   useFieldData: () => ({
     getFieldData: ({ fieldPath }) => {
@@ -108,6 +110,7 @@ export const TEST_UI_MODEL = {
 
 let mockUiModel;
 
+// eslint-disable-next-line no-restricted-syntax -- not a value probe: renders the useModelFieldData hook's output, not formik values
 const Probe = ({ path, overrides }) => {
   const data = useModelFieldData(path, overrides);
   return (
@@ -320,6 +323,173 @@ describe("useModelFieldData with the polymorphic ui_model (D7)", () => {
     });
     expect(byTestId("helpText").textContent).toBe(
       "The molecular weight of the polymer"
+    );
+  });
+});
+
+// useFieldBinding: one hook for value, writes, errors and model data. The
+// probe exposes the resolved data and a button that drives setValue; the
+// whole form values render as JSON so pruning is asserted, not sketches.
+const BindingProbe = ({ path, overrides, writeValue }) => {
+  const f = useFieldBinding(path, overrides);
+  return (
+    <div>
+      <span data-testid="bind-label">{String(f.label)}</span>
+      <span data-testid="bind-help">{String(f.help)}</span>
+      <span data-testid="bind-required">{String(f.required)}</span>
+      <span data-testid="bind-hasError">{String(f.hasError)}</span>
+      <span data-testid="bind-messages">{f.messages.join(" | ")}</span>
+      <button
+        type="button"
+        data-testid="bind-write"
+        onClick={() => f.setValue(writeValue)}
+      />
+    </div>
+  );
+};
+BindingProbe.propTypes = {
+  path: PropTypes.string.isRequired,
+  overrides: PropTypes.object,
+  writeValue: PropTypes.any,
+};
+
+// The whole form values as JSON (pruning assertions).
+const ValuesProbe = () => {
+  const { values } = useFormikContext();
+  return <pre data-testid="bind-values">{JSON.stringify(values)}</pre>;
+};
+
+const mountBinding = (
+  { path, overrides, writeValue, unrelated = false },
+  { initialValues = {}, initialErrors = {} } = {}
+) => {
+  act(() => {
+    ReactDOM.render(
+      <Formik
+        initialValues={initialValues}
+        initialErrors={initialErrors}
+        enableReinitialize
+        onSubmit={() => {}}
+      >
+        <>
+          <BindingProbe
+            path={path}
+            overrides={overrides}
+            writeValue={writeValue}
+          />
+          <ValuesProbe />
+          {unrelated && (
+            <Field name="unrelatedTestField" data-testid="unrelated-field" />
+          )}
+        </>
+      </Formik>,
+      container
+    );
+  });
+};
+
+const clickWrite = () => {
+  act(() => {
+    Simulate.click(byTestId("bind-write"));
+  });
+};
+
+const readValues = () => JSON.parse(byTestId("bind-values").textContent);
+
+describe("useFieldBinding", () => {
+  it('setValue("") removes the key and prunes the now-empty object (C15)', () => {
+    mountBinding(
+      { path: "entity.location.altitude", writeValue: "" },
+      { initialValues: { entity: { location: { altitude: 250 } } } }
+    );
+    expect(readValues()).toEqual({ entity: { location: { altitude: 250 } } });
+    clickWrite();
+    // both `location` and the now-empty `entity` are pruned, not left as {}
+    expect(readValues()).toEqual({});
+  });
+
+  it("setValue(null) and setValue(undefined) remove the key too", () => {
+    for (const empty of [null, undefined]) {
+      mountBinding(
+        { path: "entity.location.altitude", writeValue: empty },
+        { initialValues: { entity: { name: "x", location: { altitude: 1 } } } }
+      );
+      clickWrite();
+      expect(readValues()).toEqual({ entity: { name: "x" } });
+      ReactDOM.unmountComponentAtNode(container);
+    }
+  });
+
+  it("setValue(0) and setValue(false) are written (not treated as empty)", () => {
+    for (const kept of [0, false]) {
+      mountBinding({ path: "flag", writeValue: kept });
+      clickWrite();
+      expect(readValues()).toEqual({ flag: kept });
+      ReactDOM.unmountComponentAtNode(container);
+    }
+  });
+
+  it("the help override wins over the model helpText", () => {
+    mountBinding({ path: "a.path", overrides: { help: "Prop help" } });
+    expect(byTestId("bind-help").textContent).toBe("Prop help");
+    expect(byTestId("bind-label").textContent).toBe("Model label");
+  });
+
+  it("model data flows through when no overrides are given", () => {
+    mountBinding({ path: "a.path" });
+    expect(byTestId("bind-label").textContent).toBe("Model label");
+    expect(byTestId("bind-help").textContent).toBe("Model help");
+    expect(byTestId("bind-required").textContent).toBe("true");
+  });
+
+  it("messages survive an unrelated edit (merged initialErrors fallback)", async () => {
+    mountBinding(
+      { path: "seq", unrelated: true },
+      {
+        initialValues: { seq: "MKAL", unrelatedTestField: "" },
+        initialErrors: { seq: "Not a valid sequence." },
+      }
+    );
+    expect(byTestId("bind-hasError").textContent).toBe("true");
+    expect(byTestId("bind-messages").textContent).toBe("Not a valid sequence.");
+    await editUnrelatedField(container);
+    // the live errors reset to {} but the value at seq is unchanged, so the
+    // initialErrors fallback keeps the message
+    expect(byTestId("bind-hasError").textContent).toBe("true");
+    expect(byTestId("bind-messages").textContent).toBe("Not a valid sequence.");
+  });
+
+  it("messages clear once the field's own value changed", async () => {
+    mountBinding(
+      { path: "seq", unrelated: true, writeValue: "MKALS" },
+      {
+        initialValues: { seq: "MKAL", unrelatedTestField: "" },
+        initialErrors: { seq: "Not a valid sequence." },
+      }
+    );
+    clickWrite();
+    // an edit elsewhere makes formik reset `errors`; the value differs from
+    // initialValues now, so the initialErrors fallback no longer applies
+    await editUnrelatedField(container);
+    expect(byTestId("bind-hasError").textContent).toBe("false");
+    expect(byTestId("bind-messages").textContent).toBe("");
+  });
+
+  it("value reads the formik value at the path", () => {
+    const ValueRead = () => {
+      const f = useFieldBinding("a.b");
+      return <span data-testid="read">{f.value ?? "-"}</span>;
+    };
+    act(() => {
+      ReactDOM.render(
+        <Formik initialValues={{ a: { b: "deep" } }} onSubmit={() => {}}>
+          <ValueRead />
+        </Formik>,
+        container
+      );
+    });
+    expect(container.querySelector('[data-testid="read"]').textContent).toBe(
+      "deep"
     );
   });
 });

@@ -89,6 +89,7 @@ describe("errors helpers", () => {
 
 // ---- useFieldErrors (errors, else initialErrors while unchanged) -------
 
+// eslint-disable-next-line no-restricted-syntax -- reads useFieldErrors (count/messages/hasError), not a formik value, so it is not a ValueProbe
 const Probe = ({ path }) => {
   const { count, messages, hasError } = useFieldErrors(path);
   return (

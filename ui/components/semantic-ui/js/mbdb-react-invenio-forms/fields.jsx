@@ -1,40 +1,41 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useFormikContext, getIn } from "formik";
 import { ArrayField as RifArrayField } from "react-invenio-forms";
 import { StringArrayField as OARepoStringArrayField } from "@js/oarepo_ui/forms";
 import {
   Dropdown,
-  Form,
   Input,
   TextArea,
-  FieldHelp,
   HelpLabel,
   useHelpMode,
 } from "mbdb-semantic-ui-react";
-import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import {
-  useFieldErrors,
-  useOwnErrorMessages,
-} from "@js/mbdb/forms/building-blocks/errors";
-import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
-import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
+  useFieldBinding,
+  useModelFieldData,
+} from "@js/mbdb/forms/building-blocks/fieldData";
+import { useOwnErrorMessages } from "@js/mbdb/forms/building-blocks/errors";
+import { FieldShell } from "@js/mbdb/forms/building-blocks/FieldShell";
 
 // mbdb wrappers around react-invenio-forms fields: they fill label /
-// helpText / required from the model (explicit props win) and render
-// helpText through the two help slots (HelpLabel in the label, FieldHelp
-// under the field), so this is the only place where the look of help
-// texts can change. FieldHelp decides per global help mode: in "invenio"
-// mode it renders the helptext label below the field, in "popup" mode it
-// renders nothing (the "?" icon sits in the label instead). The RIF
-// components' own helpText rendering is suppressed. The wrappers also
-// force a controlled input value and map the empty string to `undefined`,
-// so cleared fields are removed from the form data instead of persisting "".
+// helpText / required from the model via useFieldBinding (explicit props
+// win) and render the one FieldShell frame, whose two help slots are the
+// only place where the look of help texts can change. FieldHelp decides
+// per global help mode: in "invenio" mode it renders the helptext label
+// below the field, in "popup" mode it renders nothing (the "?" icon sits
+// in the label instead). The wrapped components' own helpText rendering is
+// suppressed. The wrappers also force a controlled input value and map the
+// empty string to unset, so cleared fields are removed from the form data
+// instead of persisting "" ("" / null / undefined → absent key, guide §7).
 //
 // Prop order (guide §8: wrappers spread the caller's props first and set
 // their own last): `{...uiProps}` comes FIRST and the wrapper's `label`,
 // `required`, `helpText`, `onChange`, `value` come AFTER it, so a caller's
 // stray `helpText` (the old prop name) cannot undo the suppression.
+//
+// Every wrapper renders ONE root element — the shell's `Form.Field` — with
+// label, control, ErrorMessages and FieldHelp inside it (AliasPackages
+// P4-F1 / 2R D8). A fragment would let Form.Group columns put the help
+// text into its own column.
 
 const fieldShape = {
   fieldPath: PropTypes.string.isRequired,
@@ -63,31 +64,11 @@ const optionsWithCurrentValue = (options, value) => {
   return options;
 };
 
-// 1R-pass-3 / D8 (AliasPackages P4-F1): every wrapper renders ONE root
-// element — the field's `Form.Field` — with label, control, ErrorMessages and
-// FieldHelp inside it. A fragment (control + FieldHelp) would let Form.Group
-// columns put the help text into its own column.
-
-// The label slot, shared by all four wrappers: a real <label> holding the
-// HelpLabel (model label + optional ? icon inside).
-const FieldLabel = ({ fieldPath, label, help }) =>
-  label ? (
-    <label htmlFor={fieldPath}>
-      <HelpLabel label={label} help={help} />
-    </label>
-  ) : null;
-FieldLabel.propTypes = {
-  fieldPath: PropTypes.string.isRequired,
-  label: PropTypes.node,
-  help: PropTypes.node,
-};
-
-// Text wrapper, rebuilt on plain Form.Field + Input (no RIF). RIF's TextField
-// merges help and field on the same returns-a-fragment level as a sibling
-// before D8. Errors come from useFieldErrors (the errors.js semantics), so
-// they clear once the value is edited — RIF's own error label is not used.
-// onChange: "" unsets (C15 pruning); a caller's own onChange (NumberField)
-// replaces the default write entirely.
+// Text wrapper, rebuilt on FieldShell + plain Semantic Input. Errors come
+// from the binding (useFieldErrors semantics), so they clear once the
+// value is edited — RIF's own error label is not used. onChange: "" unsets
+// (C15 pruning); a caller's own onChange (NumberField) replaces the
+// default write entirely.
 export const TextField = ({
   fieldPath,
   label,
@@ -98,50 +79,32 @@ export const TextField = ({
   width,
   ...uiProps
 }) => {
-  const { values, setFieldValue } = useFormikContext();
-  const data = useModelFieldData(fieldPath, {
-    label,
-    helpText: help,
-    required,
-  });
-  const { hasError: hookHasError, messages } = useFieldErrors(fieldPath);
+  const f = useFieldBinding(fieldPath, { label, help, required });
   // `error` overrides the hook state: a boolean marks the field red; a string
   // is shown as the message (used by callers whose server errors sit on a
   // neighbouring parent, e.g. i18n dicts on `title` vs `title.en`).
-  const hasError = error !== undefined ? !!error : hookHasError;
-  const errorText = typeof error === "string" ? error : undefined;
+  const hasError = error !== undefined ? !!error : f.hasError;
+  const messages =
+    typeof error === "string" ? [error, ...f.messages] : f.messages;
   return (
-    <Form.Field
-      error={hasError || undefined}
-      required={data.required}
+    <FieldShell
+      inputId={fieldPath}
+      label={f.label}
+      help={f.help}
+      required={f.required}
+      messages={messages}
       width={width}
     >
-      <FieldLabel
-        fieldPath={fieldPath}
-        label={data.label}
-        help={data.helpText}
-      />
       <Input
         {...uiProps}
         id={fieldPath}
         name={fieldPath}
         fluid={uiProps.fluid ?? true}
         error={hasError || undefined}
-        value={getIn(values, fieldPath) ?? ""}
-        onChange={
-          onChange ??
-          ((e, onChangeData) => {
-            const v = eventValue(e, onChangeData);
-            if (v === "") unsetFieldValue(values, setFieldValue, fieldPath);
-            else setFieldValue(fieldPath, v);
-          })
-        }
+        value={f.value ?? ""}
+        onChange={onChange ?? ((e, d) => f.setValue(eventValue(e, d)))}
       />
-      <ErrorMessages
-        messages={errorText ? [errorText, ...messages] : messages}
-      />
-      <FieldHelp help={data.helpText} />
-    </Form.Field>
+    </FieldShell>
   );
 };
 TextField.propTypes = {
@@ -150,10 +113,9 @@ TextField.propTypes = {
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };
 
-// Select wrapper, rebuilt on plain Form.Field + Dropdown. Errors come from
-// useFieldErrors, the clear icon writes `unset` through the pruning helper,
-// and a stored value outside `options` stays visible (RIF's
-// ensureSelectedValuesInOptions is recreated here so old data never
+// Select wrapper, rebuilt on FieldShell + plain Semantic Dropdown. The
+// clear icon unsets, and a stored value outside `options` stays visible
+// (RIF's ensureSelectedValuesInOptions is recreated here so old data never
 // disappears into the placeholder). Optional selects are clearable by
 // default; a required one is not.
 export const SelectField = ({
@@ -166,26 +128,17 @@ export const SelectField = ({
   clearable,
   ...uiProps
 }) => {
-  const data = useModelFieldData(fieldPath, {
-    label,
-    helpText: help,
-    required,
-  });
-  const { values, setFieldValue } = useFormikContext();
-  const { hasError, messages } = useFieldErrors(fieldPath);
-  const value = getIn(values, fieldPath);
-  const options = optionsWithCurrentValue(uiProps.options ?? [], value);
+  const f = useFieldBinding(fieldPath, { label, help, required });
+  const options = optionsWithCurrentValue(uiProps.options ?? [], f.value);
   return (
-    <Form.Field
-      error={hasError || undefined}
-      required={data.required}
+    <FieldShell
+      inputId={fieldPath}
+      label={f.label}
+      help={f.help}
+      required={f.required}
+      messages={f.messages}
       width={width}
     >
-      <FieldLabel
-        fieldPath={fieldPath}
-        label={data.label}
-        help={data.helpText}
-      />
       <Dropdown
         {...uiProps}
         id={fieldPath}
@@ -193,22 +146,13 @@ export const SelectField = ({
         search
         selection
         selectOnBlur={false}
-        clearable={clearable !== undefined ? clearable : !data.required}
-        error={hasError || undefined}
+        clearable={clearable !== undefined ? clearable : !f.required}
+        error={f.hasError || undefined}
         options={options}
-        value={value ?? ""}
-        onChange={
-          onChange ??
-          ((e, { value: next }) => {
-            if (next === "" || next === undefined)
-              unsetFieldValue(values, setFieldValue, fieldPath);
-            else setFieldValue(fieldPath, next);
-          })
-        }
+        value={f.value ?? ""}
+        onChange={onChange ?? ((e, { value: next }) => f.setValue(next))}
       />
-      <ErrorMessages messages={messages} />
-      <FieldHelp help={data.helpText} />
-    </Form.Field>
+    </FieldShell>
   );
 };
 SelectField.propTypes = {
@@ -224,6 +168,9 @@ export const ArrayField = ({
   required,
   ...uiProps
 }) => {
+  // Not the shell: RIF's ArrayField renders the whole block (label, rows,
+  // Add button) and takes helpText as a prop — this wrapper only feeds the
+  // resolved model data in, so it keeps calling useModelFieldData directly.
   const data = useModelFieldData(fieldPath, {
     label,
     helpText: help,
@@ -248,14 +195,13 @@ export const ArrayField = ({
 };
 ArrayField.propTypes = fieldShape;
 
-// Textarea wrapper, rebuilt on plain Form.Field + TextArea (no RIF). RIF's
-// TextAreaField always renders its ErrorLabel, which shows
-// `get(errors) || get(initialErrors)` forever with no "value changed" check,
-// and never marks the field red. This rebuilds reads errors through the
-// errors.js helper (useFieldErrors): the message clears once the value at
-// fieldPath is edited, and Form.Field gets `error`. onBlur chains Formik's
-// handleBlur (marks touched) and then the caller's onBlur. The wrapper keeps
-// the controlled value and maps "" to unset.
+// Textarea wrapper, rebuilt on FieldShell + plain Semantic TextArea (no
+// RIF). RIF's TextAreaField always renders its ErrorLabel, which shows
+// `get(errors) || get(initialErrors)` forever with no "value changed"
+// check, and never marks the field red. The binding's errors (errors.js
+// helper) clear once the value at fieldPath is edited. onBlur chains
+// Formik's handleBlur (marks touched) and then the caller's onBlur. The
+// wrapper keeps the controlled value and maps "" to unset.
 export const TextAreaField = ({
   fieldPath,
   label,
@@ -270,61 +216,47 @@ export const TextAreaField = ({
   children,
   ...uiProps
 }) => {
-  const { values, setFieldValue, handleBlur } = useFormikContext();
-  // The hook keeps helpText because that is the model's key (getFieldData);
-  // the wrapper's public prop is `help`.
-  const data = useModelFieldData(fieldPath, {
-    label,
-    helpText: help,
-    required,
-  });
-  const { hasError, messages } = useFieldErrors(fieldPath);
-  // className goes on the Form.Field: Semantic's TextArea would land it on
-  // the <textarea> itself, breaking descendant class styling (e.g.
+  const f = useFieldBinding(fieldPath, { label, help, required });
+  // className goes on the shell's Form.Field: Semantic's TextArea would land
+  // it on the <textarea> itself, breaking descendant class styling (e.g.
   // `.mbdb-monospace textarea`) and the "one root element" structure (D8).
   const { className, ...restUiProps } = uiProps;
   return (
-    <Form.Field
-      error={hasError || undefined}
-      required={data.required}
+    <FieldShell
+      inputId={fieldPath}
+      label={f.label}
+      help={f.help}
+      required={f.required}
+      messages={f.messages}
       className={className}
     >
-      {data.label && (
-        <label htmlFor={fieldPath}>
-          <HelpLabel label={data.label} help={data.helpText} />
-        </label>
-      )}
       <TextArea
         {...restUiProps}
         id={fieldPath}
         name={fieldPath}
-        value={getIn(values, fieldPath) ?? ""}
+        value={f.value ?? ""}
         onChange={(e, d) => {
           // a caller's own onChange takes over the write entirely
           if (onChange) {
             onChange(e, d);
             return;
           }
-          const v = d?.value ?? e.target.value;
-          if (v === "") unsetFieldValue(values, setFieldValue, fieldPath);
-          else setFieldValue(fieldPath, v);
+          f.setValue(d?.value ?? e.target.value);
         }}
         onBlur={(e, d) => {
-          handleBlur(e);
+          f.onBlur(e);
           onBlur?.(e, d);
         }}
       />
-      <ErrorMessages messages={messages} />
       {children}
-      <FieldHelp help={data.helpText} />
-    </Form.Field>
+    </FieldShell>
   );
 };
 TextAreaField.propTypes = {
   ...fieldShape,
   onBlur: PropTypes.func,
-  // rendered inside the same Form.Field, between the error messages and the
-  // help (e.g. the block's link buttons); never a sibling column
+  // rendered inside the shell, between the control and the error messages
+  // (e.g. the block's link buttons); never a sibling column
   children: PropTypes.node,
 };
 
@@ -333,9 +265,10 @@ TextAreaField.propTypes = {
 // through its own useFieldData and renders its own help as a helptext
 // label between the rows and the Add button; helpText={null} suppresses
 // it there (oarepo's mergeFieldData keeps null overrides). The mbdb
-// wrapper resolves label/help/required from the model the same way as the
-// other wrappers, puts HelpLabel into the label prop (FieldLabel renders
-// nodes), and appends FieldHelp after the field.
+// wrapper puts the resolved label/help into the shell's label slot
+// (oarepo labels from its own field data, which must not see the caller's
+// label/help), and renders the list-level message plus the help through
+// the shell like every other field.
 export const StringArrayField = ({
   fieldPath,
   label,
@@ -343,36 +276,31 @@ export const StringArrayField = ({
   required,
   ...uiProps
 }) => {
-  const data = useModelFieldData(fieldPath, {
-    label,
-    helpText: help,
-    required,
-  });
+  const f = useFieldBinding(fieldPath, { label, help, required });
   // oarepo's component shows item-level errors but never falls back to
   // initialErrors for a string error at the list path itself (its own error
   // read is Formik errors-only), so the list-level message is rendered here
-  // from the shared merge, next to the items — same place as the siblings.
-  const { hasError } = useFieldErrors(fieldPath);
+  // from the shared merge, after the items — same place as the siblings.
   const ownMessages = useOwnErrorMessages(fieldPath);
   return (
     // One root for the whole block (D8): oarepo's component renders its own
-    // inner field structure; FieldHelp still reads the mode and sits inside
-    // the same column, never a sibling of the control.
-    <Form.Field
-      required={data.required}
-      error={hasError || undefined}
+    // inner field structure; the shell's FieldHelp still reads the mode and
+    // sits inside the same column, never a sibling of the control.
+    <FieldShell
+      label={f.label}
+      help={f.help}
+      required={f.required}
+      messages={ownMessages}
       className="mbdb-field-wrapper"
     >
       <OARepoStringArrayField
         {...uiProps}
         fieldPath={fieldPath}
-        label={<HelpLabel label={data.label} help={data.helpText} />}
-        required={data.required}
+        label={undefined}
+        required={undefined}
         helpText={null}
       />
-      <ErrorMessages messages={ownMessages} />
-      <FieldHelp help={data.helpText} />
-    </Form.Field>
+    </FieldShell>
   );
 };
 StringArrayField.propTypes = fieldShape;

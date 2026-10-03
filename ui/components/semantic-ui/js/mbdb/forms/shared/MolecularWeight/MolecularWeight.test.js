@@ -12,6 +12,7 @@ import {
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { MolecularWeight, MOLECULAR_WEIGHT_UNITS } from "./MolecularWeight";
 
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
 jest.mock(
   "@js/oarepo_ui/forms",
   () =>

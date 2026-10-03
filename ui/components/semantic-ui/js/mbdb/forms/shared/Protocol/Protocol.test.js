@@ -10,6 +10,7 @@ import {
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { Protocol } from "./Protocol";
 
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
 jest.mock(
   "@js/oarepo_ui/forms",
   () =>

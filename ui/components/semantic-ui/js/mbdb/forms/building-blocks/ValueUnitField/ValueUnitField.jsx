@@ -1,20 +1,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { useFormikContext, getIn } from "formik";
-import {
-  Dropdown,
-  Form,
-  Input,
-  FieldHelp,
-  HelpLabel,
-} from "mbdb-semantic-ui-react";
-import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
+import { useFormikContext } from "formik";
+import { Dropdown, Input } from "mbdb-semantic-ui-react";
+import { useFieldBinding } from "@js/mbdb/forms/building-blocks/fieldData";
+import { FieldShell } from "@js/mbdb/forms/building-blocks/FieldShell";
 import {
   useFieldErrors,
   useOwnErrorMessages,
 } from "@js/mbdb/forms/building-blocks/errors";
-import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
-import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
+import { parseNumberInput } from "@js/mbdb/forms/building-blocks/number";
 
 // A measured quantity as one control: number input with the unit dropdown
 // attached on its right. Writes `{ value, unit }` at fieldPath. The
@@ -31,15 +25,12 @@ export const ValueUnitField = ({
   required,
   ...uiProps
 }) => {
-  const { values, setFieldValue } = useFormikContext();
-  // The hook keeps helpText because that is the model's key (getFieldData);
-  // the block's public prop is `help`.
-  const data = useModelFieldData(fieldPath, {
-    label,
-    helpText: help,
-    required,
-  });
-  const current = getIn(values, fieldPath) || {};
+  // The object-path write stays with Formik directly (the binding's writer
+  // unsets on "", which is exactly the clear case; the value write carries
+  // `{ value, unit }`, never a scalar).
+  const { setFieldValue } = useFormikContext();
+  const f = useFieldBinding(fieldPath, { label, help, required });
+  const current = f.value || {};
   // Unit chosen while the quantity is empty; written on the next value.
   const [pickedUnit, setPickedUnit] = useState(undefined);
   const unit = pickedUnit ?? current.unit ?? defaultUnit;
@@ -52,17 +43,17 @@ export const ValueUnitField = ({
   const messages = [
     ...new Set([...objectMessages, ...valueMessages, ...unitMessages]),
   ];
-  const hasError = messages.length > 0;
 
   const setValue = (raw) => {
     if (raw === "") {
-      unsetFieldValue(values, setFieldValue, fieldPath);
+      // remove the whole object (and now-empty parents) and drop the
+      // locally picked unit with it
+      f.setValue("");
       setPickedUnit(undefined);
       return;
     }
-    const n = Number(raw);
     setFieldValue(fieldPath, {
-      value: Number.isNaN(n) ? undefined : n,
+      value: parseNumberInput(raw),
       unit,
     });
   };
@@ -75,10 +66,13 @@ export const ValueUnitField = ({
   };
 
   return (
-    <Form.Field required={data.required} error={hasError}>
-      <label htmlFor={fieldPath}>
-        <HelpLabel label={data.label} help={data.helpText} />
-      </label>
+    <FieldShell
+      inputId={fieldPath}
+      label={f.label}
+      help={f.help}
+      required={f.required}
+      messages={messages}
+    >
       <Input
         {...uiProps}
         fluid
@@ -98,9 +92,7 @@ export const ValueUnitField = ({
         }
         labelPosition="right"
       />
-      <ErrorMessages messages={messages} />
-      <FieldHelp help={data.helpText} />
-    </Form.Field>
+    </FieldShell>
   );
 };
 

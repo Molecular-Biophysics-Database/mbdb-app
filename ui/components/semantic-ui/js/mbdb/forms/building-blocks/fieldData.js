@@ -1,5 +1,7 @@
 import { getIn, useFormikContext } from "formik";
 import { useFieldData, useFormConfig } from "@js/oarepo_ui/forms";
+import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
+import { useUnsetField } from "@js/mbdb/forms/building-blocks/unset";
 
 // Untouched by callers: turns a ui_model path leaf ("some_field") into a
 // readable label ("Some field").
@@ -141,5 +143,41 @@ export const useModelFieldData = (
     label: label !== undefined ? label : modelLabel,
     helpText: helpText !== undefined ? helpText : modelData.helpText,
     required: required !== undefined ? required : modelData.required,
+  };
+};
+
+// Everything a single-value field needs, from one fieldPath: value, a
+// writer, errors and the resolved model data. The one place that maps the
+// public `help` prop onto the model's `helpText` key — blocks read
+// `const f = useFieldBinding(fieldPath, { label, help, required })` and
+// render <FieldShell inputId={fieldPath} label={f.label} help={f.help}
+// required={f.required} messages={f.messages}>…</FieldShell>.
+// Blocks that need more than model data (merged object-path messages, the
+// whole record) still call useModelFieldData / useFormikContext directly.
+export const useFieldBinding = (fieldPath, { label, help, required } = {}) => {
+  // when there is no Formik above (stories without a Form), formik's context
+  // is `undefined`; value reads then see an empty record and writers no-op
+  const { values, setFieldValue, handleBlur } = useFormikContext() ?? {};
+  const data = useModelFieldData(fieldPath, {
+    label,
+    helpText: help,
+    required,
+  });
+  const { hasError, messages } = useFieldErrors(fieldPath);
+  const unset = useUnsetField();
+  return {
+    value: getIn(values ?? {}, fieldPath),
+    // "" / null / undefined remove the key (guide §7); anything else is
+    // written as is — 0 and false are data
+    setValue: (next) =>
+      next === "" || next === null || next === undefined
+        ? unset(fieldPath)
+        : setFieldValue(fieldPath, next),
+    onBlur: handleBlur,
+    label: data.label,
+    help: data.helpText,
+    required: data.required,
+    hasError,
+    messages,
   };
 };

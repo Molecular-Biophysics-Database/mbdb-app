@@ -1,9 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, useFormikContext } from "formik";
 import { useArrayRows } from "@js/mbdb/forms/building-blocks/useArrayRows";
+import {
+  renderInForm,
+  unmountForm,
+  ValueProbe,
+  readProbe,
+} from "@js/mbdb/forms/building-blocks/testUtils";
 
 // jsdom has no WebCrypto in insecure contexts; the app needs only
 // https/localhost. Incrementing ids so client-only keys differ per call.
@@ -11,13 +15,6 @@ let mockN = 0;
 jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () => ({
   randomUUID: () => `uuid-${++mockN}`,
 }));
-
-const Probe = ({ path }) => {
-  const { values } = useFormikContext();
-  const value = path.split(".").reduce((o, p) => o?.[p], values);
-  return <span data-testid="probe">{JSON.stringify(value ?? null)}</span>;
-};
-Probe.propTypes = { path: PropTypes.string.isRequired };
 
 const Rows = ({ fieldPath }) => {
   const { items, keyFor, remove, push, replace } = useArrayRows(fieldPath);
@@ -57,22 +54,13 @@ Rows.propTypes = { fieldPath: PropTypes.string.isRequired };
 
 let container;
 
-const mount = (ui, { initialValues = {} } = {}) => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-  act(() => {
-    ReactDOM.render(
-      <Formik initialValues={initialValues} onSubmit={() => {}}>
-        {ui}
-      </Formik>,
-      container
-    );
-  });
+const mount = (ui, opts = {}) => {
+  container = renderInForm(ui, opts);
 };
 
 afterEach(() => {
-  ReactDOM.unmountComponentAtNode(container);
-  container.remove();
+  unmountForm(container);
+  container = null;
 });
 
 const click = async (testId) => {
@@ -84,15 +72,14 @@ const keys = () =>
   [...container.querySelectorAll("li")].map((l) => l.dataset.key);
 const names = () =>
   [...container.querySelectorAll("li")].map((l) => l.textContent);
-const probe = () =>
-  JSON.parse(container.querySelector('[data-testid="probe"]').textContent);
+const probe = () => readProbe(container);
 
 describe("useArrayRows", () => {
   it("keys stay stable on remove-middle and last-remove clears the key", async () => {
     mount(
       <>
         <Rows fieldPath="list" />
-        <Probe path="list" />
+        <ValueProbe path="list" />
       </>,
       {
         initialValues: {

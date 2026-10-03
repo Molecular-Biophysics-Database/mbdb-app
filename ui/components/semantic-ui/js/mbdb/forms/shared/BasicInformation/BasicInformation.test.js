@@ -15,6 +15,7 @@ import { MANUAL_CHEMICALS_ENABLED } from "./chemical";
 // (onAddition) and visible proof of which mode is mounted. oarepo's
 // StringArrayField is faked too (the shared mock has none): it renders its
 // label, which is all the manual form needs to be recognisable.
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
 jest.mock(
   "@js/oarepo_ui/forms",
   () =>
@@ -212,7 +213,10 @@ describe("BasicInformation", () => {
       `H2O · 18.02 g/mol · ${WATER.id}`
     );
     const label = container.querySelector('[data-testid="picker-label"]');
-    const links = [...label.querySelectorAll("a")].map((a) => a.textContent);
+    // ExternalLink appends a space + icon; trim to compare the label texts
+    const links = [...label.querySelectorAll("a")].map((a) =>
+      a.textContent.trim()
+    );
     expect(links).toEqual(["PubChem ↗", "ChEMBL ↗"]);
     // anchors, so no type attribute
     label.querySelectorAll("a").forEach((a) => {

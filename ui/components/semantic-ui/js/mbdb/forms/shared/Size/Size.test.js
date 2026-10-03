@@ -13,6 +13,7 @@ import {
 import { Size } from "./Size";
 import { SIZE_TYPES, LENGTH_UNITS } from "./constants";
 
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
 jest.mock(
   "@js/oarepo_ui/forms",
   () =>

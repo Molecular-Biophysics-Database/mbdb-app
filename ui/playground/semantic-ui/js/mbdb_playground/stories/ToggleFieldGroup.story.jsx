@@ -2,11 +2,11 @@ import React from "react";
 import { ToggleFieldGroup } from "@js/mbdb/forms/building-blocks/ToggleFieldGroup";
 import { SelectField } from "@js/mbdb/forms/building-blocks/SelectField";
 import { ValueUnitField } from "@js/mbdb/forms/building-blocks/ValueUnitField";
+import { entityPath, entityValues } from "../fixtures";
 
 // Identity lives under quality_controls; by_* fields exist when assessed: "Yes"
 // (models/general_parameters-definitions-rdm.yaml:2188, 2287).
-const BASE =
-  "metadata.general_parameters.entities_of_interest.0.quality_controls.identity";
+const BASE = entityPath("quality_controls.identity");
 
 // Method enums from the model (Keep in sync with By_intact_mass.method /
 // By_sequencing.method). MOLECULAR_WEIGHT_UNITS per the model.
@@ -54,42 +54,26 @@ const story = {
     { name: "Empty", initialValues: {}, render: Identity },
     {
       name: "Filled",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              {
-                quality_controls: {
-                  identity: {
-                    assessed: "Yes",
-                    by_intact_mass: {
-                      method: "Mass spectrometry",
-                      deviation_from_expected_mass: { value: 0.5, unit: "Da" },
-                    },
-                  },
-                },
-              },
-            ],
+      initialValues: entityValues("Polymer", {
+        quality_controls: {
+          identity: {
+            assessed: "Yes",
+            by_intact_mass: {
+              method: "Mass spectrometry",
+              deviation_from_expected_mass: { value: 0.5, unit: "Da" },
+            },
           },
         },
-      },
+      }),
       render: Identity,
     },
     {
       name: "With errors",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              {
-                quality_controls: {
-                  identity: { assessed: "Yes", by_intact_mass: {} },
-                },
-              },
-            ],
-          },
+      initialValues: entityValues("Polymer", {
+        quality_controls: {
+          identity: { assessed: "Yes", by_intact_mass: {} },
         },
-      },
+      }),
       initialErrors: {
         metadata: {
           general_parameters: {

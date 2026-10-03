@@ -1,14 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useFormikContext, getIn } from "formik";
 import { Label } from "mbdb-semantic-ui-react";
 import { SelectField as MbdbSelectField } from "mbdb-react-invenio-forms";
-import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
-
-const toOption = (option) =>
-  typeof option === "string"
-    ? { key: option, value: option, text: option }
-    : option;
+import { useFieldBinding } from "@js/mbdb/forms/building-blocks/fieldData";
+import { toOption } from "@js/mbdb/forms/building-blocks/options";
 
 // Dropdown with a fixed option list. String options are expanded to
 // Semantic option objects. Optional fields are clearable, required ones
@@ -24,15 +19,12 @@ export const SelectField = ({
   required,
   ...uiProps
 }) => {
-  const { values } = useFormikContext();
-  const data = useModelFieldData(fieldPath, {
-    label,
-    helpText: help,
-    required,
-  });
+  // Only the model data is needed here — but the binding IS the one model-
+  // data hook now (the help → helpText mapping lives there alone).
+  const f = useFieldBinding(fieldPath, { label, help, required });
   const opts = options.map(toOption);
-  const isClearable = clearable !== undefined ? clearable : !data.required;
-  const value = getIn(values, fieldPath);
+  const isClearable = clearable !== undefined ? clearable : !f.required;
+  const value = f.value;
   const unknown =
     value !== undefined &&
     value !== "" &&
@@ -45,9 +37,9 @@ export const SelectField = ({
         fieldPath={fieldPath}
         options={opts}
         clearable={isClearable}
-        label={data.label}
-        help={data.helpText}
-        required={data.required}
+        label={f.label}
+        help={f.help}
+        required={f.required}
         {...uiProps}
       />
       {unknown && (

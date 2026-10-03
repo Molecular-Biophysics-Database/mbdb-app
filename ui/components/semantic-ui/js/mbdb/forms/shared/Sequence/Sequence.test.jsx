@@ -6,6 +6,7 @@ import { Sequence } from "./Sequence";
 
 // One shared harness: the fake "@js/oarepo_ui/forms" (model labels) and the
 // Formik render helpers live in testUtils (guide §10; no per-file copies).
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
 jest.mock(
   "@js/oarepo_ui/forms",
   () =>

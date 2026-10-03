@@ -1,7 +1,8 @@
 import React from "react";
 import { Sequence } from "@js/mbdb/forms/shared/Sequence";
+import { entityPath, entityValues, entityErrors } from "../fixtures";
 
-const FIELD = "metadata.general_parameters.entities_of_interest.0.sequence";
+const FIELD = entityPath("sequence");
 
 const Content = () => <Sequence fieldPath={FIELD} />;
 
@@ -10,66 +11,30 @@ const story = {
   scenarios: [
     {
       name: "Empty",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [{ type: "Polymer" }],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer"),
       render: Content,
     },
     {
       name: "Filled",
       // Hemoglobin subunit beta (design fixture)
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              {
-                type: "Polymer",
-                sequence:
-                  "MAHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFGKEFTPPVQAAYQKVVAGVANALAHKYH",
-              },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        sequence:
+          "MAHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFGKEFTPPVQAAYQKVVAGVANALAHKYH",
+      }),
       render: Content,
     },
     {
       name: "With errors",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [{ type: "Polymer", sequence: "MAH LTP" }],
-          },
-        },
-      },
-      initialErrors: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [{ sequence: "Invalid sequence." }],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", { sequence: "MAH LTP" }),
+      initialErrors: entityErrors("sequence", "Invalid sequence."),
       render: Content,
     },
     {
       // blur the textarea to see the FASTA header stripped and whitespace folded
       name: "FASTA paste",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              {
-                type: "Polymer",
-                sequence: ">sp|P68871|HBB_HUMAN\nMVHLTPEEKS\nAVTALWGKVN",
-              },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        sequence: ">sp|P68871|HBB_HUMAN\nMVHLTPEEKS\nAVTALWGKVN",
+      }),
       render: Content,
     },
   ],

@@ -4,8 +4,9 @@ import { TextField } from "@js/mbdb/forms/building-blocks/TextField";
 import { NumberField } from "@js/mbdb/forms/building-blocks/TextField";
 import { ValueUnitField } from "@js/mbdb/forms/building-blocks/ValueUnitField";
 import { Divider } from "mbdb-semantic-ui-react";
+import { ENTITY_PATH, entityValues, entityErrors } from "../fixtures";
 
-const BASE = "metadata.general_parameters.entities_of_interest.0";
+const BASE = ENTITY_PATH;
 
 // Explicit titles/helps until the ui_model has entity children (polymorphic
 // Entity). fieldPath is the *object* path: it is also the element id (F5 of
@@ -50,35 +51,17 @@ const story = {
     { name: "Empty", initialValues: {}, render: Groups },
     {
       name: "Filled",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              {
-                name: "Lysozyme",
-                molecular_weight: { value: 14.3, unit: "kDa" },
-                copy_number: 2,
-              },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        name: "Lysozyme",
+        molecular_weight: { value: 14.3, unit: "kDa" },
+        copy_number: 2,
+      }),
       render: Groups,
     },
     {
       name: "With errors",
-      initialValues: {
-        metadata: { general_parameters: { entities_of_interest: [{}] } },
-      },
-      initialErrors: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              { name: "Missing data for required field." },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer"),
+      initialErrors: entityErrors("name", "Missing data for required field."),
       render: Groups,
     },
   ],

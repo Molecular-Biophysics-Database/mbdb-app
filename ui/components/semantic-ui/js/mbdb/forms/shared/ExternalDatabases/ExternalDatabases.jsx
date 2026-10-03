@@ -1,28 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button } from "mbdb-semantic-ui-react";
 import { TableArrayField } from "@js/mbdb/forms/building-blocks/TableArrayField";
+import { ExternalLink } from "@js/mbdb/forms/building-blocks/ExternalLink";
 import { KNOWN_DATABASES, parseRef, formatRef, refUrl } from "./refs";
 
-// Opens the record in the external database. Rendered only when the reference
-// resolves to a URL (known database + id) — unknown prefixes have nowhere to
-// point at, so there is no dead link.
-const OpenLink = ({ row }) => {
-  const url = refUrl(row);
-  if (!url) return null;
-  return (
-    <Button
-      basic
-      size="mini"
-      as="a"
-      href={url}
-      target="_blank"
-      rel="noreferrer"
-    >
-      Open ↗
-    </Button>
-  );
-};
+// Opens the record in the external database. Renders nothing when the
+// reference does not resolve to a URL (unknown prefixes have nowhere to
+// point at, so there is no dead link).
+const OpenLink = ({ row }) => (
+  <ExternalLink href={refUrl(row)}>Open ↗</ExternalLink>
+);
 OpenLink.propTypes = { row: PropTypes.object.isRequired };
 
 // References to records in external databases, stored as "prefix:id" strings,

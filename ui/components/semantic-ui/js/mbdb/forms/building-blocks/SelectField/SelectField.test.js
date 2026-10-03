@@ -1,58 +1,30 @@
 import React from "react";
-import PropTypes from "prop-types";
-import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, useFormikContext, getIn } from "formik";
 import { SelectField } from "./SelectField";
+import {
+  renderInForm,
+  unmountForm,
+  ValueProbe,
+  readProbe,
+} from "@js/mbdb/forms/building-blocks/testUtils";
 
-jest.mock("@js/oarepo_ui/forms", () => ({
-  useFieldData: () => ({
-    getFieldData: () => ({
-      label: undefined,
-      helpText: undefined,
-      required: undefined,
-    }),
-  }),
-}));
-
-const Probe = ({ path }) => {
-  const { values } = useFormikContext();
-  const v = getIn(values, path);
-  return <span data-testid="value">{v === undefined ? "-" : String(v)}</span>;
-};
-
-Probe.propTypes = {
-  path: PropTypes.string,
-};
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
+jest.mock(
+  "@js/oarepo_ui/forms",
+  () =>
+    jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
+);
 
 let container;
 
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  ReactDOM.unmountComponentAtNode(container);
-  container.remove();
-});
-
-const render = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
-  act(() => {
-    ReactDOM.render(
-      <Formik
-        initialValues={initialValues}
-        initialErrors={initialErrors}
-        onSubmit={() => {}}
-      >
-        {ui}
-      </Formik>,
-      container
-    );
-  });
+const render = (ui, opts = {}) => {
+  container = renderInForm(ui, opts);
 };
 
-const byTestId = (id) => container.querySelector(`[data-testid="${id}"]`);
+afterEach(() => {
+  unmountForm(container);
+  container = null;
+});
 const clickItem = (text) => {
   const item = [...container.querySelectorAll(".menu .item")].find(
     (el) => el.textContent.trim() === text
@@ -72,11 +44,11 @@ describe("SelectField", () => {
           label="Polymer type"
           options={["polypeptide(L)", "polypeptide(D)"]}
         />
-        <Probe path="pt" />
+        <ValueProbe path="pt" />
       </>
     );
     clickItem("polypeptide(D)");
-    expect(byTestId("value").textContent).toBe("polypeptide(D)");
+    expect(readProbe(container)).toBe("polypeptide(D)");
   });
 
   it("is clearable when optional and not clearable when required", () => {
@@ -95,7 +67,7 @@ describe("SelectField", () => {
     render(
       <>
         <SelectField fieldPath="pt" options={["a", "b"]} />
-        <Probe path="pt" />
+        <ValueProbe path="pt" />
       </>,
       { initialValues: { pt: "a" } }
     );
@@ -103,7 +75,7 @@ describe("SelectField", () => {
     act(() => {
       Simulate.click(clearIcon);
     });
-    expect(byTestId("value").textContent).toBe("-");
+    expect(readProbe(container)).toBeNull();
   });
 
   it("keeps an unknown stored value visible and marks it with a label", () => {

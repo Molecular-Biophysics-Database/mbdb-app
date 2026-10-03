@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Divider } from "mbdb-semantic-ui-react";
 import { TableArrayField } from "@js/mbdb/forms/building-blocks/TableArrayField";
+import { ENTITY_PATH, entityValues, entityErrors } from "../fixtures";
 
-const BASE = "metadata.general_parameters.entities_of_interest.0";
+const BASE = ENTITY_PATH;
 
 const EXTERNAL_DB_REGEX = /^([^:]*):(.*)$/;
 
@@ -92,54 +93,34 @@ const story = {
     { name: "Empty (min 1 row)", initialValues: {}, render: Protocol },
     {
       name: "Filled",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              {
-                preparation_protocol: [
-                  {
-                    name: "Centrifugation",
-                    description: "10 min at 4000 g, supernatant kept",
-                  },
-                  { name: "Filtration", description: "0.22 µm filter" },
-                ],
-                external_databases: ["pdb:1GWD", "uniprot:"],
-                modifications: [
-                  {
-                    position: "C-terminal",
-                    rate: 0.5,
-                    protocol: [
-                      { name: "Digestion", description: "Trypsin, 2 h" },
-                    ],
-                  },
-                ],
-              },
-            ],
+      initialValues: entityValues("Polymer", {
+        preparation_protocol: [
+          {
+            name: "Centrifugation",
+            description: "10 min at 4000 g, supernatant kept",
           },
-        },
-      },
+          { name: "Filtration", description: "0.22 µm filter" },
+        ],
+        external_databases: ["pdb:1GWD", "uniprot:"],
+        modifications: [
+          {
+            position: "C-terminal",
+            rate: 0.5,
+            protocol: [{ name: "Digestion", description: "Trypsin, 2 h" }],
+          },
+        ],
+      }),
       render: Protocol,
     },
     {
       name: "With errors",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              {
-                preparation_protocol: [
-                  { name: "Centrifugation", description: "" },
-                ],
-                external_databases: ["emdb:1234"],
-                modifications: [
-                  { position: "N1", protocol: [{ name: "", description: "" }] },
-                ],
-              },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        preparation_protocol: [{ name: "Centrifugation", description: "" }],
+        external_databases: ["emdb:1234"],
+        modifications: [
+          { position: "N1", protocol: [{ name: "", description: "" }] },
+        ],
+      }),
       initialErrors: {
         metadata: {
           general_parameters: {
@@ -163,20 +144,11 @@ const story = {
     },
     {
       name: "List-level error",
-      initialValues: {
-        metadata: {
-          general_parameters: { entities_of_interest: [{}] },
-        },
-      },
-      initialErrors: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              { preparation_protocol: "Shorter than minimum length 1." },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer"),
+      initialErrors: entityErrors(
+        "preparation_protocol",
+        "Shorter than minimum length 1."
+      ),
       render: Protocol,
     },
   ],

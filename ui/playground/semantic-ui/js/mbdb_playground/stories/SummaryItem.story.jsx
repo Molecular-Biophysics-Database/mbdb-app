@@ -4,8 +4,9 @@ import { useFormikContext } from "formik";
 import { SummaryItem } from "@js/mbdb/forms/building-blocks/SummaryItem";
 import { DetailView } from "@js/mbdb/forms/building-blocks/DetailView";
 import { POLYMER_GROUPS } from "./DetailView.story";
+import { ENTITY_PATH, entityValues } from "../fixtures";
 
-const BASE = "metadata.general_parameters.entities_of_interest.0";
+const BASE = ENTITY_PATH;
 
 const polymerFacts = (v) =>
   [
@@ -70,31 +71,16 @@ const story = {
     },
     {
       name: "Filled",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              {
-                name: "Lysozyme",
-                type: "Polymer",
-                polymer_type: "polypeptide(L)",
-                molecular_weight: { value: 14.3, unit: "kDa" },
-              },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        name: "Lysozyme",
+        polymer_type: "polypeptide(L)",
+        molecular_weight: { value: 14.3, unit: "kDa" },
+      }),
       render: Rows,
     },
     {
       name: "With errors",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [{ name: "Lysozyme", type: "Polymer" }],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", { name: "Lysozyme" }),
       initialErrors: {
         metadata: {
           general_parameters: {

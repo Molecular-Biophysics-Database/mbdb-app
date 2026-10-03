@@ -1,5 +1,6 @@
 import React from "react";
 import { SelectField } from "@js/mbdb/forms/building-blocks/SelectField";
+import { ENTITY_PATH, entityValues, entityErrors } from "../fixtures";
 
 // Polymer type enum from models/general_parameters-definitions-rdm.yaml
 // (polymer_type at e.g. line 3040; keep in sync).
@@ -13,7 +14,7 @@ const POLYMER_TYPES = [
   "polyribonucleotide",
 ];
 
-const BASE = "metadata.general_parameters.entities_of_interest.0";
+const BASE = ENTITY_PATH;
 
 // Explicit label/help until the ui_model has entity children (polymorphic
 // Entity): without them the raw model path shows as the label.
@@ -32,40 +33,25 @@ const story = {
     { name: "Empty", initialValues: {}, render: Fields },
     {
       name: "Filled",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [{ polymer_type: "polypeptide(L)" }],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        polymer_type: "polypeptide(L)",
+      }),
       render: Fields,
     },
     {
       name: "Unknown value",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [{ polymer_type: "from old data" }],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        polymer_type: "from old data",
+      }),
       render: Fields,
     },
     {
       name: "With errors",
-      initialValues: {
-        metadata: { general_parameters: { entities_of_interest: [{}] } },
-      },
-      initialErrors: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              { polymer_type: "Missing data for required field." },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer"),
+      initialErrors: entityErrors(
+        "polymer_type",
+        "Missing data for required field."
+      ),
       render: Fields,
     },
   ],

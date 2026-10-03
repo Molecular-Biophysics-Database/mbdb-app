@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { ModalArrayField } from "@js/mbdb/forms/building-blocks/ModalArrayField";
 import { TextField } from "@js/mbdb/forms/building-blocks/TextField";
 import { DiscriminatorField } from "@js/mbdb/forms/building-blocks/DiscriminatorField";
+import { entityValues, entityErrors } from "../fixtures";
 
 const PATH = "metadata.general_parameters.entities_of_interest";
 
@@ -89,6 +90,7 @@ const story = {
     { name: "Empty", initialValues: {}, render: Entities },
     {
       name: "Filled",
+      // two entities: entityValues seeds one, so this array is written out
       initialValues: {
         metadata: {
           general_parameters: {
@@ -103,22 +105,8 @@ const story = {
     },
     {
       name: "With errors",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [{ id: "e-1", type: "Polymer", name: "" }],
-          },
-        },
-      },
-      initialErrors: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              { name: "Missing data for required field." },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", { id: "e-1", name: "" }),
+      initialErrors: entityErrors("name", "Missing data for required field."),
       render: Entities,
     },
     {
@@ -126,20 +114,11 @@ const story = {
       // open an entity and add a component: the inner modal stacks on top;
       // Cancel on the inner keeps the outer edits, Cancel on the outer
       // drops the whole entity
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              {
-                id: "e-1",
-                type: "Polymer",
-                name: "Lysozyme",
-                components: [{ type: "Polymer", name: "chain A" }],
-              },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        id: "e-1",
+        name: "Lysozyme",
+        components: [{ type: "Polymer", name: "chain A" }],
+      }),
       render: NestedEntities,
     },
   ],

@@ -1,8 +1,9 @@
 import React from "react";
 import { DiscriminatorField } from "@js/mbdb/forms/building-blocks/DiscriminatorField";
 import { Divider, Message } from "mbdb-semantic-ui-react";
+import { ENTITY_PATH, entityValues, entityErrors } from "../fixtures";
 
-const BASE = "metadata.general_parameters.entities_of_interest.0";
+const BASE = ENTITY_PATH;
 
 const ENTITY_TYPES = [
   "Polymer",
@@ -47,39 +48,24 @@ const story = {
     { name: "Empty", initialValues: {}, render: Fields },
     {
       name: "Filled",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              {
-                id: "e-1",
-                type: "Polymer",
-                name: "Lysozyme",
-                sequence: "MKALIV",
-                quality_controls: {
-                  purity: { assessed: "Yes", method: "SDS-PAGE" },
-                },
-              },
-            ],
-          },
+      initialValues: entityValues("Polymer", {
+        id: "e-1",
+        name: "Lysozyme",
+        sequence: "MKALIV",
+        quality_controls: {
+          purity: { assessed: "Yes", method: "SDS-PAGE" },
         },
-      },
+      }),
       render: Fields,
     },
     {
       name: "With errors",
+      // The empty entity IS the scenario: the error flags `type` as missing,
+      // so entities_values (which always writes a type) cannot express it.
       initialValues: {
         metadata: { general_parameters: { entities_of_interest: [{}] } },
       },
-      initialErrors: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              { type: "Missing data for required field." },
-            ],
-          },
-        },
-      },
+      initialErrors: entityErrors("type", "Missing data for required field."),
       render: Fields,
     },
   ],

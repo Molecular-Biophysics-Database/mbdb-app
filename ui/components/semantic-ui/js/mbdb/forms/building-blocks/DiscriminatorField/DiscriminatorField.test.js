@@ -1,58 +1,41 @@
 import React from "react";
-import PropTypes from "prop-types";
-import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, Field, useFormikContext, getIn } from "formik";
-import { HelpModeProvider } from "mbdb-semantic-ui-react";
+import { Field } from "formik";
 import { DiscriminatorField } from "./DiscriminatorField";
+import {
+  renderInForm,
+  unmountForm,
+  ValueProbe,
+  readProbe,
+  setFakeUiModel,
+} from "@js/mbdb/forms/building-blocks/testUtils";
 
-// The real "@js/oarepo_ui/forms" index cannot load under Jest (ESM deps);
-// the block reads model data through this hook only.
-jest.mock("@js/oarepo_ui/forms", () => ({
-  useFieldData: () => ({
-    getFieldData: ({ fieldPath }) => ({ label: fieldPath, helpText: null }),
-  }),
-}));
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
+jest.mock(
+  "@js/oarepo_ui/forms",
+  () =>
+    jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
+);
 
 let container;
 
-const Probe = ({ path }) => {
-  const { values } = useFormikContext();
-  const value = getIn(values, path);
-  return <span data-testid="probe">{JSON.stringify(value ?? null)}</span>;
-};
+// The confirm headers assert the raw field path ("Change o.type to …"), the
+// old hand-rolled fake returned `label: fieldPath`. Pin that label so the
+// assertions stay exact now the fake falls back to a readable leaf label.
+beforeEach(() => {
+  setFakeUiModel({ "o.type": { label: "o.type" } });
+});
 
-Probe.propTypes = {
-  path: PropTypes.string,
-};
-
-const mount = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-  act(() => {
-    ReactDOM.render(
-      <Formik
-        initialValues={initialValues}
-        initialErrors={initialErrors}
-        onSubmit={() => {}}
-      >
-        {ui}
-      </Formik>,
-      container
-    );
-  });
+const mount = (ui, opts = {}) => {
+  container = renderInForm(ui, opts);
 };
 
 afterEach(() => {
-  ReactDOM.unmountComponentAtNode(container);
-  container.remove();
-  document
-    .querySelectorAll(".ui.modals, .ui.dimmer")
-    .forEach((el) => el.remove());
+  unmountForm(container);
+  container = null;
 });
 
-const probe = () =>
-  JSON.parse(container.querySelector('[data-testid="probe"]').textContent);
+const probe = () => readProbe(container);
 const modal = () => document.body.querySelector(".ui.modal");
 const button = (label) =>
   [...container.querySelectorAll("button")].find(
@@ -77,7 +60,7 @@ const typeField = (props = {}) => (
       keep={["id"]}
       {...props}
     />
-    <Probe path="o" />
+    <ValueProbe path="o" />
   </>
 );
 
@@ -95,11 +78,9 @@ describe("DiscriminatorField", () => {
   });
 
   it("popup mode: no helptext label, one help icon next to the label", () => {
-    mount(
-      <HelpModeProvider mode="popup">
-        {typeField({ label: "Entity type", help: "The kind of entity" })}
-      </HelpModeProvider>
-    );
+    mount(typeField({ label: "Entity type", help: "The kind of entity" }), {
+      helpMode: "popup",
+    });
     expect(container.querySelector("label.helptext")).toBeNull();
     expect(container.querySelectorAll('[aria-label^="Help"]').length).toBe(1);
   });
@@ -192,7 +173,7 @@ describe("DiscriminatorField", () => {
           ]}
           variant="buttons"
         />
-        <Probe path="o" />
+        <ValueProbe path="o" />
       </>,
       {
         initialValues: { o: { type: "polymer", name: "Lysozyme" } },
@@ -216,7 +197,7 @@ describe("DiscriminatorField", () => {
           allowUnset
           unsetLabel="Not specified"
         />
-        <Probe path="o" />
+        <ValueProbe path="o" />
       </>,
       { initialValues: { o: { assessed: "Yes", method: "SDS-PAGE" } } }
     );
@@ -240,7 +221,7 @@ describe("DiscriminatorField", () => {
           allowUnset
           unsetLabel="Not specified"
         />
-        <Probe path="o" />
+        <ValueProbe path="o" />
       </>,
       { initialValues: {} }
     );
@@ -262,7 +243,7 @@ describe("DiscriminatorField", () => {
           allowUnset
           unsetLabel="Not specified"
         />
-        <Probe path="o" />
+        <ValueProbe path="o" />
       </>,
       // object exists with data, but `assessed` was never set
       { initialValues: { o: { method: "SDS-PAGE" } } }
@@ -334,7 +315,7 @@ describe("DiscriminatorField", () => {
           field="type"
           options={["Polymer", "Chemical"]}
         />
-        <Probe path="o" />
+        <ValueProbe path="o" />
         <Field data-testid="other" name="other" />
       </>,
       {

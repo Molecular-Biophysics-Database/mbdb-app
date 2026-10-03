@@ -1,15 +1,19 @@
 import React from "react";
-import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, useFormikContext, getIn } from "formik";
+import { Formik } from "formik";
 import { HelpModeProvider } from "mbdb-semantic-ui-react";
 import { TableArrayField } from "./TableArrayField";
-import { setFakeUiModel } from "@js/mbdb/forms/building-blocks/testUtils";
+import {
+  setFakeUiModel,
+  ValueProbe,
+  readProbe,
+} from "@js/mbdb/forms/building-blocks/testUtils";
 
 // Model labels/help are injected per test through setFakeUiModel
 // (testUtils). The test needs Formik re-render on one container, so it keeps
 // its own tree/render helpers below instead of renderInForm.
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
 jest.mock(
   "@js/oarepo_ui/forms",
   () =>
@@ -23,15 +27,6 @@ jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () => ({
 }));
 
 let container;
-
-const Probe = ({ path }) => {
-  const { values } = useFormikContext();
-  const value = getIn(values, path);
-  return <span data-testid="probe">{JSON.stringify(value ?? null)}</span>;
-};
-Probe.propTypes = {
-  path: PropTypes.string,
-};
 
 // kept local: one test re-renders with NEW initialErrors on the SAME mounted
 // Formik, which renderInForm (fresh container per call) cannot express. The
@@ -73,8 +68,7 @@ afterEach(() => {
   container = null;
 });
 
-const probe = () =>
-  JSON.parse(container.querySelector('[data-testid="probe"]').textContent);
+const probe = () => readProbe(container);
 const input = (label) =>
   container.querySelector(`input[aria-label="${label}"]`);
 const inputs = (label) => [
@@ -111,7 +105,7 @@ const protocol = (props = {}) => (
       columns={PROTOCOL_COLUMNS}
       {...props}
     />
-    <Probe path="steps" />
+    <ValueProbe path="steps" />
   </>
 );
 
@@ -147,7 +141,7 @@ const databases = (props = {}) => (
       }
       {...props}
     />
-    <Probe path="dbs" />
+    <ValueProbe path="dbs" />
   </>
 );
 
@@ -236,7 +230,7 @@ describe("TableArrayField", () => {
             <div data-testid={`expanded-${itemPath}`}>EXPANDED</div>
           )}
         />
-        <Probe path="mods" />
+        <ValueProbe path="mods" />
       </>,
       {
         initialValues: {
@@ -264,13 +258,28 @@ describe("TableArrayField", () => {
           fieldPath="rows"
           columns={[{ field: "amount", label: "Amount", type: "number" }]}
         />
-        <Probe path="rows" />
+        <ValueProbe path="rows" />
       </>,
       { initialValues: { rows: [{ amount: 1 }] } }
     );
     await type(input("Amount"), "2.5");
     expect(probe()).toEqual([{ amount: 2.5 }]);
     await type(input("Amount"), "");
+    expect(probe()).toEqual([{}]);
+  });
+
+  it("stores undefined — never NaN — for unparseable number input", async () => {
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="rows"
+          columns={[{ field: "amount", label: "Amount", type: "number" }]}
+        />
+        <ValueProbe path="rows" />
+      </>,
+      { initialValues: { rows: [{ amount: 1 }] } }
+    );
+    await type(input("Amount"), "abc");
     expect(probe()).toEqual([{}]);
   });
 
@@ -324,7 +333,7 @@ describe("TableArrayField", () => {
           fieldPath="rows"
           columns={[{ field: "note", label: "Note", type: "textarea" }]}
         />
-        <Probe path="rows" />
+        <ValueProbe path="rows" />
       </>,
       { initialValues: { rows: [{ note: "hello" }] } }
     );
@@ -369,7 +378,7 @@ describe("TableArrayField", () => {
             { field: "link", label: "Open", render: (row) => `link:${row.id}` },
           ]}
         />
-        <Probe path="rows" />
+        <ValueProbe path="rows" />
       </>,
       { initialValues: { rows: [{ id: "1GWD" }] } }
     );
@@ -390,7 +399,7 @@ describe("TableArrayField", () => {
           minItems={1}
           columns={[{ field: "name" }, { field: "description" }]}
         />
-        <Probe path="steps" />
+        <ValueProbe path="steps" />
       </>
     );
     expect(container.textContent).toContain("Step name from model");
@@ -412,7 +421,7 @@ describe("TableArrayField", () => {
           minItems={1}
           columns={PROTOCOL_COLUMNS}
         />
-        <Probe path="steps" />
+        <ValueProbe path="steps" />
       </HelpModeProvider>
     );
     // nothing renders help under the table
@@ -491,7 +500,7 @@ describe("TableArrayField", () => {
             <div data-testid={`expanded-${itemPath}`}>EXPANDED</div>
           )}
         />
-        <Probe path="mods" />
+        <ValueProbe path="mods" />
       </>,
       {
         initialValues: { mods: [{ position: 3, steps: [{ name: "s" }] }] },

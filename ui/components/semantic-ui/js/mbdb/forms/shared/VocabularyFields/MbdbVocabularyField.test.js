@@ -21,6 +21,7 @@ import { rememberItem, useVocabularyItem } from "./vocabularyTitles";
 // Provider to strip helpText for the inner VocabularyField, and the test
 // asserts exactly that override. Spread, not copy: labels/help still come
 // from setFakeUiModel.
+// eslint-disable-next-line no-restricted-syntax -- shared fake + a real FieldDataContext for the nested-provider override this block relies on
 jest.mock("@js/oarepo_ui/forms", () => {
   const R = jest.requireActual("react");
   const base = jest.requireActual(

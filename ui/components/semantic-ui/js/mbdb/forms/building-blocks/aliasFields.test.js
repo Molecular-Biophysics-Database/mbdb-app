@@ -12,6 +12,7 @@ import { Form, HelpModeProvider } from "mbdb-semantic-ui-react";
 
 // kept local: needs a StringArrayField stub the shared fake does not have,
 // plus a constant model label/help with `required` keyed to a "req" prefix.
+// eslint-disable-next-line no-restricted-syntax -- kept local: StringArrayField stub + "req"-prefixed required, absent from the shared fake
 jest.mock("@js/oarepo_ui/forms", () => ({
   // fields.jsx wraps oarepo's StringArrayField; a passthrough stub is
   // enough here (no test renders it — the real one cannot load under Jest)
@@ -98,6 +99,7 @@ describe("wrapped fields", () => {
   });
 
   it("removes the TextField key from the form data when cleared", () => {
+    // eslint-disable-next-line no-restricted-syntax -- one-off present/absent probe (not a readProbe JSON case)
     const Probe = () => {
       const { values } = useFormikContext();
       return (

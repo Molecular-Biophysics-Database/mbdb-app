@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { getIn, useFormikContext } from "formik";
-import { Button } from "mbdb-semantic-ui-react";
+import { ExternalLink } from "@js/mbdb/forms/building-blocks/ExternalLink";
 import { MbdbVocabularyField } from "@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField";
 import { useVocabularyItem } from "@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
@@ -11,24 +11,15 @@ import {
   describeChemical,
 } from "./chemical";
 
-// The "check your chemistry" links, rendered in the label slot. Anchors,
-// not buttons, so no type attribute.
+// The "check your chemistry" links, rendered in the label slot.
 const ChemicalLinks = ({ value, item }) =>
   chemicalLinks({
     id: value?.id,
     title: item.title ?? value?.title,
   }).map(({ label, href }) => (
-    <Button
-      key={href}
-      basic
-      size="mini"
-      as="a"
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-    >
+    <ExternalLink key={href} href={href}>
       {label}
-    </Button>
+    </ExternalLink>
   ));
 
 ChemicalLinks.propTypes = {

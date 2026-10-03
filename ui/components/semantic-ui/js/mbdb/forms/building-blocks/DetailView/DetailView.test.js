@@ -12,6 +12,7 @@ import { DetailView } from "./DetailView";
 // children.X.children, array child.children) reading a nested ui_model — the
 // DetailView label tests depend on that resolution, which testUtils' flat
 // per-path map deliberately does not re-implement.
+// eslint-disable-next-line no-restricted-syntax -- kept local: reproduces oarepo's real toModelPath traversal over a nested ui_model (see comment above)
 jest.mock("@js/oarepo_ui/forms", () => {
   const R = jest.requireActual("react");
   const get = jest.requireActual("lodash/get");

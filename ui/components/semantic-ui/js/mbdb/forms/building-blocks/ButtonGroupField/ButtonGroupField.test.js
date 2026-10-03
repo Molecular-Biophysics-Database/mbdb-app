@@ -1,63 +1,32 @@
 import React from "react";
-import PropTypes from "prop-types";
-import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, Field, useFormikContext, getIn } from "formik";
-import { HelpModeProvider } from "mbdb-semantic-ui-react";
+import { Field } from "formik";
 import { ButtonGroupField } from "./ButtonGroupField";
-// Shared probe: reads the formik value at a path as JSON (readProbe parses it).
-const { ValueProbe, readProbe } = jest.requireActual(
-  "@js/mbdb/forms/building-blocks/testUtils"
+import {
+  renderInForm,
+  unmountForm,
+  ValueProbe,
+  readProbe,
+} from "@js/mbdb/forms/building-blocks/testUtils";
+
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
+jest.mock(
+  "@js/oarepo_ui/forms",
+  () =>
+    jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
 );
-
-jest.mock("@js/oarepo_ui/forms", () => ({
-  useFieldData: () => ({
-    getFieldData: () => ({
-      label: undefined,
-      helpText: undefined,
-      required: undefined,
-    }),
-  }),
-}));
-
-const Probe = ({ path }) => {
-  const { values } = useFormikContext();
-  const v = getIn(values, path);
-  return <span data-testid="value">{v === undefined ? "-" : String(v)}</span>;
-};
-
-Probe.propTypes = {
-  path: PropTypes.string,
-};
 
 let container;
 
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  ReactDOM.unmountComponentAtNode(container);
-  container.remove();
-});
-
-const render = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
-  act(() => {
-    ReactDOM.render(
-      <Formik
-        initialValues={initialValues}
-        initialErrors={initialErrors}
-        onSubmit={() => {}}
-      >
-        {ui}
-      </Formik>,
-      container
-    );
-  });
+const render = (ui, opts = {}) => {
+  container = renderInForm(ui, opts);
 };
 
-const byTestId = (id) => container.querySelector(`[data-testid="${id}"]`);
+afterEach(() => {
+  unmountForm(container);
+  container = null;
+});
+
 const buttons = () => [...container.querySelectorAll("button")];
 const buttonByText = (text) =>
   buttons().find((b) => b.textContent.trim() === text);
@@ -77,7 +46,7 @@ describe("ButtonGroupField", () => {
           label="Expression source type"
           options={OPTIONS}
         />
-        <Probe path="source" />
+        <ValueProbe path="source" />
       </>
     );
     const group = container.querySelector('[role="group"]');
@@ -85,7 +54,7 @@ describe("ButtonGroupField", () => {
     expect(buttons().length).toBe(3);
 
     click("Recombinantly");
-    expect(byTestId("value").textContent).toBe("Recombinantly");
+    expect(readProbe(container)).toBe("Recombinantly");
     expect(buttonByText("Recombinantly").classList.contains("primary")).toBe(
       true
     );
@@ -98,25 +67,25 @@ describe("ButtonGroupField", () => {
     render(
       <>
         <ButtonGroupField fieldPath="source" options={OPTIONS} />
-        <Probe path="source" />
+        <ValueProbe path="source" />
       </>
     );
     click("Natively");
-    expect(byTestId("value").textContent).toBe("Natively");
+    expect(readProbe(container)).toBe("Natively");
     click("Natively");
-    expect(byTestId("value").textContent).toBe("-");
+    expect(readProbe(container)).toBeNull();
   });
 
   it("keeps the value when the field is required", () => {
     render(
       <>
         <ButtonGroupField fieldPath="source" required options={OPTIONS} />
-        <Probe path="source" />
+        <ValueProbe path="source" />
       </>
     );
     click("Natively");
     click("Natively");
-    expect(byTestId("value").textContent).toBe("Natively");
+    expect(readProbe(container)).toBe("Natively");
   });
 
   it("supports boolean option values", () => {
@@ -129,11 +98,11 @@ describe("ButtonGroupField", () => {
             { value: false, text: "No" },
           ]}
         />
-        <Probe path="hom" />
+        <ValueProbe path="hom" />
       </>
     );
     click("No");
-    expect(byTestId("value").textContent).toBe("false");
+    expect(readProbe(container)).toBe(false);
     expect(buttonByText("No").getAttribute("aria-pressed")).toBe("true");
   });
 
@@ -192,14 +161,13 @@ describe("ButtonGroupField", () => {
 
   it("popup mode: no helptext label, one help icon next to the label", () => {
     render(
-      <HelpModeProvider mode="popup">
-        <ButtonGroupField
-          fieldPath="source"
-          label="Expression source type"
-          help="How the polymer was produced"
-          options={OPTIONS}
-        />
-      </HelpModeProvider>
+      <ButtonGroupField
+        fieldPath="source"
+        label="Expression source type"
+        help="How the polymer was produced"
+        options={OPTIONS}
+      />,
+      { helpMode: "popup" }
     );
     expect(container.querySelector("label.helptext")).toBeNull();
     expect(container.querySelectorAll('[aria-label^="Help"]').length).toBe(1);

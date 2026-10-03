@@ -7,8 +7,11 @@ import { ModalObjectField } from "./ModalObjectField";
 import {
   renderInForm,
   unmountForm,
+  ValueProbe,
+  readProbe,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
 jest.mock(
   "@js/oarepo_ui/forms",
   () =>
@@ -16,16 +19,6 @@ jest.mock(
 );
 
 let container;
-
-const Probe = ({ path }) => {
-  const { values } = useFormikContext();
-  const value = getIn(values, path);
-  return <span data-testid="probe">{JSON.stringify(value ?? null)}</span>;
-};
-
-Probe.propTypes = {
-  path: PropTypes.string,
-};
 
 const TemperatureForm = ({ fieldPath }) => {
   const { values, setFieldValue } = useFormikContext();
@@ -52,8 +45,7 @@ afterEach(() => {
   container = null;
 });
 
-const probe = () =>
-  JSON.parse(container.querySelector('[data-testid="probe"]').textContent);
+const probe = () => readProbe(container);
 const modal = () => document.body.querySelector(".ui.modal");
 const modalButton = (label) =>
   [...modal().querySelectorAll("button")].find((b) => b.textContent === label);
@@ -85,7 +77,7 @@ const storage = (props = {}) => (
       renderForm={(p) => <TemperatureForm fieldPath={p} />}
       {...props}
     />
-    <Probe path="storage" />
+    <ValueProbe path="storage" />
     <UnrelatedInput />
   </>
 );

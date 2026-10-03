@@ -1,8 +1,8 @@
 import React from "react";
 import { StringArrayField } from "mbdb-react-invenio-forms";
+import { entityPath, entityValues } from "../fixtures";
 
-const PATH =
-  "metadata.general_parameters.entities_of_interest.0.additional_specifications";
+const PATH = entityPath("additional_specifications");
 
 // StringListField is oarepo's StringArrayField behind the mbdb wrapper (help
 // goes through HelpLabel/FieldHelp so the global help mode reaches it).
@@ -21,26 +21,16 @@ const story = {
     { name: "Empty", initialValues: {}, render: Fields },
     {
       name: "Filled",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              { additional_specifications: ["RNase free water", "desalted"] },
-            ],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        additional_specifications: ["RNase free water", "desalted"],
+      }),
       render: Fields,
     },
     {
       name: "With errors",
-      initialValues: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [{ additional_specifications: ["ok", ""] }],
-          },
-        },
-      },
+      initialValues: entityValues("Polymer", {
+        additional_specifications: ["ok", ""],
+      }),
       initialErrors: {
         metadata: {
           general_parameters: {

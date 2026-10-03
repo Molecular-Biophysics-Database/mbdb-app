@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { getIn, useFormikContext } from "formik";
 import { FieldDataContext } from "@js/oarepo_ui/forms";
 import { VocabularyField } from "@js/oarepo_vocabularies/form/components/VocabularyField";
-import { FieldHelp, HelpLabel } from "mbdb-semantic-ui-react";
-import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
-import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
+import { HelpLabel } from "mbdb-semantic-ui-react";
+import { FieldShell } from "@js/mbdb/forms/building-blocks/FieldShell";
+import { useFieldBinding } from "@js/mbdb/forms/building-blocks/fieldData";
 import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
 import { rememberItem, useVocabularyItem } from "./vocabularyTitles";
 
@@ -41,17 +40,12 @@ export const MbdbVocabularyField = ({
   onAddition,
   ...restProps
 }) => {
-  const { values } = useFormikContext();
-  const data = useModelFieldData(fieldPath, {
-    label,
-    helpText: help,
-    required,
-  });
+  const f = useFieldBinding(fieldPath, { label, help, required });
   // Covers <fieldPath> ("Missing data…") and <fieldPath>.id ("Invalid
   // vocabulary item"); RIF's own error lookup misses nested { id } errors.
-  const { messages } = useFieldErrors(fieldPath);
+  const { messages } = f;
 
-  const value = getIn(values, fieldPath);
+  const value = f.value;
   // A stored { id } without a title needs its display title: from the
   // session cache, otherwise fetched once from the vocabulary API. A value
   // the server already enriched with a title needs no lookup. The title is
@@ -104,16 +98,34 @@ export const MbdbVocabularyField = ({
   const innerFieldData = React.useMemo(
     () => ({
       getFieldData: () => ({
-        label: data.label,
-        required: data.required,
+        label: f.label,
+        required: f.required,
         helpText: undefined,
       }),
     }),
-    [data.label, data.required]
+    [f.label, f.required]
   );
 
+  // VocabularyField wraps the label node in its own <label> (no htmlFor),
+  // so the label prop keeps carrying it (a caller's additions, e.g.
+  // ChemicalPicker's links, stay inside that one label). The shell renders
+  // the same node bare: one visual label, the shell's help/error slots
+  // alongside — no inputId, a second nested <label> would be invalid HTML.
+  const labelNode =
+    f.label !== undefined && f.label !== null ? (
+      <HelpLabel label={f.label} help={f.help} />
+    ) : undefined;
+
   return (
-    <>
+    // messages stay empty: the object-level error shows ONCE, as the
+    // dropdown's own error prop label below (never duplicated under the
+    // label, so the shell gets no error list)
+    <FieldShell
+      label={labelNode}
+      help={f.help}
+      required={f.required}
+      messages={[]}
+    >
       <FieldDataContext.Provider value={innerFieldData}>
         <VocabularyField
           // RemoteSelectField reads initialSuggestions only in its
@@ -136,10 +148,14 @@ export const MbdbVocabularyField = ({
           {...restProps}
           fieldPath={fieldPath}
           vocabularyName={vocabularyName}
-          label={<HelpLabel label={data.label} help={data.helpText} />}
-          required={data.required}
+          label={labelNode}
+          required={f.required}
+          // suppresses the help RIF renders inside the vocabulary field —
+          // the help is the wrapper's own (the HelpMode label slot). Same
+          // reason the alias fields keep internal `helpText`.
+          // eslint-disable-next-line no-restricted-syntax
           helpText={undefined}
-          clearable={!data.required}
+          clearable={!f.required}
           error={messages.length > 0 ? messages.join(" ") : undefined}
           initialSuggestions={
             value?.id ? [{ id: value.id, title_l10n: title }] : []
@@ -154,8 +170,7 @@ export const MbdbVocabularyField = ({
           }
         />
       </FieldDataContext.Provider>
-      <FieldHelp help={data.helpText} />
-    </>
+    </FieldShell>
   );
 };
 

@@ -1,49 +1,32 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, Field } from "formik";
-import { HelpModeProvider } from "mbdb-semantic-ui-react";
+import { Field } from "formik";
 import { FieldGroup } from "./FieldGroup";
+import {
+  renderInForm,
+  unmountForm,
+} from "@js/mbdb/forms/building-blocks/testUtils";
+
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
+jest.mock(
+  "@js/oarepo_ui/forms",
+  () =>
+    jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
+);
 
 // FieldGroup resolves title/help/required from the model when fieldPath is
-// set; the real index cannot load under Jest (ESM deps), so model lookups
-// miss and explicit props win.
-jest.mock("@js/oarepo_ui/forms", () => ({
-  useFieldData: () => ({
-    getFieldData: () => ({
-      label: undefined,
-      helpText: null,
-      required: undefined,
-    }),
-  }),
-}));
-
+// set; these tests pass explicit title/help everywhere, so explicit props win
+// and no setFakeUiModel entries are needed.
 let container;
 
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
+const render = (ui, opts = {}) => {
+  container = renderInForm(ui, opts);
+};
 
 afterEach(() => {
-  ReactDOM.unmountComponentAtNode(container);
-  container.remove();
+  unmountForm(container);
+  container = null;
 });
-
-const render = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
-  act(() => {
-    ReactDOM.render(
-      <Formik
-        initialValues={initialValues}
-        initialErrors={initialErrors}
-        onSubmit={() => {}}
-      >
-        {ui}
-      </Formik>,
-      container
-    );
-  });
-};
 
 describe("FieldGroup", () => {
   it("renders header as h5 with fieldPath id, help and children", () => {
@@ -68,15 +51,14 @@ describe("FieldGroup", () => {
 
   it("popup mode: no helptext under the header, one help icon in the header", () => {
     render(
-      <HelpModeProvider mode="popup">
-        <FieldGroup
-          title="Molecular weight"
-          help="The molecular weight of the polymer"
-          fieldPath="metadata.mw"
-        >
-          <input data-testid="child" />
-        </FieldGroup>
-      </HelpModeProvider>
+      <FieldGroup
+        title="Molecular weight"
+        help="The molecular weight of the polymer"
+        fieldPath="metadata.mw"
+      >
+        <input data-testid="child" />
+      </FieldGroup>,
+      { helpMode: "popup" }
     );
     expect(container.querySelector("label.helptext")).toBeNull();
     const icons = container.querySelectorAll('[aria-label^="Help"]');

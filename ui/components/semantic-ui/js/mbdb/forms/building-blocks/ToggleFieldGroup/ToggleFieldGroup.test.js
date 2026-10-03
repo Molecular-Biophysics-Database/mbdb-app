@@ -1,13 +1,15 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { act, Simulate } from "react-dom/test-utils";
-import { useFormikContext, getIn } from "formik";
+import { useFormikContext } from "formik";
 import { ToggleFieldGroup } from "./ToggleFieldGroup";
 import {
   renderInForm,
   unmountForm,
+  ValueProbe,
+  readProbe,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
 jest.mock(
   "@js/oarepo_ui/forms",
   () =>
@@ -15,15 +17,6 @@ jest.mock(
 );
 
 let container;
-
-const Probe = ({ path }) => {
-  const { values } = useFormikContext();
-  const value = getIn(values, path);
-  return <span data-testid="probe">{JSON.stringify(value ?? null)}</span>;
-};
-Probe.propTypes = {
-  path: PropTypes.string,
-};
 
 const mount = (ui, opts = {}) => {
   container = renderInForm(ui, opts);
@@ -34,8 +27,7 @@ afterEach(() => {
   container = null;
 });
 
-const probe = () =>
-  JSON.parse(container.querySelector('[data-testid="probe"]').textContent);
+const probe = () => readProbe(container);
 const checkbox = () => container.querySelector('input[type="checkbox"]');
 // SUI Checkbox reads the native checked flag on change
 const toggle = () => {
@@ -65,7 +57,7 @@ const group = (props = {}, { withUnrelated = false } = {}) => (
     >
       <span data-testid="body">FIELDS</span>
     </ToggleFieldGroup>
-    <Probe path="identity" />
+    <ValueProbe path="identity" />
     {withUnrelated && <UnrelatedInput />}
   </>
 );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { getIn, useFormikContext } from "formik";
 import cloneDeep from "lodash/cloneDeep";
@@ -19,7 +19,11 @@ import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import { SummaryItem } from "@js/mbdb/forms/building-blocks/SummaryItem";
 import { DetailView } from "@js/mbdb/forms/building-blocks/DetailView";
-import { EditModal } from "@js/mbdb/forms/building-blocks/EditModal";
+import {
+  EditModal,
+  useEditSession,
+} from "@js/mbdb/forms/building-blocks/EditModal";
+import { useUnsetField } from "@js/mbdb/forms/building-blocks/unset";
 
 // One optional object too big for inline display (design/building-blocks/
 // ModalObjectField.md). Same Cancel/Done semantics as ModalArrayField.
@@ -35,8 +39,7 @@ export const ModalObjectField = ({
   detailProps,
 }) => {
   const { values, setFieldValue } = useFormikContext();
-  // { isNew, snapshot } while the modal is open
-  const [editing, setEditing] = useState(null);
+  const unset = useUnsetField();
   // label/help/required come from the model, with explicit props as override
   const data = useModelFieldData(fieldPath, {
     label,
@@ -50,21 +53,30 @@ export const ModalObjectField = ({
   const value = getIn(values, fieldPath);
   const present = value !== undefined;
 
+  // the modal edit session is shared with ModalArrayField; this block keys
+  // it by fieldPath and removes/restores the whole object
+  const {
+    session,
+    openNew: openNewSession,
+    openExisting,
+    cancel,
+    done: closeSession,
+  } = useEditSession({
+    read: (path) => getIn(values, path),
+    restore: (path, snapshot) => setFieldValue(path, snapshot),
+    remove: unset,
+  });
+
   const openNew = () => {
     setFieldValue(fieldPath, cloneDeep(initialValue));
-    setEditing({ isNew: true, snapshot: null });
+    openNewSession(fieldPath);
   };
-  const openEdit = () =>
-    setEditing({ isNew: false, snapshot: cloneDeep(value) });
-  const cancel = () => {
-    setFieldValue(fieldPath, editing.isNew ? undefined : editing.snapshot);
-    setEditing(null);
-  };
+  const openEdit = () => openExisting(fieldPath);
   // Done-if-empty behaves as absent: a Done on an object that still holds no
   // data is treated like Cancel (lead decision) so no `{}` is left behind.
   const done = () => {
-    if (!hasData(getIn(values, fieldPath))) setFieldValue(fieldPath, undefined);
-    setEditing(null);
+    if (!hasData(getIn(values, fieldPath))) unset(fieldPath);
+    closeSession();
   };
 
   // A single-cell summary passes the one column directly; a multi-cell maps
@@ -136,7 +148,7 @@ export const ModalObjectField = ({
       </Form.Field>
       {/* the modal is a SIBLING of Form.Field, not nested inside it, so
           depth-2 modals stack correctly (same as ModalArrayField) */}
-      {editing !== null && (
+      {session !== null && (
         <EditModal
           size="large"
           open

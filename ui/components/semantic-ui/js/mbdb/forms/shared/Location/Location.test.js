@@ -11,6 +11,7 @@ import {
 import { Location } from "./Location";
 import { mapUrl } from "./mapUrl";
 
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
 jest.mock(
   "@js/oarepo_ui/forms",
   () =>

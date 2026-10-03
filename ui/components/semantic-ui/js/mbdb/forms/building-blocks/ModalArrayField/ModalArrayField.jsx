@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { getIn, useFormikContext } from "formik";
 import cloneDeep from "lodash/cloneDeep";
@@ -21,7 +21,10 @@ import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import { useArrayRows } from "@js/mbdb/forms/building-blocks/useArrayRows";
 import { SummaryItem } from "@js/mbdb/forms/building-blocks/SummaryItem";
 import { DetailView } from "@js/mbdb/forms/building-blocks/DetailView";
-import { EditModal } from "@js/mbdb/forms/building-blocks/EditModal";
+import {
+  EditModal,
+  useEditSession,
+} from "@js/mbdb/forms/building-blocks/EditModal";
 
 // Summary table of complex objects; editing happens in a modal bound directly
 // to the real Formik path (design/building-blocks/ModalArrayField.md).
@@ -41,8 +44,6 @@ export const ModalArrayField = ({
   detailProps,
 }) => {
   const { values } = useFormikContext();
-  // { index, isNew, snapshot, scrollToError } while the modal is open
-  const [editing, setEditing] = useState(null);
   const data = useModelFieldData(fieldPath, {
     label,
     helpText: help,
@@ -51,9 +52,22 @@ export const ModalArrayField = ({
   // error flag and list-level message read errors ∪ initialErrors
   const { hasError } = useFieldErrors(fieldPath);
   const listMessages = useOwnErrorMessages(fieldPath);
-  // items/keys/remove/push/replace live in the shared array-rows hook; the
-  // block only adds the modal editing state on top
+  // items/keys/remove/push/replace live in the shared array-rows hook
   const { items, keyFor, remove, push, replace } = useArrayRows(fieldPath);
+  // the modal edit session is shared with ModalObjectField (open/snapshot/
+  // cancel/done); this block keys it by item index and carries its
+  // scrollToError flag through the open
+  const {
+    session,
+    openNew: openNewSession,
+    openExisting,
+    cancel,
+    done,
+  } = useEditSession({
+    read: (index) => getIn(values, `${fieldPath}.${index}`),
+    restore: replace,
+    remove,
+  });
 
   const options = newItemOptions ?? [{ label: null, value: initialValue }];
 
@@ -61,21 +75,10 @@ export const ModalArrayField = ({
     // applyEntityId is the one place that decides how an entity gets its id
     const item = withIds ? applyEntityId(cloneDeep(seed)) : cloneDeep(seed);
     push(item);
-    setEditing({ index: items.length, isNew: true, snapshot: null });
+    openNewSession(items.length);
   };
   const openEdit = (index, scrollToError = false) =>
-    setEditing({
-      index,
-      isNew: false,
-      scrollToError,
-      snapshot: cloneDeep(getIn(values, `${fieldPath}.${index}`)),
-    });
-  const cancel = () => {
-    if (editing.isNew) remove(editing.index);
-    else replace(editing.index, editing.snapshot);
-    setEditing(null);
-  };
-  const done = () => setEditing(null);
+    openExisting(index, { scrollToError });
 
   return (
     <>
@@ -172,18 +175,18 @@ export const ModalArrayField = ({
       </Form.Field>
       {/* the modal is a SIBLING of Form.Field, not nested inside it
           (guide §8), so depth-2 modals stack correctly */}
-      {editing !== null && (
+      {session !== null && (
         <EditModal
           size="large"
           open
           onCancel={cancel}
           onDone={done}
-          scrollToError={editing.scrollToError}
+          scrollToError={session.scrollToError}
           header={`Edit ${itemLabel(
-            getIn(values, `${fieldPath}.${editing.index}`)
+            getIn(values, `${fieldPath}.${session.key}`)
           )}`}
         >
-          {renderForm(`${fieldPath}.${editing.index}`)}
+          {renderForm(`${fieldPath}.${session.key}`)}
         </EditModal>
       )}
     </>

@@ -9,6 +9,7 @@ import { StoryFrame } from "./StoryFrame";
 
 const PATH = "metadata.general_parameters.entities_of_interest.0.name";
 
+// eslint-disable-next-line no-restricted-syntax -- reads values + live + initial errors together (an errors probe, not a one-path JSON value probe)
 const Probe = () => {
   const { values, errors, initialErrors } = useFormikContext();
   return (

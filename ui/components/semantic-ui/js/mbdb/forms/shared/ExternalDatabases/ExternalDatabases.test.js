@@ -7,6 +7,7 @@ import { ExternalDatabases } from "./ExternalDatabases";
 
 // One shared harness (guide §10): the fake "@js/oarepo_ui/forms" and the
 // Formik render helpers live in testUtils; no per-file copies.
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
 jest.mock(
   "@js/oarepo_ui/forms",
   () =>
@@ -25,7 +26,10 @@ const { setFakeUiModel, renderInForm, unmountForm } = jest.requireActual(
 const FIELD =
   "metadata.general_parameters.entities_of_interest.0.external_databases";
 
-// Reads the stored value out of Formik so tests assert stored data, not DOM.
+// Reads the whole formik values out via a callback so tests assert stored
+// data, not DOM — renderless, so it cannot be ValueProbe (which renders JSON
+// at one path).
+// eslint-disable-next-line no-restricted-syntax -- renderless onValues collector, not a one-path JSON probe
 const Probe = ({ onValues }) => {
   onValues(useFormikContext().values);
   return null;

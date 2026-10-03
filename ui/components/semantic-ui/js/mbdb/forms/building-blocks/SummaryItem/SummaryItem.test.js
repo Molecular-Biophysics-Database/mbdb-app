@@ -11,6 +11,7 @@ import {
 // @js/oarepo_ui/forms/index pulls in react-searchkit (d3, ESM), which Jest
 // cannot load; SummaryItem itself does not use it, but DetailView-based
 // details do, so detail contents here are plain nodes.
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
 jest.mock(
   "@js/oarepo_ui/forms",
   () =>

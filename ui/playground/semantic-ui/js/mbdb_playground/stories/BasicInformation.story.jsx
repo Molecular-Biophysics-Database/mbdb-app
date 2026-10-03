@@ -1,26 +1,19 @@
 import React from "react";
 import { BasicInformation } from "@js/mbdb/forms/shared/BasicInformation";
+import { entityPath, entityValues, entityErrors } from "../fixtures";
 
 // The dropdown queries the live chemicals vocabulary, which must be
 // loaded and indexed. Manual entry is off (chemical.js): the "Manual (entry
 // disabled)" scenario below demonstrates that — a stored manual value keeps
 // the picker mounted and "Enter manually:" does not appear in the dropdown.
 
-const PATH =
-  "metadata.general_parameters.entities_of_interest.0.basic_information";
+const PATH = entityPath("basic_information");
 
-const seed = (basicInformation) => ({
-  metadata: {
-    general_parameters: {
-      entities_of_interest: [
-        {
-          type: "Chemical",
-          ...(basicInformation && { basic_information: basicInformation }),
-        },
-      ],
-    },
-  },
-});
+const seed = (basicInformation) =>
+  entityValues(
+    "Chemical",
+    basicInformation ? { basic_information: basicInformation } : {}
+  );
 
 const Fields = () => <BasicInformation fieldPath={PATH} />;
 
@@ -50,15 +43,10 @@ const story = {
     {
       name: "With errors",
       initialValues: seed(undefined),
-      initialErrors: {
-        metadata: {
-          general_parameters: {
-            entities_of_interest: [
-              { basic_information: "Missing data for required field." },
-            ],
-          },
-        },
-      },
+      initialErrors: entityErrors(
+        "basic_information",
+        "Missing data for required field."
+      ),
       render: Fields,
     },
   ],

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useFormikContext, getIn } from "formik";
-import { Button } from "mbdb-semantic-ui-react";
+import { ExternalLink } from "@js/mbdb/forms/building-blocks/ExternalLink";
 import { mapUrl } from "./mapUrl";
 
 // Opens OpenStreetMap at the entered coordinates, to check them visually.
@@ -12,19 +12,7 @@ export const MapLink = ({ fieldPath }) => {
   const lat = getIn(values, `${fieldPath}.latitude`);
   const lon = getIn(values, `${fieldPath}.longitude`);
   if (typeof lat !== "number" || typeof lon !== "number") return null;
-  return (
-    <Button
-      basic
-      size="mini"
-      as="a"
-      type="button"
-      href={mapUrl(lat, lon)}
-      target="_blank"
-      rel="noreferrer"
-    >
-      Show on map ↗
-    </Button>
-  );
+  return <ExternalLink href={mapUrl(lat, lon)}>Show on map ↗</ExternalLink>;
 };
 
 MapLink.propTypes = {

@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Form, Input, Label } from "mbdb-semantic-ui-react";
+import { Form, Input } from "mbdb-semantic-ui-react";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import { useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
 import { ErrorMessages } from "@js/mbdb/forms/building-blocks/ErrorMessages";
 import { toOption } from "@js/mbdb/forms/building-blocks/options";
+import { parseNumberInput } from "@js/mbdb/forms/building-blocks/number";
 import { autoRows } from "@js/mbdb/forms/building-blocks/TextField";
 
 // Label-less cell input; the column header is its label (aria-label).
@@ -26,9 +27,7 @@ export const Cell = ({ column, row, label, onChange, error }) => {
       <Input
         type="number"
         {...common}
-        onChange={(e) =>
-          onChange(e.target.value === "" ? undefined : Number(e.target.value))
-        }
+        onChange={(e) => onChange(parseNumberInput(e.target.value))}
       />
     );
   if (column.type === "select") {

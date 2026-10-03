@@ -1,63 +1,32 @@
 import React from "react";
-import PropTypes from "prop-types";
-import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
-import { Formik, Field, useFormikContext, getIn } from "formik";
-import { HelpModeProvider } from "mbdb-semantic-ui-react";
+import { Field } from "formik";
 import { ValueUnitField } from "./ValueUnitField";
+import {
+  renderInForm,
+  unmountForm,
+  ValueProbe,
+  readProbe,
+} from "@js/mbdb/forms/building-blocks/testUtils";
 
-jest.mock("@js/oarepo_ui/forms", () => ({
-  useFieldData: () => ({
-    getFieldData: () => ({
-      label: undefined,
-      helpText: undefined,
-      required: undefined,
-    }),
-  }),
-}));
-
-const Probe = ({ path }) => {
-  const { values } = useFormikContext();
-  const v = getIn(values, path);
-  return (
-    <span data-testid="value">
-      {v === undefined ? "null" : JSON.stringify(v)}
-    </span>
-  );
-};
-
-Probe.propTypes = {
-  path: PropTypes.string,
-};
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
+jest.mock(
+  "@js/oarepo_ui/forms",
+  () =>
+    jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
+);
 
 let container;
 
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  ReactDOM.unmountComponentAtNode(container);
-  container.remove();
-});
-
-const render = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
-  act(() => {
-    ReactDOM.render(
-      <Formik
-        initialValues={initialValues}
-        initialErrors={initialErrors}
-        onSubmit={() => {}}
-      >
-        {ui}
-      </Formik>,
-      container
-    );
-  });
+const render = (ui, opts = {}) => {
+  container = renderInForm(ui, opts);
 };
 
-const byTestId = (id) => container.querySelector(`[data-testid="${id}"]`);
+afterEach(() => {
+  unmountForm(container);
+  container = null;
+});
+
 const numberInput = () => container.querySelector('input[type="number"]');
 const typeValue = (value) => {
   numberInput().value = value;
@@ -84,7 +53,7 @@ const field = (
       defaultUnit="kDa"
       help="The molecular weight of the polymer"
     />
-    <Probe path="mw" />
+    <ValueProbe path="mw" />
   </>
 );
 
@@ -92,14 +61,14 @@ describe("ValueUnitField", () => {
   it("shows the default unit in the dropdown without writing it", () => {
     render(field);
     expect(container.querySelector(".dropdown .text").textContent).toBe("kDa");
-    expect(byTestId("value").textContent).toBe("null");
+    expect(readProbe(container)).toBeNull();
     expect(container.querySelector("label.helptext").textContent).toBe(
       "The molecular weight of the polymer"
     );
   });
 
   it("popup mode: no helptext under the control, one help icon next to the label", () => {
-    render(<HelpModeProvider mode="popup">{field}</HelpModeProvider>);
+    render(field, { helpMode: "popup" });
     expect(container.querySelector("label.helptext")).toBeNull();
     expect(container.querySelectorAll('[aria-label^="Help"]').length).toBe(1);
   });
@@ -116,19 +85,17 @@ describe("ValueUnitField", () => {
   it("writes value as a number together with the default unit", () => {
     render(field);
     typeValue("14305.5");
-    expect(byTestId("value").textContent).toBe(
-      '{"value":14305.5,"unit":"kDa"}'
-    );
+    expect(readProbe(container)).toEqual({ value: 14305.5, unit: "kDa" });
   });
 
   it("keeps a unit picked while empty in local state and writes it with the value", () => {
     render(field);
     clickUnit("Da");
     // no partial { unit } ever reaches Formik
-    expect(byTestId("value").textContent).toBe("null");
+    expect(readProbe(container)).toBeNull();
     expect(container.querySelector(".dropdown .text").textContent).toBe("Da");
     typeValue("10");
-    expect(byTestId("value").textContent).toBe('{"value":10,"unit":"Da"}');
+    expect(readProbe(container)).toEqual({ value: 10, unit: "Da" });
   });
 
   it("removes the whole object when the value is cleared (default unit)", () => {
@@ -136,7 +103,7 @@ describe("ValueUnitField", () => {
       initialValues: { mw: { value: 14305.5, unit: "kDa" } },
     });
     typeValue("");
-    expect(byTestId("value").textContent).toBe("null");
+    expect(readProbe(container)).toBeNull();
   });
 
   it("removes the whole object and resets the unit when the value is cleared (non-default unit)", () => {
@@ -144,7 +111,7 @@ describe("ValueUnitField", () => {
       initialValues: { mw: { value: 14305.5, unit: "Da" } },
     });
     typeValue("");
-    expect(byTestId("value").textContent).toBe("null");
+    expect(readProbe(container)).toBeNull();
     // the picked unit does not linger: the dropdown shows the default again
     expect(container.querySelector(".dropdown .text").textContent).toBe("kDa");
   });

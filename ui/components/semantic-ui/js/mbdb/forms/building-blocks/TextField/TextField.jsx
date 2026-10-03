@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useFormikContext, getIn } from "formik";
 import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
-import { Button } from "mbdb-semantic-ui-react";
+import { parseNumberInput } from "@js/mbdb/forms/building-blocks/number";
+import { ExternalLink } from "@js/mbdb/forms/building-blocks/ExternalLink";
 import {
   TextField as MbdbTextField,
   TextAreaField as MbdbTextAreaField,
@@ -23,7 +24,8 @@ TextField.propTypes = {
 
 // Number input that stores a real number and removes the key when
 // cleared. `type="number"` reports unparseable input as "", which also
-// clears; the isNaN guard is for callers that change `type` (jsdom).
+// clears; anything else unparseable (a caller that changed `type`, jsdom)
+// becomes undefined via parseNumberInput, so the store never holds NaN.
 // The wrapper's controlled `value` keeps showing what the user typed.
 export const NumberField = ({
   fieldPath,
@@ -47,8 +49,7 @@ export const NumberField = ({
           unsetFieldValue(values, setFieldValue, fieldPath);
           return;
         }
-        const n = Number(value);
-        setFieldValue(fieldPath, Number.isNaN(n) ? undefined : n);
+        setFieldValue(fieldPath, parseNumberInput(value));
       }}
     />
   );
@@ -108,18 +109,9 @@ export const TextAreaField = ({
     >
       {links &&
         links.map(({ label, href }) => (
-          <Button
-            key={href}
-            basic
-            size="mini"
-            as="a"
-            href={href}
-            target="_blank"
-            rel="noreferrer"
-            type="button"
-          >
+          <ExternalLink key={href} href={href}>
             {label}
-          </Button>
+          </ExternalLink>
         ))}
     </MbdbTextAreaField>
   );
