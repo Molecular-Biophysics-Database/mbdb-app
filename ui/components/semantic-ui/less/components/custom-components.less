@@ -51,6 +51,21 @@ label.helptext.mbdb-field-help:first-child {
   margin-top: 0.5em;
 }
 
+// The control under a field label starts right below it, whatever its kind.
+// Semantic renders a button group (`.ui.buttons`) and an input (`.ui.input`)
+// inline-flex with `vertical-align: baseline`, so they sit on the text
+// baseline of the field's line box, while a selection dropdown with no text
+// sits on its bottom edge. In one row the button group then started lower than
+// the select next to it (≈17px in a modal, whose line-height is larger), and
+// the help under it moved down with it. Top alignment makes every control start
+// at the label and end at its own bottom, so labels, controls and help texts
+// line up across a row.
+.ui.form .field > .ui.buttons,
+.ui.form .field > .ui.dropdown,
+.ui.form .field > .ui.input {
+  vertical-align: top;
+}
+
 // Help placed directly under a composite control's label
 // (FieldShell helpPlacement="label": button groups, lists with an Add
 // button, tables). Invenio pulls every `label.helptext` up with
