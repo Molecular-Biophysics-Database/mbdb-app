@@ -141,6 +141,13 @@ export const REGISTRY = [
   },
   {
     step: 1,
+    key: "FieldRow",
+    title: "FieldRow (a row's help placement)",
+    design: "design/building-blocks/FieldRow.md",
+    load: () => import("./stories/FieldRow.story"),
+  },
+  {
+    step: 1,
     key: "ErrorMessages",
     design: "design/building-blocks/FieldGroup.md",
     load: () => import("./stories/ErrorMessages.story"),

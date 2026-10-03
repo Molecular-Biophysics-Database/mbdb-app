@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Form } from "mbdb-semantic-ui-react";
 import { StringTableField } from "@js/mbdb/forms/building-blocks/StringTableField";
 import { FieldGroup } from "@js/mbdb/forms/building-blocks/FieldGroup";
+import { FieldRow } from "@js/mbdb/forms/building-blocks/FieldRow";
 import { SelectField } from "@js/mbdb/forms/building-blocks/SelectField";
 import { ButtonGroupField } from "@js/mbdb/forms/building-blocks/ButtonGroupField";
 import { TextField } from "@js/mbdb/forms/building-blocks/TextField";
@@ -24,7 +25,7 @@ export const PolymerFields = ({ fieldPath }) => (
         their own, so their titles are literal (guide §6: a literal is fine for
         a group that is not a field label). They match POLYMER_GROUPS. */}
     <FieldGroup title="Identification">
-      <Form.Group widths="equal">
+      <FieldRow widths="equal">
         <SelectField
           fieldPath={`${fieldPath}.polymer_type`}
           options={POLYMER_TYPES}
@@ -33,7 +34,7 @@ export const PolymerFields = ({ fieldPath }) => (
           fieldPath={`${fieldPath}.expression_source_type`}
           options={EXPRESSION_SOURCE_TYPES}
         />
-      </Form.Group>
+      </FieldRow>
       <TextField fieldPath={`${fieldPath}.variant`} />
     </FieldGroup>
     <Sequence fieldPath={`${fieldPath}.sequence`} />

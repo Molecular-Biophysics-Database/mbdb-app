@@ -10,6 +10,7 @@ import {
 } from "@js/mbdb/forms/building-blocks/errors";
 import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 import { FieldShell } from "@js/mbdb/forms/building-blocks/FieldShell";
+import { useRowHelpPlacement } from "@js/mbdb/forms/building-blocks/FieldRow";
 import { toOption } from "@js/mbdb/forms/building-blocks/options";
 import { onRovingKeyDown } from "@js/mbdb/forms/building-blocks/rovingFocus";
 import { useUnsetField } from "@js/mbdb/forms/building-blocks/unset";
@@ -39,6 +40,10 @@ export const DiscriminatorField = ({
     required,
   });
   const text = data.label;
+  // In a Form.Group row every field puts its help under its control (FieldRow);
+  // a stacked button row outside one keeps it under the label, where a help
+  // under the buttons would read like the next row's (guide §8).
+  const rowPlacement = useRowHelpPlacement();
 
   const [pending, setPending] = useState(null); // value to apply after confirm
   const obj = getIn(values, objectPath);
@@ -114,10 +119,11 @@ export const DiscriminatorField = ({
       required={data.required}
       hasError={errorMessages.length > 0}
       messages={errorMessages}
-      // a button row is composite: its help belongs under the label, not below
-      // the buttons where it reads like the next field's help. A dropdown is a
-      // single control, so its help stays under the control (guide §8).
-      helpPlacement={mode === "buttons" ? "label" : "control"}
+      // a button row (full-width, stacked) keeps the help under the label
+      // where it reads like the next field's; a dropdown is a single control,
+      // so its help stays under the control (guide §8). Inside a Form.Group row
+      // the row's placement wins so the row lines up.
+      helpPlacement={rowPlacement ?? (mode === "buttons" ? "label" : "control")}
     >
       {mode === "buttons" ? (
         <Button.Group

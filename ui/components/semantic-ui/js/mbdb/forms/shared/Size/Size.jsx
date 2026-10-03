@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useFormikContext, getIn } from "formik";
 import { Form, Button } from "mbdb-semantic-ui-react";
 import { FieldGroup } from "@js/mbdb/forms/building-blocks/FieldGroup";
+import { FieldRow } from "@js/mbdb/forms/building-blocks/FieldRow";
 import { ButtonGroupField } from "@js/mbdb/forms/building-blocks/ButtonGroupField";
 import { SelectField } from "@js/mbdb/forms/building-blocks/SelectField";
 import { NumberField } from "@js/mbdb/forms/building-blocks/TextField";
@@ -40,7 +41,7 @@ export const Size = ({ fieldPath }) => {
         ) : undefined
       }
     >
-      <Form.Group widths="equal">
+      <FieldRow widths="equal">
         <ButtonGroupField
           fieldPath={`${fieldPath}.type`}
           options={SIZE_TYPES}
@@ -51,7 +52,7 @@ export const Size = ({ fieldPath }) => {
           options={LENGTH_UNITS}
           required={filled}
         />
-      </Form.Group>
+      </FieldRow>
       <NumberField
         fieldPath={`${fieldPath}.mean`}
         min={0}

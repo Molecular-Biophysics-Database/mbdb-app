@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Button } from "mbdb-semantic-ui-react";
 import { useFieldBinding } from "@js/mbdb/forms/building-blocks/fieldData";
 import { FieldShell } from "@js/mbdb/forms/building-blocks/FieldShell";
+import { useRowHelpPlacement } from "@js/mbdb/forms/building-blocks/FieldRow";
 import { toOption } from "@js/mbdb/forms/building-blocks/options";
 import { onRovingKeyDown } from "@js/mbdb/forms/building-blocks/rovingFocus";
 import { SelectField } from "@js/mbdb/forms/building-blocks/SelectField";
@@ -19,6 +20,10 @@ export const ButtonGroupField = ({
   required,
 }) => {
   const f = useFieldBinding(fieldPath, { label, help, required });
+  // In a Form.Group row every field puts its help under its control, so the row
+  // lines up (FieldRow); outside a row the buttons keep it under the label,
+  // where a help under the buttons would read like the next field's (guide §8).
+  const rowPlacement = useRowHelpPlacement();
   const opts = options.map((o) => {
     const { value, text } = toOption(o);
     return { value, text: String(text) }; // boolean values need string labels
@@ -49,8 +54,7 @@ export const ButtonGroupField = ({
       required={f.required}
       hasError={f.hasError}
       messages={f.messages}
-      // a button row is composite: help under the label, not below the buttons
-      helpPlacement="label"
+      helpPlacement={rowPlacement ?? "label"}
     >
       <Button.Group
         id={fieldPath}

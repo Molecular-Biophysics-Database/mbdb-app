@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Form } from "mbdb-semantic-ui-react";
+import { FieldRow } from "@js/mbdb/forms/building-blocks/FieldRow";
 import { ButtonGroupField } from "@js/mbdb/forms/building-blocks/ButtonGroupField";
 import { NumberField } from "@js/mbdb/forms/building-blocks/TextField";
 import { Size } from "@js/mbdb/forms/shared/Size";
@@ -14,7 +14,7 @@ import { ASSEMBLY_TYPES } from "./constants";
 // own object or array path.
 export const LipidAssemblyDetails = ({ fieldPath }) => (
   <>
-    <Form.Group widths="equal">
+    <FieldRow widths="equal">
       {/* assembly_type is required, so its buttons cannot be toggled off
           (ButtonGroupField); that is not a trap, it is required for every
           lipid assembly */}
@@ -27,7 +27,7 @@ export const LipidAssemblyDetails = ({ fieldPath }) => (
         integer
         min={-1}
       />
-    </Form.Group>
+    </FieldRow>
     <Size fieldPath={`${fieldPath}.size`} />
     <Components fieldPath={`${fieldPath}.components`} />
   </>

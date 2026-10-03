@@ -9,6 +9,7 @@ export * from "./useArrayRows";
 export * from "./DefaultsAndIds";
 export * from "./ExternalLink";
 export * from "./FieldShell";
+export * from "./FieldRow";
 export * from "./FieldGroup";
 export * from "./TextField";
 export * from "./SelectField";
