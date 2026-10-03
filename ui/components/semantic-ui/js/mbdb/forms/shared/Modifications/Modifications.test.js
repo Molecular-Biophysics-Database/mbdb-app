@@ -84,14 +84,20 @@ const buttons = () => [...container.querySelectorAll("button")];
 const toggleTexts = () =>
   buttons()
     .map((b) => b.textContent)
-    .filter((t) => /\d+ steps|1 step|No protocol/.test(t));
+    // the expand toggle is the only button carrying the ▸/▾ glyph
+    .filter((t) => /[▸▾]/.test(t));
 
 describe("stepsLabel", () => {
-  it("labels the protocol count", () => {
+  it("labels the protocol with its step names", () => {
     expect(stepsLabel(undefined)).toBe("No protocol");
     expect(stepsLabel([])).toBe("No protocol");
-    expect(stepsLabel([{ name: "a" }])).toBe("1 step");
-    expect(stepsLabel([{ name: "a" }, { name: "b" }])).toBe("2 steps");
+    expect(stepsLabel([{ name: "a" }])).toBe("a");
+    expect(stepsLabel([{ name: "a" }, { name: "b" }])).toBe("a, b");
+    // a step with no name yet is skipped
+    expect(stepsLabel([{ name: "a" }, {}])).toBe("a");
+    // ...and when no step has a name, the count keeps the toggle non-empty
+    expect(stepsLabel([{}])).toBe("1 step");
+    expect(stepsLabel([{}, {}])).toBe("2 steps");
   });
 });
 
@@ -105,7 +111,7 @@ describe("Modifications", () => {
       "Phosphorylation",
       "Deglycosylation",
     ]);
-    expect(toggleTexts()).toEqual(["No protocol ▸", "2 steps ▸"]);
+    expect(toggleTexts()).toEqual(["No protocol ▸", "PNGase F, Desalting ▸"]);
   });
 
   it("names each list in the Add button's aria-label (the two tables share the text)", () => {
