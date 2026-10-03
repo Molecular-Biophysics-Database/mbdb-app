@@ -27,7 +27,7 @@ import {
 // One fake per layer: the pickers need the network. The shared blocks under
 // test (the sub-type fields, Protocol, Storage, the common block) stay real;
 // the shared factory feeds the structured `ui_model`.
-// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory (plan 3R X6)
+// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory
 jest.mock("@js/oarepo_ui/forms", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
@@ -46,7 +46,7 @@ jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () =>
     .mockVocabularyTitles()
 );
 
-// Client-only row keys (jsdom has no WebCrypto); plan 3R X6.
+// Client-only row keys (jsdom has no WebCrypto).
 jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
@@ -166,7 +166,7 @@ describe("ComplexSubstanceOfBiologicalOriginFields", () => {
     expect(readProbe(container).derived_from).toBe("Body fluid");
     await clickOn(modalButtonIn(confirm, "Change"));
     // the sub-type's own fields (fluid, health_status) are dropped; the base
-    // fields every sub-type shares are kept (plan 4R, Y1)
+    // fields every sub-type shares are kept
     expect(readProbe(container)).toEqual({
       id: "e-1",
       type: "Complex substance of biological origin",
@@ -189,7 +189,7 @@ describe("ComplexSubstanceOfBiologicalOriginFields", () => {
     expect(hasInputValue("Centrifugation")).toBe(true);
   });
 
-  it("marks organ required for Solid tissue sample (D7 nested variant)", () => {
+  it("marks organ required for Solid tissue sample", () => {
     container = renderInForm(fields(), {
       initialValues: entity({
         derived_from: "Solid tissue sample",
@@ -201,7 +201,7 @@ describe("ComplexSubstanceOfBiologicalOriginFields", () => {
     ).toContain("required");
   });
 
-  it("leaves organ optional for Cell fraction (D7 nested variant)", () => {
+  it("leaves organ optional for Cell fraction", () => {
     container = renderInForm(fields(), {
       initialValues: entity({ derived_from: "Cell fraction", organ: "liver" }),
     });
@@ -276,7 +276,7 @@ describe("biologicalOriginGroups", () => {
   it("lists each sub-type's fields on the base type or that sub-type's type", () => {
     // per derived_from: a field belongs to the shared base type or to the
     // picked sub-type's own model type. Mapping a field to one fixed type (the
-    // old test) let a field in the wrong sub-type's group pass (plan 4R, Y4).
+    // old test) let a field in the wrong sub-type's group pass.
     const BASE = "Complex_substance_of_biological_origin_base";
     const SUBTYPE_TYPE = {
       "Body fluid": "Body_fluid",

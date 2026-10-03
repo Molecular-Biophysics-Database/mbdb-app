@@ -14,16 +14,16 @@ import {
   COMPLEX_SUBSTANCE_COMMON_GROUPS,
 } from "./index";
 
-// The real model shape (plan 3R, fieldData-review F2): the shared oarepo mock
+// The real model shape: the shared oarepo mock
 // reads the ui_model set with setStructuredUiModel (the real-model fixture).
-// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory (plan 3R F2/X6)
+// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory
 jest.mock("@js/oarepo_ui/forms", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
     .mockOarepoForms()
 );
 
-// Client-only row keys (jsdom has no WebCrypto); plan 3R X6.
+// Client-only row keys (jsdom has no WebCrypto).
 jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")

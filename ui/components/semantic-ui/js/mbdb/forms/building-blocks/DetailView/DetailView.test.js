@@ -57,7 +57,7 @@ jest.mock("@js/oarepo_ui/forms", () => {
   };
 });
 // Vocabulary titles are resolved by group-declared entries ({ field,
-// vocabulary }); the shared synchronous cache (plan 3R X6) is seeded with the
+// vocabulary }); the shared synchronous cache is seeded with the
 // title the tests expect.
 jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () =>
   jest

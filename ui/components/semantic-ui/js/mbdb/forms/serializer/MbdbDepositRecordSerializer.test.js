@@ -90,6 +90,9 @@ describe("MbdbDepositRecordSerializer", () => {
         general_parameters: { entities_of_interest: [{ id: "e1" }] },
       },
     };
+    // the base serializer deep-clones the record, so only the value is compared;
+    // the same-array-reference promise belongs to ensureEntityIds (and is
+    // tested there).
     expect(
       serializer.deserialize(record).metadata.general_parameters
         .entities_of_interest

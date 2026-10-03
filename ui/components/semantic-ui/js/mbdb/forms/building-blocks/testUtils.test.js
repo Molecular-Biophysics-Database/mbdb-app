@@ -2,7 +2,7 @@ import { yamlEnum, modelYamlPath } from "./testUtils";
 
 // The enum tests read the real model YAML (no copied list), so a model change
 // breaks them instead of silently passing. Verified once here; block tests
-// then reuse yamlEnum directly (plan 2R D2).
+// then reuse yamlEnum directly.
 describe("yamlEnum", () => {
   it("modelYamlPath finds the repository's models/ folder", () => {
     expect(modelYamlPath()).toMatch(

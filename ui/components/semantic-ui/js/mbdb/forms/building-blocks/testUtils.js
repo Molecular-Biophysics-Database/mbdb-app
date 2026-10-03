@@ -65,7 +65,7 @@ export const oarepoFake = {
   useFieldData: () => ({ getFieldData: defaultGetFieldData }),
 };
 
-// --- structured ui_model (the real model fixture, plan 3R F2) ---------------
+// --- structured ui_model (the real model fixture) ---------------
 
 // The deposit ui_model, trimmed to the entities_of_interest path, generated
 // from /playground by __fixtures__/generate-ui-model.mjs. Read lazily so suites
@@ -100,7 +100,7 @@ StringArrayFieldStandIn.propTypes = {
   fieldPath: PropTypes.string.isRequired,
 };
 
-// Ready-made "@js/oarepo_ui/forms" mock for the block tests (plan 3R X6): the
+// Ready-made "@js/oarepo_ui/forms" mock for the block tests: the
 // shared fake plus the StringArrayField stand-in and useFormConfig reading the
 // structured ui_model. Use it as:
 //   jest.mock("@js/oarepo_ui/forms", () =>
@@ -153,7 +153,7 @@ export const setFakeVocabularyPicks = (picks) => {
   vocabularyPicks = picks ?? {};
 };
 
-// A fake for MbdbVocabularyField (plan 3R X6), mirroring what a block needs
+// A fake for MbdbVocabularyField, mirroring what a block needs
 // from the real wrapper: the fieldPath, the value it shows, the label slot, the
 // merged field error, a pick that writes { id } and calls onPicked (the real
 // onValueChange — seed the item cache with setFakeVocabulary()), and the
@@ -217,7 +217,7 @@ export const mockVocabularyField = () => ({
 // form) into a fresh container appended to document.body. helpMode wraps the
 // tree in HelpModeProvider. Returns the container; pass it to unmountForm.
 //
-// Options (plan 2R D3/D5):
+// Options:
 // - withUnrelatedField: also renders, after `ui`, a formik Field named
 //   "unrelatedTestField" (data-testid="unrelated-field") for the
 //   errors-stay-after-an-unrelated-edit pattern (editUnrelatedField). Opt-in,
@@ -281,7 +281,7 @@ export const unmountForm = (container) => {
     .forEach((el) => el.remove());
 };
 
-// --- renderInForm options (plan 2R D3/D5) -----------------------------------
+// --- renderInForm options -----------------------------------
 
 // Wraps `ui` so callers can spy on Formik's setFieldValue: it reads the real
 // formik context and re-provides it through FormikProvider with a
@@ -302,7 +302,7 @@ SetFieldValueSpy.propTypes = {
   children: PropTypes.node,
 };
 
-// --- model YAML enum reading (plan 2R D2) ------------------------------------
+// --- model YAML enum reading ------------------------------------
 
 // Walks up from this file's real path (Jest may load it through the assets
 // symlink) to the repository's models/ folder.
@@ -381,7 +381,7 @@ export const yamlEnum = (typeName, property) => {
 export const yamlProperty = (typeName, name) =>
   typeBlock(typeName).some((l) => l === `    ${name}:`);
 
-// --- value probe (plan 2R D5) ------------------------------------------------
+// --- value probe ------------------------------------------------
 
 // Renders the formik value at `path` as JSON so tests assert stored data, not
 // DOM. Renders `null` when the value is absent (undefined), so `readProbe`
@@ -402,7 +402,7 @@ export const readProbe = (container) => {
   return pre ? JSON.parse(pre.textContent) : null;
 };
 
-// --- event helpers (plan 2R D5/D3) -------------------------------------------
+// --- event helpers -------------------------------------------
 
 // Simulate an input `change` to `value`. Sets the DOM value first so Semantic
 // wrapped inputs (which read event.target.value, not the Simulate payload)
@@ -444,8 +444,8 @@ export const pickDropdown = async (fieldPath, optionText) => {
   await clickOn(item);
 };
 
-// Types "x" into the unrelated field rendered by the withUnrelatedField option
-// (D3). The timer after the change is needed because Formik's validation —
+// Types "x" into the unrelated field rendered by the withUnrelatedField option.
+// The timer after the change is needed because Formik's validation —
 // which resets `errors` to {} — resolves in a promise AFTER the change. By the
 // time this returns, that reset has settled, so a surviving message is the
 // merged-initialErrors fallback, not a stale `errors` node.

@@ -1,5 +1,5 @@
 // Generates __fixtures__/ui_model.json from the running playground page
-// (plan 3R, fieldData-review F2): the deposit `ui_model`, trimmed to the
+//: the deposit `ui_model`, trimmed to the
 // entities_of_interest path, so tests drive the polymorphic lookup with the
 // REAL model shape instead of a hand-built tree.
 //

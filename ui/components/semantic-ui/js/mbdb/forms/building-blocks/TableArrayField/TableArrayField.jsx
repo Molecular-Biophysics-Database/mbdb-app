@@ -142,6 +142,7 @@ const TableArrayFieldInner = ({
   columns,
   minItems,
   addButtonLabel,
+  addButtonAriaLabel,
   defaultNewValue,
   serialize,
   deserialize,
@@ -256,6 +257,9 @@ const TableArrayFieldInner = ({
         icon
         labelPosition="left"
         size="small"
+        // optional: distinguishes two tables with the same button text for a
+        // screen reader (e.g. the two Modifications tables)
+        aria-label={addButtonAriaLabel}
         onClick={addRow}
       >
         <Icon name="add" />
@@ -270,6 +274,7 @@ TableArrayFieldInner.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.object).isRequired,
   minItems: PropTypes.number.isRequired,
   addButtonLabel: PropTypes.string.isRequired,
+  addButtonAriaLabel: PropTypes.string,
   defaultNewValue: PropTypes.any,
   serialize: PropTypes.func.isRequired,
   deserialize: PropTypes.func.isRequired,
@@ -285,6 +290,7 @@ export const TableArrayField = ({
   required,
   minItems = 0,
   addButtonLabel = "Add",
+  addButtonAriaLabel,
   columns,
   defaultNewValue = {},
   serialize = identity,
@@ -308,6 +314,7 @@ export const TableArrayField = ({
           columns={columns}
           minItems={minItems}
           addButtonLabel={addButtonLabel}
+          addButtonAriaLabel={addButtonAriaLabel}
           defaultNewValue={defaultNewValue}
           serialize={serialize}
           deserialize={deserialize}
@@ -363,6 +370,7 @@ TableArrayField.propTypes = {
   required: PropTypes.bool,
   minItems: PropTypes.number,
   addButtonLabel: PropTypes.string,
+  addButtonAriaLabel: PropTypes.string,
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       field: PropTypes.string.isRequired,

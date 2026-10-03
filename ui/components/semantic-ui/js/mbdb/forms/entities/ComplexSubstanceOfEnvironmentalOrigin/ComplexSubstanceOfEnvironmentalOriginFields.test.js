@@ -18,7 +18,7 @@ import {
 // One fake per layer: the picker needs the network. The shared blocks under
 // test (Location, Protocol, Storage, ComplexSubstanceCommon) stay real; the
 // shared factory feeds the structured `ui_model`.
-// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory (plan 3R X6)
+// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory
 jest.mock("@js/oarepo_ui/forms", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
@@ -37,7 +37,7 @@ jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () =>
     .mockVocabularyTitles()
 );
 
-// Client-only row keys (jsdom has no WebCrypto); plan 3R X6.
+// Client-only row keys (jsdom has no WebCrypto).
 jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")

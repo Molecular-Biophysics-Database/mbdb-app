@@ -34,9 +34,8 @@ import { toOption } from "@js/mbdb/forms/building-blocks/options";
 // stray `helpText` (the old prop name) cannot undo the suppression.
 //
 // Every wrapper renders ONE root element — the shell's `Form.Field` — with
-// label, control, ErrorMessages and FieldHelp inside it (AliasPackages
-// P4-F1 / 2R D8). A fragment would let Form.Group columns put the help
-// text into its own column.
+// label, control, ErrorMessages and FieldHelp inside it. A fragment would let
+// Form.Group columns put the help text into a column of its own.
 
 const fieldShape = {
   fieldPath: PropTypes.string.isRequired,
@@ -226,7 +225,7 @@ export const TextAreaField = ({
   const f = useFieldBinding(fieldPath, { label, help, required });
   // className goes on the shell's Form.Field: Semantic's TextArea would land
   // it on the <textarea> itself, breaking descendant class styling (e.g.
-  // `.mbdb-monospace textarea`) and the "one root element" structure (D8).
+  // `.mbdb-monospace textarea`) and the "one root element" structure.
   const { className, ...restUiProps } = uiProps;
   return (
     <FieldShell
@@ -291,7 +290,7 @@ export const StringArrayField = ({
   // from the shared merge, after the items — same place as the siblings.
   const ownMessages = useOwnErrorMessages(fieldPath);
   return (
-    // One root for the whole block (D8): oarepo's component renders its own
+    // One root for the whole block: oarepo's component renders its own
     // inner field structure; the shell's FieldHelp still reads the mode and
     // sits inside the same column, never a sibling of the control.
     <FieldShell

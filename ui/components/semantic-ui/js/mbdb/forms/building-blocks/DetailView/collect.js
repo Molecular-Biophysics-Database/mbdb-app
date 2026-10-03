@@ -3,7 +3,7 @@ import { hasData, isEmptyValue } from "@js/mbdb/forms/building-blocks/errors";
 import { isAssessed, isLeafObject, isPlainObject, isSteps } from "./values";
 
 // A group field entry is a plain name or `{ field: name, vocabulary: type }`
-// (declared per field so details can resolve vocabulary titles by GET; D6).
+// (declared per field so details can resolve vocabulary titles by GET).
 export const fieldEntryOf = (entry) =>
   typeof entry === "string"
     ? { name: entry }

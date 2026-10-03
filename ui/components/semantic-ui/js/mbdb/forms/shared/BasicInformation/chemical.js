@@ -6,7 +6,7 @@ import { valueUnitText } from "@js/mbdb/forms/building-blocks/DetailView/values"
 // Manual entry is on: the backend keeps manual chemicals via the vocabulary's
 // AutoCreateChemicalMixin (verified end-to-end 2026-10-02: `samples/chemical_lost.json`
 // PUT → 201 → GET keeps `basic_information: { id: "manual:3600b56a-…" }`, and the pid
-// tombstone problem is handled there too — hence verified at P2-F1 in the review).
+// tombstone problem is handled there too).
 export const MANUAL_CHEMICALS_ENABLED = true;
 
 // A manual chemical is told apart from a picked vocabulary term by having

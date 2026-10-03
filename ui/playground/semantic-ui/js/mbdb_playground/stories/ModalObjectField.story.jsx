@@ -33,8 +33,8 @@ const storageSummary = (v) =>
     : "";
 
 // Explicit labels/helps until the ui_model has entity children (polymorphic
-// Entity). Stand-in for the real StorageForm (plan step 3 builds it on this
-// block); storage_preparation is an array of Step {name, description}.
+// Entity). Stand-in for the real StorageForm (built on this block);
+// storage_preparation is an array of Step {name, description}.
 const STORAGE_GROUPS = [
   { title: "Conditions", fields: ["temperature", "duration"] },
   { title: "Storage preparation", fields: ["storage_preparation"] },

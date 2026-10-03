@@ -18,7 +18,7 @@ jest.mock(
     jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
 );
 
-// jsdom has no WebCrypto; client-only row keys (plan 3R X6).
+// jsdom has no WebCrypto; client-only row keys.
 jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
@@ -118,7 +118,7 @@ describe("ModalArrayField", () => {
     expect(container.textContent).toContain("Lysozyme");
     expect(container.textContent).toContain("Polymer");
     expect(container.textContent).toContain("NaCl");
-    // count-based removal (plan 3R X4): with 2 rows and minItems=1, every row
+    // count-based removal: with 2 rows and minItems=1, every row
     // is removable (the first is not fixed)
     expect(
       container.querySelector('button[aria-label="Remove entity: Lysozyme"]')
@@ -128,7 +128,7 @@ describe("ModalArrayField", () => {
     ).not.toBeNull();
   });
 
-  it("with exactly minItems rows, none is removable (count-based, X4)", () => {
+  it("with exactly minItems rows, none is removable (count-based)", () => {
     mount(entities(), {
       initialValues: {
         entities: [{ id: "e1", type: "Polymer", name: "Lysozyme" }],

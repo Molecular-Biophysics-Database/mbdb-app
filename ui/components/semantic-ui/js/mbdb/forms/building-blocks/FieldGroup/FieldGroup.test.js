@@ -102,7 +102,7 @@ describe("FieldGroup", () => {
   });
 
   it("shows the group-path message under the header, surviving an unrelated edit", async () => {
-    // D1: a required group the server flags has its message visible, not
+    // a required group that the server flags shows its message, not
     // only a red header (Location-review F1).
     render(
       <>

@@ -4,6 +4,7 @@ import {
   unmountForm,
   setFakeUiModel,
   setFakeVocabulary,
+  setFakeVocabularyPicks,
   clickOn,
   typeInto,
   ValueProbe,
@@ -18,7 +19,7 @@ import { Components, COMPONENT_TYPES } from "./index";
 // One fake per layer: the picker needs the network. The real leaves
 // (PolymerFields, ChemicalFields, Modifications, QualityControls, the modal
 // blocks) stay real; the shared factory feeds the structured `ui_model`.
-// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory (plan 3R X6)
+// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory
 jest.mock("@js/oarepo_ui/forms", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
@@ -40,7 +41,7 @@ jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () =>
     .mockVocabularyTitles()
 );
 
-// jsdom has no WebCrypto; client-only row keys (plan 3R X6).
+// jsdom has no WebCrypto; client-only row keys.
 jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
@@ -54,6 +55,7 @@ let container;
 
 beforeEach(() => {
   setFakeVocabulary();
+  setFakeVocabularyPicks();
   setStructuredUiModel();
   setFakeUiModel({});
 });
@@ -135,6 +137,21 @@ describe("Components", () => {
     expect(probe()).toEqual([{ type: "Chemical" }]);
     const picker = modal().querySelector('[data-testid="picker"]');
     expect(picker.dataset.path).toBe(`${PATH}.0.basic_information`);
+  });
+
+  it("picking a chemical prefills the component's name, not the entity's", async () => {
+    setFakeVocabularyPicks({
+      chemicals: { id: "chem:1", title_l10n: "Water" },
+    });
+    render({
+      initialValues: assembly([
+        { type: "Chemical", name: "", copy_number: -1 },
+      ]),
+    });
+    await clickOn(buttonIn(container, "Edit"));
+    await clickOn(modal().querySelector('[data-testid="pick"]'));
+    // the pick handler writes `${fieldPath}.name` at the component path
+    expect(probe()[0].name).toBe("Water");
   });
 
   it("Cancel on a new component removes it and the key (never [])", async () => {
@@ -350,7 +367,7 @@ describe("Components", () => {
   });
 
   it("uses the component's own name help, not the entity's", async () => {
-    // the real fixture (plan 4R, Y7): the component's name help is its own, not
+    // the real fixture: the component's name help is its own, not
     // the entity's; both texts are in the real ui_model
     setStructuredUiModel(realUiModel());
     render({

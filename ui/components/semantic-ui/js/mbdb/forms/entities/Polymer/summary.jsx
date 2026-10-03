@@ -5,7 +5,7 @@ import { joinParts, vocabularyPart } from "@js/mbdb/forms/entities/summary";
 // and the source organism title, for example
 // `polypeptide(L), 43 kDa, Bacillus subtilis`. Missing parts are left out
 // (joinParts). The vocabulary title comes from the shared cache through
-// `vocabularyPart` — never a hook in summaryPolymer itself (plan step 4).
+// `vocabularyPart` — never a hook in summaryPolymer itself.
 export const summaryPolymer = (value) =>
   joinParts([
     value?.polymer_type,

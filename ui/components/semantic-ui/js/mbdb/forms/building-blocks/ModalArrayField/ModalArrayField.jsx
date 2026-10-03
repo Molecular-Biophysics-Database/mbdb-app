@@ -116,7 +116,7 @@ export const ModalArrayField = ({
                     cells={columns.map((c) => c.value)}
                     itemName={itemLabel(value)}
                     onEdit={(scrollToError) => openEdit(index, scrollToError)}
-                    // count-based removal (plan 3R X4): every row is removable
+                    // count-based removal: every row is removable
                     // while more than `minItems` remain, so the first of
                     // several rows can be dropped. When exactly `minItems`
                     // rows are left, none is removable.

@@ -14,8 +14,7 @@ jest.mock(
     jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
 );
 // crypto.randomUUID needs https/localhost; jest must use the same key
-// generator as the building block or TableArrayField cannot mint row keys
-// (plan 3R X6).
+// generator as the building block or TableArrayField cannot mint row keys.
 jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
@@ -145,7 +144,7 @@ describe("ExternalDatabases", () => {
         "uniprot:P69905",
         "chembl:CHEMBL25",
         "pdb:",
-        ":X1",
+        ":1",
       ]),
     });
     const opens = [...container.querySelectorAll('a[rel="noreferrer"]')];

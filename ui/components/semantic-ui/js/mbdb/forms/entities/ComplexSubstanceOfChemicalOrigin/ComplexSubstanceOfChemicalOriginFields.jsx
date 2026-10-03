@@ -15,8 +15,10 @@ const ClassText = ({ fieldPath }) => {
   return value ? (
     <p>{`Class: ${value}`}</p>
   ) : (
-    // old data or a bug; the server error at `class` explains what is missing
-    <Label basic color="red" content="Class missing" />
+    // old data or a bug; the server error at `class` explains what is missing.
+    // A warning (the design's "warning Label"), like the other hints: the
+    // server error is the real signal.
+    <Label basic color="yellow" content="Class missing" />
   );
 };
 ClassText.propTypes = { fieldPath: PropTypes.string.isRequired };

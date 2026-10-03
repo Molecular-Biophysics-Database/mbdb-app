@@ -8,7 +8,7 @@ import { joinParts } from "@js/mbdb/forms/entities/summary";
 // The "Details" cell of a chemical entity: the title from the shared
 // vocabulary cache, plus the formula when the cache knows it. The hooks live
 // here, in the component summaryChemical returns — never in summaryChemical
-// itself, which is a plain function called inside a map (plan step 4).
+// itself, which is a plain function called inside a map.
 const ChemicalSummary = ({ value }) => {
   const basic = value.basic_information;
   const { customFields } = useVocabularyItem("chemicals", basic.id);

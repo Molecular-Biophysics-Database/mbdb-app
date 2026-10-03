@@ -200,7 +200,7 @@ describe("ButtonGroupField", () => {
   });
 
   it("clearing the only value of an object removes the object key, not leaves {}", () => {
-    // D4: optional group whose value is the only key of `obj`. Toggle the
+    // optional group whose value is the only key of `obj`. Toggle the
     // active button off × the parent object must be dropped, not left empty.
     render(
       <>

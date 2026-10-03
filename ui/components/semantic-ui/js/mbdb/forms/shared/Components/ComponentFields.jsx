@@ -24,7 +24,7 @@ export const ComponentFields = ({ fieldPath }) => {
         options={COMPONENT_TYPES}
         variant="buttons"
         // Polymer and Chemical both have additional_specifications, so a type
-        // change keeps it (plan 4R, Y1)
+        // change keeps it
         keep={["name", "copy_number", "additional_specifications"]}
       />
       <Form.Group widths="equal">

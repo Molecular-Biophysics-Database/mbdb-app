@@ -20,7 +20,7 @@ import { POLYMER_TYPES, EXPRESSION_SOURCE_TYPES } from "./constants";
 // test (Sequence, MolecularWeight, ExternalDatabases, Modifications,
 // QualityControls, SelectField, …) stay real; the shared factory feeds the
 // structured `ui_model`.
-// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory (plan 3R X6)
+// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory
 jest.mock("@js/oarepo_ui/forms", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
@@ -39,7 +39,7 @@ jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () =>
     .mockVocabularyTitles()
 );
 
-// Client-only row keys (jsdom has no WebCrypto); plan 3R X6.
+// Client-only row keys (jsdom has no WebCrypto).
 jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
@@ -183,7 +183,7 @@ describe("PolymerFields", () => {
   });
 
   it("uses the polymer's own molecular_weight help, not another variant's", () => {
-    // the real fixture (plan 4R, Y7): the polymer entity's molecular_weight
+    // the real fixture: the polymer entity's molecular_weight
     // help is the polymer's, not the molecular assembly's
     setStructuredUiModel(realUiModel());
     container = renderInForm(fields(), {

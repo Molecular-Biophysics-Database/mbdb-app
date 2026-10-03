@@ -5,8 +5,8 @@ import { ButtonGroupField } from "@js/mbdb/forms/building-blocks/ButtonGroupFiel
 import { TextField } from "@js/mbdb/forms/building-blocks/TextField";
 
 // The fields specific to a biological substance taken from a solid tissue.
-// `organ` is required here (optional in Cell fraction) — D7 gives this variant
-// its own flag. `homogenized` is a boolean: the buttons write true/false, never
+// `organ` is required here (optional in Cell fraction) — the variant-aware
+// model lookup gives this variant its own flag. `homogenized` is a boolean: the buttons write true/false, never
 // the strings "Yes"/"No", and "not answered" stays visible until one is picked.
 export const SolidTissueSampleFields = ({ fieldPath }) => (
   <Form.Group widths="equal">

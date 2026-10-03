@@ -19,11 +19,11 @@ import {
   HOMOGENEITY_METHODS,
 } from "./constants";
 
-// The real model shape (plan 3R, fieldData-review F2): the shared oarepo mock
+// The real model shape: the shared oarepo mock
 // reads the ui_model set with setStructuredUiModel (the real-model fixture). A
 // hand-built fake whose variant entries had no label/help hid the row-label
-// bug (X1).
-// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory (plan 3R F2/X6), not a hand-rolled fake
+// bug.
+// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory, not a hand-rolled fake
 jest.mock("@js/oarepo_ui/forms", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
@@ -170,7 +170,7 @@ describe("QualityControls", () => {
     });
     await clickOn(buttons().find((b) => b.textContent === "Not specified"));
     // only the answer is lost (no data besides the discriminator), so no
-    // confirmation is asked (plan 3R X5)
+    // confirmation is asked
     const remove = [...document.querySelectorAll(".ui.modal button")].find(
       (b) => b.textContent === "Remove"
     );

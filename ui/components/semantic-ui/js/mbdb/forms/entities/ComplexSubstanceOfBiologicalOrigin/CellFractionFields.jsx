@@ -7,9 +7,9 @@ import { TextField } from "@js/mbdb/forms/building-blocks/TextField";
 // The fields specific to a biological substance derived from a sub-cellular
 // fraction: the fraction vocabulary and the donor's health status, then the
 // optional organ / tissue / cell type. `organ` is optional here and required
-// in Solid tissue sample — the model lookup (D7) gives each variant its own
+// in Solid tissue sample — the model lookup gives each variant its own
 // flag, so it is not overridden. `cell-fractions` is the hyphenated server
-// name (plan step 2, P1).
+// name.
 export const CellFractionFields = ({ fieldPath }) => (
   <>
     <Form.Group widths="equal">

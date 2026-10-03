@@ -69,7 +69,7 @@ describe("FieldShell", () => {
     );
   });
 
-  it("two shells in a Form.Group become exactly two columns, each holding its own help (D8)", () => {
+  it("two shells in a Form.Group become exactly two columns, each holding its own help", () => {
     render(
       <Form.Group widths="equal">
         <FieldShell inputId="a" label="A" help="Help A">
@@ -119,7 +119,7 @@ describe("FieldShell", () => {
         <textarea readOnly />
       </FieldShell>
     );
-    // the rule is .mbdb-monospace textarea (Sequence-review P2-F1): the
+    // the rule is .mbdb-monospace textarea: the
     // class must sit on the shell's root, never on the textarea itself
     expect(field().className).toContain("mbdb-monospace");
     expect(field().querySelector("textarea")).not.toBeNull();

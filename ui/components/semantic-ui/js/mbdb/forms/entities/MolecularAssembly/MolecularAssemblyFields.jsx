@@ -12,7 +12,7 @@ import { QualityControls } from "@js/mbdb/forms/shared/QualityControls";
 // second-level modal), reference databases, deliberate chemical modifications,
 // quality controls and free-text specifications. Composition only, no logic of
 // its own; reused as a component's field set nowhere today, but every path is
-// built from `fieldPath` anyway (plan step 4).
+// built from `fieldPath` anyway.
 export const MolecularAssemblyFields = ({ fieldPath }) => (
   <>
     <MolecularWeight fieldPath={`${fieldPath}.molecular_weight`} />

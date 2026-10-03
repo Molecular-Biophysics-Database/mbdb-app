@@ -37,7 +37,7 @@ const SUBTYPE_SUMMARY = {
 // Text of the entity table's "Details" column: `<derived_from>, <source
 // organism title>, <sub-type key value>`, e.g. `Body fluid, Homo sapiens,
 // Serum`. Missing parts are left out (joinParts). vocabularyPart is a
-// component — never a hook here (plan step 4).
+// component — never a hook here.
 export const summaryBiologicalOrigin = (value) =>
   joinParts([
     value?.derived_from,

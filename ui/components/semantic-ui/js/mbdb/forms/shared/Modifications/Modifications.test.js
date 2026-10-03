@@ -18,7 +18,7 @@ jest.mock(
     jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
 );
 
-// Client-only row keys (jsdom has no WebCrypto); plan 3R X6.
+// Client-only row keys (jsdom has no WebCrypto).
 jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
@@ -106,6 +106,21 @@ describe("Modifications", () => {
       "Deglycosylation",
     ]);
     expect(toggleTexts()).toEqual(["No protocol ▸", "2 steps ▸"]);
+  });
+
+  it("names each list in the Add button's aria-label (the two tables share the text)", () => {
+    container = renderInForm(modifications(), {
+      initialValues: polymer(),
+    });
+    const labels = [
+      ...container.querySelectorAll(
+        'button[aria-label^="Add modification to "]'
+      ),
+    ].map((b) => b.getAttribute("aria-label"));
+    expect(labels).toEqual([
+      "Add modification to Biological postprocessing",
+      "Add modification to Chemical",
+    ]);
   });
 
   it("opens the protocol table and writes steps to <list>.<i>.protocol", async () => {

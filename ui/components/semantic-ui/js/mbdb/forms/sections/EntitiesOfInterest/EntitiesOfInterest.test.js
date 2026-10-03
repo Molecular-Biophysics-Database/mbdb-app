@@ -26,7 +26,7 @@ jest.mock("react-searchkit", () => ({
 // The section composes every entity form, so the same one-fake-per-layer setup
 // as the entity tests is needed; the shared factory feeds the structured
 // `ui_model`.
-// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory (plan 3R X6)
+// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory
 jest.mock("@js/oarepo_ui/forms", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
@@ -45,7 +45,7 @@ jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () =>
     .mockVocabularyTitles()
 );
 
-// Client-only row keys and entity ids (jsdom has no WebCrypto); plan 3R X6.
+// Client-only row keys and entity ids (jsdom has no WebCrypto).
 jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")

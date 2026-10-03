@@ -45,7 +45,7 @@ export const EntitiesOfInterestSectionComponent = ({ formConfig }) => {
         fieldPath={ENTITIES_OF_INTEREST_PATH}
         minItems={1}
         withIds
-        itemLabel={(v) => `${v?.type ?? "Entity"}: ${v?.name ?? "new"}`}
+        itemLabel={(v) => `${v?.type ?? "Entity"}: ${v?.name || "new"}`}
         newItemOptions={ENTITY_TYPE_ORDER.map((type) => ({
           label: type,
           value: { type, ...ENTITY_SEEDS[type] },

@@ -9,7 +9,7 @@ const PATH = "metadata.general_parameters.entities_of_interest";
 
 const ENTITY_TYPES = ["Polymer", "Chemical"];
 
-// Mini stand-in for the real entity modal (plan steps 4–5 build the full one
+// Mini stand-in for the real entity modal (the section builds the full one
 // on the same ModalArrayField).
 const EntityForm = ({ fieldPath }) => (
   <>

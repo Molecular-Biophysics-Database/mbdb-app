@@ -16,7 +16,7 @@ import { ChemicalFields, CHEMICAL_GROUPS, summaryChemical } from "./index";
 // The two leaves are faked, so the test asserts the composition (the paths
 // ChemicalFields builds) and the summary, not the leaves' own behaviour
 // (each has its own suite). The picker needs the network.
-// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory (plan 3R X6)
+// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory
 jest.mock("@js/oarepo_ui/forms", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")

@@ -9,7 +9,7 @@ import {
   readProbe,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 
-// jsdom has no WebCrypto; client-only row keys (plan 3R X6).
+// jsdom has no WebCrypto; client-only row keys.
 jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")

@@ -8,7 +8,7 @@ import { ComplexSubstanceCommonFields } from "@js/mbdb/forms/entities/ComplexSub
 // Type and Name: the environment-type vocabulary field, the sampling
 // coordinates and the common complex-substance block. Composition only; every
 // path is built from `fieldPath`. `environment-types` is the hyphenated name
-// the server knows (plan step 2, P1).
+// the server knows.
 export const ComplexSubstanceOfEnvironmentalOriginFields = ({ fieldPath }) => (
   <>
     <MbdbVocabularyField

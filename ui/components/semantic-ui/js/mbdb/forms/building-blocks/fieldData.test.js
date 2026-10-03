@@ -217,7 +217,7 @@ describe("useModelFieldData", () => {
   });
 });
 
-// D7: variant-aware ui_model resolution (polymorphic union + variants). The
+// Variant-aware ui_model resolution (polymorphic union + variants). The
 // hand-written TEST_UI_MODEL mimics the shape of guide §6; values at the
 // entity path drive the discriminator lookups.
 const FormikProbe = ({ initialValues }) => (
@@ -233,7 +233,7 @@ const mountFormik = (initialValues) => {
   });
 };
 
-describe("useModelFieldData with the polymorphic ui_model (D7)", () => {
+describe("useModelFieldData with the polymorphic ui_model", () => {
   beforeEach(() => {
     mockUiModel = TEST_UI_MODEL;
   });
@@ -271,7 +271,7 @@ describe("useModelFieldData with the polymorphic ui_model (D7)", () => {
     );
   });
 
-  it("a variant entry's own label/help (the type's) never replace the node's (X1)", () => {
+  it("a variant entry's own label/help (the type's) never replace the node's", () => {
     mockUiModel = {
       children: {
         metadata: {

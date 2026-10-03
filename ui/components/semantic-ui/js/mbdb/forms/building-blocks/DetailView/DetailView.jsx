@@ -113,7 +113,7 @@ DetailView.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       // a plain name, or `{ field, vocabulary }` when the field is a
-      // vocabulary reference whose title comes from the server cache (D6)
+      // vocabulary reference whose title comes from the server cache
       fields: PropTypes.arrayOf(
         PropTypes.oneOfType([
           PropTypes.string,

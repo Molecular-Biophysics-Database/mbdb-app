@@ -25,7 +25,7 @@ jest.mock(
 );
 
 // The picker's meta line uses the item cache; the shared synchronous cache
-// (plan 3R X6) keeps the network out of tests.
+// keeps the network out of tests.
 jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () =>
   jest
     .requireActual("@js/mbdb/forms/building-blocks/testUtils")
@@ -149,7 +149,7 @@ describe("BasicInformation", () => {
   });
 
   it("a manual { title } value renders the manual form (manual entry enabled)", () => {
-    // the P2-F1 flip landed (chemical.js): manual values go to ManualChemical
+    // the manual flip landed (chemical.js): manual values go to ManualChemical
     expect(MANUAL_CHEMICALS_ENABLED).toBe(true);
     render({ title: { en: "my custom lipid mix" } });
     expect(manualShown()).toBe(true);
@@ -211,7 +211,7 @@ describe("BasicInformation", () => {
   });
 
   // The server drops manual chemicals on save (chemical.js), so these run
-  // only once MANUAL_CHEMICALS_ENABLED flips on (plan 2R "Manual chemicals").
+  // only once MANUAL_CHEMICALS_ENABLED flips on.
   (MANUAL_CHEMICALS_ENABLED ? describe : describe.skip)("manual mode", () => {
     it("picking Enter manually writes { title: { en } } and shows the manual form", async () => {
       render(undefined);

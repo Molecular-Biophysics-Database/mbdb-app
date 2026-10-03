@@ -85,7 +85,7 @@ const assessedText = (value, vocabulary) => {
 
 // A `{ id }` vocabulary reference resolved to a title through the shared
 // per-id cache (`useVocabularyTitle` does a GET once per id). Shows the id
-// while loading. Declared by a `{ field, vocabulary }` group entry (D6).
+// while loading. Declared by a `{ field, vocabulary }` group entry.
 export const VocabularyValue = ({ vocabulary, value }) => {
   // the hook returns the title itself (a string) or undefined while loading;
   // a span wrapper keeps table-cell text selectable (fragment lint)
@@ -144,7 +144,7 @@ const hasText = (v) => !isEmptyValue(v);
 const BULLET_THRESHOLD = 5;
 
 // One formatted value; uses the suffix formatter when one is registered.
-// `vocabulary` (a declared vocabulary type, D6) switches `{ id }` display to
+// `vocabulary` (a declared vocabulary type) switches `{ id }` display to
 // the shared title cache instead of the raw id.
 export const Value = ({ name, value, vocabulary }) => {
   const formatter = formatters[name]; // registry is keyed by path suffix

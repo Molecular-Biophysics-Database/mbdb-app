@@ -238,7 +238,7 @@ describe("wrapped fields", () => {
   });
 
   it("every field is ONE root .field inside a Form.Group (help inside it, no own column)", () => {
-    // AliasPackages P4-F1: a fragment (control + FieldHelp sibling) would
+    // a fragment (control + FieldHelp sibling) would
     // become two flex columns in an equal-width Form.Group.
     render(
       <Form.Group widths="equal">

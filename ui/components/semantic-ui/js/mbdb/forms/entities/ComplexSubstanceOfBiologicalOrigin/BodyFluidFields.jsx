@@ -6,7 +6,7 @@ import { TextField } from "@js/mbdb/forms/building-blocks/TextField";
 
 // The fields specific to a biological substance derived from a body fluid: the
 // fluid vocabulary and the donor's health status, on one row. `body-fluids` is
-// the hyphenated name the server knows (plan step 2, P1). Every path is built
+// the hyphenated name the server knows. Every path is built
 // from `fieldPath` (the entity item path).
 export const BodyFluidFields = ({ fieldPath }) => (
   <Form.Group widths="equal">

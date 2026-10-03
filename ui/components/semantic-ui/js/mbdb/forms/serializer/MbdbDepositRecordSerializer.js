@@ -30,8 +30,8 @@ export class MbdbDepositRecordSerializer extends EmptyDepositRecordSerializer {
    * entities without an `id` (`id` is not required by the model but the server
    * rejects an entity without one), so give each one an id here — the one
    * place with no value-writing effect (design EntitiesOfInterest.md,
-   * "Legacy entities without id"). Returns the record unchanged (same
-   * reference) when nothing needs an id.
+   * "Legacy entities without id"). Returns the (deep-cloned) record
+   * unchanged, without a second clone, when nothing needs an id.
    */
   deserialize(record) {
     const deserialized = super.deserialize(record);
