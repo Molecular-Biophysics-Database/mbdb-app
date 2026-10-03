@@ -284,29 +284,49 @@ export const REGISTRY = [
     step: 4,
     key: "ComplexSubstanceOfIndustrialOrigin",
     design: "design/entities/ComplexSubstanceOfIndustrialOrigin.md",
+    load: () => import("./stories/ComplexSubstanceOfIndustrialOrigin.story"),
   },
   {
     step: 4,
     key: "ComplexSubstanceOfEnvironmentalOrigin",
     design: "design/entities/ComplexSubstanceOfEnvironmentalOrigin.md",
+    load: () => import("./stories/ComplexSubstanceOfEnvironmentalOrigin.story"),
   },
   {
     step: 4,
     key: "ComplexSubstanceOfBiologicalOrigin",
     design: "design/entities/ComplexSubstanceOfBiologicalOrigin.md",
+    load: () => import("./stories/ComplexSubstanceOfBiologicalOrigin.story"),
   },
-  { step: 4, key: "BodyFluid", design: "design/entities/BodyFluid.md" },
-  { step: 4, key: "CellFraction", design: "design/entities/CellFraction.md" },
-  { step: 4, key: "Virion", design: "design/entities/Virion.md" },
+  {
+    step: 4,
+    key: "BodyFluid",
+    design: "design/entities/BodyFluid.md",
+    load: () => import("./stories/BodyFluid.story"),
+  },
+  {
+    step: 4,
+    key: "CellFraction",
+    design: "design/entities/CellFraction.md",
+    load: () => import("./stories/CellFraction.story"),
+  },
+  {
+    step: 4,
+    key: "Virion",
+    design: "design/entities/Virion.md",
+    load: () => import("./stories/Virion.story"),
+  },
   {
     step: 4,
     key: "SolidTissueSample",
     design: "design/entities/SolidTissueSample.md",
+    load: () => import("./stories/SolidTissueSample.story"),
   },
   {
     step: 4,
     key: "ComplexSubstanceOfChemicalOrigin",
     design: "design/entities/ComplexSubstanceOfChemicalOrigin.md",
+    load: () => import("./stories/ComplexSubstanceOfChemicalOrigin.story"),
   },
 
   {
