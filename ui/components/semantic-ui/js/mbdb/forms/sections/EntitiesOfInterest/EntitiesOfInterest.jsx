@@ -1,22 +1,72 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { getIn, useFormikContext } from "formik";
 import Overridable from "react-overridable";
 import { buildUID } from "react-searchkit";
-import { Message } from "mbdb-semantic-ui-react";
+import { Label } from "mbdb-semantic-ui-react";
+import { ModalArrayField } from "@js/mbdb/forms/building-blocks/ModalArrayField";
+import { ENTITY_SEEDS } from "@js/mbdb/forms/entities/seeds";
+import { ENTITY_TYPES, ENTITY_TYPE_ORDER } from "./entityTypes";
+import { EntityForm } from "./EntityForm";
+import { duplicateNames } from "./duplicateNames";
 import { ENTITIES_OF_INTEREST_PATH } from "./path";
 
-// Placeholder until plan step 5; the real content is designed in
-// conversion_docs/poc/design/EntitiesOfInterest.md
-const EntitiesOfInterestSectionComponent = ({ formConfig }) => (
-  <Overridable
-    id={buildUID(formConfig?.overridableIdPrefix, "EntitiesOfInterest")}
-  >
-    <Message info>
-      <Message.Header>Entities of interest</Message.Header>
-      <p>This section is under construction.</p>
-    </Message>
-  </Overridable>
-);
+// The Name cell plus a "Duplicate name" hint. Trimmed, case-sensitive; a hint
+// only, never a client-side error (guide §8).
+const NameCell = ({ value, duplicates }) => {
+  const name = value?.name ?? "";
+  return (
+    <>
+      {name}
+      {duplicates.has(name.trim()) && (
+        <Label basic color="yellow" size="mini" content="Duplicate name" />
+      )}
+    </>
+  );
+};
+NameCell.propTypes = {
+  value: PropTypes.object,
+  duplicates: PropTypes.instanceOf(Set).isRequired,
+};
+
+// The section: a summary table of entities with "Add entity" by type, each row
+// edited in a modal that holds the type-specific form (design
+// EntitiesOfInterest.md). `detailGroups` and the "Details" column dispatch on
+// the entity's type through ENTITY_TYPES.
+export const EntitiesOfInterestSectionComponent = ({ formConfig }) => {
+  const { values } = useFormikContext();
+  const entities = getIn(values, ENTITIES_OF_INTEREST_PATH) ?? [];
+  const duplicates = duplicateNames(entities);
+  return (
+    <Overridable
+      id={buildUID(formConfig?.overridableIdPrefix, "EntitiesOfInterest")}
+    >
+      <ModalArrayField
+        fieldPath={ENTITIES_OF_INTEREST_PATH}
+        minItems={1}
+        withIds
+        itemLabel={(v) => `${v?.type ?? "Entity"}: ${v?.name ?? "new"}`}
+        newItemOptions={ENTITY_TYPE_ORDER.map((type) => ({
+          label: type,
+          value: { type, ...ENTITY_SEEDS[type] },
+        }))}
+        columns={[
+          {
+            label: "Name",
+            value: (v) => <NameCell value={v} duplicates={duplicates} />,
+          },
+          { label: "Type", value: (v) => v?.type ?? "" },
+          {
+            label: "Details",
+            value: (v) => ENTITY_TYPES[v?.type]?.summary(v) ?? "",
+          },
+        ]}
+        detailGroups={(v) => ENTITY_TYPES[v?.type]?.groups(v) ?? []}
+        renderForm={(itemPath) => <EntityForm fieldPath={itemPath} />}
+      />
+    </Overridable>
+  );
+};
 
 EntitiesOfInterestSectionComponent.propTypes = {
   formConfig: PropTypes.object.isRequired,

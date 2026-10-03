@@ -333,5 +333,6 @@ export const REGISTRY = [
     step: 5,
     key: "EntitiesOfInterest",
     design: "design/EntitiesOfInterest.md",
+    load: () => import("./stories/EntitiesOfInterest.story"),
   },
 ];
