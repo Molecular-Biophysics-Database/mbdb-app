@@ -3,79 +3,47 @@ import {
   renderInForm,
   unmountForm,
   setFakeUiModel,
+  setFakeVocabulary,
   typeInto,
   editUnrelatedField,
   ValueProbe,
   readProbe,
+  setStructuredUiModel,
   yamlEnum,
   yamlProperty,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { PolymerFields, POLYMER_GROUPS, summaryPolymer } from "./index";
 import { POLYMER_TYPES, EXPRESSION_SOURCE_TYPES } from "./constants";
 
-// One fake per layer. The picker needs the network (MbdbVocabularyField) and
-// oarepo's StringArrayField needs a context the mbdb wrapper does not pass
-// here; the shared blocks under test (Sequence, MolecularWeight,
-// ExternalDatabases, Modifications, QualityControls, SelectField, …) stay
-// real. The title cache answers synchronously.
-// eslint-disable-next-line no-restricted-syntax -- kept local: oarepo fake + a StringArrayField stand-in + a ui_model for the D7 variant (see comment)
-jest.mock("@js/oarepo_ui/forms", () => {
-  const R = jest.requireActual("react");
-  const PropTypesActual = jest.requireActual("prop-types");
-  const { getIn, useFormikContext } = jest.requireActual("formik");
-  const base = jest.requireActual(
-    "@js/mbdb/forms/building-blocks/testUtils"
-  ).oarepoFake;
-  const StringArrayField = ({ fieldPath }) => {
-    const { values } = useFormikContext();
-    const items = getIn(values, fieldPath) ?? [];
-    return R.createElement(
-      "div",
-      { "data-testid": "specs", "data-path": fieldPath },
-      items.join(", ")
-    );
-  };
-  StringArrayField.propTypes = { fieldPath: PropTypesActual.string.isRequired };
-  // mockUiModel drives the variant-aware lookup; undefined falls back to the
-  // shared flat fake (setFakeUiModel).
-  return {
-    ...base,
-    StringArrayField,
-    useFormConfig: () => ({ config: { ui_model: mockUiModel } }),
-  };
-});
+// One fake per layer: the picker needs the network. The shared blocks under
+// test (Sequence, MolecularWeight, ExternalDatabases, Modifications,
+// QualityControls, SelectField, …) stay real; the shared factory feeds the
+// structured `ui_model`.
+// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory (plan 3R X6)
+jest.mock("@js/oarepo_ui/forms", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockOarepoForms()
+);
 
-jest.mock("@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField", () => {
-  const R = jest.requireActual("react");
-  const PropTypesActual = jest.requireActual("prop-types");
-  const { getIn, useFormikContext } = jest.requireActual("formik");
-  const FakeMbdbVocabularyField = ({ fieldPath }) => {
-    const { values } = useFormikContext();
-    const v = getIn(values, fieldPath);
-    return R.createElement("div", {
-      "data-testid": "picker",
-      "data-path": fieldPath,
-      "data-value": v?.id ?? v?.title?.en ?? "",
-    });
-  };
-  FakeMbdbVocabularyField.propTypes = {
-    fieldPath: PropTypesActual.string.isRequired,
-  };
-  return { MbdbVocabularyField: FakeMbdbVocabularyField };
-});
+jest.mock("@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockVocabularyField()
+);
 
-let mockTitles = {};
-jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () => ({
-  useVocabularyItem: (type, id) => mockTitles[`${type}/${id}`] ?? {},
-  useVocabularyTitle: (type, id) => mockTitles[`${type}/${id}`]?.title,
-  rememberItem: () => {},
-}));
+jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockVocabularyTitles()
+);
 
-// Client-only row keys (jsdom has no WebCrypto), as in Storage.test.js.
-let mockKeyN = 0;
-jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () => ({
-  randomUUID: () => `key-${++mockKeyN}-uuid`,
-}));
+// Client-only row keys (jsdom has no WebCrypto); plan 3R X6.
+jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockRandomUUID()
+);
 
 let mockUiModel;
 
@@ -85,8 +53,8 @@ const COMPONENT = `${ENTITY}.components.0`;
 let container;
 
 beforeEach(() => {
-  mockTitles = {};
-  mockUiModel = undefined;
+  setFakeVocabulary();
+  setStructuredUiModel();
   setFakeUiModel({});
 });
 
@@ -253,6 +221,7 @@ describe("PolymerFields", () => {
         },
       },
     };
+    setStructuredUiModel(mockUiModel);
     container = renderInForm(fields(), {
       initialValues: entity({ molecular_weight: { value: 16, unit: "kDa" } }),
     });
@@ -267,7 +236,9 @@ describe("PolymerFields", () => {
 
 describe("summaryPolymer", () => {
   it("joins polymer type, molecular weight and source organism", () => {
-    mockTitles = { "organisms/taxid:12374": { title: "Bacillus subtilis" } };
+    setFakeVocabulary({
+      "organisms/taxid:12374": { title: "Bacillus subtilis" },
+    });
     container = renderInForm(<>{summaryPolymer(FILLED)}</>, {});
     expect(container.textContent).toBe(
       "polypeptide(L), 16 kDa, Bacillus subtilis"

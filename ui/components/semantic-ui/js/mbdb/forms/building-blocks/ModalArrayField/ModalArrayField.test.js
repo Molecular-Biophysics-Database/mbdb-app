@@ -18,13 +18,12 @@ jest.mock(
     jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
 );
 
-// jsdom has no WebCrypto in insecure contexts; the app needs only
-// https/localhost. Incrementing ids so client-only keys differ per call.
-// (kept local: this file asserts specific uuid values)
-let mockN = 0;
-jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () => ({
-  randomUUID: () => `uuid-${++mockN}`,
-}));
+// jsdom has no WebCrypto; client-only row keys (plan 3R X6).
+jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockRandomUUID()
+);
 
 let container;
 

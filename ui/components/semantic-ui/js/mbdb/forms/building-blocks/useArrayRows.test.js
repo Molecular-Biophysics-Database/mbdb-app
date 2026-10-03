@@ -9,12 +9,12 @@ import {
   readProbe,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 
-// jsdom has no WebCrypto in insecure contexts; the app needs only
-// https/localhost. Incrementing ids so client-only keys differ per call.
-let mockN = 0;
-jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () => ({
-  randomUUID: () => `uuid-${++mockN}`,
-}));
+// jsdom has no WebCrypto; client-only row keys (plan 3R X6).
+jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockRandomUUID()
+);
 
 const Rows = ({ fieldPath }) => {
   const { items, keyFor, remove, push, replace } = useArrayRows(fieldPath);

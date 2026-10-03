@@ -3,6 +3,8 @@ import {
   renderInForm,
   unmountForm,
   setFakeUiModel,
+  setFakeVocabulary,
+  setFakeVocabularyPicks,
   editUnrelatedField,
   clickOn,
   ValueProbe,
@@ -13,79 +15,29 @@ import { ChemicalFields, CHEMICAL_GROUPS, summaryChemical } from "./index";
 
 // The two leaves are faked, so the test asserts the composition (the paths
 // ChemicalFields builds) and the summary, not the leaves' own behaviour
-// (each has its own suite). The picker needs the network; oarepo's
-// StringArrayField needs props/context the mbdb wrapper does not pass here.
-// eslint-disable-next-line no-restricted-syntax -- kept local: oarepo fake + a StringArrayField stand-in (see comment)
-jest.mock("@js/oarepo_ui/forms", () => {
-  const R = jest.requireActual("react");
-  const PropTypesActual = jest.requireActual("prop-types");
-  const { getIn, useFormikContext } = jest.requireActual("formik");
-  const base = jest.requireActual(
-    "@js/mbdb/forms/building-blocks/testUtils"
-  ).oarepoFake;
-  // Stand-in for oarepo's StringArrayField: renders the current list so the
-  // test can read the values the wrapper is bound to.
-  const StringArrayField = ({ fieldPath }) => {
-    const { values } = useFormikContext();
-    const items = getIn(values, fieldPath) ?? [];
-    return R.createElement(
-      "div",
-      { "data-testid": "specs", "data-path": fieldPath },
-      items.join(", ")
-    );
-  };
-  StringArrayField.propTypes = { fieldPath: PropTypesActual.string.isRequired };
-  return { ...base, StringArrayField };
-});
+// (each has its own suite). The picker needs the network.
+// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory (plan 3R X6)
+jest.mock("@js/oarepo_ui/forms", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockOarepoForms()
+);
 
 // The picker is faked (it queries the vocabulary API): it stands for what the
 // block needs from it — the fieldPath it was handed, the value it shows, and
 // a pick that calls the caller's onPicked with a suggestion.
-jest.mock("@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField", () => {
-  const R = jest.requireActual("react");
-  const PropTypesActual = jest.requireActual("prop-types");
-  const { getIn, useFormikContext } = jest.requireActual("formik");
-  const FakeMbdbVocabularyField = ({ fieldPath, onPicked }) => {
-    const { values } = useFormikContext();
-    const v = getIn(values, fieldPath);
-    return R.createElement(
-      "div",
-      { "data-testid": "picker", "data-path": fieldPath },
-      R.createElement(
-        "span",
-        { "data-testid": "picker-value" },
-        v?.id ?? v?.title?.en ?? ""
-      ),
-      onPicked &&
-        R.createElement("button", {
-          type: "button",
-          "data-testid": "pick",
-          onClick: () =>
-            onPicked({
-              id: "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N",
-              title_l10n: "Water",
-            }),
-        })
-    );
-  };
-  FakeMbdbVocabularyField.propTypes = {
-    fieldPath: PropTypesActual.string.isRequired,
-    onPicked: PropTypesActual.func,
-  };
-  return { MbdbVocabularyField: FakeMbdbVocabularyField };
-});
+jest.mock("@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockVocabularyField()
+);
 
 // The shared title cache is mocked to answer synchronously (no network).
-let mockItems = {};
-jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () => ({
-  useVocabularyItem: (type, id) =>
-    mockItems[`${type}/${id}`] ?? {
-      title: undefined,
-      customFields: undefined,
-    },
-  useVocabularyTitle: (type, id) => (mockItems[`${type}/${id}`] ?? {}).title,
-  rememberItem: () => {},
-}));
+jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockVocabularyTitles()
+);
 
 const ENTITY = "metadata.general_parameters.entities_of_interest.0";
 const BASIC = `${ENTITY}.basic_information`;
@@ -95,7 +47,11 @@ const WATER_ID = "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N";
 let container;
 
 beforeEach(() => {
-  mockItems = {};
+  setFakeVocabulary();
+  // the picker's pick writes { id } (and calls onPicked -> the Name prefill)
+  setFakeVocabularyPicks({
+    chemicals: { id: WATER_ID, title_l10n: "Water" },
+  });
   setFakeUiModel({});
 });
 
@@ -204,20 +160,20 @@ describe("ChemicalFields", () => {
 
 describe("summaryChemical", () => {
   it("shows the title and the formula from the cache", () => {
-    mockItems = {
+    setFakeVocabulary({
       [`chemicals/${WATER_ID}`]: {
         title: "Water",
         customFields: { chemical_formula: "H2O" },
       },
-    };
+    });
     renderSummary({ basic_information: { id: WATER_ID } });
     expect(container.textContent).toBe("Water, H2O");
   });
 
   it("shows the title only when the cache knows no formula", () => {
-    mockItems = {
+    setFakeVocabulary({
       [`chemicals/${WATER_ID}`]: { title: "Water", customFields: {} },
-    };
+    });
     renderSummary({ basic_information: { id: WATER_ID } });
     expect(container.textContent).toBe("Water");
   });

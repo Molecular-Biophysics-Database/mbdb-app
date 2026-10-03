@@ -6,6 +6,8 @@ import {
   renderInForm,
   unmountForm,
   setFakeUiModel,
+  setFakeVocabulary,
+  setFakeVocabularyPicks,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { BasicInformation } from "./BasicInformation";
 import { MANUAL_CHEMICALS_ENABLED } from "./chemical";
@@ -22,22 +24,13 @@ jest.mock(
     jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
 );
 
-// the picker's meta line uses the item cache; keep the network out of
-// tests. remembered is the fake cache: the fake picker's pick writes into
-// it (like rememberItem would seed the real one) and the hook reads it.
-let mockRemembered = {};
-jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () => ({
-  useVocabularyItem: jest.fn(
-    (type, id) =>
-      mockRemembered[`${type}/${id}`] ?? {
-        title: undefined,
-        customFields: undefined,
-      }
-  ),
-  rememberItem: jest.fn((type, id, item) => {
-    mockRemembered[`${type}/${id}`] = item;
-  }),
-}));
+// The picker's meta line uses the item cache; the shared synchronous cache
+// (plan 3R X6) keeps the network out of tests.
+jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockVocabularyTitles()
+);
 
 // The Water suggestion the serializeVocabularySuggestions shape has for a
 // chemicals pick: the custom_fields ride along, so the item cache never
@@ -51,50 +44,11 @@ const WATER = {
   },
 };
 
-jest.mock("@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField", () => {
-  const R = jest.requireActual("react");
-  const PropTypesActual = jest.requireActual("prop-types");
-  const { useFormikContext } = jest.requireActual("formik");
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const {
-    rememberItem,
-  } = require("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles");
-  // The fake stands for what the block needs from the real wrapper: the
-  // label slot, a pick that remembers the item and writes { id } the way
-  // the real onValueChange does, and (when the flag is on) the "Enter
-  // manually" trigger (onAddition).
-  const FakeMbdbVocabularyField = ({ fieldPath, label, onAddition }) => {
-    const formik = useFormikContext();
-    return R.createElement(
-      "div",
-      { "data-testid": "picker", "data-path": fieldPath },
-      R.createElement("span", { "data-testid": "picker-label" }, label),
-      R.createElement("button", {
-        type: "button",
-        "data-testid": "pick",
-        onClick: () => {
-          rememberItem("chemicals", WATER.id, {
-            title: WATER.title,
-            customFields: WATER.customFields,
-          });
-          formik.setFieldValue(fieldPath, { id: WATER.id });
-        },
-      }),
-      onAddition &&
-        R.createElement("button", {
-          type: "button",
-          "data-testid": "enter-manually",
-          onClick: () => onAddition("my custom lipid mix"),
-        })
-    );
-  };
-  FakeMbdbVocabularyField.propTypes = {
-    fieldPath: PropTypesActual.string.isRequired,
-    label: PropTypesActual.node,
-    onAddition: PropTypesActual.func,
-  };
-  return { MbdbVocabularyField: FakeMbdbVocabularyField };
-});
+jest.mock("@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockVocabularyField()
+);
 
 jest.mock("mbdb-react-invenio-forms", () => {
   const R = jest.requireActual("react");
@@ -129,7 +83,8 @@ const ValueProbe = () => {
 let container;
 
 beforeEach(() => {
-  mockRemembered = {};
+  setFakeVocabulary();
+  setFakeVocabularyPicks({ chemicals: { id: WATER.id } });
   setFakeUiModel({
     [PATH]: { label: "Basic information", required: true },
   });
@@ -202,11 +157,16 @@ describe("BasicInformation", () => {
   });
 
   it("a picked chemical shows the facts · id meta line and the label-slot links", async () => {
+    // the cache holds the picked item (the real pick remembers it; here the
+    // suite seeds it), so the meta line and links come from it
+    setFakeVocabulary({
+      [`chemicals/${WATER.id}`]: {
+        title: WATER.title,
+        customFields: WATER.customFields,
+      },
+    });
     render(undefined);
     await click("pick");
-    // the fake pick seeds the item cache and writes { id }, like the real
-    // wrapper's onValueChange — the meta line and links then come from the
-    // remembered item
     expect(value()).toBe(`{"id":"${WATER.id}"}`);
     // facts and id, no title (the dropdown shows that)
     expect(container.querySelector(".mbdb-muted-text").textContent).toBe(
@@ -224,12 +184,11 @@ describe("BasicInformation", () => {
     });
   });
 
-  it("an object-level error is left to the picker's dropdown error label", () => {
-    // no duplicated message under the header: MbdbVocabularyField already
-    // shows the object-level error as the dropdown's error label, so the
-    // picker renders no error block of its own. The fake renders no error;
-    // the real error label including the survives-an-unrelated-edit
-    // behaviour is covered in MbdbVocabularyField.test.js.
+  it("an object-level error is shown once, by the picker's dropdown label", () => {
+    // MbdbVocabularyField already shows the object-level error as the
+    // dropdown's error label, so BasicInformation adds no error block of its
+    // own. The fake renders that one error (data-testid=picker-error); the
+    // message must not be duplicated.
     render(undefined, {
       initialErrors: {
         metadata: {
@@ -242,9 +201,13 @@ describe("BasicInformation", () => {
       },
     });
     expect(pickerShown()).toBe(true);
-    expect(container.textContent).not.toContain(
-      "Missing data for required field."
-    );
+    expect(
+      container.querySelectorAll('[data-testid="picker-error"]')
+    ).toHaveLength(1);
+    const occurrences =
+      container.textContent.split("Missing data for required field.").length -
+      1;
+    expect(occurrences).toBe(1);
   });
 
   // The server drops manual chemicals on save (chemical.js), so these run

@@ -3,6 +3,7 @@ import {
   renderInForm,
   unmountForm,
   setFakeUiModel,
+  setFakeVocabulary,
   typeInto,
   editUnrelatedField,
   ValueProbe,
@@ -16,57 +17,33 @@ import {
   LIPID_ASSEMBLY_GROUPS,
 } from "./index";
 
-// One fake per layer: the picker needs the network, oarepo's StringArrayField
-// needs a context the mbdb wrapper does not pass here. Size and Components
-// stay real.
-// eslint-disable-next-line no-restricted-syntax -- kept local: oarepo fake + a StringArrayField stand-in (see comment)
-jest.mock("@js/oarepo_ui/forms", () => {
-  const R = jest.requireActual("react");
-  const PropTypesActual = jest.requireActual("prop-types");
-  const { getIn, useFormikContext } = jest.requireActual("formik");
-  const base = jest.requireActual(
-    "@js/mbdb/forms/building-blocks/testUtils"
-  ).oarepoFake;
-  const StringArrayField = ({ fieldPath }) => {
-    const { values } = useFormikContext();
-    const items = getIn(values, fieldPath) ?? [];
-    return R.createElement("div", { "data-testid": "specs" }, items.join(", "));
-  };
-  StringArrayField.propTypes = { fieldPath: PropTypesActual.string.isRequired };
-  return { ...base, StringArrayField };
-});
+// One fake per layer: the picker needs the network. Size and Components stay
+// real.
+// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory (plan 3R X6)
+jest.mock("@js/oarepo_ui/forms", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockOarepoForms()
+);
 
-jest.mock("@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField", () => {
-  const R = jest.requireActual("react");
-  const PropTypesActual = jest.requireActual("prop-types");
-  const { getIn, useFormikContext } = jest.requireActual("formik");
-  const FakeMbdbVocabularyField = ({ fieldPath }) => {
-    const { values } = useFormikContext();
-    const v = getIn(values, fieldPath);
-    return R.createElement("div", {
-      "data-testid": "picker",
-      "data-path": fieldPath,
-      "data-value": v?.id ?? v?.title?.en ?? "",
-    });
-  };
-  FakeMbdbVocabularyField.propTypes = {
-    fieldPath: PropTypesActual.string.isRequired,
-  };
-  return { MbdbVocabularyField: FakeMbdbVocabularyField };
-});
+jest.mock("@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockVocabularyField()
+);
 
-let mockTitles = {};
-jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () => ({
-  useVocabularyItem: (type, id) => mockTitles[`${type}/${id}`] ?? {},
-  useVocabularyTitle: (type, id) => mockTitles[`${type}/${id}`]?.title,
-  rememberItem: () => {},
-}));
+jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockVocabularyTitles()
+);
 
-// jsdom has no WebCrypto; client-only row keys.
-let mockKeyN = 0;
-jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () => ({
-  randomUUID: () => `key-${++mockKeyN}-uuid`,
-}));
+// jsdom has no WebCrypto; client-only row keys (plan 3R X6).
+jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockRandomUUID()
+);
 
 const ENTITY = "metadata.general_parameters.entities_of_interest.0";
 const WATER_ID = "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N";
@@ -74,7 +51,7 @@ const WATER_ID = "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N";
 let container;
 
 beforeEach(() => {
-  mockTitles = {};
+  setFakeVocabulary();
   setFakeUiModel({});
 });
 

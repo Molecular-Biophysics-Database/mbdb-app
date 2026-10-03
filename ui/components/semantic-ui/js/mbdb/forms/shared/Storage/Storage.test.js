@@ -20,11 +20,12 @@ jest.mock(
     jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
 );
 
-// Client-only row keys (jsdom has no WebCrypto); incrementing, so rows differ
-let mockKeyN = 0;
-jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () => ({
-  randomUUID: () => `key-${++mockKeyN}-uuid`,
-}));
+// Client-only row keys (jsdom has no WebCrypto); plan 3R X6.
+jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockRandomUUID()
+);
 
 const ENTITY = "metadata.general_parameters.entities_of_interest.0";
 const PATH = `${ENTITY}.storage`;

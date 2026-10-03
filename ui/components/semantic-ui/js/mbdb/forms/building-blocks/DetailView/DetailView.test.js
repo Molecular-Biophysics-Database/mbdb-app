@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import { Formik, useFormikContext } from "formik";
 import { DetailView } from "./DetailView";
+import { setFakeVocabulary } from "@js/mbdb/forms/building-blocks/testUtils";
 
 // @js/oarepo_ui/forms/index pulls in react-searchkit (d3, ESM) and
 // sanitize-html (postcss, ESM), which Jest cannot load — same class of
@@ -56,18 +57,23 @@ jest.mock("@js/oarepo_ui/forms", () => {
   };
 });
 // Vocabulary titles are resolved by group-declared entries ({ field,
-// vocabulary }); the shared cache hook is mocked to answer synchronously.
-jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () => ({
-  // the hook returns the title itself (string) or undefined while loading,
-  // NOT an object — mirroring the real hook is what catches P3-F1
-  useVocabularyTitle: jest.fn(),
-  rememberTitle: () => {},
-  rememberItem: () => {},
-}));
-const { useVocabularyTitle } = jest.requireMock(
-  "@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles"
+// vocabulary }); the shared synchronous cache (plan 3R X6) is seeded with the
+// title the tests expect.
+jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockVocabularyTitles()
 );
-useVocabularyTitle.mockReturnValue("Bacillus subtilis");
+
+beforeEach(() => {
+  setFakeVocabulary({
+    "organisms/bacillus": { title: "Bacillus subtilis" },
+  });
+});
+
+afterEach(() => {
+  setFakeVocabulary();
+});
 
 const { FormConfigProvider, FieldDataProvider } = jest.requireMock(
   "@js/oarepo_ui/forms"
@@ -221,7 +227,7 @@ describe("DetailView", () => {
   });
 
   it("shows the raw id (no crash) while the title is still loading", () => {
-    useVocabularyTitle.mockReturnValueOnce(undefined);
+    setFakeVocabulary();
     mount(
       <DetailView
         fieldPath="o"

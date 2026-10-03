@@ -3,93 +3,48 @@ import {
   renderInForm,
   unmountForm,
   setFakeUiModel,
+  setFakeVocabulary,
   clickOn,
   typeInto,
   ValueProbe,
   readProbe,
+  setStructuredUiModel,
   yamlEnum,
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { ModalArrayField } from "@js/mbdb/forms/building-blocks/ModalArrayField";
 import { Components, COMPONENT_TYPES } from "./index";
 
-// One fake per layer: the picker needs the network, oarepo's StringArrayField
-// needs a context the mbdb wrapper does not pass here. The real leaves
+// One fake per layer: the picker needs the network. The real leaves
 // (PolymerFields, ChemicalFields, Modifications, QualityControls, the modal
-// blocks) stay real. `useFormConfig` feeds the structured `ui_model` the help
-// test needs.
-// eslint-disable-next-line no-restricted-syntax -- kept local: oarepo fake + a StringArrayField stand-in + a structured ui_model (see comment)
-jest.mock("@js/oarepo_ui/forms", () => {
-  const R = jest.requireActual("react");
-  const PropTypesActual = jest.requireActual("prop-types");
-  const { getIn, useFormikContext } = jest.requireActual("formik");
-  const base = jest.requireActual(
-    "@js/mbdb/forms/building-blocks/testUtils"
-  ).oarepoFake;
-  const StringArrayField = ({ fieldPath }) => {
-    const { values } = useFormikContext();
-    const items = getIn(values, fieldPath) ?? [];
-    return R.createElement(
-      "div",
-      { "data-testid": "specs", "data-path": fieldPath },
-      items.join(", ")
-    );
-  };
-  StringArrayField.propTypes = { fieldPath: PropTypesActual.string.isRequired };
-  return {
-    ...base,
-    StringArrayField,
-    useFormConfig: () => ({ config: { ui_model: mockUiModel } }),
-  };
-});
+// blocks) stay real; the shared factory feeds the structured `ui_model`.
+// eslint-disable-next-line no-restricted-syntax -- the shared mockOarepoForms() factory (plan 3R X6)
+jest.mock("@js/oarepo_ui/forms", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockOarepoForms()
+);
 
 // The real wrapper shows the field's merged error under the dropdown; the fake
 // does the same through the shared helper, so an object-level error at
 // `basic_information` still surfaces in the modal.
-jest.mock("@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField", () => {
-  const R = jest.requireActual("react");
-  const PropTypesActual = jest.requireActual("prop-types");
-  const { getIn, useFormikContext } = jest.requireActual("formik");
-  const { useFieldErrors } = jest.requireActual(
-    "@js/mbdb/forms/building-blocks/errors"
-  );
-  const FakeMbdbVocabularyField = ({ fieldPath }) => {
-    const { values } = useFormikContext();
-    const { messages } = useFieldErrors(fieldPath);
-    const v = getIn(values, fieldPath);
-    return R.createElement(
-      "div",
-      { "data-testid": "picker", "data-path": fieldPath },
-      R.createElement(
-        "span",
-        { "data-testid": "picker-value" },
-        v?.id ?? v?.title?.en ?? ""
-      ),
-      messages.length > 0 &&
-        R.createElement(
-          "span",
-          { "data-testid": "picker-error" },
-          messages.join(" ")
-        )
-    );
-  };
-  FakeMbdbVocabularyField.propTypes = {
-    fieldPath: PropTypesActual.string.isRequired,
-  };
-  return { MbdbVocabularyField: FakeMbdbVocabularyField };
-});
+jest.mock("@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockVocabularyField()
+);
 
-let mockTitles = {};
-jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () => ({
-  useVocabularyItem: (type, id) => mockTitles[`${type}/${id}`] ?? {},
-  useVocabularyTitle: (type, id) => mockTitles[`${type}/${id}`]?.title,
-  rememberItem: () => {},
-}));
+jest.mock("@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockVocabularyTitles()
+);
 
-// jsdom has no WebCrypto; client-only row keys.
-let mockKeyN = 0;
-jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () => ({
-  randomUUID: () => `key-${++mockKeyN}-uuid`,
-}));
+// jsdom has no WebCrypto; client-only row keys (plan 3R X6).
+jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockRandomUUID()
+);
 
 let mockUiModel;
 
@@ -99,8 +54,8 @@ const PATH = `${ENTITY}.components`;
 let container;
 
 beforeEach(() => {
-  mockTitles = {};
-  mockUiModel = undefined;
+  setFakeVocabulary();
+  setStructuredUiModel();
   setFakeUiModel({});
 });
 
@@ -437,6 +392,7 @@ describe("Components", () => {
         },
       },
     };
+    setStructuredUiModel(mockUiModel);
     render({
       initialValues: assembly([
         { type: "Polymer", name: "alpha", copy_number: 1 },

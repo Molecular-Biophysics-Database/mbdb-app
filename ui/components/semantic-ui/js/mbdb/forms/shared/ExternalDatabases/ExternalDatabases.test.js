@@ -15,10 +15,12 @@ jest.mock(
 );
 // crypto.randomUUID needs https/localhost; jest must use the same key
 // generator as the building block or TableArrayField cannot mint row keys
-let mockKeyN = 0;
-jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () => ({
-  randomUUID: () => `key-${++mockKeyN}-uuid`,
-}));
+// (plan 3R X6).
+jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockRandomUUID()
+);
 const { setFakeUiModel, renderInForm, unmountForm } = jest.requireActual(
   "@js/mbdb/forms/building-blocks/testUtils"
 );

@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 import Overridable from "react-overridable";
 import { buildUID } from "react-searchkit";
 import { Message } from "mbdb-semantic-ui-react";
-
-export const ENTITIES_OF_INTEREST_PATH =
-  "metadata.general_parameters.entities_of_interest";
+import { ENTITIES_OF_INTEREST_PATH } from "./path";
 
 // Placeholder until plan step 5; the real content is designed in
 // conversion_docs/poc/design/EntitiesOfInterest.md
@@ -30,3 +28,5 @@ export const EntitiesOfInterestSection = {
   component: EntitiesOfInterestSectionComponent,
   includesPaths: [ENTITIES_OF_INTEREST_PATH],
 };
+
+export { ENTITIES_OF_INTEREST_PATH } from "./path";

@@ -6,6 +6,7 @@ import fs from "fs";
 import path from "path";
 import { Formik, FormikProvider, Field, getIn, useFormikContext } from "formik";
 import { HelpModeProvider } from "mbdb-semantic-ui-react";
+import { useFieldErrors } from "./errors";
 
 // Shared test harness for the building-block tests. One jest.mock for
 // "@js/oarepo_ui/forms" (oarepoFake) and one renderInForm/unmountForm pair,
@@ -110,6 +111,104 @@ export const mockOarepoForms = () => ({
   ...oarepoFake,
   StringArrayField: StringArrayFieldStandIn,
   useFormConfig: () => ({ config: { ui_model: structuredUiModel } }),
+});
+
+// A client-only uuid for the row-key mocks (jsdom has no WebCrypto). Its
+// shape is `uuid-N`; the sequence resets per test file.
+//   jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
+//     jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").mockRandomUUID()
+//   );
+let uuidSeq = 0;
+export const mockRandomUUID = () => ({
+  randomUUID: () => `uuid-${++uuidSeq}`,
+});
+
+// A synchronous vocabulary title/item cache, mirroring the real
+// vocabularyTitles module. Seed it with
+// setFakeVocabulary({ "organisms/taxid:1": { title: "…", customFields: … } });
+// rememberItem writes into it (like the real cache), so a fake pick can seed
+// the item a later read resolves.
+let fakeVocabulary = {};
+export const setFakeVocabulary = (items) => {
+  fakeVocabulary = items ?? {};
+};
+export const mockVocabularyTitles = () => ({
+  useVocabularyItem: (type, id) => fakeVocabulary[`${type}/${id}`] ?? {},
+  useVocabularyTitle: (type, id) => fakeVocabulary[`${type}/${id}`]?.title,
+  rememberItem: (type, id, item) => {
+    if (!type || !id) return;
+    fakeVocabulary[`${type}/${id}`] = {
+      ...(fakeVocabulary[`${type}/${id}`] ?? {}),
+      ...item,
+    };
+  },
+  rememberTitle: () => {},
+});
+
+// A pick suggestion per vocabulary name, in the real
+// serializeVocabularySuggestions shape ({ id, title_l10n, custom_fields }),
+// for the mockVocabularyField() pick button.
+let vocabularyPicks = {};
+export const setFakeVocabularyPicks = (picks) => {
+  vocabularyPicks = picks ?? {};
+};
+
+// A fake for MbdbVocabularyField (plan 3R X6), mirroring what a block needs
+// from the real wrapper: the fieldPath, the value it shows, the label slot, the
+// merged field error, a pick that writes { id } and calls onPicked (the real
+// onValueChange — seed the item cache with setFakeVocabulary()), and the
+// manual-addition trigger. Use it as:
+//   jest.mock("…/MbdbVocabularyField", () =>
+//     jest.requireActual("…/testUtils").mockVocabularyField()
+//   );
+const FakeMbdbVocabularyField = ({
+  fieldPath,
+  vocabularyName,
+  label,
+  onPicked,
+  onAddition,
+}) => {
+  const { values, setFieldValue } = useFormikContext();
+  const { messages } = useFieldErrors(fieldPath);
+  const v = getIn(values, fieldPath);
+  const shown = v?.id ?? v?.title?.en ?? "";
+  const pick = vocabularyPicks[vocabularyName];
+  return (
+    <div data-testid="picker" data-path={fieldPath} data-value={shown}>
+      <span data-testid="picker-value">{shown}</span>
+      <span data-testid="picker-label">{label}</span>
+      {messages.length > 0 && (
+        <span data-testid="picker-error">{messages.join(" ")}</span>
+      )}
+      {pick && (
+        <button
+          type="button"
+          data-testid="pick"
+          onClick={() => {
+            setFieldValue(fieldPath, { id: pick.id });
+            onPicked?.(pick);
+          }}
+        />
+      )}
+      {onAddition && (
+        <button
+          type="button"
+          data-testid="enter-manually"
+          onClick={() => onAddition("my custom lipid mix")}
+        />
+      )}
+    </div>
+  );
+};
+FakeMbdbVocabularyField.propTypes = {
+  fieldPath: PropTypes.string.isRequired,
+  vocabularyName: PropTypes.string,
+  onPicked: PropTypes.func,
+  onAddition: PropTypes.func,
+  label: PropTypes.node,
+};
+export const mockVocabularyField = () => ({
+  MbdbVocabularyField: FakeMbdbVocabularyField,
 });
 
 // --- render helper --------------------------------------------------------
