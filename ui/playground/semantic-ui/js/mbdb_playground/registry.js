@@ -117,6 +117,34 @@ export const REGISTRY = [
     design: "design/building-blocks/DefaultsAndIds.md",
     load: () => import("./stories/DefaultsAndIds.story"),
   },
+  // Shared building blocks that are importable on their own; every built
+  // component has a story (design/index.md).
+  {
+    step: 1,
+    key: "EditModal",
+    title: "EditModal (shared modal shell)",
+    design: "design/building-blocks/ModalArrayField.md",
+    load: () => import("./stories/EditModal.story"),
+  },
+  {
+    step: 1,
+    key: "FieldShell",
+    title: "FieldShell (field frame)",
+    design: "design/building-blocks/AliasPackages.md",
+    load: () => import("./stories/FieldShell.story"),
+  },
+  {
+    step: 1,
+    key: "ErrorMessages",
+    design: "design/building-blocks/FieldGroup.md",
+    load: () => import("./stories/ErrorMessages.story"),
+  },
+  {
+    step: 1,
+    key: "ExternalLink",
+    design: "design/shared/ExternalDatabases.md",
+    load: () => import("./stories/ExternalLink.story"),
+  },
 
   {
     step: 2,
@@ -250,6 +278,7 @@ export const REGISTRY = [
     step: 4,
     key: "ComplexSubstanceCommon",
     design: "design/entities/ComplexSubstanceCommon.md",
+    load: () => import("./stories/ComplexSubstanceCommon.story"),
   },
   {
     step: 4,
