@@ -74,6 +74,8 @@ export const PlaygroundApp = ({ uiModel }) => {
     setDisclosure("closed");
     setEpoch((n) => n + 1);
   };
+  // review mode (design ReviewMode.md): a toggle next to Expand/Collapse all
+  const [review, setReview] = useState(false);
 
   const selectHelpMode = (mode) => {
     setHelpMode(mode);
@@ -143,6 +145,15 @@ export const PlaygroundApp = ({ uiModel }) => {
                       onClick={collapseAll}
                     />
                   </Button.Group>
+                  <Button.Group>
+                    <Button
+                      type="button"
+                      toggle
+                      active={review}
+                      content={review ? "Review: on" : "Review"}
+                      onClick={() => setReview((v) => !v)}
+                    />
+                  </Button.Group>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row>
@@ -190,6 +201,7 @@ export const PlaygroundApp = ({ uiModel }) => {
                           key={active.key}
                           disclosure={disclosure}
                           epoch={epoch}
+                          review={review}
                         />
                       </Suspense>
                     ) : (

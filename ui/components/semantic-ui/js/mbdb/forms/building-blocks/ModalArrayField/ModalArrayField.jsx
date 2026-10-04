@@ -11,6 +11,7 @@ import {
   HelpLabel,
   Icon,
   Table,
+  useReviewMode,
 } from "mbdb-semantic-ui-react";
 import {
   useFieldErrors,
@@ -46,6 +47,8 @@ export const ModalArrayField = ({
   detailProps,
 }) => {
   const { values } = useFormikContext();
+  // review mode: no Add button or menu (and so the modal is never opened)
+  const reviewMode = useReviewMode();
   const data = useModelFieldData(fieldPath, {
     label,
     helpText: help,
@@ -156,40 +159,41 @@ export const ModalArrayField = ({
           </Table>
         )}
         <ErrorMessages messages={listMessages} />
-        {options.length === 1 ? (
-          <Button
-            type="button"
-            icon
-            labelPosition="left"
-            size="small"
-            onClick={() => openNew(options[0].value)}
-          >
-            <Icon name="add" />
-            {`Add${options[0].label ? ` ${options[0].label}` : ""}`}
-          </Button>
-        ) : (
-          // menu items only fire onClick — Semantic's default
-          // selectOnBlur/selectOnNavigation would ADD an item on blur
-          // or arrow keys. "icon" + "small" match the one-option button.
-          <Dropdown
-            text="Add"
-            button
-            labeled
-            floating
-            icon="add"
-            className="icon small"
-          >
-            <Dropdown.Menu>
-              {options.map((option, i) => (
-                <Dropdown.Item
-                  key={option.label ?? i}
-                  text={option.label}
-                  onClick={() => openNew(option.value)}
-                />
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-        )}
+        {!reviewMode &&
+          (options.length === 1 ? (
+            <Button
+              type="button"
+              icon
+              labelPosition="left"
+              size="small"
+              onClick={() => openNew(options[0].value)}
+            >
+              <Icon name="add" />
+              {`Add${options[0].label ? ` ${options[0].label}` : ""}`}
+            </Button>
+          ) : (
+            // menu items only fire onClick — Semantic's default
+            // selectOnBlur/selectOnNavigation would ADD an item on blur
+            // or arrow keys. "icon" + "small" match the one-option button.
+            <Dropdown
+              text="Add"
+              button
+              labeled
+              floating
+              icon="add"
+              className="icon small"
+            >
+              <Dropdown.Menu>
+                {options.map((option, i) => (
+                  <Dropdown.Item
+                    key={option.label ?? i}
+                    text={option.label}
+                    onClick={() => openNew(option.value)}
+                  />
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          ))}
       </Form.Field>
       {/* the modal is a SIBLING of Form.Field, not nested inside it
           (guide §8), so depth-2 modals stack correctly */}

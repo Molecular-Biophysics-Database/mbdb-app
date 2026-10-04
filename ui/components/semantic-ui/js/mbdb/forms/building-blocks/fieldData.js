@@ -114,6 +114,54 @@ export const resolveUiNode = (uiModel, fieldPath, values) => {
   return withVariants(node, recordSoFar);
 };
 
+// Pure: the model data (label/help/required) for one fieldPath, variant-aware
+// when a ui_model node resolves, else oarepo's getFieldData. Shared by
+// useModelFieldData (one field, via a hook) and the details' required/not-filled
+// walk, which loops over many fields and so cannot call a hook per field (R0).
+export const resolveFieldModelData = ({
+  uiModel,
+  values,
+  getFieldData,
+  fieldPath,
+}) => {
+  const node = fieldPath
+    ? resolveUiNode(uiModel, fieldPath, values)
+    : undefined;
+  let data;
+  if (node) {
+    data = {
+      label: localized(node.label, null),
+      helpText: localized(node.help, null),
+      required: node.required,
+    };
+  } else if (fieldPath) {
+    data = getFieldData({ fieldPath, fieldRepresentation: "text" });
+  } else {
+    data = { label: undefined, helpText: undefined, required: undefined };
+  }
+  return { ...data, label: readableLabel(data.label, undefined) };
+};
+
+// The resolver the detail blocks loop over: model data per fieldPath, plus the
+// resolved ui_model node (the not-filled walk needs its `children`). One hook,
+// so callers can resolve many paths without a hook per path.
+export const useModelResolver = () => {
+  const { getFieldData } = useFieldData();
+  const { values } = useFormikContext() ?? {};
+  let uiModel;
+  try {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { config } = useFormConfig();
+    uiModel = config?.ui_model;
+  } catch {
+    uiModel = undefined;
+  }
+  return (fieldPath) => ({
+    node: fieldPath ? resolveUiNode(uiModel, fieldPath, values) : undefined,
+    data: resolveFieldModelData({ uiModel, values, getFieldData, fieldPath }),
+  });
+};
+
 // Resolves label/helpText/required for a fieldPath from the model
 // (ui_model), with explicit props winning over the model defaults.
 // getFieldData internally calls useMemo, so it MUST be called
@@ -122,40 +170,12 @@ export const useModelFieldData = (
   fieldPath,
   { label, helpText, required } = {}
 ) => {
-  const { getFieldData } = useFieldData();
-  // when there is no Formik above (stories without a Form), formik's context
-  // is `undefined`; discriminator lookups then just see an empty record
-  const { values } = useFormikContext() ?? {};
-  let uiModel;
-  try {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { config } = useFormConfig();
-    uiModel = config?.ui_model;
-  } catch {
-    uiModel = undefined; // stories/tests without a form config: model-less
-  }
-  // fieldPath is optional for some blocks (FieldGroup without a model path).
-  // oarepo's getFieldData would crash on undefined (toModelPath does
-  // path.split), so skip the lookup: explicit props become the only source.
-  const node = fieldPath
-    ? resolveUiNode(uiModel, fieldPath, values)
-    : undefined;
-  const modelData = node
-    ? {
-        label: localized(node.label, null),
-        helpText: localized(node.help, null),
-        required: node.required,
-      }
-    : fieldPath
-    ? getFieldData({ fieldPath, fieldRepresentation: "text" })
-    : { label: undefined, helpText: undefined, required: undefined };
-  // readableLabel replaces a raw-path label with its readable leaf; helpText
-  // stays null in that fallback case.
-  const modelLabel = readableLabel(modelData.label, undefined);
+  const resolve = useModelResolver();
+  const { data } = resolve(fieldPath);
   return {
-    label: label !== undefined ? label : modelLabel,
-    helpText: helpText !== undefined ? helpText : modelData.helpText,
-    required: required !== undefined ? required : modelData.required,
+    label: label !== undefined ? label : data.label,
+    helpText: helpText !== undefined ? helpText : data.helpText,
+    required: required !== undefined ? required : data.required,
   };
 };
 

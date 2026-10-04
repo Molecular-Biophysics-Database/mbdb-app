@@ -3,7 +3,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from "react";
 import PropTypes from "prop-types";
-import { Button, Table } from "mbdb-semantic-ui-react";
+import { Button, Table, useReviewMode } from "mbdb-semantic-ui-react";
 import { Section } from "./Rows";
 import { useSections } from "./collect";
 
@@ -19,9 +19,11 @@ export const DetailView = ({
   onEdit,
   itemName,
 }) => {
+  // review mode: no edit affordance, and the error notes are plain text
+  const reviewMode = useReviewMode();
   const sections = useSections(fieldPath, groups, exclude, requiredPaths);
   if (!sections) return null;
-  const showEdit = typeof onEdit === "function";
+  const showEdit = typeof onEdit === "function" && !reviewMode;
   const editButton = showEdit && (
     <Button basic size="small" type="button" onClick={onEdit}>
       {`Edit ${itemName ?? ""}`.trim()}
@@ -43,7 +45,7 @@ export const DetailView = ({
               key={si}
               fieldPath={fieldPath}
               section={section}
-              onEdit={onEdit}
+              onEdit={reviewMode ? undefined : onEdit}
             />
           ))}
         </Table.Body>

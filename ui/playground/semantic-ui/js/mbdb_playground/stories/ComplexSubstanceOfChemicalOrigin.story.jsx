@@ -18,6 +18,7 @@ const FILLED = {
 };
 
 const story = {
+  review: "entity",
   title: "ComplexSubstanceOfChemicalOrigin",
   scenarios: [
     {

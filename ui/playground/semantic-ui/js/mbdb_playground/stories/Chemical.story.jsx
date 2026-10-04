@@ -5,6 +5,7 @@ import { ENTITY_PATH, entityErrors, entityValues } from "../fixtures";
 const Fields = () => <ChemicalFields fieldPath={ENTITY_PATH} />;
 
 const story = {
+  review: "entity",
   title: "Chemical",
   scenarios: [
     { name: "Empty", initialValues: entityValues("Chemical"), render: Fields },

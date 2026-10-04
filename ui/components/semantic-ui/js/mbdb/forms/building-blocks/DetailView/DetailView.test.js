@@ -2,7 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import { Formik, useFormikContext } from "formik";
-import { DisclosureDefaultProvider } from "mbdb-semantic-ui-react";
+import {
+  DisclosureDefaultProvider,
+  ReviewModeProvider,
+} from "mbdb-semantic-ui-react";
 import { DetailView } from "./DetailView";
 import { setFakeVocabulary } from "@js/mbdb/forms/building-blocks/testUtils";
 
@@ -50,6 +53,7 @@ jest.mock("@js/oarepo_ui/forms", () => {
   return {
     FormConfigProvider,
     FieldDataProvider: ({ children }) => children,
+    useFormConfig: () => R.useContext(Ctx),
     useFieldData: () => ({
       getFieldData: R.useContext(Ctx).getFieldData(
         R.useContext(Ctx).config.ui_model
@@ -813,6 +817,41 @@ describe("DetailView — review findings", () => {
     expect(container.querySelector(".mbdb-muted-text").textContent).toContain(
       "SPECIES"
     );
+  });
+});
+
+describe("DetailView review mode", () => {
+  it("lists each group's not-filled fields and shows the empty ones", () => {
+    mount(
+      <ReviewModeProvider review>
+        <DetailView fieldPath="o" groups={GROUPS} />
+      </ReviewModeProvider>,
+      { initialValues: { o: { name: "X" } } }
+    );
+    expect(text()).toContain("Not filled:");
+    // the empty one-field group (Sequence) renders its row as "not filled"
+    expect(text()).toContain("not filled");
+  });
+
+  it("has no Edit link and a plain (non-button) error note", () => {
+    mount(
+      <ReviewModeProvider review>
+        <DetailView
+          fieldPath="o"
+          groups={GROUPS}
+          onEdit={() => {}}
+          itemName="entity"
+        />
+      </ReviewModeProvider>,
+      {
+        initialValues: { o: { name: "" } },
+        initialErrors: { o: { name: "Missing data for required field." } },
+      }
+    );
+    expect(text()).not.toContain("Edit entity");
+    const note = container.querySelector(".mbdb-error-text");
+    expect(note).not.toBeNull();
+    expect(note.tagName).not.toBe("BUTTON");
   });
 });
 

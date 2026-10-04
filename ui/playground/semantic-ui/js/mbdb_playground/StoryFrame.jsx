@@ -10,11 +10,12 @@ import {
   Icon,
   Menu,
   Message,
+  ReviewModeProvider,
   Segment,
 } from "mbdb-semantic-ui-react";
-// Not from "@js/mbdb/forms": its index pulls in react-searchkit, whose d3
-// dependency (ESM) Jest cannot load.
 import { MbdbDepositRecordSerializer } from "@js/mbdb/forms/serializer";
+import { EntityDetails } from "@js/mbdb/forms/sections/EntitiesOfInterest/EntityDetails";
+import { ENTITY_PATH } from "./fixtures";
 
 const serializer = new MbdbDepositRecordSerializer();
 
@@ -75,7 +76,12 @@ ServerErrorsPanel.propTypes = {
   onClear: PropTypes.func.isRequired,
 };
 
-export const StoryFrame = ({ story, disclosure, epoch = 0 }) => {
+export const StoryFrame = ({
+  story,
+  disclosure,
+  epoch = 0,
+  review = false,
+}) => {
   const { scenarios } = story;
   const [scenarioIndex, setScenarioIndex] = useState(0);
   const [mount, setMount] = useState(() => mountScenario(scenarios[0], 0));
@@ -119,11 +125,22 @@ export const StoryFrame = ({ story, disclosure, epoch = 0 }) => {
               {/* The one-shot Expand/Collapse all default, applied to the
                   blocks' INITIAL state. `key={epoch}` remounts only the story
                   content when the default changes, so the blocks re-read it;
-                  Formik stays mounted and the values are kept. */}
+                  Formik stays mounted and the values are kept. Review mode
+                  (ReviewModeProvider) also opens everything and keys the
+                  content by the mode; a story that declares `review: "entity"`
+                  shows the entity's read-only details instead. */}
               <DisclosureDefaultProvider value={disclosure}>
-                <React.Fragment key={epoch}>
-                  <Content />
-                </React.Fragment>
+                <ReviewModeProvider review={review}>
+                  <React.Fragment
+                    key={`${epoch}-${review ? "review" : "edit"}`}
+                  >
+                    {review && story.review === "entity" ? (
+                      <EntityDetails fieldPath={ENTITY_PATH} />
+                    ) : (
+                      <Content />
+                    )}
+                  </React.Fragment>
+                </ReviewModeProvider>
               </DisclosureDefaultProvider>
             </Form>
 
@@ -176,6 +193,9 @@ export const StoryFrame = ({ story, disclosure, epoch = 0 }) => {
 StoryFrame.propTypes = {
   story: PropTypes.shape({
     title: PropTypes.string,
+    // a story that declares `review: "entity"` shows the entity's details in
+    // review mode instead of its form (design ReviewMode.md)
+    review: PropTypes.string,
     scenarios: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
@@ -190,4 +210,7 @@ StoryFrame.propTypes = {
   disclosure: PropTypes.oneOf(["open", "closed"]),
   // bumped by the buttons to remount the story content and re-read `disclosure`
   epoch: PropTypes.number,
+  // review mode (design ReviewMode.md): all open, no edit affordances, and the
+  // stories that declare `review: "entity"` show the entity's details
+  review: PropTypes.bool,
 };

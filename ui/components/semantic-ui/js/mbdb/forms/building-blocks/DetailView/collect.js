@@ -1,5 +1,6 @@
 import { getIn, useFormikContext } from "formik";
-import { useFieldData } from "@js/oarepo_ui/forms";
+import { useReviewMode } from "mbdb-semantic-ui-react";
+import { useModelResolver } from "@js/mbdb/forms/building-blocks/fieldData";
 import {
   collectMessages,
   hasData,
@@ -7,6 +8,7 @@ import {
   mergedErrorNode,
 } from "@js/mbdb/forms/building-blocks/errors";
 import { formatters } from "./formatters";
+import { unfilledPaths } from "./unfilled";
 import { isAssessed, isLeafObject, isPlainObject, isSteps } from "./values";
 
 // A group field entry is a plain name or
@@ -108,8 +110,10 @@ export const groupSections = (
   groups,
   exclude,
   required,
-  hasErr
+  hasErr,
+  review = {}
 ) => {
+  const { reviewMode = false, node: itemNode } = review;
   const known = new Set(exclude);
   const sections = [];
   const vocabularies = {};
@@ -120,11 +124,13 @@ export const groupSections = (
   groups.forEach((group) => {
     const part = {};
     const missing = [];
+    const fieldNames = [];
     (group.fields ?? []).forEach((entry) => {
       const { name, vocabulary, itemColumns, itemGroups, children } =
         fieldEntryOf(entry);
       known.add(name);
       if (exclude.includes(name)) return;
+      fieldNames.push(name);
       // an array-of-complex field declares its mini columns + item groups here,
       // keyed by the mini row's PATH, so an array inside a nested object
       // (modifications.biological_postprocessing) can declare one too, through
@@ -152,9 +158,10 @@ export const groupSections = (
     // - a plain value needs no group header at all (the field row is enough);
     // - an array (mini table) or a nested object keeps the group header and
     //   drops the field's sub-heading, and its rows move up one depth.
+    const one = (group.fields ?? []).length === 1;
     let title = group.title;
     let finalRows = rows;
-    if ((group.fields ?? []).length === 1) {
+    if (one) {
       if (rows[0]?.kind === "heading")
         finalRows = rows
           .slice(1)
@@ -167,8 +174,42 @@ export const groupSections = (
         finalRows = rows.map((row) => ({ ...row, depth: 0, groupGap: true }));
       }
     }
-    if (finalRows.length === 0 && missing.length === 0) return; // all-empty
-    sections.push({ title, rows: finalRows, missing });
+    // review mode (design ReviewMode.md rules 4, 5): the group's absent fields,
+    // highest node only, required-and-empty skipped (they are `missing`). A
+    // header-less one-field group shows its row as "not filled" instead.
+    let notFilled = [];
+    if (reviewMode) {
+      if (one && title === undefined) {
+        if (finalRows.length === 0)
+          finalRows = [
+            {
+              kind: "field",
+              name: fieldNames[0],
+              path: `${basePath}.${fieldNames[0]}`,
+              value: undefined,
+              depth: 0,
+              groupGap: true,
+              notFilled: true,
+              errored: false,
+            },
+          ];
+      } else {
+        const sub = {};
+        fieldNames.forEach((name) => {
+          if (missing.includes(name)) return;
+          const childNode = itemNode?.children?.[name];
+          if (childNode) sub[name] = childNode;
+        });
+        notFilled = unfilledPaths({ children: sub }, obj ?? {}, { exclude });
+      }
+    }
+    if (
+      finalRows.length === 0 &&
+      missing.length === 0 &&
+      notFilled.length === 0
+    )
+      return; // all-empty (and not review mode)
+    sections.push({ title, rows: finalRows, missing, notFilled });
   });
   // keys in no group are never hidden: they go under "Other"
   const other = {};
@@ -177,26 +218,35 @@ export const groupSections = (
       other[name] = value;
   });
   const otherRows = collectRows(other, basePath, hasErr);
+  // NOTE (design ReviewMode.md rule 6): "Other" gets no not-filled line. The
+  // ui_model's polymorphic node stores the UNION of every variant's fields in
+  // `children` (variants[value] holds only the diff, not the field set), so a
+  // field no group lists cannot be told from another variant's field here. The
+  // per-type "every model field is in its group spec" test keeps Other empty
+  // (no rows, no line).
   if (otherRows.length > 0)
-    sections.push({ title: "Other", rows: otherRows, missing: [] });
+    sections.push({
+      title: "Other",
+      rows: otherRows,
+      missing: [],
+      notFilled: [],
+    });
   return sections;
 };
 
-// Required defaults to the model flag for each group field; a non-empty
-// caller-supplied prop replaces the default entirely (the escape hatch for
-// polymorphic paths that have no ui_model children yet).
+// Required defaults to the model flag for each group field, resolved the
+// variant-aware way (R0): the union ui_model says `organ` is optional (Cell
+// fraction has it so), so a Solid tissue sample would never be Missing. A
+// non-empty caller-supplied prop replaces the default entirely (the escape
+// hatch for polymorphic paths with no ui_model children yet).
 export const useMergedRequired = (fieldPath, groups, requiredPaths) => {
-  const { getFieldData } = useFieldData();
+  const resolve = useModelResolver();
   if (requiredPaths.length > 0) return new Set(requiredPaths);
   const merged = new Set();
   groups.forEach((group) =>
     (group.fields ?? []).forEach((entry) => {
       const { name } = fieldEntryOf(entry);
-      const { required } = getFieldData({
-        fieldPath: `${fieldPath}.${name}`,
-        fieldRepresentation: "text",
-      });
-      if (required) merged.add(name);
+      if (resolve(`${fieldPath}.${name}`).data.required) merged.add(name);
     })
   );
   return merged;
@@ -209,6 +259,8 @@ export const useMergedRequired = (fieldPath, groups, requiredPaths) => {
 // null when the object is absent (nothing to show).
 export const useSections = (fieldPath, groups, exclude, requiredPaths) => {
   const formik = useFormikContext();
+  const resolve = useModelResolver();
+  const reviewMode = useReviewMode();
   const required = useMergedRequired(fieldPath, groups, requiredPaths);
   // Rows with a server error stay visible even when empty (design §5). collect
   // is pure (no hooks), so it cannot call useFieldErrors; mergedErrorNode is
@@ -225,6 +277,7 @@ export const useSections = (fieldPath, groups, exclude, requiredPaths) => {
     groups,
     exclude,
     required,
-    hasErr
+    hasErr,
+    { reviewMode, node: resolve(fieldPath).node }
   );
 };

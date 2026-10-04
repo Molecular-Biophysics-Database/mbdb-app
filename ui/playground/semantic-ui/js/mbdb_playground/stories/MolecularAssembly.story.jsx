@@ -5,6 +5,7 @@ import { ENTITY_PATH, entityErrors, entityValues } from "../fixtures";
 const Fields = () => <MolecularAssemblyFields fieldPath={ENTITY_PATH} />;
 
 const story = {
+  review: "entity",
   title: "MolecularAssembly",
   scenarios: [
     {

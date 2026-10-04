@@ -1,18 +1,12 @@
 import PropTypes from "prop-types";
-import { useFieldData } from "@js/oarepo_ui/forms";
-import { readableLabel } from "@js/mbdb/forms/building-blocks/fieldData";
+import { useModelFieldData } from "@js/mbdb/forms/building-blocks/fieldData";
 
-// getFieldData uses hooks, so one tiny component per label (rows are few).
-// getFieldData also returns the raw model path as the "label" in production
-// when the ui_model has no entry for the path; readableLabel maps that to the
-// readable leaf instead.
+// The label of one field, resolved the same way the form blocks resolve theirs
+// (variant-aware, R0), so a nested label is never another variant's. One tiny
+// component per label, because the lookup uses hooks (rows are few).
 export const DetailLabel = ({ path, fallback }) => {
-  const { getFieldData } = useFieldData();
-  const { label } = getFieldData({
-    fieldPath: path,
-    fieldRepresentation: "text",
-  });
-  return readableLabel(label, fallback);
+  const { label } = useModelFieldData(path);
+  return label ?? fallback;
 };
 DetailLabel.propTypes = {
   path: PropTypes.string.isRequired,

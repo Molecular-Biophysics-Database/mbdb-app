@@ -13,6 +13,7 @@ const values = (fields, derivedFrom) =>
   entityValues(BIOLOGICAL, fields, { derived_from: derivedFrom });
 
 const story = {
+  review: "entity",
   title: "ComplexSubstanceOfBiologicalOrigin",
   scenarios: [
     { name: "Empty", initialValues: entityValues(BIOLOGICAL), render: Fields },

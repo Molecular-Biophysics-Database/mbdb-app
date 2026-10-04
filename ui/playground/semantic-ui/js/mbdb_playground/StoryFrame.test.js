@@ -5,6 +5,23 @@ import { getIn, useFormikContext } from "formik";
 import { useDisclosureDefault } from "mbdb-semantic-ui-react";
 import { StoryFrame } from "./StoryFrame";
 
+// StoryFrame imports EntityDetails (its module chain reaches sanitize-html, an
+// ESM package Jest cannot load); the story's `review: "entity"` path is
+// covered by EntityDetails.test.js, so stub it here.
+// eslint-disable-next-line no-restricted-syntax -- the shared-chain fake (§8)
+jest.mock("@js/mbdb/forms/sections/EntitiesOfInterest/EntityDetails", () => {
+  const React = jest.requireActual("react");
+  return {
+    // eslint-disable-next-line react/prop-types
+    EntityDetails: ({ fieldPath }) =>
+      React.createElement(
+        "div",
+        { "data-testid": "entity-details" },
+        fieldPath
+      ),
+  };
+});
+
 // Plain react-dom test utils: @testing-library/dom in the assets project fails
 // to load (pretty-format mismatch).
 

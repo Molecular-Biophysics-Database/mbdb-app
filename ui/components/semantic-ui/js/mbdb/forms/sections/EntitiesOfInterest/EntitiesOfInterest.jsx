@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { getIn, useFormikContext } from "formik";
 import Overridable from "react-overridable";
 import { buildUID } from "react-searchkit";
-import { Label } from "mbdb-semantic-ui-react";
+import { Label, useReviewMode } from "mbdb-semantic-ui-react";
 import { ModalArrayField } from "@js/mbdb/forms/building-blocks/ModalArrayField";
 import { ENTITY_SEEDS } from "@js/mbdb/forms/entities/seeds";
 import { ENTITY_TYPES, ENTITY_TYPE_ORDER } from "./entityTypes";
@@ -37,40 +37,46 @@ export const EntitiesOfInterestSectionComponent = ({ formConfig }) => {
   const { values } = useFormikContext();
   const entities = getIn(values, ENTITIES_OF_INTEREST_PATH) ?? [];
   const duplicates = duplicateNames(entities);
+  // review mode (design ReviewMode.md rule 2): the content is keyed by the mode,
+  // so switching it remounts the section and every row re-reads its initial
+  // state (all open); Formik, above, keeps the values.
+  const reviewMode = useReviewMode();
   return (
     <Overridable
       id={buildUID(formConfig?.overridableIdPrefix, "EntitiesOfInterest")}
     >
-      <ModalArrayField
-        fieldPath={ENTITIES_OF_INTEREST_PATH}
-        minItems={1}
-        withIds
-        itemLabel={(v) => `${v?.type ?? "Entity"}: ${v?.name || "new"}`}
-        newItemOptions={ENTITY_TYPE_ORDER.map((type) => ({
-          label: type,
-          value: { type, ...ENTITY_SEEDS[type] },
-        }))}
-        columns={[
-          {
-            label: "Name",
-            value: (v) => <NameCell value={v} duplicates={duplicates} />,
-          },
-          { label: "Type", value: (v) => v?.type ?? "" },
-          {
-            label: "Details",
-            value: (v) => ENTITY_TYPES[v?.type]?.summary(v) ?? "",
-          },
-        ]}
-        detailGroups={(v) => ENTITY_TYPES[v?.type]?.groups(v) ?? []}
-        // Type and Name are already columns of the row: do not repeat them
-        // under "Other" (design DetailView §2)
-        detailProps={{ exclude: ["id", "type", "name"] }}
-        // a component's nested modal shows the entity as "name (type) ›" and
-        // its Done reads "Done, back to <the entity type's noun>"
-        crumbLabel={(v) => `${v?.name ?? ""} (${v?.type ?? ""})`}
-        crumbNoun={(v) => ENTITY_TYPES[v?.type]?.noun}
-        renderForm={(itemPath) => <EntityForm fieldPath={itemPath} />}
-      />
+      <React.Fragment key={reviewMode ? "review" : "edit"}>
+        <ModalArrayField
+          fieldPath={ENTITIES_OF_INTEREST_PATH}
+          minItems={1}
+          withIds
+          itemLabel={(v) => `${v?.type ?? "Entity"}: ${v?.name || "new"}`}
+          newItemOptions={ENTITY_TYPE_ORDER.map((type) => ({
+            label: type,
+            value: { type, ...ENTITY_SEEDS[type] },
+          }))}
+          columns={[
+            {
+              label: "Name",
+              value: (v) => <NameCell value={v} duplicates={duplicates} />,
+            },
+            { label: "Type", value: (v) => v?.type ?? "" },
+            {
+              label: "Details",
+              value: (v) => ENTITY_TYPES[v?.type]?.summary(v) ?? "",
+            },
+          ]}
+          detailGroups={(v) => ENTITY_TYPES[v?.type]?.groups(v) ?? []}
+          // Type and Name are already columns of the row: do not repeat them
+          // under "Other" (design DetailView §2)
+          detailProps={{ exclude: ["id", "type", "name"] }}
+          // a component's nested modal shows the entity as "name (type) ›" and
+          // its Done reads "Done, back to <the entity type's noun>"
+          crumbLabel={(v) => `${v?.name ?? ""} (${v?.type ?? ""})`}
+          crumbNoun={(v) => ENTITY_TYPES[v?.type]?.noun}
+          renderForm={(itemPath) => <EntityForm fieldPath={itemPath} />}
+        />
+      </React.Fragment>
     </Overridable>
   );
 };

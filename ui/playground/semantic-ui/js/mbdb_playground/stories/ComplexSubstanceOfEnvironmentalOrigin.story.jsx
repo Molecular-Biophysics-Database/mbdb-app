@@ -7,6 +7,7 @@ const Fields = () => (
 );
 
 const story = {
+  review: "entity",
   title: "ComplexSubstanceOfEnvironmentalOrigin",
   scenarios: [
     {

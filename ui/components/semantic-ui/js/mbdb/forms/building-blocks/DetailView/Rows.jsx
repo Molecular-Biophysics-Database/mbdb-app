@@ -63,6 +63,29 @@ Heading.propTypes = {
   row: PropTypes.object.isRequired,
 };
 
+// One not-filled entry: its label chain, e.g. "Storage › Duration" (the model
+// labels of each path segment, joined with " › ", design ReviewMode.md rule 4).
+const NotFilledLabel = ({ fieldPath, path }) => {
+  const segments = path.split(".");
+  return (
+    <>
+      {segments.map((seg, i) => (
+        <React.Fragment key={i}>
+          {i > 0 ? " › " : ""}
+          <DetailLabel
+            path={`${fieldPath}.${segments.slice(0, i + 1).join(".")}`}
+            fallback={seg}
+          />
+        </React.Fragment>
+      ))}
+    </>
+  );
+};
+NotFilledLabel.propTypes = {
+  fieldPath: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+};
+
 // One group of the form becomes a section: a header row plus its rows and the
 // red "Missing" rows for required-but-absent fields (design §5). Used by the
 // top-level DetailView and by a mini row's own ▸ (the item's groups). A
@@ -89,6 +112,23 @@ export const Section = ({ fieldPath, section, onEdit }) => (
         </Table.Cell>
       </Table.Row>
     ))}
+    {/* review mode (rule 4): what this group has not filled */}
+    {section.notFilled?.length > 0 && (
+      <Table.Row>
+        <Table.Cell
+          colSpan="2"
+          className="ignored mbdb-details-depth-1 mbdb-muted-text"
+        >
+          Not filled:{" "}
+          {section.notFilled.map((path, i) => (
+            <React.Fragment key={path}>
+              {i > 0 ? ", " : ""}
+              <NotFilledLabel fieldPath={fieldPath} path={path} />
+            </React.Fragment>
+          ))}
+        </Table.Cell>
+      </Table.Row>
+    )}
   </>
 );
 Section.propTypes = {
@@ -101,7 +141,7 @@ Section.propTypes = {
 // (design §5). The error comes through useFieldErrors so it survives edits.
 const FieldRow = ({ row, onEdit }) => {
   const { hasError } = useFieldErrors(row.path);
-  if (isEmptyValue(row.value) && !hasError) return null;
+  if (isEmptyValue(row.value) && !hasError && !row.notFilled) return null;
   return (
     <>
       <Table.Cell
@@ -114,8 +154,19 @@ const FieldRow = ({ row, onEdit }) => {
         <DetailLabel path={row.path} fallback={row.name} />
       </Table.Cell>
       <Table.Cell>
-        <Value name={row.name} value={row.value} vocabulary={row.vocabulary} />
-        <ErrorNote path={row.path} onEdit={onEdit} />
+        {row.notFilled ? (
+          // review mode: a header-less one-field group's empty row (rule 5)
+          <span className="mbdb-muted-text">not filled</span>
+        ) : (
+          <>
+            <Value
+              name={row.name}
+              value={row.value}
+              vocabulary={row.vocabulary}
+            />
+            <ErrorNote path={row.path} onEdit={onEdit} />
+          </>
+        )}
       </Table.Cell>
     </>
   );

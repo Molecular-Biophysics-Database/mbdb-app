@@ -3,3 +3,4 @@ export {
   EntitiesOfInterestSectionComponent,
   ENTITIES_OF_INTEREST_PATH,
 } from "./EntitiesOfInterest";
+export { EntityDetails } from "./EntityDetails";

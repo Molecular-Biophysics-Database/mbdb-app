@@ -10,6 +10,7 @@ import {
   Icon,
   Label,
   Table,
+  useReviewMode,
 } from "mbdb-semantic-ui-react";
 import {
   hasData,
@@ -40,6 +41,8 @@ export const ModalObjectField = ({
 }) => {
   const { values, setFieldValue } = useFormikContext();
   const unset = useUnsetField();
+  // review mode: no "Add …" button (the required "Not filled in" label stays)
+  const reviewMode = useReviewMode();
   // label/help/required come from the model, with explicit props as override
   const data = useModelFieldData(fieldPath, {
     label,
@@ -104,16 +107,18 @@ export const ModalObjectField = ({
                 </Label>
               </div>
             )}
-            <Button
-              type="button"
-              icon
-              labelPosition="left"
-              size="small"
-              onClick={openNew}
-            >
-              <Icon name="add" />
-              {`Add ${text}`}
-            </Button>
+            {!reviewMode && (
+              <Button
+                type="button"
+                icon
+                labelPosition="left"
+                size="small"
+                onClick={openNew}
+              >
+                <Icon name="add" />
+                {`Add ${text}`}
+              </Button>
+            )}
           </>
         ) : (
           <Table compact>

@@ -10,6 +10,7 @@ import {
   Label,
   Table,
   useDisclosureDefault,
+  useReviewMode,
 } from "mbdb-semantic-ui-react";
 import { hasData, useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
 
@@ -30,6 +31,8 @@ export const SummaryItem = ({
   const disclosure = useDisclosureDefault();
   const [open, setOpen] = useState(() => disclosure === "open");
   const [confirming, setConfirming] = useState(false);
+  // review mode: no Edit, no Remove; the error badge is a static label
+  const reviewMode = useReviewMode();
   const value = getIn(values, fieldPath);
   // badge reads errors ∪ initialErrors so it survives the first edit
   const { count: errorCount } = useFieldErrors(fieldPath);
@@ -84,26 +87,40 @@ export const SummaryItem = ({
           );
         })}
         <Table.Cell collapsing textAlign="right">
-          {errorCount > 0 && (
-            <Label
-              color="red"
-              as="button"
-              type="button"
-              size="mini"
-              onClick={(e) => {
-                e.stopPropagation();
-                // the badge opens the editor at the first error (true);
-                // the plain Edit button does not scroll (false)
-                onEdit(true);
-              }}
-            >
-              {`${errorCount} ${errorCount === 1 ? "error" : "errors"}`}
-            </Label>
-          )}{" "}
-          <Button basic size="mini" type="button" onClick={() => onEdit(false)}>
-            Edit
-          </Button>{" "}
-          {onRemove !== undefined && (
+          {errorCount > 0 &&
+            (reviewMode ? (
+              <Label color="red" size="mini">
+                {`${errorCount} ${errorCount === 1 ? "error" : "errors"}`}
+              </Label>
+            ) : (
+              <Label
+                color="red"
+                as="button"
+                type="button"
+                size="mini"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  // the badge opens the editor at the first error (true);
+                  // the plain Edit button does not scroll (false)
+                  onEdit(true);
+                }}
+              >
+                {`${errorCount} ${errorCount === 1 ? "error" : "errors"}`}
+              </Label>
+            ))}{" "}
+          {!reviewMode && (
+            <>
+              <Button
+                basic
+                size="mini"
+                type="button"
+                onClick={() => onEdit(false)}
+              >
+                Edit
+              </Button>{" "}
+            </>
+          )}
+          {!reviewMode && onRemove !== undefined && (
             <>
               <Button
                 basic
