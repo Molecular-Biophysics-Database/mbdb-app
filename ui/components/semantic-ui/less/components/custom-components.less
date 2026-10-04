@@ -13,6 +13,10 @@ nrp ui components create <component-type> <component-name>
 // re-review CSS rule): this file compiles standalone, without theme vars.
 @mbdbErrorColor: #db2828;
 @mbdbMutedColor: rgba(0, 0, 0, 0.6);
+// A dark-orange "warning" colour for review mode's "Not filled: …" lines
+// (design ReviewMode.md rule 4): the reviewer sees a field is missing without
+// the alarm of the red "Missing" row.
+@mbdbWarningColor: #c05621;
 // the link blue (Semantic's own), for links and link-looking buttons (§2b rule 7)
 @mbdbLinkColor: #4183c4;
 // An open row and its expanded content (plan 4R Y12 / TableArrayField-review
@@ -36,6 +40,11 @@ nrp ui components create <component-type> <component-name>
 }
 .mbdb-muted-text {
   color: @mbdbMutedColor;
+}
+// review mode's "Not filled: …" line and the empty depth-0 "not filled" value:
+// a warning colour, not the dimmed one, so the reviewer notices them.
+.mbdb-not-filled-text {
+  color: @mbdbWarningColor;
 }
 .ui.table tr.mbdb-details > td {
   background: #f9fafb;

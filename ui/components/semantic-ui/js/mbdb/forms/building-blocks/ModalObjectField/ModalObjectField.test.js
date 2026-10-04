@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { act, Simulate } from "react-dom/test-utils";
 import { useFormikContext, getIn } from "formik";
-import { Input } from "mbdb-semantic-ui-react";
+import { Input, ReviewModeProvider } from "mbdb-semantic-ui-react";
 import { ModalObjectField } from "./ModalObjectField";
 import {
   renderInForm,
@@ -209,5 +209,17 @@ describe("ModalObjectField", () => {
     // clicking the badge opens the editor
     act(() => Simulate.click(container.querySelector(".ui.red.label")));
     expect(modal()).not.toBeNull();
+  });
+});
+
+describe("ModalObjectField review mode", () => {
+  it("has no Add button; the required 'Not filled in' label stays", () => {
+    mount(
+      <ReviewModeProvider review>
+        {storage({ required: true })}
+      </ReviewModeProvider>
+    );
+    expect(btn("Add")).toBeUndefined();
+    expect(container.textContent).toContain("Not filled in");
   });
 });

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { act, Simulate } from "react-dom/test-utils";
 import { useFormikContext, getIn } from "formik";
-import { Input } from "mbdb-semantic-ui-react";
+import { Input, ReviewModeProvider } from "mbdb-semantic-ui-react";
 import { ModalArrayField } from "./ModalArrayField";
 import {
   renderInForm,
@@ -593,4 +593,27 @@ describe("ModalArrayField", () => {
   // version's expect internals (_jestGetType error) before any assertion —
   // a test-environment issue, not a component one. Escape still maps to
   // Cancel in production (EditModal keeps onClose={onCancel}).
+});
+
+describe("ModalArrayField review mode", () => {
+  it("has no Add button or menu", () => {
+    mount(<ReviewModeProvider review>{entities()}</ReviewModeProvider>, {
+      initialValues: { entities: [{ name: "A", type: "Polymer" }] },
+    });
+    expect(
+      [...container.querySelectorAll("button")].find((b) =>
+        b.textContent.startsWith("Add")
+      )
+    ).toBeUndefined();
+  });
+
+  it("keeps 'No items yet' with no Add control when empty", () => {
+    mount(<ReviewModeProvider review>{entities()}</ReviewModeProvider>, {});
+    expect(container.textContent).toContain("No items yet");
+    expect(
+      [...container.querySelectorAll("button")].find((b) =>
+        b.textContent.startsWith("Add")
+      )
+    ).toBeUndefined();
+  });
 });

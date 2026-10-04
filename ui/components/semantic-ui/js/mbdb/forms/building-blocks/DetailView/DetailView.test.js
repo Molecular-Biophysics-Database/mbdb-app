@@ -831,6 +831,8 @@ describe("DetailView review mode", () => {
     expect(text()).toContain("Not filled:");
     // the empty one-field group (Sequence) renders its row as "not filled"
     expect(text()).toContain("not filled");
+    // the not-filled bits use the warning colour, not the dimmed one
+    expect(container.querySelector(".mbdb-not-filled-text")).not.toBeNull();
   });
 
   it("has no Edit link and a plain (non-button) error note", () => {

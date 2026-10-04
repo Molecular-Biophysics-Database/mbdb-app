@@ -1,7 +1,11 @@
 import React from "react";
 import { act, Simulate } from "react-dom/test-utils";
 import { useFormikContext } from "formik";
-import { DisclosureDefaultProvider, Table } from "mbdb-semantic-ui-react";
+import {
+  DisclosureDefaultProvider,
+  ReviewModeProvider,
+  Table,
+} from "mbdb-semantic-ui-react";
 import { DetailView } from "@js/mbdb/forms/building-blocks/DetailView";
 import { SummaryItem } from "./SummaryItem";
 import {
@@ -307,5 +311,27 @@ describe("SummaryItem disclosure default (playground Expand all / Collapse all)"
     expect(
       container.querySelector('button[aria-label^="Hide details of item"]')
     ).not.toBeNull();
+  });
+});
+
+describe("SummaryItem review mode", () => {
+  it("has no Edit / Remove and a non-clickable error badge", () => {
+    mount(
+      <ReviewModeProvider review>
+        {row({ onEdit: () => {}, onRemove: () => {} })}
+      </ReviewModeProvider>,
+      {
+        initialValues: { o: { name: "Lysozyme" } },
+        initialErrors: { o: { name: "Bad." } },
+      }
+    );
+    const edit = [...container.querySelectorAll("button")].find(
+      (b) => b.textContent === "Edit"
+    );
+    expect(edit).toBeUndefined();
+    expect(removeButton()).toBeNull();
+    const badge = container.querySelector(".ui.red.label");
+    expect(badge).not.toBeNull();
+    expect(badge.tagName).not.toBe("BUTTON");
   });
 });

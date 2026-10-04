@@ -117,7 +117,7 @@ export const Section = ({ fieldPath, section, onEdit }) => (
       <Table.Row>
         <Table.Cell
           colSpan="2"
-          className="ignored mbdb-details-depth-1 mbdb-muted-text"
+          className="ignored mbdb-details-depth-1 mbdb-not-filled-text"
         >
           Not filled:{" "}
           {section.notFilled.map((path, i) => (
@@ -156,7 +156,7 @@ const FieldRow = ({ row, onEdit }) => {
       <Table.Cell>
         {row.notFilled ? (
           // review mode: a header-less one-field group's empty row (rule 5)
-          <span className="mbdb-muted-text">not filled</span>
+          <span className="mbdb-not-filled-text">not filled</span>
         ) : (
           <>
             <Value

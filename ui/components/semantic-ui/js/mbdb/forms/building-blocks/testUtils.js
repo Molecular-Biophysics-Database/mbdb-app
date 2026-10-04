@@ -381,6 +381,27 @@ export const yamlEnum = (typeName, property) => {
 export const yamlProperty = (typeName, name) =>
   typeBlock(typeName).some((l) => l === `    ${name}:`);
 
+// The property names a top-level type declares, read from its `properties:`
+// section (the 4-space-indented keys). Used to prove a group spec covers every
+// field of an entity type (review-mode design rule 6).
+export const yamlProperties = (typeName) => {
+  const block = typeBlock(typeName);
+  const start = block.findIndex((l) => l === "  properties:");
+  if (start === -1) return [];
+  let end = block.length;
+  for (let i = start + 1; i < block.length; i += 1) {
+    const l = block[i];
+    if (l !== "" && /^ {2}\S/.test(l)) {
+      end = i;
+      break;
+    }
+  }
+  return block
+    .slice(start + 1, end)
+    .filter((l) => /^ {4}\S/.test(l))
+    .map((l) => l.trim().replace(/:.*$/, ""));
+};
+
 // --- value probe ------------------------------------------------
 
 // Renders the formik value at `path` as JSON so tests assert stored data, not
