@@ -1,5 +1,6 @@
 import React from "react";
 import { EntitiesOfInterestSection } from "@js/mbdb/forms/sections/EntitiesOfInterest";
+import complete from "./data/complete.json";
 
 const Section = EntitiesOfInterestSection.component;
 const Fields = () => (
@@ -10,60 +11,19 @@ const values = (list) => ({
   metadata: { general_parameters: { entities_of_interest: list } },
 });
 
-// The two entities of draft gvfzs-t5060 ("Human serum", "human Hemoglobin")
-// plus one Chemical (Water) (design EntitiesOfInterest.md).
-const FILLED = [
-  {
-    id: "e-serum",
-    type: "Complex substance of biological origin",
-    name: "Human serum",
-    derived_from: "Body fluid",
-    source_organism: { id: "taxid:9606" },
-    fluid: { id: "bf:2" },
-    health_status: "Healthy",
-    preparation_protocol: [
-      { name: "Centrifugation", description: "10 min at 1,300g" },
-    ],
-  },
-  {
-    id: "e-hemoglobin",
-    type: "Molecular assembly",
-    name: "human Hemoglobin",
-    molecular_weight: { value: 64.5, unit: "kDa" },
-    components: [
-      {
-        type: "Polymer",
-        name: "Hemoglobin subunit alpha",
-        copy_number: 2,
-        polymer_type: "polypeptide(L)",
-        // required for a Polymer component — without them the Filled scenario
-        // showed four red "Missing" badges (guide §3: valid model data)
-        expression_source_type: "Natively",
-        molecular_weight: { value: 16.0, unit: "kDa" },
-      },
-      {
-        type: "Polymer",
-        name: "Hemoglobin subunit beta",
-        copy_number: 2,
-        polymer_type: "polypeptide(L)",
-        expression_source_type: "Natively",
-        molecular_weight: { value: 16.0, unit: "kDa" },
-      },
-    ],
-  },
-  {
-    id: "e-water",
-    type: "Chemical",
-    name: "Water",
-    basic_information: { id: "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N" },
-  },
-];
+// The "Filled" scenario shows every alternative the entity table can hold: one
+// entity per `Entity_base.type`, and for the biological origin one per
+// `derived_from` sub-type (a sub-type renders different fields). It loads the
+// whole `./data/complete.json` record (not just the entities slice), so the
+// scenario mirrors the running deposit form, whose initial values are a full
+// record; its `entities_of_interest` fill every optional array /
+// array-of-object so the form renders filled complex structures.
 
 const story = {
   title: "EntitiesOfInterest",
   scenarios: [
     { name: "Empty", initialValues: {}, render: Fields },
-    { name: "Filled", initialValues: values(FILLED), render: Fields },
+    { name: "Filled", initialValues: complete, render: Fields },
     {
       name: "With errors",
       initialValues: values([{ id: "e-siga", type: "Polymer", name: "SigA" }]),
