@@ -267,14 +267,35 @@ describe("SummaryItem disclosure default (playground Expand all / Collapse all)"
           cells={[(v) => v.name]}
           itemName="assembly"
           onEdit={() => {}}
-          detail={<DetailView fieldPath="o" groups={[]} />}
+          detail={
+            <DetailView
+              fieldPath="o"
+              groups={[
+                {
+                  title: "Components",
+                  fields: [
+                    {
+                      field: "components",
+                      itemColumns: [
+                        {
+                          field: "name",
+                          label: "Name",
+                          value: (c) => c?.name ?? "",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ]}
+            />
+          }
         />
       </DisclosureDefaultProvider>,
       {
         initialValues: {
           o: {
             name: "Assembly",
-            components: [{ name: "Water", copy_number: 2 }],
+            components: [{ name: "Water", type: "Chemical" }],
           },
         },
       }

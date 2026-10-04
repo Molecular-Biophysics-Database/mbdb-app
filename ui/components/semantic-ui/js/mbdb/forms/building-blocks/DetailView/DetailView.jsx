@@ -36,7 +36,7 @@ export const DetailView = ({
     );
   return (
     <>
-      <Table definition basic="very" compact>
+      <Table definition basic="very" compact className="mbdb-detail-table">
         <Table.Body>
           {sections.map((section, si) => (
             <Section
@@ -70,6 +70,8 @@ DetailView.propTypes = {
             vocabulary: PropTypes.string,
             itemColumns: PropTypes.array,
             itemGroups: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
+            // for an array inside a nested object: child name → its item spec
+            children: PropTypes.object,
           }),
         ])
       ).isRequired,

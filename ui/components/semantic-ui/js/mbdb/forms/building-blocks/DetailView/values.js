@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Label } from "mbdb-semantic-ui-react";
+import { Label, List } from "mbdb-semantic-ui-react";
 import { useVocabularyTitle } from "@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles";
 import {
   isEmptyValue,
@@ -140,9 +140,6 @@ export const textOf = (value, vocabulary) => {
 
 const hasText = (v) => !isEmptyValue(v);
 
-// string/number arrays longer than this become a bulleted list (§3)
-const BULLET_THRESHOLD = 5;
-
 // One formatted value; uses the suffix formatter when one is registered.
 // `vocabulary` (a declared vocabulary type) switches `{ id }` display to
 // the shared title cache instead of the raw id.
@@ -164,19 +161,24 @@ export const Value = ({ name, value, vocabulary }) => {
         <VocabularyValue vocabulary={vocabulary} value={v} />
       </span>
     ));
+  // §2b rule 6: a string/number array with two or more items is a list, one
+  // item per line (its items often contain commas themselves, so a comma join
+  // is unreadable). This replaces the old comma join and the "> 5 items" rule.
   if (
     Array.isArray(value) &&
-    value.length > BULLET_THRESHOLD &&
+    value.length >= 2 &&
     value.every(
       (v) => !isVocabulary(v) && (typeof v !== "object" || v === null)
     )
   )
     return (
-      <ul>
+      <List as="ul">
         {value.map((item) => (
-          <li key={String(item)}>{textOf(item)}</li>
+          <List.Item as="li" key={String(item)}>
+            {textOf(item)}
+          </List.Item>
         ))}
-      </ul>
+      </List>
     );
   // manual chemical entry: title ({ en: "…" } or a plain string) plus the
   // grey hint (design §3). The marker is a plain-object value with a title

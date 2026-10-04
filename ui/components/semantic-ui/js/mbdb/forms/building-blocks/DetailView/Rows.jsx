@@ -79,7 +79,7 @@ export const Section = ({ fieldPath, section, onEdit }) => (
     <Rows rows={section.rows} onEdit={onEdit} />
     {section.missing.map((name) => (
       <Table.Row key={`miss-${name}`}>
-        <Table.Cell width={5}>
+        <Table.Cell width={4}>
           <DetailLabel path={`${fieldPath}.${name}`} fallback={name} />
         </Table.Cell>
         <Table.Cell>
@@ -104,7 +104,13 @@ const FieldRow = ({ row, onEdit }) => {
   if (isEmptyValue(row.value) && !hasError) return null;
   return (
     <>
-      <Table.Cell width={5} className={depthClass(row.depth)}>
+      <Table.Cell
+        width={4}
+        className={cx(
+          depthClass(row.depth),
+          row.groupGap && "mbdb-detail-group-gap"
+        )}
+      >
         <DetailLabel path={row.path} fallback={row.name} />
       </Table.Cell>
       <Table.Cell>
@@ -128,7 +134,7 @@ const MiniDetails = ({ fieldPath, groups, exclude }) => {
   if (!sections || sections.length === 0)
     return <span className="mbdb-muted-text">Nothing filled in yet</span>;
   return (
-    <Table definition basic="very" compact>
+    <Table definition basic="very" compact className="mbdb-detail-table">
       <Table.Body>
         {sections.map((section, si) => (
           <Section key={si} fieldPath={fieldPath} section={section} />
@@ -145,8 +151,20 @@ MiniDetails.propTypes = {
 
 // A mini-table row with its own ▸; expansion renders the item's details inline.
 // Columns are the array's declared `itemColumns` (the array's edit-table
-// columns) when given, else the union of keys (`keys`).
-const MiniRow = ({ basePath, index, item, keys, itemColumns, itemGroups }) => {
+// columns) when given, else the union of keys (`keys`). §2b rule 4: a row gets a
+// ▸ only when the item has data OUTSIDE the columns; `showColumn` is false when
+// no row has one, and the toggle column is dropped for the whole table.
+const MiniRow = ({
+  basePath,
+  index,
+  item,
+  keys,
+  itemColumns,
+  itemGroups,
+  showColumn,
+  hasExtra,
+  columnCount,
+}) => {
   // Initial only: the playground's one-shot "Expand/Collapse all" default
   // (undefined in the deposit form, so closed as before); a user toggle wins.
   const disclosure = useDisclosureDefault();
@@ -157,25 +175,29 @@ const MiniRow = ({ basePath, index, item, keys, itemColumns, itemGroups }) => {
   const exclude = itemColumns
     ? itemColumns.filter((column) => column.field).map((column) => column.field)
     : [];
-  const cellCount = (itemColumns ?? keys).length + 1;
+  const canExpand = showColumn && hasExtra;
   return (
     <>
       <Table.Row>
-        <Table.Cell collapsing className="ignored">
-          <Button
-            basic
-            icon
-            size="mini"
-            type="button"
-            aria-expanded={open}
-            aria-label={`${open ? "Hide" : "Show"} details of item ${
-              index + 1
-            }`}
-            onClick={() => setOpen((prev) => !prev)}
-          >
-            {open ? "▾" : "▸"}
-          </Button>
-        </Table.Cell>
+        {showColumn && (
+          <Table.Cell collapsing className="ignored">
+            {hasExtra ? (
+              <Button
+                basic
+                icon
+                size="mini"
+                type="button"
+                aria-expanded={open}
+                aria-label={`${open ? "Hide" : "Show"} details of item ${
+                  index + 1
+                }`}
+                onClick={() => setOpen((prev) => !prev)}
+              >
+                {open ? "▾" : "▸"}
+              </Button>
+            ) : null}
+          </Table.Cell>
+        )}
         {itemColumns
           ? itemColumns.map((column) => (
               <Table.Cell key={column.label}>{column.value(item)}</Table.Cell>
@@ -188,10 +210,10 @@ const MiniRow = ({ basePath, index, item, keys, itemColumns, itemGroups }) => {
               </Table.Cell>
             ))}
       </Table.Row>
-      {open && (
+      {canExpand && open && (
         <Table.Row className="mbdb-details">
           <Table.Cell
-            colSpan={cellCount}
+            colSpan={columnCount}
             className="ignored mbdb-details-depth-1"
           >
             {groups?.length ? (
@@ -216,6 +238,9 @@ MiniRow.propTypes = {
   keys: PropTypes.array.isRequired,
   itemColumns: PropTypes.array,
   itemGroups: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
+  showColumn: PropTypes.bool.isRequired,
+  hasExtra: PropTypes.bool.isRequired,
+  columnCount: PropTypes.number.isRequired,
 };
 
 // A mini summary table for an array of complex objects (design §4). Columns are
@@ -228,11 +253,22 @@ const MiniTable = ({ basePath, items, itemColumns, itemGroups }) => {
     : [...new Set(items.flatMap((item) => Object.keys(item ?? {})))].filter(
         (key) => items.some((item) => hasData(item?.[key]))
       );
+  // §2b rule 4: a ▸ only when the item has data outside the columns; when no
+  // row has one, the toggle column is dropped (no empty first column).
+  const columnFields = itemColumns
+    ? itemColumns.filter((column) => column.field).map((column) => column.field)
+    : keys;
+  const hasExtra = (item) =>
+    Object.keys(item ?? {}).some(
+      (key) => !columnFields.includes(key) && hasData(item?.[key])
+    );
+  const showColumn = items.some(hasExtra);
+  const columnCount = keys.length + (showColumn ? 1 : 0);
   return (
     <Table compact="very" size="small">
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell />
+          {showColumn && <Table.HeaderCell />}
           {keys.map((key) => (
             <Table.HeaderCell key={key}>
               {itemColumns ? (
@@ -254,6 +290,9 @@ const MiniTable = ({ basePath, items, itemColumns, itemGroups }) => {
             keys={keys}
             itemColumns={itemColumns}
             itemGroups={itemGroups}
+            showColumn={showColumn}
+            hasExtra={hasExtra(item)}
+            columnCount={columnCount}
           />
         ))}
       </Table.Body>

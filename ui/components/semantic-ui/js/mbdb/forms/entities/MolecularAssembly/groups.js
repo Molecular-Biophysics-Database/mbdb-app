@@ -6,6 +6,7 @@
 // names (no vocabulary reference). The titles are the model labels of the named
 // fields (a DetailView group needs a string title).
 import { COMPONENT_ITEM_SPEC } from "@js/mbdb/forms/shared/Components/columns";
+import { MODIFICATION_ITEM_SPEC } from "@js/mbdb/forms/shared/Modifications";
 
 export const MOLECULAR_ASSEMBLY_GROUPS = [
   { title: "Molecular weight", fields: ["molecular_weight"] },
@@ -14,7 +15,10 @@ export const MOLECULAR_ASSEMBLY_GROUPS = [
     fields: [{ field: "components", ...COMPONENT_ITEM_SPEC }],
   },
   { title: "External databases", fields: ["external_databases"] },
-  { title: "Chemical modifications", fields: ["chemical_modifications"] },
+  {
+    title: "Chemical modifications",
+    fields: [{ field: "chemical_modifications", ...MODIFICATION_ITEM_SPEC }],
+  },
   { title: "Quality controls", fields: ["quality_controls"] },
   { title: "Additional specifications", fields: ["additional_specifications"] },
 ];

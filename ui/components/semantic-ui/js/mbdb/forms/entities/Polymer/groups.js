@@ -7,6 +7,8 @@
 // "Origin" are UI groupings with no model field (literal titles), the rest are
 // the blocks' own model labels (kept literal here because a DetailView group
 // needs a string title; same as STORAGE_GROUPS).
+import { MODIFICATION_ITEM_SPEC } from "@js/mbdb/forms/shared/Modifications";
+
 export const POLYMER_GROUPS = [
   {
     title: "Identification",
@@ -23,6 +25,19 @@ export const POLYMER_GROUPS = [
   { title: "Molecular weight", fields: ["molecular_weight"] },
   { title: "External databases", fields: ["external_databases"] },
   { title: "Additional specifications", fields: ["additional_specifications"] },
-  { title: "Modifications", fields: ["modifications"] },
+  {
+    title: "Modifications",
+    // an array inside a nested object: its columns are declared through
+    // `children`, so the mini table matches the edit table (design §2b rule 4)
+    fields: [
+      {
+        field: "modifications",
+        children: {
+          biological_postprocessing: MODIFICATION_ITEM_SPEC,
+          chemical: MODIFICATION_ITEM_SPEC,
+        },
+      },
+    ],
+  },
   { title: "Quality controls", fields: ["quality_controls"] },
 ];

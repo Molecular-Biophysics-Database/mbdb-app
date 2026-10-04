@@ -37,3 +37,20 @@ ModificationTable.propTypes = {
   // the ARRAY path (e.g. `${itemPath}.modifications.chemical`)
   fieldPath: PropTypes.string.isRequired,
 };
+
+// The modification array's read-only mini-table columns (design DetailView §2b
+// rule 4): the edit table's order, Type | Position | Protocol. All three are
+// columns, so a modification row gets no ▸ in the details. Shared by the
+// Polymer's `modifications.*` (through `children`) and a molecular assembly's
+// `chemical_modifications`, so the two mini tables cannot drift.
+export const MODIFICATION_ITEM_SPEC = {
+  itemColumns: [
+    { field: "type", label: "Type", value: (m) => m?.type ?? "" },
+    { field: "position", label: "Position", value: (m) => m?.position ?? "" },
+    {
+      field: "protocol",
+      label: "Protocol",
+      value: (m) => (m?.protocol?.length ? stepsLabel(m.protocol) : ""),
+    },
+  ],
+};

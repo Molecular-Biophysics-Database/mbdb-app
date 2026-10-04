@@ -19,6 +19,10 @@ import { isAssessed, isLeafObject, isPlainObject, isSteps } from "./values";
 //   details groups (the mini row's own ▸ opens the item's details grouped
 //   exactly like its form, resolving vocabularies — design DetailView §3/§4).
 //   `itemGroups` may also be `(itemValue) => groups` for a polymorphic item.
+// - `children`: for an array of complex objects that lives INSIDE a nested
+//   object (e.g. `modifications.biological_postprocessing`), an object mapping
+//   each child array's name to its `{ itemColumns, itemGroups }` spec (design §2b
+//   rule 4).
 export const fieldEntryOf = (entry) =>
   typeof entry === "string"
     ? { name: entry }
@@ -27,6 +31,7 @@ export const fieldEntryOf = (entry) =>
         vocabulary: entry.vocabulary,
         itemColumns: entry.itemColumns,
         itemGroups: entry.itemGroups,
+        children: entry.children,
       };
 
 // Build the flat row list for one object out of its values. Pure (no hooks):
@@ -37,7 +42,7 @@ export const fieldEntryOf = (entry) =>
 // " › ". `depth` is the indentation level (design §2a): a group's own field rows
 // are depth 1, a nested object's rows one more, and so on.
 // hasErr (optional): rows with a server error are kept even when empty.
-export const collectRows = (obj, basePath, hasErr, heading = "", depth = 1) => {
+export const collectRows = (obj, basePath, hasErr, depth = 1) => {
   const rows = [];
   Object.entries(obj ?? {}).forEach(([name, value]) => {
     const path = `${basePath}.${name}`;
@@ -45,7 +50,9 @@ export const collectRows = (obj, basePath, hasErr, heading = "", depth = 1) => {
     // re-checked at render time (Rows/FieldRow), so default to keeping it.
     const errored = !hasErr || hasErr(path);
     if (isEmptyValue(value) && !errored) return;
-    const subHeading = heading ? `${heading} › ${name}` : name;
+    // §2b rule 3: a sub-heading shows only its own label; the indentation shows
+    // the hierarchy, so the parents' chain is redundant.
+    const subHeading = name;
     // A registered formatter replaces the generic output for this leaf name
     // (design §3): it renders the value itself, so never recurse into it. This
     // is what shows a `location` as one line plus the map link, and a
@@ -85,7 +92,7 @@ export const collectRows = (obj, basePath, hasErr, heading = "", depth = 1) => {
       return;
     }
     // a nested object: its sub-heading is at this depth, its rows one deeper
-    const inner = collectRows(value, path, hasErr, subHeading, depth + 1);
+    const inner = collectRows(value, path, hasErr, depth + 1);
     if (inner.length > 0)
       rows.push({ kind: "heading", name: subHeading, path, depth });
     rows.push(...inner);
@@ -114,11 +121,19 @@ export const groupSections = (
     const part = {};
     const missing = [];
     (group.fields ?? []).forEach((entry) => {
-      const { name, vocabulary, itemColumns, itemGroups } = fieldEntryOf(entry);
+      const { name, vocabulary, itemColumns, itemGroups, children } =
+        fieldEntryOf(entry);
       known.add(name);
       if (exclude.includes(name)) return;
+      // an array-of-complex field declares its mini columns + item groups here,
+      // keyed by the mini row's PATH, so an array inside a nested object
+      // (modifications.biological_postprocessing) can declare one too, through
+      // the entry's `children` (design §2b rule 4)
       if (itemColumns || itemGroups)
-        arraySpecs[name] = { itemColumns, itemGroups };
+        arraySpecs[`${basePath}.${name}`] = { itemColumns, itemGroups };
+      Object.entries(children ?? {}).forEach(([child, spec]) => {
+        arraySpecs[`${basePath}.${name}.${child}`] = spec;
+      });
       // a field with a server error stays visible even when empty (design §5)
       if (hasData(obj?.[name]) || hasErr?.(`${basePath}.${name}`)) {
         part[name] = obj?.[name];
@@ -128,8 +143,8 @@ export const groupSections = (
     const rows = collectRows(part, basePath, hasErr).map((row) => {
       if (row.kind === "field" && vocabularies[row.name])
         return { ...row, vocabulary: vocabularies[row.name] };
-      if (row.kind === "mini" && arraySpecs[row.name])
-        return { ...row, ...arraySpecs[row.name] };
+      if (row.kind === "mini" && arraySpecs[row.path])
+        return { ...row, ...arraySpecs[row.path] };
       return row;
     });
     // §2a rule 3: no duplicated headings. A group with exactly one field does
@@ -144,7 +159,13 @@ export const groupSections = (
         finalRows = rows
           .slice(1)
           .map((row) => ({ ...row, depth: Math.max(1, row.depth - 1) }));
-      else title = undefined;
+      else {
+        // §2b rule 2: a header-less one-field plain group's row is a sibling of
+        // the groups (depth 0, aligned with the headers), not a row of the
+        // group above, and takes the group's top spacing.
+        title = undefined;
+        finalRows = rows.map((row) => ({ ...row, depth: 0, groupGap: true }));
+      }
     }
     if (finalRows.length === 0 && missing.length === 0) return; // all-empty
     sections.push({ title, rows: finalRows, missing });

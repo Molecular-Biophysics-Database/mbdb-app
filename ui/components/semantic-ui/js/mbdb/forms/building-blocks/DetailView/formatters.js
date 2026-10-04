@@ -33,7 +33,7 @@ const SequenceValue = ({ value }) => {
     ? value.match(new RegExp(`.{1,${WRAP}}`, "g"))?.join("\n") ?? value
     : value.slice(0, WRAP);
   return (
-    <span>
+    <span className="mbdb-sequence">
       <code className={all ? "mbdb-pre-line" : undefined}>{shown}</code>{" "}
       {`(${value.length} residues)`}{" "}
       {value.length > WRAP && (
@@ -88,16 +88,23 @@ const ChemicalValue = ({ value }) => {
 
 ChemicalValue.propTypes = { value: PropTypes.object.isRequired };
 
-// External references stored as "prefix:id": a known prefix becomes a link
-// with the external icon, an unknown one stays plain text (design §3).
+// External references stored as "prefix:id": a known prefix becomes a plain
+// link with the external icon, an unknown one stays plain text; links are
+// separated by spaces (design §2b rule 7: links, not buttons joined with ", ").
 const ExternalDatabasesValue = ({ value }) => (
   <>
     {value.map((ref, i) => {
       const url = refUrl(parseRef(ref));
       return (
         <React.Fragment key={`${ref}-${i}`}>
-          {i > 0 ? ", " : ""}
-          {url ? <ExternalLink href={url}>{ref}</ExternalLink> : ref}
+          {i > 0 ? " " : ""}
+          {url ? (
+            <ExternalLink plain href={url}>
+              {ref}
+            </ExternalLink>
+          ) : (
+            ref
+          )}
         </React.Fragment>
       );
     })}

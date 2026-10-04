@@ -13,6 +13,8 @@ nrp ui components create <component-type> <component-name>
 // re-review CSS rule): this file compiles standalone, without theme vars.
 @mbdbErrorColor: #db2828;
 @mbdbMutedColor: rgba(0, 0, 0, 0.6);
+// the link blue (Semantic's own), for links and link-looking buttons (§2b rule 7)
+@mbdbLinkColor: #4183c4;
 // An open row and its expanded content (plan 4R Y12 / TableArrayField-review
 // P8-F1). Since 2026-10-04 (lead's request) the pair takes TWO tints: the
 // leading row (the one with the toggle) is the darker one, its detail row the
@@ -55,6 +57,15 @@ nrp ui components create <component-type> <component-name>
 .ui.table tr.mbdb-row-open > td:first-child {
   box-shadow: inset 3px 0 0 @mbdbOpenRowAccent;
 }
+// Y17 (2026-10-04, lead's suggestion; follow-up to Y12): a line above an open
+// row of a TOP-LEVEL table, setting the pair off from the rows above. A table
+// nested inside another table (the Protocol table inside an open modification,
+// a mini table inside read-only details) gets no line: `.ui.table .ui.table`
+// matches a nested table, so `:not(…)` keeps only tables not inside another.
+// `tr.mbdb-row-open:not(.mbdb-details)` is the leading row of the pair.
+.ui.table:not(.ui.table .ui.table) > tbody > tr.mbdb-row-open:not(.mbdb-details) > td {
+  border-top: 3px solid @mbdbOpenRowAccent;
+}
 .segment.mbdb-indent {
   padding-left: 2em;
 }
@@ -94,14 +105,42 @@ nrp ui components create <component-type> <component-name>
     padding-left: (@mbdbDetailBase + @mbdbDetailIndent * 3);
   }
 }
+// A depth-0 field row (a header-less one-field group, §2b rule 2: Sequence,
+// Molecular weight) is a sibling of the group headers, so its label starts at
+// the same inset as they do. Its cell has no depth class (depth 0 = none), so
+// without this rule Semantic's very-basic first-cell `padding-left: 0` put it
+// flush against the accent bar, left of IDENTIFICATION / ORIGIN. Scoped to the
+// details tables; cells with a depth class or `ignored` are not matched, so the
+// depth rules above are untouched.
+.ui[class*="very basic"].table.mbdb-detail-table:not(.sortable):not(.striped)
+  td:first-child:not(.ignored):not([class*="mbdb-details-depth-"]) {
+  padding-left: @mbdbDetailBase;
+}
 // Group / sub-heading rows (rule 4): small caps, muted, so a header does not
 // read like a field label. The header cell also carries Semantic's `ignored`
 // (rule 5). `.ui.table …` beats Semantic's own `.ui.table th` colour.
+// §2b rule 1: a group starts with space above it; a sub-heading (one with a
+// depth class) gets less, and the table's first header only a little.
 .ui.table .mbdb-detail-group {
   font-size: 0.85em;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   color: @mbdbMutedColor;
+  padding-top: 1.25em;
+}
+.ui.table .mbdb-detail-group.mbdb-details-depth-1,
+.ui.table .mbdb-detail-group.mbdb-details-depth-2,
+.ui.table .mbdb-detail-group.mbdb-details-depth-3 {
+  padding-top: 0.75em;
+}
+.ui.table tr:first-child > .mbdb-detail-group {
+  padding-top: 0.25em;
+}
+// §2b rule 2: a header-less one-field group renders its row at depth 0, a
+// sibling of the groups, and takes the group's spacing so a run of them reads
+// as one group. The class is on the label cell (Rows.jsx FieldRow).
+.ui.table .mbdb-detail-group-gap {
+  padding-top: 1.25em;
 }
 // Rule 5: the outer definition table must not style nested tables. Semantic's
 // `.ui.definition.table tr td:nth-child(2) { border-left }` is a descendant
@@ -110,6 +149,19 @@ nrp ui components create <component-type> <component-name>
 // handled by the `ignored` class in Rows.jsx.)
 .ui.definition.table .ui.table:not(.definition) td {
   border-left: none;
+}
+// §2b rule 5 (a long detail view stays calm): the details' labels are lighter
+// than a Semantic definition table's (bold, grey background, 5/16 wide). Only
+// the details tables carry `.mbdb-detail-table` (DetailView + the mini details
+// tables in Rows.jsx), so other definition tables keep Semantic's look. The
+// selector repeats Semantic's own
+// `.ui.definition.table tr td:first-child:not(.ignored)` chain, plus
+// `.mbdb-detail-table`, so it wins. The 25% width comes from `width={4}` on the
+// label cell (four wide), set in Rows.jsx.
+.ui.definition.table.mbdb-detail-table tr td:first-child:not(.ignored) {
+  font-weight: normal;
+  color: @mbdbMutedColor;
+  background: none;
 }
 
 // FieldHelp that does not follow a .field: directly under a control
@@ -177,14 +229,27 @@ label.helptext.mbdb-field-help-under-label {
   white-space: pre-line;
 }
 
-// DetailView error note that opens the edit modal: look like a link.
+// A link-looking link or button (the sequence's "[Show all]", the details'
+// error note, an external-database link). §2b rule 7: the colour is the link
+// blue, not the error red; the error note also carries `mbdb-error-text` and
+// keeps the red via the more specific selector below.
+.mbdb-link {
+  color: @mbdbLinkColor;
+}
 button.mbdb-link {
   background: none;
   border: none;
   padding: 0;
-  color: @mbdbErrorColor;
   text-decoration: underline;
   cursor: pointer;
+}
+button.mbdb-link.mbdb-error-text {
+  color: @mbdbErrorColor;
+}
+// §2b rule 7: the sequence's <code> is body text, not the browser's pink chip.
+.mbdb-sequence code {
+  color: inherit;
+  background: none;
 }
 
 // The breadcrumb line above a nested modal's title (design ModalArrayField.md,

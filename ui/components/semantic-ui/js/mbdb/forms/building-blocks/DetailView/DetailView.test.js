@@ -128,6 +128,19 @@ const GROUPS = [
   { title: "Origin", fields: ["source_organism"] },
 ];
 
+// itemColumns with only two fields; an item's third key (polymer_type) is thus
+// "extra", so the mini row gets a ▸ (design §2b rule 4).
+const EXTRA_COLUMN_SPEC = {
+  itemColumns: [
+    { field: "name", label: "Name", value: (c) => c?.name ?? "" },
+    {
+      field: "copy_number",
+      label: "Copy number",
+      value: (c) => c?.copy_number ?? "",
+    },
+  ],
+};
+
 let container;
 
 const mount = (ui, { initialValues = {}, initialErrors = {} } = {}) => {
@@ -230,7 +243,10 @@ describe("DetailView", () => {
     expect(text()).toContain("Bacillus subtilis");
     // specifications is in no group: listed under "Other"
     expect(text()).toContain("Other");
-    expect(text()).toContain("RNase-free, desalted");
+    // a two-item string array is a list, one item per line (§2b rule 6)
+    expect(
+      [...container.querySelectorAll("ul li")].map((li) => li.textContent)
+    ).toEqual(["RNase-free", "desalted"]);
     expect(text()).toContain("Molecular weight");
   });
 
@@ -327,7 +343,7 @@ describe("DetailView", () => {
     expect(text()).toContain("polypeptide(L)");
   });
 
-  it("shows an array of complex objects as a mini table with its own toggle", () => {
+  it("a mini row whose item has only column fields has no ▸, and no empty first column (§2b rule 4)", () => {
     mount(<DetailView fieldPath="o" groups={[]} />, {
       initialValues: {
         o: {
@@ -340,18 +356,16 @@ describe("DetailView", () => {
     });
     expect(text()).toContain("Water");
     expect(text()).toContain("NaCl");
-    // the mini table has a header row with the model labels
     const head = container.querySelector("table table thead");
     expect(head).not.toBeNull();
     expect(head.textContent).toContain("Name");
     expect(head.textContent).toContain("Copy number");
-    // expanding a mini row renders its details inline
-    const toggles = container.querySelectorAll(
-      'button[aria-label^="Show details of item"]'
-    );
-    expect(toggles).toHaveLength(2);
-    act(() => Simulate.click(toggles[0]));
-    expect(text()).toContain("Copy number");
+    // every item key is a column, so no row gets a ▸ ...
+    expect(
+      container.querySelector('button[aria-label^="Show details of item"]')
+    ).toBeNull();
+    // ... and the toggle column is dropped (the header's first cell is a column)
+    expect(head.querySelectorAll("th")).toHaveLength(2);
   });
 
   it("mini table uses the declared itemColumns and resolves the item's vocabularies via itemGroups", () => {
@@ -491,11 +505,20 @@ describe("DetailView", () => {
     mount(
       <DetailView
         fieldPath="o"
-        groups={[{ title: "Components", fields: ["components"] }]}
+        groups={[
+          {
+            title: "Components",
+            fields: [{ field: "components", ...EXTRA_COLUMN_SPEC }],
+          },
+        ]}
       />,
       {
         initialValues: {
-          o: { components: [{ name: "Water", copy_number: 2 }] },
+          o: {
+            components: [
+              { name: "Water", copy_number: 2, polymer_type: "polypeptide(L)" },
+            ],
+          },
         },
       }
     );
@@ -514,11 +537,20 @@ describe("DetailView", () => {
     mount(
       <DetailView
         fieldPath="o"
-        groups={[{ title: "Components", fields: ["components"] }]}
+        groups={[
+          {
+            title: "Components",
+            fields: [{ field: "components", ...EXTRA_COLUMN_SPEC }],
+          },
+        ]}
       />,
       {
         initialValues: {
-          o: { components: [{ name: "Water", copy_number: 2 }] },
+          o: {
+            components: [
+              { name: "Water", copy_number: 2, polymer_type: "polypeptide(L)" },
+            ],
+          },
         },
       }
     );
@@ -637,12 +669,60 @@ describe("DetailView — review findings", () => {
     expect(items.length).toBe(6);
   });
 
-  it("renders a short string array comma-separated, not bulleted (F4b)", () => {
+  it("renders a two-item string array as a list, one item per line, no comma join (§2b rule 6)", () => {
     mount(<DetailView fieldPath="o" groups={[]} />, {
-      initialValues: { o: { specifications: ["a", "b"] } },
+      initialValues: {
+        o: {
+          specifications: [
+            "Recombinant, purified by Ni-NTA",
+            "Stored as a 10 mg/mL stock in PBS",
+          ],
+        },
+      },
     });
-    expect(container.querySelectorAll("ul li").length).toBe(0);
-    expect(text()).toContain("a, b");
+    expect(
+      [...container.querySelectorAll("ul li")].map((li) => li.textContent)
+    ).toEqual([
+      "Recombinant, purified by Ni-NTA",
+      "Stored as a 10 mg/mL stock in PBS",
+    ]);
+    // the items are not run together by a comma join
+    expect(text()).not.toContain("Ni-NTA, Stored");
+  });
+
+  it("a header-less one-field plain group's row is depth 0 with the group gap (§2b rule 2)", () => {
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[{ title: "Molecular weight", fields: ["molecular_weight"] }]}
+      />,
+      {
+        initialValues: {
+          o: { molecular_weight: { value: 34.8, unit: "kDa" } },
+        },
+      }
+    );
+    const cell = container.querySelector("td");
+    expect(cell.classList.contains("mbdb-detail-group-gap")).toBe(true);
+    // depth 0: no indentation class, so it aligns with the group headers
+    expect(cell.className).not.toMatch(/mbdb-details-depth-/);
+  });
+
+  it("a sub-heading shows only its own label, not the parent chain (§2b rule 3)", () => {
+    mount(
+      <DetailView
+        fieldPath="o"
+        groups={[{ title: "Modifications", fields: ["modifications"] }]}
+      />,
+      {
+        initialValues: {
+          o: { modifications: { chemical: [{ type: "Acetylation" }] } },
+        },
+      }
+    );
+    expect(text()).toContain("Modifications");
+    expect(text()).toContain("Chemical");
+    expect(text()).not.toContain("›");
   });
 
   it("renders an assessed object as Yes — facts on one line (F4c)", () => {
@@ -701,6 +781,19 @@ describe("DetailView — review findings", () => {
     act(() => Simulate.click(toggle));
     const code = container.querySelector("code");
     expect(code.textContent.replace(/\n/g, "")).toBe(seq);
+  });
+
+  it("the sequence's [Show all] is a plain link, not the error colour (§2b rule 7)", () => {
+    const seq = FILLED.o.sequence.repeat(3);
+    mount(<DetailView fieldPath="o" groups={GROUPS} />, {
+      initialValues: { o: { sequence: seq } },
+    });
+    const toggle = [...container.querySelectorAll("button")].find(
+      (b) => b.textContent === "[Show all]"
+    );
+    expect(toggle).not.toBeUndefined();
+    expect(toggle.classList.contains("mbdb-error-text")).toBe(false);
+    expect(toggle.classList.contains("mbdb-link")).toBe(true);
   });
 
   it("falls back to the record's own title and shows a saved rank in grey (F8)", () => {
@@ -811,11 +904,17 @@ describe("DetailView mini row disclosure default (playground Expand all / Collap
   const COMPONENTS = {
     o: {
       components: [
-        { name: "Water", copy_number: 2 },
-        { name: "NaCl", copy_number: 1 },
+        { name: "Water", copy_number: 2, polymer_type: "polypeptide(L)" },
+        { name: "NaCl", copy_number: 1, polymer_type: "polypeptide(L)" },
       ],
     },
   };
+  const COLUMN_GROUPS = [
+    {
+      title: "Components",
+      fields: [{ field: "components", ...EXTRA_COLUMN_SPEC }],
+    },
+  ];
   const openButtons = () =>
     container.querySelectorAll('button[aria-label^="Hide details of item"]');
   const closedButtons = () =>
@@ -824,7 +923,7 @@ describe("DetailView mini row disclosure default (playground Expand all / Collap
   it('starts every mini row open under DisclosureDefaultProvider value="open"; a click closes one', () => {
     mount(
       <DisclosureDefaultProvider value="open">
-        <DetailView fieldPath="o" groups={[]} />
+        <DetailView fieldPath="o" groups={COLUMN_GROUPS} />
       </DisclosureDefaultProvider>,
       { initialValues: COMPONENTS }
     );
@@ -836,7 +935,7 @@ describe("DetailView mini row disclosure default (playground Expand all / Collap
   });
 
   it("starts every mini row closed without a provider", () => {
-    mount(<DetailView fieldPath="o" groups={[]} />, {
+    mount(<DetailView fieldPath="o" groups={COLUMN_GROUPS} />, {
       initialValues: COMPONENTS,
     });
     expect(openButtons()).toHaveLength(0);
