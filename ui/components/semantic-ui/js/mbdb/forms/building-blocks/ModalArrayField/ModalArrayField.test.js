@@ -513,6 +513,81 @@ describe("ModalArrayField", () => {
     ]);
   });
 
+  it("depth-2: the nested modal shows the parent crumb and 'Done, back to <noun>' (Y14)", async () => {
+    mount(
+      <>
+        <ModalArrayField
+          fieldPath={ENTITIES}
+          label="Entities"
+          itemLabel={(v) => `entity: ${v?.name ?? "new"}`}
+          crumbLabel={(v) => `${v?.name} (${v?.type})`}
+          crumbNoun={(v) => (v?.type === "Polymer" ? "polymer" : "substance")}
+          columns={COLUMNS}
+          initialValue={{}}
+          renderForm={(itemPath) => (
+            <ModalArrayField
+              fieldPath={`${itemPath}.components`}
+              label="Components"
+              itemLabel={(v) => `component: ${v?.name ?? "new"}`}
+              crumbNoun="component"
+              columns={[{ label: "Name", value: (v) => v.name }]}
+              initialValue={{}}
+              renderForm={(p) => (
+                <NameForm ariaLabel="Component name" itemPath={p} />
+              )}
+            />
+          )}
+        />
+        <ValueProbe path={ENTITIES} />
+      </>,
+      {
+        initialValues: {
+          entities: [
+            {
+              type: "Polymer",
+              name: "Lysozyme",
+              components: [{ name: "water" }],
+            },
+          ],
+        },
+      }
+    );
+    // open the entity modal, then the component modal inside it
+    await click(
+      [...container.querySelectorAll("button")].find(
+        (b) => b.textContent === "Edit"
+      )
+    );
+    await click(modalButton("Edit"));
+    expect(modals()).toHaveLength(2);
+    const inner = modals().find((m) =>
+      m.textContent.includes("Edit component: water")
+    );
+    expect(inner).toBeDefined();
+    // the parent crumb (label from crumbLabel), above the title, as text
+    const trail = inner.querySelector(".mbdb-modal-trail");
+    expect(trail.textContent).toBe("Lysozyme (Polymer) ›");
+    expect(trail.querySelector("a, button")).toBeNull();
+    // the destination on the nested Done (the parent entity's noun)
+    const done = [...inner.querySelectorAll("button")].find((b) =>
+      b.textContent.startsWith("Done")
+    );
+    expect(done.textContent).toBe("Done, back to polymer");
+    // one size smaller than the entity modal
+    expect(inner.className).not.toContain("large");
+    // the buttons keep their meaning: Done still keeps the edit
+    await typeIn(
+      inner.querySelector('input[aria-label="Component name"]'),
+      "H2O"
+    );
+    await click(
+      [...inner.querySelectorAll("button")].find((b) =>
+        b.textContent.startsWith("Done")
+      )
+    );
+    expect(probe()[0].components[0].name).toBe("H2O");
+  });
+
   // NOTE: an "Escape closes only the inner modal" case was attempted but
   // dropped: Simulate.keyDown(document, Escape) breaks this jest
   // version's expect internals (_jestGetType error) before any assertion —

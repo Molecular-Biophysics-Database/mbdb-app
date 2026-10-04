@@ -14,7 +14,7 @@ import {
 } from "@js/mbdb/forms/building-blocks/testUtils";
 import { ENTITY_SEEDS } from "@js/mbdb/forms/entities/seeds";
 import { EntitiesOfInterestSectionComponent } from "./EntitiesOfInterest";
-import { ENTITY_TYPE_ORDER } from "./entityTypes";
+import { ENTITY_TYPES, ENTITY_TYPE_ORDER } from "./entityTypes";
 import { duplicateNames } from "./duplicateNames";
 
 // buildUID lives in react-searchkit, whose d3 dependency (ESM) Jest cannot
@@ -299,11 +299,69 @@ describe("Details column", () => {
     expect(details.textContent).toContain("Molecular weight");
     expect(details.textContent).toContain("64.5 kDa");
   });
+
+  it("a component's modal shows the entity crumb and 'Done, back to assembly' (Y14)", async () => {
+    container = render([
+      {
+        id: "e-1",
+        type: "Molecular assembly",
+        name: "RNA polymerase",
+        components: [
+          {
+            type: "Polymer",
+            name: "alpha",
+            copy_number: 2,
+            polymer_type: "polypeptide(L)",
+            expression_source_type: "Natively",
+            molecular_weight: { value: 36, unit: "kDa" },
+          },
+        ],
+      },
+    ]);
+    // open the entity modal, then the component modal inside it
+    await clickOn(
+      [...container.querySelectorAll("button")].find(
+        (b) => b.textContent === "Edit"
+      )
+    );
+    const entityModal = document.body.querySelector(".ui.modal");
+    await clickOn(
+      [...entityModal.querySelectorAll("button")].find(
+        (b) => b.textContent === "Edit"
+      )
+    );
+    const openModals = [...document.body.querySelectorAll(".ui.modal")];
+    expect(openModals).toHaveLength(2);
+    const inner = openModals[1];
+    expect(inner.querySelector(".mbdb-modal-trail").textContent).toBe(
+      "RNA polymerase (Molecular assembly) ›"
+    );
+    expect(
+      [...inner.querySelectorAll("button")].find((b) =>
+        b.textContent.startsWith("Done")
+      ).textContent
+    ).toBe("Done, back to assembly");
+  });
 });
 
 describe("ENTITY_TYPE_ORDER", () => {
   it("equals the model's Entity_base.type enum", () => {
     expect(ENTITY_TYPE_ORDER).toEqual(yamlEnum("Entity_base", "type"));
+  });
+});
+
+describe("ENTITY_TYPES nouns (Y14)", () => {
+  it("gives every type a short noun for the nested Done button", () => {
+    const nouns = ENTITY_TYPE_ORDER.map((type) => ENTITY_TYPES[type]?.noun);
+    expect(nouns).toEqual([
+      "polymer",
+      "chemical",
+      "assembly",
+      "substance",
+      "substance",
+      "substance",
+      "substance",
+    ]);
   });
 });
 

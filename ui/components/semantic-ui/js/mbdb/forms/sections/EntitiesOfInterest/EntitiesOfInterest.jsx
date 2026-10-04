@@ -65,6 +65,10 @@ export const EntitiesOfInterestSectionComponent = ({ formConfig }) => {
         // Type and Name are already columns of the row: do not repeat them
         // under "Other" (design DetailView §2)
         detailProps={{ exclude: ["id", "type", "name"] }}
+        // a component's nested modal shows the entity as "name (type) ›" and
+        // its Done reads "Done, back to <the entity type's noun>"
+        crumbLabel={(v) => `${v?.name ?? ""} (${v?.type ?? ""})`}
+        crumbNoun={(v) => ENTITY_TYPES[v?.type]?.noun}
         renderForm={(itemPath) => <EntityForm fieldPath={itemPath} />}
       />
     </Overridable>

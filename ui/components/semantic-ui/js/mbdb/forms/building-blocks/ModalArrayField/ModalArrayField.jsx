@@ -35,6 +35,8 @@ export const ModalArrayField = ({
   required,
   minItems = 0,
   itemLabel,
+  crumbLabel,
+  crumbNoun,
   columns,
   newItemOptions,
   initialValue = {},
@@ -79,6 +81,12 @@ export const ModalArrayField = ({
   };
   const openEdit = (index, scrollToError = false) =>
     openExisting(index, { scrollToError });
+
+  // the item currently being edited: its crumb goes to a nested modal's
+  // breadcrumb (`crumbLabel`, default `itemLabel`) and its noun to the nested
+  // Done button (specific to the level the caller nests fields into)
+  const edited =
+    session !== null ? getIn(values, `${fieldPath}.${session.key}`) : undefined;
 
   return (
     <>
@@ -187,14 +195,16 @@ export const ModalArrayField = ({
           (guide §8), so depth-2 modals stack correctly */}
       {session !== null && (
         <EditModal
-          size="large"
           open
           onCancel={cancel}
           onDone={done}
           scrollToError={session.scrollToError}
-          header={`Edit ${itemLabel(
-            getIn(values, `${fieldPath}.${session.key}`)
-          )}`}
+          crumb={{
+            label: (crumbLabel ?? itemLabel)(edited),
+            noun:
+              typeof crumbNoun === "function" ? crumbNoun(edited) : crumbNoun,
+          }}
+          header={`Edit ${itemLabel(edited)}`}
         >
           {renderForm(`${fieldPath}.${session.key}`)}
         </EditModal>
@@ -210,6 +220,11 @@ ModalArrayField.propTypes = {
   required: PropTypes.bool,
   minItems: PropTypes.number,
   itemLabel: PropTypes.func.isRequired,
+  // the breadcrumb a nested modal shows for this level (design ModalArrayField.md,
+  // "where am I in stacked modals"): `crumbLabel(item)` defaults to `itemLabel`,
+  // `crumbNoun` (a string, or `(item) => string`) is the nested Done button's noun.
+  crumbLabel: PropTypes.func,
+  crumbNoun: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,

@@ -25,6 +25,8 @@ export const Components = ({ fieldPath }) => (
     detailGroups={componentDetailGroups}
     // Name, Type and Copy number are already in the row: do not repeat them
     detailProps={{ exclude: ["name", "type", "copy_number"] }}
+    // a nested modal's Done button reads "Done, back to component"
+    crumbNoun="component"
   />
 );
 

@@ -150,10 +150,15 @@ export const ModalObjectField = ({
           depth-2 modals stack correctly (same as ModalArrayField) */}
       {session !== null && (
         <EditModal
-          size="large"
           open
           onCancel={cancel}
           onDone={done}
+          // its label doubles as the crumb; the short noun is the label in
+          // lower case ("Storage" → "storage", design ModalObjectField.md)
+          crumb={{
+            label: text,
+            noun: typeof text === "string" ? text.toLowerCase() : undefined,
+          }}
           header={`Edit ${text}`}
         >
           {renderForm(fieldPath)}

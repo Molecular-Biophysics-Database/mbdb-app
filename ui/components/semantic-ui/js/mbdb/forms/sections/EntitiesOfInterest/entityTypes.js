@@ -53,40 +53,49 @@ const fixedGroups = (groups) => () => groups;
 // The only place that knows all seven entity types: for each, the modal form,
 // the details groups (`groups(value)`) and the "Details" summary. `Fields` is
 // the composition the entity doc defines, called at the entity item path.
+// `noun` is the short name a *nested* modal's Done button returns to ("Done,
+// back to assembly", design ModalArrayField.md "where am I in stacked modals").
 export const ENTITY_TYPES = {
   Polymer: {
     Fields: PolymerFields,
     groups: fixedGroups(POLYMER_GROUPS),
     summary: summaryPolymer,
+    noun: "polymer",
   },
   Chemical: {
     Fields: ChemicalFields,
     groups: fixedGroups(CHEMICAL_GROUPS),
     summary: summaryChemical,
+    noun: "chemical",
   },
   "Molecular assembly": {
     Fields: MolecularAssemblyFields,
     groups: fixedGroups(MOLECULAR_ASSEMBLY_GROUPS),
     summary: summaryMolecularAssembly,
+    noun: "assembly",
   },
   "Complex substance of biological origin": {
     Fields: ComplexSubstanceOfBiologicalOriginFields,
     groups: biologicalOriginGroups,
     summary: summaryBiologicalOrigin,
+    noun: "substance",
   },
   "Complex substance of environmental origin": {
     Fields: ComplexSubstanceOfEnvironmentalOriginFields,
     groups: fixedGroups(ENVIRONMENTAL_ORIGIN_GROUPS),
     summary: summaryEnvironmentalOrigin,
+    noun: "substance",
   },
   "Complex substance of chemical origin": {
     Fields: ComplexSubstanceOfChemicalOriginFields,
     groups: fixedGroups(CHEMICAL_ORIGIN_GROUPS),
     summary: summaryChemicalOrigin,
+    noun: "substance",
   },
   "Complex substance of industrial origin": {
     Fields: ComplexSubstanceOfIndustrialOriginFields,
     groups: fixedGroups(INDUSTRIAL_ORIGIN_GROUPS),
     summary: summaryIndustrialOrigin,
+    noun: "substance",
   },
 };

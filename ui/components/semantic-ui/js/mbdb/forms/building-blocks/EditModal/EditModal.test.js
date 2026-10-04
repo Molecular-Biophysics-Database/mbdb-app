@@ -29,6 +29,69 @@ const mount = (ui) => {
 };
 
 describe("EditModal", () => {
+  it("depth 1: no breadcrumb line, plain Cancel / Done, and the modal is large (Y14)", () => {
+    mount(
+      <EditModal
+        header="Edit something"
+        open
+        onCancel={() => {}}
+        onDone={() => {}}
+      >
+        <p>modal body</p>
+      </EditModal>
+    );
+    expect(modal().querySelector(".mbdb-modal-trail")).toBeNull();
+    expect(modalButton("Done").textContent).toBe("Done");
+    expect(modal().className).toContain("large");
+  });
+
+  it("depth 2: shows the parent crumb, names the destination on Done, and is one size smaller (Y14)", () => {
+    mount(
+      <EditModal
+        header="Edit entity"
+        crumb={{
+          label: "human Hemoglobin (Molecular assembly)",
+          noun: "assembly",
+        }}
+        open
+        onCancel={() => {}}
+        onDone={() => {}}
+      >
+        <EditModal
+          header="Edit Hemoglobin subunit alpha"
+          crumb={{ label: "Hemoglobin subunit alpha", noun: "component" }}
+          open
+          onCancel={() => {}}
+          onDone={() => {}}
+        >
+          inner body
+        </EditModal>
+      </EditModal>
+    );
+    // portals stack in creation order: [outer, inner]
+    const all = [...document.body.querySelectorAll(".ui.modal")];
+    expect(all).toHaveLength(2);
+    const inner = all.find((m) =>
+      m.textContent.includes("Edit Hemoglobin subunit alpha")
+    );
+    expect(inner).toBeDefined();
+    const trail = inner.querySelector(".mbdb-modal-trail");
+    expect(trail).not.toBeNull();
+    expect(trail.textContent).toBe("human Hemoglobin (Molecular assembly) ›");
+    // the crumb is text, not a link or button
+    expect(trail.querySelector("a, button")).toBeNull();
+    // the destination on the nested Done (option B2)
+    const done = [...inner.querySelectorAll("button")].find((b) =>
+      b.textContent.startsWith("Done")
+    );
+    expect(done.textContent).toBe("Done, back to assembly");
+    // one size smaller than the entity modal (no `large`)
+    expect(inner.className).not.toContain("large");
+    const outer = all.find((m) => m.textContent.includes("Edit entity"));
+    expect(outer.querySelector(".mbdb-modal-trail")).toBeNull();
+    expect(outer.className).toContain("large");
+  });
+
   it("renders header/content and fires Cancel and Done", () => {
     const calls = [];
     mount(

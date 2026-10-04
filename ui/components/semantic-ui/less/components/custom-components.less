@@ -177,3 +177,14 @@ button.mbdb-link {
   text-decoration: underline;
   cursor: pointer;
 }
+
+// The breadcrumb line above a nested modal's title (design ModalArrayField.md,
+// "where am I in stacked modals"): the parent levels, small and muted, so the
+// modal says what it is stacked on. It is text, never a link.
+.ui.modal > .header .mbdb-modal-trail {
+  font-size: 0.6em;
+  font-weight: normal;
+  letter-spacing: 0;
+  text-transform: none;
+  color: @mbdbMutedColor;
+}
