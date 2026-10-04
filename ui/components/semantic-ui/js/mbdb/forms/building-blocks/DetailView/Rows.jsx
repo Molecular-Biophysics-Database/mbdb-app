@@ -3,7 +3,12 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Button, Label, Table } from "mbdb-semantic-ui-react";
+import {
+  Button,
+  Label,
+  Table,
+  useDisclosureDefault,
+} from "mbdb-semantic-ui-react";
 import {
   hasData,
   isEmptyValue,
@@ -142,7 +147,10 @@ MiniDetails.propTypes = {
 // Columns are the array's declared `itemColumns` (the array's edit-table
 // columns) when given, else the union of keys (`keys`).
 const MiniRow = ({ basePath, index, item, keys, itemColumns, itemGroups }) => {
-  const [open, setOpen] = useState(false);
+  // Initial only: the playground's one-shot "Expand/Collapse all" default
+  // (undefined in the deposit form, so closed as before); a user toggle wins.
+  const disclosure = useDisclosureDefault();
+  const [open, setOpen] = useState(() => disclosure === "open");
   const groups =
     typeof itemGroups === "function" ? itemGroups(item) : itemGroups;
   // the fields already shown as columns are not repeated in the details

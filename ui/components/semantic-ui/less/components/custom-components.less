@@ -14,8 +14,13 @@ nrp ui components create <component-type> <component-name>
 @mbdbErrorColor: #db2828;
 @mbdbMutedColor: rgba(0, 0, 0, 0.6);
 // An open row and its expanded content (plan 4R Y12 / TableArrayField-review
-// P8-F1): a light blue tint plus a blue left accent, one look for the pair.
-@mbdbOpenRowBg: #f3f7fc;
+// P8-F1). Since 2026-10-04 (lead's request) the pair takes TWO tints: the
+// leading row (the one with the toggle) is the darker one, its detail row the
+// lighter one, so a table with every pair open (the playground's "Expand all")
+// still separates a row from its content. Both rows share the blue left accent.
+// A plain detail row outside an open pair keeps the grey background below.
+@mbdbOpenRowBg: #e9f1fb;
+@mbdbOpenRowDetailBg: #f8fbff;
 @mbdbOpenRowAccent: #2185d0;
 
 // Muted and error text. Fomantic UI's `.ui.red.text` / `.ui.grey.text` are not
@@ -37,10 +42,14 @@ nrp ui components create <component-type> <component-name>
 // TableArrayField-review P8-F1, option A). Both <tr>s of the pair carry
 // `mbdb-row-open`; the left accent draws one continuous bar from the row
 // number down to the end of its content. The selector is `> td`, so a nested
-// table's own rows keep their background. Declared AFTER `.mbdb-details` so an
-// open pair that is also a details row (SummaryItem, TableArrayField) takes
-// the tint, not the grey.
-.ui.table tr.mbdb-row-open > td {
+// table's own rows keep their background. The pair takes two tints (2026-10-04,
+// lead's request): the DETAIL row is the lighter one and the LEADING row (one
+// without `mbdb-details`) the darker one, so an all-open table stays readable.
+// A detail row that is not part of a pair keeps the grey above.
+.ui.table tr.mbdb-details.mbdb-row-open > td {
+  background: @mbdbOpenRowDetailBg;
+}
+.ui.table tr.mbdb-row-open:not(.mbdb-details) > td {
   background: @mbdbOpenRowBg;
 }
 .ui.table tr.mbdb-row-open > td:first-child {

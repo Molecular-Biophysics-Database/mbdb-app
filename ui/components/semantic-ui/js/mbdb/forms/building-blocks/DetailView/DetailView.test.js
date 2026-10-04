@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import { Formik, useFormikContext } from "formik";
+import { DisclosureDefaultProvider } from "mbdb-semantic-ui-react";
 import { DetailView } from "./DetailView";
 import { setFakeVocabulary } from "@js/mbdb/forms/building-blocks/testUtils";
 
@@ -803,5 +804,42 @@ describe("DetailView formatters", () => {
     );
     expect(text()).toContain("my lipid mix");
     expect(text()).toContain("Manual entry");
+  });
+});
+
+describe("DetailView mini row disclosure default (playground Expand all / Collapse all)", () => {
+  const COMPONENTS = {
+    o: {
+      components: [
+        { name: "Water", copy_number: 2 },
+        { name: "NaCl", copy_number: 1 },
+      ],
+    },
+  };
+  const openButtons = () =>
+    container.querySelectorAll('button[aria-label^="Hide details of item"]');
+  const closedButtons = () =>
+    container.querySelectorAll('button[aria-label^="Show details of item"]');
+
+  it('starts every mini row open under DisclosureDefaultProvider value="open"; a click closes one', () => {
+    mount(
+      <DisclosureDefaultProvider value="open">
+        <DetailView fieldPath="o" groups={[]} />
+      </DisclosureDefaultProvider>,
+      { initialValues: COMPONENTS }
+    );
+    expect(openButtons()).toHaveLength(2);
+    expect(closedButtons()).toHaveLength(0);
+    act(() => Simulate.click(openButtons()[0]));
+    expect(openButtons()).toHaveLength(1);
+    expect(closedButtons()).toHaveLength(1);
+  });
+
+  it("starts every mini row closed without a provider", () => {
+    mount(<DetailView fieldPath="o" groups={[]} />, {
+      initialValues: COMPONENTS,
+    });
+    expect(openButtons()).toHaveLength(0);
+    expect(closedButtons()).toHaveLength(2);
   });
 });

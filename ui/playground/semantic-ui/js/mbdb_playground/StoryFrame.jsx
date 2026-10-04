@@ -4,6 +4,7 @@ import { Formik } from "formik";
 import {
   Accordion,
   Button,
+  DisclosureDefaultProvider,
   Divider,
   Form,
   Icon,
@@ -74,7 +75,7 @@ ServerErrorsPanel.propTypes = {
   onClear: PropTypes.func.isRequired,
 };
 
-export const StoryFrame = ({ story }) => {
+export const StoryFrame = ({ story, disclosure, epoch = 0 }) => {
   const { scenarios } = story;
   const [scenarioIndex, setScenarioIndex] = useState(0);
   const [mount, setMount] = useState(() => mountScenario(scenarios[0], 0));
@@ -115,7 +116,15 @@ export const StoryFrame = ({ story }) => {
         {({ values, handleSubmit }) => (
           <>
             <Form onSubmit={handleSubmit}>
-              <Content />
+              {/* The one-shot Expand/Collapse all default, applied to the
+                  blocks' INITIAL state. `key={epoch}` remounts only the story
+                  content when the default changes, so the blocks re-read it;
+                  Formik stays mounted and the values are kept. */}
+              <DisclosureDefaultProvider value={disclosure}>
+                <React.Fragment key={epoch}>
+                  <Content />
+                </React.Fragment>
+              </DisclosureDefaultProvider>
             </Form>
 
             <Divider />
@@ -176,4 +185,9 @@ StoryFrame.propTypes = {
       })
     ).isRequired,
   }).isRequired,
+  // the playground's one-shot Expand all / Collapse all default; absent in
+  // tests and anywhere `StoryFrame` is used without the buttons
+  disclosure: PropTypes.oneOf(["open", "closed"]),
+  // bumped by the buttons to remount the story content and re-read `disclosure`
+  epoch: PropTypes.number,
 };

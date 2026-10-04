@@ -2,7 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import { Formik } from "formik";
-import { HelpModeProvider } from "mbdb-semantic-ui-react";
+import {
+  DisclosureDefaultProvider,
+  HelpModeProvider,
+} from "mbdb-semantic-ui-react";
 import { TableArrayField } from "./TableArrayField";
 import {
   setFakeUiModel,
@@ -637,6 +640,31 @@ describe("TableArrayField", () => {
     ]);
   });
 
+  it("marks an open pair two-tone: the leading row mbdb-row-open, its expanded row mbdb-details too (2026-10-04)", async () => {
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="mods"
+          columns={[{ field: "position", label: "Position", type: "number" }]}
+          renderExpanded={(itemPath) => (
+            <div data-testid={`expanded-${itemPath}`}>EXPANDED</div>
+          )}
+        />
+        <ValueProbe path="mods" />
+      </>,
+      { initialValues: { mods: [{ position: 1 }] } }
+    );
+    await click(buttons().find((b) => b.textContent.includes("Details")));
+    const rows = [...container.querySelectorAll("tbody tr")];
+    // the leading (data) row: tinted, and NOT a detail row, so the LESS gives
+    // it the darker background
+    expect(rows[0].classList.contains("mbdb-row-open")).toBe(true);
+    expect(rows[0].classList.contains("mbdb-details")).toBe(false);
+    // the expanded row: a detail row, so the LESS gives it the lighter one
+    expect(rows[1].classList.contains("mbdb-row-open")).toBe(true);
+    expect(rows[1].classList.contains("mbdb-details")).toBe(true);
+  });
+
   it("highlights a row that opens by itself because of a nested error (P8-F1)", () => {
     mount(
       <>
@@ -701,5 +729,54 @@ describe("TableArrayField", () => {
     expect(byTestId(container)).not.toBeNull(); // auto-opened by the error
     await click(buttons().find((b) => b.textContent.includes("Details")));
     expect(byTestId(container)).toBeNull(); // user closed it anyway
+  });
+});
+
+describe("TableArrayField disclosure default (playground Expand all / Collapse all)", () => {
+  const expandable = () => (
+    <TableArrayField
+      fieldPath="mods"
+      columns={[{ field: "position", label: "Position", type: "number" }]}
+      renderExpanded={(itemPath) => (
+        <div data-testid={`expanded-${itemPath}`}>EXPANDED</div>
+      )}
+    />
+  );
+
+  it('starts every row open under DisclosureDefaultProvider value="open"; a click closes one', async () => {
+    mount(
+      <DisclosureDefaultProvider value="open">
+        {expandable()}
+      </DisclosureDefaultProvider>,
+      { initialValues: { mods: [{ position: 1 }, { position: 2 }] } }
+    );
+    expect(
+      container.querySelectorAll('[data-testid^="expanded-"]')
+    ).toHaveLength(2);
+    const toggle = buttons().find((b) => b.textContent.includes("Details"));
+    expect(toggle.getAttribute("aria-expanded")).toBe("true");
+    await click(toggle);
+    // the user toggle wins: only the clicked row closes
+    expect(
+      container.querySelectorAll('[data-testid^="expanded-"]')
+    ).toHaveLength(1);
+  });
+
+  it('starts a row that has an error closed under value="closed" (Collapse all beats auto-open)', () => {
+    mount(
+      <DisclosureDefaultProvider value="closed">
+        {expandable()}
+      </DisclosureDefaultProvider>,
+      {
+        initialValues: { mods: [{ position: 3, steps: [{ name: "s" }] }] },
+        initialErrors: { mods: [{ steps: [{ name: "Required." }] }] },
+      }
+    );
+    expect(byTestId(container)).toBeNull();
+    expect(
+      buttons()
+        .find((b) => b.textContent.includes("Details"))
+        .getAttribute("aria-expanded")
+    ).toBe("false");
   });
 });

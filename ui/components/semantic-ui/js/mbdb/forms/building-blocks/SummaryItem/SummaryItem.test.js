@@ -1,7 +1,8 @@
 import React from "react";
 import { act, Simulate } from "react-dom/test-utils";
 import { useFormikContext } from "formik";
-import { Table } from "mbdb-semantic-ui-react";
+import { DisclosureDefaultProvider, Table } from "mbdb-semantic-ui-react";
+import { DetailView } from "@js/mbdb/forms/building-blocks/DetailView";
 import { SummaryItem } from "./SummaryItem";
 import {
   renderInForm,
@@ -148,6 +149,10 @@ describe("SummaryItem", () => {
     ]);
     // the details row keeps its `.mbdb-details` marker too
     expect(container.querySelector("tr.mbdb-details")).not.toBeNull();
+    // ... and only the details row is one, so the LESS tints the summary row
+    // darker than the details row (2026-10-04, two-tone open pair)
+    expect(rows[0].classList.contains("mbdb-details")).toBe(false);
+    expect(rows[1].classList.contains("mbdb-details")).toBe(true);
   });
 
   it("hides the toggle when no detail is given", () => {
@@ -237,5 +242,49 @@ describe("SummaryItem", () => {
       initialValues: { o: {} },
     });
     expect(removeButton()).toBeNull();
+  });
+});
+
+describe("SummaryItem disclosure default (playground Expand all / Collapse all)", () => {
+  it('starts open under DisclosureDefaultProvider value="open"; a click closes it', () => {
+    mount(
+      <DisclosureDefaultProvider value="open">
+        {row({ onEdit: () => {}, onRemove: () => {} })}
+      </DisclosureDefaultProvider>,
+      { initialValues: { o: { name: "Lysozyme" } } }
+    );
+    expect(byTestId("detail")).not.toBeNull();
+    expect(toggleButton().getAttribute("aria-expanded")).toBe("true");
+    act(() => Simulate.click(toggleButton()));
+    expect(byTestId("detail")).toBeNull();
+  });
+
+  it('opens a nested mini row inside the details under value="open" (Expand all reaches nested levels)', () => {
+    mount(
+      <DisclosureDefaultProvider value="open">
+        <SummaryItem
+          fieldPath="o"
+          cells={[(v) => v.name]}
+          itemName="assembly"
+          onEdit={() => {}}
+          detail={<DetailView fieldPath="o" groups={[]} />}
+        />
+      </DisclosureDefaultProvider>,
+      {
+        initialValues: {
+          o: {
+            name: "Assembly",
+            components: [{ name: "Water", copy_number: 2 }],
+          },
+        },
+      }
+    );
+    // the SummaryItem's own details row is open ...
+    expect(container.querySelector("tr.mbdb-details")).not.toBeNull();
+    // ... and the nested mini row, rendered inside those details, reads the
+    // same one-shot default, so it is open too
+    expect(
+      container.querySelector('button[aria-label^="Hide details of item"]')
+    ).not.toBeNull();
   });
 });

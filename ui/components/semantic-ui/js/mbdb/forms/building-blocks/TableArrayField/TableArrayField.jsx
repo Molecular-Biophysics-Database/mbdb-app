@@ -9,6 +9,7 @@ import {
   Icon,
   Label,
   Table,
+  useDisclosureDefault,
 } from "mbdb-semantic-ui-react";
 import {
   useFieldErrors,
@@ -44,18 +45,30 @@ const Row = ({
 }) => {
   const row = deserialize(storedItem);
   // The open state is derived on every render — an explicit user toggle
-  // wins; otherwise a row with errors under it opens automatically
-  // (initialErrors count, including new ones set on this SAME mounted form
-  // after a failed save)
+  // wins; otherwise the playground's one-shot "Expand/Collapse all" default
+  // (DisclosureDefaultProvider); otherwise a row with errors under it opens
+  // automatically (initialErrors count, including new ones set on this SAME
+  // mounted form after a failed save)
   const rowHasError = useFieldErrors(itemPath).hasError;
-  const isOpen = expanded ?? rowHasError;
+  const disclosure = useDisclosureDefault();
+  const defaultOpen =
+    disclosure === "open"
+      ? true
+      : disclosure === "closed"
+      ? false
+      : rowHasError;
+  const isOpen = expanded ?? defaultOpen;
   // A string/{message} error AT the item itself (serialize tables store
   // strings, so `dbs.0: "…"` lands here) is shown in the actions cell
   const rowMessages = useOwnErrorMessages(itemPath);
   const hint = rowHint?.(row);
   // An open row and its expanded content read as one (plan 4R Y12 /
-  // TableArrayField-review P8-F1, option A): both <tr>s get the tint + left
-  // accent. `isOpen` covers the user's toggle AND the error-driven auto-open.
+  // TableArrayField-review P8-F1, option A): the data row and the expanded
+  // <tr>s share `mbdb-row-open` (tint + left accent). `isOpen` covers the
+  // user's toggle AND the error-driven auto-open. The expanded row also
+  // carries `mbdb-details`, so the LESS can tint it lighter than the leading
+  // row (2026-10-04, lead's request: a two-tone pair stays readable when every
+  // pair is open).
   const openClass = isOpen ? "mbdb-row-open" : undefined;
 
   const setCell = (column, cellValue) =>
@@ -115,7 +128,7 @@ const Row = ({
         </Table.Cell>
       </Table.Row>
       {renderExpanded && isOpen && (
-        <Table.Row className={openClass}>
+        <Table.Row className={`mbdb-details ${openClass}`}>
           <Table.Cell colSpan={colSpan}>
             {renderExpanded(itemPath, index)}
           </Table.Cell>

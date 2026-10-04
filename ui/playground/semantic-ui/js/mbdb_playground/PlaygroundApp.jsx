@@ -27,7 +27,7 @@ const ENTRIES = REGISTRY.map((entry) => ({
     entry.load &&
     lazy(() =>
       entry.load().then(({ default: story }) => ({
-        default: () => <StoryFrame story={story} />,
+        default: (props) => <StoryFrame story={story} {...props} />,
       }))
     ),
 }));
@@ -61,6 +61,19 @@ export const PlaygroundApp = ({ uiModel }) => {
     const m = localStorage.getItem("mbdb.playground.helpMode");
     return HELP_MODES.includes(m) ? m : DEFAULT_HELP_MODE;
   });
+  // One-shot default for the collapsible parts of the current story ("open" /
+  // "closed"; undefined = the blocks' own default). `epoch` remounts the story
+  // content so the blocks re-read it, while Formik (and its values) stays put.
+  const [disclosure, setDisclosure] = useState(undefined);
+  const [epoch, setEpoch] = useState(0);
+  const expandAll = () => {
+    setDisclosure("open");
+    setEpoch((n) => n + 1);
+  };
+  const collapseAll = () => {
+    setDisclosure("closed");
+    setEpoch((n) => n + 1);
+  };
 
   const selectHelpMode = (mode) => {
     setHelpMode(mode);
@@ -118,6 +131,18 @@ export const PlaygroundApp = ({ uiModel }) => {
                       onClick={() => selectHelpMode("popup")}
                     />
                   </Button.Group>
+                  <Button.Group>
+                    <Button
+                      type="button"
+                      content="Expand all"
+                      onClick={expandAll}
+                    />
+                    <Button
+                      type="button"
+                      content="Collapse all"
+                      onClick={collapseAll}
+                    />
+                  </Button.Group>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row>
@@ -161,7 +186,11 @@ export const PlaygroundApp = ({ uiModel }) => {
                     <EntryHeader entry={active} />
                     {active.Pane ? (
                       <Suspense fallback={<Loader active inline="centered" />}>
-                        <active.Pane key={active.key} />
+                        <active.Pane
+                          key={active.key}
+                          disclosure={disclosure}
+                          epoch={epoch}
+                        />
                       </Suspense>
                     ) : (
                       <Message

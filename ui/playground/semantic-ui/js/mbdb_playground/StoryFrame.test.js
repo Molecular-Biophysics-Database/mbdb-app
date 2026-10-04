@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import { getIn, useFormikContext } from "formik";
+import { useDisclosureDefault } from "mbdb-semantic-ui-react";
 import { StoryFrame } from "./StoryFrame";
 
 // Plain react-dom test utils: @testing-library/dom in the assets project fails
@@ -86,5 +87,71 @@ describe("StoryFrame", () => {
 
     click("Clear");
     expect(byTestId("error").textContent).toBe("-");
+  });
+});
+
+// A story that reads the one-shot disclosure default and lets the test type
+// into Formik, so a remount that keeps the values can be proven.
+const DisclosureStory = () => {
+  const disclosure = useDisclosureDefault();
+  const { values, setFieldValue } = useFormikContext();
+  return (
+    <>
+      <span data-testid="disclosure">{disclosure ?? "none"}</span>
+      <input
+        data-testid="name"
+        value={getIn(values, PATH) ?? ""}
+        onChange={(e) => setFieldValue(PATH, e.target.value)}
+      />
+    </>
+  );
+};
+
+const disclosureStory = {
+  title: "Disclosure",
+  scenarios: [
+    {
+      name: "Filled",
+      initialValues: {
+        metadata: {
+          general_parameters: { entities_of_interest: [{ name: "Serum" }] },
+        },
+      },
+      render: DisclosureStory,
+    },
+  ],
+};
+
+describe("StoryFrame Expand all / Collapse all default", () => {
+  const renderFrame = (el) => {
+    act(() => {
+      ReactDOM.render(el, container);
+    });
+  };
+
+  it("re-reads the disclosure default on remount and keeps the Formik values", () => {
+    renderFrame(
+      <StoryFrame story={disclosureStory} disclosure="closed" epoch={0} />
+    );
+    expect(byTestId("disclosure").textContent).toBe("closed");
+
+    // type a value that differs from the initial values
+    const input = byTestId("name");
+    input.value = "Typed";
+    act(() => Simulate.change(input));
+    expect(byTestId("name").value).toBe("Typed");
+
+    // "Expand all": the default changes and the epoch bumps, so the story
+    // content remounts and re-reads the default — Formik is not remounted
+    renderFrame(
+      <StoryFrame story={disclosureStory} disclosure="open" epoch={1} />
+    );
+    expect(byTestId("disclosure").textContent).toBe("open");
+    expect(byTestId("name").value).toBe("Typed");
+  });
+
+  it("has no default when used without the buttons (disclosure undefined)", () => {
+    renderFrame(<StoryFrame story={disclosureStory} />);
+    expect(byTestId("disclosure").textContent).toBe("none");
   });
 });

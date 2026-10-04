@@ -3,7 +3,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { getIn, useFormikContext } from "formik";
-import { Button, Confirm, Icon, Label, Table } from "mbdb-semantic-ui-react";
+import {
+  Button,
+  Confirm,
+  Icon,
+  Label,
+  Table,
+  useDisclosureDefault,
+} from "mbdb-semantic-ui-react";
 import { hasData, useFieldErrors } from "@js/mbdb/forms/building-blocks/errors";
 
 // A one-line summary row of a complex object plus, when `detail` is given, a
@@ -18,7 +25,10 @@ export const SummaryItem = ({
   itemName,
 }) => {
   const { values } = useFormikContext();
-  const [open, setOpen] = useState(false);
+  // Initial only: the playground's one-shot "Expand/Collapse all" default
+  // (undefined in the deposit form, so closed as before); a user toggle wins.
+  const disclosure = useDisclosureDefault();
+  const [open, setOpen] = useState(() => disclosure === "open");
   const [confirming, setConfirming] = useState(false);
   const value = getIn(values, fieldPath);
   // badge reads errors ∪ initialErrors so it survives the first edit
