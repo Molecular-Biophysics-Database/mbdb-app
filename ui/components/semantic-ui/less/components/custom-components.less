@@ -13,6 +13,9 @@ nrp ui components create <component-type> <component-name>
 // re-review CSS rule): this file compiles standalone, without theme vars.
 @mbdbErrorColor: #db2828;
 @mbdbMutedColor: rgba(0, 0, 0, 0.6);
+// The old mbdb-app-rdm-12 record view's field-name colour
+// (mbdbv-name-value-item-name): accent blue, bold.
+@mbdbLabelColor: #62a9d9;
 // A dark-orange "warning" colour for review mode's "Not filled: …" lines
 // (design ReviewMode.md rule 4): the reviewer sees a field is missing without
 // the alarm of the red "Missing" row.
@@ -168,8 +171,8 @@ nrp ui components create <component-type> <component-name>
 // `.mbdb-detail-table`, so it wins. The 25% width comes from `width={4}` on the
 // label cell (four wide), set in Rows.jsx.
 .ui.definition.table.mbdb-detail-table tr td:first-child:not(.ignored) {
-  font-weight: normal;
-  color: @mbdbMutedColor;
+  font-weight: 700;
+  color: @mbdbLabelColor;
   background: none;
 }
 

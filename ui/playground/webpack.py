@@ -8,6 +8,8 @@ theme = WebpackThemeBundle(
         "semantic-ui": {
             "entry": {
                 "mbdb_playground": "./js/mbdb_playground/index.js",
+                # the full MST form mockup (/playground/mst-mockup)
+                "mst_mockup": "./js/mbdb_playground/mst_mockup/index.js",
             },
             "dependencies": {},
             "devDependencies": {},

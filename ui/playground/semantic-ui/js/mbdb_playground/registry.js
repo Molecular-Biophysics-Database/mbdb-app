@@ -348,4 +348,11 @@ export const REGISTRY = [
     design: "design/EntitiesOfInterest.md",
     load: () => import("./stories/EntitiesOfInterest.story"),
   },
+  {
+    step: 5,
+    key: "MstForm",
+    title: "MST form (sneak peek)",
+    design: "design/EntitiesOfInterest.md",
+    load: () => import("./stories/MstForm.story"),
+  },
 ];

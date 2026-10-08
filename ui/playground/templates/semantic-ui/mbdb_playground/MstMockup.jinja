@@ -12,7 +12,8 @@
 {%- endblock css %}
 
 {% block page_header %}
-  {# the old app's header: white, the navy MBDB logo in the top left #}
+  {# the old app's header: white, the navy MBDB logo in the top left
+     (mirrors Playground.jinja's page_header) #}
   <header class="mbdb-playground-header">
     <div class="ui container">
       <a class="logo-link" href="{{ invenio_url_for('invenio_app_rdm.index') }}">
@@ -27,11 +28,15 @@
 {% endblock page_header %}
 
 {% block page_body %}
-  <div id="mbdb-playground"
-       data-ui-model='{{ extra_context.ui_model | tojson }}'></div>
+  {# the rdm-12 skin is scoped to #mbdb-playground, so the mockup page keeps
+     the same root id; the entry mounts the form into #mst-mockup-form #}
+  <div id="mbdb-playground">
+    <div id="mst-mockup-form"
+         data-ui-model='{{ extra_context.ui_model | tojson }}'></div>
+  </div>
 {% endblock page_body %}
 
 {%- block javascript %}
   {% include "oarepo_ui/javascript.html" %}
-  {{ webpack['mbdb_playground.js'] }}
+  {{ webpack['mst_mockup.js'] }}
 {%- endblock %}
