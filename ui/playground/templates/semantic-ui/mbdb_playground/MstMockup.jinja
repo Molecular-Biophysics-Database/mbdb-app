@@ -14,22 +14,6 @@
   {{ webpack['mbdb_playground.css'] }}
 {%- endblock css %}
 
-{% block page_header %}
-  {# the old app's header: white, the navy MBDB logo in the top left
-     (mirrors Playground.jinja's page_header) #}
-  <header class="mbdb-playground-header">
-    <div class="ui container">
-      <a class="logo-link" href="{{ invenio_url_for('invenio_app_rdm.index') }}">
-        <img class="mbdb-logo"
-             src="{{ url_for('playground_ui.static', filename='images/mbdb-logo.svg') }}"
-             alt="{{ _(config.THEME_SITENAME) }} {{ _('home') }}"/>
-      </a>
-    </div>
-  </header>
-  {%- from "invenio_theme/macros/messages.html" import flashed_messages with context -%}
-  {{ flashed_messages() }}
-{% endblock page_header %}
-
 {% block page_body %}
   {# the rdm-12 skin is scoped to #mbdb-playground, so the mockup page keeps
      the same root id; the entry mounts the form into #mst-mockup-form #}

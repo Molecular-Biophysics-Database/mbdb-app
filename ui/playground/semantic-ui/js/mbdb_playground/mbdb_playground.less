@@ -14,20 +14,6 @@
 // old borderRadius.normal
 @rdm12Radius: 0.28571429rem;
 
-// The page header (Playground.jinja's page_header override), outside
-// #mbdb-playground: white, the navy MBDB logo top-left, the old app's
-// spacing (logo 5rem wide, my-6 vertical).
-.mbdb-playground-header {
-  background: #ffffff;
-  padding: 1.5rem 0;
-
-  .mbdb-logo {
-    display: block;
-    width: 5rem;
-    height: auto;
-  }
-}
-
 #mbdb-playground {
   font-family: "Jost", sans-serif;
   letter-spacing: 0.04rem;
@@ -119,4 +105,13 @@
   // read-only details keep the custom-components accent-blue labels
   // (mbdbv-name-value-item-name, the old record view) - nothing to do here;
   // the playground restyles only what the old app colored differently.
+}
+
+// The Review / Save draft row (mst_mockup's TabForm.actions override):
+// TabForm renders it after the content, the grid is a flex container,
+// so order: -1 puts it on top of the form, right-aligned.
+#mbdb-playground .tab-form > .row.mbdb-form-actions-top {
+  order: -1;
+  justify-content: flex-end;
+  padding-bottom: 0;
 }

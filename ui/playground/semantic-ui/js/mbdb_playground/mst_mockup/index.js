@@ -70,9 +70,12 @@ const ReviewToggle = () => {
   );
 };
 
+// The actions row is rendered after the content in TabForm; the
+// mbdb-form-actions-top class moves it above the form (flex order),
+// right-aligned (mbdb_playground.less).
 const componentOverrides = {
   "Mst.Form.TabForm.actions": () => (
-    <Grid.Row data-testid="tab-form-actions-row">
+    <Grid.Row data-testid="tab-form-actions-row" className="mbdb-form-actions-top">
       <div className="flex justify-end form-actions-row">
         <div>
           <ReviewToggle />
