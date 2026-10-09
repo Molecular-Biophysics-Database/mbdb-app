@@ -20,6 +20,7 @@ export * from "./DetailView";
 export * from "./SummaryItem";
 export * from "./TableArrayField";
 export * from "./StringTableField";
+export * from "./OrcidInput";
 export * from "./ModalArrayField";
 export * from "./ModalObjectField";
 export * from "./ToggleFieldGroup";

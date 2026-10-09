@@ -292,7 +292,8 @@ describe("Depositors", () => {
     expect(depositorInput("depositor", "given_name")).not.toBeNull();
     expect(depositorInput("depositor", "family_name")).not.toBeNull();
     expect(depositorInput("principal_contact", "given_name")).not.toBeNull();
-    // the identifiers table and the affiliations plus button
+    // the ORCID boxes and the affiliations plus button
+    expect(container.querySelectorAll(".mbdb-orcid-box")).toHaveLength(32);
     expect(container.textContent).toContain("Identifiers");
     expect(addTextBtn("Add affiliation")).toBeDefined();
   });
@@ -305,6 +306,111 @@ describe("Depositors", () => {
     expect(readProbe(container)).toEqual({
       depositor: { given_name: "Max", family_name: "Mustermann" },
       principal_contact: { given_name: "Josiah" },
+    });
+  });
+
+  describe("ORCID prefill", () => {
+    const DEPOSITOR_ORCID = "0000-0002-1825-0097";
+
+    const orcidBoxes = () =>
+      [...container.querySelectorAll(".mbdb-orcid-box input")].slice(0, 16);
+    const prefillBtn = () =>
+      [...container.querySelectorAll("button")].find((b) =>
+        b.textContent.includes("Prefill from ORCID")
+      );
+    const removeBtn = () =>
+      [...container.querySelectorAll("button")].find(
+        (b) => b.textContent === "Remove"
+      );
+
+    const typeOrcid = async (digits) => {
+      const boxes = orcidBoxes();
+      for (let i = 0; i < digits.length; i += 1) {
+        // eslint-disable-next-line no-await-in-loop -- one box per tick
+        await typeInto(boxes[i], digits[i]);
+      }
+    };
+
+    const orcidResponse = (body, ok = true, status = 200) => ({
+      ok,
+      status,
+      json: () => Promise.resolve(body),
+    });
+
+    const carberry = {
+      person: {
+        name: {
+          "given-names": { value: "Josiah" },
+          "family-name": { value: "Carberry" },
+        },
+      },
+    };
+
+    afterEach(() => {
+      delete global.fetch;
+    });
+
+    it("shows no Prefill button until all 16 digits are typed", async () => {
+      container = render(undefined, {}, `${DEPOSITORS_PATH}.depositor`);
+      await typeOrcid("000000021825009");
+      expect(prefillBtn()).toBeUndefined();
+      await typeInto(orcidBoxes()[15], "7");
+      expect(prefillBtn()).toBeDefined();
+    });
+
+    it("Prefill fetches the ORCID API and fills the names and identifier", async () => {
+      global.fetch = jest.fn().mockResolvedValue(orcidResponse(carberry));
+      container = render(undefined, {}, `${DEPOSITORS_PATH}.depositor`);
+      await typeOrcid(DEPOSITOR_ORCID.replace(/-/g, ""));
+      await clickOn(prefillBtn());
+      expect(global.fetch).toHaveBeenCalledWith(
+        `https://pub.orcid.org/v3.0/${DEPOSITOR_ORCID}`,
+        { headers: { Accept: "application/json" } }
+      );
+      expect(readProbe(container)).toEqual({
+        given_name: "Josiah",
+        family_name: "Carberry",
+        identifiers: [`orcid:${DEPOSITOR_ORCID}`],
+      });
+    });
+
+    it("a failed lookup shows the error and writes nothing", async () => {
+      global.fetch = jest.fn().mockResolvedValue(orcidResponse({}, false, 404));
+      container = render(undefined, {}, `${DEPOSITORS_PATH}.depositor`);
+      await typeOrcid(DEPOSITOR_ORCID.replace(/-/g, ""));
+      await clickOn(prefillBtn());
+      expect(container.textContent).toContain(
+        `No ORCID record for ${DEPOSITOR_ORCID}`
+      );
+      expect(readProbe(container)).toBeNull();
+    });
+
+    it("a stored ORCID fills the boxes and Remove clears the prefill", async () => {
+      container = render(
+        {
+          metadata: {
+            general_parameters: {
+              depositors: {
+                depositor: {
+                  given_name: "Josiah",
+                  family_name: "Carberry",
+                  identifiers: [`orcid:${DEPOSITOR_ORCID}`],
+                },
+              },
+            },
+          },
+        },
+        {},
+        `${DEPOSITORS_PATH}.depositor`
+      );
+      expect(
+        orcidBoxes()
+          .map((b) => b.value)
+          .join("")
+      ).toBe(DEPOSITOR_ORCID.replace(/-/g, ""));
+      await clickOn(removeBtn());
+      expect(readProbe(container)).toBeNull();
+      expect(orcidBoxes().every((b) => b.value === "")).toBe(true);
     });
   });
 

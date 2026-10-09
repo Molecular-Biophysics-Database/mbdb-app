@@ -6,7 +6,8 @@ import axios from "axios";
 // draft would show the raw id in the dropdown. rememberItem stores the
 // whole item ({ title, customFields }) of every option the user picked
 // during this session; for ids the cache does not know (a reload),
-// useVocabularyItem does one GET per id and caches the result.
+// useVocabularyItem does one GET per id (plus one registry fallback GET,
+// see FALLBACK_URLS) and caches the result.
 // Module-level Maps: the cache survives remounts.
 //
 // The request needs Invenio's `Accept: application/vnd.inveniordm.v1+json`
@@ -14,6 +15,15 @@ import axios from "axios";
 // `title_l10n` and no `custom_fields`. Plain axios (already an app
 // dependency) so this module keeps no import that Jest cannot load
 // (the alias index would pull oarepo's forms package through fields.jsx).
+
+// Vocabularies whose ids come from a live registry and may not be in the
+// local dump yet: when the vocabulary GET fails, the item is read from the
+// registry proxy instead (same title_l10n shape). Affiliations are ROR ids
+// (picked from /api/ror/affiliations or prefilled from ORCID); they are
+// created in the vocabulary only when the record is saved.
+const FALLBACK_URLS = {
+  affiliations: (id) => `/api/ror/affiliations/${encodeURIComponent(id)}`,
+};
 
 const items = new Map();
 const pending = new Map();
@@ -64,6 +74,11 @@ const fetchItem = (type, id) => {
           )}`,
           { headers: { Accept: "application/vnd.inveniordm.v1+json" } }
         )
+        .catch((error) => {
+          const fallbackUrl = FALLBACK_URLS[type];
+          if (!fallbackUrl) throw error;
+          return axios.get(fallbackUrl(id));
+        })
         .then((response) => {
           const item = extractItem(response?.data);
           // The fetch may resolve after a pick already remembered the

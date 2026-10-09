@@ -6,3 +6,13 @@
 
 // e.g. "species" — the API returns the rank in lower case.
 export const describeOrganism = (option) => option?.props?.rank ?? undefined;
+
+// e.g. "Brno, Czechia" — the city (and state) and country of a ROR
+// organization, from the /api/ror/affiliations suggest endpoint.
+export const describeAffiliation = (option) =>
+  [
+    [option?.props?.city, option?.props?.state].filter(Boolean).join(", "),
+    option?.props?.country,
+  ]
+    .filter(Boolean)
+    .join(" · ") || undefined;

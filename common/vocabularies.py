@@ -148,3 +148,68 @@ class AutoCreateChemicalMixin(marshmallow.Schema):
         if isinstance(data, dict):
             data = ensure_chemical_id(data)
         return super().load(data, **kwargs)
+
+
+def ensure_affiliation_id(value: dict[str, Any]) -> dict[str, Any]:
+    """Return ``value`` with an ``id`` that resolves as an ``affiliations`` vocabulary item.
+
+    The deposit form's affiliation picker searches the live ROR API, so a picked organization
+    may not be in the local vocabulary dump yet. If the id does not resolve, the organization is
+    fetched from ROR (``common.ror.get_ror``) and created, in the same shape the dump loads.
+    The input dict is not modified.
+    """
+    if not value.get("id"):
+        return value
+
+    # Imported here: they need the application context, which exists at load time.
+    from flask import current_app
+    from invenio_access.permissions import system_identity
+    from invenio_pidstore.errors import PIDDoesNotExistError
+    from sqlalchemy.exc import NoResultFound
+
+    from common.ror import RORError, RORNotFoundError, get_ror
+
+    vocabulary_id = value["id"]
+    # The affiliations vocabulary is Invenio's built-in one, with its own service.
+    affiliations_service = current_app.extensions["invenio-vocabularies"].affiliations_service
+    try:
+        affiliations_service.read(system_identity, vocabulary_id)
+        return value
+    except (PIDDoesNotExistError, NoResultFound):
+        pass
+
+    try:
+        payload = get_ror(vocabulary_id)
+    except RORNotFoundError as e:
+        raise marshmallow.ValidationError(
+            {"affiliations": [f"Affiliation {vocabulary_id} is not in the ROR registry."]}
+        ) from e
+    except RORError as e:
+        raise marshmallow.ValidationError(
+            {"affiliations": [f"Could not fetch affiliation {vocabulary_id} from ROR."]}
+        ) from e
+
+    affiliations_service.create(system_identity, payload)
+    return value
+
+
+class AutoCreateAffiliationsMixin(marshmallow.Schema):
+    """Schema mixin for a person: creates missing affiliations from ROR.
+
+    The affiliation picker writes ``{ id }`` references to ROR organizations that may not be in the
+    local ``affiliations`` vocabulary yet. Before loading, this mixin creates each missing item
+    from the ROR API (see ``ensure_affiliation_id``), so the pid relation that follows in the
+    MRO resolves like any dumped affiliation.
+    """
+
+    def load(self, data: Any, **kwargs: Any) -> Any:
+        """Create every missing affiliation before the relation schema loads."""
+        if isinstance(data, dict) and isinstance(data.get("affiliations"), list):
+            data = {
+                **data,
+                "affiliations": [
+                    ensure_affiliation_id(affiliation) if isinstance(affiliation, dict) else affiliation
+                    for affiliation in data["affiliations"]
+                ],
+            }
+        return super().load(data, **kwargs)

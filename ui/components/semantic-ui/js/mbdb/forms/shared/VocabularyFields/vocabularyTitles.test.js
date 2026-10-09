@@ -140,6 +140,27 @@ describe("vocabularyTitles", () => {
     expect(axios.get).toHaveBeenCalledTimes(2);
     expect(shown()).toBe("Now known");
   });
+
+  it("an affiliation missing from the vocabulary is read from ROR", async () => {
+    axios.get
+      .mockRejectedValueOnce(new Error("404"))
+      .mockResolvedValueOnce({
+        data: { id: "02hpadn98", title_l10n: "Bielefeld University" },
+      });
+    await render(<TitleProbe type="affiliations" id="02hpadn98" />);
+    expect(axios.get).toHaveBeenCalledTimes(2);
+    expect(axios.get).toHaveBeenLastCalledWith(
+      "/api/ror/affiliations/02hpadn98"
+    );
+    expect(shown()).toBe("Bielefeld University");
+  });
+
+  it("other vocabularies have no registry fallback", async () => {
+    axios.get.mockRejectedValue(new Error("404"));
+    await render(<TitleProbe type="organisms" id="taxid:nofallback" />);
+    expect(axios.get).toHaveBeenCalledTimes(1);
+    expect(shown()).toBe("…");
+  });
 });
 
 describe("vocabularyTitles items (customFields)", () => {

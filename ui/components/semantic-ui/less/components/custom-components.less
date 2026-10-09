@@ -294,3 +294,75 @@ button.mbdb-link.mbdb-error-text {
   text-transform: none;
   color: @mbdbMutedColor;
 }
+
+// OrcidInput (OrcidField, PersonForm): the 16 single-digit boxes of an ORCID
+// in four dash-separated groups, with the Prefill/Remove buttons beside them —
+// the look of mbdb-app-rdm-12: each group is one joined segment (shared
+// borders, only the outer corners rounded), gray borders that turn dark on
+// focus, and a large dash between the groups. The neighbouring boxes overlap
+// by their border (-1px) and the focused one is raised, so its full dark
+// border shows without shifting the row. The row wraps instead of
+// overflowing on narrow (modal) widths.
+@mbdbOrcidBorderColor: #bfbfbf;
+@mbdbOrcidFocusColor: #023850;
+@mbdbOrcidRadius: 0.28571429rem;
+
+.mbdb-orcid-prompt {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+.mbdb-orcid-prompt .mbdb-orcid-logo {
+  width: 1.5em;
+  height: auto;
+  margin: 0 0.4em;
+}
+.mbdb-orcid-field {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35em 0.5em;
+}
+.mbdb-orcid {
+  display: flex;
+  align-items: center;
+}
+.mbdb-orcid-group {
+  display: flex;
+}
+.mbdb-orcid .mbdb-orcid-dash {
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+// Semantic's `.ui.form .field .ui.input { width: 100% }` would stretch every
+// box across the row; the group prefix outranks it.
+.mbdb-orcid .mbdb-orcid-group > .ui.input.mbdb-orcid-box {
+  flex: 0 0 auto;
+  width: 2.5rem;
+  min-width: 0;
+}
+.mbdb-orcid .mbdb-orcid-group > .ui.input.mbdb-orcid-box + .ui.input.mbdb-orcid-box {
+  margin-left: -1px;
+}
+.mbdb-orcid .mbdb-orcid-group > .ui.input.mbdb-orcid-box > input {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  border-color: @mbdbOrcidBorderColor;
+  border-radius: 0;
+}
+.mbdb-orcid .mbdb-orcid-group > .ui.input.mbdb-orcid-box:first-child > input {
+  border-radius: @mbdbOrcidRadius 0 0 @mbdbOrcidRadius;
+}
+.mbdb-orcid .mbdb-orcid-group > .ui.input.mbdb-orcid-box:last-child > input {
+  border-radius: 0 @mbdbOrcidRadius @mbdbOrcidRadius 0;
+}
+.mbdb-orcid .mbdb-orcid-group > .ui.input.mbdb-orcid-box > input:focus {
+  z-index: 1;
+  border-color: @mbdbOrcidFocusColor;
+}

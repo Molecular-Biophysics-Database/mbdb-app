@@ -1332,6 +1332,8 @@ Depositors:
   label:
     en: Depositors
 Person:
+  marshmallow_schema_mixins:
+    - common.vocabularies.AutoCreateAffiliationsMixin
   properties:
     given_name:
       type: keyword
