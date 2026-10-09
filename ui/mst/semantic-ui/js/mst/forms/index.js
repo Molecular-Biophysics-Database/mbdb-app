@@ -15,6 +15,7 @@ import {
 import {
   EntitiesOfInterestSection,
   MbdbDepositRecordSerializer,
+  RecordInformationSection,
 } from "@js/mbdb/forms";
 
 const { rootEl, config, ...rest } = parseFormAppConfig();
@@ -49,7 +50,7 @@ const componentOverrides = {
   ),
 };
 
-const sections = [EntitiesOfInterestSection];
+const sections = [RecordInformationSection, EntitiesOfInterestSection];
 
 // The review state lives above DepositFormApp (so Formik is never remounted);
 // the section reads it (useReviewMode) and remounts only its own content.

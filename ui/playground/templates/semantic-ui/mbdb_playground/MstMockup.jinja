@@ -7,6 +7,9 @@
 
 {%- block css %}
   {{ super() }}
+  {# the form building blocks' own rules (custom-components.less: help-text
+     spacing, nested-group border, ...) #}
+  {{ webpack['components.css'] }}
   {# the playground's own rdm-12 skin (less/mbdb_playground.less) #}
   {{ webpack['mbdb_playground.css'] }}
 {%- endblock css %}

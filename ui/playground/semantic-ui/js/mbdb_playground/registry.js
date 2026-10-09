@@ -344,6 +344,12 @@ export const REGISTRY = [
 
   {
     step: 5,
+    key: "RecordInformation",
+    design: "design/RecordInformation.md",
+    load: () => import("./stories/RecordInformation.story"),
+  },
+  {
+    step: 5,
     key: "EntitiesOfInterest",
     design: "design/EntitiesOfInterest.md",
     load: () => import("./stories/EntitiesOfInterest.story"),

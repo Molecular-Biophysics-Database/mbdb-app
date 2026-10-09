@@ -235,6 +235,26 @@ label.helptext.mbdb-field-help-under-label {
   border-left: 2px solid rgba(34, 36, 38, 0.15);
 }
 
+// PersonForm (Depositor, Principal contact, a contributor): a person is a
+// few short fields, so its nested card does not stretch over the whole form
+// width. The name row stacked three bottom margins (help, row, oarepo's
+// `!important` 2rem on every tab-form field) into a big gap before the
+// Identifiers; keep only a 1rem gap under the name help texts. The field rule
+// needs `!important` (and a longer selector) to beat oarepo's
+// `.tab-form .tab-content .field`.
+.ui.segment.basic.mbdb-nested:has(> .mbdb-person) {
+  max-width: 48rem;
+}
+.ui.form .mbdb-person > .fields {
+  margin-bottom: 0;
+}
+.ui.form .mbdb-person > .fields > .field {
+  margin-bottom: 0 !important;
+}
+.ui.form .mbdb-person > .fields label.helptext.mbdb-field-help {
+  margin-bottom: 1rem;
+}
+
 // DetailView steps formatting (numbered protocol lines) and expanded
 // sequences: keep the newlines they render.
 .mbdb-pre-line {
