@@ -1,0 +1,22 @@
+{# def
+  extra_context,
+  ui_config = None,
+  ui_resource = None,
+#}
+{% extends config.BASE_TEMPLATE %}
+
+{%- block css %}
+  {{ super() }}
+  {# the playground's own rdm-12 skin (less/mbdb_playground.less) #}
+  {{ webpack['mbdb_playground.css'] }}
+{%- endblock css %}
+
+{% block page_body %}
+  <div id="mbdb-playground"
+       data-ui-model='{{ extra_context.ui_model | tojson }}'></div>
+{% endblock page_body %}
+
+{%- block javascript %}
+  {% include "oarepo_ui/javascript.html" %}
+  {{ webpack['mbdb_playground.js'] }}
+{%- endblock %}

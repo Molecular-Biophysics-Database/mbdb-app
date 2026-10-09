@@ -1,0 +1,1209 @@
+{
+  "metadata": {
+    "general_parameters": {
+      "schema_version": "0.15.0",
+      "record_information": {
+        "copyright": "Anyone is free to distribute the data and metadata",
+        "license": {
+          "name": "CC0 1.0 Universal",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "title": "all entity types: filled MST record",
+        "access_rights": "open",
+        "publisher": "MBDB",
+        "resource_type_general": "Dataset",
+        "resource_type": "MST",
+        "subject_category": "Biophysics",
+        "deposition_date": "2026-10-05",
+        "date_available": "2027-10-05"
+      },
+      "depositors": {
+        "depositor": {
+          "given_name": "Max",
+          "family_name": "Mustermann",
+          "affiliations": [
+            {
+              "id": "02hpadn98",
+              "name": "Bielefeld University"
+            }
+          ]
+        },
+        "principal_contact": {
+          "given_name": "Josiah",
+          "family_name": "Carberry",
+          "identifiers": [
+            "orcid:0000-0002-1825-0097"
+          ],
+          "affiliations": [
+            {
+              "id": "05gq02987",
+              "name": "Brown University"
+            }
+          ]
+        },
+        "contributors": [
+          {
+            "given_name": "Jane",
+            "family_name": "Doe",
+            "identifiers": [
+              "orcid:0000-0001-5109-3700"
+            ],
+            "affiliations": [
+              {
+                "id": "02hpadn98",
+                "name": "Bielefeld University"
+              }
+            ]
+          }
+        ]
+      },
+      "funding_references": [
+        {
+          "funder": {
+            "id": "05k73zm37",
+            "name": "Academy of Finland"
+          },
+          "award": {
+            "id": "05k73zm37::213912",
+            "number": "213912",
+            "title": {
+              "en": "The atherogenic potential of phospholipid transphospholipid transfer protein, PLTP"
+            }
+          }
+        },
+        {
+          "funder": {
+            "id": "05k73zm37",
+            "name": "Academy of Finland"
+          },
+          "award": {
+            "id": "05k73zm37::116824",
+            "number": "116824",
+            "title": {
+              "en": "Derivation of the physical properties of molecules, liquid crystals and porous solids with the aid of NMR spectroscopy and imaging"
+            }
+          }
+        }
+      ],
+      "method": "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
+      "instrument": {
+        "id": "ins:2",
+        "title": {
+          "en": "Monolith NT.115 RED"
+        },
+        "props": {
+          "manufacturer": "Nanotemper"
+        }
+      },
+      "entities_of_interest": [
+        {
+          "id": "e-polymer",
+          "type": "Polymer",
+          "name": "Hemoglobin subunit beta",
+          "polymer_type": "polypeptide(L)",
+          "sequence": "MAHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFGKEFTPPVQAAYQKVVAGVANALAHKYH",
+          "molecular_weight": {
+            "value": 16,
+            "unit": "kDa"
+          },
+          "external_databases": [
+            "Uniprot:P68871",
+            "pdb:2HCO"
+          ],
+          "variant": "V2A",
+          "source_organism": {
+            "id": "taxid:9606",
+            "title": {
+              "en": "Homo sapiens"
+            },
+            "props": {
+              "rank": "species"
+            }
+          },
+          "expression_source_type": "Recombinantly",
+          "expression_organism": {
+            "id": "taxid:562",
+            "title": {
+              "en": "Escherichia coli"
+            },
+            "props": {
+              "rank": "species"
+            }
+          },
+          "modifications": {
+            "biological_postprocessing": [
+              {
+                "position": "S10",
+                "type": "Phosphorylation",
+                "protocol": [
+                  {
+                    "name": "Kinase assay",
+                    "description": "Incubated with PKA, 30 min at 30 °C"
+                  }
+                ]
+              }
+            ],
+            "chemical": [
+              {
+                "position": "C93",
+                "type": "Iodoacetamide labeling",
+                "protocol": [
+                  {
+                    "name": "Alkylation",
+                    "description": "20 mM iodoacetamide, 30 min in the dark"
+                  }
+                ]
+              }
+            ]
+          },
+          "quality_controls": {
+            "purity": {
+              "assessed": "Yes",
+              "method": "SDS-PAGE",
+              "purity_percentage": ">95 %"
+            },
+            "identity": {
+              "assessed": "Yes",
+              "by_intact_mass": {
+                "method": "Mass spectrometry",
+                "deviation_from_expected_mass": {
+                  "value": 0.5,
+                  "unit": "Da"
+                }
+              },
+              "by_sequencing": {
+                "method": "Sanger sequencing",
+                "coverage": 98
+              },
+              "by_fingerprinting": {
+                "method": "Protease digest + Mass spectrometry"
+              }
+            },
+            "homogeneity": {
+              "assessed": "Yes",
+              "method": "Size exclusion chromatography",
+              "expected_number_of_species": 1,
+              "number_of_species_observed": 1
+            }
+          },
+          "additional_specifications": [
+            "Recombinant, purified by Ni-NTA",
+            "Stored as a 10 mg/mL stock in PBS"
+          ]
+        },
+        {
+          "id": "e-chemical",
+          "type": "Chemical",
+          "name": "Water",
+          "basic_information": {
+            "id": "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+            "title": {
+              "en": "Water"
+            },
+            "chemical_formula": "H2O",
+            "additional_identifiers": [
+              "cid:962"
+            ],
+            "molecular_weight": {
+              "value": 18.02,
+              "unit": "g/mol"
+            }
+          },
+          "additional_specifications": [
+            "HPLC grade"
+          ]
+        },
+        {
+          "id": "e-assembly",
+          "type": "Molecular assembly",
+          "name": "human Hemoglobin",
+          "external_databases": [
+            "pdb:2HCO"
+          ],
+          "components": [
+            {
+              "type": "Polymer",
+              "name": "Hemoglobin subunit alpha",
+              "copy_number": 2,
+              "polymer_type": "polypeptide(L)",
+              "sequence": "MVLSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDMPNALSALSDLHAHKLRVDPVNFKLLSHCLLVTLAAHLPAEFTPAVHASLDKFLASVSTVLTSKYR",
+              "molecular_weight": {
+                "value": 15.1,
+                "unit": "kDa"
+              },
+              "external_databases": [
+                "Uniprot:P69905"
+              ],
+              "variant": "H",
+              "source_organism": {
+                "id": "taxid:9606",
+                "title": {
+                  "en": "Homo sapiens"
+                },
+                "props": {
+                  "rank": "species"
+                }
+              },
+              "expression_source_type": "Natively",
+              "expression_organism": {
+                "id": "taxid:562",
+                "title": {
+                  "en": "Escherichia coli"
+                },
+                "props": {
+                  "rank": "species"
+                }
+              },
+              "modifications": {
+                "chemical": [
+                  {
+                    "position": "S1",
+                    "type": "Acetylation"
+                  }
+                ]
+              },
+              "quality_controls": {
+                "purity": {
+                  "assessed": "Yes",
+                  "method": "Agarose Gel electrophoresis",
+                  "purity_percentage": ">99 %"
+                }
+              },
+              "additional_specifications": [
+                "heme-free"
+              ]
+            },
+            {
+              "type": "Chemical",
+              "name": "Heme b",
+              "copy_number": 4,
+              "basic_information": {
+                "title": {
+                  "en": "Heme b"
+                },
+                "chemical_formula": "C34H32FeN4O4",
+                "additional_identifiers": [
+                  "cid:26945"
+                ],
+                "molecular_weight": {
+                  "value": 616.49,
+                  "unit": "g/mol"
+                }
+              },
+              "additional_specifications": [
+                "prosthetic group"
+              ]
+            }
+          ],
+          "molecular_weight": {
+            "value": 64.5,
+            "unit": "kDa"
+          },
+          "chemical_modifications": [
+            {
+              "position": "N45",
+              "type": "Deglycosylation",
+              "protocol": [
+                {
+                  "name": "PNGase F",
+                  "description": "37 °C overnight"
+                },
+                {
+                  "name": "Desalting",
+                  "description": "Zeba spin column"
+                }
+              ]
+            }
+          ],
+          "quality_controls": {
+            "purity": {
+              "assessed": "Yes",
+              "method": "SDS-PAGE",
+              "purity_percentage": ">99 %"
+            },
+            "identity": {
+              "assessed": "Yes",
+              "by_intact_mass": {
+                "method": "Mass spectrometry",
+                "deviation_from_expected_mass": {
+                  "value": 1,
+                  "unit": "kDa"
+                }
+              }
+            },
+            "homogeneity": {
+              "assessed": "No"
+            }
+          },
+          "additional_specifications": [
+            "tetramer, alpha2beta2"
+          ]
+        },
+        {
+          "id": "e-bodyfluid",
+          "type": "Complex substance of biological origin",
+          "name": "Human serum",
+          "derived_from": "Body fluid",
+          "source_organism": {
+            "id": "taxid:9606",
+            "title": {
+              "en": "Homo sapiens"
+            },
+            "props": {
+              "rank": "species"
+            }
+          },
+          "fluid": {
+            "id": "bf:2",
+            "title": {
+              "en": "Serum"
+            }
+          },
+          "health_status": "Healthy",
+          "preparation_protocol": [
+            {
+              "name": "Centrifugation",
+              "description": "10 min at 1,300g at 4 °C, within 2 hours of collection"
+            },
+            {
+              "name": "Aliquotation",
+              "description": "Supernatant distributed into 0.5 mL cryostorage tubes"
+            }
+          ],
+          "storage": {
+            "temperature": {
+              "value": -80,
+              "unit": "°C"
+            },
+            "duration": {
+              "value": 3,
+              "unit": "months"
+            },
+            "storage_preparation": [
+              {
+                "name": "Flash freezing",
+                "description": "Aliquots frozen in liquid nitrogen"
+              }
+            ]
+          },
+          "additional_specifications": [
+            "Blood drawn after 12 hours of fasting",
+            "Pooled from three donors"
+          ]
+        },
+        {
+          "id": "e-cellfraction",
+          "type": "Complex substance of biological origin",
+          "name": "Liver ribosomes",
+          "derived_from": "Cell fraction",
+          "source_organism": {
+            "id": "taxid:9606",
+            "title": {
+              "en": "Homo sapiens"
+            },
+            "props": {
+              "rank": "species"
+            }
+          },
+          "fraction": {
+            "id": "cf:1",
+            "title": {
+              "en": "Ribosome"
+            }
+          },
+          "health_status": "healthy",
+          "organ": "liver",
+          "tissue": "liver",
+          "cell_type": "hepatocyte",
+          "preparation_protocol": [
+            {
+              "name": "Ultracentrifugation",
+              "description": "100,000 g, 2 h"
+            }
+          ],
+          "storage": {
+            "temperature": {
+              "value": -80,
+              "unit": "°C"
+            }
+          },
+          "additional_specifications": [
+            "ribosome pellet resuspended in buffer A"
+          ]
+        },
+        {
+          "id": "e-virion",
+          "type": "Complex substance of biological origin",
+          "name": "AAV2 particles",
+          "derived_from": "Virion",
+          "source_organism": {
+            "id": "taxid:9606",
+            "title": {
+              "en": "Homo sapiens"
+            },
+            "props": {
+              "rank": "species"
+            }
+          },
+          "genetic_material": "Virus genome",
+          "capsid_type": "Native",
+          "envelope_type": "None",
+          "host_organism": {
+            "id": "taxid:9606",
+            "title": {
+              "en": "Homo sapiens"
+            },
+            "props": {
+              "rank": "species"
+            }
+          },
+          "host_cell_type": "macrophage",
+          "preparation_protocol": [
+            {
+              "name": "Purification",
+              "description": "Iodixanol gradient"
+            }
+          ],
+          "storage": {
+            "temperature": {
+              "value": -80,
+              "unit": "°C"
+            },
+            "duration": {
+              "value": 6,
+              "unit": "months"
+            }
+          },
+          "additional_specifications": [
+            "titre 1e13 vg/mL"
+          ]
+        },
+        {
+          "id": "e-tissue",
+          "type": "Complex substance of biological origin",
+          "name": "Liver biopsy",
+          "derived_from": "Solid tissue sample",
+          "source_organism": {
+            "id": "taxid:9606",
+            "title": {
+              "en": "Homo sapiens"
+            },
+            "props": {
+              "rank": "species"
+            }
+          },
+          "organ": "liver",
+          "health_status": "healthy",
+          "homogenized": false,
+          "preparation_protocol": [
+            {
+              "name": "Dissection",
+              "description": "Not homogenized; cut into 1 mm slices"
+            }
+          ],
+          "additional_specifications": [
+            "snap-frozen in isopentane"
+          ]
+        },
+        {
+          "id": "e-environmental",
+          "type": "Complex substance of environmental origin",
+          "name": "Brno pond water",
+          "environment_type": {
+            "id": "env:1",
+            "title": {
+              "en": "Fresh water"
+            }
+          },
+          "preparation_protocol": [
+            {
+              "name": "Filtration",
+              "description": "0.22 µm filter"
+            }
+          ],
+          "location": {
+            "latitude": 49.1951,
+            "longitude": 16.6068,
+            "altitude": 237
+          },
+          "storage": {
+            "temperature": {
+              "value": 4,
+              "unit": "°C"
+            },
+            "duration": {
+              "value": 7,
+              "unit": "days"
+            }
+          },
+          "additional_specifications": [
+            "sampled in October"
+          ]
+        },
+        {
+          "id": "e-lipid",
+          "type": "Complex substance of chemical origin",
+          "class": "Lipid assembly",
+          "name": "POPC liposomes",
+          "assembly_type": "Liposome",
+          "components": [
+            {
+              "type": "Chemical",
+              "name": "POPC",
+              "copy_number": 120,
+              "basic_information": {
+                "title": {
+                  "en": "POPC"
+                },
+                "chemical_formula": "C42H82NO8P",
+                "additional_identifiers": [
+                  "cid:5497103"
+                ],
+                "molecular_weight": {
+                  "value": 760.1,
+                  "unit": "g/mol"
+                }
+              },
+              "additional_specifications": [
+                "main lipid"
+              ]
+            }
+          ],
+          "number_of_mono_layers": 2,
+          "size": {
+            "type": "diameter",
+            "mean": 120,
+            "unit": "nm",
+            "median": 118,
+            "lower": 90,
+            "upper": 150
+          },
+          "preparation_protocol": [
+            {
+              "name": "Extrusion",
+              "description": "21 passes through a 100 nm membrane"
+            }
+          ],
+          "storage": {
+            "temperature": {
+              "value": 4,
+              "unit": "°C"
+            },
+            "duration": {
+              "value": 14,
+              "unit": "days"
+            }
+          },
+          "additional_specifications": [
+            "extruded at room temperature"
+          ]
+        },
+        {
+          "id": "e-industrial",
+          "type": "Complex substance of industrial origin",
+          "name": "Whey sample",
+          "product": {
+            "id": "prod:2",
+            "title": {
+              "en": "Whey"
+            }
+          },
+          "preparation_protocol": [
+            {
+              "name": "Filtration",
+              "description": "0.22 µm filter"
+            }
+          ],
+          "storage": {
+            "temperature": {
+              "value": -20,
+              "unit": "°C"
+            },
+            "duration": {
+              "value": 6,
+              "unit": "months"
+            }
+          },
+          "additional_specifications": [
+            "byproduct of cheese production"
+          ]
+        }
+      ],
+      "chemical_environments": [
+        {
+          "id": "chem-env-measurement-buffer",
+          "name": "Measurement buffer",
+          "solvent": [
+            {
+              "type": "Chemical",
+              "name": "Water",
+              "basic_information": {
+                "id": "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+                "title": {
+                  "en": "Water"
+                },
+                "chemical_formula": "H2O",
+                "molecular_weight": {
+                  "value": 18.02,
+                  "unit": "g/mol"
+                }
+              },
+              "concentration": {
+                "value": 50,
+                "unit": "w/w %"
+              }
+            },
+            {
+              "type": "Chemical",
+              "name": "Ethanol",
+              "basic_information": {
+                "id": "inchikey:LFQSCWFLJHTTHZ-UHFFFAOYSA-N",
+                "title": {
+                  "en": "Ethanol"
+                },
+                "chemical_formula": "C2H6O",
+                "additional_identifiers": [
+                  "cid:702"
+                ],
+                "molecular_weight": {
+                  "value": 46.07,
+                  "unit": "g/mol"
+                }
+              },
+              "concentration": {
+                "value": 50,
+                "unit": "v/v %"
+              }
+            }
+          ],
+          "constituents": [
+            {
+              "type": "Chemical",
+              "name": "Tris:HCl",
+              "basic_information": {
+                "id": "inchikey:QKNYBSVHEMOAJP-UHFFFAOYSA-N",
+                "title": {
+                  "en": "Tris"
+                },
+                "chemical_formula": "C4H11NO3",
+                "molecular_weight": {
+                  "value": 121.14,
+                  "unit": "g/mol"
+                }
+              },
+              "concentration": {
+                "value": 50,
+                "unit": "mM"
+              }
+            },
+            {
+              "type": "Chemical",
+              "name": "Sodium chloride",
+              "basic_information": {
+                "id": "inchikey:FAPWRFPIFSIZLT-UHFFFAOYSA-M",
+                "title": {
+                  "en": "Sodium chloride"
+                },
+                "chemical_formula": "ClNa",
+                "molecular_weight": {
+                  "value": 58.44,
+                  "unit": "g/mol"
+                }
+              },
+              "concentration": {
+                "value": 150,
+                "unit": "mM"
+              }
+            },
+            {
+              "type": "Chemical",
+              "name": "SDS",
+              "basic_information": {
+                "id": "inchikey:DBMJMQXJHONAFJ-UHFFFAOYSA-M",
+                "title": {
+                  "en": "Sodium dodecyl sulfate"
+                },
+                "chemical_formula": "C12H25NaO4S",
+                "molecular_weight": {
+                  "value": 288.38,
+                  "unit": "g/mol"
+                }
+              },
+              "concentration": {
+                "value": 1,
+                "unit": "w/v %"
+              }
+            }
+          ],
+          "ph": 7.4,
+          "additional_specifications": [
+            "filtered through 0.22 µm"
+          ]
+        },
+        {
+          "id": "chem-env-low-ph",
+          "name": "Low-pH buffer",
+          "solvent": [
+            {
+              "type": "Chemical",
+              "name": "Water",
+              "basic_information": {
+                "id": "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+                "title": {
+                  "en": "Water"
+                },
+                "chemical_formula": "H2O",
+                "molecular_weight": {
+                  "value": 18.02,
+                  "unit": "g/mol"
+                }
+              },
+              "concentration": {
+                "value": 90,
+                "unit": "w/w %"
+              }
+            }
+          ],
+          "constituents": [
+            {
+              "type": "Polymer",
+              "name": "Lysozyme",
+              "polymer_type": "polypeptide(L)",
+              "expression_source_type": "Natively",
+              "molecular_weight": {
+                "value": 14.3,
+                "unit": "kDa"
+              },
+              "sequence": "KVFGRCELAAAMKRHGLDNYRGYSLGNWVCAAKFESNFNTQATNRNTDGSTDYGILQINSRWWCNDGRTPGSRNLCNIPCSALLSSDITASVNCAKKIVSDGNGMNAWVAWRNRCKGTDVQAWIRGCRL",
+              "source_organism": {
+                "id": "taxid:9606"
+              },
+              "concentration": {
+                "value": 5,
+                "unit": "µM"
+              }
+            },
+            {
+              "type": "Molecular assembly",
+              "name": "human Hemoglobin (constituent)",
+              "components": [
+                {
+                  "type": "Polymer",
+                  "name": "Hemoglobin subunit beta",
+                  "copy_number": 2,
+                  "polymer_type": "polypeptide(L)",
+                  "expression_source_type": "Recombinantly",
+                  "molecular_weight": {
+                    "value": 16,
+                    "unit": "kDa"
+                  }
+                }
+              ],
+              "molecular_weight": {
+                "value": 64.5,
+                "unit": "kDa"
+              },
+              "concentration": {
+                "value": 10,
+                "unit": "µM"
+              }
+            }
+          ],
+          "ph": 4.5,
+          "additional_specifications": [
+            "prepared fresh"
+          ]
+        }
+      ],
+      "results": [
+        {
+          "id": "res-concentration",
+          "name": "Active concentration of hemoglobin",
+          "type": "Concentration",
+          "value": 10.3,
+          "unit": "µM",
+          "value_error": {
+            "lower": 0.3,
+            "upper": 0.3,
+            "is_relative": false
+          },
+          "entities_involved": [
+            {
+              "entity": {
+                "id": "e-assembly",
+                "name": "human Hemoglobin"
+              },
+              "copy_number": 1
+            }
+          ]
+        },
+        {
+          "id": "res-stoichiometry",
+          "name": "Stoichiometry of the hemoglobin-heme complex",
+          "type": "Stoichiometry",
+          "entities_involved": [
+            {
+              "entity": {
+                "id": "e-assembly",
+                "name": "human Hemoglobin"
+              },
+              "copy_number": 1
+            },
+            {
+              "entity": {
+                "id": "e-polymer",
+                "name": "Hemoglobin subunit beta"
+              },
+              "copy_number": 2
+            },
+            {
+              "entity": {
+                "id": "e-chemical",
+                "name": "Water"
+              },
+              "copy_number": -1
+            }
+          ]
+        },
+        {
+          "id": "res-ka",
+          "name": "KA of lysozyme to the antibody",
+          "type": "Constant of association KA",
+          "value": 2500000,
+          "unit": "M^-1",
+          "entities_involved": [
+            {
+              "entity": {
+                "id": "e-polymer",
+                "name": "Hemoglobin subunit beta"
+              },
+              "copy_number": 1
+            }
+          ]
+        },
+        {
+          "id": "res-kd",
+          "name": "KD of hemoglobin to unknown component in serum",
+          "type": "Constant of dissociation KD",
+          "value": 10.3,
+          "unit": "nM",
+          "value_error": {
+            "lower": 10,
+            "upper": 10,
+            "is_relative": true
+          },
+          "entities_involved": [
+            {
+              "entity": {
+                "id": "e-assembly",
+                "name": "human Hemoglobin"
+              },
+              "copy_number": 1
+            },
+            {
+              "entity": {
+                "id": "e-bodyfluid",
+                "name": "Human serum"
+              },
+              "copy_number": -1
+            }
+          ]
+        },
+        {
+          "id": "res-ec50",
+          "name": "EC50 of the inhibitor",
+          "type": "Half maximal effective concentration EC50",
+          "value": 1.2,
+          "unit": "µM",
+          "entities_involved": [
+            {
+              "entity": {
+                "id": "e-lipid",
+                "name": "POPC liposomes"
+              },
+              "copy_number": 1
+            }
+          ]
+        },
+        {
+          "id": "res-hill",
+          "name": "Hill coefficient of binding",
+          "type": "Hill coefficient",
+          "value": 1.8,
+          "unit": "unitless",
+          "entities_involved": [
+            {
+              "entity": {
+                "id": "e-assembly",
+                "name": "human Hemoglobin"
+              },
+              "copy_number": 1
+            }
+          ]
+        },
+        {
+          "id": "res-kon",
+          "name": "Association rate kOn",
+          "type": "Association rate kOn",
+          "value": 100000,
+          "unit": "M^-1 s^-1",
+          "entities_involved": [
+            {
+              "entity": {
+                "id": "e-polymer",
+                "name": "Hemoglobin subunit beta"
+              },
+              "copy_number": 1
+            }
+          ]
+        },
+        {
+          "id": "res-koff",
+          "name": "Dissociation rate kOff",
+          "type": "Dissociation rate kOff",
+          "value": 0.001,
+          "unit": "s^-1",
+          "entities_involved": [
+            {
+              "entity": {
+                "id": "e-polymer",
+                "name": "Hemoglobin subunit beta"
+              },
+              "copy_number": 1
+            }
+          ]
+        },
+        {
+          "id": "res-deltah",
+          "name": "Change in enthalpy deltaH",
+          "type": "Change in enthalpy deltaH",
+          "value": -12.5,
+          "unit": "kcal/mol",
+          "entities_involved": [
+            {
+              "entity": {
+                "id": "e-assembly",
+                "name": "human Hemoglobin"
+              },
+              "copy_number": 1
+            }
+          ]
+        },
+        {
+          "id": "res-deltas",
+          "name": "Change in entropy deltaS",
+          "type": "Change in entropy deltaS",
+          "value": -0.04,
+          "unit": "kcal/molK",
+          "entities_involved": [
+            {
+              "entity": {
+                "id": "e-assembly",
+                "name": "human Hemoglobin"
+              },
+              "copy_number": 1
+            }
+          ]
+        },
+        {
+          "id": "res-deltag",
+          "name": "Change in Gibbs free energy deltaG",
+          "type": "Change in Gibbs free energy deltaG",
+          "value": -8.2,
+          "unit": "kcal/mol",
+          "entities_involved": [
+            {
+              "entity": {
+                "id": "e-assembly",
+                "name": "human Hemoglobin"
+              },
+              "copy_number": 1
+            }
+          ]
+        },
+        {
+          "id": "res-active-conc",
+          "name": "Correction of active concentration",
+          "type": "Correction of active concentration",
+          "value": 0.95,
+          "unit": "unitless",
+          "entities_involved": [
+            {
+              "entity": {
+                "id": "e-assembly",
+                "name": "human Hemoglobin"
+              },
+              "copy_number": 1
+            }
+          ]
+        },
+        {
+          "id": "res-mw",
+          "name": "Molecular weight of the assembly",
+          "type": "Molecular weight",
+          "value": 64.5,
+          "unit": "kDa",
+          "entities_involved": [
+            {
+              "entity": {
+                "id": "e-assembly",
+                "name": "human Hemoglobin"
+              },
+              "copy_number": 1
+            }
+          ]
+        },
+        {
+          "id": "res-size",
+          "name": "Size of the liposome",
+          "type": "Size of spherically represented entity",
+          "size_type": "Radius",
+          "value": 60,
+          "unit": "nm",
+          "value_error": {
+            "lower": 5,
+            "upper": 5,
+            "is_relative": false
+          },
+          "entities_involved": [
+            {
+              "entity": {
+                "id": "e-lipid",
+                "name": "POPC liposomes"
+              },
+              "copy_number": 1
+            }
+          ]
+        }
+      ]
+    },
+    "method_specific_parameters": {
+      "schema_version": "0.9.12",
+      "experiment_type": "Affinity",
+      "signal_type": "TRIC/MST",
+      "excitation_led_color": "RED (ex 605-645nm, em 660-720nm)",
+      "excitation_led_power": 40,
+      "ir_mst_laser_power": 20,
+      "temperature": {
+        "value": 25,
+        "unit": "°C"
+      },
+      "measurements": [
+        {
+          "id": "pos_1_rep_1",
+          "name": "1 nM hemoglobin + 10 mg/ml Human serum",
+          "position": "1",
+          "sample": {
+            "targets": [
+              {
+                "entity": {
+                  "id": "e-assembly",
+                  "name": "human Hemoglobin"
+                },
+                "concentration": {
+                  "value": 1,
+                  "unit": "nM"
+                }
+              }
+            ],
+            "ligands": [
+              {
+                "entity": {
+                  "id": "e-bodyfluid",
+                  "name": "Human serum"
+                },
+                "concentration": {
+                  "value": 10,
+                  "unit": "mg/mL"
+                }
+              }
+            ],
+            "chemical_environment": {
+              "id": "chem-env-measurement-buffer",
+              "name": "Measurement buffer"
+            },
+            "measurement_container": "Monolith Standard Capillary",
+            "preparation_protocol": [
+              {
+                "name": "Incubation",
+                "description": "10 min at room temperature before the run"
+              }
+            ]
+          }
+        },
+        {
+          "id": "pos_2_rep_1",
+          "name": "1 nM hemoglobin + 20 mg/ml Human serum",
+          "position": "2",
+          "sample": {
+            "targets": [
+              {
+                "entity": {
+                  "id": "e-assembly",
+                  "name": "human Hemoglobin"
+                },
+                "concentration": {
+                  "value": 1,
+                  "unit": "nM"
+                }
+              }
+            ],
+            "ligands": [
+              {
+                "entity": {
+                  "id": "e-bodyfluid",
+                  "name": "Human serum"
+                },
+                "concentration": {
+                  "value": 20,
+                  "unit": "mg/mL"
+                }
+              }
+            ],
+            "chemical_environment": {
+              "id": "chem-env-low-ph",
+              "name": "Low-pH buffer"
+            },
+            "measurement_container": "Monolith Standard Capillary"
+          }
+        }
+      ],
+      "data_analysis": [
+        {
+          "results": [
+            {
+              "id": "res-kd",
+              "name": "KD of hemoglobin to unknown component in serum"
+            }
+          ],
+          "measurements": [
+            {
+              "id": "pos_1_rep_1",
+              "name": "1 nM hemoglobin + 10 mg/ml Human serum"
+            },
+            {
+              "id": "pos_2_rep_1",
+              "name": "1 nM hemoglobin + 20 mg/ml Human serum"
+            }
+          ],
+          "data_fitting": {
+            "model": "1:1",
+            "software_name": "MO.Affinity Analysis Software"
+          }
+        }
+      ]
+    }
+  },
+  "files": {
+    "enabled": false
+  },
+  "access": {
+    "record": "public",
+    "files": "public",
+    "embargo": {
+      "active": false,
+      "reason": null
+    },
+    "status": "open"
+  }
+}

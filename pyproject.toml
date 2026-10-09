@@ -8,6 +8,10 @@ dependencies = [
     "oarepo[s3,rdm]>=14.0.0,<15.0.0",
     "oarepo-app[production]>=7.0.0,<8.0.0",
     #"oarepo-model",
+    "billiard==4.2.4",
+    "oarepo-model>=6.0.0,<7.0.0",
+    "oarepo-runtime>=7.0.0,<8.0.0",
+    "oarepo-rdm>=9.0.0,<10.0.0",
 ]
 requires-python = ">=3.14,<3.15"
 
@@ -19,6 +23,7 @@ ui_spr = "ui.spr.webpack:theme"
 ui_itc = "ui.itc.webpack:theme"
 ui_bli = "ui.bli.webpack:theme"
 ui_mp = "ui.mp.webpack:theme"
+ui_playground = "ui.playground.webpack:theme"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"
@@ -32,6 +37,10 @@ ui_spr = "ui.spr:create_blueprint"
 ui_itc = "ui.itc:create_blueprint"
 ui_bli = "ui.bli:create_blueprint"
 ui_mp = "ui.mp:create_blueprint"
+ui_playground = "ui.playground:create_blueprint"
+
+[project.entry-points."invenio_base.api_blueprints"]
+ror = "common.ror:create_blueprint"
 
 [project.entry-points."invenio_base.finalize_app"]
 ui_mst = "ui.mst:finalize_app"
@@ -49,8 +58,15 @@ module-name = [
     "models",
 ]
 
-[tool.uv.sources]
-#oarepo-model = {path = "../oarepo-lib/oarepo-model", editable = true}
+[tool.uv]
+# oarepo-app[production] pins oarepo-rdm==8.6.1 and oarepo-model==5.4.x;
+# the GitHub main branch of oarepo-rdm is 9.x and the project needs oarepo-model 6.x,
+# so both pins are overridden.
+override-dependencies = [
+    "oarepo-rdm>=9.0.0,<10.0.0",
+    "oarepo-model>=6.0.0,<7.0.0",
+    "oarepo-runtime>=7.0.0,<8.0.0",
+]
 
 [build-system]
 requires = [

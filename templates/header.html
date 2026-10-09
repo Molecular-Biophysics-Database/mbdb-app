@@ -36,3 +36,32 @@ Additional Elements (from invenio_app_rdm/header.html):
 Note: All blocks support {{ super() }} to preserve parent content.
 The navbar_inner block from invenio_theme is replaced by individual blocks in invenio_app_rdm.
 #}
+{#- MBDB header, ported from the old mbdb-app-rdm-12 header:
+    logo on the left, main links in the middle, deposition + sign-in on the right.
+    Links are placeholders for now. -#}
+{%- block navbar %}
+<div class="mbdb-header">
+  <a class="mbdb-header-logo" href="{{ invenio_url_for('invenio_app_rdm.index') }}">
+    <img src="{{ url_for('static', filename='images/mbdb-logo.svg') }}"
+         alt="{{ _(config.THEME_SITENAME) }} {{ _('home') }}"/>
+  </a>
+
+  <nav class="mbdb-header-links" aria-label="{{ _('Main') }}">
+    <a href="https://molecular-biophysics-database.github.io/mbdb-docs/" target="_blank">{{ _("Documentation") }}</a>
+    <a href="#">{{ _("Tutorials") }}</a>
+    <a href="#">{{ _("Communities") }}</a>
+  </nav>
+
+  <div class="mbdb-header-actions">
+    <a class="mbdb-header-deposit" href="#">{{ _("Start new deposition") }}</a>
+    {%- if current_user.is_authenticated %}
+      {%- include config.THEME_HEADER_LOGIN_TEMPLATE %}
+    {%- else %}
+      <a class="mbdb-header-signin" href="{{ url_for_security('login', next=request.path) }}">
+        <span>{{ _("sign in with") }}</span>
+        <img src="{{ url_for('static', filename='images/orcid-logo.png') }}" alt="ORCID logo"/>
+      </a>
+    {%- endif %}
+  </div>
+</div>
+{%- endblock navbar %}

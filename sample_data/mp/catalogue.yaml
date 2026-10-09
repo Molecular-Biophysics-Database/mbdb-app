@@ -1,0 +1,4 @@
+mp_data:
+  - writer: service
+    service: mp
+  - source: MP.json
