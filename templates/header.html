@@ -50,10 +50,11 @@ The navbar_inner block from invenio_theme is replaced by individual blocks in in
     <a href="https://molecular-biophysics-database.github.io/mbdb-docs/" target="_blank">{{ _("Documentation") }}</a>
     <a href="#">{{ _("Tutorials") }}</a>
     <a href="#">{{ _("Communities") }}</a>
+    <a href="{{ url_for('playground_ui.render_index') }}">{{ _("Playground") }}</a>
   </nav>
 
   <div class="mbdb-header-actions">
-    <a class="mbdb-header-deposit" href="#">{{ _("Start new deposition") }}</a>
+    <a class="mbdb-header-deposit" href="{{ url_for('playground_ui.render_mst_mockup') }}">{{ _("Start new deposition") }}</a>
     {%- if current_user.is_authenticated %}
       {%- include config.THEME_HEADER_LOGIN_TEMPLATE %}
     {%- else %}
