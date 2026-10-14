@@ -1,0 +1,117 @@
+// The playground page dressed in the old mbdb-app-rdm-12 look: its
+// tailwind.config.js palette (primary/dark/secondary/accent), its FormWrapper
+// section cards and its branding mbdb.less rules (navy buttons, transparent
+// inputs), applied to the playground only. Scoped to #mbdb-playground, the
+// page's root div, so nothing leaks to the real pages. Standalone on purpose
+// (own colors, no theme variables), the same way custom-components.less is.
+
+// old tailwind.config.js colors
+@rdm12Dark: #023850;
+@rdm12DarkHover: #022f43;
+@rdm12SectionBackground: #edf5f8;
+@rdm12Secondary: #fcc802;
+@rdm12AccentBlue: #62a9d9;
+// old borderRadius.normal
+@rdm12Radius: 0.28571429rem;
+
+#mbdb-playground {
+  font-family: "Jost", sans-serif;
+  letter-spacing: 0.04rem;
+
+  // mbdb.less: headings and buttons in the dark navy, white text
+  .ui.header {
+    color: @rdm12Dark;
+  }
+  .ui.button {
+    background: @rdm12Dark;
+    color: #ffffff;
+    border-radius: @rdm12Radius;
+    font-weight: 500;
+
+    &:hover,
+    &:focus {
+      background: @rdm12DarkHover;
+      color: #ffffff;
+    }
+  }
+  // the old app's yellow secondary: the Review / Help-mode toggles read as
+  // "on" in it, the way the old app accented its active states
+  .ui.button.toggle.active {
+    background: @rdm12Secondary;
+    color: @rdm12Dark;
+  }
+  // Buttons breathe: a little space around every button, so no two touch —
+  // also when the header's button groups wrap onto several rows in the
+  // narrow column, and the ones Semantic UI glues together inside a
+  // Button.Group (the header's toggles), which get their rounded corners
+  // back. The id-scoped rule outranks Semantic UI's, which leaves plain
+  // neighbours almost no gap.
+  .ui.button,
+  .ui.buttons {
+    margin: 0.375rem;
+  }
+  .ui.buttons > .button {
+    border-radius: @rdm12Radius;
+  }
+  // the Add-entity dropdown button opens a menu that must stay readable
+  .ui.dropdown.button .menu {
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  // mbdb.less: inputs take the section card's color, they are not white boxes
+  .ui.form input:not([type]),
+  .ui.form input[type="text"],
+  .ui.form input[type="number"],
+  .ui.form input[type="date"],
+  .ui.form input[type="search"],
+  .ui.form input[type="url"],
+  .ui.form textarea {
+    background-color: inherit;
+  }
+  .ui.form .field > .selection.dropdown {
+    background: inherit;
+  }
+
+  // FormWrapper cards: bg-primary rounded, borderless; a card inside a card
+  // (the entity's field groups inside the edit modal) stays white, like the
+  // old colorSchema="dark" wrappers
+  .ui.segment {
+    background: @rdm12SectionBackground;
+    border: none;
+    border-radius: @rdm12Radius;
+    box-shadow: none;
+  }
+  .ui.segment .ui.segment,
+  .ui.modal .ui.segment {
+    background: #ffffff;
+  }
+  .ui.modal > .header {
+    font-family: "Jost", sans-serif;
+    font-weight: 600;
+    color: @rdm12Dark;
+  }
+
+  // field labels in the old form's Jost Medium dark
+  .ui.form .field > label {
+    font-weight: 500;
+    color: @rdm12Dark;
+  }
+
+  // table headers take the navy, the old record section titles' color
+  .ui.table thead th {
+    color: @rdm12Dark;
+  }
+
+  // read-only details keep the custom-components accent-blue labels
+  // (mbdbv-name-value-item-name, the old record view) - nothing to do here;
+  // the playground restyles only what the old app colored differently.
+}
+
+// The Review / Save draft row (mst_mockup's TabForm.actions override):
+// TabForm renders it after the content, the grid is a flex container,
+// so order: -1 puts it on top of the form, right-aligned.
+#mbdb-playground .tab-form > .row.mbdb-form-actions-top {
+  order: -1;
+  justify-content: flex-end;
+  padding-bottom: 0;
+}

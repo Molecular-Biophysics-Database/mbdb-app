@@ -8,8 +8,8 @@ from invenio_i18n import lazy_gettext as _
 from oarepo_model.api import model
 from oarepo_model.customizations import AddMetadataExport
 from oarepo_model.datatypes.registry import from_yaml
-from oarepo_model.presets.records_resources import records_resources_preset
-from oarepo_model.presets.ui_links import ui_links_preset
+
+from models.common import common_presets
 
 from .serializers import DataCiteJSONSerializer
 
@@ -20,10 +20,7 @@ bli_model = model(
     version="1.0.0",
     description="A generic dataset model\n",
     presets=[
-
-        records_resources_preset,
-        ui_links_preset,
-
+        *common_presets,
     ],
     types=[
         from_yaml("metadata.yaml", __file__)

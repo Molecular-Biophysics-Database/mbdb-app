@@ -381,3 +381,164 @@ dl.details-list {
     width: auto !important;
   }
 }
+
+/*******************************
+        MBDB Branding
+Ported from the old mbdb-app-rdm-12 repository: the Jost typeface, the
+light-blue section cards, dark-navy headings and buttons, and the letter
+spacing of the old global stylesheet. The Invenio/Semantic-UI components
+stay as they are - only their look is adapted.
+*******************************/
+
+/* The Jost typeface (the old app's global font) */
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Jost-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Jost-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Jost-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Jost-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Jost-Bold.ttf") format("truetype");
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  letter-spacing: 0.04rem;
+}
+
+/* Section cards: the old app's Section/FormWrapper cards were
+   #EDF5F8, borderless and slightly rounded (rounded-normal). */
+.ui.segment {
+  background: @mbdbSectionBackground;
+  border: none;
+}
+/* keep the content of modals on white, like the old form cards */
+.ui.modal .ui.segment {
+  background: @white;
+}
+
+/* Buttons: dark navy with white text (the old app's .ui.button) */
+.ui.button,
+.ui.button:hover,
+.ui.button:focus {
+  background-color: @mbdbDark;
+  color: @white;
+}
+
+/* Headings: dark navy (the old section titles were Jost Medium, #023850) */
+.ui.header:not(.inverted) {
+  font-family: "Jost", sans-serif;
+  color: @mbdbDark;
+}
+.ui.modal > .header {
+  font-family: "Jost", sans-serif;
+  color: @mbdbDark;
+}
+
+/* Form field labels: navy, like the old deposit form's labels */
+.ui.form .field > label {
+  color: @mbdbDark;
+  font-weight: 500;
+}
+
+/* Header: white bar with the logo, centered links and the deposition /
+   sign-in actions (the old app's header layout) */
+.theme.header .outer-navbar {
+  background: @white;
+}
+.mbdb-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1.5rem 3rem;
+
+  a {
+    color: @mbdbDark;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+.mbdb-header-logo img {
+  width: 5rem;
+}
+.mbdb-header-links {
+  display: flex;
+  gap: 4rem;
+
+  a {
+    font-size: 20px;
+    font-weight: 500;
+    transition: transform 300ms ease-in-out;
+  }
+  a:hover {
+    color: @mbdbDark;
+    transform: scale(1.1);
+  }
+}
+.mbdb-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.mbdb-header .mbdb-header-deposit {
+  padding: 0.6rem 0.6rem;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 18px;
+  color: @white;
+  background-color: @mbdbDark;
+  border-radius: 0.28571429rem;
+  transition: background-color 150ms;
+
+  &:hover {
+    color: @white;
+    background-color: fade(@mbdbDark, 75%);
+  }
+}
+.mbdb-header-signin {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  img {
+    height: 40px;
+    width: auto;
+  }
+}
+@media all and (max-width: @largestTabletScreen) {
+  .mbdb-header {
+    padding: 1rem;
+  }
+  .mbdb-header-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+  }
+}

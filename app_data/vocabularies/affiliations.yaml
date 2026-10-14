@@ -998,3 +998,1895 @@
   status: active
   title:
     en: University of Pisa
+
+- country_name: Belgium
+  id: 000a2sx58
+  identifiers:
+  - identifier: 000a2sx58
+    scheme: ror
+  location_name: Brussels
+  name: Centre for European Policy Studies
+  status: active
+  title:
+    en: Centre for European Policy Studies
+
+- country_name: Germany
+  id: 000h6jb29
+  identifiers:
+  - identifier: 000h6jb29
+    scheme: ror
+  location_name: Leipzig
+  name: Helmholtz Centre for Environmental Research
+  status: active
+  title:
+    en: Helmholtz Centre for Environmental Research
+
+- country_name: Peru
+  id: 001b4cb05
+  identifiers:
+  - identifier: 001b4cb05
+    scheme: ror
+  location_name: Trujillo
+  name: National University of Trujillo
+  status: active
+  title:
+    en: National University of Trujillo
+
+- country_name: Romania
+  id: 001c9fg13
+  identifiers:
+  - identifier: 001c9fg13
+    scheme: ror
+  location_name: Bucharest
+  name: Unitatea Executiva Pentru Finantarea Invatamantului Superior Si A Cercetarii Stiintifice Universitare
+  status: active
+  title:
+    en: Unitatea Executiva Pentru Finantarea Invatamantului Superior Si A Cercetarii Stiintifice Universitare
+
+- country_name: Italy
+  id: 0025g8755
+  identifiers:
+  - identifier: 0025g8755
+    scheme: ror
+  location_name: Milan
+  name: Luigi Sacco Hospital
+  status: active
+  title:
+    en: Luigi Sacco Hospital
+
+- country_name: Burundi
+  id: 003vfy751
+  identifiers:
+  - identifier: 003vfy751
+    scheme: ror
+  location_name: Bujumbura
+  name: Université du Burundi
+  status: active
+  title:
+    en: Université du Burundi
+
+- country_name: Portugal
+  id: 004s18446
+  identifiers:
+  - identifier: 004s18446
+    scheme: ror
+  location_name: Castelo Branco
+  name: Polytechnic Institute of Castelo Branco
+  status: active
+  title:
+    en: Polytechnic Institute of Castelo Branco
+
+- country_name: The Netherlands
+  id: 005t9n460
+  identifiers:
+  - identifier: 005t9n460
+    scheme: ror
+  location_name: Enschede
+  name: Saxion
+  status: active
+  title:
+    en: Saxion
+
+- country_name: Denmark
+  id: 006rhxn50
+  identifiers:
+  - identifier: 006rhxn50
+    scheme: ror
+  location_name: Brøndby
+  name: FORCE Technology (Denmark)
+  status: active
+  title:
+    en: FORCE Technology (Denmark)
+
+- country_name: Russia
+  id: 0093wrd09
+  identifiers:
+  - identifier: 0093wrd09
+    scheme: ror
+  location_name: Volgograd
+  name: Volgograd State University
+  status: active
+  title:
+    en: Volgograd State University
+
+- country_name: United Kingdom
+  id: 00ajykz30
+  identifiers:
+  - identifier: 00ajykz30
+    scheme: ror
+  location_name: London
+  name: UK Water Industry Research
+  status: active
+  title:
+    en: UK Water Industry Research
+
+- country_name: Spain
+  id: 00bvhmc43
+  identifiers:
+  - identifier: 00bvhmc43
+    scheme: ror
+  location_name: Madrid
+  name: Spanish National Cancer Research Centre
+  status: active
+  title:
+    en: Spanish National Cancer Research Centre
+
+- country_name: India
+  id: 00c7kvd80
+  identifiers:
+  - identifier: 00c7kvd80
+    scheme: ror
+  location_name: Vellore
+  name: Christian Medical College, Vellore
+  status: active
+  title:
+    en: Christian Medical College, Vellore
+
+- country_name: Egypt
+  id: 00cb9w016
+  identifiers:
+  - identifier: 00cb9w016
+    scheme: ror
+  location_name: Cairo
+  name: Ain Shams University
+  status: active
+  title:
+    en: Ain Shams University
+
+- country_name: United States
+  id: 00f809463
+  identifiers:
+  - identifier: 00f809463
+    scheme: ror
+  location_name: Princeton
+  name: Institute for Advanced Study
+  status: active
+  title:
+    en: Institute for Advanced Study
+
+- country_name: Germany
+  id: 00fpw9a48
+  identifiers:
+  - identifier: 00fpw9a48
+    scheme: ror
+  location_name: Hamburg
+  name: Hamburgische Schiffbau-Versuchsanstalt (Germany)
+  status: active
+  title:
+    en: Hamburgische Schiffbau-Versuchsanstalt (Germany)
+
+- country_name: Sweden
+  id: 00hgzve81
+  identifiers:
+  - identifier: 00hgzve81
+    scheme: ror
+  location_name: Norrköping
+  name: Swedish Meteorological and Hydrological Institute
+  status: active
+  title:
+    en: Swedish Meteorological and Hydrological Institute
+
+- country_name: Russia
+  id: 00jzexr10
+  identifiers:
+  - identifier: 00jzexr10
+    scheme: ror
+  location_name: Astrakhan
+  name: Astrakhan State Technical University
+  status: active
+  title:
+    en: Astrakhan State Technical University
+
+- country_name: Bolivia
+  id: 00k4v9x79
+  identifiers:
+  - identifier: 00k4v9x79
+    scheme: ror
+  location_name: La Paz
+  name: Universidad Mayor de San Andrés
+  status: active
+  title:
+    en: Universidad Mayor de San Andrés
+
+- country_name: Norway
+  id: 00q7d9z06
+  identifiers:
+  - identifier: 00q7d9z06
+    scheme: ror
+  location_name: Kjeller
+  name: NILU
+  status: active
+  title:
+    en: NILU
+
+- country_name: Germany
+  id: 00qhe6a56
+  identifiers:
+  - identifier: 00qhe6a56
+    scheme: ror
+  location_name: Cologne
+  name: Miltenyi Biotec (Germany)
+  status: active
+  title:
+    en: Miltenyi Biotec (Germany)
+
+- country_name: United Kingdom
+  id: 00vs8d940
+  identifiers:
+  - identifier: 00vs8d940
+    scheme: ror
+  location_name: Bradford
+  name: University of Bradford
+  status: active
+  title:
+    en: University of Bradford
+
+- country_name: United Kingdom
+  id: 00vtgdb53
+  identifiers:
+  - identifier: 00vtgdb53
+    scheme: ror
+  location_name: Glasgow
+  name: University of Glasgow
+  status: active
+  title:
+    en: University of Glasgow
+
+- country_name: Romania
+  id: 00ywqar95
+  identifiers:
+  - identifier: 00ywqar95
+    scheme: ror
+  location_name: Târgovişte
+  name: Valahia University of Targoviste
+  status: active
+  title:
+    en: Valahia University of Targoviste
+
+- country_name: Italy
+  id: 0107c5v14
+  identifiers:
+  - identifier: 0107c5v14
+    scheme: ror
+  location_name: Genoa
+  name: University of Genoa
+  status: active
+  title:
+    en: University of Genoa
+
+- country_name: South Africa
+  id: 010f1sq29
+  identifiers:
+  - identifier: 010f1sq29
+    scheme: ror
+  location_name: Potchefstroom
+  name: North-West University
+  status: active
+  title:
+    en: North-West University
+
+- country_name: Italy
+  id: 010wgh593
+  identifiers:
+  - identifier: 010wgh593
+    scheme: ror
+  location_name: Sesto Fiorentino
+  name: Consorzio Interuniversitario per lo Sviluppo dei Sistemi a Grande Interfase
+  status: active
+  title:
+    en: Consorzio Interuniversitario per lo Sviluppo dei Sistemi a Grande Interfase
+
+- country_name: Pakistan
+  id: 011maz450
+  identifiers:
+  - identifier: 011maz450
+    scheme: ror
+  location_name: Lahore
+  name: University of the Punjab
+  status: active
+  title:
+    en: University of the Punjab
+
+- country_name: China
+  id: 012tb2g32
+  identifiers:
+  - identifier: 012tb2g32
+    scheme: ror
+  location_name: Tianjin
+  name: Tianjin University
+  status: active
+  title:
+    en: Tianjin University
+
+- country_name: Austria
+  id: 013tf3c58
+  identifiers:
+  - identifier: 013tf3c58
+    scheme: ror
+  location_name: Vienna
+  name: FWF Austrian Science Fund
+  status: active
+  title:
+    en: FWF Austrian Science Fund
+
+- country_name: China
+  id: 013xs5b60
+  identifiers:
+  - identifier: 013xs5b60
+    scheme: ror
+  location_name: Beijing
+  name: Capital Medical University
+  status: active
+  title:
+    en: Capital Medical University
+
+- country_name: Russia
+  id: 014n7rf11
+  identifiers:
+  - identifier: 014n7rf11
+    scheme: ror
+  location_name: Moscow
+  name: Moscow State Aviation Technological University
+  status: active
+  title:
+    en: Moscow State Aviation Technological University
+
+- country_name: United Kingdom
+  id: 016476m91
+  identifiers:
+  - identifier: 016476m91
+    scheme: ror
+  location_name: Aberdeen
+  name: University of Aberdeen
+  status: active
+  title:
+    en: University of Aberdeen
+
+- country_name: Slovakia
+  id: 016e5hy63
+  identifiers:
+  - identifier: 016e5hy63
+    scheme: ror
+  location_name: Banská Bystrica
+  name: Matej Bel University
+  status: active
+  title:
+    en: Matej Bel University
+
+- country_name: Greece
+  id: 017g36q02
+  identifiers:
+  - identifier: 017g36q02
+    scheme: ror
+  location_name: Marousi
+  name: Municipality of Amaroussion
+  status: active
+  title:
+    en: Municipality of Amaroussion
+
+- country_name: United States
+  id: 017pz3h73
+  identifiers:
+  - identifier: 017pz3h73
+    scheme: ror
+  location_name: Washington
+  name: Urban Institute
+  status: active
+  title:
+    en: Urban Institute
+
+- country_name: Germany
+  id: 01856cw59
+  identifiers:
+  - identifier: 01856cw59
+    scheme: ror
+  location_name: Münster
+  name: University Hospital Münster
+  status: active
+  title:
+    en: University Hospital Münster
+
+- country_name: Italy
+  id: 0192m2k53
+  identifiers:
+  - identifier: 0192m2k53
+    scheme: ror
+  location_name: Fisciano
+  name: University of Salerno
+  status: active
+  title:
+    en: University of Salerno
+
+- country_name: United States
+  id: 019k4jq75
+  identifiers:
+  - identifier: 019k4jq75
+    scheme: ror
+  location_name: Brooklyn
+  name: Brooklyn College
+  status: active
+  title:
+    en: Brooklyn College
+
+- country_name: Canada
+  id: 01aff2v68
+  identifiers:
+  - identifier: 01aff2v68
+    scheme: ror
+  location_name: Waterloo
+  name: University of Waterloo
+  status: active
+  title:
+    en: University of Waterloo
+
+- country_name: Taiwan
+  id: 01b8kcc49
+  identifiers:
+  - identifier: 01b8kcc49
+    scheme: ror
+  location_name: Tainan
+  name: National Cheng Kung University
+  status: active
+  title:
+    en: National Cheng Kung University
+
+- country_name: United States
+  id: 01c3xc117
+  identifiers:
+  - identifier: 01c3xc117
+    scheme: ror
+  location_name: Flint
+  name: University of Michigan–Flint
+  status: active
+  title:
+    en: University of Michigan–Flint
+
+- country_name: The Netherlands
+  id: 01cesdt21
+  identifiers:
+  - identifier: 01cesdt21
+    scheme: ror
+  location_name: De Bilt
+  name: National Institute for Public Health and the Environment
+  status: active
+  title:
+    en: National Institute for Public Health and the Environment
+
+- country_name: United Kingdom
+  id: 01drpwb22
+  identifiers:
+  - identifier: 01drpwb22
+    scheme: ror
+  location_name: Chester
+  name: University of Chester
+  status: active
+  title:
+    en: University of Chester
+
+- country_name: Italy
+  id: 01dxm2p72
+  identifiers:
+  - identifier: 01dxm2p72
+    scheme: ror
+  location_name: San Donato Milanese
+  name: Saipem (Italy)
+  status: active
+  title:
+    en: Saipem (Italy)
+
+- country_name: Italy
+  id: 01gmqr298
+  identifiers:
+  - identifier: 01gmqr298
+    scheme: ror
+  location_name: Milan
+  name: Vita-Salute San Raffaele University
+  status: active
+  title:
+    en: Vita-Salute San Raffaele University
+
+- country_name: Germany
+  id: 01k5qnb77
+  identifiers:
+  - identifier: 01k5qnb77
+    scheme: ror
+  location_name: Berlin
+  name: Robert Koch Institute
+  status: active
+  title:
+    en: Robert Koch Institute
+
+- country_name: Spain
+  id: 01n4pqe45
+  identifiers:
+  - identifier: 01n4pqe45
+    scheme: ror
+  location_name: Barcelona
+  name: Agència de Gestió d'Ajuts Universitaris i de Recerca
+  status: active
+  title:
+    en: Agència de Gestió d'Ajuts Universitaris i de Recerca
+
+- country_name: China
+  id: 01p455v08
+  identifiers:
+  - identifier: 01p455v08
+    scheme: ror
+  location_name: Ürümqi
+  name: Xinjiang Medical University
+  status: active
+  title:
+    en: Xinjiang Medical University
+
+- country_name: Syria
+  id: 01pwpsf61
+  identifiers:
+  - identifier: 01pwpsf61
+    scheme: ror
+  location_name: Homs
+  name: Homs University
+  status: active
+  title:
+    en: Homs University
+
+- country_name: Israel
+  id: 01px5cv07
+  identifiers:
+  - identifier: 01px5cv07
+    scheme: ror
+  location_name: Herzliya
+  name: Reichman University
+  status: active
+  title:
+    en: Reichman University
+
+- country_name: Saudi Arabia
+  id: 01q3tbs38
+  identifiers:
+  - identifier: 01q3tbs38
+    scheme: ror
+  location_name: Jeddah
+  name: King Abdullah University of Science and Technology
+  status: active
+  title:
+    en: King Abdullah University of Science and Technology
+
+- country_name: Russia
+  id: 01qn0gc28
+  identifiers:
+  - identifier: 01qn0gc28
+    scheme: ror
+  location_name: Saratov
+  name: Yuri Gagarin State Technical University of Saratov
+  status: active
+  title:
+    en: Yuri Gagarin State Technical University of Saratov
+
+- country_name: Lithuania
+  id: 01qt0gj86
+  identifiers:
+  - identifier: 01qt0gj86
+    scheme: ror
+  location_name: Vilnius
+  name: Lietuvos Bioetikos Komitetas
+  status: active
+  title:
+    en: Lietuvos Bioetikos Komitetas
+
+- country_name: United States
+  id: 01rtyzb94
+  identifiers:
+  - identifier: 01rtyzb94
+    scheme: ror
+  location_name: Troy
+  name: Rensselaer Polytechnic Institute
+  status: active
+  title:
+    en: Rensselaer Polytechnic Institute
+
+- country_name: Romania
+  id: 01s1a1r54
+  identifiers:
+  - identifier: 01s1a1r54
+    scheme: ror
+  location_name: Iasi
+  name: '"Ion Ionescu de la Brad" Iasi University of Life Sciences'
+  status: active
+  title:
+    en: '"Ion Ionescu de la Brad" Iasi University of Life Sciences'
+
+- country_name: United Kingdom
+  id: 01t884y44
+  identifiers:
+  - identifier: 01t884y44
+    scheme: ror
+  location_name: Bolton
+  name: University of Greater Manchester
+  status: active
+  title:
+    en: University of Greater Manchester
+
+- country_name: Spain
+  id: 01v5cv687
+  identifiers:
+  - identifier: 01v5cv687
+    scheme: ror
+  location_name: Madrid
+  name: Universidad Rey Juan Carlos
+  status: active
+  title:
+    en: Universidad Rey Juan Carlos
+
+- country_name: Poland
+  id: 01vxt3d40
+  identifiers:
+  - identifier: 01vxt3d40
+    scheme: ror
+  location_name: Katowice
+  name: University of Economics in Katowice
+  status: active
+  title:
+    en: University of Economics in Katowice
+
+- country_name: The Netherlands
+  id: 01x21tj82
+  identifiers:
+  - identifier: 01x21tj82
+    scheme: ror
+  location_name: Amsterdam
+  name: Microsoft (Netherlands)
+  status: active
+  title:
+    en: Microsoft (Netherlands)
+
+- country_name: China
+  id: 01yj56c84
+  identifiers:
+  - identifier: 01yj56c84
+    scheme: ror
+  location_name: Beijing
+  name: Beijing Jiaotong University
+  status: active
+  title:
+    en: Beijing Jiaotong University
+
+- country_name: The Netherlands
+  id: 01z6bgg93
+  identifiers:
+  - identifier: 01z6bgg93
+    scheme: ror
+  location_name: Amsterdam
+  name: Royal Tropical Institute
+  status: active
+  title:
+    en: Royal Tropical Institute
+
+- country_name: France
+  id: 01z83rb65
+  identifiers:
+  - identifier: 01z83rb65
+    scheme: ror
+  location_name: Lyon
+  name: Adi Valor
+  status: active
+  title:
+    en: Adi Valor
+
+- country_name: United Kingdom
+  id: 0220mzb33
+  identifiers:
+  - identifier: 0220mzb33
+    scheme: ror
+  location_name: London
+  name: King's College London
+  status: active
+  title:
+    en: King's College London
+
+- country_name: Switzerland
+  id: 022fs9h90
+  identifiers:
+  - identifier: 022fs9h90
+    scheme: ror
+  location_name: Fribourg
+  name: University of Fribourg
+  status: active
+  title:
+    en: University of Fribourg
+
+- country_name: United Kingdom
+  id: 022gstf70
+  identifiers:
+  - identifier: 022gstf70
+    scheme: ror
+  location_name: Falmouth
+  name: Falmouth University
+  status: active
+  title:
+    en: Falmouth University
+
+- country_name: The Netherlands
+  id: 02436cs38
+  identifiers:
+  - identifier: 02436cs38
+    scheme: ror
+  location_name: Rotterdam
+  name: Unilever (Netherlands)
+  status: active
+  title:
+    en: Unilever (Netherlands)
+
+- country_name: India
+  id: 0261g6j35
+  identifiers:
+  - identifier: 0261g6j35
+    scheme: ror
+  location_name: Hisar
+  name: Chaudhary Charan Singh Haryana Agricultural University
+  status: active
+  title:
+    en: Chaudhary Charan Singh Haryana Agricultural University
+
+- country_name: Germany
+  id: 026452768
+  identifiers:
+  - identifier: 026452768
+    scheme: ror
+  location_name: Karlsruhe
+  name: PTV Group (Germany)
+  status: active
+  title:
+    en: PTV Group (Germany)
+
+- country_name: United Kingdom
+  id: 0267vjk41
+  identifiers:
+  - identifier: 0267vjk41
+    scheme: ror
+  location_name: Hatfield
+  name: University of Hertfordshire
+  status: active
+  title:
+    en: University of Hertfordshire
+
+- country_name: Lithuania
+  id: 027sdcz20
+  identifiers:
+  - identifier: 027sdcz20
+    scheme: ror
+  location_name: Klaipėda
+  name: Klaipėda University
+  status: active
+  title:
+    en: Klaipėda University
+
+- country_name: Germany
+  id: 027tvqf96
+  identifiers:
+  - identifier: 027tvqf96
+    scheme: ror
+  location_name: Karlsruhe
+  name: CAS Software (Germany)
+  status: active
+  title:
+    en: CAS Software (Germany)
+
+- country_name: United Kingdom
+  id: 0287e5797
+  identifiers:
+  - identifier: 0287e5797
+    scheme: ror
+  location_name: Camberley
+  name: Siemens (United Kingdom)
+  status: active
+  title:
+    en: Siemens (United Kingdom)
+
+- country_name: The Netherlands
+  id: 02c2kyt77
+  identifiers:
+  - identifier: 02c2kyt77
+    scheme: ror
+  location_name: Eindhoven
+  name: Eindhoven University of Technology
+  status: active
+  title:
+    en: Eindhoven University of Technology
+
+- country_name: United States
+  id: 02der9h97
+  identifiers:
+  - identifier: 02der9h97
+    scheme: ror
+  location_name: Storrs
+  name: University of Connecticut
+  status: active
+  title:
+    en: University of Connecticut
+
+- country_name: Japan
+  id: 02e16g702
+  identifiers:
+  - identifier: 02e16g702
+    scheme: ror
+  location_name: Sapporo
+  name: Hokkaido University
+  status: active
+  title:
+    en: Hokkaido University
+
+- country_name: United States
+  id: 02e3zdp86
+  identifiers:
+  - identifier: 02e3zdp86
+    scheme: ror
+  location_name: Boise
+  name: Boise State University
+  status: active
+  title:
+    en: Boise State University
+
+- country_name: Russia
+  id: 02fh3dt13
+  identifiers:
+  - identifier: 02fh3dt13
+    scheme: ror
+  location_name: St Petersburg
+  name: Petersburg State Transport University
+  status: active
+  title:
+    en: Petersburg State Transport University
+
+- country_name: Spain
+  id: 02fv8hj62
+  identifiers:
+  - identifier: 02fv8hj62
+    scheme: ror
+  location_name: Donostia / San Sebastian
+  name: Tecnalia
+  status: active
+  title:
+    en: Tecnalia
+
+- country_name: Germany
+  id: 02g6d4t03
+  identifiers:
+  - identifier: 02g6d4t03
+    scheme: ror
+  location_name: Sankt Augustin
+  name: Gesellschaft Fur Mathematik Und Datenverarbeitung
+  status: active
+  title:
+    en: Gesellschaft Fur Mathematik Und Datenverarbeitung
+
+- country_name: Germany
+  id: 02hpadn98
+  identifiers:
+  - identifier: 02hpadn98
+    scheme: ror
+  location_name: Bielefeld
+  name: Bielefeld University
+  status: active
+  title:
+    en: Bielefeld University
+
+- country_name: Japan
+  id: 02hw5fp67
+  identifiers:
+  - identifier: 02hw5fp67
+    scheme: ror
+  location_name: Tsukuba
+  name: National Institute for Environmental Studies
+  status: active
+  title:
+    en: National Institute for Environmental Studies
+
+- country_name: Germany
+  id: 02m4p8096
+  identifiers:
+  - identifier: 02m4p8096
+    scheme: ror
+  location_name: Kempten (Allgäu)
+  name: Kempten University of Applied Sciences
+  status: active
+  title:
+    en: Kempten University of Applied Sciences
+
+- country_name: Germany
+  id: 02msan859
+  identifiers:
+  - identifier: 02msan859
+    scheme: ror
+  location_name: Frankfurt
+  name: European University Viadrina
+  status: active
+  title:
+    en: European University Viadrina
+
+- country_name: Sweden
+  id: 02ntgty32
+  identifiers:
+  - identifier: 02ntgty32
+    scheme: ror
+  location_name: Bromma
+  name: National Aeronautical Research Institute
+  status: active
+  title:
+    en: National Aeronautical Research Institute
+
+- country_name: United States
+  id: 02pf50490
+  identifiers:
+  - identifier: 02pf50490
+    scheme: ror
+  location_name: Morris Plains
+  name: Immunomedics (United States)
+  status: active
+  title:
+    en: Immunomedics (United States)
+
+- country_name: Spain
+  id: 02pwsw017
+  identifiers:
+  - identifier: 02pwsw017
+    scheme: ror
+  location_name: Zamudio
+  name: GAIKER Technology Centre
+  status: active
+  title:
+    en: GAIKER Technology Centre
+
+- country_name: United Kingdom
+  id: 02qsqdv65
+  identifiers:
+  - identifier: 02qsqdv65
+    scheme: ror
+  location_name: London
+  name: Alstom (United Kingdom)
+  status: active
+  title:
+    en: Alstom (United Kingdom)
+
+- country_name: Italy
+  id: 02rc97e94
+  identifiers:
+  - identifier: 02rc97e94
+    scheme: ror
+  location_name: Rende
+  name: University of Calabria
+  status: active
+  title:
+    en: University of Calabria
+
+- country_name: Mali
+  id: 02s6w8y22
+  identifiers:
+  - identifier: 02s6w8y22
+    scheme: ror
+  location_name: Bamako
+  name: University of Bamako
+  status: active
+  title:
+    en: University of Bamako
+
+- country_name: Poland
+  id: 02t4ekc95
+  identifiers:
+  - identifier: 02t4ekc95
+    scheme: ror
+  location_name: Lodz
+  name: Medical University of Lodz
+  status: active
+  title:
+    en: Medical University of Lodz
+
+- country_name: United Kingdom
+  id: 02tdtzx53
+  identifiers:
+  - identifier: 02tdtzx53
+    scheme: ror
+  location_name: Norwich
+  name: Sainsbury Laboratory
+  status: active
+  title:
+    en: Sainsbury Laboratory
+
+- country_name: Germany
+  id: 02vbxt202
+  identifiers:
+  - identifier: 02vbxt202
+    scheme: ror
+  location_name: Essen
+  name: ThyssenKrupp (Germany)
+  status: active
+  title:
+    en: ThyssenKrupp (Germany)
+
+- country_name: Brazil
+  id: 02xfp8v59
+  identifiers:
+  - identifier: 02xfp8v59
+    scheme: ror
+  location_name: Brasília
+  name: Universidade de Brasília
+  status: active
+  title:
+    en: Universidade de Brasília
+
+- country_name: Finland
+  id: 030wyr187
+  identifiers:
+  - identifier: 030wyr187
+    scheme: ror
+  location_name: Helsinki
+  name: Finnish Institute of Occupational Health
+  status: active
+  title:
+    en: Finnish Institute of Occupational Health
+
+- country_name: Slovakia
+  id: 0310h1546
+  identifiers:
+  - identifier: 0310h1546
+    scheme: ror
+  location_name: Bratislava
+  name: Bratislava University of Economics and Business
+  status: active
+  title:
+    en: Bratislava University of Economics and Business
+
+- country_name: United Kingdom
+  id: 03308db07
+  identifiers:
+  - identifier: 03308db07
+    scheme: ror
+  location_name: Ipswich
+  name: BT Research
+  status: active
+  title:
+    en: BT Research
+
+- country_name: China
+  id: 033vjfk17
+  identifiers:
+  - identifier: 033vjfk17
+    scheme: ror
+  location_name: Wuhan
+  name: Wuhan University
+  status: active
+  title:
+    en: Wuhan University
+
+- country_name: Luxembourg
+  id: 036x5ad56
+  identifiers:
+  - identifier: 036x5ad56
+    scheme: ror
+  location_name: Luxembourg
+  name: University of Luxembourg
+  status: active
+  title:
+    en: University of Luxembourg
+
+- country_name: Russia
+  id: 036yvre49
+  identifiers:
+  - identifier: 036yvre49
+    scheme: ror
+  location_name: Kemerovo
+  name: Kemerovo State University
+  status: active
+  title:
+    en: Kemerovo State University
+
+- country_name: Spain
+  id: 039bccw84
+  identifiers:
+  - identifier: 039bccw84
+    scheme: ror
+  location_name: Madrid
+  name: Empresa Nacional de Residuos Radiactivos
+  status: active
+  title:
+    en: Empresa Nacional de Residuos Radiactivos
+
+- country_name: Slovakia
+  id: 03bwf4y78
+  identifiers:
+  - identifier: 03bwf4y78
+    scheme: ror
+  location_name: Martin
+  name: Slovenska Narodna Kniznica
+  status: active
+  title:
+    en: Slovenska Narodna Kniznica
+
+- country_name: United States
+  id: 03czfpz43
+  identifiers:
+  - identifier: 03czfpz43
+    scheme: ror
+  location_name: Atlanta
+  name: Emory University
+  status: active
+  title:
+    en: Emory University
+
+- country_name: United Kingdom
+  id: 03e5mzp60
+  identifiers:
+  - identifier: 03e5mzp60
+    scheme: ror
+  location_name: London
+  name: University of West London
+  status: active
+  title:
+    en: University of West London
+
+- country_name: Zambia
+  id: 03gh19d69
+  identifiers:
+  - identifier: 03gh19d69
+    scheme: ror
+  location_name: Lusaka
+  name: University of Zambia
+  status: active
+  title:
+    en: University of Zambia
+
+- country_name: United Kingdom
+  id: 03hvxkc45
+  identifiers:
+  - identifier: 03hvxkc45
+    scheme: ror
+  location_name: London
+  name: Bibra International
+  status: active
+  title:
+    en: Bibra International
+
+- country_name: Syria
+  id: 03mzvxz96
+  identifiers:
+  - identifier: 03mzvxz96
+    scheme: ror
+  location_name: Aleppo
+  name: University of Aleppo
+  status: active
+  title:
+    en: University of Aleppo
+
+- country_name: Denmark
+  id: 03nscjy42
+  identifiers:
+  - identifier: 03nscjy42
+    scheme: ror
+  location_name: Kolding
+  name: General Electric (Denmark)
+  status: active
+  title:
+    en: General Electric (Denmark)
+
+- country_name: El Salvador
+  id: 03sbpft28
+  identifiers:
+  - identifier: 03sbpft28
+    scheme: ror
+  location_name: San Salvador
+  name: University of El Salvador
+  status: active
+  title:
+    en: University of El Salvador
+
+- country_name: Ireland
+  id: 03sx84n71
+  identifiers:
+  - identifier: 03sx84n71
+    scheme: ror
+  location_name: Carlow
+  name: Teagasc - The Irish Agriculture and Food Development Authority
+  status: active
+  title:
+    en: Teagasc - The Irish Agriculture and Food Development Authority
+
+- country_name: Kyrgyzstan
+  id: 03vvzk644
+  identifiers:
+  - identifier: 03vvzk644
+    scheme: ror
+  location_name: Bishkek
+  name: American University of Central Asia
+  status: active
+  title:
+    en: American University of Central Asia
+
+- country_name: Germany
+  id: 03vzbgh69
+  identifiers:
+  - identifier: 03vzbgh69
+    scheme: ror
+  location_name: Freiburg im Breisgau
+  name: University Medical Center Freiburg
+  status: active
+  title:
+    en: University Medical Center Freiburg
+
+- country_name: Hungary
+  id: 03y5egs41
+  identifiers:
+  - identifier: 03y5egs41
+    scheme: ror
+  location_name: Veszprém
+  name: University of Pannonia
+  status: active
+  title:
+    en: University of Pannonia
+
+- country_name: Canada
+  id: 03ygmq230
+  identifiers:
+  - identifier: 03ygmq230
+    scheme: ror
+  location_name: Peterborough
+  name: Trent University
+  status: active
+  title:
+    en: Trent University
+
+- country_name: Italy
+  id: 03ynt1573
+  identifiers:
+  - identifier: 03ynt1573
+    scheme: ror
+  location_name: Genoa
+  name: Ansaldo (Italy)
+  status: active
+  title:
+    en: Ansaldo (Italy)
+
+- country_name: Bolivia
+  id: 03z27es23
+  identifiers:
+  - identifier: 03z27es23
+    scheme: ror
+  location_name: Cochabamba
+  name: Universidad Mayor de San Simón
+  status: active
+  title:
+    en: Universidad Mayor de San Simón
+
+- country_name: Türkiye
+  id: 03zzckc47
+  identifiers:
+  - identifier: 03zzckc47
+    scheme: ror
+  location_name: Istanbul
+  name: Kadir Has University
+  status: active
+  title:
+    en: Kadir Has University
+
+- country_name: South Korea
+  id: 043k4kk20
+  identifiers:
+  - identifier: 043k4kk20
+    scheme: ror
+  location_name: Daejeon
+  name: Korea Research Institute of Chemical Technology
+  status: active
+  title:
+    en: Korea Research Institute of Chemical Technology
+
+- country_name: Norway
+  id: 04a1mvv97
+  identifiers:
+  - identifier: 04a1mvv97
+    scheme: ror
+  location_name: Ås
+  name: Norwegian University of Life Sciences
+  status: active
+  title:
+    en: Norwegian University of Life Sciences
+
+- country_name: Italy
+  id: 04aa89262
+  identifiers:
+  - identifier: 04aa89262
+    scheme: ror
+  location_name: Rome
+  name: Radiolabs
+  status: active
+  title:
+    en: Radiolabs
+
+- country_name: Germany
+  id: 04b2dty93
+  identifiers:
+  - identifier: 04b2dty93
+    scheme: ror
+  location_name: Darmstadt
+  name: Merck KGaA, Darmstadt (Germany)
+  status: active
+  title:
+    en: Merck KGaA, Darmstadt (Germany)
+
+- country_name: United States
+  id: 04d23a975
+  identifiers:
+  - identifier: 04d23a975
+    scheme: ror
+  location_name: Washington
+  name: United States Naval Research Laboratory
+  status: active
+  title:
+    en: United States Naval Research Laboratory
+
+- country_name: Armenia
+  id: 04dngzj56
+  identifiers:
+  - identifier: 04dngzj56
+    scheme: ror
+  location_name: Yerevan
+  name: American University of Armenia
+  status: active
+  title:
+    en: American University of Armenia
+
+- country_name: Germany
+  id: 04ejkkg63
+  identifiers:
+  - identifier: 04ejkkg63
+    scheme: ror
+  location_name: Berlin
+  name: Ecologic Institute
+  status: active
+  title:
+    en: Ecologic Institute
+
+- country_name: France
+  id: 04esata81
+  identifiers:
+  - identifier: 04esata81
+    scheme: ror
+  location_name: Strasbourg
+  name: European Science Foundation
+  status: active
+  title:
+    en: European Science Foundation
+
+- country_name: United States
+  id: 04g3dn724
+  identifiers:
+  - identifier: 04g3dn724
+    scheme: ror
+  location_name: Boston
+  name: Massachusetts Eye and Ear Infirmary
+  status: active
+  title:
+    en: Massachusetts Eye and Ear Infirmary
+
+- country_name: Portugal
+  id: 04h8e7606
+  identifiers:
+  - identifier: 04h8e7606
+    scheme: ror
+  location_name: Porto
+  name: Fernando Pessoa University
+  status: active
+  title:
+    en: Fernando Pessoa University
+
+- country_name: Senegal
+  id: 04je6yw13
+  identifiers:
+  - identifier: 04je6yw13
+    scheme: ror
+  location_name: Dakar
+  name: Cheikh Anta Diop University
+  status: active
+  title:
+    en: Cheikh Anta Diop University
+
+- country_name: Portugal
+  id: 04mqy3p58
+  identifiers:
+  - identifier: 04mqy3p58
+    scheme: ror
+  location_name: Lisbon
+  name: Instituto de Engenharia de Sistemas e Computadores Investigação e Desenvolvimento
+  status: active
+  title:
+    en: Instituto de Engenharia de Sistemas e Computadores Investigação e Desenvolvimento
+
+- country_name: Russia
+  id: 04my10541
+  identifiers:
+  - identifier: 04my10541
+    scheme: ror
+  location_name: Moscow
+  name: Centre of Advanced Studies
+  status: active
+  title:
+    en: Centre of Advanced Studies
+
+- country_name: Italy
+  id: 04nbe0v26
+  identifiers:
+  - identifier: 04nbe0v26
+    scheme: ror
+  location_name: Rome
+  name: Institute of Studies for the Integration of Systems
+  status: active
+  title:
+    en: Institute of Studies for the Integration of Systems
+
+- country_name: Kazakhstan
+  id: 04nj3w743
+  identifiers:
+  - identifier: 04nj3w743
+    scheme: ror
+  location_name: Almaty
+  name: Kazakh German University
+  status: active
+  title:
+    en: Kazakh German University
+
+- country_name: Russia
+  id: 04p2rkp70
+  identifiers:
+  - identifier: 04p2rkp70
+    scheme: ror
+  location_name: St Petersburg
+  name: European University at Saint Petersburg
+  status: active
+  title:
+    en: European University at Saint Petersburg
+
+- country_name: Poland
+  id: 04p8yac25
+  identifiers:
+  - identifier: 04p8yac25
+    scheme: ror
+  location_name: Krakow
+  name: Malopolska Association For Agricultural Extension At The Agricultural University of Cracow
+  status: active
+  title:
+    en: Malopolska Association For Agricultural Extension At The Agricultural University of Cracow
+
+- country_name: Finland
+  id: 04pkc8m17
+  identifiers:
+  - identifier: 04pkc8m17
+    scheme: ror
+  location_name: Espoo
+  name: Nokia (Finland)
+  status: active
+  title:
+    en: Nokia (Finland)
+
+- country_name: New Zealand
+  id: 04ps1r162
+  identifiers:
+  - identifier: 04ps1r162
+    scheme: ror
+  location_name: Lincoln
+  name: Lincoln University
+  status: active
+  title:
+    en: Lincoln University
+
+- country_name: Italy
+  id: 04pyb7y63
+  identifiers:
+  - identifier: 04pyb7y63
+    scheme: ror
+  location_name: Livorno
+  name: International Flame Research Foundation
+  status: active
+  title:
+    en: International Flame Research Foundation
+
+- country_name: United States
+  id: 04q9tew83
+  identifiers:
+  - identifier: 04q9tew83
+    scheme: ror
+  location_name: Bethesda
+  name: Henry M. Jackson Foundation
+  status: active
+  title:
+    en: Henry M. Jackson Foundation
+
+- country_name: Italy
+  id: 04rcxhq50
+  identifiers:
+  - identifier: 04rcxhq50
+    scheme: ror
+  location_name: Milan
+  name: Novartis (Italy)
+  status: active
+  title:
+    en: Novartis (Italy)
+
+- country_name: Canada
+  id: 04rsexf17
+  identifiers:
+  - identifier: 04rsexf17
+    scheme: ror
+  location_name: Vancouver
+  name: Stemcell Technologies
+  status: active
+  title:
+    en: Stemcell Technologies
+
+- country_name: China
+  id: 04v3ywz14
+  identifiers:
+  - identifier: 04v3ywz14
+    scheme: ror
+  location_name: Beijing
+  name: China Agricultural University
+  status: active
+  title:
+    en: China Agricultural University
+
+- country_name: Germany
+  id: 04v76ef78
+  identifiers:
+  - identifier: 04v76ef78
+    scheme: ror
+  location_name: Kiel
+  name: Christian-Albrechts-Universität zu Kiel
+  status: active
+  title:
+    en: Christian-Albrechts-Universität zu Kiel
+
+- country_name: Italy
+  id: 04vc81p87
+  identifiers:
+  - identifier: 04vc81p87
+    scheme: ror
+  location_name: Benevento
+  name: University of Sannio
+  status: active
+  title:
+    en: University of Sannio
+
+- country_name: Italy
+  id: 04xraxn18
+  identifiers:
+  - identifier: 04xraxn18
+    scheme: ror
+  location_name: Rome
+  name: Fondazione Telethon
+  status: active
+  title:
+    en: Fondazione Telethon
+
+- country_name: United Kingdom
+  id: 04xs57h96
+  identifiers:
+  - identifier: 04xs57h96
+    scheme: ror
+  location_name: Liverpool
+  name: University of Liverpool
+  status: active
+  title:
+    en: University of Liverpool
+
+- country_name: United Kingdom
+  id: 04ycpbx82
+  identifiers:
+  - identifier: 04ycpbx82
+    scheme: ror
+  location_name: London
+  name: University of Westminster
+  status: active
+  title:
+    en: University of Westminster
+
+- country_name: Germany
+  id: 04zb59n70
+  identifiers:
+  - identifier: 04zb59n70
+    scheme: ror
+  location_name: Dresden
+  name: Leibniz Institute for Solid State and Materials Research
+  status: active
+  title:
+    en: Leibniz Institute for Solid State and Materials Research
+
+- country_name: Spain
+  id: 0509tgg56
+  identifiers:
+  - identifier: 0509tgg56
+    scheme: ror
+  location_name: Getafe
+  name: Airbus (Spain)
+  status: active
+  title:
+    en: Airbus (Spain)
+
+- country_name: Portugal
+  id: 050w2g362
+  identifiers:
+  - identifier: 050w2g362
+    scheme: ror
+  location_name: Matosinhos Municipality
+  name: Inovamais
+  status: active
+  title:
+    en: Inovamais
+
+- country_name: Italy
+  id: 050y0ba80
+  identifiers:
+  - identifier: 050y0ba80
+    scheme: ror
+  location_name: Genoa
+  name: D'Appolonia (Italy)
+  status: active
+  title:
+    en: D'Appolonia (Italy)
+
+- country_name: United States
+  id: 051fd9666
+  identifiers:
+  - identifier: 051fd9666
+    scheme: ror
+  location_name: Cleveland
+  name: Case Western Reserve University
+  status: active
+  title:
+    en: Case Western Reserve University
+
+- country_name: Spain
+  id: 051qv3667
+  identifiers:
+  - identifier: 051qv3667
+    scheme: ror
+  location_name: Santa Oliva
+  name: Applus+ IDIADA (Spain)
+  status: active
+  title:
+    en: Applus+ IDIADA (Spain)
+
+- country_name: New Zealand
+  id: 052czxv31
+  identifiers:
+  - identifier: 052czxv31
+    scheme: ror
+  location_name: Palmerston North
+  name: Massey University
+  status: active
+  title:
+    en: Massey University
+
+- country_name: United States
+  id: 052w4zt36
+  identifiers:
+  - identifier: 052w4zt36
+    scheme: ror
+  location_name: Washington
+  name: American University
+  status: active
+  title:
+    en: American University
+
+- country_name: Bulgaria
+  id: 0545p3742
+  identifiers:
+  - identifier: 0545p3742
+    scheme: ror
+  location_name: Plovdiv
+  name: Plovdiv University
+  status: active
+  title:
+    en: Plovdiv University
+
+- country_name: United States
+  id: 058rkm744
+  identifiers:
+  - identifier: 058rkm744
+    scheme: ror
+  location_name: Coal Valley
+  name: Niabi Zoological Society
+  status: active
+  title:
+    en: Niabi Zoological Society
+
+- country_name: Norway
+  id: 0590dbq33
+  identifiers:
+  - identifier: 0590dbq33
+    scheme: ror
+  location_name: Trondheim
+  name: SINTEF Energy Research
+  status: active
+  title:
+    en: SINTEF Energy Research
+
+- country_name: United Kingdom
+  id: 05dbe0q91
+  identifiers:
+  - identifier: 05dbe0q91
+    scheme: ror
+  location_name: Stevenage
+  name: Warren Spring Laboratory
+  status: active
+  title:
+    en: Warren Spring Laboratory
+
+- country_name: United States
+  id: 05gq02987
+  identifiers:
+  - identifier: 05gq02987
+    scheme: ror
+  location_name: Providence
+  name: Brown University
+  status: active
+  title:
+    en: Brown University
+
+- country_name: China
+  id: 05htk5m33
+  identifiers:
+  - identifier: 05htk5m33
+    scheme: ror
+  location_name: Changsha
+  name: Hunan University
+  status: active
+  title:
+    en: Hunan University
+
+- country_name: United States
+  id: 05j0w0e76
+  identifiers:
+  - identifier: 05j0w0e76
+    scheme: ror
+  location_name: Washington
+  name: American Association For The Advancement of Science
+  status: active
+  title:
+    en: American Association For The Advancement of Science
+
+- country_name: Italy
+  id: 05kcb8115
+  identifiers:
+  - identifier: 05kcb8115
+    scheme: ror
+  location_name: Bologna
+  name: Consorzio Interuniversitario Per L'Ottimizzazione E La Ricerca Operativa
+  status: active
+  title:
+    en: Consorzio Interuniversitario Per L'Ottimizzazione E La Ricerca Operativa
+
+- country_name: Japan
+  id: 05kzadn81
+  identifiers:
+  - identifier: 05kzadn81
+    scheme: ror
+  location_name: Nara
+  name: Nara Women's University
+  status: active
+  title:
+    en: Nara Women's University
+
+- country_name: South Korea
+  id: 05kzjxq56
+  identifiers:
+  - identifier: 05kzjxq56
+    scheme: ror
+  location_name: Gwangju
+  name: Chonnam National University
+  status: active
+  title:
+    en: Chonnam National University
+
+- country_name: France
+  id: 05m34fq04
+  identifiers:
+  - identifier: 05m34fq04
+    scheme: ror
+  location_name: Saint-Aubin-sur-Mer
+  name: Motorola (France)
+  status: active
+  title:
+    en: Motorola (France)
+
+- country_name: Italy
+  id: 05mmh5r64
+  identifiers:
+  - identifier: 05mmh5r64
+    scheme: ror
+  location_name: Varese
+  name: Alenia Aermacchi
+  status: inactive
+  title:
+    en: Alenia Aermacchi
+
+- country_name: Cyprus
+  id: 05qt8tf94
+  identifiers:
+  - identifier: 05qt8tf94
+    scheme: ror
+  location_name: Limassol
+  name: Cyprus University of Technology
+  status: active
+  title:
+    en: Cyprus University of Technology
+
+- country_name: Belgium
+  id: 05re2b915
+  identifiers:
+  - identifier: 05re2b915
+    scheme: ror
+  location_name: Brussels
+  name: European Road Transport Telematics Implementation Co-Ordination
+  status: active
+  title:
+    en: European Road Transport Telematics Implementation Co-Ordination
+
+- country_name: United Kingdom
+  id: 05t3n1398
+  identifiers:
+  - identifier: 05t3n1398
+    scheme: ror
+  location_name: Chatham
+  name: Natural Resources Institute
+  status: active
+  title:
+    en: Natural Resources Institute
+
+- country_name: Belarus
+  id: 05t4sxc87
+  identifiers:
+  - identifier: 05t4sxc87
+    scheme: ror
+  location_name: Mogilev
+  name: Mogilev State A.Kuleshov University
+  status: active
+  title:
+    en: Mogilev State A.Kuleshov University
+
+- country_name: Israel
+  id: 05tkyf982
+  identifiers:
+  - identifier: 05tkyf982
+    scheme: ror
+  location_name: Beersheba
+  name: Ben-Gurion University of the Negev
+  status: active
+  title:
+    en: Ben-Gurion University of the Negev
+
+- country_name: United States
+  id: 05vvhh982
+  identifiers:
+  - identifier: 05vvhh982
+    scheme: ror
+  location_name: Little Rock
+  name: University of Arkansas System
+  status: active
+  title:
+    en: University of Arkansas System

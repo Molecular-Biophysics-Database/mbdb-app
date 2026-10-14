@@ -1,9 +1,14 @@
-import { DepositFormApp, parseFormAppConfig, ExampleSection } from "@js/oarepo_ui/forms";
+import {
+  DepositFormApp,
+  parseFormAppConfig,
+  ExampleSection,
+} from "@js/oarepo_ui/forms";
 import { EmptyDepositRecordSerializer } from "@js/oarepo_ui/api";
 import React from "react";
 import ReactDOM from "react-dom";
 import { SaveButton } from "@js/invenio_rdm_records";
 import { Grid } from "semantic-ui-react";
+
 const { rootEl, config, ...rest } = parseFormAppConfig();
 const recordSerializer = new EmptyDepositRecordSerializer();
 
@@ -30,5 +35,5 @@ ReactDOM.render(
     componentOverrides={componentOverrides}
     useWizardForm
   />,
-  rootEl,
+  rootEl
 );
