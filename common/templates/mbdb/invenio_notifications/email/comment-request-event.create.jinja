@@ -4,6 +4,7 @@
 {% set invenio_request = notification.context.request %}
 {% set invenio_request_event = notification.context.request_event %}
 {% set created_by = invenio_request_event.created_by %}
+{# created_by is either a resolved user or an email (for guests) #}
 {% set event_creator_name =
     (created_by.get("profile", {}).get("full_name") if created_by is mapping else none)
     or (created_by.get("username") if created_by is mapping else none)
@@ -14,13 +15,15 @@
     or (created_by if created_by is string else _("Someone"))
 %}
 {% set request_id = invenio_request.id %}
-{% set record_id = notification.context.request.topic.parent.id %}
-{% set request_event_content = invenio_request_event.payload.content | safe %}
+{% set topic_id = invenio_request.topic.id %}
+{# payload.content is sanitized HTML produced by the rich text editor in the request detail page #}
+{% set request_event_content_html = invenio_request_event.payload.content | safe %}
+{# plain-text version for text/markdown bodies: add spacing after block elements, then drop tags #}
+{% set request_event_content_text = invenio_request_event.payload.content
+    | replace("</p>", "</p> ") | replace("</li>", "</li> ") | replace("</div>", "</div> ")
+    | replace("<br>", " ") | replace("<br/>", " ") | replace("<br />", " ")
+    | striptags | safe %}
 {% set request_title = invenio_request.title | safe %}
-{% set request = notification.context.request %}
-{% set topic = request.topic %}
-{% set topic_id = topic.id %}
-
 
 {# TODO: use request.links.self_html when issue is resolved: https://github.com/inveniosoftware/invenio-rdm-records/issues/1327 #}
 {% set request_link = "{ui}/requests/{id}".format(ui=config.SITE_UI_URL, id=request_id) %}
@@ -33,15 +36,21 @@
 {%- block html_body -%}
   {% set body %}
     <p>
-      {{ _("'@{user_name}' commented on request '{request_title}' for record id: '{topic_id}'").format(
+      {{ _("'@{user_name}' commented on request <a href='{request_link}'>'{request_title}'</a> for record id: '{topic_id}':").format(
           user_name=event_creator_name,
-          request_title=request_title, topic_id=topic_id
-      ) }}
+          request_link=request_link,
+          request_title=request_title,
+          topic_id=topic_id
+      ) | safe }}
     </p>
 
-    <p><em>{{ request_event_content }}</em></p>
-
-    <p>{{ _("You can leave answer to the comment on the request page.") }}</p>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:16px 0;">
+      <tr>
+        <td align="left" style="padding:12px 16px; border-left:4px solid #023850; background-color:#f5f7f9; text-align:left;">
+          {{ request_event_content_html }}
+        </td>
+      </tr>
+    </table>
 
     {{ m.button(request_link, _("Check out the request"), bg="#023850") }}
 
@@ -62,9 +71,7 @@
     topic_id=topic_id
 ) }}.
 
-{{ request_event_content }}
-
-{{ _("You can leave answer to the comment on the request page.") }}
+{{ request_event_content_text }}
 
 {{ _("Check out the request: {request_link}").format(request_link=request_link) }}
   {% endset %}
@@ -74,11 +81,9 @@
 
 {# Markdown for Slack/Mattermost/chat #}
 {%- block md_body -%}
-{{ _("*@{user_name}* commented on request *{request_title}* for record id: *{topic_id}*").format(user_name=event_creator_name, request_title=request_title, topic_id=topic_id) }}.
+{{ _("*@{user_name}* commented on request [{request_title}]({request_link}) for record id: *{topic_id}*").format(user_name=event_creator_name, request_title=request_title, request_link=request_link, topic_id=topic_id) }}.
 
-{{ request_event_content }}
-
-{{ _("You can leave answer to the comment on the request page.") }}
+{{ request_event_content_text }}
 
 [{{ _("Check out the request") }}]({{ request_link }})
 {%- endblock md_body -%}
