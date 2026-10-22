@@ -1,0 +1,88 @@
+{% import "mbdb/invenio_notifications/email/_layout.jinja" as layout %}
+{% import "mbdb/invenio_notifications/email/_macros.jinja" as m %}
+
+{% set invenio_request = notification.context.request %}
+{% set invenio_request_event = notification.context.request_event %}
+{% set created_by = invenio_request_event.created_by %}
+{# created_by is either a resolved user or an email (for guests) #}
+{% set event_creator_name =
+    (created_by.get("profile", {}).get("full_name") if created_by is mapping else none)
+    or (created_by.get("username") if created_by is mapping else none)
+    or (created_by.get("email") if created_by is mapping else none)
+    or (created_by.username if created_by is not mapping and created_by is not string and created_by.username is defined else none)
+    or (created_by.profile.full_name if created_by is not mapping and created_by is not string and created_by.profile is defined and created_by.profile.full_name is defined else none)
+    or (created_by.email if created_by is not mapping and created_by is not string and created_by.email is defined else none)
+    or (created_by if created_by is string else _("Someone"))
+%}
+{% set request_id = invenio_request.id %}
+{# payload.content is sanitized HTML produced by the rich text editor in the request detail page #}
+{% set request_event_content_html = invenio_request_event.payload.content | safe %}
+{# plain-text version for text/markdown bodies: add spacing after block elements, then drop tags #}
+{% set request_event_content_text = invenio_request_event.payload.content
+    | replace("</p>", "</p> ") | replace("</li>", "</li> ") | replace("</div>", "</div> ")
+    | replace("<br>", " ") | replace("<br/>", " ") | replace("<br />", " ")
+    | striptags | safe %}
+{% set request_title = invenio_request.title | safe %}
+{% set reply_id = invenio_request_event.id %}
+
+{# TODO: use request.links.self_html when issue is resolved: https://github.com/inveniosoftware/invenio-rdm-records/issues/1327 #}
+{% set request_link = "{ui}/requests/{id}".format(ui=config.SITE_UI_URL, id=request_id) %}
+{% set reply_link = "{ui}/me/requests/{id}#replyevent-{reply_id}".format(
+    ui=config.SITE_UI_URL, id=request_id, reply_id=reply_id
+    )
+%}
+
+
+{%- block subject -%}
+{{ _("💬 New reply on '{request_title}'").format(request_title=request_title) }}
+{%- endblock subject -%}
+
+{%- block html_body -%}
+  {% set body %}
+    <p>
+      {{ _("'@{user_name}' replied on <a href='{reply_link}'>comment</a>:").format(
+          user_name=event_creator_name,
+          reply_link=reply_link
+      ) | safe }}
+    </p>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:16px 0;">
+      <tr>
+        <td align="left" style="padding:12px 16px; border-left:4px solid #023850; background-color:#f5f7f9; text-align:left;">
+          {{ request_event_content_html }}
+        </td>
+      </tr>
+    </table>
+
+    {{ m.button(request_link, _("Check out the request"), bg="#023850") }}
+
+    <p>
+      {{ _("If the button does not work, copy and paste this link into your browser:") }}<br>
+      <a href="{{ request_link }}">{{ request_link }}</a>
+    </p>
+  {% endset %}
+
+  {{ layout.render_html(body, text_align="center") }}
+{%- endblock html_body -%}
+
+{%- block plain_body -%}
+  {% set body %}
+{{ _("@{user_name} replied on comment").format(user_name=event_creator_name) }}.
+
+{{ request_event_content_text }}
+
+{{ _("View reply: {reply_link}").format(reply_link=reply_link) }}
+{{ _("Check out the request: {request_link}").format(request_link=request_link) }}
+  {% endset %}
+
+  {{ layout.render_plain(body) }}
+{%- endblock plain_body -%}
+
+{# Markdown for Slack/Mattermost/chat #}
+{%- block md_body -%}
+{{ _("*@{user_name}* replied on [comment]({reply_link})").format(user_name=event_creator_name, reply_link=reply_link) }}.
+
+{{ request_event_content_text }}
+
+[{{ _("Check out the request") }}]({{ request_link }})
+{%- endblock md_body -%}

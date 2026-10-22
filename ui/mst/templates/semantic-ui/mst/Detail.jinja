@@ -4,7 +4,8 @@
 
 {%- block javascript %}
 {{ super() }}
-{{ webpack['oarepo_requests_ui_record_requests.js']}}
+{{ webpack['components.js'] }}
+{{ webpack['oarepo_requests_ui_record_requests.js'] }}
 {%- endblock %}
 
 {% set gp=d.metadata.general_parameters %}
