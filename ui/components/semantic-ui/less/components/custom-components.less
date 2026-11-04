@@ -176,16 +176,18 @@ nrp ui components create <component-type> <component-name>
   background: none;
 }
 
-// FieldHelp that does not follow a .field: directly under a control
-// (ButtonGroupField, ValueUnitField, a plain Input, ...) or as the first
-// child. Invenio gives every `label.helptext` margin-top: -0.8em to cancel
-// the bottom margin of a *preceding .field*; without one, the help text
-// slides up into the control. After a .field (the RIF wrappers in
-// mbdb-react-invenio-forms), keep Invenio's and oarepo's tab-form spacing.
-.ui.form :not(.field) + label.helptext.mbdb-field-help,
-.ui.form label.helptext.mbdb-field-help:first-child,
-:not(.field) + label.helptext.mbdb-field-help,
-label.helptext.mbdb-field-help:first-child {
+// Every mbdb help text keeps a bit of space above it: Invenio pulls every
+// `label.helptext` up with margin-top: -0.8em to cancel the bottom margin
+// of a *preceding .field* — but OARepo's tab-form/modal rules zero nested
+// `.field` margins with `!important`, so after a control that renders its
+// own .field (oarepo's VocabularyField/RemoteSelectField inside
+// MbdbVocabularyField, the RIF wrappers) nothing counterweights the pull
+// and the help collapses into the input. One unconditional rule, with
+// `.ui.form .field label…` (beats Invenio's same-shape selector) plus the
+// bare form-less fallback for modals that render no .ui.form ancestor.
+.ui.form .field label.helptext.mbdb-field-help,
+.ui.form label.helptext.mbdb-field-help,
+label.helptext.mbdb-field-help {
   margin-top: 0.5em;
 }
 
