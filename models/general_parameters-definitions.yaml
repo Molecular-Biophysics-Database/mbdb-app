@@ -542,6 +542,8 @@ Chemical:
               unit:
                 type: keyword
       vocabulary-type: chemicals
+      marshmallow_schema_mixins:
+        - common.vocabularies.AutoCreateChemicalMixin
       type: vocabulary
     additional_specifications:
       minItems: 1
@@ -593,7 +595,7 @@ Chemical_environment:
       type: double
       help.en: The pH value of the chemical environment
       required: true
-      label.en: Ph
+      label.en: pH
     additional_specifications:
       minItems: 1
       help.en: Additional information about the chemical environment can be 
@@ -781,7 +783,7 @@ Body_fluid:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: body_fluids
+      vocabulary-type: body-fluids
       type: vocabulary
       extras:
         title:
@@ -810,7 +812,7 @@ Cell_fraction:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: cell_fractions
+      vocabulary-type: cell-fractions
       type: vocabulary
       extras:
         title:
@@ -923,7 +925,7 @@ Complex_substance_of_environmental_origin:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: environment_types
+      vocabulary-type: environment-types
       type: vocabulary
       extras:
         title:
@@ -2756,6 +2758,8 @@ EntityChemicalPolymorphic:
               unit:
                 type: keyword
       vocabulary-type: chemicals
+      marshmallow_schema_mixins:
+        - common.vocabularies.AutoCreateChemicalMixin
       type: vocabulary
     additional_specifications:
       minItems: 1
@@ -3051,6 +3055,8 @@ Assembly_componentChemicalPolymorphic:
               unit:
                 type: keyword
       vocabulary-type: chemicals
+      marshmallow_schema_mixins:
+        - common.vocabularies.AutoCreateChemicalMixin
       type: vocabulary
     additional_specifications:
       minItems: 1
@@ -3112,7 +3118,7 @@ Complex_substance_of_biological_originBody_fluidPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: body_fluids
+      vocabulary-type: body-fluids
       type: vocabulary
       extras:
         title:
@@ -3230,7 +3236,7 @@ Complex_substance_of_biological_originCell_fractionPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: cell_fractions
+      vocabulary-type: cell-fractions
       type: vocabulary
       extras:
         title:
@@ -3610,7 +3616,7 @@ EntityComplex_substance_of_environmental_originPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: environment_types
+      vocabulary-type: environment-types
       type: vocabulary
       extras:
         title:
@@ -3896,6 +3902,8 @@ Chemical_constituentChemicalPolymorphic:
               unit:
                 type: keyword
       vocabulary-type: chemicals
+      marshmallow_schema_mixins:
+        - common.vocabularies.AutoCreateChemicalMixin
       type: vocabulary
     additional_specifications:
       minItems: 1
@@ -4097,6 +4105,8 @@ ConstituentChemicalPolymorphic:
               unit:
                 type: keyword
       vocabulary-type: chemicals
+      marshmallow_schema_mixins:
+        - common.vocabularies.AutoCreateChemicalMixin
       type: vocabulary
     additional_specifications:
       minItems: 1
@@ -4248,7 +4258,7 @@ constituent_Complex_substance_of_biological_originBody_fluidPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: body_fluids
+      vocabulary-type: body-fluids
       type: vocabulary
       extras:
         title:
@@ -4361,7 +4371,7 @@ constituent_Complex_substance_of_biological_originCell_fractionPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: cell_fractions
+      vocabulary-type: cell-fractions
       type: vocabulary
       extras:
         title:
@@ -4726,7 +4736,7 @@ ConstituentComplex_substance_of_environmental_originPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-      vocabulary-type: environment_types
+      vocabulary-type: environment-types
       type: vocabulary
       extras:
         title:

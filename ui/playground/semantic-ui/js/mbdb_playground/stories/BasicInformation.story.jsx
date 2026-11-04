@@ -1,0 +1,55 @@
+import React from "react";
+import { BasicInformation } from "@js/mbdb/forms/shared/BasicInformation";
+import { entityPath, entityValues, entityErrors } from "../fixtures";
+
+// The dropdown queries the live chemicals vocabulary, which must be
+// loaded and indexed. Manual entry is off (chemical.js): the "Manual (entry
+// disabled)" scenario below demonstrates that — a stored manual value keeps
+// the picker mounted and "Enter manually:" does not appear in the dropdown.
+
+const PATH = entityPath("basic_information");
+
+const seed = (basicInformation) =>
+  entityValues(
+    "Chemical",
+    basicInformation ? { basic_information: basicInformation } : {}
+  );
+
+const Fields = () => <BasicInformation fieldPath={PATH} />;
+
+const story = {
+  title: "BasicInformation",
+  scenarios: [
+    { name: "Empty", initialValues: seed(undefined), render: Fields },
+    {
+      name: "Picked",
+      // inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N = Water (sample draft)
+      initialValues: seed({ id: "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N" }),
+      render: Fields,
+    },
+    {
+      // manual entry is off (chemical.js): the flag keeps the picker mounted
+      // even for a stored manual value, which is exactly what this scenario
+      // demonstrates
+      name: "Manual (entry disabled)",
+      initialValues: seed({
+        title: { en: "my custom lipid mix" },
+        chemical_formula: "C42H82NO8P",
+        molecular_weight: { value: 760.1, unit: "g/mol" },
+        additional_identifiers: ["cid:5497103"],
+      }),
+      render: Fields,
+    },
+    {
+      name: "With errors",
+      initialValues: seed(undefined),
+      initialErrors: entityErrors(
+        "basic_information",
+        "Missing data for required field."
+      ),
+      render: Fields,
+    },
+  ],
+};
+
+export default story;

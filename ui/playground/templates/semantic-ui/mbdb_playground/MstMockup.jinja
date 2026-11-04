@@ -1,0 +1,29 @@
+{# def
+  extra_context,
+  ui_config = None,
+  ui_resource = None,
+#}
+{% extends config.BASE_TEMPLATE %}
+
+{%- block css %}
+  {{ super() }}
+  {# the form building blocks' own rules (custom-components.less: help-text
+     spacing, nested-group border, ...) #}
+  {{ webpack['components.css'] }}
+  {# the playground's own rdm-12 skin (less/mbdb_playground.less) #}
+  {{ webpack['mbdb_playground.css'] }}
+{%- endblock css %}
+
+{% block page_body %}
+  {# the rdm-12 skin is scoped to #mbdb-playground, so the mockup page keeps
+     the same root id; the entry mounts the form into #mst-mockup-form #}
+  <div id="mbdb-playground">
+    <div id="mst-mockup-form"
+         data-ui-model='{{ extra_context.ui_model | tojson }}'></div>
+  </div>
+{% endblock page_body %}
+
+{%- block javascript %}
+  {% include "oarepo_ui/javascript.html" %}
+  {{ webpack['mst_mockup.js'] }}
+{%- endblock %}
