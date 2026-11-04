@@ -86,6 +86,11 @@ class IndividualWorkflowPermissions(RequestBasedWorkflowPermissions):
         ),
     ]
 
+    files_edit = [
+        IfInState("draft", [RecordOwners(), UserWithRole("editor")]),
+        IfInState("published", [Disable()]),
+    ]
+
     can_read_deleted = [
         IfRecordDeleted(
             then_=[
