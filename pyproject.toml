@@ -52,6 +52,15 @@ module-name = [
     "models",
 ]
 
+[tool.uv]
+override-dependencies = [
+    "oarepo-model>=6.2.3,<7",
+    "oarepo-rdm>=9.2.0,<10",
+    "oarepo-requests>=10.0.0,<11",
+    "oarepo-workflows>=8.0.1,<9",
+    "oarepo-related-resources>=6.1.0,<7",
+]
+
 [tool.uv.sources]
 #oarepo-model = {path = "../oarepo-lib/oarepo-model", editable = true}
 
