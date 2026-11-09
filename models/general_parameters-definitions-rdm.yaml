@@ -509,13 +509,13 @@ Chemical:
             type: keyword
         - title:
             type: i18ndict
-        - chemical_formula:
+        - custom_fields.chemical_formula:
             type: keyword
-        - additional_identifiers:
+        - custom_fields.additional_identifiers:
             type: array
             items:
               type: keyword
-        - molecular_weight:
+        - custom_fields.molecular_weight:
             type: object
             properties:
               value:
@@ -2710,13 +2710,13 @@ EntityChemicalPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-        - chemical_formula:
+        - custom_fields.chemical_formula:
             type: keyword
-        - additional_identifiers:
+        - custom_fields.additional_identifiers:
             type: array
             items:
               type: keyword
-        - molecular_weight:
+        - custom_fields.molecular_weight:
             type: object
             properties:
               value:
@@ -3005,13 +3005,13 @@ Assembly_componentChemicalPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-        - chemical_formula:
+        - custom_fields.chemical_formula:
             type: keyword
-        - additional_identifiers:
+        - custom_fields.additional_identifiers:
             type: array
             items:
               type: keyword
-        - molecular_weight:
+        - custom_fields.molecular_weight:
             type: object
             properties:
               value:
@@ -3850,13 +3850,13 @@ Chemical_constituentChemicalPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-        - chemical_formula:
+        - custom_fields.chemical_formula:
             type: keyword
-        - additional_identifiers:
+        - custom_fields.additional_identifiers:
             type: array
             items:
               type: keyword
-        - molecular_weight:
+        - custom_fields.molecular_weight:
             type: object
             properties:
               value:
@@ -4051,13 +4051,13 @@ ConstituentChemicalPolymorphic:
             type: keyword
         - title:
             type: i18ndict
-        - chemical_formula:
+        - custom_fields.chemical_formula:
             type: keyword
-        - additional_identifiers:
+        - custom_fields.additional_identifiers:
             type: array
             items:
               type: keyword
-        - molecular_weight:
+        - custom_fields.molecular_weight:
             type: object
             properties:
               value:
