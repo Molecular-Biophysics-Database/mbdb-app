@@ -115,7 +115,7 @@
               "basic_information": {
                 "@v": "a8e92fa5-e8ec-49d0-b637-3a5e3a36bb66::1",
                 "chemical_formula": "(C3H6O.C2H4O)x",
-                "id": "inchikey: OQNWUUGFAWNUME-UHFFFAOYSA-N",
+                "id": "inchikey:OQNWUUGFAWNUME-UHFFFAOYSA-N",
                 "molecular_weight": {
                   "unit": "g/mol",
                   "value": 164.2

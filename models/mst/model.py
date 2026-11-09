@@ -9,6 +9,7 @@ from invenio_i18n import lazy_gettext as _
 from oarepo_rdm.model import rdm_minimal_preset
 from oarepo_model.presets.drafts import drafts_preset
 from oarepo_model.presets.relations import relations_preset
+from oarepo_model.presets.internal_relations import internal_relations_preset
 from oarepo_model.presets.ui import ui_preset
 from oarepo_model.presets.custom_fields import custom_fields_preset
 from oarepo_model.api import model
@@ -33,7 +34,8 @@ mst_model = model(
         workflows_preset,
         requests_preset,
         communities_preset,
-
+        # same-record relations, e.g. measurements -> entities_of_interest
+        internal_relations_preset,
     ],
     types=[
         from_yaml("../general_parameters-definitions-rdm.yaml", __file__),
