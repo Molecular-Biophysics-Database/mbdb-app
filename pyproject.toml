@@ -26,6 +26,9 @@ translations = "i18n"
 [project.entry-points."invenio_db.alembic"]
 repository = "common:alembic"
 
+[project.entry-points."oarepo.cli.search.init"]
+vocabularies_custom_fields = "common.vocabularies:init_vocabularies_custom_fields_mapping"
+
 [project.entry-points."invenio_base.blueprints"]
 ui_mst = "ui.mst:create_blueprint"
 ui_spr = "ui.spr:create_blueprint"
