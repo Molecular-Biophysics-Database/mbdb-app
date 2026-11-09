@@ -1,0 +1,22 @@
+{# TEMPORARY override of oarepo_vocabularies' VocabularyExtraInfo.awards.jinja, which requires
+   a "metadata" argument that VocabulariesMain.jinja never passes (and that is unused), so every
+   award detail page crashes. Remove once fixed in oarepo-vocabularies. #}
+{#def record, d, extra_context, hierarchical=False #}
+{% if record.number%}
+<dt>{{_("vocabulary.number")}}</dt>
+<dd>
+    {{record.number}}
+</dd>
+{% endif %}
+{% if record.funder%}
+<dt>{{_("vocabulary.funder")}}</dt>
+<dd>
+    {{record.funder.name}}
+</dd>
+{% endif %}
+{% if record.program%}
+<dt>{{_("vocabulary.program")}}</dt>
+<dd>
+    {{record.program}}
+</dd>
+{% endif %}

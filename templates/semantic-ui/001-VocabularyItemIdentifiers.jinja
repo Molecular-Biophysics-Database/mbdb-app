@@ -1,0 +1,13 @@
+{# TEMPORARY override of oarepo_vocabularies' VocabularyItemIdentifiers.jinja, which passes
+   copyText={identifier.identifier} (JSX syntax) and crashes the detail page of every item
+   with identifiers (affiliations, funders). Remove once fixed in oarepo-vocabularies. #}
+{# def identifiers=[] #}
+
+{% if identifiers and identifiers|length > 0 %}
+  <div>
+    {% for identifier in identifiers %}
+      <span title="{{ identifier.scheme }}">{{ identifier.identifier }}</span>
+      <ClipboardCopyButton copyText="{{ identifier.identifier }}" />
+    {% endfor %}
+  </div>
+{% endif %}
