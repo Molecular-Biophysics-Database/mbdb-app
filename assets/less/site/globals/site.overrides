@@ -461,3 +461,84 @@ body {
   color: @mbdbDark;
   font-weight: 500;
 }
+
+/* Header: white bar with the logo, centered links and the deposition /
+   sign-in actions (the old app's header layout) */
+.theme.header .outer-navbar {
+  background: @white;
+}
+.mbdb-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1.5rem 3rem;
+
+  a {
+    color: @mbdbDark;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+.mbdb-header-logo img {
+  width: 5rem;
+}
+.mbdb-header-links {
+  display: flex;
+  gap: 4rem;
+
+  a {
+    font-size: 20px;
+    font-weight: 500;
+    transition: transform 300ms ease-in-out;
+  }
+  a:hover {
+    color: @mbdbDark;
+    transform: scale(1.1);
+  }
+}
+.mbdb-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.mbdb-header .mbdb-header-deposit {
+  padding: 0.6rem 0.6rem;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 18px;
+  color: @white;
+  background-color: @mbdbDark;
+  border-radius: 0.28571429rem;
+  transition: background-color 150ms;
+
+  &:hover {
+    color: @white;
+    background-color: fade(@mbdbDark, 75%);
+  }
+}
+.mbdb-header-signin {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  img {
+    height: 40px;
+    width: auto;
+  }
+}
+@media all and (max-width: @largestTabletScreen) {
+  .mbdb-header {
+    padding: 1rem;
+  }
+  .mbdb-header-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
