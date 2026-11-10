@@ -1,0 +1,782 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import { act, Simulate } from "react-dom/test-utils";
+import { Formik } from "formik";
+import {
+  DisclosureDefaultProvider,
+  HelpModeProvider,
+} from "mbdb-semantic-ui-react";
+import { TableArrayField } from "./TableArrayField";
+import {
+  setFakeUiModel,
+  renderInForm,
+  editUnrelatedField,
+  ValueProbe,
+  readProbe,
+} from "@js/mbdb/forms/building-blocks/testUtils";
+
+// Model labels/help are injected per test through setFakeUiModel
+// (testUtils). The test needs Formik re-render on one container, so it keeps
+// its own tree/render helpers below instead of renderInForm.
+// eslint-disable-next-line no-restricted-syntax -- canonical shared fake (§8)
+jest.mock(
+  "@js/oarepo_ui/forms",
+  () =>
+    jest.requireActual("@js/mbdb/forms/building-blocks/testUtils").oarepoFake
+);
+
+// Client-only row keys (jsdom has no WebCrypto).
+jest.mock("@js/mbdb/forms/building-blocks/randomUUID", () =>
+  jest
+    .requireActual("@js/mbdb/forms/building-blocks/testUtils")
+    .mockRandomUUID()
+);
+
+let container;
+
+// kept local: one test re-renders with NEW initialErrors on the SAME mounted
+// Formik, which renderInForm (fresh container per call) cannot express. The
+// oarepo providers are passthroughs (testUtils), so Formik alone is enough.
+const tree = (
+  ui,
+  { initialValues = {}, initialErrors = {}, enableReinitialize = false } = {}
+) => (
+  <Formik
+    initialValues={initialValues}
+    initialErrors={initialErrors}
+    enableReinitialize={enableReinitialize}
+    onSubmit={() => {}}
+  >
+    {ui}
+  </Formik>
+);
+
+const render = (element) => {
+  act(() => {
+    ReactDOM.render(element, container);
+  });
+};
+
+const mount = (ui, opts = {}) => {
+  container = document.createElement("div");
+  document.body.appendChild(container);
+  render(tree(ui, opts));
+};
+
+beforeEach(() => {
+  setFakeUiModel({});
+});
+
+afterEach(() => {
+  if (!container) return;
+  ReactDOM.unmountComponentAtNode(container);
+  container.remove();
+  container = null;
+});
+
+const probe = () => readProbe(container);
+const input = (label) =>
+  container.querySelector(`input[aria-label="${label}"]`);
+const inputs = (label) => [
+  ...container.querySelectorAll(`input[aria-label="${label}"]`),
+];
+const type = async (el, value) => {
+  el.value = value;
+  // formik's SET_ERRORS lands in a promise: flush it before asserting
+  await act(async () => {
+    Simulate.change(el);
+  });
+};
+const click = async (el) => {
+  await act(async () => {
+    Simulate.click(el);
+  });
+};
+const buttons = () => [...container.querySelectorAll("button")];
+const byTestId = (c) => c.querySelector('[data-testid^="expanded-"]');
+
+const PROTOCOL_COLUMNS = [
+  { field: "name", label: "Name", required: true, width: 4 },
+  { field: "description", label: "Description", required: true },
+];
+
+const protocol = (props = {}) => (
+  <>
+    <TableArrayField
+      fieldPath="steps"
+      label="Preparation protocol"
+      required
+      minItems={1}
+      addButtonLabel="Add step"
+      columns={PROTOCOL_COLUMNS}
+      {...props}
+    />
+    <ValueProbe path="steps" />
+  </>
+);
+
+// string-array table ("db:id"), as in ExternalDatabases
+const serialize = ({ database, id }) =>
+  !database && !id ? "" : `${database ?? ""}:${id ?? ""}`;
+const deserialize = (stored) => {
+  const [database = "", id = ""] = (stored ?? "").split(":");
+  return { database, id };
+};
+const databases = (props = {}) => (
+  <>
+    <TableArrayField
+      fieldPath="dbs"
+      label="External databases"
+      columns={[
+        {
+          field: "database",
+          label: "Database",
+          type: "select",
+          options: ["pdb", "uniprot"],
+          allowAdditions: true,
+        },
+        { field: "id", label: "ID" },
+      ]}
+      defaultNewValue=""
+      serialize={serialize}
+      deserialize={deserialize}
+      rowHint={(row) =>
+        (row.database || row.id) && !(row.database && row.id)
+          ? "Incomplete"
+          : null
+      }
+      {...props}
+    />
+    <ValueProbe path="dbs" />
+  </>
+);
+
+describe("TableArrayField", () => {
+  it("the table's help sits directly under the label, above the table", () => {
+    mount(protocol({ help: "Steps taken" }));
+    const field = container.querySelector(".field");
+    const help = field.querySelector("label.helptext");
+    const labelEl = field.querySelector("label[for='steps']");
+    const table = field.querySelector("table");
+    expect(help).not.toBeNull();
+    expect(help.textContent).toBe("Steps taken");
+    // composite control: help under the label, not below the table and its
+    // Add button (guide §8, help placement)
+    expect(labelEl.nextElementSibling).toBe(help);
+    expect(help.classList.contains("mbdb-field-help-under-label")).toBe(true);
+    expect(
+      help.compareDocumentPosition(table) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
+  });
+
+  it("showIndex (default true) keeps the # column", () => {
+    mount(protocol(), {
+      initialValues: { steps: [{ name: "a", description: "b" }] },
+    });
+    expect(container.querySelector("thead").textContent).toContain("#");
+    // #, name, description, actions
+    expect(container.querySelectorAll("tbody tr td")).toHaveLength(4);
+  });
+
+  it("showIndex={false} drops the leading # column from the header and the rows", () => {
+    mount(protocol({ showIndex: false }), {
+      initialValues: { steps: [{ name: "a", description: "b" }] },
+    });
+    expect(container.querySelector("thead").textContent).not.toContain("#");
+    // name, description, actions — no index cell
+    expect(container.querySelectorAll("tbody tr td")).toHaveLength(3);
+  });
+
+  it("renders minItems rows as VIRTUAL rows: shown, but nothing is written yet (F11)", () => {
+    mount(protocol());
+    // no seeding write — the form stays clean
+    expect(probe()).toBeNull();
+    expect(container.textContent).toContain("Preparation protocol");
+    expect(container.textContent).toContain("Name *");
+    expect(container.textContent).toContain("Description *");
+    // the row is there and editable
+    expect(input("Name")).not.toBeNull();
+    expect(buttons().some((b) => b.textContent.includes("Add step"))).toBe(
+      true
+    );
+    // the minItems row has no remove button
+    expect(
+      container.querySelector('button[aria-label="Remove row 1"]')
+    ).toBeNull();
+  });
+
+  it("renders initial values and keeps extra minItems rows removable", () => {
+    mount(protocol(), {
+      initialValues: {
+        steps: [
+          { name: "Centrifugation", description: "10 min" },
+          { name: "Filtration", description: "0.22 µm" },
+        ],
+      },
+    });
+    expect(input("Name").value).toBe("Centrifugation");
+    expect(
+      container.querySelector('button[aria-label="Remove row 1"]')
+    ).toBeNull();
+    expect(
+      container.querySelector('button[aria-label="Remove row 2"]')
+    ).not.toBeNull();
+  });
+
+  it("writes edits back to Formik", async () => {
+    mount(protocol(), {
+      initialValues: { steps: [{ name: "old", description: "" }] },
+    });
+    await type(input("Name"), "new name");
+    expect(probe()).toEqual([{ name: "new name", description: "" }]);
+  });
+
+  it("clearing a text cell removes the key instead of writing an empty string (F4)", async () => {
+    mount(protocol({ minItems: 0 }), {
+      initialValues: { steps: [{ name: "a", description: "b" }] },
+    });
+    await type(input("Name"), "");
+    expect(probe()).toEqual([{ description: "b" }]);
+  });
+
+  it("adds a row with the Add button and removes rows with remove", async () => {
+    mount(protocol({ minItems: 0 }));
+    const add = buttons().find((b) => b.textContent.includes("Add step"));
+    await click(add);
+    expect(probe()).toEqual([{}]);
+    await click(add);
+    expect(probe()).toEqual([{}, {}]);
+    await type(inputs("Name")[1], "step 2");
+    expect(probe()).toEqual([{}, { name: "step 2" }]);
+
+    await click(container.querySelector('button[aria-label="Remove row 2"]'));
+    expect(probe()).toEqual([{}]);
+  });
+
+  it("removing the last row removes the whole array key (F5)", async () => {
+    mount(protocol({ minItems: 0 }), {
+      initialValues: { steps: [{ name: "only" }] },
+    });
+    await click(container.querySelector('button[aria-label="Remove row 1"]'));
+    expect(probe()).toBeNull();
+  });
+
+  it("removing the last row also prunes parents that become empty", async () => {
+    // modifications: {} must not stay behind (guide §7)
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="obj.list"
+          label="Chemical"
+          addButtonLabel="Add modification"
+          columns={[{ field: "name", label: "Name" }]}
+        />
+        <ValueProbe path="obj" />
+      </>,
+      { initialValues: { obj: { list: [{ name: "a" }] } } }
+    );
+    await click(container.querySelector('button[aria-label="Remove row 1"]'));
+    expect(probe()).toBeNull();
+  });
+
+  it("keeps other rows' content and expand state when a middle row is removed (F6)", async () => {
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="mods"
+          columns={[{ field: "name", label: "Name" }]}
+          renderExpanded={(itemPath) => (
+            <div data-testid={`expanded-${itemPath}`}>EXPANDED</div>
+          )}
+        />
+        <ValueProbe path="mods" />
+      </>,
+      {
+        initialValues: {
+          mods: [{ name: "A" }, { name: "B" }, { name: "C" }],
+        },
+      }
+    );
+    // open the last row's expanded content
+    const toggles = buttons().filter((b) => b.textContent.includes("Details"));
+    expect(toggles).toHaveLength(3);
+    await click(toggles[2]);
+    expect(byTestId(container)).not.toBeNull();
+
+    await click(container.querySelector('button[aria-label="Remove row 1"]'));
+    expect(probe()).toEqual([{ name: "B" }, { name: "C" }]);
+    // rows B and C kept their identity: B's content, C still expanded
+    expect(inputs("Name").map((i) => i.value)).toEqual(["B", "C"]);
+    expect(byTestId(container)).not.toBeNull();
+  });
+
+  it("stores numbers as numbers and clears them to undefined", async () => {
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="rows"
+          columns={[{ field: "amount", label: "Amount", type: "number" }]}
+        />
+        <ValueProbe path="rows" />
+      </>,
+      { initialValues: { rows: [{ amount: 1 }] } }
+    );
+    await type(input("Amount"), "2.5");
+    expect(probe()).toEqual([{ amount: 2.5 }]);
+    await type(input("Amount"), "");
+    expect(probe()).toEqual([{}]);
+  });
+
+  it("stores undefined — never NaN — for unparseable number input", async () => {
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="rows"
+          columns={[{ field: "amount", label: "Amount", type: "number" }]}
+        />
+        <ValueProbe path="rows" />
+      </>,
+      { initialValues: { rows: [{ amount: 1 }] } }
+    );
+    await type(input("Amount"), "abc");
+    expect(probe()).toEqual([{}]);
+  });
+
+  it("serializes column edits through serialize/deserialize (external databases)", async () => {
+    mount(databases(), { initialValues: { dbs: ["pdb:1GWD"] } });
+    expect(input("ID").value).toBe("1GWD");
+
+    // clearing a text cell maps "" to undefined; serialize keeps the partial
+    await type(input("ID"), "");
+    expect(probe()).toEqual(["pdb:"]);
+    expect(container.textContent).toContain("Incomplete");
+  });
+
+  it('Add on a serialize table pushes the stored shape (""), not a row object (F3)', async () => {
+    mount(databases(), { initialValues: { dbs: ["pdb:1GWD"] } });
+    const add = buttons().find((b) => b.textContent.includes("Add"));
+    await click(add);
+    expect(probe()).toEqual(["pdb:1GWD", ""]);
+    // the new row shows empty inputs (deserialize("") does not throw)
+    expect(inputs("ID")[1].value).toBe("");
+  });
+
+  it("writes an edited virtual minItems row into the store (F11)", async () => {
+    mount(databases({ minItems: 1 }));
+    expect(probe()).toBeNull();
+    // the virtual row: editing it materializes the array
+    const idInput = container.querySelector('input[aria-label="ID"]');
+    await type(idInput, "1GWD");
+    expect(probe()).toEqual([":1GWD"]);
+    // still exactly one row (the virtual one became real)
+    expect(inputs("ID")).toHaveLength(1);
+  });
+
+  it("select column renders a dropdown with clearable options, and shows an added value (F9)", async () => {
+    mount(databases(), { initialValues: { dbs: ["emdb:1234"] } });
+    // "emdb" is not in options but must be visible (allowAdditions)
+    const dropdown = container.querySelector(".ui.dropdown");
+    expect(dropdown.textContent).toContain("emdb");
+    await click(dropdown);
+    const item = [...dropdown.querySelectorAll(".menu .item")].find(
+      (el) => el.textContent === "pdb"
+    );
+    await click(item);
+    expect(probe()).toEqual(["pdb:1234"]);
+  });
+
+  it("textarea column renders a textarea", async () => {
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="rows"
+          columns={[{ field: "note", label: "Note", type: "textarea" }]}
+        />
+        <ValueProbe path="rows" />
+      </>,
+      { initialValues: { rows: [{ note: "hello" }] } }
+    );
+    const area = container.querySelector("textarea");
+    await type(area, "multi line");
+    expect(probe()).toEqual([{ note: "multi line" }]);
+  });
+
+  it("textarea rows grow with the content (SUIR TextArea has no autoHeight)", () => {
+    mount(
+      <TableArrayField
+        fieldPath="rows"
+        columns={[{ field: "note", label: "Note", type: "textarea" }]}
+      />,
+      { initialValues: { rows: [{ note: "x".repeat(400) }] } }
+    );
+    const area = container.querySelector("textarea");
+    expect(Number(area.getAttribute("rows"))).toBe(5);
+    expect(area.getAttribute("autoheight")).toBeNull();
+  });
+
+  it("a short textarea cell stays one row high (table cells use a floor of 1)", () => {
+    mount(
+      <TableArrayField
+        fieldPath="rows"
+        columns={[{ field: "note", label: "Note", type: "textarea" }]}
+      />,
+      { initialValues: { rows: [{ note: "short" }] } }
+    );
+    expect(
+      Number(container.querySelector("textarea").getAttribute("rows"))
+    ).toBe(1);
+  });
+
+  it("render column shows computed read-only content", () => {
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="rows"
+          columns={[
+            { field: "id", label: "ID" },
+            { field: "link", label: "Open", render: (row) => `link:${row.id}` },
+          ]}
+        />
+        <ValueProbe path="rows" />
+      </>,
+      { initialValues: { rows: [{ id: "1GWD" }] } }
+    );
+    expect(container.textContent).toContain("link:1GWD");
+    // render columns are read-only: no input for them
+    expect(container.querySelectorAll("input")).toHaveLength(1);
+  });
+
+  it("takes column labels from the model when not passed (F7)", () => {
+    setFakeUiModel({
+      "steps.name": { label: "Step name from model" },
+      "steps.description": { label: "Step description from model" },
+    });
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="steps"
+          minItems={1}
+          columns={[{ field: "name" }, { field: "description" }]}
+        />
+        <ValueProbe path="steps" />
+      </>
+    );
+    expect(container.textContent).toContain("Step name from model");
+    expect(container.textContent).toContain("Step description from model");
+    // the cell input's aria-label uses the same resolved label
+    expect(input("Step name from model")).not.toBeNull();
+  });
+
+  it("popup mode: no helptext under the table; columns with model help show a header icon", () => {
+    setFakeUiModel({
+      "steps.name": { helpText: "The name of the step" },
+      "steps.description": { helpText: "What is done in this step" },
+    });
+    mount(
+      <HelpModeProvider mode="popup">
+        <TableArrayField
+          fieldPath="steps"
+          label="Preparation protocol"
+          minItems={1}
+          columns={PROTOCOL_COLUMNS}
+        />
+        <ValueProbe path="steps" />
+      </HelpModeProvider>
+    );
+    // nothing renders help under the table
+    expect(container.querySelector("label.helptext")).toBeNull();
+    // one icon per column with model help, sitting in the header cells
+    const icons = container.querySelectorAll('[aria-label^="Help"]');
+    expect(icons.length).toBe(2);
+    icons.forEach((icon) => {
+      expect(icon.closest("th")).not.toBeNull();
+    });
+  });
+
+  it("shows cell errors as red inputs with a pointing label (C1: from initialErrors)", () => {
+    mount(protocol(), {
+      initialValues: { steps: [{ name: "", description: "ok" }] },
+      initialErrors: { steps: [{ name: "Missing data for required field." }] },
+    });
+    // SUI puts the .error class on the input's wrapper div
+    expect(input("Name").closest(".ui.input").className).toContain("error");
+    expect(
+      container.querySelector(".ui.pointing.prompt.label").textContent
+    ).toBe("Missing data for required field.");
+  });
+
+  it("keeps a cell error shown after editing another cell (C1: formik clears `errors`)", async () => {
+    mount(protocol(), {
+      initialValues: {
+        steps: [
+          { name: "", description: "ok" },
+          { name: "second", description: "" },
+        ],
+      },
+      initialErrors: { steps: [{ name: "Missing data for required field." }] },
+    });
+    // any setFieldValue clears `errors` in this formik setup; the label must
+    // survive via the initialErrors fallback
+    await type(inputs("Name")[1], "edited");
+    const labels = [...container.querySelectorAll(".ui.pointing.prompt.label")];
+    expect(labels.map((l) => l.textContent)).toContain(
+      "Missing data for required field."
+    );
+  });
+
+  // S3 (2026-10-03): one cell error must not colour every input red.
+  // renderInForm/withUnrelatedField: the header-red check edits an unrelated
+  // field, which the local tree above does not offer.
+  it("marks only the errored cell, not the whole table", async () => {
+    container = renderInForm(protocol({ minItems: 0 }), {
+      initialValues: {
+        steps: [
+          { name: "first", description: "" },
+          { name: "second", description: "ok" },
+        ],
+      },
+      initialErrors: {
+        steps: [{ description: "Missing data for required field." }],
+      },
+      withUnrelatedField: true,
+    });
+    const table = container.querySelector("table");
+    // the errored cell is marked, as before
+    expect(inputs("Description")[0].closest(".ui.input").className).toContain(
+      "error"
+    );
+    // nothing else under the table is inside an error field/input
+    const clean = [input("Name"), ...inputs("Description").slice(1)];
+    clean.forEach((el) => {
+      expect(el.closest(".ui.input").className).not.toContain("error");
+      expect(el.closest(".field.error")).toBeNull();
+    });
+    // the header label carries the error instead
+    const headerLabel = table.parentElement.querySelector('label[for="steps"]');
+    expect(headerLabel.className).toContain("mbdb-error-text");
+    // … and keeps it after an unrelated edit clears formik's errors
+    await editUnrelatedField(container);
+    expect(headerLabel.className).toContain("mbdb-error-text");
+    // still no red spread
+    clean.forEach((el) => {
+      expect(el.closest(".field.error")).toBeNull();
+    });
+  });
+
+  it("shows a list-level error as a pointing prompt label under the table (F8)", () => {
+    mount(protocol(), {
+      initialValues: { steps: [{ name: "" }] },
+      initialErrors: { steps: "Missing data for required field." },
+    });
+    const labels = [...container.querySelectorAll(".ui.pointing.prompt.label")];
+    expect(labels.map((l) => l.textContent)).toContain(
+      "Missing data for required field."
+    );
+  });
+
+  it("shows a string error of a serialize-table item in the row (F8), not as a list label", () => {
+    mount(databases(), {
+      initialValues: { dbs: ["xyz:1"] },
+      initialErrors: { dbs: ["Unknown database prefix."] },
+    });
+    const rowLabels = [
+      ...container.querySelectorAll(".ui.pointing.prompt.label"),
+    ].map((l) => l.textContent);
+    expect(rowLabels).toEqual(["Unknown database prefix."]);
+    // exactly one label (the row one); nothing duplicated at list level
+    expect(rowLabels).toHaveLength(1);
+  });
+
+  it("supports an expandable editable row, auto-opened on errors (F2)", () => {
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="mods"
+          columns={[{ field: "position", label: "Position", type: "number" }]}
+          expandToggle={(row) => `${(row.steps ?? []).length} steps`}
+          renderExpanded={(itemPath) => (
+            <div data-testid={`expanded-${itemPath}`}>EXPANDED</div>
+          )}
+        />
+        <ValueProbe path="mods" />
+      </>,
+      {
+        initialValues: { mods: [{ position: 3, steps: [{ name: "s" }] }] },
+        initialErrors: { mods: [{ steps: [{ name: "Required." }] }] },
+      }
+    );
+    // auto-open because of the nested error
+    expect(byTestId(container)).not.toBeNull();
+    const toggle = buttons().find((b) => b.textContent.includes("steps"));
+    expect(toggle.textContent).toContain("1 steps");
+    expect(toggle.getAttribute("aria-expanded")).toBe("true");
+  });
+
+  it("highlights an open row and its expanded row, and only those (P8-F1)", async () => {
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="mods"
+          columns={[{ field: "position", label: "Position", type: "number" }]}
+          expandToggle={() => "Protocol"}
+          renderExpanded={(itemPath) => (
+            <div data-testid={`expanded-${itemPath}`}>EXPANDED</div>
+          )}
+        />
+        <ValueProbe path="mods" />
+      </>,
+      { initialValues: { mods: [{ position: 1 }, { position: 2 }] } }
+    );
+    // nothing open -> no highlight
+    expect(container.querySelectorAll("tr.mbdb-row-open")).toHaveLength(0);
+    const toggle = buttons().find((b) => b.textContent.includes("Protocol"));
+    await click(toggle);
+    const rows = [...container.querySelectorAll("tbody tr")];
+    // row 1 data, its expanded row, row 2 data
+    expect(rows.map((r) => r.classList.contains("mbdb-row-open"))).toEqual([
+      true,
+      true,
+      false,
+    ]);
+  });
+
+  it("marks an open pair two-tone: the leading row mbdb-row-open, its expanded row mbdb-details too (2026-10-04)", async () => {
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="mods"
+          columns={[{ field: "position", label: "Position", type: "number" }]}
+          renderExpanded={(itemPath) => (
+            <div data-testid={`expanded-${itemPath}`}>EXPANDED</div>
+          )}
+        />
+        <ValueProbe path="mods" />
+      </>,
+      { initialValues: { mods: [{ position: 1 }] } }
+    );
+    await click(buttons().find((b) => b.textContent.includes("Details")));
+    const rows = [...container.querySelectorAll("tbody tr")];
+    // the leading (data) row: tinted, and NOT a detail row, so the LESS gives
+    // it the darker background
+    expect(rows[0].classList.contains("mbdb-row-open")).toBe(true);
+    expect(rows[0].classList.contains("mbdb-details")).toBe(false);
+    // the expanded row: a detail row, so the LESS gives it the lighter one
+    expect(rows[1].classList.contains("mbdb-row-open")).toBe(true);
+    expect(rows[1].classList.contains("mbdb-details")).toBe(true);
+  });
+
+  it("highlights a row that opens by itself because of a nested error (P8-F1)", () => {
+    mount(
+      <>
+        <TableArrayField
+          fieldPath="mods"
+          columns={[{ field: "position", label: "Position", type: "number" }]}
+          expandToggle={() => "Protocol"}
+          renderExpanded={(itemPath) => (
+            <div data-testid={`expanded-${itemPath}`}>EXPANDED</div>
+          )}
+        />
+        <ValueProbe path="mods" />
+      </>,
+      {
+        initialValues: { mods: [{ position: 3, steps: [{ name: "s" }] }] },
+        initialErrors: { mods: [{ steps: [{ name: "Required." }] }] },
+      }
+    );
+    // the data row + its expanded row, both tinted
+    expect(container.querySelectorAll("tr.mbdb-row-open")).toHaveLength(2);
+  });
+
+  it("opens a row when NEW initialErrors arrive on the same mounted form (F2)", () => {
+    const mods = (initialErrors) =>
+      tree(
+        <TableArrayField
+          fieldPath="mods"
+          columns={[{ field: "position", label: "Position", type: "number" }]}
+          expandToggle={(row) => `${(row.steps ?? []).length} steps`}
+          renderExpanded={(itemPath) => (
+            <div data-testid={`expanded-${itemPath}`}>EXPANDED</div>
+          )}
+        />,
+        {
+          initialValues: { mods: [{ position: 3, steps: [{ name: "s" }] }] },
+          initialErrors,
+          enableReinitialize: true,
+        }
+      );
+    mount(<div />); // just creates `container`
+    render(mods({}));
+    expect(byTestId(container)).toBeNull();
+    // a failed save reinitializes the SAME mounted Formik with new errors
+    render(mods({ mods: [{ steps: [{ name: "Required." }] }] }));
+    expect(byTestId(container)).not.toBeNull();
+  });
+
+  it("an explicit toggle overrides the error auto-open", async () => {
+    mount(
+      <TableArrayField
+        fieldPath="mods"
+        columns={[{ field: "position", label: "Position", type: "number" }]}
+        renderExpanded={(itemPath) => (
+          <div data-testid={`expanded-${itemPath}`}>EXPANDED</div>
+        )}
+      />,
+      {
+        initialValues: { mods: [{ position: 3, steps: [{ name: "s" }] }] },
+        initialErrors: { mods: [{ steps: [{ name: "Required." }] }] },
+      }
+    );
+    expect(byTestId(container)).not.toBeNull(); // auto-opened by the error
+    await click(buttons().find((b) => b.textContent.includes("Details")));
+    expect(byTestId(container)).toBeNull(); // user closed it anyway
+  });
+});
+
+describe("TableArrayField disclosure default (playground Expand all / Collapse all)", () => {
+  const expandable = () => (
+    <TableArrayField
+      fieldPath="mods"
+      columns={[{ field: "position", label: "Position", type: "number" }]}
+      renderExpanded={(itemPath) => (
+        <div data-testid={`expanded-${itemPath}`}>EXPANDED</div>
+      )}
+    />
+  );
+
+  it('starts every row open under DisclosureDefaultProvider value="open"; a click closes one', async () => {
+    mount(
+      <DisclosureDefaultProvider value="open">
+        {expandable()}
+      </DisclosureDefaultProvider>,
+      { initialValues: { mods: [{ position: 1 }, { position: 2 }] } }
+    );
+    expect(
+      container.querySelectorAll('[data-testid^="expanded-"]')
+    ).toHaveLength(2);
+    const toggle = buttons().find((b) => b.textContent.includes("Details"));
+    expect(toggle.getAttribute("aria-expanded")).toBe("true");
+    await click(toggle);
+    // the user toggle wins: only the clicked row closes
+    expect(
+      container.querySelectorAll('[data-testid^="expanded-"]')
+    ).toHaveLength(1);
+  });
+
+  it('starts a row that has an error closed under value="closed" (Collapse all beats auto-open)', () => {
+    mount(
+      <DisclosureDefaultProvider value="closed">
+        {expandable()}
+      </DisclosureDefaultProvider>,
+      {
+        initialValues: { mods: [{ position: 3, steps: [{ name: "s" }] }] },
+        initialErrors: { mods: [{ steps: [{ name: "Required." }] }] },
+      }
+    );
+    expect(byTestId(container)).toBeNull();
+    expect(
+      buttons()
+        .find((b) => b.textContent.includes("Details"))
+        .getAttribute("aria-expanded")
+    ).toBe("false");
+  });
+});
