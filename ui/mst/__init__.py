@@ -75,6 +75,14 @@ class MstUIResource(RecordsUIResource):
         draft = self.api_service.create(g.identity, data)
         return redirect(url_for(f"{self.config.blueprint_name}.deposit_edit", pid_value=draft.id))
 
+    def _edit(self, draft, *args, **kwargs):
+        # Drafts are pre-created empty by deposit_create, so reading one yields
+        # "missing data" errors for every required field. Don't preload them
+        # into the form until something has been filled in; errors returned
+        # by an actual save are still shown.
+        if not draft.data.get("metadata"):
+            draft._errors = None
+        return super()._edit(draft, *args, **kwargs)
 
 def ui_overrides(app):
     """Register UI overrides."""
