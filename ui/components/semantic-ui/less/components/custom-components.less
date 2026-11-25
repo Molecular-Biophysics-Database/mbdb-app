@@ -31,6 +31,14 @@ nrp ui components create <component-type> <component-name>
 @mbdbOpenRowBg: #e9f1fb;
 @mbdbOpenRowDetailBg: #f8fbff;
 @mbdbOpenRowAccent: #2185d0;
+// the selected one of several choices: MBDB's dark blue
+@mbdbSelectedBg: #023850;
+
+// Semantic paints an active toggle button green, with !important; the repeated
+// class beats its selectors whatever the load order.
+.ui.ui.ui.button.toggle.active {
+  background-color: @mbdbSelectedBg !important;
+}
 
 // Muted and error text. Fomantic UI's `.ui.red.text` / `.ui.grey.text` are not
 // part of semantic-ui-less 2.5, so a className alone colours nothing
