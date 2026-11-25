@@ -422,6 +422,45 @@
         }
       ],
       "funding_references": [
+        {
+          "funder": {
+            "id": "01pv73b02",
+            "name": "Czech Science Foundation"
+          },
+          "award": {
+            "id": "01pv73b02::GA25-16037S",
+            "number": "GA25-16037S",
+            "title": {
+              "en": "Protein liquid-liquid phase separation and intrinsic disorder in bacterial transcription"
+            }
+          }
+        },
+        {
+          "funder": {
+            "id": "037n8p820",
+            "name": "Ministry of Education Youth and Sports"
+          },
+          "award": {
+            "id": "037n8p820::EH23_015/0008175",
+            "number": "EH23_015/0008175",
+            "title": {
+              "en": "Innovation of Czech Infrastructure for Integrative Structural Biology"
+            }
+          }
+        },
+        {
+          "funder": {
+            "id": "037n8p820",
+            "name": "Ministry of Education Youth and Sports"
+          },
+          "award": {
+            "id": "037n8p820::LM2023042",
+            "number": "LM2023042",
+            "title": {
+              "en": "Czech Infrastructure for Integrative Structural Biology"
+            }
+          }
+        }
       ],
       "instrument": {
         "@v": "4b563b9f-97d1-4927-b2ad-67824980ff9a::1",
