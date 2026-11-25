@@ -292,6 +292,62 @@ button.mbdb-link.mbdb-error-text {
   max-height: calc(90vh - 10em);
 }
 
+// The list of sibling items on the left of an edit modal (EditModal `nav`),
+// the edited one highlighted. Below 1200px it stacks above the form.
+@mbdbModalNavActive: #023850;
+@mbdbModalNavHover: #edf5f8;
+.mbdb-modal-layout > .mbdb-modal-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-height: 10rem;
+  margin-bottom: 1.5rem;
+  overflow-y: auto;
+}
+.mbdb-modal-nav > button {
+  flex: none;
+  padding: 0.6rem 0.75rem;
+  border: 0;
+  border-radius: 0.28571429rem;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+
+  &:hover {
+    background: @mbdbModalNavHover;
+  }
+  &:focus-visible {
+    outline: 2px solid @mbdbOpenRowAccent;
+    outline-offset: -2px;
+  }
+  &[aria-current] {
+    background: @mbdbModalNavActive;
+    color: #fff;
+    font-weight: 700;
+  }
+}
+@media (min-width: 1200px) {
+  .mbdb-modal-layout {
+    display: grid;
+    grid-template-columns: 13rem minmax(0, 1fr);
+    gap: 2rem;
+  }
+  .mbdb-modal-layout > .mbdb-modal-nav {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    max-height: calc(90vh - 14rem);
+    margin-bottom: 0;
+  }
+  // room for the list in a nested modal, still narrower than its large parent
+  .ui.modal.mbdb-edit-modal.with-nav:not(.large) {
+    width: 1000px;
+  }
+}
+
 // The breadcrumb line above a nested modal's title (design ModalArrayField.md,
 // "where am I in stacked modals"): the parent levels, small and muted, so the
 // modal says what it is stacked on. It is text, never a link.

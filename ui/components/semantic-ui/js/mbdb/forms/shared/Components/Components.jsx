@@ -15,6 +15,7 @@ export const Components = ({ fieldPath }) => (
     fieldPath={fieldPath}
     // the model: required, minItems 1, in every use
     minItems={1}
+    withNav
     itemLabel={(v) => v?.name || `New ${v?.type ?? ""} component`}
     columns={COMPONENT_COLUMNS}
     newItemOptions={COMPONENT_TYPES.map((type) => ({

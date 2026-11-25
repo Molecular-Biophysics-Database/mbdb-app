@@ -209,6 +209,28 @@ describe("ModalArrayField", () => {
     expect(container.textContent).toContain("No items yet");
   });
 
+  it("withNav switches between items, keeping the edits; Cancel reverts only the current item", async () => {
+    mount(entities({ withNav: true }), {
+      initialValues: { entities: [{ name: "A" }, { name: "B" }] },
+    });
+    await click(
+      [...container.querySelectorAll("button")].find(
+        (b) => b.textContent === "Edit"
+      )
+    );
+    const current = () =>
+      modal().querySelector(".mbdb-modal-nav [aria-current]").textContent;
+    const input = () => modal().querySelector("input");
+    expect(current()).toBe("entity: A");
+    await typeIn(input(), "A2");
+    await click(modalButton("entity: B"));
+    expect(current()).toBe("entity: B");
+    expect(input().value).toBe("B");
+    await typeIn(input(), "B2");
+    await click(modalButton("Cancel"));
+    expect(probe()).toEqual([{ name: "A2" }, { name: "B" }]);
+  });
+
   it("Cancel on an existing item restores the snapshot; Done keeps the edits", async () => {
     mount(entities(), {
       initialValues: { entities: [{ type: "Polymer", name: "Lysozyme" }] },

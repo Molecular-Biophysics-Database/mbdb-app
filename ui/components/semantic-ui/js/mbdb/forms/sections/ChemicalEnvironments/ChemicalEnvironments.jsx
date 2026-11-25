@@ -85,6 +85,7 @@ const ConstituentList = ({ fieldPath, types, minItems, noun }) => (
   <ModalArrayField
     fieldPath={fieldPath}
     minItems={minItems}
+    withNav
     itemLabel={(v) => v?.name || `New ${noun}`}
     newItemOptions={types.map((type) => ({
       label: types.length > 1 ? type : noun,
@@ -158,6 +159,7 @@ export const ChemicalEnvironmentsSectionComponent = ({ formConfig }) => {
           fieldPath={CHEMICAL_ENVIRONMENTS_PATH}
           minItems={1}
           withIds
+          withNav
           itemLabel={(v) => v?.name || "New chemical environment"}
           newItemOptions={[{ label: "chemical environment", value: {} }]}
           columns={[
