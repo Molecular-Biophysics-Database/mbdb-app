@@ -1,0 +1,13 @@
+{% macro record_title(request, record, is_draft, request_name) %}
+  {%- if record %}
+  {%- set info = record.data.metadata.get("general_parameters", {}).get("record_information", {}) %}
+  <p>
+    <a class="mbdb-request-record" href="{{ url_for('invenio_app_rdm_records.record_detail', pid_value=record.id) }}{{ '?preview=1' if is_draft }}"
+       target="_blank" rel="noopener noreferrer" title="{{ _('Opens in new tab') }}">
+      {{- (info.title or "")|trim or _("Untitled record") }} ({{ record.id }})</a>
+  </p>
+  {%- elif request.title != request_name %}
+  {#- the record of a closed request can be seen only by the request's creator -#}
+  <p>{{ request.title }}</p>
+  {%- endif %}
+{% endmacro %}

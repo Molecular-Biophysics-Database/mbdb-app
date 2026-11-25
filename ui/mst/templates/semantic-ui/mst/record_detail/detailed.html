@@ -1,0 +1,18 @@
+{% macro items(title, values) %}
+{% for item in values or [] %}
+<SubSection title={{ title ~ " " ~ loop.index }}><DetailedFields data={{ item }} /></SubSection>
+{% endfor %}
+{% endmacro %}
+<Section title="Entities of interest">{{ items("Entity of interest", gp.entities_of_interest) }}</Section>
+<Section title="Chemical environments">{{ items("Chemical environment", gp.chemical_environments) }}</Section>
+<Section title="Instrument">
+  {% set instrument = gp.instrument or {} %}
+  <dl class="mbdb-name-value-list">
+    <Field label="Name" v={{ (instrument.title or {}).en }} />
+    <Field label="Manufacturer" v={{ (instrument.props or {}).manufacturer }} />
+  </dl>
+  <SubSection title="Experimental setup"><DetailedFields data={{ msp }} skip={{ ["measurements", "data_analysis"] }} /></SubSection>
+</Section>
+<Section title="Measurements">{{ items("Measurement", msp.measurements) }}</Section>
+<Section title="Results">{{ items("Result", gp.results) }}</Section>
+<Section title="Data analysis">{{ items("Data analysis", msp.data_analysis) }}</Section>

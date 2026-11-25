@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MIT
 #}
 {#- MBDB override of invenio_app_rdm/header_login.html (RDM 14): adds the
-    "My MBDB" dashboard link on top of the account menu, like mbdb-app-rdm-12.
+    "My MBDB" dashboard link and the requests waiting for review on top of the account menu, like mbdb-app-rdm-12.
     Keep in sync with upstream when upgrading invenio-app-rdm. -#}
 
 
@@ -66,6 +66,7 @@
       </div>
     {% endif %}
 
+    {%- set waiting = waiting_requests_count() %}
     {# Desktop Account dropdown menu #}
     {%- if config.USERPROFILES %}
       <div id="user-profile-dropdown" class="ui floating dropdown computer only">
@@ -75,11 +76,12 @@
           aria-controls="user-profile-menu"
           aria-expanded="false"
           aria-haspopup="menu"
-          aria-label="{{ _('My account') }}"
+          aria-label="{{ _('My account') }}{% if waiting %}, {{ _('Requests to review') }}: {{ waiting }}{% endif %}"
         >
           <span>
             <i class="user icon" aria-hidden="true"></i>
             {{ current_user.email|truncate(31,true) }}
+            {%- if waiting %} <span class="ui red circular mini label">{{ waiting }}</span>{% endif %}
           </span>
           <i class="dropdown icon" aria-hidden="true"></i>
         </button>
@@ -94,6 +96,13 @@
             <i class="home icon" aria-hidden="true"></i>
             {{ _("My MBDB") }}
           </a>
+          {%- if waiting %}
+            <a role="menuitem" class="item" href="{{ url_for('invenio_app_rdm_users.requests') }}?f=is_open:true&amp;f=shared_with_me:true" tabindex="-1">
+              <i class="inbox icon" aria-hidden="true"></i>
+              {{ _("Requests to review") }}
+              <span class="ui red circular mini label">{{ waiting }}</span>
+            </a>
+          {%- endif %}
 
           <div class="ui divider"></div>
 
@@ -134,6 +143,13 @@
             <i class="home icon" aria-hidden="true"></i>
             {{ _("My MBDB") }}
           </a>
+          {%- if waiting %}
+            <a role="menuitem" class="item" href="{{ url_for('invenio_app_rdm_users.requests') }}?f=is_open:true&amp;f=shared_with_me:true">
+              <i class="inbox icon" aria-hidden="true"></i>
+              {{ _("Requests to review") }}
+              <span class="ui red circular mini label">{{ waiting }}</span>
+            </a>
+          {%- endif %}
 
           <div class="ui divider"></div>
 

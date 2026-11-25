@@ -36,6 +36,8 @@ KNOWN_FUNDERS = {
         "037n8p820",
         "Ministry of Education Youth and Sports",
     ),
+    "MEYS CR": ("037n8p820", "Ministry of Education Youth and Sports"),
+    "Czech Science Foundation (GACR)": ("01pv73b02", "Czech Science Foundation"),
 }
 
 _ror_cache = dict(KNOWN_FUNDERS)
@@ -109,12 +111,13 @@ def convert_funding(funding_references):
     converted = []
     for reference in funding_references:
         funder_id, funder_name = lookup_funder_ror(reference["funder_name"])
+        grant_id = reference["grant_id"].strip()  # production has stray spaces (" LM2023042")
         converted.append(
             {
                 "funder": {"id": funder_id, "name": funder_name},
                 "award": {
-                    "id": f"{funder_id}::{reference['grant_id']}",
-                    "number": reference["grant_id"],
+                    "id": f"{funder_id}::{grant_id}",
+                    "number": grant_id,
                     "title": reference["title"],
                 },
             }

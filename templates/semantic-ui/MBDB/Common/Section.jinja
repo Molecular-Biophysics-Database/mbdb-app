@@ -1,6 +1,9 @@
 {# def title #}
 
+{# hidden when there is nothing to show #}
+{% if content | striptags | trim %}
 <section class="mbdb-record-section">
   <h2>{{ title }}</h2>
   {{ content }}
 </section>
+{% endif %}

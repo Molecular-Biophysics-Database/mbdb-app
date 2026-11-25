@@ -23,6 +23,8 @@ from oarepo_ui.overrides import UIComponent
 from oarepo_ui.overrides.components import UIComponentImportMode
 from oarepo_ui.proxies import current_oarepo_ui
 
+from common.requests.waiting import waiting_requests_count
+
 
 class MstUIResourceConfig(RecordsUIResourceConfig):
     template_folder = "templates"
@@ -117,6 +119,7 @@ def finalize_app(app):
     """Finalize app"""
     init_menu(app)
     ui_overrides(app)
+    app.context_processor(lambda: {"waiting_requests_count": waiting_requests_count})
 
 def create_blueprint(app):
     """Register blueprint for this resource."""

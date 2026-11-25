@@ -441,6 +441,19 @@ button.mbdb-link.mbdb-error-text {
 .mbdb-record-subsection > .mbdb-record-subsection {
   margin-left: 1rem;
 }
+.ui.basic.segment.mbdb-record-tab {
+  margin: 0;
+  padding: 0;
+}
+// nested fields take the full width, deep levels would not fit beside the labels
+.mbdb-name-value-list > .mbdb-detailed-title,
+.mbdb-name-value-list > .mbdb-detailed-nested {
+  grid-column: 1 / -1;
+}
+.mbdb-name-value-list > .mbdb-detailed-nested {
+  margin-left: 1rem;
+  overflow-wrap: anywhere;
+}
 .mbdb-record-sequence {
   display: block;
   max-width: 54.5ch;
@@ -498,7 +511,25 @@ button.mbdb-link.mbdb-error-text {
   color: @mbdbLabelColor;
 }
 .mbdb-result-state {
+  display: inline-block;
+  padding: 0.1rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
   text-transform: capitalize;
+  color: #023850;
+  background: #edf5f8;
+}
+.mbdb-result-state-submitted,
+.mbdb-result-state-revision_requested {
+  background: #fcc802;
+}
+.mbdb-result-state-approved {
+  background: #62a9d9;
+}
+.mbdb-result-state-published {
+  color: #fff;
+  background: #023850;
 }
 
 // Advanced search page
