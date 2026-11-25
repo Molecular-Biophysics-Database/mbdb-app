@@ -1,0 +1,1654 @@
+{
+  "$schema": "local://mst-1.0.0.json",
+  "access": {
+    "embargo": {
+      "active": false,
+      "reason": null
+    },
+    "files": "public",
+    "record": "public",
+    "status": "open"
+  },
+  "created": "2026-01-05T12:33:09.759711+00:00",
+  "custom_fields": {},
+  "deletion_status": {
+    "is_deleted": false,
+    "status": "P"
+  },
+  "expanded": {
+    "parent": {
+      "access": {
+        "owned_by": {
+          "active": null,
+          "blocked_at": null,
+          "confirmed_at": null,
+          "email": "",
+          "id": "51",
+          "is_current_user": false,
+          "links": {
+            "avatar": "https://mbdb-data.org/api/users/51/avatar.svg",
+            "records_html": "https://mbdb-data.org/search/records?q=parent.access.owned_by.user:51",
+            "self": "https://mbdb-data.org/api/users/51"
+          },
+          "profile": {
+            "affiliations": "Institute of Biotechnology of the Czech Academy of Sciences",
+            "full_name": "Gustavo Fuertes"
+          },
+          "username": "gustavofuertes",
+          "verified_at": null
+        }
+      }
+    },
+    "request_types": [],
+    "requests": []
+  },
+  "files": {
+    "enabled": true
+  },
+  "id": "p408m-6b985",
+  "is_draft": false,
+  "is_published": true,
+  "links": {
+    "access": "https://mbdb-data.org/api/records/p408m-6b985/access",
+    "access_grants": "https://mbdb-data.org/api/records/p408m-6b985/access/grants",
+    "access_groups": "https://mbdb-data.org/api/records/p408m-6b985/access/groups",
+    "access_links": "https://mbdb-data.org/api/records/p408m-6b985/access/links",
+    "access_request": "https://mbdb-data.org/api/records/p408m-6b985/access/request",
+    "access_users": "https://mbdb-data.org/api/records/p408m-6b985/access/users",
+    "applicable-requests": "https://mbdb-data.org/api/records/mst/p408m-6b985/requests/applicable",
+    "archive": "https://mbdb-data.org/api/records/mst/p408m-6b985/files-archive",
+    "archive_media": "https://mbdb-data.org/api/records/p408m-6b985/media-files-archive",
+    "communities": {},
+    "communities-suggestions": "https://mbdb-data.org/api/records/p408m-6b985/communities-suggestions",
+    "doi": "https://doi.org/10.71479/p408m-6b985",
+    "files": "https://mbdb-data.org/api/records/mst/p408m-6b985/files",
+    "latest": "https://mbdb-data.org/api/records/mst/p408m-6b985/versions/latest",
+    "latest_html": "https://mbdb-data.org/mst/p408m-6b985/latest",
+    "media_files": "https://mbdb-data.org/api/records/p408m-6b985/media-files",
+    "parent": "https://mbdb-data.org/api/records/4hetg-z6d83",
+    "parent_html": "https://mbdb-data.org/records/4hetg-z6d83",
+    "record": "https://mbdb-data.org/api/records/mst/p408m-6b985",
+    "requests": "https://mbdb-data.org/api/records/mst/p408m-6b985/requests",
+    "reserve_doi": "https://mbdb-data.org/api/records/p408m-6b985/draft/pids/doi",
+    "self": "https://mbdb-data.org/api/records/mst/p408m-6b985",
+    "self_doi": "https://mbdb-data.org/doi/10.71479/p408m-6b985",
+    "self_html": "https://mbdb-data.org/mst/p408m-6b985",
+    "self_iiif_manifest": "https://mbdb-data.org/api/iiif/record:p408m-6b985/manifest",
+    "self_iiif_sequence": "https://mbdb-data.org/api/iiif/record:p408m-6b985/sequence/default",
+    "versions": "https://mbdb-data.org/api/records/mst/p408m-6b985/versions"
+  },
+  "media_files": {
+    "count": 0,
+    "enabled": false,
+    "entries": {},
+    "order": [],
+    "total_bytes": 0
+  },
+  "metadata": {
+    "general_parameters": {
+      "associated_publication": {
+        "journal": "Biosensors and Bioelectronics",
+        "pid": "41014988",
+        "title": "Front-illuminated surface plasmon resonance biosensor for the study of light-responsive proteins and their interactions",
+        "type": "Article"
+      },
+      "chemical_environments": [
+        {
+          "constituents": [
+            {
+              "basic_information": {
+                "@v": "fcccf715-7755-4d04-8ab6-b08ab0e69fdf::1",
+                "additional_identifiers": [
+                  "cid:78165"
+                ],
+                "chemical_formula": "C6H13NO4S",
+                "id": "inchikey:SXGZJKUKBWWHRA-UHFFFAOYSA-N",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 195.24
+                },
+                "title": {
+                  "en": "4-Morpholineethanesulfonic acid (MES acid)"
+                }
+              },
+              "concentration": {
+                "unit": "mM",
+                "value": 50.0
+              },
+              "name": "2-(N-morpholino)ethanesulfonic acid",
+              "type": "Chemical"
+            },
+            {
+              "basic_information": {
+                "@v": "73da2ba6-ea73-4f16-b924-ca5cd659d440::1",
+                "additional_identifiers": [
+                  "cid:5234"
+                ],
+                "chemical_formula": "ClNa",
+                "id": "inchikey:FAPWRFPIFSIZLT-UHFFFAOYSA-M",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 58.44
+                },
+                "title": {
+                  "en": "Sodium Chloride"
+                }
+              },
+              "concentration": {
+                "unit": "mM",
+                "value": 100.0
+              },
+              "name": "Sodium chloride",
+              "type": "Chemical"
+            },
+            {
+              "basic_information": {
+                "@v": "a8e92fa5-e8ec-49d0-b637-3a5e3a36bb66::1",
+                "chemical_formula": "(C3H6O.C2H4O)x",
+                "id": "inchikey: OQNWUUGFAWNUME-UHFFFAOYSA-N",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 164.2
+                },
+                "title": {
+                  "en": "Pluronic F-127"
+                }
+              },
+              "concentration": {
+                "unit": "v/v %",
+                "value": 0.05
+              },
+              "name": "Pluoronic F-127",
+              "type": "Chemical"
+            }
+          ],
+          "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+          "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%",
+          "ph": 6.8,
+          "solvent": [
+            {
+              "basic_information": {
+                "@v": "7dc20ce5-6d90-4593-9849-08a15fd8d90c::1",
+                "additional_identifiers": [
+                  "cid:962"
+                ],
+                "chemical_formula": "H2O",
+                "id": "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 18.02
+                },
+                "title": {
+                  "en": "Water"
+                }
+              },
+              "concentration": {
+                "unit": "M",
+                "value": 55.5
+              },
+              "name": "Water",
+              "type": "Chemical"
+            }
+          ]
+        }
+      ],
+      "depositors": {
+        "contributors": [
+          {
+            "affiliations": [
+              {
+                "@v": "d8b285c3-a25e-4c5f-aa7b-7a4309e28a0a::1",
+                "city": "Prague",
+                "country": "Czechia",
+                "id": "ror:00wzqmx94",
+                "title": {
+                  "en": "Czech Academy of Sciences, Institute of Biotechnology"
+                }
+              }
+            ],
+            "family_name": "Pham",
+            "given_name": "Phuong Ngoc",
+            "identifiers": [
+              "orcid:0000-0002-5447-3343"
+            ]
+          }
+        ],
+        "depositor": {
+          "affiliations": [
+            {
+              "@v": "d8b285c3-a25e-4c5f-aa7b-7a4309e28a0a::1",
+              "city": "Prague",
+              "country": "Czechia",
+              "id": "ror:00wzqmx94",
+              "title": {
+                "en": "Czech Academy of Sciences, Institute of Biotechnology"
+              }
+            }
+          ],
+          "family_name": "Fuertes",
+          "given_name": "Gustavo",
+          "identifiers": [
+            "orcid:0000-0002-8564-8644"
+          ]
+        },
+        "principal_contact": {
+          "affiliations": [
+            {
+              "@v": "d8b285c3-a25e-4c5f-aa7b-7a4309e28a0a::1",
+              "city": "Prague",
+              "country": "Czechia",
+              "id": "ror:00wzqmx94",
+              "title": {
+                "en": "Czech Academy of Sciences, Institute of Biotechnology"
+              }
+            }
+          ],
+          "family_name": "Fuertes",
+          "given_name": "Gustavo",
+          "identifiers": [
+            "orcid:0000-0002-8564-8644"
+          ]
+        }
+      },
+      "entities_of_interest": [
+        {
+          "expression_organism": {
+            "@v": "b0de7c2a-9400-4bb4-816a-7ca8dddf0cc8::1",
+            "id": "taxid:469008",
+            "rank": "STRAIN",
+            "title": {
+              "en": "Escherichia coli BL21(DE3)"
+            }
+          },
+          "expression_source_type": "Recombinantly",
+          "external_databases": [
+            "uniprot:Q2NB98",
+            "pdb:8a5s"
+          ],
+          "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+          "molecular_weight": {
+            "unit": "g/mol",
+            "value": 23157.0
+          },
+          "name": "EL222",
+          "polymer_type": "polypeptide(L)",
+          "quality_controls": {
+            "identity": {
+              "assessed": "Yes",
+              "by_intact_mass": {
+                "deviation_from_expected_mass": {
+                  "unit": "g/mol",
+                  "value": 1.0
+                },
+                "method": "Mass spectrometry"
+              }
+            }
+          },
+          "sequence": "GADDTRVEVQPPAQWVLDLIEASPIASVVSDPRLADNPLIAINQAFTDLTGYSEEECVGRNCRFLAGSGTEPWLTDKIRQGVREHKPVLVEILNYKKDGTPFRNAVLVAPIYDDDDELLYFLGSQVEVDDDQPNMGMARRERAAEMLKTLSPRQLEVTTLVASGLRNKEVAARLGLSEKTVKMHRGLVMEKLNLKTSADLVRIAVEAGIA",
+          "source_organism": {
+            "@v": "10cf420e-7736-4282-979d-6eb14e21cb51::1",
+            "id": "taxid:39960",
+            "rank": "SPECIES",
+            "title": {
+              "en": "Erythrobacter litoralis"
+            }
+          },
+          "type": "Polymer",
+          "variant": "Contains residues 17-225 from the parental sequence plus an addtional alanine at the C-terminus"
+        },
+        {
+          "expression_source_type": "Synthetically",
+          "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+          "modifications": {
+            "chemical": [
+              {
+                "position": "5'",
+                "type": "Atto647N"
+              }
+            ]
+          },
+          "molecular_weight": {
+            "unit": "g/mol",
+            "value": 13843.0
+          },
+          "name": "dsDNA20",
+          "polymer_type": "polydeoxyribonucleotide",
+          "sequence": "TAG GTA GCC TTT AGT CCA TG",
+          "type": "Polymer"
+        }
+      ],
+      "funding_references": [
+        {
+          "@v": "e0dad937-8d8d-4628-9b39-bcc6aa210d94::1",
+          "funder_name": "Czech Science Foundation (GACR)",
+          "grant_id": "24-11819S",
+          "id": "oa:cac42f3a-6fc5-4d58-8727-615d2084419a",
+          "title": {
+            "en": "Time-resolved vibrational spectroscopy of proteins assisted by genetically encoded non-canonical amino acids"
+          }
+        },
+        {
+          "@v": "02e1a648-fdf4-4518-af78-9eaebad0f408::1",
+          "funder_name": "European Regional Development Fund",
+          "grant_id": "CZ.02.01.01/00/23_015/0008175",
+          "id": "oa:7c061965-092d-4282-a2c4-ad19673c3073",
+          "title": {
+            "en": "Innovation of Czech Infrastructure for Integrative Structural Biology"
+          }
+        },
+        {
+          "@v": "2e6bb2fe-89c3-48ce-8791-ad4f4df61ad0::1",
+          "funder_name": "MEYS CR",
+          "grant_id": " LM2023042",
+          "id": "oa:5e0f5b4f-78cb-469b-91bb-d6705c76f163",
+          "title": {
+            "en": "CIISB, Instruct-CZ Centre of Instruct-ERIC EU consortium"
+          }
+        }
+      ],
+      "instrument": {
+        "@v": "4b563b9f-97d1-4927-b2ad-67824980ff9a::1",
+        "id": "ins:6",
+        "manufacturer": "Nanotemper",
+        "title": {
+          "en": "Monolith NT.115 RED/GREEN"
+        }
+      },
+      "method": "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
+      "record_information": {
+        "access_rights": "open",
+        "copyright": "Anyone is free to distribute the data and metadata",
+        "date_available": "2026-01-05",
+        "deposition_date": "2025-07-23",
+        "external_identifier": "10.71479/p408m-6b985",
+        "license": {
+          "name": "CC0 1.0 Universal",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "publisher": "MBDB",
+        "resource_type": "MST",
+        "resource_type_general": "Dataset",
+        "subject_category": "Biophysics",
+        "title": "Interaction of EL222 with DNA (light 8-min delay)"
+      },
+      "results": [
+        {
+          "entities_involved": [
+            {
+              "copy_number": 2.0,
+              "entity": {
+                "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                "name": "EL222"
+              }
+            },
+            {
+              "copy_number": 1.0,
+              "entity": {
+                "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                "name": "dsDNA20"
+              }
+            }
+          ],
+          "id": "c10dab87-8a06-4660-8d4e-a3da3e968909",
+          "name": "EL222-DNA light 8-min delay",
+          "type": "Half maximal effective concentration EC50",
+          "unit": "\u00b5M",
+          "value": 2.0,
+          "value_error": {
+            "is_relative": false,
+            "lower": 0.2,
+            "upper": 0.2
+          }
+        },
+        {
+          "entities_involved": [
+            {
+              "copy_number": 2.0,
+              "entity": {
+                "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                "name": "EL222"
+              }
+            },
+            {
+              "copy_number": 1.0,
+              "entity": {
+                "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                "name": "dsDNA20"
+              }
+            }
+          ],
+          "id": "7deedf88-3209-41e9-9dda-507d817e1c5e",
+          "name": "EL222-DNA light 8-min delay",
+          "type": "Hill coefficient",
+          "unit": "unitless",
+          "value": 1.8
+        }
+      ],
+      "schema_version": "0.15.0"
+    },
+    "method_specific_parameters": {
+      "excitation_led_color": "RED (ex 605-645nm, em 660-720nm)",
+      "excitation_led_power": 40.0,
+      "experiment_type": "Affinity",
+      "ir_mst_laser_power": 40.0,
+      "measurements": [
+        {
+          "id": "4ea6be83-489e-4457-a94a-55f41267701e",
+          "name": "EL222-DNA (rep 1)",
+          "position": "1",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50000.0
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "preparation_protocol": [
+              {
+                "description": "An EL222 stock at 100 micromolar concentration was illuminated in a circular quartz cuvette ( 1mm pathlength) for 5 minutes with an LED emitting at a wavelength of 455 nm and an irradiance of 15 mW/cm2. The samples was subsequently diluted and mixded with dsDNA 20. The 8-minutes delays referes to the time between the end of the illumination and the start of actural MST experiment. This applies to all measurements in this record.",
+                "name": "Illumination"
+              }
+            ],
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "45f7a0f9-7afd-4b1a-b7e0-4f257a64ae23",
+          "name": "EL222-DNA (rep 1)",
+          "position": "2",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25000.0
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "c7912ecf-1c95-4e4d-9c36-17896d7dbc67",
+          "name": "EL222-DNA (rep 1)",
+          "position": "3",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 12500.0
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "efc86613-3df2-483c-a65f-463901580673",
+          "name": "EL222-DNA (rep 1)",
+          "position": "4",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 6250.0
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "39d397f6-62bf-4089-805c-519cc5a53a87",
+          "name": "EL222-DNA (rep 1)",
+          "position": "5",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 3125.0
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "08b30b6d-72c1-4469-a304-a86e8355d985",
+          "name": "EL222-DNA (rep 1)",
+          "position": "6",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 1562.5
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "0e36ccb5-d239-4084-84b1-4b53bc1cad80",
+          "name": "EL222-DNA (rep 1)",
+          "position": "7",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 781.3
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "dbdf3829-9984-40ba-82a2-6817e079897f",
+          "name": "EL222-DNA (rep 1)",
+          "position": "8",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 390.6
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "a9e63aa3-3c2b-4bf9-8d4a-fe2c42cf3f3f",
+          "name": "EL222-DNA (rep 1)",
+          "position": "9",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 195.3
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "0de2f879-f549-4578-860e-755ba0958d75",
+          "name": "EL222-DNA (rep 1)",
+          "position": "10",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 97.7
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "23c9d982-a078-4977-a140-6a8c6ce94493",
+          "name": "EL222-DNA (rep 1)",
+          "position": "11",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 48.8
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "982a8e8a-fc8a-413f-a716-f592bf228312",
+          "name": "EL222-DNA (rep 1)",
+          "position": "12",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 24.4
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "3137a296-6ac0-497d-9c39-f37d85e229ab",
+          "name": "EL222-DNA (rep 1)",
+          "position": "13",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 12.2
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "ea7d8204-8f6d-4796-80a9-b4fecd8cf9ce",
+          "name": "EL222-DNA (rep 1)",
+          "position": "14",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 6.1
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "f002b2a3-2289-4245-a4f5-52e5b7b32322",
+          "name": "EL222-DNA (rep 1)",
+          "position": "15",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 3.1
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "60e15354-4bca-40c7-a1a3-7df10ba8860b",
+          "name": "EL222-DNA (rep 1)",
+          "position": "16",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 1.5
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "ad9fbf24-e12a-41c3-ad7d-17dd47fc9582",
+          "name": "EL222-DNA (rep 2)",
+          "position": "1",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50000.0
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "7065a10e-a62b-4314-b976-9202377313f7",
+          "name": "EL222-DNA (rep 2)",
+          "position": "2",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 25000.0
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "03c9a8b6-b381-4d93-9553-948ffad6ed93",
+          "name": "EL222-DNA (rep 2)",
+          "position": "3",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 12500.0
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "de49c25e-c8b7-4802-afc6-b92a1723f907",
+          "name": "EL222-DNA (rep 2)",
+          "position": "4",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 6250.0
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "acb75d7a-7426-4e9b-a57b-b7c29dc7febb",
+          "name": "EL222-DNA (rep 2)",
+          "position": "5",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 3125.0
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "b5dc8bd4-c8d4-4e2d-acce-7c6d347755fc",
+          "name": "EL222-DNA (rep 2)",
+          "position": "6",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 1562.5
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "2d3f83af-c903-4eb0-b4c8-5ab131dfe252",
+          "name": "EL222-DNA (rep 2)",
+          "position": "7",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 781.3
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "b5995a20-bde5-432b-a6e9-58e902b988c7",
+          "name": "EL222-DNA (rep 2)",
+          "position": "8",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 390.6
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "7c1013f6-b0d1-4da2-be3d-d2977df56ee7",
+          "name": "EL222-DNA (rep 2)",
+          "position": "9",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 195.3
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "7198643a-34d9-4663-8fc3-f8ffa2edef8b",
+          "name": "EL222-DNA (rep 2)",
+          "position": "10",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 97.7
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "744fbc8c-eaa7-413c-8679-7a7f49f20085",
+          "name": "EL222-DNA (rep 2)",
+          "position": "11",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 48.8
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "005e1621-3767-460f-9cf0-1e6d3a8781f7",
+          "name": "EL222-DNA (rep 2)",
+          "position": "12",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 24.4
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "69247fbb-0803-4f50-9c1e-4b3d877a7a7d",
+          "name": "EL222-DNA (rep 2)",
+          "position": "13",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 12.2
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "dfb6df17-8e9f-4953-9a5d-94389f333722",
+          "name": "EL222-DNA (rep 2)",
+          "position": "14",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 6.1
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "80da31bf-873a-4bdb-9fab-82c8be45b07c",
+          "name": "EL222-DNA (rep 2)",
+          "position": "15",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 3.1
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "fbbce861-1ce3-413f-ab13-1a3d954060cb",
+          "name": "EL222-DNA (rep 2)",
+          "position": "16",
+          "sample": {
+            "chemical_environment": {
+              "id": "dad8c5e7-1f5b-4284-a0c4-98444ed164b4",
+              "name": "MES 50 mM NaCl 100 mM Pluronic F-127 0.05%"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 1.5
+                },
+                "entity": {
+                  "id": "e653f96e-0cd6-4c33-be29-256fdd464cac",
+                  "name": "EL222"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Premium Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 20.0
+                },
+                "entity": {
+                  "id": "d9fc49ae-6226-40ae-b512-4edfcf4e59e3",
+                  "name": "dsDNA20"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "schema_version": "0.9.12",
+      "signal_type": "TRIC/MST",
+      "temperature": {
+        "unit": "\u00b0C",
+        "value": 24.0
+      }
+    }
+  },
+  "parent": {
+    "access": {
+      "grants": [],
+      "links": [],
+      "owned_by": {
+        "user": "51"
+      },
+      "settings": {
+        "accept_conditions_text": null,
+        "allow_guest_requests": true,
+        "allow_user_requests": true,
+        "secret_link_expiration": 0
+      }
+    },
+    "communities": {},
+    "id": "4hetg-z6d83",
+    "is_verified": false,
+    "pids": null,
+    "workflow": "individual"
+  },
+  "pids": {
+    "doi": {
+      "identifier": "10.71479/p408m-6b985",
+      "provider": "datacite"
+    }
+  },
+  "revision_id": 4,
+  "state": "published",
+  "state_timestamp": "2026-01-05T12:33:09.761875+00:00",
+  "stats": {
+    "all_versions": {
+      "data_volume": 0.0,
+      "downloads": 0,
+      "unique_downloads": 0,
+      "unique_views": 0,
+      "views": 0
+    },
+    "this_version": {
+      "data_volume": 0.0,
+      "downloads": 0,
+      "unique_downloads": 0,
+      "unique_views": 0,
+      "views": 0
+    }
+  },
+  "status": "published",
+  "updated": "2026-01-05T12:33:12.289497+00:00",
+  "versions": {
+    "index": 1,
+    "is_latest": true,
+    "is_latest_draft": true
+  }
+}

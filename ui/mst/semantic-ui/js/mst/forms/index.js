@@ -1,4 +1,9 @@
-import { DepositFormApp, TabForm, parseFormAppConfig } from "@js/oarepo_ui/forms";
+import {
+  DepositFormApp,
+  PublishButton,
+  TabForm,
+  parseFormAppConfig,
+} from "@js/oarepo_ui/forms";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
@@ -80,6 +85,13 @@ const FormActions = () => (
     <SaveButton primary icon={null} labelPosition={null} content="Save" />
     <PreviewButton primary icon={null} labelPosition={null} />
     <ReviewToggle />
+    <PublishButton
+      record={rest.record}
+      primary
+      positive={false}
+      icon={null}
+      labelPosition={null}
+    />
   </div>
 );
 

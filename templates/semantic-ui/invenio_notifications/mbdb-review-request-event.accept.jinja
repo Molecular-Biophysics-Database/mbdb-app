@@ -1,0 +1,23 @@
+{% set topic = notification.context.request.topic %}
+{% set info = topic.get("metadata", {}).get("general_parameters", {}).get("record_information", {}) %}
+{% set title = info.get("title", topic.id) %}
+{% set link = topic.get("links", {}).get("preview_html") or topic.get("links", {}).get("self_html") %}
+
+{%- block subject -%}
+{{ _("ACCEPTED: Your MBDB record '{topic_id}' has been accepted for publication").format(topic_id=topic.id) }}
+{%- endblock subject -%}
+
+{%- block html_body -%}
+{% trans title=title, link=link %}
+<p>Your record "{{ title }}" has passed the review and has been accepted for publication.</p>
+<p>It is not public yet. Once you are ready, publish it on its preview page: <a href="{{ link }}">{{ link }}</a></p>
+{% endtrans %}
+{%- endblock html_body -%}
+
+{%- block plain_body -%}
+{% trans title=title, link=link %}
+Your record "{{ title }}" has passed the review and has been accepted for publication.
+It is not public yet. Once you are ready, publish it on its preview page:
+{{ link }}
+{% endtrans %}
+{%- endblock plain_body -%}

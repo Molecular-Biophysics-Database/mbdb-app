@@ -1,0 +1,29 @@
+{# shown to whoever may publish a draft accepted by a reviewer #}
+{%- for request_type in (record.data.get("expanded") or {}).get("request_types") or []
+      if request_type.type_id == "publish_approved_draft" and is_draft -%}
+<form id="publish-approved" class="ui segment form"
+      data-create-url="{{ request_type.links.actions.create }}"
+      data-record-url="{{ model.ui_url(view_name='record_detail', pid_value=record_ui['id']) }}">
+  <h2 class="ui header">{{ _("Your record has been accepted") }}</h2>
+  <p>{{ _("Publishing can not be undone.") }}</p>
+  <div class="field">
+    <div class="ui checkbox">
+      <input type="checkbox" id="publish-approved-agree" required>
+      <label for="publish-approved-agree">
+        {% trans %}I agree that the MBDB can distribute my data under the
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0 license</a>.
+        I hereby waive all copyright and related or neighboring rights together with all associated claims
+        and causes of action with respect to this work to the extent possible under the law. I have read and
+        understand the terms and intended legal effect of CC0, and hereby voluntarily elect to apply it to this work.
+        I also agree to MBDB's
+        <a href="https://molecular-biophysics-database.github.io/mbdb-docs/terms-and-conditions/users" target="_blank" rel="noopener">terms and conditions</a>,
+        which, among others, include receiving permissions from all depositors, and ensuring that all deposited
+        information, to the best of my knowledge, is correct.{% endtrans %}
+      </label>
+    </div>
+  </div>
+  <div id="publish-approved-error" class="ui negative message" role="alert" hidden>{{ _("Publishing failed, please try again.") }}</div>
+  <button type="submit" class="ui positive button">{{ _("Publish") }}</button>
+</form>
+{{ webpack['publish_approved.js'] }}
+{%- endfor %}

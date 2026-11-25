@@ -4,6 +4,7 @@
   export_url={{ model.ui_url(view_name="record_export", pid_value=record_ui["id"], export_format="json", preview=1 if is_preview else 0) }}
   edit_url={{ record_ui["links"]["edit_html"] if permissions.can_update_draft else None }}
 />
+{% include "mst/record_detail/publish_approved.html" %}
 <RecordInformation d={{ d }} />
 
 {# raw values: FieldData hides lists and objects without UI values #}

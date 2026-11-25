@@ -498,7 +498,25 @@ button.mbdb-link.mbdb-error-text {
   color: @mbdbLabelColor;
 }
 .mbdb-result-state {
+  display: inline-block;
+  padding: 0.1rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
   text-transform: capitalize;
+  color: #023850;
+  background: #edf5f8;
+}
+.mbdb-result-state-submitted,
+.mbdb-result-state-revision_requested {
+  background: #fcc802;
+}
+.mbdb-result-state-approved {
+  background: #62a9d9;
+}
+.mbdb-result-state-published {
+  color: #fff;
+  background: #023850;
 }
 
 // Advanced search page

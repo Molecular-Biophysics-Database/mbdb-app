@@ -1,0 +1,1878 @@
+{
+  "$schema": "local://mst-1.0.0.json",
+  "custom_fields": {},
+  "metadata": {
+    "general_parameters": {
+      "associated_publication": {
+        "journal": "Frontiers in Microbiology",
+        "pid": "10.3389/fmicb.2026.1789656",
+        "title": "The bacterial phosphotransferase system-mediated rifampicin phosphorylation: ancestral links to rifampicin-inactivating enzyme.",
+        "type": "Article"
+      },
+      "chemical_environments": [
+        {
+          "constituents": [
+            {
+              "basic_information": {
+                "additional_identifiers": [
+                  "cid:23831"
+                ],
+                "chemical_formula": "C8H18N2O4S",
+                "id": "inchikey:JKMHFZQWWAIEOD-UHFFFAOYSA-N",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 238.31
+                },
+                "title": {
+                  "en": "4-(2-Hydroxyethyl)-1-piperazine ethanesulfonic acid (HEPES acid)"
+                }
+              },
+              "concentration": {
+                "unit": "mM",
+                "value": 50.0
+              },
+              "name": "HEPES",
+              "type": "Chemical"
+            },
+            {
+              "basic_information": {
+                "additional_identifiers": [
+                  "cid:5234"
+                ],
+                "chemical_formula": "ClNa",
+                "id": "inchikey:FAPWRFPIFSIZLT-UHFFFAOYSA-M",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 58.44
+                },
+                "title": {
+                  "en": "Sodium Chloride"
+                }
+              },
+              "concentration": {
+                "unit": "mM",
+                "value": 50.0
+              },
+              "name": "NaCl",
+              "type": "Chemical"
+            },
+            {
+              "basic_information": {
+                "chemical_formula": "(C3H6O.C2H4O)x",
+                "id": "inchikey:OQNWUUGFAWNUME-UHFFFAOYSA-N",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 164.2
+                },
+                "title": {
+                  "en": "Pluronic F-127"
+                }
+              },
+              "concentration": {
+                "unit": "w/v %",
+                "value": 0.1
+              },
+              "name": "Pluronic F-127",
+              "type": "Chemical"
+            }
+          ],
+          "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+          "name": "HEPES pH 7.5",
+          "ph": 7.5,
+          "solvent": [
+            {
+              "basic_information": {
+                "additional_identifiers": [
+                  "cid:962"
+                ],
+                "chemical_formula": "H2O",
+                "id": "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 18.02
+                },
+                "title": {
+                  "en": "Water"
+                }
+              },
+              "concentration": {
+                "unit": "v/v %",
+                "value": 100.0
+              },
+              "name": "water",
+              "type": "Chemical"
+            }
+          ]
+        },
+        {
+          "constituents": [
+            {
+              "basic_information": {
+                "additional_identifiers": [
+                  "cid:23831"
+                ],
+                "chemical_formula": "C8H18N2O4S",
+                "id": "inchikey:JKMHFZQWWAIEOD-UHFFFAOYSA-N",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 238.31
+                },
+                "title": {
+                  "en": "4-(2-Hydroxyethyl)-1-piperazine ethanesulfonic acid (HEPES acid)"
+                }
+              },
+              "concentration": {
+                "unit": "mM",
+                "value": 50.0
+              },
+              "name": "HEPES",
+              "type": "Chemical"
+            },
+            {
+              "basic_information": {
+                "additional_identifiers": [
+                  "cid:5234"
+                ],
+                "chemical_formula": "ClNa",
+                "id": "inchikey:FAPWRFPIFSIZLT-UHFFFAOYSA-M",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 58.44
+                },
+                "title": {
+                  "en": "Sodium Chloride"
+                }
+              },
+              "concentration": {
+                "unit": "mM",
+                "value": 50.0
+              },
+              "name": "NaCl",
+              "type": "Chemical"
+            },
+            {
+              "basic_information": {
+                "chemical_formula": "(C3H6O.C2H4O)x",
+                "id": "inchikey:OQNWUUGFAWNUME-UHFFFAOYSA-N",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 164.2
+                },
+                "title": {
+                  "en": "Pluronic F-127"
+                }
+              },
+              "concentration": {
+                "unit": "w/v %",
+                "value": 0.1
+              },
+              "name": "Pluronic F-127",
+              "type": "Chemical"
+            },
+            {
+              "basic_information": {
+                "additional_identifiers": [
+                  "cid:679"
+                ],
+                "chemical_formula": "C2H6OS",
+                "id": "inchikey:IAZDPXIOMUYVGZ-UHFFFAOYSA-N",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 78.14
+                },
+                "title": {
+                  "en": "Dimethyl Sulfoxide"
+                }
+              },
+              "concentration": {
+                "unit": "v/v %",
+                "value": 2.5
+              },
+              "name": "DMSO",
+              "type": "Chemical"
+            }
+          ],
+          "id": "a5892eb8-48b3-4175-89e4-ca666a9439de",
+          "name": "HEPES pH 7.5, 2.5% (v/v) DMSO",
+          "ph": 7.5,
+          "solvent": [
+            {
+              "basic_information": {
+                "additional_identifiers": [
+                  "cid:962"
+                ],
+                "chemical_formula": "H2O",
+                "id": "inchikey:XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+                "molecular_weight": {
+                  "unit": "g/mol",
+                  "value": 18.02
+                },
+                "title": {
+                  "en": "Water"
+                }
+              },
+              "concentration": {
+                "unit": "v/v %",
+                "value": 100.0
+              },
+              "name": "Water",
+              "type": "Chemical"
+            }
+          ]
+        }
+      ],
+      "depositors": {
+        "depositor": {
+          "affiliations": [
+            {
+              "id": "00wzqmx94",
+              "name": "Czech Academy of Sciences, Institute of Biotechnology"
+            }
+          ],
+          "family_name": "Kovaľ",
+          "given_name": "Tomáš",
+          "identifiers": [
+            "orcid:0000-0002-2836-3765"
+          ]
+        },
+        "principal_contact": {
+          "affiliations": [
+            {
+              "id": "00wzqmx94",
+              "name": "Czech Academy of Sciences, Institute of Biotechnology"
+            }
+          ],
+          "family_name": "Dohnálek",
+          "given_name": "Jan",
+          "identifiers": [
+            "orcid:0000-0002-8083-7980"
+          ]
+        }
+      },
+      "entities_of_interest": [
+        {
+          "expression_organism": {
+            "id": "taxid:469008",
+            "rank": "STRAIN",
+            "title": {
+              "en": "Escherichia coli BL21(DE3)"
+            }
+          },
+          "expression_source_type": "Recombinantly",
+          "external_databases": [
+            "uniprot:P08838"
+          ],
+          "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+          "molecular_weight": {
+            "unit": "Da",
+            "value": 63901.95
+          },
+          "name": "EI",
+          "polymer_type": "polypeptide(L)",
+          "sequence": "MQELKGIGASAGIAIAKAYRLEEPDLTVEKKNISDSEAEVSRFDEAIARSKEELEKIKEHALKELGQDKADIFSAHLLVLSDPELLNPVKEKISTDSVNAEFALKETSSMFVTMFESMDNEYMKERAADIRDVTKRVTGHLLGVEIPNPSMISEEVIIVAEDLTPSDTAQLNREFVKGFTTDIGGRTSHSAIMARSLEIPAVVGTKAATGTIQNGVTVIVDGINGDVIIDPSAETVKEYEEKHNAYLAQKAEWAKLVNEPTVSKDGHHVELAANIGTPDDVKGVLENGGEAVGLYRTEFLYMGRDQLPTEDEQFDAYKTVLERMEGKSVVVRTLDIGGDKELPYLQLPKEMNPFLGYRAIRLCLEEQEIFRTQLRALLRASTYGNLKIMFPMIATVNEFKEAKAILLEEKEKLVKAGQAVSDDIEVGMMVEIPSTAVIADQFAKEVDFFSIGTNDLIQYTMAADRMNERVSYLYQPYNPAILRLITLVIEAAHKEGKWVGMCGEMAGDEIAIPILLGLGLDEFSMSATSILPARTQISKLSKQEAESFKEKILSMSTTEEVVAFVKETFKHHHHHH",
+          "source_organism": {
+            "id": "taxid:1423",
+            "rank": "SPECIES",
+            "title": {
+              "en": "Bacillus subtilis"
+            }
+          },
+          "type": "Polymer"
+        },
+        {
+          "basic_information": {
+            "additional_identifiers": [
+              "cid:135398735"
+            ],
+            "chemical_formula": "C43H58N4O12",
+            "id": "inchikey:JQXXHWHPUNPDRT-WLSIYKJHSA-N",
+            "molecular_weight": {
+              "unit": "g/mol",
+              "value": 822.9
+            },
+            "title": {
+              "en": "Rifampicin"
+            }
+          },
+          "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+          "name": "Rifampicin",
+          "type": "Chemical"
+        }
+      ],
+      "funding_references": [
+        {
+          "funder": {
+            "id": "01pv73b02",
+            "name": "Czech Science Foundation"
+          },
+          "award": {
+            "id": "01pv73b02::25-16037S",
+            "number": "25-16037S",
+            "title": {
+              "en": "Protein liquid-liquid phase separation and intrinsic disorder in bacterial transcription"
+            }
+          }
+        },
+        {
+          "funder": {
+            "id": "01pv73b02",
+            "name": "Czech Science Foundation"
+          },
+          "award": {
+            "id": "01pv73b02::24-10700S",
+            "number": "24-10700S",
+            "title": {
+              "en": "Where sugars meet antibiotics"
+            }
+          }
+        },
+        {
+          "funder": {
+            "id": "00k4n6c32",
+            "name": "European Commission"
+          },
+          "award": {
+            "id": "00k4n6c32::CZ.02.01.01/00/23_015/0008175",
+            "number": "CZ.02.01.01/00/23_015/0008175",
+            "title": {
+              "en": "Innovation of Czech Infrastructure for Integrative Structural Biology"
+            }
+          }
+        },
+        {
+          "funder": {
+            "id": "037n8p820",
+            "name": "Ministry of Education Youth and Sports"
+          },
+          "award": {
+            "id": "037n8p820::LM2023042",
+            "number": "LM2023042",
+            "title": {
+              "en": "Czech Infrastructure for Integrative Structural Biology"
+            }
+          }
+        }
+      ],
+      "instrument": {
+        "id": "ins:6",
+        "title": {
+          "en": "Monolith NT.115 RED/GREEN"
+        },
+        "props": {
+          "manufacturer": "Nanotemper"
+        }
+      },
+      "method": "Microscale thermophoresis/Temperature related intensity change (MST/TRIC)",
+      "record_information": {
+        "access_rights": "open",
+        "copyright": "Anyone is free to distribute the data and metadata",
+        "date_available": "2026-06-05",
+        "deposition_date": "2026-02-24",
+        "external_identifier": "10.71479/gf2bm-df854",
+        "license": {
+          "name": "CC0 1.0 Universal",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "publisher": "MBDB",
+        "resource_type": "MST",
+        "resource_type_general": "Dataset",
+        "subject_category": "Biophysics",
+        "title": "Interaction of EI from Bacillus subtilis with rifampicin "
+      },
+      "schema_version": "0.15.0"
+    },
+    "method_specific_parameters": {
+      "excitation_led_color": "RED (ex 605-645nm, em 660-720nm)",
+      "excitation_led_power": 30.0,
+      "experiment_type": "Affinity",
+      "ir_mst_laser_power": 50.0,
+      "measurements": [
+        {
+          "id": "4d2fb7b1-3356-43fc-81f2-e732b792752a",
+          "name": "1st titration",
+          "position": "1",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 500000.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "f305f4c9-7cda-4618-bce7-3dd9b4ffd81d",
+          "name": "1st titration",
+          "position": "2",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 250000.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "0a48e6e2-73f9-429d-b991-ac7f91e4343a",
+          "name": "1st titration",
+          "position": "3",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 125000.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "d2a2c6b6-2d84-4824-9f7c-ecd79ac19f07",
+          "name": "1st titration",
+          "position": "4",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 62500.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "a318379d-4ce8-42d1-8d84-8d429e0dc7cc",
+          "name": "1st titration",
+          "position": "5",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 31250.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "9a02c416-05ff-421b-9b92-872ec11340fa",
+          "name": "1st titration",
+          "position": "6",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 15625.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "08825d4c-147c-45d0-9160-24438152b700",
+          "name": "1st titration",
+          "position": "7",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 7812.5
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "b50dae87-1c7c-49c2-a1bd-e0940bddf188",
+          "name": "1st titration",
+          "position": "8",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 3906.3
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "25aa545e-07fc-437d-b622-b5a3bd97bdf5",
+          "name": "1st titration",
+          "position": "9",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 1953.2
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "08c6f63a-bc63-45f7-855d-e3382a85ec40",
+          "name": "1st titration",
+          "position": "10",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 976.6
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "af30d656-ee44-43ab-ab30-3fbb85c465a3",
+          "name": "1st titration",
+          "position": "11",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 488.3
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "1039efc6-9776-41b1-9d87-4f89d36117e2",
+          "name": "1st titration",
+          "position": "12",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 244.1
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "e0ced389-bb0e-4f2f-9164-f6866806360d",
+          "name": "1st titration",
+          "position": "13",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 122.1
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "55940a59-05f2-4b11-96ca-e90997a59bcd",
+          "name": "1st titration",
+          "position": "14",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 61.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "3adebf67-1bd8-495d-bc72-c45a94b2b4f4",
+          "name": "2nd titration",
+          "position": "1",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 500000.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "85b3fafe-2ea8-496b-99dd-bd3304b4cad9",
+          "name": "2nd titration",
+          "position": "2",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 250000.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "5703c0c1-4aac-4085-8df3-16f27eb3c05f",
+          "name": "2nd titration",
+          "position": "3",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 125000.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "e931449f-b8b7-48f1-8326-114ec378727f",
+          "name": "2nd titration",
+          "position": "4",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 62500.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "986330cf-31cf-447b-ae1d-dedd963ef0aa",
+          "name": "2nd titration",
+          "position": "5",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 31250.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "bc234e66-6869-4579-935d-acb8f8b8b018",
+          "name": "2nd titration",
+          "position": "6",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 15625.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "774e4d4e-f756-4c69-83bc-173cb3bc38c5",
+          "name": "2nd titration",
+          "position": "7",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 7812.5
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "cefa8a6b-1d00-42ce-b4d2-de660bad581b",
+          "name": "2nd titration",
+          "position": "8",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 3906.3
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "4b7adffe-cb00-41bf-ae5b-97100110035e",
+          "name": "2nd titration",
+          "position": "9",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 1953.1
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "882de43b-894c-4551-a216-c07f7a8b02d7",
+          "name": "2nd titration",
+          "position": "10",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 976.6
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "c66bd691-0028-4480-87d9-048fdb177224",
+          "name": "2nd titration",
+          "position": "11",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 488.3
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "7ff640d0-082f-46f4-a23f-4d28e77b878c",
+          "name": "2nd titration",
+          "position": "12",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 244.1
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "33fbd1ac-4ead-426c-98f2-59d36545f3c3",
+          "name": "2nd titration",
+          "position": "13",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 122.1
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "495a0f8b-f952-48a6-864a-33290ae71907",
+          "name": "2nd titration",
+          "position": "14",
+          "sample": {
+            "chemical_environment": {
+              "id": "c59d081a-62d9-443c-adae-b5ed36d5f819",
+              "name": "HEPES pH 7.5"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 61.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "ad1a5305-1a95-40d0-9b18-1f6b1ee3bee3",
+          "name": "3rd titration",
+          "position": "1",
+          "sample": {
+            "chemical_environment": {
+              "id": "a5892eb8-48b3-4175-89e4-ca666a9439de",
+              "name": "HEPES pH 7.5, 2.5% (v/v) DMSO"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 2500000.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "0a95efb0-5336-421c-bd36-902b0fd9b029",
+          "name": "3rd titration",
+          "position": "2",
+          "sample": {
+            "chemical_environment": {
+              "id": "a5892eb8-48b3-4175-89e4-ca666a9439de",
+              "name": "HEPES pH 7.5, 2.5% (v/v) DMSO"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 1250000.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "5c791557-b847-46de-9c2b-7d77406bab5d",
+          "name": "3rd titration",
+          "position": "3",
+          "sample": {
+            "chemical_environment": {
+              "id": "a5892eb8-48b3-4175-89e4-ca666a9439de",
+              "name": "HEPES pH 7.5, 2.5% (v/v) DMSO"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 625000.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "6fcb678b-78c5-4cd6-a4cf-46f788ce1620",
+          "name": "3rd titration",
+          "position": "4",
+          "sample": {
+            "chemical_environment": {
+              "id": "a5892eb8-48b3-4175-89e4-ca666a9439de",
+              "name": "HEPES pH 7.5, 2.5% (v/v) DMSO"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 312500.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "4666d8b4-1367-429b-9170-c7562a17ec83",
+          "name": "3rd titration",
+          "position": "5",
+          "sample": {
+            "chemical_environment": {
+              "id": "a5892eb8-48b3-4175-89e4-ca666a9439de",
+              "name": "HEPES pH 7.5, 2.5% (v/v) DMSO"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 156250.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "963b24a1-2595-4452-a54b-7c9f1c507051",
+          "name": "3rd titration",
+          "position": "6",
+          "sample": {
+            "chemical_environment": {
+              "id": "a5892eb8-48b3-4175-89e4-ca666a9439de",
+              "name": "HEPES pH 7.5, 2.5% (v/v) DMSO"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 78125.0
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "5b17d9c2-ba9e-40ed-9ad8-55a9db004852",
+          "name": "3rd titration",
+          "position": "7",
+          "sample": {
+            "chemical_environment": {
+              "id": "a5892eb8-48b3-4175-89e4-ca666a9439de",
+              "name": "HEPES pH 7.5, 2.5% (v/v) DMSO"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 39062.5
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "aba05ab8-3990-4587-9869-63a956325d4b",
+          "name": "3rd titration",
+          "position": "8",
+          "sample": {
+            "chemical_environment": {
+              "id": "a5892eb8-48b3-4175-89e4-ca666a9439de",
+              "name": "HEPES pH 7.5, 2.5% (v/v) DMSO"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 19531.3
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "2756f503-f32d-4c66-8cca-932cb785e10d",
+          "name": "3rd titration",
+          "position": "9",
+          "sample": {
+            "chemical_environment": {
+              "id": "a5892eb8-48b3-4175-89e4-ca666a9439de",
+              "name": "HEPES pH 7.5, 2.5% (v/v) DMSO"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 9765.6
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "50581646-3fc7-46b2-b173-e7b9404b23a9",
+          "name": "3rd titration",
+          "position": "10",
+          "sample": {
+            "chemical_environment": {
+              "id": "a5892eb8-48b3-4175-89e4-ca666a9439de",
+              "name": "HEPES pH 7.5, 2.5% (v/v) DMSO"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 4882.8
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "f5e19c4b-00bf-40ea-b97c-b0ad59965502",
+          "name": "3rd titration",
+          "position": "11",
+          "sample": {
+            "chemical_environment": {
+              "id": "a5892eb8-48b3-4175-89e4-ca666a9439de",
+              "name": "HEPES pH 7.5, 2.5% (v/v) DMSO"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 2441.4
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "d0d1804c-5006-47d5-8d55-72609c32294b",
+          "name": "3rd titration",
+          "position": "12",
+          "sample": {
+            "chemical_environment": {
+              "id": "a5892eb8-48b3-4175-89e4-ca666a9439de",
+              "name": "HEPES pH 7.5, 2.5% (v/v) DMSO"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 1220.7
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "31941471-883f-444e-acb4-fb4566c3f806",
+          "name": "3rd titration",
+          "position": "13",
+          "sample": {
+            "chemical_environment": {
+              "id": "a5892eb8-48b3-4175-89e4-ca666a9439de",
+              "name": "HEPES pH 7.5, 2.5% (v/v) DMSO"
+            },
+            "ligands": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 610.4
+                },
+                "entity": {
+                  "id": "d53b7f78-be86-4b74-90b3-68be8e839aae",
+                  "name": "Rifampicin"
+                }
+              }
+            ],
+            "measurement_container": "Monolith Standard Capillary",
+            "targets": [
+              {
+                "concentration": {
+                  "unit": "nM",
+                  "value": 50.0
+                },
+                "entity": {
+                  "id": "4b3d7de7-c440-4ee0-b1ee-c8dbdb0b4b74",
+                  "name": "EI"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "schema_version": "0.9.12",
+      "signal_type": "TRIC/MST",
+      "temperature": {
+        "unit": "°C",
+        "value": 22.0
+      }
+    }
+  },
+  "files": {
+    "enabled": true
+  }
+}

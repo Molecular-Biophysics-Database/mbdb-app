@@ -7,11 +7,12 @@ const formatDate = (date) =>
     timeZone: "UTC",
   });
 
-const Row = ({ label, children }) => (
-  <div className="mbdb-result-row">
-    <span className="mbdb-result-label">{label}:</span> {children}
-  </div>
-);
+const Row = ({ label, children }) =>
+  children ? (
+    <div className="mbdb-result-row">
+      <span className="mbdb-result-label">{label}:</span> {children}
+    </div>
+  ) : null;
 
 Row.propTypes = {
   label: PropTypes.string.isRequired,
@@ -42,7 +43,7 @@ export const ResultsListItem = ({ result }) => {
     <article className="mbdb-result" data-testid="result-item">
       <div className="mbdb-result-header">
         <h2>
-          <a href={result.links.self_html}>{info.title || "<no title>"}</a>
+          <a href={result.links.self_html}>{info.title || "Untitled record"}</a>
         </h2>
         <div className="mbdb-result-id">
           <span className="mbdb-result-label">ID</span> {result.id}
@@ -55,7 +56,9 @@ export const ResultsListItem = ({ result }) => {
         <div className="mbdb-result-row">{contactLine.join(" / ")}</div>
       )}
       <Row label="State">
-        <span className="mbdb-result-state">{result.state}</span>
+        <span className={`mbdb-result-state mbdb-result-state-${result.state}`}>
+          {result.state?.replaceAll("_", " ")}
+        </span>
       </Row>
       <Row label="Method">{method}</Row>
       <Row label="Results">{names(results)}</Row>

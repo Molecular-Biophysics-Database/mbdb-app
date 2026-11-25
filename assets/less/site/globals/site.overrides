@@ -885,3 +885,84 @@ body {
     padding: 5rem;
   }
 }
+
+/* My MBDB (user dashboard) */
+#dashboard-user-header-container {
+  background: @mbdbSectionBackground;
+
+  .ui.secondary.pointing.menu {
+    border-bottom: none;
+
+    .item {
+      color: @mbdbDark;
+      font-size: 1.125rem;
+    }
+    .active.item {
+      border-color: @mbdbYellow;
+      font-weight: 500;
+    }
+  }
+  .ui.header {
+    font-size: 1.75rem;
+    font-weight: 500;
+  }
+  .mbdb-dashboard-new {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: @white;
+    background-color: @mbdbDark;
+
+    &:hover {
+      background-color: fade(@mbdbDark, 75%);
+    }
+  }
+}
+#dashboard-user-header-container ~ .ui.container {
+  .ui.search.button,
+  .ui.search.button:hover,
+  .ui.search.button:focus {
+    background-color: @mbdbDark;
+  }
+  .ui.search.button:hover {
+    background-color: fade(@mbdbDark, 75%);
+  }
+  .mbdb-result {
+    margin: 0 0 1.5rem;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: @mbdbSectionBackground;
+    font-size: 1rem;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  .mbdb-result-id {
+    font-size: 1.125rem;
+  }
+  .mbdb-result-state-draft {
+    background: @white;
+  }
+  .ui.card.facet {
+    margin: 0;
+    border-bottom: 1px solid @mbdbSectionBackground;
+
+    .ui.header {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+}
+
+/* Request comments: Invenio fades a collapsed comment over a fixed 200px, which covers the
+   page above when a short one is taken for overflowing. The padding is to prevent that. */
+.ui.feed .event .collapsible-comment {
+  .collapsible-comment-inner {
+    padding-bottom: 4px;
+  }
+  &.overflowing::after {
+    max-height: 100%;
+    pointer-events: none;
+  }
+}
