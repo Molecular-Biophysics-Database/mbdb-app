@@ -36,6 +36,7 @@ jest.mock("@js/oarepo_ui/forms", () => {
 });
 
 jest.mock("./vocabularyTitles", () => ({
+  itemLabel: jest.requireActual("./vocabularyTitles").itemLabel,
   useVocabularyItem: jest.fn(() => ({
     title: undefined,
     customFields: undefined,

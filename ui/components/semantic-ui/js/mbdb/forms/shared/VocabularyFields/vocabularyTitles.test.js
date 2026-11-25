@@ -113,7 +113,7 @@ describe("vocabularyTitles", () => {
     axios.get.mockResolvedValue({
       data: { id: "bf:2", title: { en: "Serum" } },
     });
-    await render(<TitleProbe type="body-fluids" id="bf:2" />);
+    await render(<TitleProbe type="body_fluids" id="bf:2" />);
     expect(shown()).toBe("Serum");
   });
 

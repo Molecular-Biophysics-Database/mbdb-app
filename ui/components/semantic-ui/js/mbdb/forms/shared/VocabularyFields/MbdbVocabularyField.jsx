@@ -34,6 +34,7 @@ export const MbdbVocabularyField = ({
   fieldPath,
   vocabularyName,
   describe,
+  optionFilter,
   label,
   help,
   required,
@@ -169,10 +170,12 @@ export const MbdbVocabularyField = ({
           serializeAddedValue={serializeAddedValue}
           onValueChange={onValueChange}
           filterFunction={(options) =>
-            options.map((option) => ({
-              ...option,
-              description: describe?.(option),
-            }))
+            (optionFilter ? options.filter(optionFilter) : options).map(
+              (option) => ({
+                ...option,
+                description: describe?.(option),
+              })
+            )
           }
         />
       </FieldDataContext.Provider>
@@ -185,6 +188,8 @@ MbdbVocabularyField.propTypes = {
   vocabularyName: PropTypes.string.isRequired,
   // option (serialized suggestion) → short description shown in the dropdown
   describe: PropTypes.func,
+  // option → whether it is offered (default: all)
+  optionFilter: PropTypes.func,
   // called with the typed text when the user picks an allowed addition,
   // INSTEAD of the wrapper writing anything (manual-entry switch)
   onAddition: PropTypes.func,
