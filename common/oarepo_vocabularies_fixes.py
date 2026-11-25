@@ -14,6 +14,8 @@ from pathlib import Path
 
 from flask import current_app, g, url_for
 from invenio_records_resources.proxies import current_service_registry
+from invenio_vocabularies.services.facets import VocabularyLabels
+from oarepo_model.datatypes import vocabularies as oarepo_model_vocabularies
 from oarepo_vocabularies.services.service import VocabularyTypeService
 from oarepo_vocabularies.ui.resources.config import InvenioVocabulariesUIResourceConfig
 from oarepo_vocabularies.ui.resources.resource import InvenioVocabulariesUIResource
@@ -90,3 +92,27 @@ class FixedVocabulariesUIResource(InvenioVocabulariesUIResource):
             item._links_tpl = _WithVocabularyHtmlLink(item._links_tpl, vocabulary_type)  # noqa: SLF001
             return item
         return super()._get_record(pid_value, *args, vocabulary_type=vocabulary_type, **kwargs)
+
+
+class FixedVocabularyLabels(VocabularyLabels):
+    """Facet labels of dedicated vocabularies.
+
+    oarepo-model labels every vocabulary facet by the item's title, but affiliations and
+    funders have only a name, so any search with one in its facets failed with a KeyError.
+    It also looks for awards in the generic vocabularies service.
+    """
+
+    def __init__(self, vocabulary, *args, **kwargs):
+        super().__init__(vocabulary, *args, **kwargs)
+        if vocabulary in ("affiliations", "funders", "awards"):
+            self.service_id = vocabulary
+            self.fields = ("id", "title", "name")
+
+    def _vocab_to_label(self, vocab):
+        if vocab.get("title"):
+            return super()._vocab_to_label(vocab)
+        return vocab.get("name") or vocab[self.id_field]
+
+
+# facets are created when the models are built, so this module must be imported before them
+oarepo_model_vocabularies.VocabularyLabels = FixedVocabularyLabels
