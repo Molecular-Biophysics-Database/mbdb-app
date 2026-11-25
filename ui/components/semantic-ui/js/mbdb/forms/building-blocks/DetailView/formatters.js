@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import { Label } from "mbdb-semantic-ui-react";
 import { ExternalLink } from "@js/mbdb/forms/building-blocks/ExternalLink";
 import { isEmptyValue } from "@js/mbdb/forms/building-blocks/errors";
+import { ReferenceNames } from "@js/mbdb/forms/building-blocks/ReferenceField/ReferenceNames";
 // The shared helpers below are pure and reach this folder anyway through
 // values.js (the vocabulary-title cache); they keep the details and the edit
 // blocks formatting a value the same way.
@@ -153,6 +154,14 @@ const AwardValue = ({ value }) => {
 
 AwardValue.propTypes = { value: PropTypes.object.isRequired };
 
+// Internal relations: the names of the items they point to.
+const reference = (targetPath) => {
+  const format = (value) => (
+    <ReferenceNames value={value} targetPath={targetPath} />
+  );
+  return format;
+};
+
 // Each entry is a formatter component: (value) => JSX.
 export const formatters = {
   sequence: (value) => <SequenceValue value={value} />,
@@ -160,4 +169,9 @@ export const formatters = {
   location: (value) => <LocationValue value={value} />,
   basic_information: (value) => <ChemicalValue value={value} />,
   award: (value) => <AwardValue value={value} />,
+  chemical_environment: reference(
+    "metadata.general_parameters.chemical_environments"
+  ),
+  results: reference("metadata.general_parameters.results"),
+  measurements: reference("metadata.method_specific_parameters.measurements"),
 };

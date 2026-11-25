@@ -17,9 +17,8 @@ export const isValueUnit = (v) =>
   "value" in v &&
   "unit" in v;
 
-// NOTE (later steps): treats any object with a string `id` as a vocabulary.
-// `Entity_and_stoichiometry.entity` ({id, name}, an internal relation) would
-// show the UUID; add a rule before measurement blocks use DetailView.
+// Any object with a string `id`: a vocabulary reference, or an internal relation
+// ({ id, name }), whose name is its text.
 export const isVocabulary = (v) =>
   v !== null &&
   typeof v === "object" &&
@@ -133,6 +132,7 @@ export const textOf = (value, vocabulary) => {
     return (
       (typeof vocabulary === "function" ? vocabulary(value.id) : null) ??
       value.title?.en ??
+      value.name ??
       value.id
     );
   return "";

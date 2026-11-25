@@ -24,3 +24,5 @@ export * from "./OrcidInput";
 export * from "./ModalArrayField";
 export * from "./ModalObjectField";
 export * from "./ToggleFieldGroup";
+export * from "./ReferenceField";
+export * from "./sectionCompletion";
