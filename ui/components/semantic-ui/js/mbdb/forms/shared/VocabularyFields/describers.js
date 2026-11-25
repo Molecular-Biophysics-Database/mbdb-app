@@ -7,6 +7,12 @@
 // e.g. "species" — the API returns the rank in lower case.
 export const describeOrganism = (option) => option?.props?.rank ?? undefined;
 
+// e.g. "871037 · iNEXT-Discovery · European Commission", from /api/openaire/awards.
+export const describeAward = (option) =>
+  [option?.number, option?.acronym, option?.funder?.name]
+    .filter(Boolean)
+    .join(" · ") || undefined;
+
 // e.g. "Brno, Czechia" — the city (and state) and country of a ROR
 // organization, from the /api/ror/affiliations suggest endpoint.
 export const describeAffiliation = (option) =>

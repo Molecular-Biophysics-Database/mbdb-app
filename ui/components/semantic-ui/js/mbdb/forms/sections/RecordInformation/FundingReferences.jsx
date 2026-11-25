@@ -6,7 +6,14 @@ import { VocabularyValue } from "@js/mbdb/forms/building-blocks/DetailView/value
 import { TextField } from "@js/mbdb/forms/building-blocks/TextField";
 import { unsetFieldValue } from "@js/mbdb/forms/building-blocks/unset";
 import { MbdbVocabularyField } from "@js/mbdb/forms/shared/VocabularyFields/MbdbVocabularyField";
-import { itemLabel } from "@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles";
+import {
+  describeAffiliation,
+  describeAward,
+} from "@js/mbdb/forms/shared/VocabularyFields/describers";
+import {
+  itemLabel,
+  rememberTitle,
+} from "@js/mbdb/forms/shared/VocabularyFields/vocabularyTitles";
 import { FUNDING_REFERENCES_PATH } from "./path";
 
 // The group spec of one funding reference, read by the details view (guide
@@ -23,17 +30,21 @@ export const FUNDING_REFERENCE_GROUPS = [
   },
 ];
 
+// The registries also match on what the option text does not show (a grant
+// number, "GAČR"), so the dropdown must not filter their results by its text.
+const keepAllOptions = (options) => options;
+
 // A custom award: the RDM award relation takes either an `id` from the
 // awards vocabulary or, without one, its own `number` and `title`.
 const isCustomAward = (award) =>
   !!award && !award.id && (award.number !== undefined || award.title !== undefined);
 
-// The award of one funding reference. An award from the vocabulary is picked
-// (OpenAIRE-based; its number and title come from the vocabulary and cannot be
-// edited). One that is not there is added from the picker ("Add new award:"),
+// The award of one funding reference. An award is picked from the live
+// OpenAIRE search (its number and title cannot be edited) and created in the
+// vocabulary on save. One that is not there is added from the picker ("Add new award:"),
 // which stores the typed text as its number; the number and title are then
 // edited here, and "Pick from the list instead" goes back to the picker.
-const AwardField = ({ fieldPath }) => {
+const AwardField = ({ fieldPath, onPicked }) => {
   const { values, setFieldValue } = useFormikContext();
   const award = getIn(values, fieldPath);
 
@@ -66,6 +77,11 @@ const AwardField = ({ fieldPath }) => {
     <MbdbVocabularyField
       fieldPath={fieldPath}
       vocabularyName="awards"
+      suggestionAPIUrl="/api/openaire/awards"
+      searchQueryParamName="q"
+      search={keepAllOptions}
+      describe={describeAward}
+      onPicked={onPicked}
       allowAdditions
       additionPosition="bottom"
       additionLabel="Add new award: "
@@ -76,6 +92,42 @@ const AwardField = ({ fieldPath }) => {
 
 AwardField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
+  onPicked: PropTypes.func,
+};
+
+// The form of one funding reference. Funders are searched in ROR (the proxy
+// returns any organization); picking an award also sets its funder.
+const FundingReferenceForm = ({ itemPath }) => {
+  const { setFieldValue } = useFormikContext();
+  // Remounts the funder picker when the award sets its value: the dropdown
+  // reads its initial option only on mount.
+  const [funderKey, setFunderKey] = React.useState(0);
+
+  const onAwardPicked = ({ funder }) => {
+    if (!funder?.id) return;
+    rememberTitle("funders", funder.id, funder.name);
+    setFieldValue(`${itemPath}.funder`, { id: funder.id });
+    setFunderKey((key) => key + 1);
+  };
+
+  return (
+    <>
+      <MbdbVocabularyField
+        key={funderKey}
+        fieldPath={`${itemPath}.funder`}
+        vocabularyName="funders"
+        suggestionAPIUrl="/api/ror/affiliations"
+        searchQueryParamName="q"
+        search={keepAllOptions}
+        describe={describeAffiliation}
+      />
+      <AwardField fieldPath={`${itemPath}.award`} onPicked={onAwardPicked} />
+    </>
+  );
+};
+
+FundingReferenceForm.propTypes = {
+  itemPath: PropTypes.string.isRequired,
 };
 
 // The funding references: one row per grant in a summary table, each edited
@@ -106,14 +158,6 @@ export const FundingReferences = () => (
       },
     ]}
     detailGroups={FUNDING_REFERENCE_GROUPS}
-    renderForm={(itemPath) => (
-      <>
-        <MbdbVocabularyField
-          fieldPath={`${itemPath}.funder`}
-          vocabularyName="funders"
-        />
-        <AwardField fieldPath={`${itemPath}.award`} />
-      </>
-    )}
+    renderForm={(itemPath) => <FundingReferenceForm itemPath={itemPath} />}
   />
 );
