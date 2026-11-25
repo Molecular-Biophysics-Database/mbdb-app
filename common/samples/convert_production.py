@@ -79,13 +79,17 @@ def clean(data):
 
 
 def convert_affiliations(data, warnings):
-    """Old {"id": "ror:<id>", "title": {...}, city, country} -> Invenio {"id": "<id>", "name"}."""
+    """Old {"id": "ror:<id>", "title": {...}} or {"identifiers": [ROR], "name"} -> Invenio {"id", "name"}."""
     if isinstance(data, dict):
         for key, value in data.items():
             if key == "affiliations" and isinstance(value, list):
                 converted = []
                 for affiliation in value:
                     affiliation_id = affiliation.get("id", "")
+                    # some records have the ROR id only among the identifiers
+                    for identifier in affiliation.get("identifiers", []):
+                        if not affiliation_id and identifier.get("scheme") == "ror":
+                            affiliation_id = "ror:" + identifier["identifier"]
                     if not affiliation_id.startswith("ror:"):
                         warnings.append(f"affiliation without ROR id kept as-is: {affiliation}")
                         converted.append(affiliation)
