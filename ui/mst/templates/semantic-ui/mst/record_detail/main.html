@@ -10,6 +10,13 @@
 {# raw values: FieldData hides lists and objects without UI values #}
 {%- set gp = record_ui["metadata"]["general_parameters"] or {} -%}
 {%- set msp = record_ui["metadata"]["method_specific_parameters"] or {} -%}
+{# switched by base-theme-rdm, which finds the tabs by these classes and ids #}
+<div class="ui secondary pointing menu rdm-tab-menu rel-mt-2" role="tablist" aria-label="{{ _("Record views") }}">
+  <a role="tab" class="item active" id="record-view-tab" data-tab="record-view" aria-selected="true" aria-controls="record-view-tab-panel" tabindex="0">{{ _("Record view") }}</a>
+  <a role="tab" class="item" id="detailed-view-tab" data-tab="detailed-view" aria-selected="false" aria-controls="detailed-view-tab-panel" tabindex="0">{{ _("Detailed record view") }}</a>
+</div>
+<div class="rdm-tab-container">
+<div class="ui tab basic segment mbdb-record-tab active" role="tabpanel" id="record-view-tab-panel" data-tab="record-view" aria-labelledby="record-view-tab">
 <Section title="Entities of interest">
   {% for entity in gp.entities_of_interest or [] %}
   <SubSection title={{ "Entity of interest " ~ loop.index }}><Entity entity={{ entity }} /></SubSection>
@@ -25,4 +32,9 @@
     <Field label="Name" v={{ (instrument.title or {}).en }} />
   </dl>
 </Section>
+</div>
+<div class="ui tab basic segment mbdb-record-tab" role="tabpanel" id="detailed-view-tab-panel" data-tab="detailed-view" aria-labelledby="detailed-view-tab" hidden>
+{% include "mst/record_detail/detailed.html" %}
+</div>
+</div>
 {% include "mst/record_detail/files.html" %}

@@ -1,0 +1,51 @@
+{# def data, skip=() #}
+
+{# every filled field of a metadata object, recursively; the API returns fields in the model order, only the leading ones are moved #}
+{% set leading = ["name", "entity", "type", "copy_number", "concentration"] %}
+{% set labels = {"ph": "pH", "ir_mst_laser_power": "IR MST laser power", "excitation_led_color": "Excitation LED color", "excitation_led_power": "Excitation LED power", "entities_involved": "Entity involved", "basic_information": "PubChem title"} %}
+{% set hidden = ["id", "schema_version"] + (["unit"] if "value" in data else []) + (skip | list) %}
+<dl class="mbdb-name-value-list">
+  {% for key in (leading | select("in", data) | list) + (data | reject("in", leading) | list) if key not in hidden and data[key] not in ([], {}) %}
+  {% set v = data[key] %}
+  {% set label = labels.get(key) or (key | replace("_", " ") | capitalize) %}
+  {% if v is mapping %}
+    {% if v.title is mapping %}
+    <Field label={{ label }} v={{ v.title.en }} />
+      {% if (v.id or "").startswith("inchikey:") %}
+      <Field label="InChI key" v={{ v.id.removeprefix("inchikey:") }} />
+      {% endif %}
+      {% if v.custom_fields %}
+      <dd class="mbdb-detailed-nested"><DetailedFields data={{ v.custom_fields }} /></dd>
+      {% endif %}
+    {% elif not (v | reject("in", ["value", "unit"]) | list) %}
+    <Field label={{ label }}><ValueUnit v={{ v }} /></Field>
+    {% elif not (v | reject("in", ["id", "name"]) | list) %}
+    <Field label={{ label }} v={{ v.name }} />
+    {% else %}
+    <dt class="ui field-label mbdb-detailed-title">{{ label }}</dt>
+    <dd class="mbdb-detailed-nested"><DetailedFields data={{ v }} /></dd>
+    {% endif %}
+  {% elif v is sequence and v is not string %}
+    {% if v[0] is mapping and "name" in v[0] and not (v[0] | reject("in", ["id", "name"]) | list) %}
+    <Field label={{ label }}>{% for item in v %}<div>{{ item.name }}</div>{% endfor %}</Field>
+    {% elif v[0] is mapping %}
+      {% for item in v %}
+      <dt class="ui field-label mbdb-detailed-title">{{ label.removesuffix("s") }} {{ loop.index }}</dt>
+      <dd class="mbdb-detailed-nested"><DetailedFields data={{ item }} /></dd>
+      {% endfor %}
+    {% else %}
+    <Field label={{ label }}>{% for item in v %}<div>{{ item }}</div>{% endfor %}</Field>
+    {% endif %}
+  {% elif v is boolean %}
+  <Field label={{ label }} v={{ _("Yes") if v else _("No") }} />
+  {% elif key == "value" %}
+  <Field label={{ label }}><ValueUnit v={{ data }} /></Field>
+  {% elif key == "sequence" and v %}
+  <Field label={{ label }}><span class="mbdb-record-sequence">{% for chunk in v | batch(10) %}{{ chunk | join }} {% endfor %}</span></Field>
+  {% elif key == "copy_number" and v is number %}
+  <Field label={{ label }} v={{ v | int if v == v | int else v }} />
+  {% else %}
+  <Field label={{ label }} v={{ v }} />
+  {% endif %}
+  {% endfor %}
+</dl>

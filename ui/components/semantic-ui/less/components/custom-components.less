@@ -441,6 +441,19 @@ button.mbdb-link.mbdb-error-text {
 .mbdb-record-subsection > .mbdb-record-subsection {
   margin-left: 1rem;
 }
+.ui.basic.segment.mbdb-record-tab {
+  margin: 0;
+  padding: 0;
+}
+// nested fields take the full width, deep levels would not fit beside the labels
+.mbdb-name-value-list > .mbdb-detailed-title,
+.mbdb-name-value-list > .mbdb-detailed-nested {
+  grid-column: 1 / -1;
+}
+.mbdb-name-value-list > .mbdb-detailed-nested {
+  margin-left: 1rem;
+  overflow-wrap: anywhere;
+}
 .mbdb-record-sequence {
   display: block;
   max-width: 54.5ch;
