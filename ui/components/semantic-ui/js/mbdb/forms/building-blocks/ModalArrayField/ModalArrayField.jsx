@@ -45,7 +45,7 @@ export const ModalArrayField = ({
   renderForm,
   detailGroups,
   detailProps,
-  withNav = false,
+  navTitle,
 }) => {
   const { values } = useFormikContext();
   // review mode: no Add button or menu (and so the modal is never opened)
@@ -213,8 +213,9 @@ export const ModalArrayField = ({
           // switching keeps the edits, like Done; Cancel then reverts only
           // the item it is pressed on
           nav={
-            withNav && items.length > 1
+            navTitle && items.length > 1
               ? {
+                  title: navTitle,
                   items: items.map(itemLabel),
                   active: session.key,
                   onSelect: (index) => openEdit(index),
@@ -274,6 +275,7 @@ ModalArrayField.propTypes = {
   // extra DetailView props (exclude, requiredPaths).
   // `exclude` defaults to ["id"], the internal client uuid.
   detailProps: PropTypes.object,
-  // list all items on the left of the modal, to switch between them
-  withNav: PropTypes.bool,
+  // lists all items on the left of the modal, under this title, to switch
+  // between them
+  navTitle: PropTypes.string,
 };

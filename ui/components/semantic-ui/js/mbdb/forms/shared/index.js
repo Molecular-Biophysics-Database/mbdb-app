@@ -13,3 +13,4 @@ export * from "./Components";
 export * from "./LipidAssemblyDetails";
 export * from "./units";
 export * from "./EntityAmountTable";
+export * from "./withMethodTitle";

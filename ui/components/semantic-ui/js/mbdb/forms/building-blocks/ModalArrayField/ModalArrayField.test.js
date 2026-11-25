@@ -209,8 +209,8 @@ describe("ModalArrayField", () => {
     expect(container.textContent).toContain("No items yet");
   });
 
-  it("withNav switches between items, keeping the edits; Cancel reverts only the current item", async () => {
-    mount(entities({ withNav: true }), {
+  it("navTitle lists the items to switch between, keeping the edits; Cancel reverts only the current item", async () => {
+    mount(entities({ navTitle: "Entities of interest" }), {
       initialValues: { entities: [{ name: "A" }, { name: "B" }] },
     });
     await click(
@@ -221,6 +221,9 @@ describe("ModalArrayField", () => {
     const current = () =>
       modal().querySelector(".mbdb-modal-nav [aria-current]").textContent;
     const input = () => modal().querySelector("input");
+    expect(
+      modal().querySelector(".mbdb-modal-nav-title").textContent
+    ).toBe("Entities of interest");
     expect(current()).toBe("entity: A");
     await typeIn(input(), "A2");
     await click(modalButton("entity: B"));

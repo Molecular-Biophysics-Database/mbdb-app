@@ -15,7 +15,7 @@ import {
   TextField,
 } from "@js/mbdb/forms";
 import { MEASUREMENTS_PATH, MEASUREMENT_CONTAINERS } from "./constants";
-import { nextMeasurement } from "./measurement";
+import { describeMeasurement, nextMeasurement } from "./measurement";
 
 const MeasurementForm = ({ fieldPath }) => {
   const sample = `${fieldPath}.sample`;
@@ -86,8 +86,8 @@ const MeasurementsSectionComponent = () => {
       fieldPath={MEASUREMENTS_PATH}
       minItems={1}
       withIds
-      withNav
-      itemLabel={(v) => v?.name || "New measurement"}
+      navTitle="Measurements"
+      itemLabel={(v) => describeMeasurement(v ?? {}) || "New measurement"}
       newItemOptions={[
         {
           label: "measurement",

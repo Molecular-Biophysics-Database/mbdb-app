@@ -115,7 +115,8 @@ export const EditModal = ({
         <Modal.Content scrolling>
           {nav ? (
             <div className="mbdb-modal-layout">
-              <nav className="mbdb-modal-nav" aria-label="Items">
+              <nav className="mbdb-modal-nav" aria-label={nav.title}>
+                <div className="mbdb-modal-nav-title">{nav.title}</div>
                 {nav.items.map((label, index) => (
                   <button
                     // rows can be neither reordered nor removed while open
@@ -167,6 +168,7 @@ EditModal.propTypes = {
   scrollToError: PropTypes.bool,
   // the sibling items, listed on the left to switch between them
   nav: PropTypes.shape({
+    title: PropTypes.string.isRequired,
     items: PropTypes.arrayOf(PropTypes.node).isRequired,
     active: PropTypes.number.isRequired,
     onSelect: PropTypes.func.isRequired,

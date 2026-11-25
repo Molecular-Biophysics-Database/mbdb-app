@@ -25,6 +25,7 @@ import {
   ResultsSection,
   entityHasField,
   requiredCompletion,
+  withMethodTitle,
 } from "@js/mbdb/forms";
 import { DataAnalysisSection } from "./sections/DataAnalysis";
 import { FilesQuota, FilesSection } from "./sections/Files";
@@ -78,6 +79,7 @@ const sections = [
     requiredCompletion({ ...props, belongs: entityHasField }),
   sectionCompletionThreshold: 1,
   ...section,
+  component: withMethodTitle("MST", section.component),
 }));
 
 // Above the form, as in mbdb-app-rdm-12 (dark, without icons).

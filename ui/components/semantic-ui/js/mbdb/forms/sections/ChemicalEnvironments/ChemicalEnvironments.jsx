@@ -81,11 +81,11 @@ ConstituentForm.propTypes = {
   types: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-const ConstituentList = ({ fieldPath, types, minItems, noun }) => (
+const ConstituentList = ({ fieldPath, types, minItems, noun, navTitle }) => (
   <ModalArrayField
     fieldPath={fieldPath}
     minItems={minItems}
-    withNav
+    navTitle={navTitle}
     itemLabel={(v) => v?.name || `New ${noun}`}
     newItemOptions={types.map((type) => ({
       label: types.length > 1 ? type : noun,
@@ -105,6 +105,7 @@ ConstituentList.propTypes = {
   types: PropTypes.arrayOf(PropTypes.string).isRequired,
   minItems: PropTypes.number,
   noun: PropTypes.string.isRequired,
+  navTitle: PropTypes.string.isRequired,
 };
 
 const EnvironmentForm = ({ fieldPath }) => (
@@ -117,12 +118,14 @@ const EnvironmentForm = ({ fieldPath }) => (
       fieldPath={`${fieldPath}.constituents`}
       types={ENTITY_TYPE_ORDER}
       noun="constituent"
+      navTitle="Constituents"
     />
     <ConstituentList
       fieldPath={`${fieldPath}.solvent`}
       types={["Chemical"]}
       minItems={1}
       noun="solvent"
+      navTitle="Solvent"
     />
     <StringTableField
       fieldPath={`${fieldPath}.additional_specifications`}
@@ -159,7 +162,7 @@ export const ChemicalEnvironmentsSectionComponent = ({ formConfig }) => {
           fieldPath={CHEMICAL_ENVIRONMENTS_PATH}
           minItems={1}
           withIds
-          withNav
+          navTitle="Chemical environments"
           itemLabel={(v) => v?.name || "New chemical environment"}
           newItemOptions={[{ label: "chemical environment", value: {} }]}
           columns={[
