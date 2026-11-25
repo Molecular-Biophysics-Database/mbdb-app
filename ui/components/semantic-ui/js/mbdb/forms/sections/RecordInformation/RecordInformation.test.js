@@ -285,24 +285,54 @@ describe("Depositors", () => {
   const depositorInput = (person, name) =>
     document.getElementById(`${DEPOSITORS_PATH}.${person}.${name}`);
 
-  it("renders the Depositor and Principal contact groups with the person fields", () => {
+  it("shows Add buttons and opens the person form in a modal", async () => {
     container = render(undefined);
-    expect(container.textContent).toContain("Depositor");
-    expect(container.textContent).toContain("Principal contact");
+    expect(depositorInput("depositor", "given_name")).toBeNull();
+    expect(addTextBtn("Add Principal contact")).toBeDefined();
+    await clickOn(addTextBtn("Add Depositor"));
     expect(depositorInput("depositor", "given_name")).not.toBeNull();
     expect(depositorInput("depositor", "family_name")).not.toBeNull();
-    expect(depositorInput("principal_contact", "given_name")).not.toBeNull();
     // the ORCID boxes and the affiliations plus button
-    expect(container.querySelectorAll(".mbdb-orcid-box")).toHaveLength(32);
-    expect(container.textContent).toContain("Identifiers");
-    expect(addTextBtn("Add affiliation")).toBeDefined();
+    expect(modal().querySelectorAll(".mbdb-orcid-box")).toHaveLength(16);
+    expect(modal().textContent).toContain("Identifiers");
+    expect(modal().textContent).toContain("Add affiliation");
+  });
+
+  it("a stored depositor shows its names and edits through the modal", async () => {
+    container = render(
+      {
+        metadata: {
+          general_parameters: {
+            depositors: {
+              depositor: { given_name: "Max", family_name: "Mustermann" },
+            },
+          },
+        },
+      },
+      {},
+      `${DEPOSITORS_PATH}.depositor`
+    );
+    expect(container.querySelector("tbody tr").textContent).toContain(
+      "Mustermann"
+    );
+    await clickOn(editBtn());
+    await typeInto(depositorInput("depositor", "given_name"), "Moritz");
+    await clickOn(modalButton("Cancel"));
+    expect(readProbe(container)).toEqual({
+      given_name: "Max",
+      family_name: "Mustermann",
+    });
   });
 
   it("writes the typed depositor and principal contact names", async () => {
     container = render(undefined, {}, DEPOSITORS_PATH);
+    await clickOn(addTextBtn("Add Depositor"));
     await typeInto(depositorInput("depositor", "given_name"), "Max");
     await typeInto(depositorInput("depositor", "family_name"), "Mustermann");
+    await clickOn(modalButton("Done"));
+    await clickOn(addTextBtn("Add Principal contact"));
     await typeInto(depositorInput("principal_contact", "given_name"), "Josiah");
+    await clickOn(modalButton("Done"));
     expect(readProbe(container)).toEqual({
       depositor: { given_name: "Max", family_name: "Mustermann" },
       principal_contact: { given_name: "Josiah" },
@@ -313,13 +343,15 @@ describe("Depositors", () => {
     const DEPOSITOR_ORCID = "0000-0002-1825-0097";
 
     const orcidBoxes = () =>
-      [...container.querySelectorAll(".mbdb-orcid-box input")].slice(0, 16);
+      [
+        ...modal().querySelectorAll(".mbdb-orcid-box input"),
+      ];
     const prefillBtn = () =>
-      [...container.querySelectorAll("button")].find((b) =>
+      [...modal().querySelectorAll("button")].find((b) =>
         b.textContent.includes("Prefill from ORCID")
       );
     const removeBtn = () =>
-      [...container.querySelectorAll("button")].find(
+      [...modal().querySelectorAll("button")].find(
         (b) => b.textContent === "Remove"
       );
 
@@ -352,6 +384,7 @@ describe("Depositors", () => {
 
     it("shows no Prefill button until all 16 digits are typed", async () => {
       container = render(undefined, {}, `${DEPOSITORS_PATH}.depositor`);
+      await clickOn(addTextBtn("Add Depositor"));
       await typeOrcid("000000021825009");
       expect(prefillBtn()).toBeUndefined();
       await typeInto(orcidBoxes()[15], "7");
@@ -361,6 +394,7 @@ describe("Depositors", () => {
     it("Prefill fetches the ORCID API and fills the names and identifier", async () => {
       global.fetch = jest.fn().mockResolvedValue(orcidResponse(carberry));
       container = render(undefined, {}, `${DEPOSITORS_PATH}.depositor`);
+      await clickOn(addTextBtn("Add Depositor"));
       await typeOrcid(DEPOSITOR_ORCID.replace(/-/g, ""));
       await clickOn(prefillBtn());
       expect(global.fetch).toHaveBeenCalledWith(
@@ -377,12 +411,13 @@ describe("Depositors", () => {
     it("a failed lookup shows the error and writes nothing", async () => {
       global.fetch = jest.fn().mockResolvedValue(orcidResponse({}, false, 404));
       container = render(undefined, {}, `${DEPOSITORS_PATH}.depositor`);
+      await clickOn(addTextBtn("Add Depositor"));
       await typeOrcid(DEPOSITOR_ORCID.replace(/-/g, ""));
       await clickOn(prefillBtn());
-      expect(container.textContent).toContain(
+      expect(modal().textContent).toContain(
         `No ORCID record for ${DEPOSITOR_ORCID}`
       );
-      expect(readProbe(container)).toBeNull();
+      expect(readProbe(container)).toEqual({});
     });
 
     it("a stored ORCID fills the boxes and Remove clears the prefill", async () => {
@@ -403,6 +438,7 @@ describe("Depositors", () => {
         {},
         `${DEPOSITORS_PATH}.depositor`
       );
+      await clickOn(editBtn());
       expect(
         orcidBoxes()
           .map((b) => b.value)
@@ -442,7 +478,8 @@ describe("Depositors", () => {
     ]);
     // the summary row shows both name columns
     const cells = [
-      ...container.querySelector("tbody tr").querySelectorAll("td"),
+      // the first row is the depositor's
+      ...container.querySelectorAll("tbody tr")[1].querySelectorAll("td"),
     ].map((td) => td.textContent.trim());
     expect(cells).toContain("Jane");
     expect(cells).toContain("Doe");
@@ -487,14 +524,24 @@ describe("Depositors", () => {
       {},
       `${DEPOSITORS_PATH}.depositor.affiliations`
     );
-    await clickOn(addTextBtn("Add affiliation"));
-    expect(modal().textContent).toContain("Affiliation");
-    await clickOn(modal().querySelector('[data-testid="pick"]'));
-    await clickOn(modalButton("Done"));
+    await clickOn(addTextBtn("Add Depositor"));
+    await clickOn(
+      [...modal().querySelectorAll("button")].find(
+        (b) => b.textContent === "Add affiliation"
+      )
+    );
+    const pick = document.querySelector('[data-testid="pick"]');
+    const affiliationModal = pick.closest(".ui.modal");
+    await clickOn(pick);
+    await clickOn(
+      [...affiliationModal.querySelectorAll("button")].find((b) =>
+        b.textContent.startsWith("Done")
+      )
+    );
     expect(readProbe(container)).toEqual([{ id: "02hpadn98" }]);
   });
 
-  it("a stored affiliation shows its title in the summary row", () => {
+  it("a stored affiliation shows its title in the person modal", async () => {
     setFakeVocabulary({
       "affiliations/02hpadn98": { title: "Masaryk University" },
     });
@@ -507,7 +554,8 @@ describe("Depositors", () => {
         },
       },
     });
-    expect(container.textContent).toContain("Masaryk University");
+    await clickOn(editBtn());
+    expect(modal().textContent).toContain("Masaryk University");
   });
 });
 

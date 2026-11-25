@@ -4,6 +4,7 @@ import Overridable from "react-overridable";
 import { buildUID } from "react-searchkit";
 import { useReviewMode } from "mbdb-semantic-ui-react";
 import { TextField } from "@js/mbdb/forms/building-blocks/TextField";
+import { requiredCompletion } from "@js/mbdb/forms/building-blocks/sectionCompletion";
 import { AssociatedPublication } from "./AssociatedPublication";
 import { Depositors } from "./Depositors";
 import { FundingReferences } from "./FundingReferences";
@@ -55,6 +56,13 @@ export const RecordInformationSection = {
     DEPOSITORS_PATH,
     FUNDING_REFERENCES_PATH,
   ],
+  // record information is polymorphic (access rights), so its title has to be
+  // asked for by name; the other required fields are not in the form
+  sectionCompletion: ({ includesPaths, ...rest }) =>
+    requiredCompletion({
+      ...rest,
+      includesPaths: [...includesPaths, `${RECORD_INFORMATION_PATH}.title`],
+    }),
 };
 
 export {
