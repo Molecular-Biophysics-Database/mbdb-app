@@ -451,3 +451,52 @@ button.mbdb-link.mbdb-error-text {
 .mbdb-form-actions {
   margin-bottom: 1.5rem;
 }
+
+// Record search result (the old mbdb-app-rdm-12 result list item)
+.mbdb-result {
+  margin: 2.5rem 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #023850;
+  color: #023850;
+  font-size: 1.25rem;
+
+  a {
+    color: inherit;
+  }
+  h2 {
+    margin: 0;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+  }
+  @media all and (max-width: 767px) {
+    margin: 2.5rem 1.5rem;
+  }
+}
+.mbdb-result-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  margin-bottom: 1rem;
+
+  @media all and (max-width: 1023px) {
+    flex-direction: column;
+  }
+}
+.mbdb-result-id {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.mbdb-result-row {
+  margin: 0.5rem 0;
+}
+.mbdb-result-label {
+  margin-right: 0.25rem;
+  font-weight: 500;
+  color: @mbdbLabelColor;
+}
+.mbdb-result-state {
+  text-transform: capitalize;
+}
