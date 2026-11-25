@@ -13,13 +13,14 @@ from oarepo_model.presets.internal_relations import internal_relations_preset
 from oarepo_model.presets.ui import ui_preset
 from oarepo_model.presets.custom_fields import custom_fields_preset
 from oarepo_model.api import model
-from oarepo_model.customizations import AddMetadataExport
+from oarepo_model.customizations import AddMetadataExport, AddToList, PrependMixin
 from oarepo_model.datatypes.registry import from_yaml
 from oarepo_model.presets.records_resources import records_resources_preset
 from oarepo_communities.model.presets import communities_preset
 from oarepo_requests.model.presets.requests import requests_preset
 from oarepo_workflows.model.presets import workflows_preset
 
+from .files import FileMetadataComponent, FileMetadataServiceMixin, MstFileServiceConfigMixin
 from .serializers import DataCiteJSONSerializer
 
 # TODO: Consider letting users add an image/icon for the model,
@@ -50,6 +51,11 @@ mst_model = model(
         # help with using customizations, please contact us at support@cesnet.cz and
         # specify the keyword "Invenio repository development" inside the subject or
         # mail body of the request.
+
+        PrependMixin("FileServiceConfig", MstFileServiceConfigMixin),
+        PrependMixin("DraftFileServiceConfig", MstFileServiceConfigMixin),
+        PrependMixin("RecordService", FileMetadataServiceMixin),
+        AddToList("record_service_components", FileMetadataComponent),
 
         # export for datacite
         AddMetadataExport(

@@ -2,6 +2,7 @@ from oarepo_ui.resources import BabelComponent
 from oarepo_ui.resources.components import (
     AllowedHtmlTagsComponent,
     FilesComponent,
+    FilesQuotaAndTransferComponent,
     PermissionsComponent,
 
 )
@@ -41,6 +42,7 @@ class MstUIResourceConfig(RecordsUIResourceConfig):
         BabelComponent,
         PermissionsComponent,
         FilesComponent,
+        FilesQuotaAndTransferComponent,
     ]
 
 
