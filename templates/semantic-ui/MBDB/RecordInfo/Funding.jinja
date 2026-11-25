@@ -1,0 +1,6 @@
+{# def funding_refs #}
+
+{% for ref in as_array(funding_refs) -%}
+{%- if not loop.first %}, {% endif -%}
+{{ ui_value(ref.award.title) }} ({{ ui_value(ref.funder.name) }}: {{ ui_value(ref.award.number) }})
+{%- endfor %}

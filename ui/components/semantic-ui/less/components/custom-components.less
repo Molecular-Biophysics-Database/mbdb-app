@@ -237,16 +237,11 @@ label.helptext.mbdb-field-help-under-label {
   border-left: 2px solid rgba(34, 36, 38, 0.15);
 }
 
-// PersonForm (Depositor, Principal contact, a contributor): a person is a
-// few short fields, so its nested card does not stretch over the whole form
-// width. The name row stacked three bottom margins (help, row, oarepo's
+// PersonForm (Depositor, Principal contact, a contributor): the name row stacked three bottom margins (help, row, oarepo's
 // `!important` 2rem on every tab-form field) into a big gap before the
 // Identifiers; keep only a 1rem gap under the name help texts. The field rule
 // needs `!important` (and a longer selector) to beat oarepo's
 // `.tab-form .tab-content .field`.
-.ui.segment.basic.mbdb-nested:has(> .mbdb-person) {
-  max-width: 48rem;
-}
 .ui.form .mbdb-person > .fields {
   margin-bottom: 0;
 }
@@ -378,4 +373,81 @@ button.mbdb-link.mbdb-error-text {
 .mbdb-orcid .mbdb-orcid-group > .ui.input.mbdb-orcid-box > input:focus {
   z-index: 1;
   border-color: @mbdbOrcidFocusColor;
+}
+
+// Record page, ported from mbdb-app-rdm-12 (Tailwind there)
+.mbdb-record-status {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid @mbdbLabelColor;
+  color: @mbdbLabelColor;
+  font-size: 1.85rem;
+  font-weight: 500;
+}
+.mbdb-record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.mbdb-record-header > h1 {
+  flex: 1 1 20rem;
+  margin: 0;
+  font-weight: 500;
+}
+.mbdb-name-value-list {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0.5rem 1rem;
+}
+.mbdb-name-value-list > dt {
+  color: @mbdbLabelColor;
+  font-weight: 700;
+}
+.mbdb-name-value-list > dd {
+  margin: 0;
+}
+.mbdb-record-header ~ .mbdb-name-value-list .mbdb-person-name img {
+  display: inline-block;
+  width: 15px;
+  vertical-align: middle;
+  margin-left: 0.2em;
+}
+@media (max-width: 767px) {
+  .mbdb-name-value-list {
+    grid-template-columns: 1fr;
+  }
+}
+.mbdb-record-section {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background: #edf5f8;
+}
+.mbdb-record-section > h2 {
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+}
+.mbdb-record-subsection {
+  margin: 1.5rem 0;
+}
+.mbdb-record-subsection > h3 {
+  margin: 0 0 0.75rem;
+  font-weight: 500;
+}
+.mbdb-record-subsection > dl,
+.mbdb-record-subsection > .mbdb-record-subsection {
+  margin-left: 1rem;
+}
+.mbdb-record-sequence {
+  display: block;
+  max-width: 54.5ch;
+  font-family: monospace;
+}
+
+// The buttons above the deposit form
+.mbdb-form-actions {
+  margin-bottom: 1.5rem;
 }

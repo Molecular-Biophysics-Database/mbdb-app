@@ -1,0 +1,13 @@
+{# def environments #}
+
+{% for environment in environments %}
+<SubSection title={{ "Chemical environment " ~ loop.index }}>
+  <dl class="mbdb-name-value-list">
+    <Field label="Name" v={{ environment.name }} />
+    {% if environment.constituents %}
+    <Field label="Constituents">{% for c in environment.constituents %}<div>{{ c.name }} <ValueUnit v={{ c.concentration }} /></div>{% endfor %}</Field>
+    {% endif %}
+    <Field label="pH" v={{ environment.ph }} />
+  </dl>
+</SubSection>
+{% endfor %}

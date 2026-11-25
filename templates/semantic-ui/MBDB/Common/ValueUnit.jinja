@@ -1,0 +1,2 @@
+{# def v #}
+{% if v and v.value is defined %}{{ v.value }}{{ " " ~ v.unit if v.unit }}{% endif %}

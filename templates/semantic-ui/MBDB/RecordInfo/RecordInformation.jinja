@@ -1,0 +1,20 @@
+{# def d #}
+
+{% set gp = d.metadata.general_parameters %}
+{% set info = gp.record_information %}
+{# IField hides an object none of whose children has a UI value, hence value() for objects #}
+<dl class="mbdb-name-value-list">
+  {% if ui_value(d.state) == "published" %}
+  <IField d={{ d.links.doi }} label="DOI"><a href="{{ ui_value(d.links.doi) }}">{{ ui_value(d.links.doi) }}</a></IField>
+  {% else %}
+  {% set doi = "https://doi.org/10.71479/" ~ ui_value(d.id) %}
+  <IField d={{ d.id }} label={{ _("Expected DOI") }}><a href="{{ doi }}">{{ doi }}</a></IField>
+  {% endif %}
+  <IField d={{ d.id }} label={{ _("Record ID") }} />
+  <IField d={{ info.date_available }} label={{ _("Publication date") }}>{{ ui_value(info.date_available, "l10n_long") }}</IField>
+  {% if value(gp.depositors) %}<IBaseField label={{ ui_label(gp.depositors) }}><Depositors depositors={{ gp.depositors }} /></IBaseField>{% endif %}
+  {% if value(gp.associated_publication) %}<IBaseField label={{ ui_label(gp.associated_publication) }}>{{ value(gp.associated_publication).type }}, {{ value(gp.associated_publication).title }}</IBaseField>{% endif %}
+  {% if value(info.license) %}<IBaseField label={{ ui_label(info.license) }}><License license={{ info.license }} /></IBaseField>{% endif %}
+  {% if value(gp.funding_references) %}<IBaseField label={{ ui_label(gp.funding_references) }}><Funding funding_refs={{ gp.funding_references }} /></IBaseField>{% endif %}
+  <IField d={{ gp.method }} />
+</dl>

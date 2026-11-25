@@ -1,0 +1,15 @@
+{# def d, export_url, edit_url=None #}
+
+{# Status, title and buttons of the record #}
+{% if ui_value(d.state) in ("draft", "submitted", "accepted") %}
+<div class="mbdb-record-status">{{ ui_value(d.state) | capitalize }}</div>
+{% endif %}
+<div class="mbdb-record-header">
+  <h1>{{ ui_value(d.metadata.general_parameters.record_information.title) or _("(Record has no title)") }}</h1>
+  <div>
+    <a class="ui primary button" href="{{ export_url }}">{{ _("Download") }}</a>
+    {% if edit_url %}
+    <a class="ui primary button" href="{{ edit_url }}">{{ _("Edit") }}</a>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,15 @@
+{%- from "invenio_app_rdm/records/macros/files.html" import file_list_box, preview_file_box with context %}
+{%- set completed = files | order_entries | selectattr("status", "equalto", "completed") | list if files else [] %}
+<Section title={{ ("File (%d)" if completed | length == 1 else "Files (%d)") | format(completed | length) }}>
+  {% if completed %}
+  {% if completed | has_previewable_files %}
+  {{ preview_file_box(completed | select_preview_file(default_preview=record_ui["files"]["default_preview"]), record_ui["id"], is_preview, record, include_deleted) }}
+  {% endif %}
+  {{ file_list_box(completed, record_ui["id"], is_preview, include_deleted, record, permissions) }}
+  <dl class="mbdb-name-value-list">
+    {% for file in completed if file.metadata %}
+    <Field label={{ file.metadata.context }}>{{ file.key }}{{ ": " ~ file.metadata.description if file.metadata.description }}</Field>
+    {% endfor %}
+  </dl>
+  {% endif %}
+</Section>

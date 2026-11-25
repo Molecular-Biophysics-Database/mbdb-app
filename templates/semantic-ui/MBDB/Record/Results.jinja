@@ -1,0 +1,14 @@
+{# def results #}
+
+{% for result in results %}
+<SubSection title={{ "Result " ~ loop.index }}>
+  <dl class="mbdb-name-value-list">
+    <Field label="Name" v={{ (result.name or "") | truncate(100) }} />
+    <Field label="Value"><ValueUnit v={{ result }} />{% set e = result.value_error %}{% if e %} (+{{ e.upper }} -{{ e.lower }}){{ " %" if e.is_relative }}{% endif %}</Field>
+    <Field label="Result type" v={{ result.type }} />
+    {% for involved in result.entities_involved or [] %}
+    <Field label={{ "Entity " ~ loop.index }}>{{ (involved.entity or {}).name }}{% if involved.copy_number is defined %} ({{ _("copy number") }} {{ involved.copy_number }}){% endif %}</Field>
+    {% endfor %}
+  </dl>
+</SubSection>
+{% endfor %}

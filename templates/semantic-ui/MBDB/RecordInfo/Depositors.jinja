@@ -1,0 +1,9 @@
+{# def depositors #}
+
+{# the depositor can also be the principal contact: then the name is shown once, with all marks #}
+{# raw values: as_array() is empty for items that have no UI serialization #}
+{% set depositor = value(depositors.depositor) %}
+{% set principal = value(depositors.principal_contact) %}
+{% if depositor %}<Person person={{ depositor }} principal={{ depositor == principal }} />{% endif %}
+{%- for person in value(depositors.contributors) or [] -%}, <Person person={{ person }} />{%- endfor -%}
+{%- if principal and principal != depositor -%}{{ ", " if depositor }}<Person person={{ principal }} principal={{ true }} />{%- endif -%}
