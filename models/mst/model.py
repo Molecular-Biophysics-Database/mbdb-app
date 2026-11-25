@@ -21,6 +21,7 @@ from oarepo_requests.model.presets.requests import requests_preset
 from oarepo_workflows.model.presets import workflows_preset
 
 from ..facets import GENERAL_PARAMETERS_FACETS
+from ..text_search import TEXT_SEARCH_CUSTOMIZATIONS, TEXT_SEARCH_TYPES
 from .files import FileMetadataComponent, FileMetadataServiceMixin, MstFileServiceConfigMixin
 from .serializers import DataCiteJSONSerializer
 
@@ -40,6 +41,7 @@ mst_model = model(
         internal_relations_preset,
     ],
     types=[
+        TEXT_SEARCH_TYPES,
         from_yaml("../general_parameters-definitions-rdm.yaml", __file__),
         from_yaml("mst-metadata.yaml", __file__),
         from_yaml("mst-definitions.yaml", __file__),
@@ -61,6 +63,7 @@ mst_model = model(
         AddToDictionary("RecordFacets", GENERAL_PARAMETERS_FACETS),
         # the user dashboard's side panel shows only these
         AddToDictionary("DraftFacetGroups", {"default": list(GENERAL_PARAMETERS_FACETS)}),
+        *TEXT_SEARCH_CUSTOMIZATIONS,
 
         # export for datacite
         AddMetadataExport(
