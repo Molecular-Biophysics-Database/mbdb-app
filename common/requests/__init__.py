@@ -4,8 +4,11 @@ from .publish_approved import PublishApprovedDraftRequestType
 from .review import (
     ReviewAcceptNotificationBuilder,
     ReviewChangedMetadataRequestType,
+    ReviewDeclineNotificationBuilder,
     ReviewDraftRequestType,
     ReviewNewVersionRequestType,
+    ReviewSubmitCreatorNotificationBuilder,
+    ReviewSubmitNotificationBuilder,
 )
 
 REQUEST_TYPES = [
@@ -16,5 +19,11 @@ REQUEST_TYPES = [
 ]
 
 NOTIFICATION_BUILDERS = {
-    ReviewAcceptNotificationBuilder.type: ReviewAcceptNotificationBuilder,
+    builder.type: builder
+    for builder in (
+        ReviewSubmitNotificationBuilder,
+        ReviewSubmitCreatorNotificationBuilder,
+        ReviewAcceptNotificationBuilder,
+        ReviewDeclineNotificationBuilder,
+    )
 }
