@@ -7,13 +7,17 @@ marshmallow schema mixins registered in the model YAML through
 
 from __future__ import annotations
 
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import marshmallow
 from flask import current_app
+from invenio_rdm_records.services.schemas.metadata import FundingSchema
 from invenio_search import current_search_client
 from invenio_search.utils import build_alias_name
 from invenio_vocabularies.records.api import Vocabulary
+
+if TYPE_CHECKING:
+    from collections.abc import Callable
 
 
 def init_vocabularies_custom_fields_mapping() -> None:
@@ -50,24 +54,12 @@ def ensure_affiliation_id(value: dict[str, Any]) -> dict[str, Any]:
     if not value.get("id"):
         return value
 
-    # Imported here: they need the application context, which exists at load time.
-    from invenio_access.permissions import system_identity
-    from invenio_pidstore.errors import PIDDoesNotExistError
-    from sqlalchemy.exc import NoResultFound
-
+    # Imported here, like everything below that needs the application context.
     from common.ror import RORError, RORNotFoundError, get_ror
 
     vocabulary_id = value["id"]
-    # The affiliations vocabulary is Invenio's built-in one, with its own service.
-    affiliations_service = current_app.extensions["invenio-vocabularies"].affiliations_service
     try:
-        affiliations_service.read(system_identity, vocabulary_id)
-        return value
-    except (PIDDoesNotExistError, NoResultFound):
-        pass
-
-    try:
-        payload = get_ror(vocabulary_id)
+        _ensure_vocabulary_item("affiliations", vocabulary_id, get_ror)
     except RORNotFoundError as e:
         raise marshmallow.ValidationError(
             {"affiliations": [f"Affiliation {vocabulary_id} is not in the ROR registry."]}
@@ -76,9 +68,22 @@ def ensure_affiliation_id(value: dict[str, Any]) -> dict[str, Any]:
         raise marshmallow.ValidationError(
             {"affiliations": [f"Could not fetch affiliation {vocabulary_id} from ROR."]}
         ) from e
-
-    affiliations_service.create(system_identity, payload)
     return value
+
+
+def _ensure_vocabulary_item(
+    vocabulary: str, item_id: str, fetch: Callable[[str], dict[str, Any]]
+) -> None:
+    """Create an item of a built-in vocabulary (it has its own service) unless it exists."""
+    from invenio_access.permissions import system_identity
+    from invenio_pidstore.errors import PIDDoesNotExistError
+    from sqlalchemy.exc import NoResultFound
+
+    service = getattr(current_app.extensions["invenio-vocabularies"], f"{vocabulary}_service")
+    try:
+        service.read(system_identity, item_id)
+    except (PIDDoesNotExistError, NoResultFound):
+        service.create(system_identity, fetch(item_id))
 
 
 class AutoCreateAffiliationsMixin(marshmallow.Schema):
@@ -131,3 +136,64 @@ class AutoCreateAffiliationsMixin(marshmallow.Schema):
 def _affiliation_reference(value: dict[str, Any]) -> dict[str, Any]:
     """Return ``{ id }`` for a vocabulary affiliation; a free-text one (no id) unchanged."""
     return {"id": value["id"]} if value.get("id") else value
+
+
+def _ensure_funder(funder_id: str) -> None:
+    from common.ror import RORError, RORNotFoundError, get_ror
+
+    try:
+        _ensure_vocabulary_item("funders", funder_id, get_ror)
+    except RORNotFoundError as e:
+        raise marshmallow.ValidationError(f"Funder {funder_id} is not in the ROR registry.") from e
+    except RORError as e:
+        raise marshmallow.ValidationError(f"Could not fetch funder {funder_id} from ROR.") from e
+
+
+def _ensure_award(award_id: str) -> None:
+    from common.openaire import OpenAIREError, OpenAIRENotFoundError, get_award
+
+    def fetch(item_id: str) -> dict[str, Any]:
+        payload = get_award(item_id)
+        _ensure_funder(payload["funder"]["id"])  # the award refers to it
+        return payload
+
+    try:
+        _ensure_vocabulary_item("awards", award_id, fetch)
+    except OpenAIRENotFoundError as e:
+        raise marshmallow.ValidationError(f"Award {award_id} is not in OpenAIRE.") from e
+    except OpenAIREError as e:
+        raise marshmallow.ValidationError(f"Could not fetch award {award_id} from OpenAIRE.") from e
+
+
+class AutoCreateFundingSchema(FundingSchema):
+    """Funding reference: creates a missing funder (from ROR) and award (from OpenAIRE).
+
+    A custom award (number and title, no id) is loaded as it is.
+    """
+
+    def load(self, data: Any, **kwargs: Any) -> Any:
+        """Create the missing items before the relations load; the unavailable ones are left out."""
+        errors: dict[str, list[str]] = {}
+        if isinstance(data, dict):
+            data = dict(data)
+            for key, ensure in (("funder", _ensure_funder), ("award", _ensure_award)):
+                value = data.get(key)
+                if not isinstance(value, dict) or not value.get("id"):
+                    continue
+                try:
+                    ensure(value["id"])
+                    # a saved reference comes back dereferenced, its other keys are not loadable
+                    data[key] = {"id": value["id"]}
+                except marshmallow.ValidationError as e:
+                    errors[key] = e.messages
+                    del data[key]
+        try:
+            loaded = super().load(data, **kwargs)
+        except marshmallow.ValidationError as e:
+            if not errors:
+                raise
+            messages = {**e.normalized_messages(), **errors}
+            raise marshmallow.ValidationError(messages, valid_data=e.valid_data) from e
+        if errors:
+            raise marshmallow.ValidationError(errors, valid_data=loaded)
+        return loaded

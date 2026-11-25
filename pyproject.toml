@@ -31,6 +31,7 @@ ui_advanced_search = "ui.advanced_search:create_blueprint"
 
 [project.entry-points."invenio_base.api_blueprints"]
 ror = "common.ror:create_blueprint"
+openaire = "common.openaire:create_blueprint"
 
 [project.entry-points."invenio_base.finalize_app"]
 ui_mst = "ui.mst:finalize_app"

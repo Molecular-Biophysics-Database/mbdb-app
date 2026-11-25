@@ -19,10 +19,13 @@ import axios from "axios";
 // Vocabularies whose ids come from a live registry and may not be in the
 // local dump yet: when the vocabulary GET fails, the item is read from the
 // registry proxy instead (same title_l10n shape). Affiliations are ROR ids
-// (picked from /api/ror/affiliations or prefilled from ORCID); they are
+// (picked from /api/ror/affiliations or prefilled from ORCID), funders are ROR
+// ids too and awards are OpenAIRE projects (/api/openaire/awards); they are
 // created in the vocabulary only when the record is saved.
 const FALLBACK_URLS = {
   affiliations: (id) => `/api/ror/affiliations/${encodeURIComponent(id)}`,
+  funders: (id) => `/api/ror/affiliations/${encodeURIComponent(id)}`,
+  awards: (id) => `/api/openaire/awards/${encodeURIComponent(id)}`,
 };
 
 // Invenio's built-in vocabularies have their own services and endpoints

@@ -580,6 +580,27 @@ describe("FundingReferences", () => {
     ]);
   });
 
+  it("picking an award sets its funder", async () => {
+    setFakeVocabularyPicks({
+      awards: {
+        id: "01pv73b02::GM26-23470M",
+        title_l10n: "A project",
+        funder: { id: "01pv73b02", name: "Czech Science Foundation" },
+      },
+    });
+    container = render(undefined, {}, FUNDING_REFERENCES_PATH);
+    await clickOn(addTextBtn("Add funding reference"));
+    const picks = [...modal().querySelectorAll('[data-testid="pick"]')];
+    await clickOn(picks[picks.length - 1]);
+    await clickOn(modalButton("Done"));
+    expect(readProbe(container)).toEqual([
+      {
+        funder: { id: "01pv73b02" },
+        award: { id: "01pv73b02::GM26-23470M" },
+      },
+    ]);
+  });
+
   it("a stored funding reference shows the funder and award titles", () => {
     setFakeVocabulary({
       "funders/05k73zm37": { title: "Academy of Finland" },
