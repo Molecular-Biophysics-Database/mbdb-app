@@ -96,18 +96,36 @@ class AutoCreateAffiliationsMixin(marshmallow.Schema):
     """
 
     def load(self, data: Any, **kwargs: Any) -> Any:
-        """Create every missing affiliation before the relation schema loads."""
+        """Create every missing affiliation before the relation schema loads.
+
+        An affiliation that can not be created is reported and left out; without ``valid_data``
+        on the error, marshmallow would drop the whole person from a saved draft.
+        """
+        errors: list[str] = []
         if isinstance(data, dict) and isinstance(data.get("affiliations"), list):
-            data = {
-                **data,
-                "affiliations": [
-                    _affiliation_reference(ensure_affiliation_id(affiliation))
-                    if isinstance(affiliation, dict)
-                    else affiliation
-                    for affiliation in data["affiliations"]
-                ],
-            }
-        return super().load(data, **kwargs)
+            affiliations = []
+            for affiliation in data["affiliations"]:
+                if not isinstance(affiliation, dict):
+                    affiliations.append(affiliation)
+                    continue
+                try:
+                    affiliations.append(_affiliation_reference(ensure_affiliation_id(affiliation)))
+                except marshmallow.ValidationError as e:
+                    errors += e.normalized_messages()["affiliations"]
+            data = {**data, "affiliations": affiliations}
+            if errors and not affiliations:
+                del data["affiliations"]
+        try:
+            loaded = super().load(data, **kwargs)
+        except marshmallow.ValidationError as e:
+            if not errors:
+                raise
+            messages = e.normalized_messages()
+            messages.setdefault("affiliations", errors)
+            raise marshmallow.ValidationError(messages, valid_data=e.valid_data) from e
+        if errors:
+            raise marshmallow.ValidationError({"affiliations": errors}, valid_data=loaded)
+        return loaded
 
 
 def _affiliation_reference(value: dict[str, Any]) -> dict[str, Any]:
