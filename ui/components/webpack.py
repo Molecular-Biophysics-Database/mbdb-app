@@ -8,6 +8,7 @@ theme = WebpackThemeBundle(
         "semantic-ui": {
             "entry": {
                 "components": "./js/custom-components.js",
+                "advanced_search": "./js/mbdb/advanced-search/index.js",
                 # Not loaded by any page. `./run.sh jstest` only searches the
                 # directories of webpack entries for tests, so without this
                 # entry the tests under js/mbdb/forms would never run.

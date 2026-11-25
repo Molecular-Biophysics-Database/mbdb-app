@@ -19,7 +19,10 @@ class CopyToKeywordDataType(KeywordDataType):
     def create_mapping(self, element):
         mapping = super().create_mapping(element)
         copy_to = element.get("mapping", {}).get("copy_to")
-        return {**mapping, "copy_to": copy_to} if copy_to else mapping
+        if not copy_to:
+            return mapping
+        # .words: "contains word" in the advanced search
+        return {**mapping, "copy_to": copy_to, "fields": {"words": {"type": "text"}}}
 
 
 TEXT_SEARCH_TYPES = {"keyword": CopyToKeywordDataType}

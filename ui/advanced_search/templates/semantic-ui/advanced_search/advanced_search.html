@@ -1,0 +1,21 @@
+{% set title = _("Advanced search") %}
+{% extends config.BASE_TEMPLATE %}
+
+{%- block page_body %}
+<div class="ui container rel-mt-2 rel-mb-2">
+  <h1 class="ui header">{{ title }}</h1>
+  <div
+    id="advanced-search"
+    data-fields='{{ fields | tojson }}'
+    data-targets='{{ [
+      {"value": url_for("invenio_search_ui.search"), "text": _("All records") | string},
+      {"value": url_for("mst_ui.search"), "text": _("Only MST") | string},
+    ] | tojson }}'
+  ></div>
+</div>
+{%- endblock page_body %}
+
+{%- block javascript %}
+{{ super() }}
+{{ webpack['advanced_search.js'] }}
+{%- endblock javascript %}
