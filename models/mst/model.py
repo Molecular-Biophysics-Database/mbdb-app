@@ -20,6 +20,7 @@ from oarepo_communities.model.presets import communities_preset
 from oarepo_requests.model.presets.requests import requests_preset
 from oarepo_workflows.model.presets import workflows_preset
 
+from ..text_search import TEXT_SEARCH_CUSTOMIZATIONS, TEXT_SEARCH_TYPES
 from .files import FileMetadataComponent, FileMetadataServiceMixin, MstFileServiceConfigMixin
 from .serializers import DataCiteJSONSerializer
 
@@ -39,6 +40,7 @@ mst_model = model(
         internal_relations_preset,
     ],
     types=[
+        TEXT_SEARCH_TYPES,
         from_yaml("../general_parameters-definitions-rdm.yaml", __file__),
         from_yaml("mst-metadata.yaml", __file__),
         from_yaml("mst-definitions.yaml", __file__),
@@ -56,6 +58,8 @@ mst_model = model(
         PrependMixin("DraftFileServiceConfig", MstFileServiceConfigMixin),
         PrependMixin("RecordService", FileMetadataServiceMixin),
         AddToList("record_service_components", FileMetadataComponent),
+
+        *TEXT_SEARCH_CUSTOMIZATIONS,
 
         # export for datacite
         AddMetadataExport(
