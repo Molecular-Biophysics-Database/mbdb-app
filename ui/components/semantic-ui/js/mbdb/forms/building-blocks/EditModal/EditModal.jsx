@@ -31,6 +31,7 @@ export const EditModal = ({
   children,
   size,
   scrollToError = false,
+  nav,
 }) => {
   // the element with focus before the modal opened; focused back on close
   const triggerRef = useRef(null);
@@ -62,10 +63,34 @@ export const EditModal = ({
     el?.scrollIntoView({ block: "center" });
   }, [open, scrollToError]);
 
+  // a switched item starts at its top, not where the previous one was scrolled
+  const activeItem = nav?.active;
+  const activeItemRef = useRef(null);
+  useEffect(() => {
+    // a long list (measurements) may have the edited item out of view
+    activeItemRef.current?.scrollIntoView?.({ block: "nearest" });
+    const box = contentRef.current?.closest(".scrolling.content");
+    if (box && !scrollToError) box.scrollTop = 0;
+  }, [activeItem, scrollToError]);
+
+  // A Semantic Modal is a portal on document.body, so nothing inside it has a
+  // `.ui.form` ancestor — and every Semantic form rule needs one: field/label
+  // spacing, Form.Group columns, required asterisks, textareas. `as="div"`
+  // gives the `ui form` class without a second <form> (Enter must not submit,
+  // and a submit cannot reach the portal from the deposit form).
+  const form = (
+    <Form as="div">
+      {/* keyed: a form's local state must not leak into the switched item */}
+      <div ref={contentRef} key={activeItem}>
+        {children}
+      </div>
+    </Form>
+  );
+
   return (
     <EditModalTrail.Provider value={crumb ? [...trail, crumb] : trail}>
       <Modal
-        className="mbdb-edit-modal"
+        className={`mbdb-edit-modal${nav ? " with-nav" : ""}`}
         size={modalSize}
         open={open}
         onClose={onCancel}
@@ -88,15 +113,28 @@ export const EditModal = ({
           {header}
         </Modal.Header>
         <Modal.Content scrolling>
-          {/* A Semantic Modal is a portal on document.body, so nothing inside
-              it has a `.ui.form` ancestor — and every Semantic form rule needs
-              one: field/label spacing, Form.Group columns, required asterisks,
-              textareas. `as="div"` gives the `ui form` class without a second
-              <form> (Enter must not submit, and a submit cannot reach the
-              portal from the deposit form). */}
-          <Form as="div">
-            <div ref={contentRef}>{children}</div>
-          </Form>
+          {nav ? (
+            <div className="mbdb-modal-layout">
+              <nav className="mbdb-modal-nav" aria-label="Items">
+                {nav.items.map((label, index) => (
+                  <button
+                    // rows can be neither reordered nor removed while open
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={index}
+                    type="button"
+                    ref={index === activeItem ? activeItemRef : undefined}
+                    aria-current={index === activeItem ? "true" : undefined}
+                    onClick={() => index !== activeItem && nav.onSelect(index)}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </nav>
+              {form}
+            </div>
+          ) : (
+            form
+          )}
         </Modal.Content>
         <Modal.Actions>
           <Button type="button" onClick={onCancel}>
@@ -127,4 +165,10 @@ EditModal.propTypes = {
   children: PropTypes.node.isRequired,
   size: PropTypes.oneOf(["small", "large", "fullscreen"]),
   scrollToError: PropTypes.bool,
+  // the sibling items, listed on the left to switch between them
+  nav: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.node).isRequired,
+    active: PropTypes.number.isRequired,
+    onSelect: PropTypes.func.isRequired,
+  }),
 };

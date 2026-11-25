@@ -86,6 +86,7 @@ const MeasurementsSectionComponent = () => {
       fieldPath={MEASUREMENTS_PATH}
       minItems={1}
       withIds
+      withNav
       itemLabel={(v) => v?.name || "New measurement"}
       newItemOptions={[
         {
