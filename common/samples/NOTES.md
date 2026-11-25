@@ -6,7 +6,7 @@
 | `<id>-converted.json` | The production copy repaired for the RDM 14 model by `convert_production.py` (see below). Imports with 0 validation errors. |
 | `6g5wd-zxy65-production.json`, `-converted.json` | MST record `6g5wd-zxy65`, complete (depositors, funding). |
 | `gf2bm-df854-production.json`, `-converted.json` | MST record `gf2bm-df854`, complete (depositors, funding incl. ERDF). |
-| `mst/6g5wd-zxy65.json` | Older simplified variant of the same record: depositors and funding emptied, so the draft does not validate (missing `depositor`, `principal_contact`). |
+| `mst/6g5wd-zxy65.json` | Older simplified variant of the same record: depositors emptied, so the draft does not validate (missing `depositor`, `principal_contact`). |
 | `mst/orig_6g5wd-zxy65.json` | Unmodified older export of the same record (old MBDB format, does not import as-is). |
 | `convert_production.py` | Production parser (first version): production copy -> importable record. |
 | `upload_data.py` | Import script, see below. |
