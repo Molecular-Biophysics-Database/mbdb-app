@@ -1,0 +1,8 @@
+{# def license #}
+
+{# only web links: the url comes from the record #}
+{% if ui_value(license.url).startswith(("https://", "http://")) %}
+<a href="{{ ui_value(license.url) }}">{{ ui_value(license.name) }}</a>
+{% else %}
+{{ ui_value(license.name) }}
+{% endif %}

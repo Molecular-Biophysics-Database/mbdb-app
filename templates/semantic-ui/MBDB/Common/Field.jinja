@@ -1,0 +1,5 @@
+{# def label, v=None #}
+
+{# a label and the content or a plain value; nothing when there is neither #}
+{% if content | string | trim %}<IBaseField label={{ label }}>{{ content }}</IBaseField>
+{% elif v is defined and v is not none and v != "" %}<IBaseField label={{ label }}>{{ v }}</IBaseField>{% endif %}

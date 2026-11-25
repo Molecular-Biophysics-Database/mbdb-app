@@ -1,0 +1,11 @@
+{# def person, principal=False #}
+
+{% set affiliations = (person.affiliations or []) | map(attribute="name") | select | list %}
+<span class="mbdb-person-name">
+  {{- person.given_name }} {{ person.family_name }}
+  {%- if affiliations %}<img title="{{ affiliations | join('\n') }}" src="/static/images/affiliation-symbol.svg" alt="{{ affiliations | join(', ') }}">{% endif %}
+  {%- if principal %}<img title="Principal contact" src="/static/images/principal-contact.svg" alt="Principal contact">{% endif %}
+  {%- for id in person.identifiers or [] if id.startswith("orcid:") -%}
+  <a href="https://orcid.org/{{ id.removeprefix('orcid:') }}"><img src="/static/images/orcid-logo.png" alt="ORCID"></a>
+  {%- endfor -%}
+</span>

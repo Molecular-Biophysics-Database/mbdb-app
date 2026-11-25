@@ -5,8 +5,9 @@ description = "something"
 packages = []
 authors = []
 dependencies = [
-    "oarepo[s3,rdm]>=14.0.0b1,<15.0.0",
-    "oarepo-app[ccmm,production]>=6.3.0,<7.0.0",
+    "oarepo[s3,rdm]>=14.0.0,<15.0.0",
+    "oarepo-app[development]>=7.0.0,<8.0.0",
+    #"oarepo-model",
 ]
 requires-python = ">=3.14,<3.15"
 
@@ -14,10 +15,6 @@ requires-python = ">=3.14,<3.15"
 i18n = "i18n.webpack:theme"
 components = "ui.components.webpack:theme"
 ui_mst = "ui.mst.webpack:theme"
-ui_spr = "ui.spr.webpack:theme"
-ui_itc = "ui.itc.webpack:theme"
-ui_bli = "ui.bli.webpack:theme"
-ui_mp = "ui.mp.webpack:theme"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"
@@ -25,19 +22,17 @@ translations = "i18n"
 [project.entry-points."invenio_db.alembic"]
 repository = "common:alembic"
 
+[project.entry-points."oarepo.cli.search.init"]
+vocabularies_custom_fields = "common.vocabularies:init_vocabularies_custom_fields_mapping"
+
 [project.entry-points."invenio_base.blueprints"]
 ui_mst = "ui.mst:create_blueprint"
-ui_spr = "ui.spr:create_blueprint"
-ui_itc = "ui.itc:create_blueprint"
-ui_bli = "ui.bli:create_blueprint"
-ui_mp = "ui.mp:create_blueprint"
+
+[project.entry-points."invenio_base.api_blueprints"]
+ror = "common.ror:create_blueprint"
 
 [project.entry-points."invenio_base.finalize_app"]
 ui_mst = "ui.mst:finalize_app"
-ui_spr = "ui.spr:finalize_app"
-ui_itc = "ui.itc:finalize_app"
-ui_bli = "ui.bli:finalize_app"
-ui_mp = "ui.mp:finalize_app"
 
 [tool.uv.build-backend]
 module-root = ""
@@ -47,6 +42,18 @@ module-name = [
     "ui",
     "models",
 ]
+
+[tool.uv]
+override-dependencies = [
+    "oarepo-model>=6.2.3,<7",
+    "oarepo-rdm>=9.2.0,<10",
+    "oarepo-requests>=10.0.0,<11",
+    "oarepo-workflows>=8.0.1,<9",
+    "oarepo-related-resources>=6.1.0,<7",
+]
+
+[tool.uv.sources]
+#oarepo-model = {path = "../oarepo-lib/oarepo-model", editable = true}
 
 [build-system]
 requires = [

@@ -1,657 +1,1000 @@
-- id: ror:02bfwt286
-  props:
-    city: Melbourne
-    country: Australia
-    state: Victoria
+- country_name: Australia
+  id: 02bfwt286
+  identifiers:
+  - identifier: 02bfwt286
+    scheme: ror
+  location_name: Melbourne
+  name: Monash University
+  status: active
   title:
     en: Monash University
-- id: ror:01sf06y89
-  props:
-    city: Sydney
-    country: Australia
-    state: New South Wales
+- country_name: Australia
+  id: 01sf06y89
+  identifiers:
+  - identifier: 01sf06y89
+    scheme: ror
+  location_name: Sydney
+  name: Macquarie University
+  status: active
   title:
     en: Macquarie University
-- id: ror:00jtmb277
-  props:
-    city: Wollongong
-    country: Australia
-    state: New South Wales
+- country_name: Australia
+  id: 00jtmb277
+  identifiers:
+  - identifier: 00jtmb277
+    scheme: ror
+  location_name: Wollongong
+  name: University of Wollongong
+  status: active
   title:
     en: University of Wollongong
-- id: ror:01nfmeh72
-  props:
-    city: Hobart
-    country: Australia
-    state: Tasmania
+- country_name: Australia
+  id: 01nfmeh72
+  identifiers:
+  - identifier: 01nfmeh72
+    scheme: ror
+  location_name: Hobart
+  name: University of Tasmania
+  status: active
   title:
     en: University of Tasmania
-- id: ror:01kpzv902
-  props:
-    city: Adelaide
-    country: Australia
-    state: South Australia
+- country_name: Australia
+  id: 01kpzv902
+  identifiers:
+  - identifier: 01kpzv902
+    scheme: ror
+  location_name: Adelaide
+  name: Flinders University
+  status: active
   title:
     en: Flinders University
-- id: ror:04ttjf776
-  props:
-    city: Melbourne
-    country: Australia
-    state: Victoria
+- country_name: Australia
+  id: 04ttjf776
+  identifiers:
+  - identifier: 04ttjf776
+    scheme: ror
+  location_name: Melbourne
+  name: RMIT University
+  status: active
   title:
     en: RMIT University
-- id: ror:01rxfrp27
-  props:
-    city: Melbourne
-    country: Australia
-    state: Victoria
+- country_name: Australia
+  id: 01rxfrp27
+  identifiers:
+  - identifier: 01rxfrp27
+    scheme: ror
+  location_name: Melbourne
+  name: La Trobe University
+  status: active
   title:
     en: La Trobe University
-- id: ror:04j757h98
-  props:
-    city: Melbourne
-    country: Australia
-    state: Victoria
+- country_name: Australia
+  id: 04j757h98
+  identifiers:
+  - identifier: 04j757h98
+    scheme: ror
+  location_name: Melbourne
+  name: Victoria University
+  status: active
   title:
     en: Victoria University
-- id: ror:04r659a56
-  props:
-    city: Armidale
-    country: Australia
-    state: New South Wales
+- country_name: Australia
+  id: 04r659a56
+  identifiers:
+  - identifier: 04r659a56
+    scheme: ror
+  location_name: Armidale
+  name: University of New England
+  status: active
   title:
     en: University of New England
-- id: ror:02czsnj07
-  props:
-    city: Burwood
-    country: Australia
-    state: Victoria
+- country_name: Australia
+  id: 02czsnj07
+  identifiers:
+  - identifier: 02czsnj07
+    scheme: ror
+  location_name: Burwood
+  name: Deakin University
+  status: active
   title:
     en: Deakin University
-- id: ror:02sc3r913
-  props:
-    city: Brisbane
-    country: Australia
-    state: Queensland
+- country_name: Australia
+  id: 02sc3r913
+  identifiers:
+  - identifier: 02sc3r913
+    scheme: ror
+  location_name: Brisbane
+  name: Griffith University
+  status: active
   title:
     en: Griffith University
-- id: ror:023q4bk22
-  props:
-    city: Rockhampton
-    country: Australia
-    state: Queensland
+- country_name: Australia
+  id: 023q4bk22
+  identifiers:
+  - identifier: 023q4bk22
+    scheme: ror
+  location_name: Rockhampton
+  name: Central Queensland University
+  status: active
   title:
     en: Central Queensland University
-- id: ror:01p93h210
-  props:
-    city: Adelaide
-    country: Australia
-    state: South Australia
+- country_name: Australia
+  id: 01p93h210
+  identifiers:
+  - identifier: 01p93h210
+    scheme: ror
+  location_name: Adelaide
+  name: University of South Australia
+  status: active
   title:
     en: University of South Australia
-- id: ror:031rekg67
-  props:
-    city: Melbourne
-    country: Australia
-    state: Victoria
+- country_name: Australia
+  id: 031rekg67
+  identifiers:
+  - identifier: 031rekg67
+    scheme: ror
+  location_name: Melbourne
+  name: Swinburne University of Technology
+  status: active
   title:
     en: Swinburne University of Technology
-- id: ror:006jxzx88
-  props:
-    city: Gold Coast
-    country: Australia
-    state: Queensland
+- country_name: Australia
+  id: 006jxzx88
+  identifiers:
+  - identifier: 006jxzx88
+    scheme: ror
+  location_name: Gold Coast
+  name: Bond University
+  status: active
   title:
     en: Bond University
-- id: ror:00wfvh315
-  props:
-    city: Bathurst
-    country: Australia
-    state: New South Wales
+- country_name: Australia
+  id: 00wfvh315
+  identifiers:
+  - identifier: 00wfvh315
+    scheme: ror
+  location_name: Bathurst
+  name: Charles Sturt University
+  status: active
   title:
     en: Charles Sturt University
-- id: ror:04s1nv328
-  props:
-    city: Canberra
-    country: Australia
-    state: Australian Capital Territory
+- country_name: Australia
+  id: 04s1nv328
+  identifiers:
+  - identifier: 04s1nv328
+    scheme: ror
+  location_name: Canberra
+  name: University of Canberra
+  status: active
   title:
     en: University of Canberra
-- id: ror:05qbzwv83
-  props:
-    city: Ballarat
-    country: Australia
-    state: Victoria
+- country_name: Australia
+  id: 05qbzwv83
+  identifiers:
+  - identifier: 05qbzwv83
+    scheme: ror
+  location_name: Ballarat
+  name: Federation University
+  status: active
   title:
     en: Federation University
-- id: ror:048zcaj52
-  props:
-    city: Darwin
-    country: Australia
-    state: Northern Territory
+- country_name: Australia
+  id: 048zcaj52
+  identifiers:
+  - identifier: 048zcaj52
+    scheme: ror
+  location_name: Darwin
+  name: Charles Darwin University
+  status: active
   title:
     en: Charles Darwin University
-- id: ror:04sjbnx57
-  props:
-    city: Toowoomba
-    country: Australia
-    state: Queensland
+- country_name: Australia
+  id: 04sjbnx57
+  identifiers:
+  - identifier: 04sjbnx57
+    scheme: ror
+  location_name: Toowoomba
+  name: University of Southern Queensland
+  status: active
   title:
     en: University of Southern Queensland
-- id: ror:05ktbsm52
-  props:
-    city: Melbourne
-    country: Australia
-    state: Victoria
+- country_name: Australia
+  id: 05ktbsm52
+  identifiers:
+  - identifier: 05ktbsm52
+    scheme: ror
+  location_name: Melbourne
+  name: Burnet Institute
+  status: active
   title:
     en: Burnet Institute
-- id: ror:03trvqr13
-  props:
-    city: Sydney
-    country: Australia
-    state: New South Wales
+- country_name: Australia
+  id: 03trvqr13
+  identifiers:
+  - identifier: 03trvqr13
+    scheme: ror
+  location_name: Sydney
+  name: Victor Chang Cardiac Research Institute
+  status: active
   title:
     en: Victor Chang Cardiac Research Institute
-- id: ror:00nx6aa03
-  props:
-    city: Brisbane
-    country: Australia
-    state: Queensland
+- country_name: Australia
+  id: 00nx6aa03
+  identifiers:
+  - identifier: 00nx6aa03
+    scheme: ror
+  location_name: Brisbane
+  name: Mater Research
+  status: active
   title:
     en: Mater Research
-- id: ror:02k3cxs74
-  props:
-    city: Fitzroy
-    country: Australia
-    state: Victoria
+- country_name: Australia
+  id: 02k3cxs74
+  identifiers:
+  - identifier: 02k3cxs74
+    scheme: ror
+  location_name: Fitzroy
+  name: St Vincents Institute of Medical Research
+  status: active
   title:
     en: St Vincents Institute of Medical Research
-- id: ror:046fa4y88
-  props:
-    city: Newtown
-    country: Australia
-    state: New South Wales
+- country_name: Australia
+  id: 046fa4y88
+  identifiers:
+  - identifier: 046fa4y88
+    scheme: ror
+  location_name: Newtown
+  name: The Heart Research Institute
+  status: active
   title:
     en: The Heart Research Institute
-- id: ror:02d439m40
-  props:
-    city: Athens
-    country: Greece
+- country_name: Greece
+  id: 02d439m40
+  identifiers:
+  - identifier: 02d439m40
+    scheme: ror
+  location_name: Athens
+  name: University Mental Health Research Institute
+  status: active
   title:
     en: University Mental Health Research Institute
-- id: ror:033yfkj90
-  props:
-    city: Monterey
-    country: United States
-    state: California
+- country_name: United States
+  id: 033yfkj90
+  identifiers:
+  - identifier: 033yfkj90
+    scheme: ror
+  location_name: Monterey
+  name: Naval Postgraduate School
+  status: active
   title:
     en: Naval Postgraduate School
-- id: ror:04h08p482
-  props:
-    city: Derby
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 04h08p482
+  identifiers:
+  - identifier: 04h08p482
+    scheme: ror
+  location_name: Derby
+  name: Rolls-Royce (United Kingdom)
+  status: active
   title:
     en: Rolls-Royce (United Kingdom)
-- id: ror:01zctcs90
-  props:
-    city: London
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 01zctcs90
+  identifiers:
+  - identifier: 01zctcs90
+    scheme: ror
+  location_name: London
+  name: BP (United Kingdom)
+  status: active
   title:
     en: BP (United Kingdom)
-- id: ror:05m7zw681
-  props:
-    city: London
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 05m7zw681
+  identifiers:
+  - identifier: 05m7zw681
+    scheme: ror
+  location_name: London
+  name: Rio Tinto (United Kingdom)
+  status: active
   title:
     en: Rio Tinto (United Kingdom)
-- id: ror:017wrhq72
-  props:
-    city: Perth
-    country: Australia
-    state: Western Australia
+- country_name: Australia
+  id: 017wrhq72
+  identifiers:
+  - identifier: 017wrhq72
+    scheme: ror
+  location_name: Perth
+  name: Department of Water
+  status: active
   title:
     en: Department of Water
-- id: ror:04p8ejq70
-  props:
-    city: London
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 04p8ejq70
+  identifiers:
+  - identifier: 04p8ejq70
+    scheme: ror
+  location_name: London
+  name: BAE Systems (United Kingdom)
+  status: active
   title:
     en: BAE Systems (United Kingdom)
-- id: ror:03awtex73
-  props:
-    city: Cambridge
-    country: United States
-    state: Massachusetts
+- country_name: United States
+  id: 03awtex73
+  identifiers:
+  - identifier: 03awtex73
+    scheme: ror
+  location_name: Cambridge
+  name: Arup Group (United States)
+  status: active
   title:
     en: Arup Group (United States)
-- id: ror:00kv9pj15
-  props:
-    city: London
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 00kv9pj15
+  identifiers:
+  - identifier: 00kv9pj15
+    scheme: ror
+  location_name: London
+  name: BT Group (United Kingdom)
+  status: active
   title:
     en: BT Group (United Kingdom)
-- id: ror:03mjtdk61
-  props:
-    city: Brisbane
-    country: Australia
-    state: Queensland
+- country_name: Australia
+  id: 03mjtdk61
+  identifiers:
+  - identifier: 03mjtdk61
+    scheme: ror
+  location_name: Brisbane
+  name: Mater Health Services
+  status: active
   title:
     en: Mater Health Services
-- id: ror:04yyp8h20
-  props:
-    city: St Helens
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 04yyp8h20
+  identifiers:
+  - identifier: 04yyp8h20
+    scheme: ror
+  location_name: St Helens
+  name: Pilkington (United Kingdom)
+  status: active
   title:
     en: Pilkington (United Kingdom)
-- id: ror:022rkxt86
-  props:
-    city: London
-    country: Canada
-    state: Ontario
+- country_name: Canada
+  id: 022rkxt86
+  identifiers:
+  - identifier: 022rkxt86
+    scheme: ror
+  location_name: London
+  name: Trojan Technologies (Canada)
+  status: active
   title:
     en: Trojan Technologies (Canada)
-- id: ror:01wddqe20
-  props:
-    city: Melbourne
-    country: Australia
-    state: Victoria
+- country_name: Australia
+  id: 01wddqe20
+  identifiers:
+  - identifier: 01wddqe20
+    scheme: ror
+  location_name: Melbourne
+  name: The Alfred Hospital
+  status: active
   title:
     en: The Alfred Hospital
-- id: ror:02x2akc96
-  props:
-    city: Olympia
-    country: United States
-    state: Washington
+- country_name: United States
+  id: 02x2akc96
+  identifiers:
+  - identifier: 02x2akc96
+    scheme: ror
+  location_name: Olympia
+  name: Washington State Department of Health
+  status: active
   title:
     en: Washington State Department of Health
-- id: ror:03kwrfk72
-  props:
-    city: Adelaide
-    country: Australia
-    state: South Australia
+- country_name: Australia
+  id: 03kwrfk72
+  identifiers:
+  - identifier: 03kwrfk72
+    scheme: ror
+  location_name: Adelaide
+  name: Women's and Children's Hospital
+  status: active
   title:
     en: Women's and Children's Hospital
-- id: ror:054vpsz16
-  props:
-    city: London
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 054vpsz16
+  identifiers:
+  - identifier: 054vpsz16
+    scheme: ror
+  location_name: London
+  name: Mott Macdonald (United Kingdom)
+  status: active
   title:
     en: Mott Macdonald (United Kingdom)
-- id: ror:037mpqg03
-  props:
-    city: London
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 037mpqg03
+  identifiers:
+  - identifier: 037mpqg03
+    scheme: ror
+  location_name: London
+  name: Xstrata (United Kingdom)
+  status: active
   title:
     en: Xstrata (United Kingdom)
-- id: ror:05dg9bg39
-  props:
-    city: Nedlands
-    country: Australia
-    state: Western Australia
+- country_name: Australia
+  id: 05dg9bg39
+  identifiers:
+  - identifier: 05dg9bg39
+    scheme: ror
+  location_name: Nedlands
+  name: Pathwest Laboratory Medicine
+  status: active
   title:
     en: Pathwest Laboratory Medicine
-- id: ror:05cggb038
-  props:
-    city: Vancouver
-    country: Canada
-    state: British Columbia
+- country_name: Canada
+  id: 05cggb038
+  identifiers:
+  - identifier: 05cggb038
+    scheme: ror
+  location_name: Vancouver
+  name: Teck (Canada)
+  status: active
   title:
     en: Teck (Canada)
-- id: ror:050b31k83
-  props:
-    city: Newcastle
-    country: Australia
-    state: New South Wales
+- country_name: Australia
+  id: 050b31k83
+  identifiers:
+  - identifier: 050b31k83
+    scheme: ror
+  location_name: Newcastle
+  name: Hunter New England Local Health District
+  status: active
   title:
     en: Hunter New England Local Health District
-- id: ror:023m51b03
-  props:
-    city: Melbourne
-    country: Australia
-    state: Victoria
+- country_name: Australia
+  id: 023m51b03
+  identifiers:
+  - identifier: 023m51b03
+    scheme: ror
+  location_name: Melbourne
+  name: Cancer Council Victoria
+  status: active
   title:
     en: Cancer Council Victoria
-- id: ror:01q8f6705
-  props:
-    city: Ludwigshafen am Rhein
-    country: Germany
+- country_name: Germany
+  id: 01q8f6705
+  identifiers:
+  - identifier: 01q8f6705
+    scheme: ror
+  location_name: Ludwigshafen am Rhein
+  name: BASF (Germany)
+  status: active
   title:
     en: BASF (Germany)
-- id: ror:03t40cz74
-  props:
-    city: Elmsford
-    country: United States
-    state: New York
+- country_name: United States
+  id: 03t40cz74
+  identifiers:
+  - identifier: 03t40cz74
+    scheme: ror
+  location_name: Elmsford
+  name: Hypres (United States)
+  status: active
   title:
     en: Hypres (United States)
-- id: ror:03ebg0v16
-  props:
-    city: Omaha
-    country: United States
-    state: Nebraska
+- country_name: United States
+  id: 03ebg0v16
+  identifiers:
+  - identifier: 03ebg0v16
+    scheme: ror
+  location_name: Omaha
+  name: Boys Town
+  status: active
   title:
     en: Boys Town
-- id: ror:041b40q78
-  props:
-    city: Sydney
-    country: Australia
-    state: New South Wales
+- country_name: Australia
+  id: 041b40q78
+  identifiers:
+  - identifier: 041b40q78
+    scheme: ror
+  location_name: Sydney
+  name: Olympus (Australia)
+  status: active
   title:
     en: Olympus (Australia)
-- id: ror:04jc0r179
-  props:
-    city: Doncaster
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 04jc0r179
+  identifiers:
+  - identifier: 04jc0r179
+    scheme: ror
+  location_name: Doncaster
+  name: UK Coal
+  status: active
   title:
     en: UK Coal
-- id: ror:05gwtvp11
-  props:
-    city: Husinec
-    country: Czechia
+- country_name: Czechia
+  id: 05gwtvp11
+  identifiers:
+  - identifier: 05gwtvp11
+    scheme: ror
+  location_name: Husinec
+  name: Nuclear Research Institute Rez (Czechia)
+  status: active
   title:
     en: Nuclear Research Institute Rez (Czechia)
-- id: ror:03anc3s24
-  props:
-    city: Vienna
-    country: Austria
+- country_name: Austria
+  id: 03anc3s24
+  identifiers:
+  - identifier: 03anc3s24
+    scheme: ror
+  location_name: Vienna
+  name: Austrian Academy of Sciences
+  status: active
   title:
     en: Austrian Academy of Sciences
-- id: ror:04knbh022
-  props:
-    city: Vienna
-    country: Austria
+- country_name: Austria
+  id: 04knbh022
+  identifiers:
+  - identifier: 04knbh022
+    scheme: ror
+  location_name: Vienna
+  name: Austrian Institute of Technology
+  status: active
   title:
     en: Austrian Institute of Technology
-- id: ror:04rdtx186
-  props:
-    city: Qingdao
-    country: China
+- country_name: China
+  id: 04rdtx186
+  identifiers:
+  - identifier: 04rdtx186
+    scheme: ror
+  location_name: Qingdao
+  name: Ocean University of China
+  status: active
   title:
     en: Ocean University of China
-- id: ror:04zfme737
-  props:
-    city: Liverpool
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 04zfme737
+  identifiers:
+  - identifier: 04zfme737
+    scheme: ror
+  location_name: Liverpool
+  name: Liverpool John Moores University
+  status: active
   title:
     en: Liverpool John Moores University
-- id: ror:02qs84g94
-  props:
-    city: Piraeus
-    country: Greece
-    state: Attiki
+- country_name: Greece
+  id: 02qs84g94
+  identifiers:
+  - identifier: 02qs84g94
+    scheme: ror
+  location_name: Piraeus
+  name: University of Piraeus
+  status: active
   title:
     en: University of Piraeus
-- id: ror:03c44v465
-  props:
-    city: Bari
-    country: Italy
+- country_name: Italy
+  id: 03c44v465
+  identifiers:
+  - identifier: 03c44v465
+    scheme: ror
+  location_name: Bari
+  name: Polytechnic University of Bari
+  status: active
   title:
     en: Polytechnic University of Bari
-- id: ror:03cv38k47
-  props:
-    city: Groningen
-    country: Netherlands
-    state: Groningen
+- country_name: Netherlands
+  id: 03cv38k47
+  identifiers:
+  - identifier: 03cv38k47
+    scheme: ror
+  location_name: Groningen
+  name: University Medical Center Groningen
+  status: active
   title:
     en: University Medical Center Groningen
-- id: ror:03e8s1d88
-  props:
-    city: Potsdam
-    country: Germany
+- country_name: Germany
+  id: 03e8s1d88
+  identifiers:
+  - identifier: 03e8s1d88
+    scheme: ror
+  location_name: Potsdam
+  name: Potsdam Institute for Climate Impact Research
+  status: active
   title:
     en: Potsdam Institute for Climate Impact Research
-- id: ror:00t3r8h32
-  props:
-    city: "L\xFCbeck"
-    country: Germany
-    state: Schleswig-Holstein
+- country_name: Germany
+  id: 00t3r8h32
+  identifiers:
+  - identifier: 00t3r8h32
+    scheme: ror
+  location_name: Lübeck
+  name: University of Lübeck
+  status: active
   title:
-    en: "University of L\xFCbeck"
-- id: ror:01ee9ar58
-  props:
-    city: Nottingham
-    country: United Kingdom
-    state: Nottingham
+    en: University of Lübeck
+- country_name: United Kingdom
+  id: 01ee9ar58
+  identifiers:
+  - identifier: 01ee9ar58
+    scheme: ror
+  location_name: Nottingham
+  name: University of Nottingham
+  status: active
   title:
     en: University of Nottingham
-- id: ror:04p2pa451
-  props:
-    city: Oslo
-    country: Norway
+- country_name: Norway
+  id: 04p2pa451
+  identifiers:
+  - identifier: 04p2pa451
+    scheme: ror
+  location_name: Oslo
+  name: Institute of Transport Economics
+  status: active
   title:
     en: Institute of Transport Economics
-- id: ror:02khfkr46
-  props:
-    city: Warsaw
-    country: Poland
+- country_name: Poland
+  id: 02khfkr46
+  identifiers:
+  - identifier: 02khfkr46
+    scheme: ror
+  location_name: Warsaw
+  name: Institute of Electron Technology
+  status: active
   title:
     en: Institute of Electron Technology
-- id: ror:03fs4aq04
-  props:
-    city: Warsaw
-    country: Poland
+- country_name: Poland
+  id: 03fs4aq04
+  identifiers:
+  - identifier: 03fs4aq04
+    scheme: ror
+  location_name: Warsaw
+  name: Institute of Fundamental Technological Research
+  status: active
   title:
     en: Institute of Fundamental Technological Research
-- id: ror:01nffqt88
-  props:
-    city: Milan
-    country: Italy
+- country_name: Italy
+  id: 01nffqt88
+  identifiers:
+  - identifier: 01nffqt88
+    scheme: ror
+  location_name: Milan
+  name: Politecnico di Milano
+  status: active
   title:
     en: Politecnico di Milano
-- id: ror:05290cv24
-  props:
-    city: Naples
-    country: Italy
-    state: Campania
+- country_name: Italy
+  id: 05290cv24
+  identifiers:
+  - identifier: 05290cv24
+    scheme: ror
+  location_name: Naples
+  name: University of Naples Federico II
+  status: active
   title:
     en: University of Naples Federico II
-- id: ror:03ykbk197
-  props:
-    city: Portsmouth
-    country: United Kingdom
-    state: Portsmouth
+- country_name: United Kingdom
+  id: 03ykbk197
+  identifiers:
+  - identifier: 03ykbk197
+    scheme: ror
+  location_name: Portsmouth
+  name: University of Portsmouth
+  status: active
   title:
     en: University of Portsmouth
-- id: ror:03mstc592
-  props:
-    city: Heidelberg
-    country: Germany
+- country_name: Germany
+  id: 03mstc592
+  identifiers:
+  - identifier: 03mstc592
+    scheme: ror
+  location_name: Heidelberg
+  name: European Molecular Biology Laboratory
+  status: active
   title:
     en: European Molecular Biology Laboratory
-- id: ror:04zgvy449
-  props:
-    city: Paris
-    country: France
+- country_name: France
+  id: 04zgvy449
+  identifiers:
+  - identifier: 04zgvy449
+    scheme: ror
+  location_name: Paris
+  name: PSA Peugeot Citroën (France)
+  status: active
   title:
-    en: "PSA Peugeot Citro\xEBn (France)"
-- id: ror:02vwnat91
-  props:
-    city: London
-    country: United Kingdom
-    state: Southwark
+    en: PSA Peugeot Citroën (France)
+- country_name: United Kingdom
+  id: 02vwnat91
+  identifiers:
+  - identifier: 02vwnat91
+    scheme: ror
+  location_name: London
+  name: London South Bank University
+  status: active
   title:
     en: London South Bank University
-- id: ror:05r3f7h03
-  props:
-    city: Braunschweig
-    country: Germany
-    state: Niedersachsen
+- country_name: Germany
+  id: 05r3f7h03
+  identifiers:
+  - identifier: 05r3f7h03
+    scheme: ror
+  location_name: Braunschweig
+  name: Physikalisch-Technische Bundesanstalt
+  status: active
   title:
     en: Physikalisch-Technische Bundesanstalt
-- id: ror:00hswnk62
-  props:
-    city: Belfast
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 00hswnk62
+  identifiers:
+  - identifier: 00hswnk62
+    scheme: ror
+  location_name: Belfast
+  name: Queen's University Belfast
+  status: active
   title:
     en: Queen's University Belfast
-- id: ror:04qw24q55
-  props:
-    city: Wageningen
-    country: Netherlands
+- country_name: Netherlands
+  id: 04qw24q55
+  identifiers:
+  - identifier: 04qw24q55
+    scheme: ror
+  location_name: Wageningen
+  name: Wageningen University & Research
+  status: active
   title:
     en: Wageningen University & Research
-- id: ror:00gzkxz88
-  props:
-    city: Freising
-    country: Germany
+- country_name: Germany
+  id: 00gzkxz88
+  identifiers:
+  - identifier: 00gzkxz88
+    scheme: ror
+  location_name: Freising
+  name: Weihenstephan-Triesdorf University of Applied Sciences
+  status: active
   title:
     en: Weihenstephan-Triesdorf University of Applied Sciences
-- id: ror:012p63287
-  props:
-    city: Groningen
-    country: Netherlands
-    state: Groningen
+- country_name: Netherlands
+  id: 012p63287
+  identifiers:
+  - identifier: 012p63287
+    scheme: ror
+  location_name: Groningen
+  name: University of Groningen
+  status: active
   title:
     en: University of Groningen
-- id: ror:020268t49
-  props:
-    city: Heidenau
-    country: Germany
+- country_name: Germany
+  id: 020268t49
+  identifiers:
+  - identifier: 020268t49
+    scheme: ror
+  location_name: Heidenau
+  name: Papiertechnische Stiftung
+  status: active
   title:
     en: Papiertechnische Stiftung
-- id: ror:0249v7n71
-  props:
-    city: Budapest
-    country: Hungary
+- country_name: Hungary
+  id: 0249v7n71
+  identifiers:
+  - identifier: 0249v7n71
+    scheme: ror
+  location_name: Budapest
+  name: Institute for Computer Science and Control
+  status: active
   title:
     en: Institute for Computer Science and Control
-- id: ror:03kchyj69
-  props:
-    city: Cambridge
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 03kchyj69
+  identifiers:
+  - identifier: 03kchyj69
+    scheme: ror
+  location_name: Cambridge
+  name: The Welding Institute
+  status: active
   title:
     en: The Welding Institute
-- id: ror:037m6e306
-  props:
-    city: Melton Mowbray
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 037m6e306
+  identifiers:
+  - identifier: 037m6e306
+    scheme: ror
+  location_name: Melton Mowbray
+  name: Pera (United Kingdom)
+  status: active
   title:
     en: Pera (United Kingdom)
-- id: ror:026zzn846
-  props:
-    city: London
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 026zzn846
+  identifiers:
+  - identifier: 026zzn846
+    scheme: ror
+  location_name: London
+  name: Queen Mary University of London
+  status: active
   title:
     en: Queen Mary University of London
-- id: ror:02mw21745
-  props:
-    city: Zagreb
-    country: Croatia
+- country_name: Croatia
+  id: 02mw21745
+  identifiers:
+  - identifier: 02mw21745
+    scheme: ror
+  location_name: Zagreb
+  name: Rudjer Boskovic Institute
+  status: active
   title:
     en: Rudjer Boskovic Institute
-- id: ror:04v98kq37
-  props:
-    city: Boulogne-Billancourt
-    country: France
+- country_name: France
+  id: 04v98kq37
+  identifiers:
+  - identifier: 04v98kq37
+    scheme: ror
+  location_name: Boulogne-Billancourt
+  name: Renault (France)
+  status: active
   title:
     en: Renault (France)
-- id: ror:02edavb98
-  props:
-    city: Modena
-    country: Italy
+- country_name: Italy
+  id: 02edavb98
+  identifiers:
+  - identifier: 02edavb98
+    scheme: ror
+  location_name: Modena
+  name: Agenzia Regionale Prevenzione e Ambiente della Regione Emilia-Romagna
+  status: active
   title:
     en: Agenzia Regionale Prevenzione e Ambiente della Regione Emilia-Romagna
-- id: ror:01j5n9f07
-  props:
-    city: Budapest
-    country: Hungary
-    state: Pest
+- country_name: Hungary
+  id: 01j5n9f07
+  identifiers:
+  - identifier: 01j5n9f07
+    scheme: ror
+  location_name: Budapest
+  name: Institute for Atomic Energy Research
+  status: active
   title:
     en: Institute for Atomic Energy Research
-- id: ror:02jz4aj89
-  props:
-    city: Maastricht
-    country: Netherlands
-    state: Limburg
+- country_name: Netherlands
+  id: 02jz4aj89
+  identifiers:
+  - identifier: 02jz4aj89
+    scheme: ror
+  location_name: Maastricht
+  name: Maastricht University
+  status: active
   title:
     en: Maastricht University
-- id: ror:032v7rj83
-  props:
-    city: Zamudio
-    country: Spain
+- country_name: Spain
+  id: 032v7rj83
+  identifiers:
+  - identifier: 032v7rj83
+    scheme: ror
+  location_name: Zamudio
+  name: Robotiker
+  status: active
   title:
     en: Robotiker
-- id: ror:00f1xkb20
-  props:
-    city: Bidart
-    country: France
+- country_name: France
+  id: 00f1xkb20
+  identifiers:
+  - identifier: 00f1xkb20
+    scheme: ror
+  location_name: Bidart
+  name: Robosoft (France)
+  status: active
   title:
     en: Robosoft (France)
-- id: ror:017ph0934
-  props:
-    city: Sofia
-    country: Bulgaria
+- country_name: Bulgaria
+  id: 017ph0934
+  identifiers:
+  - identifier: 017ph0934
+    scheme: ror
+  location_name: Sofia
+  name: University of National and World Economy
+  status: active
   title:
     en: University of National and World Economy
-- id: ror:01cg9ws23
-  props:
-    city: Brasov
-    country: Romania
-    state: "Bra\u015Fov"
+- country_name: Romania
+  id: 01cg9ws23
+  identifiers:
+  - identifier: 01cg9ws23
+    scheme: ror
+  location_name: Brasov
+  name: Transylvania University of Brașov
+  status: active
   title:
-    en: "Transylvania University of Bra\u0219ov"
-- id: ror:01ypwfg63
-  props:
-    city: Utrecht
-    country: Netherlands
+    en: Transylvania University of Brașov
+- country_name: Netherlands
+  id: 01ypwfg63
+  identifiers:
+  - identifier: 01ypwfg63
+    scheme: ror
+  location_name: Utrecht
+  name: Ecofys (Netherlands)
+  status: active
   title:
     en: Ecofys (Netherlands)
-- id: ror:03dvm1235
-  props:
-    city: Glasgow
-    country: United Kingdom
+- country_name: United Kingdom
+  id: 03dvm1235
+  identifiers:
+  - identifier: 03dvm1235
+    scheme: ror
+  location_name: Glasgow
+  name: Glasgow Caledonian University
+  status: active
   title:
     en: Glasgow Caledonian University
-- id: ror:04gnjpq42
-  props:
-    city: Athens
-    country: Greece
-    state: Attiki
+- country_name: Greece
+  id: 04gnjpq42
+  identifiers:
+  - identifier: 04gnjpq42
+    scheme: ror
+  location_name: Athens
+  name: National and Kapodistrian University of Athens
+  status: active
   title:
     en: National and Kapodistrian University of Athens
-- id: ror:0052k0e03
-  props:
-    city: Vilnius
-    country: Lithuania
+- country_name: Lithuania
+  id: 0052k0e03
+  identifiers:
+  - identifier: 0052k0e03
+    scheme: ror
+  location_name: Vilnius
+  name: Mykolas Romeris University
+  status: active
   title:
     en: Mykolas Romeris University
-- id: ror:008x57b05
-  props:
-    city: Antwerp
-    country: Belgium
+- country_name: Belgium
+  id: 008x57b05
+  identifiers:
+  - identifier: 008x57b05
+    scheme: ror
+  location_name: Antwerp
+  name: University of Antwerp
+  status: active
   title:
     en: University of Antwerp
-- id: ror:00ntfnx83
-  props:
-    city: Tokyo
-    country: Japan
+- country_name: Japan
+  id: 00ntfnx83
+  identifiers:
+  - identifier: 00ntfnx83
+    scheme: ror
+  location_name: Tokyo
+  name: Waseda University
+  status: active
   title:
     en: Waseda University
-- id: ror:02e2c7k09
-  props:
-    city: Delft
-    country: Netherlands
-    state: Zuid-Holland
+- country_name: Netherlands
+  id: 02e2c7k09
+  identifiers:
+  - identifier: 02e2c7k09
+    scheme: ror
+  location_name: Delft
+  name: Delft University of Technology
+  status: active
   title:
     en: Delft University of Technology
-- id: ror:00f7hpc57
-  props:
-    city: Erlangen
-    country: Germany
-    state: Bayern
+- country_name: Germany
+  id: 00f7hpc57
+  identifiers:
+  - identifier: 00f7hpc57
+    scheme: ror
+  location_name: Erlangen
+  name: University of Erlangen-Nuremberg
+  status: active
   title:
     en: University of Erlangen-Nuremberg
-- id: ror:0460jpj73
-  props:
-    city: "Concepci\xF3n"
-    country: Chile
-    state: "B\xEDo-B\xEDo"
+- country_name: Chile
+  id: 0460jpj73
+  identifiers:
+  - identifier: 0460jpj73
+    scheme: ror
+  location_name: Concepción
+  name: University of Concepción
+  status: active
   title:
-    en: "University of Concepci\xF3n"
-- id: ror:03ad39j10
-  props:
-    city: Pisa
-    country: Italy
-    state: Toscana
+    en: University of Concepción
+- country_name: Italy
+  id: 03ad39j10
+  identifiers:
+  - identifier: 03ad39j10
+    scheme: ror
+  location_name: Pisa
+  name: University of Pisa
+  status: active
   title:
     en: University of Pisa

@@ -1,0 +1,27 @@
+{%- set permissions = extra_context.permissions -%}
+<RecordHeader
+  d={{ d }}
+  export_url={{ model.ui_url(view_name="record_export", pid_value=record_ui["id"], export_format="json", preview=1 if is_preview else 0) }}
+  edit_url={{ record_ui["links"]["edit_html"] if permissions.can_update_draft else None }}
+/>
+<RecordInformation d={{ d }} />
+
+{# raw values: FieldData hides lists and objects without UI values #}
+{%- set gp = record_ui["metadata"]["general_parameters"] or {} -%}
+{%- set msp = record_ui["metadata"]["method_specific_parameters"] or {} -%}
+<Section title="Entities of interest">
+  {% for entity in gp.entities_of_interest or [] %}
+  <SubSection title={{ "Entity of interest " ~ loop.index }}><Entity entity={{ entity }} /></SubSection>
+  {% endfor %}
+</Section>
+<Section title="Results"><Results results={{ gp.results or [] }} /></Section>
+<Section title="Chemical environments (buffers)"><ChemicalEnvironments environments={{ gp.chemical_environments or [] }} /></Section>
+<Section title="Measurements">{% include "mst/record_detail/measurements.html" %}</Section>
+<Section title="Instrument">
+  {% set instrument = gp.instrument or {} %}
+  <dl class="mbdb-name-value-list">
+    <Field label="Manufacturer" v={{ (instrument.props or {}).manufacturer }} />
+    <Field label="Name" v={{ (instrument.title or {}).en }} />
+  </dl>
+</Section>
+{% include "mst/record_detail/files.html" %}

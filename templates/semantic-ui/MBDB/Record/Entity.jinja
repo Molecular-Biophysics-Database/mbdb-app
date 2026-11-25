@@ -1,0 +1,35 @@
+{# def entity, copy_number=None #}
+
+{# one entity of interest or one component of a molecular assembly #}
+{% macro modifications(title, mods) %}
+  {% if mods %}
+  <Field label={{ title }}>
+    {% for mod in mods %}<div>{{ mod.type }}{{ ", " ~ _("position") ~ " " ~ mod.position if mod.position }}{% for step in mod.protocol or [] %}<div>{{ loop.index }}. {{ step.name }}: {{ step.description }}</div>{% endfor %}</div>{% endfor %}
+  </Field>
+  {% endif %}
+{% endmacro %}
+<dl class="mbdb-name-value-list">
+  <Field label="Name" v={{ entity.name }} />
+  <Field label="Type" v={{ entity.type }} />
+  {% if entity.type == "Chemical" %}
+  {% set info = entity.basic_information or {} %}
+  <Field label="Pubchem Title" v={{ (info.title or {}).en }} />
+  <Field label="Molecular weight"><ValueUnit v={{ info.molecular_weight }} /></Field>
+  <Field label="InChI key" v={{ (info.id or "").removeprefix("inchikey:") }} />
+  {% else %}
+  <Field label="Molecular weight"><ValueUnit v={{ entity.molecular_weight }} /></Field>
+  <Field label="Class" v={{ entity["class"] }} />
+  <Field label="Source organism" v={{ ((entity.source_organism or {}).title or {}).en }} />
+  <Field label="Source" v={{ ((entity.environment_type or {}).title or {}).en }} />
+  <Field label="Product" v={{ ((entity.product or {}).title or {}).en }} />
+  {% if entity.location %}<Field label="Location">Longitude: {{ entity.location.longitude }} Latitude: {{ entity.location.latitude }}</Field>{% endif %}
+  {% if entity.sequence %}<Field label="Sequence"><span class="mbdb-record-sequence">{% for chunk in entity.sequence | batch(10) %}{{ chunk | join }} {% endfor %}</span></Field>{% endif %}
+  {% set mods = entity.modifications or {} %}
+  {{ modifications("Biological postprocessing", mods.biological_postprocessing) }}
+  {{ modifications("Chemical modifications", mods.chemical) }}
+  {% endif %}
+  <Field label="Copy number" v={{ copy_number | int if copy_number else None }} />
+</dl>
+{% for component in entity.components or [] if entity.type == "Molecular assembly" %}
+<SubSection title={{ "Component " ~ loop.index }}><Entity entity={{ component }} copy_number={{ component.copy_number }} /></SubSection>
+{% endfor %}

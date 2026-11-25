@@ -1,0 +1,1 @@
+export { MbdbDepositRecordSerializer } from "./MbdbDepositRecordSerializer";

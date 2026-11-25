@@ -6,12 +6,21 @@ Microscale thermophoresis
 from __future__ import annotations
 
 from invenio_i18n import lazy_gettext as _
+from oarepo_rdm.model import rdm_minimal_preset
+from oarepo_model.presets.drafts import drafts_preset
+from oarepo_model.presets.relations import relations_preset
+from oarepo_model.presets.internal_relations import internal_relations_preset
+from oarepo_model.presets.ui import ui_preset
+from oarepo_model.presets.custom_fields import custom_fields_preset
 from oarepo_model.api import model
-from oarepo_model.customizations import AddMetadataExport
+from oarepo_model.customizations import AddMetadataExport, AddToList, PrependMixin
 from oarepo_model.datatypes.registry import from_yaml
 from oarepo_model.presets.records_resources import records_resources_preset
-from oarepo_model.presets.ui_links import ui_links_preset
+from oarepo_communities.model.presets import communities_preset
+from oarepo_requests.model.presets.requests import requests_preset
+from oarepo_workflows.model.presets import workflows_preset
 
+from .files import FileMetadataComponent, FileMetadataServiceMixin, MstFileServiceConfigMixin
 from .serializers import DataCiteJSONSerializer
 
 # TODO: Consider letting users add an image/icon for the model,
@@ -21,13 +30,18 @@ mst_model = model(
     version="1.0.0",
     description="Microscale thermophoresis\n\n",
     presets=[
-
-        records_resources_preset,
-        ui_links_preset,
-
+        # drafts_preset,
+        rdm_minimal_preset,
+        workflows_preset,
+        requests_preset,
+        communities_preset,
+        # same-record relations, e.g. measurements -> entities_of_interest
+        internal_relations_preset,
     ],
     types=[
-        from_yaml("metadata.yaml", __file__)
+        from_yaml("../general_parameters-definitions-rdm.yaml", __file__),
+        from_yaml("mst-metadata.yaml", __file__),
+        from_yaml("mst-definitions.yaml", __file__),
     ],
     metadata_type="Metadata",
     customizations=[
@@ -37,6 +51,11 @@ mst_model = model(
         # help with using customizations, please contact us at support@cesnet.cz and
         # specify the keyword "Invenio repository development" inside the subject or
         # mail body of the request.
+
+        PrependMixin("FileServiceConfig", MstFileServiceConfigMixin),
+        PrependMixin("DraftFileServiceConfig", MstFileServiceConfigMixin),
+        PrependMixin("RecordService", FileMetadataServiceMixin),
+        AddToList("record_service_components", FileMetadataComponent),
 
         # export for datacite
         AddMetadataExport(

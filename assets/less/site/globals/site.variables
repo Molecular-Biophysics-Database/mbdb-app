@@ -6,11 +6,21 @@
     Brand Colors
 --------------------*/
 
-@livelyGreen: #008691;
-@pink: #ff5b7f;
+/* MBDB brand palette, ported from the old mbdb-app-rdm-12 repository
+   (its tailwind.config.js: primary/secondary/dark/accent colors) */
+@mbdbDark: #023850;
+@mbdbSectionBackground: #EDF5F8;
+@mbdbYellow: #FCC802;
+@mbdbRed: #E04541;
+@mbdbAccentBlue: #62A9D9;
+@mbdbGray: #BFBFBF;
 
-@primaryColor: @livelyGreen;
-@secondaryColor: @pink;
+/* legacy NRP variable names, kept for the rules further below */
+@livelyGreen: @mbdbDark;
+@pink: @mbdbYellow;
+
+@primaryColor: @mbdbDark;
+@secondaryColor: @mbdbYellow;
 @darkGrey: #707075;
 @lightGrey: #e4e4e3;
 @black: #040305;
@@ -32,7 +42,7 @@
 --------------------*/
 
 @green: #00b691;
-@red: darken(@pink, 20);
+@red: @mbdbRed;
 @signupColor: @green;
 
 @accessRightOpen: @green;
@@ -51,7 +61,7 @@
 @footerTextLightColor: #ffffff;
 @footerTextDarkColor: #ffffff;
 
-@navbar_background_image: linear-gradient(165deg, #008691, #008691, #00848e, #007e88, #00737d, #006971, #00636b, #006169, #006169);
+@navbar_background_image: linear-gradient(165deg, #023850, #023850, #034459, #0d5f89, #0d5f89);
 @navbar_background_color: @brandColor;
 
 @coverPageBackgroundColor: @livelyGreen;
@@ -104,7 +114,7 @@
 @font-size-small: 0.9rem;
 @font-size-tiny: 0.8rem;
 @font-size-massive: 2.5rem;
-@fontName: 'Roboto';
+@fontName: 'Jost';
 
 /*-------------------
      Em Sizes

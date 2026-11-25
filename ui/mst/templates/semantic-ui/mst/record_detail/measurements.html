@@ -1,0 +1,21 @@
+{% macro amounts(items) %}{% for item in items or [] %}<div>{{ (item.entity or {}).name }} <ValueUnit v={{ item.concentration }} /></div>{% endfor %}{% endmacro %}
+<SubSection title="Experimental setup">
+  <dl class="mbdb-name-value-list">
+    <Field label="Experiment type" v={{ msp.experiment_type }} />
+    <Field label="Excitation LED">{% if msp.excitation_led_power is defined %}Power: {{ msp.excitation_led_power }} {% endif %}{% if msp.excitation_led_color %}Color: {{ msp.excitation_led_color }}{% endif %}</Field>
+    <Field label="Laser power" v={{ msp.ir_mst_laser_power }} />
+  </dl>
+</SubSection>
+{% for measurement in msp.measurements or [] %}
+{% set sample = measurement.sample or {} %}
+<SubSection title={{ "Measurement " ~ loop.index }}>
+  <dl class="mbdb-name-value-list">
+    <Field label="Name" v={{ measurement.name }} />
+    <Field label="Position" v={{ measurement.position }} />
+    <Field label="Targets">{{ amounts(sample.targets) }}</Field>
+    <Field label="Ligands">{{ amounts(sample.ligands) }}</Field>
+    <Field label="Chemical environment" v={{ (sample.chemical_environment or {}).name }} />
+    <Field label="Sample container" v={{ sample.measurement_container }} />
+  </dl>
+</SubSection>
+{% endfor %}

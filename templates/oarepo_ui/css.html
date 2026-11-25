@@ -1,0 +1,5 @@
+{#- Overrides oarepo_ui's empty css.html. oarepo-cli runs the app with
+    INVENIO_THEME_CSS_TEMPLATE=oarepo_ui/css.html, so templates/css.html is
+    bypassed and this is the template every oarepo page includes in its head:
+    it carries the mbdb components' styles (custom-components.less). -#}
+{{ webpack['components.css'] }}
