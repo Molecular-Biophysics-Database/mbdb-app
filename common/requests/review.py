@@ -14,13 +14,17 @@ from oarepo_requests.actions.publish_changed_metadata import (
 )
 from oarepo_requests.actions.publish_draft import (
     MakeTopicDraftMixin,
+    PublishDraftDeclineAction,
     PublishDraftSubmitAction,
     PublishMixin,
 )
 from oarepo_requests.actions.publish_new_version import PublishNewVersionSubmitAction
 from oarepo_requests.notifications.builders.publish import (
     PublishDraftRequestAcceptNotificationBuilder,
+    PublishDraftRequestDeclineNotificationBuilder,
+    PublishDraftRequestSubmitNotificationBuilder,
 )
+from oarepo_requests.notifications.generators import EntityRecipientGenerator
 from oarepo_requests.types import (
     PublishChangedMetadataRequestType,
     PublishDraftRequestType,
@@ -28,6 +32,25 @@ from oarepo_requests.types import (
 )
 
 from .titles import request_title
+
+
+class ReviewSubmitNotificationBuilder(PublishDraftRequestSubmitNotificationBuilder):
+    """For the reviewers."""
+
+    type = "mbdb-review-request-event.submit"
+
+
+class ReviewSubmitCreatorNotificationBuilder(
+    PublishDraftRequestSubmitNotificationBuilder
+):
+    """The confirmation for the one who submitted the draft."""
+
+    type = "mbdb-review-request-event.submit-creator"
+    recipients = (EntityRecipientGenerator(key="request.created_by"),)
+
+
+class ReviewDeclineNotificationBuilder(PublishDraftRequestDeclineNotificationBuilder):
+    type = "mbdb-review-request-event.decline"
 
 
 class ReviewAcceptNotificationBuilder(PublishDraftRequestAcceptNotificationBuilder):
@@ -44,8 +67,14 @@ class ReviewAcceptAction(MakeTopicDraftMixin, PublishMixin, OARepoAcceptAction):
         )
 
 
+class ReviewDeclineAction(PublishDraftDeclineAction):
+    notification_builder = ReviewDeclineNotificationBuilder
+
+
 class ReviewSubmitMixin:
     """Names the request after its draft and preselects everyone with the receiving role."""
+
+    notification_builder = ReviewSubmitNotificationBuilder
 
     @override
     def apply(self, identity, uow, *args, **kwargs):
@@ -58,6 +87,11 @@ class ReviewSubmitMixin:
                 user for user in receiver.resolve().users if user.active
             ]
         super().apply(identity, uow, *args, **kwargs)
+        uow.register(
+            NotificationOp(
+                ReviewSubmitCreatorNotificationBuilder.build(request=self.request)
+            )
+        )
 
 
 class ReviewDraftSubmitAction(ReviewSubmitMixin, PublishDraftSubmitAction):
@@ -76,6 +110,7 @@ class ReviewChangedMetadataSubmitAction(
 
 class ReviewMixin:
     accept_action = ReviewAcceptAction
+    decline_action = ReviewDeclineAction
 
     @override
     def string_by_state(self, identity, **kwargs):
