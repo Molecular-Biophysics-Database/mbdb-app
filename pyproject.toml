@@ -28,6 +28,7 @@ vocabularies_custom_fields = "common.vocabularies:init_vocabularies_custom_field
 [project.entry-points."invenio_base.blueprints"]
 ui_mst = "ui.mst:create_blueprint"
 ui_advanced_search = "ui.advanced_search:create_blueprint"
+ui_choose_method = "ui.choose_method:create_blueprint"
 
 [project.entry-points."invenio_base.api_blueprints"]
 ror = "common.ror:create_blueprint"

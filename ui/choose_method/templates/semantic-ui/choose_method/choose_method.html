@@ -1,0 +1,31 @@
+{% set title = _("Select the method you want to deposit") %}
+{% extends config.BASE_TEMPLATE %}
+
+{#- Methods without an url can't be deposited yet. -#}
+{%- macro method(code, name, description, url=None) %}
+<li class="mbdb-method{{ '' if url else ' inactive' }}">
+  {%- if url %}
+  <img class="mbdb-method-arrow" src="{{ url_for('static', filename='images/cornerArrow.png') }}" alt=""/>
+  {%- endif %}
+  <h2>{{ code }}<br/>{{ name }}</h2>
+  <p>{{ description }}</p>
+  {%- if url %}
+  <a class="mbdb-method-deposit" href="{{ url }}">{{ _("Deposit") }} {{ code }}</a>
+  {%- else %}
+  <button class="mbdb-method-deposit" type="button" disabled>{{ _("Deposit") }} {{ code }}</button>
+  {%- endif %}
+</li>
+{%- endmacro %}
+
+{%- block page_body %}
+<div class="mbdb-methods">
+  <h1>{{ title }}</h1>
+  <ul>
+    {{ method("MST", _("Microscale thermophoresis"), _("Data from the Monolith series can be deposited here including MST/TRIC, initial fluorescence, and Spectral shift. Please contact us if you used a different instrument."), url_for("mst_ui.deposit_create")) }}
+    {{ method("BLI", _("Bio-layer interferometry"), _("Data derived from the Octet series can be deposited, please contact us if you used a different instrument.")) }}
+    {{ method("SPR", _("Surface plasmon resonance"), _("Data derived from the Biacore series can be deposited, please contact us if you used a different instrument.")) }}
+    {{ method("ITC", _("Isothermal titration calorimetry"), _("Data from the TA, Microcal, and Thermofisher can be deposited. Please contact us if you used a different instrument.")) }}
+    {{ method("MP", _("Mass photometry"), _("Data from all Refeyn instruments can be deposited. Please contact us if you used a different instrument.")) }}
+  </ul>
+</div>
+{%- endblock page_body %}
