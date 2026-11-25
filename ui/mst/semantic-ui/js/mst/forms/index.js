@@ -3,11 +3,12 @@ import {
   PublishButton,
   TabForm,
   parseFormAppConfig,
+  useFormConfig,
 } from "@js/oarepo_ui/forms";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
-import { PreviewButton, SaveButton } from "@js/invenio_rdm_records";
+import { DeleteButton, PreviewButton, SaveButton } from "@js/invenio_rdm_records";
 import {
   Button,
   DEFAULT_HELP_MODE,
@@ -80,20 +81,26 @@ const sections = [
 }));
 
 // Above the form, as in mbdb-app-rdm-12 (dark, without icons).
-const FormActions = () => (
-  <div className="mbdb-form-actions">
-    <SaveButton primary icon={null} labelPosition={null} content="Save" />
-    <PreviewButton primary icon={null} labelPosition={null} />
-    <ReviewToggle />
-    <PublishButton
-      record={rest.record}
-      primary
-      positive={false}
-      icon={null}
-      labelPosition={null}
-    />
-  </div>
-);
+const FormActions = () => {
+  const { permissions } = useFormConfig();
+  return (
+    <div className="mbdb-form-actions">
+      <SaveButton primary icon={null} labelPosition={null} content="Save" />
+      <PreviewButton primary icon={null} labelPosition={null} />
+      <ReviewToggle />
+      <PublishButton
+        record={rest.record}
+        primary
+        positive={false}
+        icon={null}
+        labelPosition={null}
+      />
+      {permissions?.can_delete_draft && (
+        <DeleteButton icon={null} labelPosition={null} />
+      )}
+    </div>
+  );
+};
 
 const componentOverrides = {
   "ReactInvenioDeposit.FileUploaderToolbar.FileList.container": FilesQuota,
