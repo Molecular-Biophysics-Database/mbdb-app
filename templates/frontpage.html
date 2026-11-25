@@ -1,35 +1,72 @@
-{% extends "oarepo_ui/frontpage.html" %}
+{#- MBDB landing page, ported from the old mbdb-app-rdm-12 title page.
+    Extends the plain page: the Invenio frontpage adds a second search bar, the
+    communities carousel and the recent records, which the old page did not have.
+    "#" links are placeholders: those pages are not ported yet. -#}
+{% extends config.BASE_TEMPLATE %}
 
-{# Available template blocks (showing closest override point):
+{%- block page_body %}
+<div class="mbdb-landing">
+  <section class="mbdb-landing-hero">
+    <img class="mbdb-landing-protein-left" src="{{ url_for('static', filename='images/proteinBlur.png') }}" alt=""/>
+    <img class="mbdb-landing-protein-right" src="{{ url_for('static', filename='images/proteinFrontpage.png') }}" alt=""/>
 
-Header (from invenio_app_rdm/frontpage.html):
-{%- block page_header %}  # Includes invenio_app_rdm/header_frontpage.html
-{%- endblock page_header %}
+    <h1>{{ _("Molecular Biophysics Database") }}</h1>
 
-Main Content (from invenio_app_rdm/frontpage.html):
-{%- block page_body %}  # Main content container
-  {%- block intro_section %}  # Welcome section (shown if show_intro_section is true)
-  {%- endblock intro_section %}
+    <form id="mbdb-landing-search" class="mbdb-landing-search" action="{{ url_for('invenio_search_ui.search') }}" role="search">
+      <div class="mbdb-landing-query">
+        <input type="text" name="q" aria-label="{{ _('Search') }}" placeholder="{{ _('Search') }}"/>
+        <button type="submit" aria-label="{{ _('Search') }}">
+          <img src="{{ url_for('static', filename='images/search.png') }}" alt=""/>
+        </button>
+      </div>
+      {#- no name: the value is the form's target, see custom-components.js -#}
+      <select aria-label="{{ _('Search in') }}">
+        <option value="{{ url_for('invenio_search_ui.search') }}">{{ _("All records") }}</option>
+        <option value="{{ url_for('mst_ui.search') }}">{{ _("Only MST") }}</option>
+      </select>
+    </form>
 
-  {%- block top_banner %}  # Communities carousel
-  {%- endblock top_banner %}
+    <div class="mbdb-landing-search-help">
+      <span>{{ _("Example: Lysozyme, NaCI, K_D, homo sapiens, xyhds-adf3t (record id)") }}</span>
+      <a href="{{ url_for('advanced_search.advanced_search') }}">{{ _("Advanced search") }}</a>
+    </div>
+  </section>
 
-  {%- block grid_section %}  # Main grid layout
-    {%- block main_column %}  # Left/main column
-      {%- block main_column_content %}  # Records list
-      {%- endblock main_column_content %}
-    {%- endblock main_column %}
+  <section class="mbdb-landing-section mbdb-landing-about">
+    <div>
+      <p><strong>Molecular Biophysics Database collects raw data</strong> produced in experiments with biomolecular samples, biological material or other material, using molecular biophysics methods, such as Microscale Thermophoresis (MST), Biolayer interferometry (BLI), Surface Plasmon Resonance (SPR) and others.</p>
+      <p><strong>Cite MBDB using this reference:</strong> <a href="https://link.springer.com/article/10.1007/s00249-025-01789-1" target="_blank">Agerschou et al. Eur Biophys J. 2025</a></p>
+    </div>
+    <p><strong>MBDB</strong> development is supported by the project <strong>MOSBRI</strong> - Molecular Scale Biophysics Research Infrastructure of the European Commission, no. 101004806</p>
+  </section>
 
-    {%- block side_column %}  # Right/sidebar column
-      {%- block side_column_content %}  # Sidebar content
-      {%- endblock side_column_content %}
-    {%- endblock side_column %}
-  {%- endblock grid_section %}
+  <section class="mbdb-landing-section mbdb-landing-methods">
+    <h2>{{ _("Currently supported methods") }}</h2>
+    <div class="mbdb-landing-cards">
+      {%- for code, name in [
+        ("MST", _("Microscale thermophoresis")),
+        ("BLI", _("Bio-layer interferometry")),
+        ("SPR", _("Surface plasmon resonance")),
+        ("ITC", _("Isothermal titration calorimetry")),
+        ("MP", _("Mass photometry")),
+      ] %}
+      <a href="#">
+        <img src="{{ url_for('static', filename='images/cornerArrow.png') }}" alt=""/>
+        <div>{{ code }}</div>
+        <div>{{ name }}</div>
+      </a>
+      {%- endfor %}
+    </div>
+  </section>
 
-  {%- block bottom_section %}  # Bottom content area
-  {%- endblock bottom_section %}
+  <section class="mbdb-landing-partners">
+    <div>
+      <a href="https://www.mosbri.eu/" target="_blank"><img src="{{ url_for('static', filename='images/mosbri-logo.png') }}" alt="MOSBRI"/></a>
+      <a href="https://www.ibt.cas.cz/en/" target="_blank"><img class="ibt" src="{{ url_for('static', filename='images/ibt-logo.png') }}" alt="IBT"/></a>
+      <a href="https://www.cesnet.cz/en/" target="_blank"><img src="{{ url_for('static', filename='images/cesnet-logo.png') }}" alt="CESNET"/></a>
+    </div>
+    <img src="{{ url_for('static', filename='images/eu-msmt-eosc.svg') }}"
+         alt="{{ _('Co-funded by the European Union; Ministry of Education, Youth and Sports; National Czech Programme EOSC') }}"/>
+  </section>
+</div>
 {%- endblock page_body %}
-
-Note: All blocks support {{ super() }} to preserve parent content.
-Control intro section visibility with THEME_SHOW_FRONTPAGE_INTRO_SECTION config.
-#}

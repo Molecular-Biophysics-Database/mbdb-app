@@ -464,6 +464,9 @@ body {
 
 /* Header: white bar with the logo, centered links and the deposition /
    sign-in actions (the old app's header layout) */
+.theme.header {
+  box-shadow: none;
+}
 .theme.header .outer-navbar {
   background: @white;
 }
@@ -538,7 +541,7 @@ body {
     width: auto;
   }
 }
-@media all and (min-width: 1536px) {
+@media all and (min-width: 1440px) {
   .mbdb-header {
     max-width: 1440px;
   }
@@ -552,5 +555,333 @@ body {
     width: 100%;
     justify-content: center;
     gap: 2rem;
+  }
+}
+
+
+/* Landing page and footer (the old app's tailwind sizes and breakpoints) */
+.mbdb-landing-width() {
+  margin-left: auto;
+  margin-right: auto;
+
+  @media all and (min-width: 1024px) {
+    max-width: 1024px;
+  }
+  @media all and (min-width: 1280px) {
+    max-width: 1280px;
+  }
+  @media all and (min-width: 1440px) {
+    max-width: 1440px;
+  }
+}
+.mbdb-landing {
+  color: @mbdbDark;
+  font-size: 1.25rem;
+  padding-bottom: 8rem;
+
+  a {
+    color: @mbdbDark;
+  }
+  strong {
+    font-weight: 700;
+  }
+}
+.mbdb-landing-hero {
+  .mbdb-landing-width();
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 8rem 0;
+  text-align: center;
+
+  h1 {
+    max-width: 360px;
+    margin: 0 auto;
+    font-family: "Jost", sans-serif;
+    font-size: 2.75rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: @mbdbDark;
+  }
+  @media all and (min-width: 640px) {
+    h1 {
+      max-width: none;
+    }
+  }
+  @media all and (min-width: 1024px) {
+    padding: 10rem 0;
+
+    h1 {
+      font-size: 4rem;
+    }
+  }
+}
+.mbdb-landing-protein-left,
+.mbdb-landing-protein-right {
+  display: none;
+  position: absolute;
+  z-index: -1;
+
+  @media all and (min-width: 1280px) {
+    display: block;
+  }
+}
+.mbdb-landing-protein-left {
+  top: 3rem;
+  left: 1rem;
+  width: 20rem;
+
+  @media all and (min-width: 1440px) {
+    left: 7rem;
+  }
+}
+.mbdb-landing-protein-right {
+  top: 10rem;
+  right: -1rem;
+  width: 22rem;
+
+  @media all and (min-width: 1440px) {
+    right: 3rem;
+    width: 24rem;
+  }
+}
+.mbdb-landing-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2rem 1rem;
+  font-size: 1rem;
+
+  input, button, select {
+    height: 50px;
+    letter-spacing: inherit;
+    color: @mbdbSectionBackground;
+    background-color: @mbdbDark;
+    border: none;
+    border-radius: 0.5rem;
+  }
+  input:focus-visible, select:focus-visible {
+    outline: 3px solid @focusedFormBorderColor;
+  }
+  input {
+    flex: 1;
+    min-width: 0;
+    padding: 1rem;
+  }
+  input::placeholder {
+    color: @mbdbGray;
+    opacity: 1;
+  }
+  button {
+    width: 50px;
+    cursor: pointer;
+    transition: background-color 150ms;
+
+    &:hover {
+      background-color: fade(@mbdbDark, 75%);
+    }
+    img {
+      width: 1.25rem;
+      margin: auto;
+    }
+  }
+  select {
+    width: 100%;
+    max-width: 358px;
+    padding: 0 1rem;
+  }
+  @media all and (min-width: 640px) {
+    flex-direction: row;
+
+    select {
+      width: 130px;
+    }
+  }
+  @media all and (min-width: 1024px) {
+    select {
+      width: 150px;
+    }
+  }
+}
+.mbdb-landing-query {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 358px;
+
+  @media all and (min-width: 640px) {
+    max-width: 432px;
+  }
+  @media all and (min-width: 1024px) {
+    max-width: 647px;
+  }
+}
+.mbdb-landing-search-help {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 1rem;
+
+  a {
+    border-bottom: 1px solid @mbdbDark;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  @media all and (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 790px;
+    margin: -1rem auto 0;
+  }
+}
+.mbdb-landing-section {
+  .mbdb-landing-width();
+  padding: 0 2rem;
+
+  @media all and (min-width: 1024px) {
+    padding: 0 4rem;
+  }
+  @media all and (min-width: 1280px) {
+    padding: 0 5rem;
+  }
+  @media all and (min-width: 1440px) {
+    padding: 0 4rem;
+  }
+}
+.mbdb-landing-about {
+  p {
+    margin: 0 0 1rem;
+    line-height: 1.5;
+  }
+  a {
+    text-decoration: underline;
+  }
+  a:hover {
+    opacity: 0.7;
+  }
+  @media all and (min-width: 768px) {
+    display: flex;
+    gap: 1.5rem;
+
+    > div {
+      flex: 1.9;
+    }
+    > p {
+      flex: 1;
+    }
+  }
+}
+.mbdb-landing-methods {
+  margin-top: 3rem;
+
+  h2 {
+    margin: 0 0 1.5rem;
+    font-family: "Jost", sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: @mbdbDark;
+  }
+}
+.mbdb-landing-cards {
+  display: grid;
+  gap: 0.75rem 16px;
+
+  @media all and (min-width: 768px) {
+    grid-template-columns: repeat(2, 300px);
+  }
+  @media all and (min-width: 1024px) {
+    grid-template-columns: repeat(3, 300px);
+  }
+
+  a {
+    position: relative;
+    max-width: 300px;
+    padding: 3rem 1rem 0.75rem;
+    font-weight: 500;
+    border: 1px solid @mbdbDark;
+    border-radius: 0.28571429rem;
+  }
+  a:hover {
+    text-decoration: none;
+    background-color: @mbdbSectionBackground;
+  }
+  img {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+}
+.mbdb-landing-partners {
+  .mbdb-landing-width();
+  margin-top: 6rem;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem 4rem;
+    margin-bottom: 3rem;
+
+    @media all and (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+  a img {
+    width: 12rem;
+  }
+  a img.ibt {
+    width: 11rem;
+  }
+  > img {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+.mbdb-footer {
+  background-color: @mbdbDark;
+}
+.mbdb-footer-inner {
+  .mbdb-landing-width();
+  padding: 2rem 1rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: @white;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0.5rem 0.5rem 1.5rem;
+  }
+  > .mbdb-footer-title {
+    margin: 0 0 1.5rem;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  a {
+    font-weight: 400;
+    color: @white;
+    transition: color 150ms;
+  }
+  a:hover {
+    color: @mbdbYellow;
+    text-decoration: none;
+  }
+  @media all and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
+  @media all and (min-width: 1024px) {
+    padding: 2rem 3rem;
+  }
+  @media all and (min-width: 1440px) {
+    padding: 5rem;
   }
 }
