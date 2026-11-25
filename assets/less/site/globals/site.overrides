@@ -473,7 +473,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1rem 2rem;
-  max-width: 1440px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 1.5rem 3rem;
 
@@ -492,7 +492,7 @@ body {
   gap: 4rem;
 
   a {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 500;
     transition: transform 300ms ease-in-out;
   }
@@ -507,10 +507,13 @@ body {
   gap: 1rem;
 }
 .mbdb-header .mbdb-header-deposit {
-  padding: 0.6rem 0.6rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 40px;
   white-space: nowrap;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: @white;
   background-color: @mbdbDark;
   border-radius: 0.28571429rem;
@@ -521,6 +524,10 @@ body {
     background-color: fade(@mbdbDark, 75%);
   }
 }
+/* the quick-create "+" menu: not in the old header, and its icons are white */
+.mbdb-header #quick-create-dropdown {
+  display: none !important;
+}
 .mbdb-header-signin {
   display: flex;
   align-items: center;
@@ -529,6 +536,11 @@ body {
   img {
     height: 40px;
     width: auto;
+  }
+}
+@media all and (min-width: 1536px) {
+  .mbdb-header {
+    max-width: 1440px;
   }
 }
 @media all and (max-width: @largestTabletScreen) {
