@@ -68,3 +68,12 @@ services:
     ports:
       - "${INVENIO_S3_HOST}:${INVENIO_S3_PORT}:9000"
       - "${INVENIO_S3_HOST}:${INVENIO_S3_PORT1}:9001"
+
+  # catches the emails of the local development instance, http://127.0.0.1:8125
+  # (not mailpit's default ports, other projects' mailpits use those)
+  mailpit:
+    image: axllent/mailpit:latest
+    restart: "unless-stopped"
+    ports:
+      - "127.0.0.1:1125:1025"
+      - "127.0.0.1:8125:8025"
