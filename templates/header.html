@@ -53,7 +53,7 @@ The navbar_inner block from invenio_theme is replaced by individual blocks in in
   </nav>
 
   <div class="mbdb-header-actions">
-    <a class="mbdb-header-deposit" href="{{ url_for('mst_ui.deposit_create') }}">{{ _("Start new deposition") }}</a>
+    <a class="mbdb-header-deposit" href="{{ url_for('choose_method.choose_method') }}">{{ _("Start new deposition") }}</a>
     {%- if current_user.is_authenticated %}
       {%- include config.THEME_HEADER_LOGIN_TEMPLATE %}
     {%- else %}
